@@ -58,15 +58,22 @@
     flushing = true;
     var payload = JSON.stringify({ events: batch });
     var done = function () { flushing = false; if (queue.length) flush(); };
-    if (navigator.sendBeacon) {
-      try {
-        var ok = navigator.sendBeacon(API, new Blob([payload], { type: 'application/json' }));
-        if (ok) { done(); return; }
-      } catch (e) {}
-    }
+    // keepalive fetch with text/plain = simple request (no preflight, survives
+    // pagehide). sendBeacon with application/json is silently dropped by Chrome
+    // cross-origin (non-safelisted type) — never use it for JSON.
     try {
-      fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).then(done, done);
-    } catch (e) { done(); }
+      fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: payload,
+        keepalive: true
+      }).then(done, done);
+      return;
+    } catch (e) {}
+    if (navigator.sendBeacon) {
+      try { navigator.sendBeacon(API, new Blob([payload], { type: 'text/plain;charset=UTF-8' })); } catch (e) {}
+    }
+    done();
   }
 
   function ev(type, extra) {
