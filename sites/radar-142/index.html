@@ -170,18 +170,6 @@ h2 { font-weight: 900; }
   border-bottom: 1px solid #191b1e; box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
 .red-slash { position: absolute; height: 3px; background: var(--acc); pointer-events: none;
   box-shadow: 0 0 14px rgba(229,57,53,.45); z-index: 2; }
-#cta-band { background: var(--acc2); color: #fff; padding: 34px 0; position: relative;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.35); }
-#cta-band .wrap { display: flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-#cta-band .band-line1 { margin: 0; font-family: var(--disp); font-weight: 900; letter-spacing: .005em;
-  font-size: clamp(24px, 3.6vw, 42px); text-transform: uppercase; line-height: 1.05; }
-#cta-band .band-line2 { margin: 6px 0 0; color: rgba(255,255,255,.88); font-size: .95rem; }
-#cta-band .band-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-#cta-band a.band-btn { background: #fff; color: var(--acc2); font-weight: 800; padding: 13px 24px;
-  border-radius: 8px; text-decoration: none; box-shadow: 0 2px 0 rgba(0,0,0,.25), inset 0 1px 0 #fff; }
-#cta-band a.band-btn:hover { transform: translateY(-1px); }
-#cta-band a.band-phone { color: #fff; font-weight: 800; text-decoration: none;
-  border-bottom: 2px solid rgba(255,255,255,.55); padding-bottom: 2px; }
 .hero h1 .thin { display: block; font-size: .34em; letter-spacing: .16em; font-weight: 800; margin-top: .55rem; line-height: 1.35; }
 
 /* ===== automotive detail pass 2: carbon fibre, hex mesh, more red lines, gloss ===== */
@@ -211,28 +199,13 @@ h2::after {
   height: 10px; background: repeating-linear-gradient(-45deg, var(--acc) 0 16px, #0a0a0a 16px 27px);
 }
 .svc-row { box-shadow: inset 3px 0 0 var(--acc), inset 0 1px 0 rgba(255,255,255,.05); }
-#cta-band {
-  background: linear-gradient(180deg, #e8483f 0%, #d32f2f 42%, #9e1f1f 58%, #c22a2a 100%);
-  overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), inset 0 -1px 0 rgba(0,0,0,.45), 0 6px 34px rgba(211,47,47,.28);
-}
-#cta-band::before {
-  content: ""; position: absolute; top: 0; left: -45%; width: 38%; height: 100%;
-  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.34) 45%, rgba(255,255,255,.06) 62%, transparent 100%);
-  transform: skewX(-18deg); animation: lb-sheen 4.8s ease-in-out infinite;
-}
 @keyframes lb-sheen { 0% { left: -45%; } 55% { left: 108%; } 100% { left: 108%; } }
-@media (prefers-reduced-motion: reduce) { #cta-band::before { animation: none; opacity: .22; } }
+@media (prefers-reduced-motion: reduce) { }
 .btn-primary { background: linear-gradient(180deg, #ef4b44 0%, #d32f2f 60%, #a52222 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
 .stat-band .stat-n, .stat-band b { text-shadow: 0 0 18px rgba(229,57,53,.35); }
 
 /* ===== promo treatment: glossy banner + chrome trim + photo band ===== */
 .chrome-edge { height: 2px; background: linear-gradient(90deg, #4c5057 0%, #eef1f5 18%, #9298a0 47%, #f6f8fa 76%, #565b62 100%); opacity: .8; }
-#cta-band::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(115deg, transparent 38%, rgba(255,255,255,.22) 46%, rgba(255,255,255,.03) 54%, transparent 60%);
-}
-#cta-band .band-line1 { text-shadow: 0 2px 0 rgba(0,0,0,.18); }
 .photo-band { position: relative; overflow: hidden; }
 .photo-band img { width: 100%; height: clamp(320px, 52vw, 560px); object-fit: cover; display: block; filter: contrast(1.06) saturate(1.05); }
 .photo-band .pb-strip {
@@ -250,7 +223,7 @@ h2::after {
 .pb-strip .pb-copy b { display: block; }
 .pb-strip .pb-copy span { display: block; margin-top: 5px; }
 .pb-strip .pb-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-.pb-strip a.pb-phone { color: #fff; font-weight: 800; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,.55); padding-bottom: 2px; }
+.pb-strip a.pb-phone { background: transparent; box-shadow: none; color: #fff; font-weight: 800; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,.55); padding: 0 4px 2px; }
 .pb-strip::before {
   content: ""; position: absolute; top: 0; left: -45%; width: 38%; height: 100%;
   background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.30) 45%, rgba(255,255,255,.05) 62%, transparent 100%);
@@ -307,8 +280,8 @@ h2::after {
   <span class="red-slash" aria-hidden="true" style="top:26px;left:-6%;width:22%;transform:rotate(-4.5deg);opacity:.85"></span>
   <span class="red-slash" aria-hidden="true" style="top:52px;left:-8%;width:14%;transform:rotate(-4.5deg);opacity:.45"></span><div class="wrap">
   <div class="sec-head"><span class="sec-idx">01</span><div><h2 class="sec-title">Detailing that shows up in the reflections.</h2><p class="lead">From a maintenance wash through to a full graphene-protected detail &mdash; the right package for the finish you are chasing.</p></div></div>
-  <div class="svc-grid"><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.3-3 7.9-7 10-4-2.1-7-5.7-7-10V6l7-3z"/><path d="M9.3 11.8l2 2 3.6-4.2"/></svg></span><div class="svc-body"><h3>Graphene protection</h3><p>The signature package &mdash; paint sealed with a long-life graphene coating that shrugs off water, grime and UV.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 13.5l1.7-4.4A2 2 0 018.1 7.8h7.8a2 2 0 011.9 1.3l1.7 4.4"/><path d="M4.5 13.5h15v3.4h-2.2"/><path d="M6.7 16.9H4.5"/><circle cx="8" cy="17" r="1.5"/><circle cx="16" cy="17" r="1.5"/></svg></span><div class="svc-body"><h3>Full interior &amp; exterior detail</h3><p>Paint decontaminated and polished, interior detailed to the seams &mdash; inside and out in one booking.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.5"/></svg></span><div class="svc-body"><h3>Paint enhancement &amp; correction</h3><p>Swirls, haze and light defects machine-polished back so reflections run flat and clean.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c3.1 3.7 5.5 6.5 5.5 9.5A5.5 5.5 0 0112 19a5.5 5.5 0 01-5.5-5.5C6.5 10.5 8.9 7.7 12 4z"/><path d="M10 15.6a2.2 2.2 0 002.2-2.2"/></svg></span><div class="svc-body"><h3>Exterior wash &amp; decontamination</h3><p>Foam wash, clay decontamination and a hand finish that leaves paint glassy to the touch.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5A2 2 0 0110 2.5h.6a2 2 0 012 2v7.5h-3a1.6 1.6 0 01-1.6-1.6V4.5z"/><path d="M12.6 12h3.1a2 2 0 012 2v2.6a2 2 0 01-2 2H9"/><path d="M5.5 18.6h3.5"/></svg></span><div class="svc-body"><h3>Interior detailing</h3><p>Seats, carpets, dash and trim vacuumed, shampooed and dressed &mdash; the parts you live in every day.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5h16l-2.3 3.1a2 2 0 01-1.6.9H8.1a2 2 0 01-1.6-.9L4 15.5z"/><path d="M12 3.5v12"/><path d="M12 6l5 6h-5"/><path d="M12 8.5L8 12h4"/></svg></span><div class="svc-body"><h3>Boats &amp; motorhomes</h3><p>Gelcoat cut and polish, hull wash-downs and protection for boats, caravans and motorhomes.</p></div><span class="svc-arrow">&#8599;</span></div></div>
-</div></section>
+  <div class="svc-grid"><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.5"/></svg></span><div class="svc-body"><h3>Machine polishing &amp; paint correction</h3><p>Swirls, haze and light defects machine-polished back so reflections run flat and clean.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.3-3 7.9-7 10-4-2.1-7-5.7-7-10V6l7-3z"/><path d="M9.3 11.8l2 2 3.6-4.2"/></svg></span><div class="svc-body"><h3>Ceramic &amp; graphene coatings</h3><p>The signature package &mdash; paint sealed with a long-life graphene coating that shrugs off water, grime and UV.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5A2 2 0 0110 2.5h.6a2 2 0 012 2v7.5h-3a1.6 1.6 0 01-1.6-1.6V4.5z"/><path d="M12.6 12h3.1a2 2 0 012 2v2.6a2 2 0 01-2 2H9"/><path d="M5.5 18.6h3.5"/></svg></span><div class="svc-body"><h3>Interior detailing &amp; protection</h3><p>Seats, carpets, dash and trim vacuumed, shampooed and dressed &mdash; the parts you live in every day.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5"/></svg></span><div class="svc-body"><h3>Wheel &amp; window protection</h3><p>Alloy wheels, glass and trim cleaned and protected to match the paintwork.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c3.1 3.7 5.5 6.5 5.5 9.5A5.5 5.5 0 0112 19a5.5 5.5 0 01-5.5-5.5C6.5 10.5 8.9 7.7 12 4z"/><path d="M10 15.6a2.2 2.2 0 002.2-2.2"/></svg></span><div class="svc-body"><h3>Exterior wash &amp; decontamination</h3><p>Foam wash, clay decontamination and a hand finish that leaves paint glassy to the touch.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5h16l-2.3 3.1a2 2 0 01-1.6.9H8.1a2 2 0 01-1.6-.9L4 15.5z"/><path d="M12 3.5v12"/><path d="M12 6l5 6h-5"/><path d="M12 8.5L8 12h4"/></svg></span><div class="svc-body"><h3>Boats &amp; motorhomes</h3><p>Gelcoat cut and polish, hull wash-downs and protection for boats, caravans and motorhomes.</p></div><span class="svc-arrow">&#8599;</span></div></div>
+</section>
 
 <section class="band carbon" id="process"><div class="wrap">
   <div class="sec-head"><span class="sec-idx">02</span><div><h2 class="sec-title">Booked in, detailed, protected.</h2></div></div>
