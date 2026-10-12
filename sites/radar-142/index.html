@@ -183,6 +183,48 @@ h2 { font-weight: 900; }
 #cta-band a.band-phone { color: #fff; font-weight: 800; text-decoration: none;
   border-bottom: 2px solid rgba(255,255,255,.55); padding-bottom: 2px; }
 .hero h1 .thin { display: block; font-size: .34em; letter-spacing: .16em; font-weight: 800; margin-top: .55rem; line-height: 1.35; }
+
+/* ===== automotive detail pass 2: carbon fibre, hex mesh, more red lines, gloss ===== */
+.carbon {
+  background-color: #101214 !important;
+  background-image:
+    linear-gradient(27deg, #151619 5px, transparent 5px),
+    linear-gradient(207deg, #151619 5px, transparent 5px),
+    linear-gradient(27deg, #1f2226 5px, transparent 5px),
+    linear-gradient(207deg, #1f2226 5px, transparent 5px),
+    linear-gradient(90deg, #191c1f 10px, transparent 10px),
+    linear-gradient(#1b1e22 25%, #17191d 25%, #17191d 50%, transparent 50%, transparent 75%, #212428 75%, #212428) !important;
+  background-size: 20px 20px !important;
+  background-position: 0 0, 10px 10px, 10px 0, 0 10px, 0 0, 0 0 !important;
+}
+.hex-veil { position: relative; }
+.hex-veil::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.07'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 56px 98px;
+}
+h2::after {
+  content: ""; display: block; width: 66px; height: 4px; margin-top: 14px;
+  background: var(--acc); box-shadow: 0 0 16px rgba(229,57,53,.55);
+}
+.livery {
+  height: 10px; background: repeating-linear-gradient(-45deg, var(--acc) 0 16px, #0a0a0a 16px 27px);
+}
+.svc-row { box-shadow: inset 3px 0 0 var(--acc), inset 0 1px 0 rgba(255,255,255,.05); }
+#cta-band {
+  background: linear-gradient(180deg, #e8483f 0%, #d32f2f 42%, #9e1f1f 58%, #c22a2a 100%);
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), inset 0 -1px 0 rgba(0,0,0,.45), 0 6px 34px rgba(211,47,47,.28);
+}
+#cta-band::before {
+  content: ""; position: absolute; top: 0; left: -45%; width: 38%; height: 100%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.34) 45%, rgba(255,255,255,.06) 62%, transparent 100%);
+  transform: skewX(-18deg); animation: lb-sheen 4.8s ease-in-out infinite;
+}
+@keyframes lb-sheen { 0% { left: -45%; } 55% { left: 108%; } 100% { left: 108%; } }
+@media (prefers-reduced-motion: reduce) { #cta-band::before { animation: none; opacity: .22; } }
+.btn-primary { background: linear-gradient(180deg, #ef4b44 0%, #d32f2f 60%, #a52222 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
+.stat-band .stat-n, .stat-band b { text-shadow: 0 0 18px rgba(229,57,53,.35); }
 </style>
 </head>
 <body>
@@ -194,7 +236,7 @@ h2 { font-weight: 900; }
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
 
-<header class="hero" id="top">
+<header class="hero hex-veil" id="top">
 <!-- LB-3D-HERO -->
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="hero-shade"></div>
@@ -227,12 +269,15 @@ h2 { font-weight: 900; }
 
 
 
-<section id="services"><div class="wrap">
+<div class="livery" aria-hidden="true"></div>
+<section id="services" style="position:relative">
+  <span class="red-slash" aria-hidden="true" style="top:26px;left:-6%;width:22%;transform:rotate(-4.5deg);opacity:.85"></span>
+  <span class="red-slash" aria-hidden="true" style="top:52px;left:-8%;width:14%;transform:rotate(-4.5deg);opacity:.45"></span><div class="wrap">
   <div class="sec-head"><span class="sec-idx">01</span><div><h2 class="sec-title">Detailing that shows up in the reflections.</h2><p class="lead">From a maintenance wash through to a full graphene-protected detail &mdash; the right package for the finish you are chasing.</p></div></div>
   <div class="svc-grid"><div class="svc-row rv"><span class="svc-n">01</span><div class="svc-body"><h3>Graphene protection</h3><p>The signature package &mdash; paint sealed with a long-life graphene coating that shrugs off water, grime and UV.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">02</span><div class="svc-body"><h3>Full interior &amp; exterior detail</h3><p>Paint decontaminated and polished, interior detailed to the seams &mdash; inside and out in one booking.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">03</span><div class="svc-body"><h3>Paint enhancement &amp; correction</h3><p>Swirls, haze and light defects machine-polished back so reflections run flat and clean.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">04</span><div class="svc-body"><h3>Exterior wash &amp; decontamination</h3><p>Foam wash, clay decontamination and a hand finish that leaves paint glassy to the touch.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">05</span><div class="svc-body"><h3>Interior detailing</h3><p>Seats, carpets, dash and trim vacuumed, shampooed and dressed &mdash; the parts you live in every day.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">06</span><div class="svc-body"><h3>Boats &amp; motorhomes</h3><p>Gelcoat cut and polish, hull wash-downs and protection for boats, caravans and motorhomes.</p></div><span class="svc-arrow">&#8599;</span></div></div>
 </div></section>
 
-<section class="band" id="process"><div class="wrap">
+<section class="band carbon" id="process"><div class="wrap">
   <div class="sec-head"><span class="sec-idx">02</span><div><h2 class="sec-title">Booked in, detailed, protected.</h2></div></div>
   <div class="steps"><div class="step rv"><span class="step-n">01</span><div><h3>Book it in</h3><p>Call or send the form &mdash; tell us the vehicle and what you are chasing.</p></div></div><div class="step rv"><span class="step-n">02</span><div><h3>Assess &amp; quote</h3><p>We look over the paint and interior and match the right package.</p></div></div><div class="step rv"><span class="step-n">03</span><div><h3>Detail day</h3><p>Wash, decontaminate, polish, protect &mdash; inside and out.</p></div></div><div class="step rv"><span class="step-n">04</span><div><h3>Handover</h3><p>We walk the vehicle with you under the lights so you can see the finish.</p></div></div></div>
 </div></section>
@@ -242,7 +287,7 @@ h2 { font-weight: 900; }
   <details class="faq rv"><summary>Do you work on boats and motorhomes too?</summary><div class="a">Yes &mdash; cars, 4WDs, boats, caravans and motorhomes all get detailed in the West Gosford workshop.</div></details><details class="faq rv"><summary>What is graphene protection?</summary><div class="a">A long-life coating that seals and protects the paint, making it easier to wash and harder for grime to take hold.</div></details><details class="faq rv"><summary>Which areas do you cover?</summary><div class="a">We are based in West Gosford on the Central Coast &mdash; drop the vehicle to us or call to discuss.</div></details><details class="faq rv"><summary>How long does a full detail take?</summary><div class="a">Depends on the vehicle and the package &mdash; we confirm the timing when you book.</div></details>
 </div></section>
 
-<section class="stat-band band" id="stats"><div class="wrap"><div class="stat rv d1"><b>5.0</b><span>Google rated</span></div><div class="stat rv d2"><b>Graphene</b><span>Paint protection</span></div><div class="stat rv d3"><b>In &amp; out</b><span>Full details</span></div><div class="stat rv d4"><b>West Gosford</b><span>Central Coast</span></div></div></section>
+<section class="stat-band band carbon" id="stats"><div class="wrap"><div class="stat rv d1"><b>5.0</b><span>Google rated</span></div><div class="stat rv d2"><b>Graphene</b><span>Paint protection</span></div><div class="stat rv d3"><b>In &amp; out</b><span>Full details</span></div><div class="stat rv d4"><b>West Gosford</b><span>Central Coast</span></div></div></section>
 
 <section id="trust"><div class="wrap">
   <div class="sec-head"><span class="sec-idx">04</span><div><h2 class="sec-title">Why Central Coast cars come to Allards.</h2></div></div>
@@ -392,7 +437,8 @@ h2 { font-weight: 900; }
 })();
 </script>
 </section>
-<footer><div class="wrap">
+<div class="livery" aria-hidden="true"></div>
+<footer class="carbon"><div class="wrap">
   <div>
     <div class="fbrand"><img src="assets/logo.png" alt="Allards Auto Detailing logo"><span class="b-txt"><span class="brand-name" style="font-size:1rem;">Allards</span><br><span class="brand-sub">Auto Detailing &middot; Graphene Protection</span></span></div>
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Car detailing &middot; Paint correction &middot; Graphene protection &mdash; West Gosford.<br></p>
