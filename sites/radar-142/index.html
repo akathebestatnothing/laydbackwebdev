@@ -225,6 +225,25 @@ h2::after {
 @media (prefers-reduced-motion: reduce) { #cta-band::before { animation: none; opacity: .22; } }
 .btn-primary { background: linear-gradient(180deg, #ef4b44 0%, #d32f2f 60%, #a52222 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
 .stat-band .stat-n, .stat-band b { text-shadow: 0 0 18px rgba(229,57,53,.35); }
+
+/* ===== promo treatment: glossy banner + chrome trim + photo band ===== */
+.chrome-edge { height: 2px; background: linear-gradient(90deg, #4c5057 0%, #eef1f5 18%, #9298a0 47%, #f6f8fa 76%, #565b62 100%); opacity: .8; }
+#cta-band::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 38%, rgba(255,255,255,.22) 46%, rgba(255,255,255,.03) 54%, transparent 60%);
+}
+#cta-band .band-line1 { text-shadow: 0 2px 0 rgba(0,0,0,.18); }
+.photo-band { position: relative; overflow: hidden; }
+.photo-band img { width: 100%; height: clamp(320px, 52vw, 560px); object-fit: cover; display: block; filter: contrast(1.06) saturate(1.05); }
+.photo-band .pb-strip {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 20px clamp(18px, 4vw, 44px);
+  background: linear-gradient(180deg, rgba(211,47,47,.94) 0%, rgba(150,26,26,.96) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.4), inset 0 -1px 0 rgba(0,0,0,.4), 0 -6px 28px rgba(211,47,47,.35);
+  display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+}
+.photo-band .pb-strip b { font-family: var(--disp); font-weight: 900; text-transform: uppercase; letter-spacing: .02em; font-size: clamp(19px, 2.6vw, 30px); color: #fff; }
+.photo-band .pb-strip span { color: rgba(255,255,255,.9); font-size: .92rem; }
+.photo-band .pb-strip a { background: #fff; color: var(--acc2); font-weight: 800; padding: 11px 20px; border-radius: 7px; text-decoration: none; box-shadow: inset 0 1px 0 #fff, 0 2px 0 rgba(0,0,0,.25); }
 </style>
 </head>
 <body>
@@ -302,6 +321,16 @@ h2::after {
 </section>
 
 <span id="quote" style="position:absolute;top:-90px"></span>
+<section class="photo-band" aria-label="Graphene-coated finish showcase">
+  <img src="assets/gal_1.jpg" alt="Mustang &mdash; machine-corrected, graphene-coated finish by Allards Auto Detailing" loading="lazy">
+  <div class="pb-strip">
+    <div>
+      <b>Corrected, coated, protected</b>
+      <span>Swirl-free paint, glass-clear reflections &mdash; in the bay at West Gosford.</span>
+    </div>
+    <a href="#quote">Get a free quote</a>
+  </div>
+</section>
 <section id="cta-band" aria-label="Get a free quote">
   <div class="wrap">
     <div>
