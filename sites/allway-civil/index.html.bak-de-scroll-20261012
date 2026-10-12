@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allway Civil Pty Ltd — Excavation, Plant & Labour Hire | Central Coast, Newcastle & Sydney</title>
+<meta name="description" content="Allway Civil Pty Ltd — Excavation & wet hire services across the Central Coast, Newcastle & Sydney. Tight-access excavation, plant hire, labour hire, bobcat & tipper combos, site preparation.">
+<meta property="og:title" content="Allway Civil Pty Ltd — Central Coast, Newcastle & Sydney">
+<meta property="og:description" content="Excavation, plant hire, labour hire and wet hire — Central Coast, Newcastle & Sydney.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/logo.jpg">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton:wght@400;700;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg-2: #111111;
+  --panel: #181818;
+  --panel-2: #1f1f1f;
+  --ink: #ffffff;
+  --mut: #a0a0a0;
+  --acc: #ff0000;
+  --acc-2: #cc0000;
+  --acc-hi: #ff3333;
+  --line: rgba(255,255,255,.08);
+  --line-acc: rgba(255,0,0,.5);
+  --nav-h: 64px;
+  --font-d: 'Anton', 'Arial Narrow', sans-serif;
+  --body-font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-m: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html, body { overflow-x: hidden; }
+section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 10px); }
+html:not(.js) .rv { opacity: 1 !important; transform: none !important; }
+.js .rv { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+.js .rv.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .js .rv { opacity: 1; transform: none; transition: none; }
+}
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body-font); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
+.skip { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); padding: .7rem 1.2rem; background: var(--acc); color: #fff; font-weight: 700; z-index: 10000; }
+.skip:focus { top: 1rem; }
+.nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1rem, 3vw, 2.5rem); background: rgba(10,10,10,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line-acc); z-index: 1000; }
+.nav__b { display: flex; align-items: center; gap: .85rem; font-weight: 800; font-size: clamp(1rem, 1.9vw, 1.18rem); letter-spacing: .01em; }
+.nav__b img { height: 46px; width: 46px; object-fit: cover; border-radius: 4px; border: 2px solid var(--acc); display: block; }
+.nav__links { display: flex; gap: clamp(1rem, 2.4vw, 2rem); list-style: none; margin: 0; padding: 0; }
+.nav__links a { font-size: .78rem; text-transform: uppercase; letter-spacing: .13em; color: var(--mut); transition: color .2s; }
+.nav__links a:hover { color: var(--acc-hi); }
+.nav__cta a { display: inline-flex; align-items: center; gap: .45rem; padding: .58rem 1.15rem; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; background: var(--acc); color: #fff; border-radius: 6px; }
+.nav__cta a:hover { background: var(--acc-2); }
+@media (max-width: 680px) { .nav__links { display: none; } }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .8rem 1.5rem; font-size: .86rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; border: 0; border-radius: 6px; cursor: pointer; }
+.btn--p { background: var(--acc); color: #fff; }
+.btn--p:hover { background: var(--acc-2); }
+.btn--o { background: transparent; color: var(--ink); border: 2px solid rgba(255,255,255,.34); }
+.btn--o:hover { border-color: var(--acc-hi); color: var(--acc-hi); }
+/* ===== scroll-built scene ===== */
+#sceneWrap { position: relative; height: 400vh; background: var(--bg); }
+#sceneSticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+#buildCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hero-copy { position: absolute; left: clamp(1rem, 6vw, 7rem); top: calc(var(--nav-h) + 7vh); max-width: 64ch; z-index: 3; pointer-events: none; }
+.hero-copy a, .hero-copy .btn { pointer-events: auto; }
+.hero-copy .k { margin: 0 0 .7rem; font-family: var(--font-m); font-size: .78rem; text-transform: uppercase; letter-spacing: .24em; color: var(--acc-hi); }
+.hero-copy .h1 { margin: 0 0 1rem; font-size: clamp(2.4rem, 6vw, 4.9rem); font-weight: 900; line-height: 1.01; letter-spacing: -.03em; color: var(--ink); }
+.hero-copy .h1 em { color: var(--acc-hi); font-style: normal; }
+.hero-copy .d { margin: 0 0 1.9rem; font-size: clamp(1rem, 1.45vw, 1.18rem); color: var(--mut); max-width: 52ch; }
+.hero-copy .cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+.scroll-hint { position: absolute; left: clamp(1rem, 6vw, 7rem); bottom: 4.5vh; z-index: 3; display: flex; align-items: center; gap: .7rem; font-family: var(--font-m); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--mut); }
+.scroll-hint i { display: block; width: 1px; height: 34px; background: var(--acc-hi); animation: hintDrop 1.8s ease-in-out infinite; }
+@keyframes hintDrop { 0% { transform: translateY(-8px); opacity: 0; } 45% { opacity: 1; } 100% { transform: translateY(10px); opacity: 0; } }
+.hud { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.stg { position: absolute; left: clamp(1rem, 6vw, 7rem); bottom: 4.5vh; font-family: var(--font-m); }
+.stg b { display: block; font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 900; letter-spacing: -.04em; color: rgba(255,255,255,.13); line-height: 1; }
+.stg span { display: block; margin-top: .35rem; font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; color: var(--acc-hi); }
+.rail { position: absolute; right: clamp(1rem, 3.4vw, 2.6rem); top: 24vh; bottom: 24vh; width: 2px; background: rgba(255,255,255,.12); }
+.rail i { position: absolute; left: 0; top: 0; width: 100%; height: 0%; background: linear-gradient(180deg, var(--acc-hi), var(--acc)); display: block; }
+@media (max-width: 680px) { #sceneWrap { height: 350vh; } .scroll-hint { bottom: 3vh; } }
+/* ===== sections ===== */
+.sec { max-width: 1180px; margin: 0 auto; padding: clamp(4rem, 8.5vw, 7rem) clamp(1rem, 4vw, 2.6rem); position: relative; }
+.sec--panel { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sec--panel > .inner { max-width: 1180px; margin: 0 auto; padding: clamp(4rem, 8.5vw, 7rem) clamp(1rem, 4vw, 2.6rem); }
+.kick { font-family: var(--font-m); font-size: .76rem; text-transform: uppercase; letter-spacing: .22em; color: var(--acc-hi); margin: 0 0 .5rem; }
+.h2 { margin: 0 0 .9rem; font-size: clamp(1.7rem, 3.6vw, 2.65rem); font-weight: 900; letter-spacing: -.015em; }
+.lead { color: var(--mut); font-size: clamp(1rem, 1.3vw, 1.14rem); max-width: 60ch; }
+.svc { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 1.4rem; margin-top: 2.6rem; }
+.svc__it { border: 1px solid var(--line); border-radius: 10px; padding: 1.35rem 1.25rem; background: var(--panel); transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s; }
+.svc__it:hover { transform: translateY(-4px); border-color: var(--line-acc); background: var(--panel-2); }
+.svc__n { font-family: var(--font-m); font-size: .72rem; color: var(--acc-hi); letter-spacing: .14em; }
+.svc__h { margin: .4rem 0 .35rem; font-size: 1.06rem; font-weight: 800; }
+.svc__p { margin: .2rem 0 0; font-size: .92rem; color: var(--mut); line-height: 1.5; }
+.machine-strip { margin-top: 2.6rem; display: flex; flex-wrap: wrap; gap: 1.2rem; }
+.machine__card { flex: 1; min-width: 220px; border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem 1.25rem; background: var(--panel); transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s; }
+.machine__card:hover { transform: translateY(-4px); border-color: var(--line-acc); background: var(--panel-2); }
+.machine__n { font-family: var(--font-m); font-size: .72rem; color: var(--acc-hi); letter-spacing: .14em; margin-bottom: .4rem; }
+.machine__h { font-size: 1.1rem; font-weight: 800; margin-bottom: .35rem; }
+.machine__p { font-size: .92rem; color: var(--mut); line-height: 1.5; }
+.areas { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: .6rem; }
+.areas span { border: 1px solid var(--line); border-radius: 99px; padding: .45rem 1rem; font-size: .86rem; background: var(--panel); color: var(--ink); }
+.foot { margin: 0; padding: 2.7rem clamp(1rem, 4vw, 2.6rem); border-top: 1px solid var(--line-acc); background: var(--bg-2); }
+.foot h3 { margin: 0 0 .4rem; font-size: 1rem; font-weight: 800; }
+.foot p { margin: 0; font-size: .88rem; color: var(--mut); }
+.foot a { color: var(--acc-hi); }</style>
+</head>
+<body>
+
+<a class="skip" href="#services">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Primary">
+  <a class="nav__b" href="#top" aria-label="Allway Civil Pty Ltd — Home">
+    <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager">
+    <span>Allway Civil</span>
+  </a>
+  <ul class="nav__links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#machines">Machines</a></li>
+    <li><a href="#areas">Area</a></li>
+    <li><a href="#lbq">Quote</a></li>
+  </ul>
+  <div class="nav__cta"><a href="mailto:allwaycivil@outlook.com.au" aria-label="Email Allway Civil">Get a quote</a></div>
+</nav>
+
+<header id="top">
+
+<div id="sceneWrap" aria-label="Scroll to watch the tight-access combo">
+  <div id="sceneSticky">
+    <canvas id="buildCanvas" aria-hidden="true"></canvas>
+
+    <div class="hero-copy" id="heroCopy">
+      <p class="k">Central Coast - Newcastle - Sydney</p>
+      <h1 class="h1">Tight access.<br><em>Combo</em> power.</h1>
+      <p class="d">Excavation, wet hire, plant hire, labour hire - bobcat & tipper, posi track, excavator & truck combos. We fit where others can't.</p>
+      <div class="cta">
+        <a class="btn btn--p" href="#lbq">Get a free quote</a>
+        <a class="btn btn--o" href="mailto:allwaycivil@outlook.com.au" aria-label="Email Allway Civil">Email us</a>
+      </div>
+    </div>
+
+    <div class="hud" aria-hidden="true">
+      <div class="stg"><b id="stgNum">00</b><span id="stgName">Approach & set-up</span></div>
+      <div class="rail"><i id="railFill"></i></div>
+      <div class="scroll-hint" id="scrollHint"><i></i>Scroll - watch the combo work</div>
+    </div>
+  </div>
+</div>
+
+</header>
+
+<section class="sec" id="services" aria-labelledby="s-t">
+  <p class="kick" aria-hidden="true">What we do</p>
+  <h2 class="h2" id="s-t">Excavation, wet hire & labour - done tight.</h2>
+  <div class="svc">
+    <article class="svc__it rv"><p class="svc__n">01</p><h3 class="svc__h">Excavation</h3><p class="svc__p">Tight-access excavation with compact machines - side access, backyards, restricted sites across the Coast, Newcastle & Sydney.</p></article>
+    <article class="svc__it rv"><p class="svc__n">02</p><h3 class="svc__h">Wet hire (machine + operator)</h3><p class="svc__p">Experienced operators on our gear - excavators, bobcats, posi tracks, tippers. You get the machine and the skill.</p></article>
+    <article class="svc__it rv"><p class="svc__n">03</p><h3 class="svc__h">Plant hire</h3><p class="svc__p">1.5-3t excavators, bobcats, posi tracks, tippers. Dry or wet hire rates - maintained, fuelled, ready to work.</p></article>
+    <article class="svc__it rv"><p class="svc__n">04</p><h3 class="svc__h">Civil labour hire</h3><p class="svc__p">Skilled labour for earthworks, drainage, site prep, pipe laying, concrete prep - ticketed, reliable, on-site when you need them.</p></article>
+    <article class="svc__it rv"><p class="svc__n">05</p><h3 class="svc__h">Bobcat & tipper combos</h3><p class="svc__p">The classic tight-access pair - bobcat loads, tipper hauls. One mobilisation, one crew, fast cycle times.</p></article>
+    <article class="svc__it rv"><p class="svc__n">06</p><h3 class="svc__h">Site preparation</h3><p class="svc__p">Clearing, strip & respread, bulk cut to level, pad prep, access tracks - ground ready for the next trade.</p></article>
+  </div>
+</section>
+
+<section class="sec sec--panel" id="machines" aria-labelledby="m-t">
+  <div class="inner">
+  <p class="kick" aria-hidden="true">Machine strip</p>
+  <h2 class="h2" id="m-t">The fleet that fits.</h2>
+  <div class="machine-strip">
+    <article class="machine__card rv"><p class="machine__n">1.5-3t class</p><h3 class="machine__h">Mini excavators</h3><p class="machine__p">1.5t, 2.5t, 3t - rubber track, zero tail swing. Trenching, footings, pools, service runs in tight corridors.</p></article>
+    <article class="machine__card rv"><p class="machine__n">Bobcat + truck</p><h3 class="machine__h">Skid steer & tipper</h3><p class="machine__p">Bobcat loads spoil, truck carts it. One crew, one mobilisation - the side-access workhorse.</p></article>
+    <article class="machine__card rv"><p class="machine__n">Posi track</p><h3 class="machine__h">Tracked skid steer</h3><p class="machine__p">Low ground pressure, climbs where wheels spin. Soft ground, wet sites, finished levels without tracking mud.</p></article>
+    <article class="machine__card rv"><p class="machine__n">Excavator + truck</p><h3 class="machine__h">Digger & tipper pair</h3><p class="machine__p">3t-5t excavator loads, 6w/8w tipper hauls. Bulk spoil out, VENM/ENM in - single mobilisation.</p></article>
+  </div>
+  </div>
+</section>
+
+<section class="sec" id="areas" aria-labelledby="ar-t">
+  <p class="kick" aria-hidden="true">Service area</p>
+  <h2 class="h2" id="ar-t">Central Coast, Newcastle & Sydney</h2>
+  <p class="lead">Based in Woongarrah and working across the wider region - residential, civil and light commercial.</p>
+  <div class="areas" aria-label="Service areas">
+    <span class="rv">Central Coast</span><span class="rv">Newcastle</span><span class="rv">Lake Macquarie</span><span class="rv">Sydney Metro</span><span class="rv">Hunter Valley</span><span class="rv">Port Stephens</span>
+  </div>
+</section>
+
+<footer class="foot">
+  <div>
+    <h3>Allway Civil Pty Ltd</h3>
+    <p>Excavation - Wet hire - Plant hire - Labour hire<br>Woongarrah NSW 2259</p>
+  </div>
+  <p aria-hidden="true">&copy; <span id="year"></span> Allway Civil Pty Ltd. All rights reserved.</p>
+</footer>
+
+<section id="lbq" class="v3" aria-labelledby="lbq-h">
+  <style>
+#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--mut);--lbq-bg:var(--bg-2);--lbq-panel:var(--panel);--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto}
+#lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em;font-family:var(--font-d)}
+#lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
+#lbq textarea{min-height:96px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* v3 split */
+#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+#lbq.v3 .lbq-g{display:grid;gap:12px}
+#lbq.v3 .lbq-hp2{padding-left:16px}
+@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
+  </style>
+  <div class="lbq-w">
+      <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
+      <p class="lbq-s">Tell us about the job — access, machine, timing — and we'll come back with a firm price.</p><p class="lbq-s" style="margin-bottom:0">Prefer email? <a href="mailto:allwaycivil@outlook.com.au">allwaycivil@outlook.com.au</a></p></div><div><form id="lbq-form" novalidate data-site="allway-civil" data-biz="Allway Civil Pty Ltd"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-svc">Service</label>
+        <select id="lbq-svc" name="service"><option>Excavation</option><option>Wet hire</option><option>Plant hire</option><option>Labour hire</option><option>Bobcat & tipper combo</option><option>Site preparation</option><option>Other</option></select>
+      </div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Access width, site size, machine needed, timing…" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
+  </div>
+  <script>
+(function(){
+  var EP = null;
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending…';
+      st.style.color = '';
+      base(function(B){
+        var url = (B === 'https://grocery-periodically-everyone-wine.trycloudflare.com' ? 'https://grocery-periodically-everyone-wine.trycloudflare.com' : B) + '/functions/v1/quote-request';
+        fetch(url, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks — your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--lbq-accent)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send — please try again or email.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</section>
+
+<script>
+
+// ===== PRO SCENE KIT (inlined, synced 2026-10-11) =====
+(function (global) {
+  'use strict';
+  var PS = {};
+
+  
+  PS.clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
+  PS.lerp = function (a, b, k) { return a + (b - a) * k; };
+  PS.smoothstep = function (edge0, edge1, x) {
+    var t = PS.clamp((x - edge0) / (edge1 - edge0 || 1e-6), 0, 1); return t * t * (3 - 2 * t);
+  };
+  PS.ease = {
+    inOut: function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; },
+    out: function (t) { return 1 - Math.pow(1 - t, 3); },
+    in: function (t) { return t * t * t; },
+    back: function (t) { var s = 1.70158; t = PS.clamp(t, 0, 1); return 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2); }
+  };
+  
+  PS.stage = function (p, t0, dur, mode) {
+    var t = PS.clamp((p - t0) / (dur || 0.2), 0, 1);
+    if (mode === 'place') return PS.ease.inOut(t);
+    if (mode === 'settle') return PS.ease.back(t);
+    if (mode === 'release') return PS.ease.out(t);
+    return PS.smoothstep(0, 1, t);
+  };
+
+  
+  PS.rgb = function (c) {
+    if (Array.isArray(c)) return c;
+    if (typeof c === 'string' && c.slice(0, 3) === 'rgb') {          // already "rgb(r,g,b)"
+      var m = c.match(/-?\d+(\.\d+)?/g) || [0, 0, 0];
+      return [Math.round(+m[0] || 0), Math.round(+m[1] || 0), Math.round(+m[2] || 0)];
+    }
+    var hex = String(c).replace('#', '');
+    if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    var n = parseInt(hex, 16);
+    if (!isFinite(n)) return [128, 128, 128];
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  };
+  PS.mix = function (c1, c2, k) {
+    var a = PS.rgb(c1), b = PS.rgb(c2);
+    return 'rgb(' + Math.round(PS.lerp(a[0], b[0], k)) + ',' + Math.round(PS.lerp(a[1], b[1], k)) + ',' + Math.round(PS.lerp(a[2], b[2], k)) + ')';
+  };
+  PS.rgba = function (c, a) {
+    var v = PS.rgb(c);
+    return 'rgba(' + v[0] + ',' + v[1] + ',' + v[2] + ',' + a + ')';
+  };
+  PS.lighten = function (c, k) { return PS.mix(c, [255, 255, 255], k); };
+  PS.darken = function (c, k) { return PS.mix(c, [8, 10, 14], k); };
+
+  
+  
+  PS.setup = function (canvas, opts) {
+    opts = opts || {};
+    var ctx = canvas.getContext('2d');
+    var DPR = Math.min(global.devicePixelRatio || 1, 2);
+    var S = {
+      ctx: ctx, W: 0, H: 0, DPR: DPR, sun: opts.sun || 'left',
+      skyCols: opts.sky || ['#0b1622', '#16324c', '#2b4a63'],
+      reduce: !!opts.reduce, sunAngle: opts.sun === 'right' ? 1 : -1
+    };
+    S.rng = (function (seed) {           // deterministic texture noise
+      var s = seed || 1301;
+      return function () { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
+    })(opts.seed);
+
+    S.resize = function () {
+      S.W = canvas.clientWidth || canvas.offsetWidth || global.innerWidth;
+      S.H = canvas.clientHeight || canvas.offsetHeight || global.innerHeight;
+      if (!S.W || !S.H) return false;
+      canvas.width = Math.round(S.W * DPR); canvas.height = Math.round(S.H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      return true;
+    };
+
+    
+    S.horizon = 0; S.focal = 0; S.camH = 1.7;
+    S.cam = function () { S.focal = S.H * (opts.focal || 1.05); S.horizon = S.H * (opts.horizon || 0.52); };
+    S.project = function (x, y, z) {
+      if (z < 0.55) z = 0.55;
+      var s = S.focal / z;
+      return [S.W / 2 + x * s + (opts.driftX || 0) * s, S.horizon + (S.camH - y) * s];
+    };
+    
+    S.fog = function (z) { return PS.clamp((z - (opts.fogNear || 3)) / ((opts.fogFar || 26) - (opts.fogNear || 3)), 0, 1); };
+    S.skyColour = function (k) { return PS.mix(S.skyCols[0], S.skyCols[2], PS.clamp(k, 0, 1)); };
+
+    
+    S.poly = function (pts, fill, stroke, alpha, lw) {
+      if (alpha !== undefined && alpha <= 0) return;
+      ctx.save(); if (alpha !== undefined) ctx.globalAlpha = alpha;
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath();
+      if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+      if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.lineJoin = 'round'; ctx.stroke(); }
+      ctx.restore();
+    };
+    S.sky = function (glowK) {
+      var g = ctx.createLinearGradient(0, 0, 0, S.H);
+      g.addColorStop(0, S.skyCols[0]); g.addColorStop(0.62, S.skyCols[1]); g.addColorStop(1, S.skyCols[2]);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+      if (glowK !== 0) {                                  // warm sun-side glow above the horizon
+        var gx = S.sunAngle < 0 ? S.W * 0.18 : S.W * 0.82, r = Math.max(S.W, S.H) * 0.55;
+        var rg = ctx.createRadialGradient(gx, S.horizon - S.H * 0.06, 0, gx, S.horizon - S.H * 0.06, r);
+        rg.addColorStop(0, PS.rgba(opts.glow || '#ffb877', (glowK === undefined ? 0.22 : glowK)));
+        rg.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = rg; ctx.fillRect(0, 0, S.W, S.H);
+      }
+    };
+    S.haze = function (k) {                                // horizon haze band
+      var kk = k === undefined ? 0.5 : k;
+      var g = ctx.createLinearGradient(0, S.horizon - S.H * 0.10, 0, S.horizon + S.H * 0.05);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(0.55, PS.rgba(S.skyCols[2], 0.55 * kk)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.fillRect(0, S.horizon - S.H * 0.10, S.W, S.H * 0.15);
+    };
+    
+    S.shadow = function (x, z, rx, rz, alpha, col) {
+      var c = S.project(x, 0.001, z), sx = S.focal / z;
+      ctx.save();
+      ctx.translate(c[0], c[1]);
+      ctx.scale(1, PS.clamp((rz || rx * 0.5) * sx / (rx * sx), 0.05, 1) * 0.42 + 0.12);
+      var g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * sx);
+      g.addColorStop(0, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha)));
+      g.addColorStop(0.7, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha) * 0.35));
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx * sx, 0, 6.2832); ctx.fill();
+      ctx.restore();
+    };
+    
+    S.texture = function (pts, kind, density, alpha) {
+      density = density || 260; alpha = alpha === undefined ? 0.05 : alpha;
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath(); ctx.clip();
+      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+      var n = Math.min(density, Math.round((x1 - x0) * (y1 - y0) / 260));
+      for (var k = 0; k < n; k++) {
+        var px = x0 + S.rng() * (x1 - x0), py = y0 + S.rng() * (y1 - y0), r = 0.4 + S.rng() * (kind === 'grain' ? 1.6 : 0.9);
+        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,' + alpha + ')' : 'rgba(0,0,0,' + alpha * 1.35 + ')';
+        if (kind === 'streak') { ctx.fillRect(px, py, r * 6, 0.7); }
+        else if (kind === 'aggregate') { ctx.beginPath(); ctx.arc(px, py, r, 0, 6.2832); ctx.fill(); }
+        else { ctx.fillRect(px, py, r, r); }
+      }
+      ctx.restore();
+    };
+    S.dust = function (n, time) {
+      n = n || 26;
+      for (var i = 0; i < n; i++) {
+        var seedX = (i * 97 % 100) / 100, seedY = (i * 57 % 100) / 100;
+        var drift = ((time * (0.004 + (i % 5) * 0.0016) + seedY) % 1);
+        var px = seedX * S.W + Math.sin(time * 0.0004 + i) * 16;
+        var py = S.horizon - S.H * 0.05 + (1 - drift) * S.H * 0.5;
+        ctx.globalAlpha = 0.05 + 0.10 * Math.abs(Math.sin(time * 0.0006 + i * 1.7));
+        ctx.fillStyle = i % 4 === 0 ? PS.rgba(opts.glow || '#ffb877', 0.9) : 'rgba(215,230,245,.75)';
+        ctx.beginPath(); ctx.arc(px, py, 0.5 + (i % 3) * 0.5, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    };
+    S.grade = function () {                                  // vignette + grain, ALWAYS last
+      var g = ctx.createRadialGradient(S.W / 2, S.H * 0.5, Math.min(S.W, S.H) * 0.35, S.W / 2, S.H * 0.5, Math.max(S.W, S.H) * 0.78);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.28)');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+      for (var i = 0; i < 120; i++) {
+        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,.014)' : 'rgba(0,0,0,.02)';
+        ctx.fillRect(S.rng() * S.W, S.rng() * S.H, 1.2, 1.2);
+      }
+    };
+    
+    S.scaleCue = function (x, z, kind) {
+      var s = S.focal / z;
+      if (kind === 'person') {
+        var b = S.project(x, 0, z), h = 1.72 * s * 0.32;
+        S.poly([[b[0] - 0.1 * s * 0.32, b[1]], [b[0] + 0.1 * s * 0.32, b[1]], [b[0] + 0.07 * s * 0.32, b[1] - h], [b[0] - 0.07 * s * 0.32, b[1] - h]], 'rgba(10,14,20,.72)');
+        ctx.beginPath(); ctx.arc(b[0], b[1] - h - 0.12 * s * 0.32, 0.11 * s * 0.32, 0, 6.2832); ctx.fillStyle = 'rgba(10,14,20,.72)'; ctx.fill();
+      } else {                                               // traffic cone
+        var c = S.project(x, 0, z), hh = 0.55 * s * 0.32;
+        S.poly([[c[0] - 0.16 * s * 0.32, c[1]], [c[0] + 0.16 * s * 0.32, c[1]], [c[0] + 0.02 * s * 0.32, c[1] - hh]], '#ff6a1a');
+      }
+    };
+
+
+    
+    S.mottle = function (pts, baseCol, amount, patches) {
+      amount = amount === undefined ? .10 : amount;
+      patches = patches || 22;
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath(); ctx.clip();
+      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), y0 = Math.min.apply(null, ys),
+          x1 = Math.max.apply(null, xs), y1 = Math.max.apply(null, ys);
+      for (var k = 0; k < patches; k++) {
+        var cx = x0 + S.rng() * (x1 - x0), cy = y0 + S.rng() * (y1 - y0),
+            r = (0.10 + S.rng() * 0.30) * Math.max(24, (x1 - x0) * 0.35);
+        var dark = S.rng() > 0.45;
+        var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+        g.addColorStop(0, dark ? PS.rgba('#2b2f34', amount) : PS.rgba('#ffffff', amount * 0.8));
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.2832); ctx.fill();
+      }
+      ctx.restore();
+    };
+    
+    S.contactAO = function (x, z, halfW, depth, alpha) {
+      var a = S.project(x - halfW, 0.002, z - depth), b = S.project(x + halfW, 0.002, z - depth),
+          c = S.project(x + halfW, 0.002, z + depth), d = S.project(x - halfW, 0.002, z + depth);
+      var g = ctx.createRadialGradient((a[0] + c[0]) / 2, (a[1] + c[1]) / 2, 0, (a[0] + c[0]) / 2, (a[1] + c[1]) / 2,
+                                       Math.max(30, Math.abs(b[0] - a[0]) * 0.9));
+      g.addColorStop(0, PS.rgba('#05080d', alpha === undefined ? .38 : alpha)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      S.poly([a, b, c, d], g, null, 1);
+    };
+    
+    S.castShadow = function (x, z, halfW, height, len, alpha) {
+      var dir = S.sunAngle < 0 ? 1 : -1;                      // shadow falls to the +x side when the sun is left
+      var a = S.project(x - halfW, 0.003, z), b = S.project(x + halfW, 0.003, z),
+          c = S.project(x + halfW + dir * len, 0.003, z + len * 0.35),
+          d = S.project(x - halfW + dir * len, 0.003, z + len * 0.35);
+      S.poly([a, b, c, d], PS.rgba('#0a0f16', alpha === undefined ? .30 : alpha), null, 1);
+    };
+    
+    S.rim = function (p1, p2, col, alpha, lw) {
+      ctx.save(); ctx.globalAlpha = alpha === undefined ? .8 : alpha;
+      ctx.strokeStyle = col || 'rgba(255,226,186,.9)'; ctx.lineWidth = lw || 2;
+      ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke(); ctx.restore();
+    };
+
+    
+    S.mix = PS.mix; S.rgba = PS.rgba; S.lighten = PS.lighten; S.darken = PS.darken;
+
+    
+    var t0 = 0, last = 0, current = 0, lastDraw = 0;
+    function targetP() { return opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0); }
+    
+    S.drawOnce = function (p, time) {
+      if (!S.W || !S.H) { if (!S.resize()) return; S.cam(); }
+      try { opts.onFrame(S, p === undefined ? current : p, time || 0); lastDraw = Date.now(); }
+      catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
+    };
+    S.frame = function (ts) {
+      if (!t0) t0 = ts;
+      var dt = Math.min(64, ts - last); last = ts;                 // ms
+      if (!S.W || !S.H) { if (S.resize()) S.cam(); }
+      if (S.W && S.H) {
+        var target = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
+        
+        current = PS.lerp(current, target, S.reduce ? 1 : 1 - Math.pow(0.0018, dt / 1000));
+        if (Math.abs(target - current) < 0.0004) current = target;
+        lastDraw = Date.now();
+        try { opts.onFrame(S, current, ts - t0); lastDraw = Date.now(); }
+        catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
+      }
+      if (!S.reduce) global.requestAnimationFrame(S.frame);
+    };
+    
+    S.watch = function () {
+      if (S.reduce || S._watching) return; S._watching = true;
+      global.setInterval(function () {
+        if (Date.now() - lastDraw > 260) S.drawOnce(targetP(), Date.now());
+      }, 250);
+    };
+    S.start = function () {
+      function boot() {
+        var tries = (boot.tries = (boot.tries || 0) + 1);
+        if (!S.resize()) {                                  // wait for layout, but never forever
+          if (tries < 40) { global.requestAnimationFrame(boot); return; }
+          S.W = global.innerWidth || 1280; S.H = global.innerHeight || 720;
+        }
+        S.cam();
+        current = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
+        S.drawOnce(current, 0);                              // FIRST PAINT IS SYNCHRONOUS
+        if (!S.reduce) { global.requestAnimationFrame(S.frame); S.watch(); }
+      }
+      boot();
+      
+      global.setTimeout(function () { S.drawOnce(targetP(), 0); }, 120);
+    };
+    global.addEventListener('resize', function () { if (S.resize()) S.cam(); });
+    return S;
+  };
+
+  PS.reduceMotion = function () { return global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches; };
+  PS.queryP = function () { try { var v = new URLSearchParams(global.location.search).get('p'); return v === null ? null : PS.clamp(parseFloat(v) || 0, 0, 1); } catch (e) { return null; } };
+  global.PS = PS;
+  if (typeof module !== 'undefined' && module.exports) module.exports = PS;
+})(typeof window !== 'undefined' ? window : this);
+/* ===== PRO SCENE — allway-civil: tight-access combo (OVERCAST-SOFT) =====
+ * OVERCAST-SOFT variant: diffuse light, no sun disc, soft ambient shadows, cool grey sky
+ * Subject: compact excavator works between two fence lines down a narrow side access,
+ *          slewing spoil into a tipper waiting on the street; truck pulls away loaded
+ *          and excavator tracks through the gate.
+ * Camera: low and close — the tight clearance IS the selling point.
+ * HUD labels: 'access set', 'digging', 'loading out', 'tracked out'
+ */
+(function () {
+  'use strict';
+  var cv = document.querySelector('#buildCanvas, #heroCanvas, #c, .scene canvas, .pin canvas') || document.querySelector('canvas');
+  if (!cv) return;
+  var wrap = cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var stickyWrap = cv.closest('.scene-sticky, .pin, [id*="Sticky"]') || wrap;
+  var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
+      railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');
+  var fixedP = PS.queryP();
+  
+  // HUD stage labels - trade-specific
+  var NAMES = ['01 - access set', '02 - digging', '03 - loading out', '04 - tracked out'];
+
+  // OVERCAST-SOFT variant configuration
+  // sky: #5a6673 / #8e9aa4 / #c3c8cc | glow: 0 (no sun disc) | diffuse light
+  var S = PS.setup(cv, {
+    sun: 'left', seed: 11, p: fixedP === null ? 0 : fixedP,
+    reduce: PS.reduceMotion() || fixedP !== null,
+    sky: ['#5a6673', '#8e9aa4', '#c3c8cc'], glow: 0, fogNear: 3, fogFar: 28,
+    horizon: 0.44, focal: 1.25, camH: 1.45,
+    progress: fixedP !== null ? null : function () {
+      var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
+      return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
+    },
+    onFrame: frame
+  });
+
+  // OVERCAST-SOFT palette - cool greys, muted tones, no warm glow
+  var DIRT      = '#3a3632', DIRT_D     = '#242220';
+  var FENCE     = '#2a2d30', FENCE_D   = '#1a1c1e';
+  var STEEL     = '#5a6370', STEEL_D   = '#3d444e';
+  var STEEL_L   = '#7a8494', CONC      = '#6a6f78';
+  var TRACK     = '#141618', TRACK_D   = '#0a0c0e';
+  var SPOIL     = '#4a443d', SPOIL_D   = '#34302b';
+  var HYD       = '#2a3036', CAB       = '#4a5058';
+  var SKY_HAZE  = '#c3c8cc';
+
+  /* ---------- ENVIRONMENT (OVERCAST-SOFT) ---------- */
+  function treeLine(z, baseY, amp, col, alpha) {
+    var pts = [], x;
+    for (x = -46; x <= 46; x += 1.6) {
+      var h = Math.sin(x * 0.37) * 0.5 + Math.sin(x * 0.13 + 1.7) * 0.9 + Math.sin(x * 1.1) * 0.16;
+      pts.push(S.project(x, baseY + Math.max(0, h) * amp, z));
+    }
+    var f = S.project(-46, baseY, z), l = S.project(46, baseY, z);
+    S.poly([[f[0], f[1]]].concat(pts).concat([[l[0], l[1]]]), col, null, alpha);
+  }
+
+  function env(time) {
+    var ctx = S.ctx, W = S.W;
+    // OVERCAST-SOFT: no sun glow (glowK = 0)
+    S.sky(0);
+    // Cool overcast sky gradient
+    var sg = ctx.createLinearGradient(0, 0, 0, S.horizon + 8);
+    sg.addColorStop(0, '#4a5562');
+    sg.addColorStop(0.45, '#6a7684');
+    sg.addColorStop(0.78, '#8e9aa4');
+    sg.addColorStop(1, '#a8b2bc');
+    ctx.fillStyle = sg; ctx.fillRect(0, 0, W, S.horizon + 8);
+    
+    // Subtle cloud forms - cool grey, low contrast
+    for (var ci = 0; ci < 8; ci++) {
+      var cy = S.horizon * (0.12 + ci * 0.09), cw = W * (0.35 + 0.10 * ci);
+      var cx = W * (0.05 + ((ci * 0.31 + time * 0.000008) % 1) * 0.9);
+      var cg = ctx.createLinearGradient(0, cy - 18, 0, cy + 20);
+      var ca = 0.05 + 0.07 * Math.abs(Math.sin(ci * 1.3));
+      cg.addColorStop(0, 'rgba(195,200,204,0)');
+      cg.addColorStop(0.42, S.rgba('#c3c8cc', ca));
+      cg.addColorStop(0.62, S.rgba('#b0b8c0', ca * 0.5));
+      cg.addColorStop(1, 'rgba(176,184,192,0)');
+      ctx.fillStyle = cg;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, cw * 0.45, 6 + ci * 2.2, ci * 0.006 - 0.015, 0, 6.2832);
+      ctx.fill();
+    }
+    
+    // No sun disc in OVERCAST-SOFT
+    // Distant treeline - faded into haze
+    treeLine(78, 0.02, 2.8, PS.mix(S.skyCols[2], '#5a6673', 0.4), 0.25);
+    treeLine(52, 0.01, 2.2, PS.mix(S.skyCols[2], '#3a424d', 0.5), 0.45);
+    
+    // Haze band - strong in overcast
+    S.haze(0.95);
+    
+    // Ground plane - cool dirt tones
+    var gN = S.project(0, 0, 2.0), gF = S.project(0, 0, 58);
+    var gg = ctx.createLinearGradient(0, gF[1], 0, gN[1]);
+    gg.addColorStop(0, PS.mix(S.skyCols[2], DIRT, 0.65));
+    gg.addColorStop(0.3, PS.mix(DIRT, '#4a4844', 0.35));
+    gg.addColorStop(1, DIRT_D);
+    ctx.fillStyle = gg; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
+    
+    // Subtle ground texture
+    S.texture([S.project(-60, 0, 58), S.project(60, 0, 58), S.project(60, 0, 2), S.project(-60, 0, 2)], 'grain', 380, .025);
+  }
+
+  function grade(time) {
+    var ctx = S.ctx;
+    // Cool overcast grade - no warm rim
+    var rim = ctx.createLinearGradient(0, 0, S.W, S.H);
+    rim.addColorStop(0, 'rgba(195,200,204,.05)');
+    rim.addColorStop(0.5, 'rgba(195,200,204,0)');
+    rim.addColorStop(1, 'rgba(60,70,85,.04)');
+    ctx.fillStyle = rim; ctx.fillRect(0, 0, S.W, S.H);
+    S.dust(28, time);  // fewer dust motes in overcast
+    S.grade();
+  }
+
+  /* ---------- SUBJECT: TIGHT-ACCESS EXCAVATOR COMBO ---------- */
+  function drawSubject(p, time) {
+    var ctx = S.ctx;
+    
+    // Stage timing - four acts
+    var t1 = PS.stage(p, 0.00, 0.22, 'place'),   // access set - excavator enters gate
+        t2 = PS.stage(p, 0.20, 0.28, 'settle'),   // digging - slews, digs
+        t3 = PS.stage(p, 0.45, 0.30, 'place'),    // loading out - slews to tipper, loads
+        t4 = PS.stage(p, 0.72, 0.28, 'release');  // tracked out - tipper leaves, excavator exits
+
+    // ===== GROUND PLANE =====
+    // Main access strip between fences
+    var accessPts = [
+      S.project(-5.5, 0.002, 18), S.project(5.5, 0.002, 18),
+      S.project(5.5, 0.002, -6), S.project(-5.5, 0.002, -6)
+    ];
+    S.poly(accessPts, DIRT_D, null, 1);
+    S.mottle(accessPts, DIRT, .08, 20);
+    S.texture(accessPts, 'streak', 200, .035);
+    S.contactAO(0, 6, 5.5, 12, .35);
+
+    // Street area beyond gate (where tipper sits)
+    var streetPts = [
+      S.project(-12, 0.002, -6), S.project(12, 0.002, -6),
+      S.project(12, 0.002, -14), S.project(-12, 0.002, -14)
+    ];
+    S.poly(streetPts, PS.mix(DIRT_D, '#2a2a2a', .3), null, 1);
+    S.mottle(streetPts, '#2a2a2a', .06, 16);
+    S.texture(streetPts, 'aggregate', 180, .03);
+
+    // ===== FENCE LINES (the tight access constraint) =====
+    // Left fence
+    var fenceLPosts = [], fenceLTop = [], fenceLBot = [];
+    for (var z = -6; z <= 18; z += 1.8) {
+      var base = S.project(-5.5, 0, z), top = S.project(-5.5, 2.2, z);
+      fenceLPosts.push([base, top]);
+      fenceLTop.push(top);
+      fenceLBot.push(base);
+    }
+    // Fence rails (3 horizontal)
+    for (var rh = 0.5; rh <= 2.0; rh += 0.75) {
+      var railPts = [];
+      for (var z = -6; z <= 18; z += 0.3) {
+        railPts.push(S.project(-5.5, rh, z));
+      }
+      if (railPts.length > 1) {
+        ctx.strokeStyle = S.rgba(FENCE, 0.7);
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(railPts[0][0], railPts[0][1]);
+        for (var i = 1; i < railPts.length; i++) ctx.lineTo(railPts[i][0], railPts[i][1]);
+        ctx.stroke();
+      }
+    }
+    // Fence posts
+    fenceLPosts.forEach(function(pt) {
+      ctx.strokeStyle = S.rgba(FENCE_D, 0.9);
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(pt[0][0], pt[0][1]);
+      ctx.lineTo(pt[1][0], pt[1][1]);
+      ctx.stroke();
+    });
+    S.shadow(-5.5, 6, 0.1, 12, .35);
+    S.contactAO(-5.5, 6, 0.1, 12, .25);
+
+    // Right fence
+    var fenceRPosts = [];
+    for (var z = -6; z <= 18; z += 1.8) {
+      var base = S.project(5.5, 0, z), top = S.project(5.5, 2.2, z);
+      fenceRPosts.push([base, top]);
+    }
+    for (var rh = 0.5; rh <= 2.0; rh += 0.75) {
+      var railPts = [];
+      for (var z = -6; z <= 18; z += 0.3) {
+        railPts.push(S.project(5.5, rh, z));
+      }
+      if (railPts.length > 1) {
+        ctx.strokeStyle = S.rgba(FENCE, 0.7);
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(railPts[0][0], railPts[0][1]);
+        for (var i = 1; i < railPts.length; i++) ctx.lineTo(railPts[i][0], railPts[i][1]);
+        ctx.stroke();
+      }
+    }
+    fenceRPosts.forEach(function(pt) {
+      ctx.strokeStyle = S.rgba(FENCE_D, 0.9);
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(pt[0][0], pt[0][1]);
+      ctx.lineTo(pt[1][0], pt[1][1]);
+      ctx.stroke();
+    });
+    S.shadow(5.5, 6, 0.1, 12, .35);
+    S.contactAO(5.5, 6, 0.1, 12, .25);
+
+    // Gate posts at street end (z = -6)
+    var gateL = S.project(-5.5, 0, -6), gateLTop = S.project(-5.5, 2.4, -6);
+    var gateR = S.project(5.5, 0, -6), gateRTop = S.project(5.5, 2.4, -6);
+    ctx.strokeStyle = S.rgba(FENCE_D, 1);
+    ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(gateL[0], gateL[1]); ctx.lineTo(gateLTop[0], gateLTop[1]); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(gateR[0], gateR[1]); ctx.lineTo(gateRTop[0], gateRTop[1]); ctx.stroke();
+    // Cross beam
+    ctx.strokeStyle = S.rgba(FENCE, 0.8);
+    ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(gateLTop[0], gateLTop[1]); ctx.lineTo(gateRTop[0], gateRTop[1]); ctx.stroke();
+
+    // ===== EXCAVATOR (1.5-3t class, zero tail swing) =====
+    // Position: starts at gate (z=-2), tracks down to z=8, slews to load tipper at z=-2
+    var excZ, excX = 0;
+    if (p < 0.22) {
+      // Stage 1: entering gate, tracking down access
+      excZ = -2 + (8 - (-2)) * PS.ease.inOut(t1);
+    } else if (p < 0.48) {
+      // Stage 2: at dig position (z=8), slewing/digging
+      excZ = 8;
+    } else if (p < 0.72) {
+      // Stage 3: slewing to tipper (z=-2)
+      excZ = 8 + (-2 - 8) * PS.ease.inOut(t3);
+    } else {
+      // Stage 4: tracking out through gate
+      excZ = -2 + (-6 - (-2)) * PS.ease.out(t4);
+    }
+
+    // Excavator body (house) - zero tail swing, compact
+    var houseY = 1.1, houseH = 1.2, houseW = 1.7, houseL = 1.0;
+    var housePts = [
+      S.project(excX - houseW/2, houseY, excZ - houseL/2),
+      S.project(excX + houseW/2, houseY, excZ - houseL/2),
+      S.project(excX + houseW/2, houseY + houseH, excZ - houseL/2),
+      S.project(excX - houseW/2, houseY + houseH, excZ - houseL/2)
+    ];
+    S.shadow(excX, excZ, houseW/2, houseL/2, 0.45);
+    S.contactAO(excX, excZ, houseW/2 + 0.2, houseL/2 + 0.2, .3);
+    // House faces with materiality
+    var houseFaces = [
+      { pts: [housePts[0], housePts[1], S.project(excX + houseW/2, houseY + houseH, excZ + houseL/2), S.project(excX - houseW/2, houseY + houseH, excZ + houseL/2)], normal: [0,0,1] }, // front
+      { pts: [housePts[1], S.project(excX + houseW/2, houseY, excZ + houseL/2), S.project(excX + houseW/2, houseY + houseH, excZ + houseL/2), housePts[2]], normal: [1,0,0] }, // right
+      { pts: [S.project(excX - houseW/2, houseY, excZ + houseL/2), housePts[0], housePts[3], S.project(excX - houseW/2, houseY + houseH, excZ + houseL/2)], normal: [-1,0,0] }, // left
+      { pts: [S.project(excX - houseW/2, houseY, excZ + houseL/2), S.project(excX + houseW/2, houseY, excZ + houseL/2), S.project(excX + houseW/2, houseY + houseH, excZ + houseL/2), S.project(excX - houseW/2, houseY + houseH, excZ + houseL/2)], normal: [0,1,0] } // top
+    ];
+    houseFaces.forEach(function(face) {
+      var lam = Math.max(0, face.normal[0]*0.3 + face.normal[1]*0.8 + face.normal[2]*0.3);
+      var sh = 0.5 + 0.5 * lam; // diffuse overcast lighting
+      var col = PS.mix(STEEL, STEEL_L, sh * 0.3);
+      S.poly(face.pts, col, null, 1);
+      S.texture(face.pts, 'grain', 80, .03);
+    });
+    // Cab window
+    var cabPts = [
+      S.project(excX - 0.5, houseY + 0.2, excZ - houseL/2 + 0.1),
+      S.project(excX + 0.5, houseY + 0.2, excZ - houseL/2 + 0.1),
+      S.project(excX + 0.5, houseY + 0.9, excZ - houseL/2 + 0.1),
+      S.project(excX - 0.5, houseY + 0.9, excZ - houseL/2 + 0.1)
+    ];
+    S.poly(cabPts, S.rgba(CAB, 0.6), S.rgba(STEEL_L, 0.3), 1);
+
+    // Tracks (undercarriage)
+    var trackW = 0.35, trackL = 1.3, trackH = 0.55, trackGap = 1.1;
+    [-trackGap/2, trackGap/2].forEach(function(tx) {
+      var trPts = [
+        S.project(excX + tx - trackW/2, 0.05, excZ - trackL/2),
+        S.project(excX + tx + trackW/2, 0.05, excZ - trackL/2),
+        S.project(excX + tx + trackW/2, trackH, excZ - trackL/2),
+        S.project(excX + tx - trackW/2, trackH, excZ - trackL/2)
+      ];
+      S.poly(trPts, TRACK, null, 1);
+      S.texture(trPts, 'streak', 60, .04);
+      // Track pads
+      for (var tp = 0; tp < 8; tp++) {
+        var padZ = excZ - trackL/2 + trackL * tp / 7;
+        var padPts = [
+          S.project(excX + tx - trackW/2, trackH, padZ),
+          S.project(excX + tx + trackW/2, trackH, padZ),
+          S.project(excX + tx + trackW/2, trackH, padZ + trackL/7),
+          S.project(excX + tx - trackW/2, trackH, padZ + trackL/7)
+        ];
+        S.poly(padPts, TRACK_D, null, 1);
+      }
+    });
+    S.shadow(excX, excZ, trackGap/2 + trackW/2, trackL/2, .5);
+    S.contactAO(excX, excZ, trackGap/2 + trackW/2, trackL/2 + 0.2, .4);
+
+    // ===== BOOM, ARM, BUCKET (animated) =====
+    // Boom pivot at rear of house
+    var pivotX = excX, pivotY = houseY + houseH - 0.15, pivotZ = excZ - houseL/2 + 0.1;
+    
+    // Boom angle: starts low, raises to dig, then slews to tipper
+    var boomAng, armAng, bucketAng;
+    if (p < 0.22) {
+      // Transport position
+      boomAng = -0.25; armAng = 0.6; bucketAng = -0.3;
+    } else if (p < 0.48) {
+      // Digging cycle
+      var digCycle = (t2 * 3) % 1; // 3 dig cycles
+      boomAng = -0.55 + Math.sin(digCycle * 6.28) * 0.15;
+      armAng = 1.1 + Math.sin(digCycle * 6.28 + 1.5) * 0.25;
+      bucketAng = -0.4 + Math.sin(digCycle * 6.28 + 3) * 0.2;
+    } else if (p < 0.72) {
+      // Slewing to tipper, dumping
+      var swingProg = PS.ease.inOut(t3);
+      boomAng = -0.3 + swingProg * 0.4;
+      armAng = 0.8 - swingProg * 0.6;
+      bucketAng = -0.2 + swingProg * 1.2; // dump
+    } else {
+      // Transport out
+      boomAng = 0.1; armAng = 0.4; bucketAng = -0.3;
+    }
+
+    // Boom (length ~3.2m)
+    var boomL = 3.2, boomW = 0.16;
+    var boomEndX = pivotX + Math.sin(boomAng) * 0, // boom swings in YZ plane primarily
+        boomEndY = pivotY + Math.cos(boomAng) * boomL,
+        boomEndZ = pivotZ - Math.sin(boomAng) * boomL;
+    var boomPts = [
+      S.project(pivotX - boomW/2, pivotY, pivotZ),
+      S.project(pivotX + boomW/2, pivotY, pivotZ),
+      S.project(excX + boomW/2, boomEndY, boomEndZ),
+      S.project(excX - boomW/2, boomEndY, boomEndZ)
+    ];
+    S.poly(boomPts, STEEL, null, 1);
+    S.texture(boomPts, 'streak', 50, .04);
+    S.rim(boomPts[0], boomPts[3], S.rgba(SKY_HAZE, 0.15), 0.8, 1.5);
+
+    // Arm (length ~2.0m)
+    var armL = 2.0, armW = 0.13;
+    var armEndY = boomEndY + Math.cos(boomAng + armAng) * armL,
+        armEndZ = boomEndZ - Math.sin(boomAng + armAng) * armL;
+    var armPts = [
+      S.project(excX - armW/2, boomEndY, boomEndZ),
+      S.project(excX + armW/2, boomEndY, boomEndZ),
+      S.project(excX + armW/2, armEndY, armEndZ),
+      S.project(excX - armW/2, armEndY, armEndZ)
+    ];
+    S.poly(armPts, STEEL, null, 1);
+    S.texture(armPts, 'streak', 40, .04);
+    S.rim(armPts[0], armPts[3], S.rgba(SKY_HAZE, 0.12), 0.6, 1.2);
+
+    // Bucket (accent red - the Allway brand color)
+    var bucketW = 0.55, bucketH = 0.45, bucketD = 0.6;
+    var bucketPts = [
+      S.project(excX - bucketW/2, armEndY - bucketH/2, armEndZ - bucketD/2),
+      S.project(excX + bucketW/2, armEndY - bucketH/2, armEndZ - bucketD/2),
+      S.project(excX + bucketW/2, armEndY + bucketH/2, armEndZ - bucketD/2),
+      S.project(excX - bucketW/2, armEndY + bucketH/2, armEndZ - bucketD/2),
+      S.project(excX - bucketW/2, armEndY - bucketH/2, armEndZ + bucketD/2),
+      S.project(excX + bucketW/2, armEndY - bucketH/2, armEndZ + bucketD/2),
+      S.project(excX + bucketW/2, armEndY + bucketH/2, armEndZ + bucketD/2),
+      S.project(excX - bucketW/2, armEndY + bucketH/2, armEndZ + bucketD/2)
+    ];
+    var FACES = [[0,1,2,3],[4,5,6,7],[0,4,7,3],[1,5,6,2],[0,1,5,4],[3,2,6,7]];
+    var bucketCol = (p >= 0.45 && p < 0.72) ? '#ff3333' : '#cc0000'; // brighter when loading
+    FACES.forEach(function(fi, fiIdx) {
+      var facePts = [bucketPts[fi[0]], bucketPts[fi[1]], bucketPts[fi[2]], bucketPts[fi[3]]];
+      var lam = 0.5 + 0.3 * Math.sin(fiIdx); // diffuse
+      var fc = PS.mix(bucketCol, PS.lighten(bucketCol, 0.3), lam * 0.4);
+      S.poly(facePts, fc, null, 1);
+      if (fiIdx === 0 || fiIdx === 1) {
+        S.texture(facePts, 'grain', 30, .04);
+      }
+    });
+    // Bucket cutting edge
+    ctx.strokeStyle = S.rgba('#880000', 0.8);
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(bucketPts[0][0], bucketPts[0][1]);
+    ctx.lineTo(bucketPts[1][0], bucketPts[1][1]);
+    ctx.stroke();
+
+    // Hydraulic hoses (subtle)
+    ctx.strokeStyle = S.rgba(HYD, 0.4);
+    ctx.lineWidth = 1.5;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(boomPts[0][0], boomPts[0][1]);
+    ctx.lineTo(armPts[0][0], armPts[0][1]);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(armPts[0][0], armPts[0][1]);
+    ctx.lineTo(bucketPts[0][0], bucketPts[0][1]);
+    ctx.stroke();
+
+    // ===== TIPPER TRUCK (waiting on street at z=-4 to -8) =====
+    var tipperZ, tipperX = 4.8; // offset to right side of access
+    if (p < 0.45) {
+      tipperZ = -4; // waiting
+    } else if (p < 0.72) {
+      // Being loaded, then pulling away
+      tipperZ = -4 + (-10 - (-4)) * PS.ease.out(t3);
+    } else {
+      tipperZ = -10; // gone
+    }
+
+    // Tipper chassis
+    var tipW = 2.4, tipL = 5.5, tipH = 0.6;
+    var tipChassisPts = [
+      S.project(tipperX - tipW/2, tipH, tipperZ - tipL/2),
+      S.project(tipperX + tipW/2, tipH, tipperZ - tipL/2),
+      S.project(tipperX + tipW/2, tipH, tipperZ + tipL/2),
+      S.project(tipperX - tipW/2, tipH, tipperZ + tipL/2)
+    ];
+    S.shadow(tipperX, tipperZ, tipW/2, tipL/2, 0.4);
+    S.contactAO(tipperX, tipperZ, tipW/2 + 0.3, tipL/2 + 0.3, .3);
+    S.poly(tipChassisPts, STEEL_D, null, 1);
+    S.texture(tipChassisPts, 'streak', 80, .03);
+
+    // Tipper tray (body)
+    var trayH = 1.8, trayY = tipH + trayH/2;
+    var trayPts = [
+      S.project(tipperX - tipW/2 + 0.1, trayY - trayH/2, tipperZ - tipL/2 + 0.3),
+      S.project(tipperX + tipW/2 - 0.1, trayY - trayH/2, tipperZ - tipL/2 + 0.3),
+      S.project(tipperX + tipW/2 - 0.1, trayY + trayH/2, tipperZ - tipL/2 + 0.3),
+      S.project(tipperX - tipW/2 + 0.1, trayY + trayH/2, tipperZ - tipL/2 + 0.3),
+      S.project(tipperX - tipW/2 + 0.1, trayY - trayH/2, tipperZ + tipL/2 - 0.3),
+      S.project(tipperX + tipW/2 - 0.1, trayY - trayH/2, tipperZ + tipL/2 - 0.3),
+      S.project(tipperX + tipW/2 - 0.1, trayY + trayH/2, tipperZ + tipL/2 - 0.3),
+      S.project(tipperX - tipW/2 + 0.1, trayY + trayH/2, tipperZ + tipL/2 - 0.3)
+    ];
+    var TIPFACES = [[0,1,2,3],[4,5,6,7],[0,4,7,3],[1,5,6,2],[0,1,5,4],[3,2,6,7]];
+    TIPFACES.forEach(function(fi, fiIdx) {
+      var facePts = [trayPts[fi[0]], trayPts[fi[1]], trayPts[fi[2]], trayPts[fi[3]]];
+      var lam = 0.45 + 0.3 * (fiIdx % 3);
+      var fc = PS.mix(STEEL, STEEL_L, lam * 0.4);
+      S.poly(facePts, fc, null, 1);
+      if (fiIdx === 4) { // top - gets spoil
+        S.texture(facePts, 'aggregate', 120, .04);
+      } else {
+        S.texture(facePts, 'streak', 60, .03);
+      }
+    });
+
+    // Tipper cab
+    var cabW = 2.2, cabH = 1.6, cabL = 2.0;
+    var cabPts = [
+      S.project(tipperX - cabW/2, tipH + cabH/2, tipperZ - tipL/2 - cabL/2),
+      S.project(tipperX + cabW/2, tipH + cabH/2, tipperZ - tipL/2 - cabL/2),
+      S.project(tipperX + cabW/2, tipH + cabH, tipperZ - tipL/2 - cabL/2),
+      S.project(tipperX - cabW/2, tipH + cabH, tipperZ - tipL/2 - cabL/2),
+      S.project(tipperX - cabW/2, tipH + cabH/2, tipperZ - tipL/2 + cabL/2),
+      S.project(tipperX + cabW/2, tipH + cabH/2, tipperZ - tipL/2 + cabL/2),
+      S.project(tipperX + cabW/2, tipH + cabH, tipperZ - tipL/2 + cabL/2),
+      S.project(tipperX - cabW/2, tipH + cabH, tipperZ - tipL/2 + cabL/2)
+    ];
+    TIPFACES.forEach(function(fi, fiIdx) {
+      var facePts = [cabPts[fi[0]], cabPts[fi[1]], cabPts[fi[2]], cabPts[fi[3]]];
+      var lam = 0.5 + 0.25 * (fiIdx % 3);
+      var fc = PS.mix(STEEL_D, STEEL, lam * 0.3);
+      S.poly(facePts, fc, null, 1);
+    });
+    // Cab window
+    var winPts = [
+      S.project(tipperX - 0.6, tipH + 0.8, tipperZ - tipL/2 - cabL/2 + 0.1),
+      S.project(tipperX + 0.6, tipH + 0.8, tipperZ - tipL/2 - cabL/2 + 0.1),
+      S.project(tipperX + 0.6, tipH + 1.4, tipperZ - tipL/2 - cabL/2 + 0.1),
+      S.project(tipperX - 0.6, tipH + 1.4, tipperZ - tipL/2 - cabL/2 + 0.1)
+    ];
+    S.poly(winPts, S.rgba(CAB, 0.5), S.rgba(STEEL_L, 0.2), 1);
+
+    // Tipper wheels (4 rear, 2 front)
+    var wheelR = 0.55, wheelW = 0.35;
+    [[tipperX - 1.1, tipH - 0.1, tipperZ + tipL/2 - 0.8],
+     [tipperX + 1.1, tipH - 0.1, tipperZ + tipL/2 - 0.8],
+     [tipperX - 1.1, tipH - 0.1, tipperZ + tipL/2 - 2.2],
+     [tipperX + 1.1, tipH - 0.1, tipperZ + tipL/2 - 2.2],
+     [tipperX - 1.1, tipH - 0.1, tipperZ - tipL/2 + 0.8],
+     [tipperX + 1.1, tipH - 0.1, tipperZ - tipL/2 + 0.8]].forEach(function(w) {
+      var wx = w[0], wy = w[1], wz = w[2];
+      var wPts = [
+        S.project(wx - wheelR, wy, wz), S.project(wx + wheelR, wy, wz),
+        S.project(wx + wheelR, wy + wheelR, wz), S.project(wx - wheelR, wy + wheelR, wz)
+      ];
+      S.poly(wPts, TRACK, null, 1);
+      S.texture(wPts, 'grain', 20, .05);
+      S.shadow(wx, wz, wheelR, wheelW, .4);
+    });
+
+    // ===== SPOIL PARTICLES (loading into tipper) =====
+    if (p >= 0.48 && p < 0.72) {
+      var loadProg = PS.clamp((p - 0.48) / 0.24, 0, 1);
+      var numParticles = Math.round(18 * loadProg);
+      for (var sp = 0; sp < numParticles; sp++) {
+        var spSeed = sp * 73;
+        var spTime = time * 0.002 + spSeed * 0.01;
+        // Arc from bucket to tipper tray
+        var bucketPos = [excX, armEndY, armEndZ];
+        var trayCenterY = trayY, trayCenterZ = tipperZ;
+        var arcT = (sp / Math.max(1, numParticles - 1)) * 0.8 + loadProg * 0.2;
+        arcT = PS.clamp(arcT, 0, 1);
+        var sx = PS.lerp(bucketPos[0], tipperX, arcT) + Math.sin(spTime) * 0.15;
+        var sy = PS.lerp(bucketPos[1], trayCenterY + 0.5, arcT) + Math.cos(spTime * 1.3) * 0.2;
+        var sz = PS.lerp(bucketPos[2], trayCenterZ, arcT);
+        var pPt = S.project(sx, sy, sz);
+        if (pPt && pPt[0] > 0 && pPt[0] < S.W && pPt[1] > 0 && pPt[1] < S.H) {
+          var ps = S.focal / Math.max(4, sz);
+          var pr = 1.2 + (sp % 3) * 0.6;
+          ctx.fillStyle = S.rgba(SPOIL, 0.85 * (1 - arcT * 0.5));
+          ctx.beginPath(); ctx.arc(pPt[0], pPt[1], pr * ps, 0, 6.2832); ctx.fill();
+        }
+      }
+    }
+
+    // Spoil pile in tray (accumulates)
+    if (p >= 0.55) {
+      var pileProg = PS.clamp((p - 0.55) / 0.17, 0, 1);
+      var pileH = trayH * 0.7 * pileProg;
+      var pilePts = [
+        S.project(tipperX - tipW/2 + 0.2, trayY + pileH/2, tipperZ - tipL/2 + 0.5),
+        S.project(tipperX + tipW/2 - 0.2, trayY + pileH/2, tipperZ - tipL/2 + 0.5),
+        S.project(tipperX + tipW/2 - 0.2, trayY + pileH/2, tipperZ + tipL/2 - 0.5),
+        S.project(tipperX - tipW/2 + 0.2, trayY + pileH/2, tipperZ + tipL/2 - 0.5)
+      ];
+      S.poly(pilePts, SPOIL, null, 1);
+      S.mottle(pilePts, SPOIL, .12, 18);
+      S.texture(pilePts, 'aggregate', 160, .05);
+      S.rim(pilePts[0], pilePts[1], S.rgba(SKY_HAZE, 0.1), 0.5, 1.5);
+    }
+
+    // ===== SCALE CUE (traffic cone at gate) =====
+    S.scaleCue(6.5, -7, 'cone');
+
+    // ===== AMBIENT DETAILS =====
+    // Hydraulic lines on excavator
+    if (p > 0.15) {
+      ctx.strokeStyle = S.rgba(HYD, 0.35);
+      ctx.lineWidth = 1.2;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(boomPts[0][0], boomPts[0][1]);
+      ctx.lineTo(boomPts[3][0], boomPts[3][1]);
+      ctx.stroke();
+    }
+
+    // Excavator tracks marks in the dirt (faint)
+    if (p > 0.25) {
+      ctx.strokeStyle = S.rgba('#1a1a1a', 0.12);
+      ctx.lineWidth = 3;
+      for (var tm = 0; tm < 2; tm++) {
+        var tx = excX + (tm === 0 ? -0.7 : 0.7);
+        ctx.beginPath();
+        ctx.moveTo(S.project(tx, 0.01, excZ - 3)[0], S.project(tx, 0.01, excZ - 3)[1]);
+        ctx.lineTo(S.project(tx, 0.01, excZ + 2)[0], S.project(tx, 0.01, excZ + 2)[1]);
+        ctx.stroke();
+      }
+    }
+  }
+
+  /* ---------- MAIN FRAME ---------- */
+  function frame(S_, p, time) {
+    S = S_;
+    env(time);
+    drawSubject(p, time);
+    grade(time);
+
+    // HUD stage updates
+    var idx = p < 0.20 ? 0 : p < 0.45 ? 1 : p < 0.72 ? 2 : 3;
+    if (stgNum) stgNum.textContent = '0' + (idx + 1);
+    if (stgName) stgName.textContent = ['Access set', 'Digging', 'Loading out', 'Tracked out'][idx];
+    if (railFill) railFill.style.width = Math.round(p * 100) + '%';
+    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.4, 0, 1);
+  }
+
+  S.start();
+})();
+</script>
+<script>
+/* ---- page glue (reveal + nav) preserved through the scene retrofit ---- */
+(function(){var rvs=[].slice.call(document.querySelectorAll('.rv'));
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){
+if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{rootMargin:'0px 0px -12% 0px',threshold:0.08});
+rvs.forEach(function(el){io.observe(el);});}else{rvs.forEach(function(el){el.classList.add('on');});}
+setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},1200);
+var b=document.getElementById('burger'),n=document.getElementById('navlinks');
+if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
+n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});}
+var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();})();
+</script>
+
+</body>
+</html>
