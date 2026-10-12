@@ -244,6 +244,20 @@ h2::after {
 .photo-band .pb-strip b { font-family: var(--disp); font-weight: 900; text-transform: uppercase; letter-spacing: .02em; font-size: clamp(19px, 2.6vw, 30px); color: #fff; }
 .photo-band .pb-strip span { color: rgba(255,255,255,.9); font-size: .92rem; }
 .photo-band .pb-strip a { background: #fff; color: var(--acc2); font-weight: 800; padding: 11px 20px; border-radius: 7px; text-decoration: none; box-shadow: inset 0 1px 0 #fff, 0 2px 0 rgba(0,0,0,.25); }
+
+.svc-n svg { width: 21px; height: 21px; }
+.pb-strip { padding: 22px clamp(18px, 4vw, 44px); }
+.pb-strip .pb-copy b { display: block; }
+.pb-strip .pb-copy span { display: block; margin-top: 5px; }
+.pb-strip .pb-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.pb-strip a.pb-phone { color: #fff; font-weight: 800; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,.55); padding-bottom: 2px; }
+.pb-strip::before {
+  content: ""; position: absolute; top: 0; left: -45%; width: 38%; height: 100%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,.30) 45%, rgba(255,255,255,.05) 62%, transparent 100%);
+  transform: skewX(-18deg); animation: lb-sheen 4.8s ease-in-out infinite; pointer-events: none;
+}
+.pb-strip { position: absolute; overflow: hidden; }
+@media (prefers-reduced-motion: reduce) { .pb-strip::before { animation: none; opacity: .2; } }
 </style>
 </head>
 <body>
@@ -293,7 +307,7 @@ h2::after {
   <span class="red-slash" aria-hidden="true" style="top:26px;left:-6%;width:22%;transform:rotate(-4.5deg);opacity:.85"></span>
   <span class="red-slash" aria-hidden="true" style="top:52px;left:-8%;width:14%;transform:rotate(-4.5deg);opacity:.45"></span><div class="wrap">
   <div class="sec-head"><span class="sec-idx">01</span><div><h2 class="sec-title">Detailing that shows up in the reflections.</h2><p class="lead">From a maintenance wash through to a full graphene-protected detail &mdash; the right package for the finish you are chasing.</p></div></div>
-  <div class="svc-grid"><div class="svc-row rv"><span class="svc-n">01</span><div class="svc-body"><h3>Graphene protection</h3><p>The signature package &mdash; paint sealed with a long-life graphene coating that shrugs off water, grime and UV.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">02</span><div class="svc-body"><h3>Full interior &amp; exterior detail</h3><p>Paint decontaminated and polished, interior detailed to the seams &mdash; inside and out in one booking.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">03</span><div class="svc-body"><h3>Paint enhancement &amp; correction</h3><p>Swirls, haze and light defects machine-polished back so reflections run flat and clean.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">04</span><div class="svc-body"><h3>Exterior wash &amp; decontamination</h3><p>Foam wash, clay decontamination and a hand finish that leaves paint glassy to the touch.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">05</span><div class="svc-body"><h3>Interior detailing</h3><p>Seats, carpets, dash and trim vacuumed, shampooed and dressed &mdash; the parts you live in every day.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">06</span><div class="svc-body"><h3>Boats &amp; motorhomes</h3><p>Gelcoat cut and polish, hull wash-downs and protection for boats, caravans and motorhomes.</p></div><span class="svc-arrow">&#8599;</span></div></div>
+  <div class="svc-grid"><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.3-3 7.9-7 10-4-2.1-7-5.7-7-10V6l7-3z"/><path d="M9.3 11.8l2 2 3.6-4.2"/></svg></span><div class="svc-body"><h3>Graphene protection</h3><p>The signature package &mdash; paint sealed with a long-life graphene coating that shrugs off water, grime and UV.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 13.5l1.7-4.4A2 2 0 018.1 7.8h7.8a2 2 0 011.9 1.3l1.7 4.4"/><path d="M4.5 13.5h15v3.4h-2.2"/><path d="M6.7 16.9H4.5"/><circle cx="8" cy="17" r="1.5"/><circle cx="16" cy="17" r="1.5"/></svg></span><div class="svc-body"><h3>Full interior &amp; exterior detail</h3><p>Paint decontaminated and polished, interior detailed to the seams &mdash; inside and out in one booking.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.5"/></svg></span><div class="svc-body"><h3>Paint enhancement &amp; correction</h3><p>Swirls, haze and light defects machine-polished back so reflections run flat and clean.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c3.1 3.7 5.5 6.5 5.5 9.5A5.5 5.5 0 0112 19a5.5 5.5 0 01-5.5-5.5C6.5 10.5 8.9 7.7 12 4z"/><path d="M10 15.6a2.2 2.2 0 002.2-2.2"/></svg></span><div class="svc-body"><h3>Exterior wash &amp; decontamination</h3><p>Foam wash, clay decontamination and a hand finish that leaves paint glassy to the touch.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5A2 2 0 0110 2.5h.6a2 2 0 012 2v7.5h-3a1.6 1.6 0 01-1.6-1.6V4.5z"/><path d="M12.6 12h3.1a2 2 0 012 2v2.6a2 2 0 01-2 2H9"/><path d="M5.5 18.6h3.5"/></svg></span><div class="svc-body"><h3>Interior detailing</h3><p>Seats, carpets, dash and trim vacuumed, shampooed and dressed &mdash; the parts you live in every day.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5h16l-2.3 3.1a2 2 0 01-1.6.9H8.1a2 2 0 01-1.6-.9L4 15.5z"/><path d="M12 3.5v12"/><path d="M12 6l5 6h-5"/><path d="M12 8.5L8 12h4"/></svg></span><div class="svc-body"><h3>Boats &amp; motorhomes</h3><p>Gelcoat cut and polish, hull wash-downs and protection for boats, caravans and motorhomes.</p></div><span class="svc-arrow">&#8599;</span></div></div>
 </div></section>
 
 <section class="band carbon" id="process"><div class="wrap">
@@ -324,25 +338,17 @@ h2::after {
 <section class="photo-band" aria-label="Graphene-coated finish showcase">
   <img src="assets/gal_1.jpg" alt="Mustang &mdash; machine-corrected, graphene-coated finish by Allards Auto Detailing" loading="lazy">
   <div class="pb-strip">
-    <div>
-      <b>Corrected, coated, protected</b>
-      <span>Swirl-free paint, glass-clear reflections &mdash; in the bay at West Gosford.</span>
+    <div class="pb-copy">
+      <b>Give your car the Allard&rsquo;s shine</b>
+      <span>Message us for a free quote &mdash; send us your car&rsquo;s make and model and we&rsquo;ll come back with a price.</span>
     </div>
-    <a href="#quote">Get a free quote</a>
-  </div>
-</section>
-<section id="cta-band" aria-label="Get a free quote">
-  <div class="wrap">
-    <div>
-      <p class="band-line1">Message us for a free quote</p>
-      <p class="band-line2">Send us your car&rsquo;s make and model &mdash; we&rsquo;ll come back with a price.</p>
-    </div>
-    <div class="band-cta">
-      <a class="band-btn" href="#quote">Get a free quote</a>
-      <a class="band-phone" href="tel:+61405733769">0405 733 769</a>
+    <div class="pb-cta">
+      <a class="pb-btn" href="#quote">Get a free quote</a>
+      <a class="pb-phone" href="tel:+61405733769">0405 733 769</a>
     </div>
   </div>
 </section>
+
 <section id="lbq" aria-labelledby="lbq-h">
 <style>
 #lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--ink2);--lbq-bg:var(--paper2);--lbq-panel:#17191e;--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
