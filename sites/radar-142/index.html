@@ -241,6 +241,13 @@ h2::after {
   <div class="nav-cta"><span class="mono nav-p">0405 733 769</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
+<section id="splash" aria-label="Allards Auto Detailing">
+  <div class="sp-in">
+    <img class="sp-logo" src="assets/logo.png" alt="Allards Auto Detailing">
+    <p class="sp-tag">Detailing studio &middot; West Gosford, Central Coast</p>
+    <a class="sp-scroll" href="#top" aria-label="Scroll to site"><span>Scroll</span><i aria-hidden="true"></i></a>
+  </div>
+</section>
 
 <header class="hero hex-veil" id="top">
 <!-- LB-3D-HERO -->
@@ -370,6 +377,24 @@ h2::after {
 .hero-enq .he-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .hero-enq button{width:100%;background:var(--acc);color:#fff;border:0;padding:12px;border-radius:7px;font-weight:800;letter-spacing:.05em;cursor:pointer;text-transform:uppercase;font-size:12.5px;margin-top:2px}
 .hero-enq button:hover{background:var(--acc2)}
+
+/* logo splash (layout ref 2026-10-13) */
+#splash{position:relative;z-index:5;min-height:100vh;display:grid;place-items:center;background:
+  radial-gradient(120% 90% at 50% 8%, rgba(239,31,43,.14) 0%, rgba(239,31,43,0) 46%),
+  linear-gradient(180deg,#0a0b0d 0%,#101216 60%,#0a0b0d 100%);
+  border-bottom:1px solid var(--line)}
+#splash::after{content:"";position:absolute;left:8%;right:8%;bottom:64px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--acc) 30%,var(--acc2) 70%,transparent);opacity:.5}
+#splash .sp-in{display:flex;flex-direction:column;align-items:center;gap:26px;padding:0 24px;text-align:center}
+#splash .sp-logo{width:min(560px,74vw);height:auto;filter:drop-shadow(0 6px 34px rgba(239,31,43,.22))}
+#splash .sp-tag{margin:0;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2)}
+#splash .sp-scroll{display:inline-flex;text-decoration:none;flex-direction:column;align-items:center;gap:8px;background:none;border:0;color:var(--ink2);
+  font:inherit;font-size:11px;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;padding:6px 10px}
+#splash .sp-scroll i{display:block;width:1.5px;height:44px;background:linear-gradient(180deg,var(--acc),rgba(239,31,43,0));
+  animation:spLine 1.8s ease-in-out infinite}
+#splash .sp-scroll:hover{color:var(--ink)}
+@keyframes spLine{0%{transform:scaleY(.25);transform-origin:top;opacity:.4}55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.25);transform-origin:bottom;opacity:.4}}
+@media (prefers-reduced-motion: reduce){#splash .sp-scroll i{animation:none}}
 </style>
 <div class="lbq-w">
   <div>
@@ -835,6 +860,29 @@ if (hg) {
     if (sec) sec.scrollIntoView({block: 'start'});
     var n = document.getElementById('lbq-n'); if (n) setTimeout(function(){ n.focus(); }, 700);
   });
+})();
+</script>
+<script>
+/* splash -> landing (layout ref 2026-10-13) */
+(function(){
+  var sp = document.getElementById('splash');
+  var hero = document.getElementById('top');
+  if (!sp || !hero) return;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var advanced = false;
+  function go(){ if (advanced) return; advanced = true;
+    try { window.scrollTo({ top: hero.offsetTop, behavior: reduced ? 'auto' : 'smooth' }); } catch(e) { window.scrollTo(0, hero.offsetTop); }
+    setTimeout(function(){ if (window.scrollY < 40) window.scrollTo(0, hero.offsetTop); }, 650); }
+  var t = setTimeout(function(){ if (window.scrollY < 40) go(); }, 2400);
+  sp.addEventListener('click', go);
+  window.addEventListener('wheel', function(){ clearTimeout(t); }, { passive: true, once: true });
+  window.addEventListener('touchstart', function(){ clearTimeout(t); }, { passive: true, once: true });
+  if (!reduced) {
+    window.addEventListener('scroll', function(){
+      var y = Math.min(window.scrollY, window.innerHeight);
+      sp.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.8)));
+    }, { passive: true });
+  }
 })();
 </script></body>
 </html>
