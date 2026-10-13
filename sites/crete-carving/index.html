@@ -50,8 +50,15 @@ footer .trust{display:flex;gap:20px}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 @media (max-width:760px){.svc{grid-template-columns:1fr;gap:8px}.hero h1{font-size:clamp(44px,13vw,90px)}nav .tel{padding:10px 2px}}
 </style>
+<style>
+/* scene v2 2026-10-13 */
+.hero-in,.hero .wrap,.hero__in,.hero .container{position:relative;z-index:2}
+.hero-copy{z-index:2}
+#hero-canvas{display:none!important}
+</style>
 </head>
 <body>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
 <nav>
   <a class="brand" href="#top"><span>Crete Carving</span></a>
 </nav>
@@ -605,6 +612,890 @@ footer .trust{display:flex;gap:20px}
   else UX.init();
   global.UX = UX;
 })(window);
+
+</script>
+
+<script>
+/* ==== PRO SCENE LIB (pro_scene.js) v2026-10-13 ==== */
+/* pro_scene.js — PRO SCENE STANDARD for Laydback lead-site canvas animations.
+ * Copy this INTO the site's <script> block (sites are single-file). ~8KB.
+ * Goal: make a canvas scene read like a rendered illustration, not a diagram.
+ *
+ * The seven rules (a scene that breaks any of these reads amateur):
+ *  1. LIGHTING: one sun direction for the whole scene. Sky = vertical gradient with a warm
+ *     glow near the sun side; every form has a lit face and a shaded face (lit = toward sun).
+ *  2. DEPTH: atmospheric perspective — far geometry blends toward the haze colour, near
+ *     geometry is darkest/most saturated. Draw far layers first.
+ *  3. CONTACT: nothing floats. Every object gets a soft elliptical ground shadow whose
+ *     alpha grows as it settles; airborne objects get a small, tight shadow.
+ *  4. MATERIALITY: every large surface carries a texture pass (speckle/grain/streaks),
+ *     clipped to the surface, at 2–5% alpha. Flat fills = plastic = amateur.
+ *  5. MOTION: no linear motion. Ease-in-out for placement, ease-out for releases,
+ *     slight overshoot on settling. The scroll progress itself is SMOOTHED (lerp) so the
+ *     scene glides instead of snapping to the wheel.
+ *  6. CAMERA: slow parallax drift (a few px) driven by time + a small scroll offset;
+ *     foreground elements move more than background ones.
+ *  7. GRADE: finish with a vignette and a fine grain pass at very low alpha, always last.
+ */
+(function (global) {
+  'use strict';
+  var PS = {};
+
+  /* ---------- maths ---------- */
+  PS.clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
+  PS.lerp = function (a, b, k) { return a + (b - a) * k; };
+  PS.smoothstep = function (edge0, edge1, x) {
+    var t = PS.clamp((x - edge0) / (edge1 - edge0 || 1e-6), 0, 1); return t * t * (3 - 2 * t);
+  };
+  PS.ease = {
+    inOut: function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; },
+    out: function (t) { return 1 - Math.pow(1 - t, 3); },
+    in: function (t) { return t * t * t; },
+    back: function (t) { var s = 1.70158; t = PS.clamp(t, 0, 1); return 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2); }
+  };
+  /* stage(k, t0, dur) -> smoothed 0..1 (optionally with settle-overshoot) */
+  PS.stage = function (p, t0, dur, mode) {
+    var t = PS.clamp((p - t0) / (dur || 0.2), 0, 1);
+    if (mode === 'place') return PS.ease.inOut(t);
+    if (mode === 'settle') return PS.ease.back(t);
+    if (mode === 'release') return PS.ease.out(t);
+    return PS.smoothstep(0, 1, t);
+  };
+
+  /* ---------- palette helpers ---------- */
+  PS.rgb = function (c) {
+    if (Array.isArray(c)) return c;
+    if (typeof c === 'string' && c.slice(0, 3) === 'rgb') {          // already "rgb(r,g,b)"
+      var m = c.match(/-?\d+(\.\d+)?/g) || [0, 0, 0];
+      return [Math.round(+m[0] || 0), Math.round(+m[1] || 0), Math.round(+m[2] || 0)];
+    }
+    var hex = String(c).replace('#', '');
+    if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    var n = parseInt(hex, 16);
+    if (!isFinite(n)) return [128, 128, 128];
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  };
+  PS.mix = function (c1, c2, k) {
+    var a = PS.rgb(c1), b = PS.rgb(c2);
+    return 'rgb(' + Math.round(PS.lerp(a[0], b[0], k)) + ',' + Math.round(PS.lerp(a[1], b[1], k)) + ',' + Math.round(PS.lerp(a[2], b[2], k)) + ')';
+  };
+  PS.rgba = function (c, a) {
+    var v = PS.rgb(c);
+    return 'rgba(' + v[0] + ',' + v[1] + ',' + v[2] + ',' + a + ')';
+  };
+  PS.lighten = function (c, k) { return PS.mix(c, [255, 255, 255], k); };
+  PS.darken = function (c, k) { return PS.mix(c, [8, 10, 14], k); };
+
+  /* ---------- setup / loop ---------- */
+  /* PS.setup(canvas, opts)
+   *   opts.sun      : 'left' | 'right'  (default 'left')
+   *   opts.sky      : [topHex, horizonHex, hazeHex]  (haze = colour far geometry fades to)
+   *   opts.reduce   : bool (respect prefers-reduced-motion)
+   *   opts.progress : function() -> 0..1 (scroll progress; omit for a fixed p)
+   *   opts.onFrame  : function(S, p, time)  — your draw code
+   * S = state: {ctx,W,H,DPR,project(x,y,z),projectAt(yaw,x,y,z),shadow(...),sun,sky,rng}
+   */
+  PS.setup = function (canvas, opts) {
+    opts = opts || {};
+    var ctx = canvas.getContext('2d');
+    var DPR = Math.min(global.devicePixelRatio || 1, 2);
+    var S = {
+      ctx: ctx, W: 0, H: 0, DPR: DPR, sun: opts.sun || 'left',
+      skyCols: opts.sky || ['#0b1622', '#16324c', '#2b4a63'],
+      reduce: !!opts.reduce, sunAngle: opts.sun === 'right' ? 1 : -1
+    };
+    S.rng = (function (seed) {           // deterministic texture noise
+      var s = seed || 1301;
+      return function () { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
+    })(opts.seed);
+
+    S.resize = function () {
+      S.W = canvas.clientWidth || canvas.offsetWidth || global.innerWidth;
+      S.H = canvas.clientHeight || canvas.offsetHeight || global.innerHeight;
+      if (!S.W || !S.H) return false;
+      canvas.width = Math.round(S.W * DPR); canvas.height = Math.round(S.H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      return true;
+    };
+
+    /* perspective camera: floor y=0, camera at height camH looking down the z axis.
+     * horizon = 0.52H, focal = 1.05H. y is height ABOVE the floor (world units). */
+    S.horizon = 0; S.focal = 0; S.camH = 1.7;
+    S.cam = function () { S.focal = S.H * (opts.focal || 1.05); S.horizon = S.H * (opts.horizon || 0.52); };
+    S.project = function (x, y, z) {
+      if (z < 0.55) z = 0.55;
+      var s = S.focal / z;
+      return [S.W / 2 + x * s + (opts.driftX || 0) * s, S.horizon + (S.camH - y) * s];
+    };
+    /* fog: 0 = near (full colour), 1 = at the horizon (blend to haze) */
+    S.fog = function (z) { return PS.clamp((z - (opts.fogNear || 3)) / ((opts.fogFar || 26) - (opts.fogNear || 3)), 0, 1); };
+    S.skyColour = function (k) { return PS.mix(S.skyCols[0], S.skyCols[2], PS.clamp(k, 0, 1)); };
+
+    /* ---------- drawing primitives ---------- */
+    S.poly = function (pts, fill, stroke, alpha, lw) {
+      if (alpha !== undefined && alpha <= 0) return;
+      ctx.save(); if (alpha !== undefined) ctx.globalAlpha = alpha;
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath();
+      if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+      if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.lineJoin = 'round'; ctx.stroke(); }
+      ctx.restore();
+    };
+    S.sky = function (glowK) {
+      var g = ctx.createLinearGradient(0, 0, 0, S.H);
+      g.addColorStop(0, S.skyCols[0]); g.addColorStop(0.62, S.skyCols[1]); g.addColorStop(1, S.skyCols[2]);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+      if (glowK !== 0) {                                  // warm sun-side glow above the horizon
+        var gx = S.sunAngle < 0 ? S.W * 0.18 : S.W * 0.82, r = Math.max(S.W, S.H) * 0.55;
+        var rg = ctx.createRadialGradient(gx, S.horizon - S.H * 0.06, 0, gx, S.horizon - S.H * 0.06, r);
+        rg.addColorStop(0, PS.rgba(opts.glow || '#ffb877', (glowK === undefined ? 0.22 : glowK)));
+        rg.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = rg; ctx.fillRect(0, 0, S.W, S.H);
+      }
+    };
+    S.haze = function (k) {                                // horizon haze band
+      var kk = k === undefined ? 0.5 : k;
+      var g = ctx.createLinearGradient(0, S.horizon - S.H * 0.10, 0, S.horizon + S.H * 0.05);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(0.55, PS.rgba(S.skyCols[2], 0.55 * kk)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.fillRect(0, S.horizon - S.H * 0.10, S.W, S.H * 0.15);
+    };
+    /* contact shadow: ellipse on the floor plane under an object at (x,z) */
+    S.shadow = function (x, z, rx, rz, alpha, col) {
+      var c = S.project(x, 0.001, z), sx = S.focal / z;
+      ctx.save();
+      ctx.translate(c[0], c[1]);
+      ctx.scale(1, PS.clamp((rz || rx * 0.5) * sx / (rx * sx), 0.05, 1) * 0.42 + 0.12);
+      var g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * sx);
+      g.addColorStop(0, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha)));
+      g.addColorStop(0.7, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha) * 0.35));
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx * sx, 0, 6.2832); ctx.fill();
+      ctx.restore();
+    };
+    /* material texture: clip to the polygon `pts` and speckle/streak it */
+    S.texture = function (pts, kind, density, alpha) {
+      density = density || 260; alpha = alpha === undefined ? 0.05 : alpha;
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath(); ctx.clip();
+      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+      var n = Math.min(density, Math.round((x1 - x0) * (y1 - y0) / 260));
+      for (var k = 0; k < n; k++) {
+        var px = x0 + S.rng() * (x1 - x0), py = y0 + S.rng() * (y1 - y0), r = 0.4 + S.rng() * (kind === 'grain' ? 1.6 : 0.9);
+        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,' + alpha + ')' : 'rgba(0,0,0,' + alpha * 1.35 + ')';
+        if (kind === 'streak') { ctx.fillRect(px, py, r * 6, 0.7); }
+        else if (kind === 'aggregate') { ctx.beginPath(); ctx.arc(px, py, r, 0, 6.2832); ctx.fill(); }
+        else { ctx.fillRect(px, py, r, r); }
+      }
+      ctx.restore();
+    };
+    S.dust = function (n, time) {
+      n = n || 26;
+      for (var i = 0; i < n; i++) {
+        var seedX = (i * 97 % 100) / 100, seedY = (i * 57 % 100) / 100;
+        var drift = ((time * (0.004 + (i % 5) * 0.0016) + seedY) % 1);
+        var px = seedX * S.W + Math.sin(time * 0.0004 + i) * 16;
+        var py = S.horizon - S.H * 0.05 + (1 - drift) * S.H * 0.5;
+        ctx.globalAlpha = 0.05 + 0.10 * Math.abs(Math.sin(time * 0.0006 + i * 1.7));
+        ctx.fillStyle = i % 4 === 0 ? PS.rgba(opts.glow || '#ffb877', 0.9) : 'rgba(215,230,245,.75)';
+        ctx.beginPath(); ctx.arc(px, py, 0.5 + (i % 3) * 0.5, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    };
+    S.grade = function () {                                  // vignette + grain, ALWAYS last
+      var g = ctx.createRadialGradient(S.W / 2, S.H * 0.5, Math.min(S.W, S.H) * 0.35, S.W / 2, S.H * 0.5, Math.max(S.W, S.H) * 0.78);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.28)');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+      for (var i = 0; i < 120; i++) {
+        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,.014)' : 'rgba(0,0,0,.02)';
+        ctx.fillRect(S.rng() * S.W, S.rng() * S.H, 1.2, 1.2);
+      }
+    };
+    /* small scale cues that make a scene read real: cone, person silhouette, board */
+    S.scaleCue = function (x, z, kind) {
+      var s = S.focal / z;
+      if (kind === 'person') {
+        var b = S.project(x, 0, z), h = 1.72 * s * 0.32;
+        S.poly([[b[0] - 0.1 * s * 0.32, b[1]], [b[0] + 0.1 * s * 0.32, b[1]], [b[0] + 0.07 * s * 0.32, b[1] - h], [b[0] - 0.07 * s * 0.32, b[1] - h]], 'rgba(10,14,20,.72)');
+        ctx.beginPath(); ctx.arc(b[0], b[1] - h - 0.12 * s * 0.32, 0.11 * s * 0.32, 0, 6.2832); ctx.fillStyle = 'rgba(10,14,20,.72)'; ctx.fill();
+      } else {                                               // traffic cone
+        var c = S.project(x, 0, z), hh = 0.55 * s * 0.32;
+        S.poly([[c[0] - 0.16 * s * 0.32, c[1]], [c[0] + 0.16 * s * 0.32, c[1]], [c[0] + 0.02 * s * 0.32, c[1] - hh]], '#ff6a1a');
+      }
+    };
+
+
+    /* mottling: tonal patches + edge rim + contact AO — what makes a flat fill read as a material */
+    S.mottle = function (pts, baseCol, amount, patches) {
+      amount = amount === undefined ? .10 : amount;
+      patches = patches || 22;
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath(); ctx.clip();
+      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), y0 = Math.min.apply(null, ys),
+          x1 = Math.max.apply(null, xs), y1 = Math.max.apply(null, ys);
+      for (var k = 0; k < patches; k++) {
+        var cx = x0 + S.rng() * (x1 - x0), cy = y0 + S.rng() * (y1 - y0),
+            r = (0.10 + S.rng() * 0.30) * Math.max(24, (x1 - x0) * 0.35);
+        var dark = S.rng() > 0.45;
+        var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+        g.addColorStop(0, dark ? PS.rgba('#2b2f34', amount) : PS.rgba('#ffffff', amount * 0.8));
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.2832); ctx.fill();
+      }
+      ctx.restore();
+    };
+    /* AO: darkens the ground tight against a form's base (grounds it in the scene) */
+    S.contactAO = function (x, z, halfW, depth, alpha) {
+      var a = S.project(x - halfW, 0.002, z - depth), b = S.project(x + halfW, 0.002, z - depth),
+          c = S.project(x + halfW, 0.002, z + depth), d = S.project(x - halfW, 0.002, z + depth);
+      var g = ctx.createRadialGradient((a[0] + c[0]) / 2, (a[1] + c[1]) / 2, 0, (a[0] + c[0]) / 2, (a[1] + c[1]) / 2,
+                                       Math.max(30, Math.abs(b[0] - a[0]) * 0.9));
+      g.addColorStop(0, PS.rgba('#05080d', alpha === undefined ? .38 : alpha)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      S.poly([a, b, c, d], g, null, 1);
+    };
+    /* long cast shadow for a vertical form, thrown AWAY from the sun (sun is left) */
+    S.castShadow = function (x, z, halfW, height, len, alpha) {
+      var dir = S.sunAngle < 0 ? 1 : -1;                      // shadow falls to the +x side when the sun is left
+      var a = S.project(x - halfW, 0.003, z), b = S.project(x + halfW, 0.003, z),
+          c = S.project(x + halfW + dir * len, 0.003, z + len * 0.35),
+          d = S.project(x - halfW + dir * len, 0.003, z + len * 0.35);
+      S.poly([a, b, c, d], PS.rgba('#0a0f16', alpha === undefined ? .30 : alpha), null, 1);
+    };
+    /* rim light along an edge facing the sun */
+    S.rim = function (p1, p2, col, alpha, lw) {
+      ctx.save(); ctx.globalAlpha = alpha === undefined ? .8 : alpha;
+      ctx.strokeStyle = col || 'rgba(255,226,186,.9)'; ctx.lineWidth = lw || 2;
+      ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke(); ctx.restore();
+    };
+
+    /* ---------- palette helpers exposed on S too (scenes often use S.mix) ---------- */
+    S.mix = PS.mix; S.rgba = PS.rgba; S.lighten = PS.lighten; S.darken = PS.darken;
+
+    /* ---------- frame loop ---------- */
+    var t0 = 0, last = 0, current = 0, lastDraw = 0;
+    function targetP() { return opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0); }
+    /* draw exactly one frame, synchronously, swallowing errors so a bad frame can never
+       leave the hero blank or kill the loop */
+    S.drawOnce = function (p, time) {
+      if (!S.W || !S.H) { if (!S.resize()) return; S.cam(); }
+      try { opts.onFrame(S, p === undefined ? current : p, time || 0); lastDraw = Date.now(); }
+      catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
+    };
+    S.frame = function (ts) {
+      if (!t0) t0 = ts;
+      var dt = Math.min(64, ts - last); last = ts;                 // ms
+      if (!S.W || !S.H) { if (S.resize()) S.cam(); }
+      if (S.W && S.H) {
+        var target = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
+        /* frame-rate independent smoothing: the scene glides, never snaps */
+        current = PS.lerp(current, target, S.reduce ? 1 : 1 - Math.pow(0.0018, dt / 1000));
+        if (Math.abs(target - current) < 0.0004) current = target;
+        lastDraw = Date.now();
+        try { opts.onFrame(S, current, ts - t0); lastDraw = Date.now(); }
+        catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
+      }
+      if (!S.reduce) global.requestAnimationFrame(S.frame);
+    };
+    /* watchdog: if rAF is throttled (hidden tab, headless, power saving) or the loop died,
+       repaint at least 4x/second so the hero is never a blank canvas */
+    S.watch = function () {
+      if (S.reduce || S._watching) return; S._watching = true;
+      global.setInterval(function () {
+        if (Date.now() - lastDraw > 260) S.drawOnce(targetP(), Date.now());
+      }, 250);
+    };
+    S.start = function () {
+      function boot() {
+        var tries = (boot.tries = (boot.tries || 0) + 1);
+        if (!S.resize()) {                                  // wait for layout, but never forever
+          if (tries < 40) { global.requestAnimationFrame(boot); return; }
+          S.W = global.innerWidth || 1280; S.H = global.innerHeight || 720;
+        }
+        S.cam();
+        current = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
+        S.drawOnce(current, 0);                              // FIRST PAINT IS SYNCHRONOUS
+        if (!S.reduce) { global.requestAnimationFrame(S.frame); S.watch(); }
+      }
+      boot();
+      /* second synchronous attempt after layout settles (covers slow fonts/sticky layout) */
+      global.setTimeout(function () { S.drawOnce(targetP(), 0); }, 120);
+    };
+    global.addEventListener('resize', function () { if (S.resize()) S.cam(); });
+    return S;
+  };
+
+  PS.reduceMotion = function () { return global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches; };
+  PS.queryP = function () { try { var v = new URLSearchParams(global.location.search).get('p'); return v === null ? null : PS.clamp(parseFloat(v) || 0, 0, 1); } catch (e) { return null; } };
+  global.PS = PS;
+  if (typeof module !== 'undefined' && module.exports) module.exports = PS;
+})(typeof window !== 'undefined' ? window : this);
+
+</script>
+<script>
+/* ==== TRADE SCENE (integrated) ==== */
+/* ===== PRO SCENE — dm-concreting: slab finishing close-up (MIDDAY-NEUTRAL) =====
+ * Subject: the camera sits low over a fresh slab. Wet concrete advances toward the
+ * camera and settles into heaps, a screed rail sweeps toward the camera leaving a
+ * flat plane behind it, three power-float disc passes polish the surface, aggregate
+ * speckle resolves through the finish passes and the last of the bleed water
+ * evaporates into the midday air.
+ * Variant: MIDDAY-NEUTRAL — sky #2f5f86 / #9db7cc / #dfe6ea, glow #fff2d8,
+ * high sun out of frame at the upper left, short hard shadows, crisp colour.
+ * HUD labels: 'poured', 'screeded', 'floated', 'finished'.
+ */
+(function () {
+  'use strict';
+  var cv = document.getElementById('sceneFixCanvas');
+  if (!cv) return;
+  /* the site's scroll driver is #sceneWrap; pin it explicitly (a closest('[id*="scene"]')
+     pick would latch onto #sceneSticky and freeze progress at p=1) */
+  var wrap = document.getElementById('sceneWrap') || cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var sticky = document.getElementById('sceneSticky') || cv.closest('.scene-sticky, .pin, [id*="Sticky"]') || wrap;
+  var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
+      railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy'),
+      hint = document.getElementById('scrollHint');
+  var fixedP = PS.queryP();
+  var NAMES = ['Poured', 'Screeded', 'Floated', 'Finished'];
+
+  var S = PS.setup(cv, {
+    sun: 'left', seed: 4311, p: fixedP === null ? 0 : fixedP,
+    reduce: PS.reduceMotion() || fixedP !== null,
+    sky: ['#2f5f86', '#9db7cc', '#dfe6ea'], glow: '#fff2d8',
+    fogNear: 2.5, fogFar: 34,
+    horizon: 0.45, focal: 1.30, camH: 1.45,
+    progress: fixedP !== null ? null : function () {
+      var r = wrap.getBoundingClientRect(), inner = sticky.clientHeight || window.innerHeight;
+      var span = r.height - inner;
+      return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
+    },
+    onFrame: frame
+  });
+
+  /* ---- world ---- */
+  var HAZE = S.skyCols[2];
+  var SLAB_W = 7.0, Z0 = 2.7, Z1 = 17.0, SLAB = 0.16;
+
+  /* ---- palette (midday: crisp, slightly cool, warm sun on the lit faces) ---- */
+  var WET = '#868b91', WET_D = '#6d7278', WET_L = '#9ba1a6',
+      BED = '#6a6459', SCREED = '#a9adb0', FLAT = '#c2c3bf',
+      AGG_L = '#dbd8d1', AGG_M = '#a9a59c', AGG_D = '#787269',
+      DIRT = '#8a7a63', DIRT_D = '#5f5445', TIMBER = '#8a6a42', TIMBER_D = '#6b4f2f',
+      STEEL = '#b9c0c7', OXIDE = '#a63d2b', TREE = '#42504a';
+
+  function slabPts(y, zA, zB) {
+    return [S.project(-SLAB_W, y, zA), S.project(SLAB_W, y, zA), S.project(SLAB_W, y, zB), S.project(-SLAB_W, y, zB)];
+  }
+  /* shadow ellipse that lies on a chosen plane (SLAB top by default) — the kit's
+     S.shadow only knows the ground plane, which would detach props that sit on the slab */
+  function contactShadow(x, z, rx, rz, alpha, y) {
+    var yy = (y === undefined ? SLAB : y) + 0.005;
+    var c = S.project(x, yy, z), s = S.focal / Math.max(0.6, z);
+    var ctx = S.ctx;
+    ctx.save();
+    ctx.translate(c[0], c[1]);
+    ctx.scale(1, PS.clamp((rz || rx * 0.5) / rx, 0.05, 1) * 0.4 + 0.10);
+    var g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * s);
+    g.addColorStop(0, PS.rgba('#0c0f14', alpha));
+    g.addColorStop(0.72, PS.rgba('#0c0f14', alpha * 0.32));
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx * s, 0, 6.2832); ctx.fill();
+    ctx.restore();
+  }
+
+  /* ---------- pre-generated detail (deterministic) ---------- */
+  var clouds = [], speckles = [], bleed = [], mounds = [], wisps = [];
+  (function () {
+    var i, k;
+    for (i = 0; i < 6; i++) {
+      var cl = { x: 0.05 + S.rng() * 0.9, y: 0.06 + S.rng() * 0.22, w: 0.08 + S.rng() * 0.13, puffs: [], drift: 0.0000020 + S.rng() * 0.0000016 };
+      for (k = 0; k < 5; k++) cl.puffs.push([(S.rng() - 0.5) * 1.5, (S.rng() - 0.4) * 0.5, 0.36 + S.rng() * 0.5]);
+      clouds.push(cl);
+    }
+    for (i = 0; i < 150; i++) {
+      var roll = S.rng();
+      speckles.push({ x: (S.rng() * 2 - 1) * 6.8, z: 3.1 + S.rng() * 13.4, r: 0.013 + S.rng() * 0.020,
+                      c: roll < 0.42 ? AGG_L : (roll < 0.78 ? AGG_M : AGG_D), d: S.rng() });
+    }
+    for (i = 0; i < 13; i++) {
+      bleed.push({ x: (S.rng() * 2 - 1) * 5.8, z: 3.4 + S.rng() * 12.2, r: 0.35 + S.rng() * 0.6 });
+    }
+    for (i = 0; i < 8; i++) {
+      mounds.push({ x: (S.rng() * 2 - 1) * 2.6, z: 15.1 - i * 1.5 + (S.rng() - 0.5) * 0.5,
+                    rx: 1.5 + S.rng() * 1.1, t0: 0.012 + i * 0.031, dur: 0.085 });
+    }
+    for (i = 0; i < 3; i++) wisps.push({ x: -2.2 + i * 2.6, z: 6.5 + i * 3.4, r: 0.5 + i * 0.25, ph: i * 2.1 });
+  })();
+
+  /* ---------- sky: midday, sun high and out of frame at the upper left ---------- */
+  function sky(time) {
+    var ctx = S.ctx, W = S.W;
+    S.sky(0);
+    var g = ctx.createLinearGradient(0, 0, 0, S.horizon + 6);
+    g.addColorStop(0, '#2f5f86'); g.addColorStop(0.5, '#6f93b1'); g.addColorStop(0.84, '#9db7cc'); g.addColorStop(1, '#dfe6ea');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, S.horizon + 6);
+    var sx = W * 0.29, sy = -S.H * 0.06;                       /* sun disc sits above the frame */
+    var bg = ctx.createRadialGradient(sx, sy, 0, sx, sy, Math.max(W, S.H) * 0.85);
+    bg.addColorStop(0, 'rgba(255,246,224,.50)'); bg.addColorStop(0.30, 'rgba(255,240,208,.18)');
+    bg.addColorStop(0.62, 'rgba(255,236,200,.06)'); bg.addColorStop(1, 'rgba(255,236,200,0)');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, S.H * 0.62);
+    /* cumulus: lit tops, shaded bases, slow drift */
+    for (var i = 0; i < clouds.length; i++) {
+      var c = clouds[i], cx = ((c.x + time * c.drift) % 1.15 - 0.07) * W, cy = c.y * S.H, cw = c.w * W;
+      var cg = ctx.createLinearGradient(0, cy - cw * 0.24, 0, cy + cw * 0.22);
+      cg.addColorStop(0, 'rgba(255,253,248,.66)'); cg.addColorStop(0.55, 'rgba(243,246,249,.52)'); cg.addColorStop(1, 'rgba(176,190,204,.40)');
+      for (var k = 0; k < c.puffs.length; k++) {
+        var pf = c.puffs[k], rx = cw * pf[2] * 0.55, ry = rx * 0.40;
+        ctx.fillStyle = cg;
+        ctx.beginPath(); ctx.ellipse(cx + pf[0] * cw * 0.5, cy + pf[1] * cw * 0.22, rx, ry, 0, 0, 6.2832); ctx.fill();
+      }
+      var ug = ctx.createLinearGradient(0, cy + cw * 0.02, 0, cy + cw * 0.17);
+      ug.addColorStop(0, 'rgba(166,180,194,.26)'); ug.addColorStop(1, 'rgba(166,180,194,0)');
+      ctx.fillStyle = ug;
+      ctx.beginPath(); ctx.ellipse(cx, cy + cw * 0.10, cw * 0.60, cw * 0.12, 0, 0, 6.2832); ctx.fill();
+    }
+  }
+
+  /* ---------- atmosphere: hazy ridge + eucalypt bands (far geometry fades to haze) ---------- */
+  function band(z, amp, freq, col, alpha) {
+    var pts = [], x;
+    for (x = -140; x <= 140; x += 6) {
+      var h = Math.sin(x * freq) * 0.5 + Math.sin(x * freq * 0.37 + 1.7) * 0.85 + Math.sin(x * freq * 2.9) * 0.14;
+      pts.push(S.project(x, (h + 0.9) * amp * 0.5, z));
+    }
+    var f = S.project(-140, 0, z), l = S.project(140, 0, z);
+    S.poly([[f[0], f[1]]].concat(pts).concat([[l[0], l[1]]]), col, null, alpha);
+  }
+
+  function ground(yTop) {
+    var ctx = S.ctx, W = S.W;
+    var gF = S.project(0, 0, 90);
+    var gg = ctx.createLinearGradient(0, gF[1], 0, yTop);
+    gg.addColorStop(0, PS.mix('#a99a80', HAZE, 0.55));
+    gg.addColorStop(0.22, PS.mix('#84745d', HAZE, 0.18));
+    gg.addColorStop(0.58, '#7d6e58');
+    gg.addColorStop(1, '#655a49');
+    ctx.fillStyle = gg; ctx.fillRect(0, gF[1] - 2, W, yTop - gF[1] + 4);
+    var pts = [S.project(-40, 0, 88), S.project(40, 0, 88), S.project(40, 0, 18), S.project(-40, 0, 18)];
+    S.mottle(pts, DIRT, 0.07, 16);
+    S.texture(pts, 'grain', 520, 0.035);
+    /* small stones in the far band */
+    var ctx2 = S.ctx;
+    for (var i = 0; i < 22; i++) {
+      var px = S.project((S.rng() * 2 - 1) * 30, 0.003, 18.4 + S.rng() * 6), s = S.focal / 20;
+      ctx2.fillStyle = PS.rgba(i % 3 ? '#5b5346' : '#a99c86', 0.35);
+      ctx2.beginPath(); ctx2.ellipse(px[0], px[1], Math.max(0.8, (0.04 + (i % 4) * 0.02) * s), Math.max(0.5, 0.02 * s), 0, 0, 6.2832); ctx2.fill();
+    }
+  }
+
+  /* ---------- formwork: boards around the slab edges ---------- */
+  function formBoards() {
+    var ctx = S.ctx, BH = 0.34;
+    /* far board */
+    contactShadow(0, 17.25, 8.2, 0.5, 0.24, 0);
+    var fBot = [S.project(-7.3, 0, 17.06), S.project(7.3, 0, 17.06)],
+        fTop = [S.project(-7.3, BH, 17.06), S.project(7.3, BH, 17.06)];
+    var fg = ctx.createLinearGradient(0, fTop[0][1], 0, fBot[0][1]);
+    fg.addColorStop(0, PS.lighten(TIMBER, .10)); fg.addColorStop(1, PS.darken(TIMBER_D, .18));
+    S.poly([fBot[0], fBot[1], fTop[1], fTop[0]], fg, 'rgba(52,38,22,.5)', 1);
+    S.texture([fBot[0], fBot[1], fTop[1], fTop[0]], 'grain', 260, .06);
+    var fLip = [S.project(-7.3, BH, 17.06), S.project(7.3, BH, 17.06), S.project(7.3, BH, 17.24), S.project(-7.3, BH, 17.24)];
+    S.poly(fLip, PS.lighten(TIMBER, .22), null, 1);
+    S.rim(fTop[0], fTop[1], 'rgba(255,246,224,.8)', .9, 2.2);
+    S.rim(fBot[0], fBot[1], 'rgba(20,14,8,.6)', .7, 2);
+    /* side boards (visible only near the far corners; inner faces) */
+    [[-7.15, 1], [7.15, 0]].forEach(function (bsd) {
+      var xb = bsd[0], lit = bsd[1];
+      var b0 = S.project(xb, 0, 17.2), b1 = S.project(xb, 0, 8.0),
+          b2 = S.project(xb, BH, 8.0), b3 = S.project(xb, BH, 17.2);
+      var bg2 = ctx.createLinearGradient(0, b3[1], 0, b0[1]);
+      if (lit) { bg2.addColorStop(0, PS.lighten(TIMBER, .16)); bg2.addColorStop(1, PS.mix(TIMBER, TIMBER_D, .4)); }
+      else { bg2.addColorStop(0, PS.darken(TIMBER, .16)); bg2.addColorStop(1, PS.darken(TIMBER_D, .26)); }
+      S.poly([b0, b1, b2, b3], bg2, 'rgba(52,38,22,.45)', 1);
+      S.texture([b0, b1, b2, b3], 'streak', 200, .05);
+      var t0 = S.project(xb - (lit ? 0.16 : -0.16), BH, 17.2), t1 = S.project(xb - (lit ? 0.16 : -0.16), BH, 8.0);
+      S.poly([b3, b2, t1, t0], lit ? PS.lighten(TIMBER, .30) : PS.darken(TIMBER, .06), null, 1);
+      S.rim(b3, b2, lit ? 'rgba(255,246,224,.7)' : 'rgba(255,246,224,.35)', .7, 1.6);
+    });
+  }
+
+  /* ---------- props on the ground ---------- */
+  function plankStack(x, z, len, layers, shadeR) {
+    var ctx = S.ctx;
+    for (var l = 0; l < layers; l++) {
+      var y0 = 0.012 + l * 0.075, zA = z - len / 2, zB = z + len / 2;
+      var t0p = S.project(x - 0.16, y0 + 0.06, zA), t1p = S.project(x + 0.16, y0 + 0.06, zA),
+          t2p = S.project(x + 0.16, y0 + 0.06, zB), t3p = S.project(x - 0.16, y0 + 0.06, zB);
+      var top = ctx.createLinearGradient(t0p[0], 0, t1p[0], 0);
+      top.addColorStop(0, PS.lighten(TIMBER, .26)); top.addColorStop(1, PS.lighten(TIMBER, .06));
+      S.poly([t0p, t1p, t2p, t3p], top, 'rgba(52,38,22,.4)', 1);
+      S.texture([t0p, t1p, t2p, t3p], 'streak', 90, .07);
+      /* the long face toward the camera axis is the one that is visible */
+      var sx = shadeR ? x - 0.16 : x + 0.16;
+      var s0 = S.project(sx, y0, zA), s1 = S.project(sx, y0, zB), s2 = S.project(sx, y0 + 0.06, zB), s3 = S.project(sx, y0 + 0.06, zA);
+      var sg = ctx.createLinearGradient(0, s3[1], 0, s0[1]);
+      sg.addColorStop(0, PS.mix(TIMBER, '#241a10', .30)); sg.addColorStop(1, PS.mix(TIMBER_D, '#241a10', .45));
+      S.poly([s0, s1, s2, s3], sg, null, 1);
+    }
+    S.shadow(x, z, 0.5, len / 2 + 0.15, 0.34);
+    S.castShadow(x, z, 0.18, 0.2, 0.42, 0.26);
+    S.contactAO(x, z, 0.22, len / 2 + 0.1, 0.34);
+  }
+
+  function scaleCues() {
+    /* finisher at the far formwork + a cone at the corner — the scale anchors */
+    S.shadow(-3.4, 19.0, 0.34, 0.2, 0.3);
+    S.castShadow(-3.4, 19.0, 0.12, 1.7, 0.5, 0.24);
+    S.scaleCue(-3.4, 19.0, 'person');
+    S.shadow(4.2, 18.6, 0.34, 0.22, 0.3);
+    S.scaleCue(4.2, 18.6, 'cone');
+    /* loose plank + mesh offcut in the far band */
+    var l0 = S.project(-6.4, 0.012, 18.4), l1 = S.project(-4.9, 0.012, 18.7), l2 = S.project(-4.85, 0.05, 18.72), l3 = S.project(-6.35, 0.05, 18.42);
+    S.shadow(-5.65, 18.55, 0.9, 0.25, 0.3);
+    S.poly([l0, l1, l2, l3], PS.mix(TIMBER, HAZE, .18), 'rgba(52,38,22,.4)', 1);
+  }
+
+  /* ---------- the slab ---------- */
+  function drawBed() {
+    var pts = slabPts(SLAB, Z0, Z1);
+    var ctx = S.ctx;
+    var g = ctx.createLinearGradient(0, pts[0][1], 0, pts[3][1]);
+    g.addColorStop(0, PS.darken(BED, .05)); g.addColorStop(1, PS.lighten(BED, .08));
+    S.poly(pts, g, null, 1);
+    S.mottle(pts, BED, .09, 14);
+  }
+
+  function drawWet(p, t1, zW, railZ, t4, time) {
+    if (zW >= Z1 - 0.06) return;
+    var ctx = S.ctx, i;
+    var pts = slabPts(SLAB + 0.002, zW, Z1);
+    var g = ctx.createLinearGradient(0, S.project(0, SLAB, zW)[1], 0, S.project(0, SLAB, Z1)[1]);
+    g.addColorStop(0, PS.darken(WET, .12)); g.addColorStop(0.5, WET); g.addColorStop(1, PS.lighten(WET, .06));
+    S.poly(pts, g, null, 1);
+    /* discharge heaps settling as the pour advances */
+    for (i = 0; i < mounds.length; i++) {
+      var md = mounds[i], km = PS.stage(p, md.t0, md.dur, 'settle');
+      if (km <= 0 || md.z < zW) continue;
+      var mc = S.project(md.x, SLAB + 0.05, md.z), ms = S.focal / md.z;
+      var rx = md.rx * ms * (0.55 + 0.45 * km), ry = rx * 0.18;
+      contactShadow(md.x, md.z, md.rx * 0.95, 0.5, 0.15 * PS.clamp(km, 0, 1));
+      var mg = ctx.createLinearGradient(0, mc[1] - ry, 0, mc[1] + ry);
+      mg.addColorStop(0, PS.lighten(WET_L, .06 * km)); mg.addColorStop(0.6, WET); mg.addColorStop(1, PS.darken(WET_D, .12));
+      ctx.fillStyle = mg;
+      ctx.beginPath(); ctx.ellipse(mc[0], mc[1], rx, ry, 0, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = 'rgba(255,244,224,' + (0.12 * PS.clamp(km, 0, 1)).toFixed(3) + ')';
+      ctx.beginPath(); ctx.ellipse(mc[0] - rx * 0.34, mc[1] - ry * 0.42, rx * 0.42, ry * 0.30, 0, 0, 6.2832); ctx.fill();
+    }
+    S.mottle(pts, WET, .11, 20);
+    S.texture(pts, 'grain', 620, .035);
+    /* wet gloss: sky reflection + a warm sun streak where the light lines up */
+    S.poly(pts, 'rgba(205,222,238,.10)', null, 1);
+    var sc = S.project(-4.2, SLAB + 0.004, 9.5), ss = S.focal / 9.5;
+    var sg = ctx.createRadialGradient(sc[0], sc[1], 0, sc[0], sc[1], ss * 5.2);
+    sg.addColorStop(0, 'rgba(255,248,232,.13)'); sg.addColorStop(1, 'rgba(255,248,232,0)');
+    S.poly(pts, sg, null, 1);
+    /* bright leading lip while the concrete is still advancing */
+    if (t1 > 0.02 && t1 < 0.985) {
+      var lc = S.project(0, SLAB + 0.03, zW), ls = S.focal / zW;
+      var lg = ctx.createLinearGradient(0, lc[1] - ls * 0.06, 0, lc[1] + ls * 0.05);
+      lg.addColorStop(0, 'rgba(214,224,232,.55)'); lg.addColorStop(1, 'rgba(150,158,166,0)');
+      ctx.fillStyle = lg;
+      ctx.beginPath(); ctx.ellipse(lc[0], lc[1], 9.6 * ls, 0.17 * ls, 0, 0, 6.2832); ctx.fill();
+    }
+  }
+
+  function drawBleed(railZ, t4) {
+    var ctx = S.ctx;
+    for (var i = 0; i < bleed.length; i++) {
+      var bp = bleed[i];
+      var a = PS.clamp((bp.z - railZ) / 1.1, 0, 1) * (1 - t4) * 0.20;
+      if (a < 0.02) continue;
+      var c = S.project(bp.x, SLAB + 0.006, bp.z), s = S.focal / bp.z;
+      var g = ctx.createRadialGradient(c[0], c[1], 0, c[0], c[1], bp.r * s);
+      g.addColorStop(0, PS.rgba('#d2e0ee', a)); g.addColorStop(0.75, PS.rgba('#c3d4e4', a * 0.5)); g.addColorStop(1, 'rgba(195,212,228,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.ellipse(c[0], c[1], bp.r * s, bp.r * s * 0.26, 0, 0, 6.2832); ctx.fill();
+      ctx.strokeStyle = 'rgba(238,246,252,' + (a * 0.8).toFixed(3) + ')'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(c[0] - bp.r * s * 0.4, c[1] - bp.r * s * 0.07); ctx.lineTo(c[0] + bp.r * s * 0.4, c[1] - bp.r * s * 0.07); ctx.stroke();
+    }
+  }
+
+  function drawFlat(railZ, t2, t4) {
+    if (t2 <= 0.002) return;
+    var zN = railZ + 0.16;
+    if (zN >= Z1) return;
+    var ctx = S.ctx;
+    var pts = slabPts(SLAB + 0.004, zN, Z1 + 0.1);
+    var base = PS.mix(SCREED, FLAT, PS.clamp(t4 * 1.3, 0, 1));
+    var g = ctx.createLinearGradient(0, S.project(0, SLAB, zN)[1], 0, S.project(0, SLAB, Z1)[1]);
+    g.addColorStop(0, PS.darken(base, .10));           /* just worked: still wet-dark */
+    g.addColorStop(0.42, base);
+    g.addColorStop(1, PS.lighten(base, .05));          /* worked earlier: drying lighter */
+    S.poly(pts, g, null, 1);
+    S.mottle(pts, base, .10, 22);
+    S.texture(pts, 'aggregate', 460, 0.028 + 0.02 * t4);
+    /* wet film trailing the rail */
+    if (t2 < 0.995) {
+      var zs = zN + 0.55;
+      var a0 = S.project(0, SLAB + 0.006, zs), a1 = S.project(0, SLAB + 0.006, zs + 1.4), s = S.focal / zs;
+      var tg = ctx.createLinearGradient(0, a0[1], 0, a1[1]);
+      tg.addColorStop(0, 'rgba(226,238,248,' + (0.16 * (1 - t2)).toFixed(3) + ')'); tg.addColorStop(1, 'rgba(226,238,248,0)');
+      ctx.fillStyle = tg;
+      ctx.beginPath(); ctx.ellipse(a0[0], a0[1] + (a1[1] - a0[1]) / 2, 9.4 * s, Math.abs(a1[1] - a0[1]) / 1.6, 0, 0, 6.2832); ctx.fill();
+    }
+    /* screed drag lines running back down the pull direction */
+    var n = 26;
+    for (var i = 0; i < n; i++) {
+      var x = -6.9 + 13.8 * (i / (n - 1));
+      var a = (0.030 + 0.018 * Math.sin(i * 2.1)) * PS.clamp(t2 * 1.6, 0, 1) * (1 - t4 * 0.5);
+      if (a <= 0.004) continue;
+      var p1 = S.project(x + 0.06 * Math.sin(i * 1.7), SLAB + 0.006, zN + 0.12);
+      var p2 = S.project(x + 0.10 * Math.sin(i * 2.3), SLAB + 0.006, Z1 - 0.05);
+      ctx.strokeStyle = PS.rgba('#5d6167', a); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke();
+      ctx.strokeStyle = PS.rgba('#f1f1ed', a * 0.85);
+      ctx.beginPath(); ctx.moveTo(p1[0] + 1, p1[1]); ctx.lineTo(p2[0] + 1, p2[1]); ctx.stroke();
+    }
+  }
+
+  /* ---------- float passes: polished strips + trowel swirl arcs ---------- */
+  var BANDS = [{ z: 12.7, from: 5.4, to: -5.4 }, { z: 9.1, from: -5.4, to: 5.4 }, { z: 5.5, from: 5.4, to: -5.4 }];
+  var PASS = [{ t0: 0.50, dur: 0.13 }, { t0: 0.655, dur: 0.13 }, { t0: 0.81, dur: 0.13 }];
+
+  function drawPolish(k, prog, t4) {
+    if (prog <= 0.004) return;
+    var ctx = S.ctx, b = BANDS[k];
+    var xc = PS.lerp(b.from, b.to, prog);
+    var xa = Math.min(b.from, xc), xb = Math.max(b.from, xc);
+    var pts = [S.project(xa, SLAB + 0.007, b.z - 1.0), S.project(xb, SLAB + 0.007, b.z - 1.0),
+               S.project(xb, SLAB + 0.007, b.z + 1.0), S.project(xa, SLAB + 0.007, b.z + 1.0)];
+    S.poly(pts, 'rgba(238,240,236,.12)', null, 1);
+    var done = PS.clamp((prog - 0.25) / 0.75, 0, 1);
+    for (var i = 0; i < 5; i++) {
+      var ax = PS.lerp(xa, xb, i / 4.6 + 0.06);
+      var ac = S.project(ax, SLAB + 0.008, b.z + 0.18 * Math.sin(i * 1.9));
+      var rw = (0.85 + (i % 3) * 0.22) * S.focal / b.z;
+      var a = PS.clamp(prog * 1.2 - i * 0.16, 0, 1) * 0.15 * (0.5 + 0.5 * done) * (1 - t4 * 0.35);
+      if (a <= 0.01) continue;
+      ctx.strokeStyle = 'rgba(255,255,252,' + a.toFixed(3) + ')';
+      ctx.lineWidth = 1.1;
+      ctx.beginPath(); ctx.ellipse(ac[0], ac[1], rw * 0.34, rw * 0.105, (i % 5) * 0.12 - 0.25, 0, 6.2832); ctx.stroke();
+    }
+  }
+
+  /* ---------- screed rail sweeping toward the camera ---------- */
+  function drawRail(railZ, active) {
+    var ctx = S.ctx;
+    var x0 = -7.5, x1 = 7.5, hB = SLAB + 0.02, hT = SLAB + 0.17, dz = 0.13, zF = railZ - dz, zB = railZ + dz;
+    contactShadow(0, railZ + 0.30, 7.8, 0.55, 0.26);
+    if (active) {                                        /* wet lip pushed ahead of the blade */
+      var bl = S.project(0, SLAB + 0.035, railZ - 0.55), sl = S.focal / (railZ - 0.55);
+      var lg = ctx.createLinearGradient(0, bl[1] - sl * 0.05, 0, bl[1] + sl * 0.09);
+      lg.addColorStop(0, PS.rgba(WET_L, 0.75)); lg.addColorStop(1, PS.rgba(WET_D, 0));
+      ctx.fillStyle = lg;
+      ctx.beginPath(); ctx.ellipse(bl[0], bl[1], 8.6 * sl, 0.28 * sl, 0, 0, 6.2832); ctx.fill();
+    }
+    var top = [S.project(x0, hT, zF), S.project(x1, hT, zF), S.project(x1, hT, zB), S.project(x0, hT, zB)];
+    var front = [S.project(x0, hB, zF), S.project(x1, hB, zF), S.project(x1, hT, zF), S.project(x0, hT, zF)];
+    var tg = ctx.createLinearGradient(top[0][0], 0, top[1][0], 0);
+    tg.addColorStop(0, PS.lighten(STEEL, .30)); tg.addColorStop(0.5, PS.lighten(STEEL, .14)); tg.addColorStop(1, PS.lighten(STEEL, .02));
+    S.poly(top, tg, 'rgba(90,98,106,.5)', 1);
+    var fg2 = ctx.createLinearGradient(0, front[0][1], 0, front[2][1]);
+    fg2.addColorStop(0, PS.lighten(STEEL, .10)); fg2.addColorStop(1, PS.darken(STEEL, .32));
+    S.poly(front, fg2, 'rgba(52,58,64,.55)', 1);
+    var sA = S.project(x0, hB + 0.038, zF), sB = S.project(x1, hB + 0.038, zF),
+        sC = S.project(x1, hB + 0.082, zF), sD = S.project(x0, hB + 0.082, zF);
+    S.poly([sA, sB, sC, sD], PS.rgba(OXIDE, .92), null, 1);     /* oxide stripe: the brand accent */
+    S.rim(S.project(x0, hB, zF), S.project(x1, hB, zF), 'rgba(28,32,36,.8)', .8, 2.4);
+    S.rim(top[0], top[1], 'rgba(255,246,224,.85)', .9, 2.4);
+  }
+
+  /* ---------- walk-behind power float ---------- */
+  function machineState(p) {
+    if (p < 0.46) return null;
+    var segs = [
+      [0.46, 0.50, 7.6, 5.4, 12.7, 12.7, -1],
+      [0.50, 0.63, 5.4, -5.4, 12.7, 12.7, 0],
+      [0.63, 0.655, -5.4, -5.4, 12.7, 9.1, -1],
+      [0.655, 0.785, -5.4, 5.4, 9.1, 9.1, 1],
+      [0.785, 0.81, 5.4, 5.4, 9.1, 5.5, -1],
+      [0.81, 0.94, 5.4, -5.4, 5.5, 5.5, 2],
+      [0.94, 2.0, -5.4, -5.4, 5.5, 5.5, -1]
+    ];
+    for (var i = 0; i < segs.length; i++) {
+      var g = segs[i];
+      if (p >= g[0] && p < g[1]) {
+        var k = PS.stage(p, g[0], g[1] - g[0], 'place');
+        return { x: PS.lerp(g[2], g[3], k), z: PS.lerp(g[4], g[5], k), pass: g[6] };
+      }
+    }
+    return { x: -5.4, z: 5.5, pass: -1 };
+  }
+
+  function drawMachine(mx, mz, time) {
+    var ctx = S.ctx, s = S.focal / mz;
+    var dc = S.project(mx, SLAB + 0.014, mz);
+    var rx = 0.58 * s, ry = rx * 0.30;
+    contactShadow(mx, mz, 0.85, 0.55, 0.40);
+    /* sheen the disc is working into the surface */
+    var pg = ctx.createRadialGradient(dc[0], dc[1], 0, dc[0], dc[1], rx * 1.55);
+    pg.addColorStop(0, 'rgba(255,250,236,.16)'); pg.addColorStop(1, 'rgba(255,250,236,0)');
+    ctx.fillStyle = pg;
+    ctx.beginPath(); ctx.ellipse(dc[0], dc[1], rx * 1.55, ry * 1.5, 0, 0, 6.2832); ctx.fill();
+    /* disc */
+    var dg = ctx.createLinearGradient(dc[0] - rx, dc[1] - ry, dc[0] + rx, dc[1] + ry);
+    dg.addColorStop(0, '#585d63'); dg.addColorStop(0.55, '#43484e'); dg.addColorStop(1, '#33373c');
+    ctx.fillStyle = dg;
+    ctx.beginPath(); ctx.ellipse(dc[0], dc[1], rx, ry, 0, 0, 6.2832); ctx.fill();
+    /* three blades spinning */
+    var ang = time * 0.0075;
+    for (var b = 0; b < 3; b++) {
+      var aa = ang + b * 2.0944;
+      ctx.strokeStyle = 'rgba(154,161,168,.9)'; ctx.lineWidth = Math.max(1, rx * 0.055);
+      ctx.beginPath();
+      ctx.moveTo(dc[0] - Math.cos(aa) * rx * 0.9, dc[1] - Math.sin(aa) * ry * 0.9);
+      ctx.lineTo(dc[0] + Math.cos(aa) * rx * 0.9, dc[1] + Math.sin(aa) * ry * 0.9);
+      ctx.stroke();
+    }
+    ctx.strokeStyle = 'rgba(24,27,31,.85)'; ctx.lineWidth = Math.max(1.4, rx * 0.07);
+    ctx.beginPath(); ctx.ellipse(dc[0], dc[1], rx, ry, 0, 0, 6.2832); ctx.stroke();
+    ctx.fillStyle = '#24272b';
+    ctx.beginPath(); ctx.ellipse(dc[0], dc[1], rx * 0.16, ry * 0.5 + 1, 0, 0, 6.2832); ctx.fill();
+    /* shaft + motor housing */
+    var mc = S.project(mx, 0.43, mz);
+    ctx.strokeStyle = '#5f656b'; ctx.lineWidth = Math.max(1.6, rx * 0.07);
+    ctx.beginPath(); ctx.moveTo(dc[0], dc[1] - ry * 0.6); ctx.lineTo(mc[0] + rx * 0.05, mc[1] + rx * 0.28); ctx.stroke();
+    var mw = 0.24, mTop = 0.57, mBot = 0.31;
+    var f0 = S.project(mx - mw, mBot, mz - 0.15), f1 = S.project(mx + mw, mBot, mz - 0.15),
+        f2 = S.project(mx + mw, mTop, mz - 0.15), f3 = S.project(mx - mw, mTop, mz - 0.15);
+    var mg = ctx.createLinearGradient(f0[0], 0, f1[0], 0);
+    mg.addColorStop(0, PS.lighten(OXIDE, .22)); mg.addColorStop(0.55, OXIDE); mg.addColorStop(1, PS.darken(OXIDE, .30));
+    S.poly([f0, f1, f2, f3], mg, 'rgba(40,16,10,.7)', 1);
+    var k0 = S.project(mx - mw, mTop, mz + 0.15), k1 = S.project(mx + mw, mTop, mz + 0.15);
+    var tg2 = ctx.createLinearGradient(f3[0], 0, f2[0], 0);
+    tg2.addColorStop(0, PS.lighten(OXIDE, .45)); tg2.addColorStop(1, PS.lighten(OXIDE, .18));
+    S.poly([f3, f2, k1, k0], tg2, null, 1);
+    ctx.strokeStyle = 'rgba(60,24,14,.55)'; ctx.lineWidth = 1;
+    for (var fin = 1; fin <= 3; fin++) {
+      var fx = PS.lerp(f0[0], f1[0], fin / 4);
+      ctx.beginPath(); ctx.moveTo(fx, PS.lerp(f0[1], f3[1], 0.18)); ctx.lineTo(fx, PS.lerp(f0[1], f3[1], 0.82)); ctx.stroke();
+    }
+    S.rim(f3, f2, 'rgba(255,240,214,.75)', .8, 1.8);
+    /* handle bar over the housing */
+    var h1 = S.project(mx + 0.06, mTop, mz + 0.02), h2 = S.project(mx + 0.78, 1.04, mz + 0.30);
+    ctx.strokeStyle = 'rgba(38,42,48,.95)'; ctx.lineWidth = Math.max(2, rx * 0.10);
+    ctx.beginPath(); ctx.moveTo(h1[0], h1[1]); ctx.lineTo(h2[0], h2[1]); ctx.stroke();
+    ctx.strokeStyle = 'rgba(96,102,110,.9)'; ctx.lineWidth = Math.max(1.2, rx * 0.05);
+    ctx.beginPath(); ctx.moveTo(h1[0] + 3, h1[1]); ctx.lineTo(h2[0] + 3, h2[1]); ctx.stroke();
+    ctx.fillStyle = '#1c1f24';
+    ctx.beginPath(); ctx.ellipse(h2[0] + 2, h2[1], Math.max(3, rx * 0.12), Math.max(2, rx * 0.05), 0.6, 0, 6.2832); ctx.fill();
+  }
+
+  /* ---------- finish details: aggregate resolving, vapour ---------- */
+  function drawSpeckles(t4, railZ, zW) {
+    var ctx = S.ctx, lim = Math.max(railZ + 0.3, zW + 0.2);
+    for (var i = 0; i < speckles.length; i++) {
+      var sp = speckles[i];
+      if (sp.z < lim) continue;
+      var a = PS.clamp(0.05 + (t4 * 1.1 - sp.d * 0.35) * 0.42, 0, 0.5);
+      if (a < 0.02) continue;
+      var c = S.project(sp.x, SLAB + 0.009, sp.z), s = S.focal / sp.z;
+      ctx.fillStyle = PS.rgba(sp.c, a);
+      ctx.beginPath();
+      ctx.ellipse(c[0], c[1], Math.max(0.7, sp.r * s), Math.max(0.5, sp.r * s * 0.36), 0, 0, 6.2832);
+      ctx.fill();
+    }
+  }
+
+  function drawWisps(t4, time) {
+    if (t4 <= 0.05) return;
+    var ctx = S.ctx;
+    for (var i = 0; i < wisps.length; i++) {
+      var wp = wisps[i];
+      var lift = 0.02 + t4 * 0.05 + 0.015 * Math.sin(time * 0.0009 + wp.ph);
+      var a = 0.055 * t4 * (0.55 + 0.45 * Math.sin(time * 0.0011 + wp.ph));
+      if (a <= 0.008) continue;
+      var c = S.project(wp.x, SLAB + lift, wp.z), s = S.focal / wp.z;
+      var g = ctx.createRadialGradient(c[0], c[1], 0, c[0], c[1], wp.r * s);
+      g.addColorStop(0, PS.rgba('#eef4fa', a)); g.addColorStop(1, 'rgba(238,244,250,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.ellipse(c[0], c[1], wp.r * s, wp.r * s * 0.22, 0, 0, 6.2832); ctx.fill();
+    }
+  }
+
+  function finishGlow(t4, time) {
+    if (t4 <= 0.02) return;
+    var ctx = S.ctx;
+    var gx = S.W * (0.5 + 0.34 * Math.sin(time * 0.00013));
+    var gy = S.project(0, SLAB, 8)[1];
+    var g = ctx.createRadialGradient(gx, gy, 0, gx, gy, Math.max(S.W, S.H) * 0.55);
+    g.addColorStop(0, 'rgba(255,252,242,' + (0.10 * t4).toFixed(3) + ')'); g.addColorStop(1, 'rgba(255,252,242,0)');
+    S.poly(slabPts(SLAB + 0.011, Z0 + 0.3, Z1), g, null, 1);
+  }
+
+  /* ---------- frame ---------- */
+  function frame(S_, p, time) {
+    S = S_;
+    if (!S.W || !S.H) return;
+    var ctx = S.ctx;
+    ctx.clearRect(0, 0, S.W, S.H);
+
+    var t1 = PS.stage(p, 0.00, 0.30, 'release');        /* pour advances toward camera */
+    var t2 = PS.stage(p, 0.28, 0.26, 'place');          /* screed rail sweeps toward camera */
+    var t4 = PS.stage(p, 0.88, 0.12, 'release');        /* finish: speckle resolves, bleed evaporates */
+    var zW = PS.lerp(16.4, 2.9, t1);
+    var railZ = PS.lerp(16.6, 3.0, t2);
+
+    sky(time);
+    band(110, 9, 0.011, PS.mix('#7d92a7', HAZE, 0.68), 1);
+    band(58, 5.5, 0.030, PS.mix('#54656b', HAZE, 0.50), 1);
+    band(34, 2.6, 0.055, PS.mix(TREE, HAZE, 0.30), 1);
+    S.haze(0.7);
+    ground(S.H + 2);
+    plankStack(-7.35, 12.6, 1.9, 2, false);
+    plankStack(7.75, 14.5, 1.6, 2, true);
+    formBoards();
+    scaleCues();
+    drawBed();
+    drawWet(p, t1, zW, railZ, t4, time);
+    drawBleed(railZ, t4);
+    drawFlat(railZ, t2, t4);
+    drawPolish(0, PS.stage(p, PASS[0].t0, PASS[0].dur, 'place'), t4);
+    drawPolish(1, PS.stage(p, PASS[1].t0, PASS[1].dur, 'place'), t4);
+    drawPolish(2, PS.stage(p, PASS[2].t0, PASS[2].dur, 'place'), t4);
+    finishGlow(t4, time);
+    drawSpeckles(t4, railZ, zW);
+    drawRail(railZ, t2 > 0.01 && t2 < 1);
+    var ms = machineState(p);
+    if (ms) drawMachine(ms.x, ms.z, time);
+    drawWisps(t4, time);
+
+    /* grade: warm/cool split, dust, vignette + grain (always last) */
+    var rimg = ctx.createLinearGradient(0, 0, S.W, S.H);
+    rimg.addColorStop(0, 'rgba(255,244,216,.05)'); rimg.addColorStop(0.5, 'rgba(255,244,216,0)'); rimg.addColorStop(1, 'rgba(58,96,136,.045)');
+    ctx.fillStyle = rimg; ctx.fillRect(0, 0, S.W, S.H);
+    S.dust(24, time);
+    S.grade();
+
+    /* HUD */
+    var idx = p < 0.28 ? 0 : p < 0.50 ? 1 : p < 0.90 ? 2 : 3;
+    if (stgNum) stgNum.textContent = '0' + (idx + 1);
+    if (stgName) stgName.textContent = NAMES[idx];
+    if (railFill) railFill.style.height = Math.round(p * 100) + '%';
+    if (heroCopy) {
+      heroCopy.style.opacity = S.reduce ? 1 : PS.clamp(1 - p * 2.4, 0, 1);
+      heroCopy.style.transform = 'translateY(' + (p * 36).toFixed(1) + 'px)';
+    }
+    if (hint) hint.style.opacity = S.reduce ? 0 : PS.clamp(1 - p * 7, 0, 1);
+  }
+
+  S.start();
+})();
 
 </script>
 </body>

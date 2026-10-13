@@ -1,352 +1,695 @@
-<!DOCTYPE html><html><head><head><meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"><link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css"><style>body{
-  background: #e3e3df;
-  color: #b7b7b7;
-  margin:0;
-  padding:0;
-  font-size:82%;
-  font-family: "Fira mono", "Verdana", "Helvetica", "Arial";
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smash Wash Cleaning Group — Pressure Cleaning Newcastle &amp; Gold Coast</title>
+<meta name="description" content="Smash Wash Cleaning Group — pressure and soft-wash cleaning for roofs, driveways, walls, solar and commercial surfaces across Newcastle NSW and the Gold Coast QLD. 100% recommended on Facebook. Call 0423 060 108.">
+<meta property="og:title" content="Smash Wash Cleaning Group — Pressure Cleaning">
+<meta property="og:description" content="Roofs, driveways, walls and solar brought back to bright — Newcastle &amp; Gold Coast.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+<style>
+:root{
+  --bg:#F4F9FD;
+  --bg2:#E3EFF8;
+  --panel:#FFFFFF;
+  --ink:#0A1A28;
+  --muted:#4C6072;
+  --line:#D2E2EE;
+  --acc:#0A88CE;
+  --acc2:#0CACEA;
+  --acc-deep:#075E90;
+  --deep:#081624;
+  --deep2:#0C2438;
+  --dink:#F2F8FD;
+  --dmut:#A7BDCD;
+  --font-display:'Barlow Condensed','Arial Narrow',ui-sans-serif,sans-serif;
+  --font-sans:'Barlow',ui-sans-serif,system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1320px,92vw);margin-inline:auto}
+::selection{background:var(--acc);color:#fff}
+
+html.js .drop{opacity:0;transform:translateY(22px);transition:opacity .7s ease-out,transform .7s ease-out}
+html.js .drop.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html.js .drop{opacity:1;transform:none;transition:none}
+  *{animation-duration:.001s !important;transition-duration:.001s !important}
 }
 
-.content{
-  margin:80px auto;
-  text-align:center;
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(8,20,32,.94);backdrop-filter:blur(10px);border-bottom:2px solid var(--acc)}
+.nav-in{display:flex;align-items:center;gap:1.4rem;height:80px;width:min(1320px,92vw);margin-inline:auto}
+.brand{display:flex;align-items:center;gap:.85rem;color:#fff;text-decoration:none}
+.brand img{height:50px;width:auto;border-radius:9px;background:#fff;padding:5px;border:1px solid rgba(96,180,232,.55);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.brand-name{font-family:var(--font-display);font-size:1.42rem;line-height:1;color:#fff;font-weight:800;letter-spacing:.01em}
+.brand-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc2);font-weight:700}
+.nav-links{display:flex;gap:1.35rem;margin-left:auto;align-items:center}
+.nav-links a{color:#A9C2D6;text-decoration:none;font-size:.92rem;font-weight:600}
+.nav-links a:hover{color:#fff}
+.nav-cta{display:flex;align-items:center;gap:.9rem}
+.nav-p{color:#fff;font-weight:700;font-size:.9rem;letter-spacing:.03em}
+.nav-btn{background:var(--acc);color:#FFFFFF !important;padding:.6rem 1.2rem;border-radius:6px;font-weight:800;text-decoration:none;font-size:.9rem}
+.nav-btn:hover{filter:brightness(1.08)}
+.burger{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:.4rem .6rem;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:#fff;margin:4px 0;transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:960px){
+  .nav-links{position:fixed;inset:80px 0 auto 0;background:rgba(8,20,32,.97);flex-direction:column;padding:1.2rem;gap:1rem;transform:translateY(-140%);transition:transform .35s ease;border-bottom:2px solid var(--acc)}
+  .nav-links.open{transform:none}
+  .nav-links a{width:100%;text-align:center;padding:.5rem 0}
+  .nav-cta{display:none}
+  .burger{display:block}
 }
 
-.content img{
-  margin:15px 0;
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:80px;background:linear-gradient(158deg,#06111C 0%,#0C2438 54%,#081624 100%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;z-index:4;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(5,14,23,.93) 0%,rgba(5,14,23,.78) 38%,rgba(5,14,23,.34) 70%,rgba(5,14,23,.06) 100%)}
+.hero-in{position:relative;z-index:3;width:100%;width:min(1320px,92vw);margin-inline:auto;padding:10vh 0 4rem;display:grid;grid-template-columns:1.06fr .94fr;gap:3.2rem;align-items:center}
+.hero-copy{min-width:0}
+.hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#5CC2FF;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:800;margin-bottom:1.05rem}
+.hero-kicker::before{content:"";width:36px;height:2px;background:var(--acc2)}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.7rem,6.3vw,5.1rem);line-height:.97;color:#F3FAFF;font-weight:900;text-transform:uppercase;letter-spacing:-.005em;max-width:15ch}
+.hero h1 .acc{color:#4CC6F4}
+.hero h1 .thin{display:block;font-family:var(--font-sans);font-weight:600;font-size:clamp(.95rem,1.7vw,1.18rem);letter-spacing:.02em;text-transform:none;color:#9FB9CC;margin-top:.7rem}
+.hero-sub{margin-top:1.15rem;color:#B7CDDD;font-size:clamp(.98rem,1.5vw,1.1rem);max-width:52ch}
+.hero-cta{display:flex;gap:.9rem;margin-top:1.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.6rem;border-radius:7px;text-decoration:none;font-weight:800;font-size:.95rem;transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.btn-primary{background:var(--acc);color:#FFFFFF}
+.btn-ghost{border:1.5px solid rgba(243,250,255,.5);color:#F3FAFF}
+.hero-strip{grid-column:1/-1;margin-top:2.1rem;display:flex;gap:2.8rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.2);padding-top:1.25rem}
+.hero-strip p{color:#8FB0C6;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+.hero-strip strong{display:block;color:#F3FAFF;font-family:var(--font-display);font-size:1.18rem;margin-top:.15rem;font-weight:800;letter-spacing:.02em}
+.hero-visual{min-width:0}
+.hero-visual figure{position:relative;margin:0;border-radius:16px;overflow:hidden;border:1px solid rgba(96,180,232,.36);box-shadow:0 30px 70px rgba(0,0,0,.5);background:#0C2438}
+.hero-visual img{width:100%;height:min(58vh,530px);object-fit:cover;object-position:center 46%;display:block}
+.hero-visual .hv-tags{position:absolute;top:14px;left:0;right:0;display:flex;justify-content:space-between;padding:0 14px;z-index:2}
+.hero-visual .hv-tag{font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:5px;color:#fff}
+.hv-tag.before{background:rgba(20,28,36,.82);border:1px solid rgba(255,255,255,.28)}
+.hv-tag.after{background:var(--acc)}
+.hero-visual figcaption{position:absolute;inset:auto 0 0 0;z-index:2;background:linear-gradient(180deg,transparent,rgba(6,14,22,.92) 58%);color:#DCEBF6;font-size:.86rem;font-weight:600;padding:2rem 1rem .8rem;letter-spacing:.01em}
+@media(max-width:1000px){
+  .hero-in{grid-template-columns:1fr;gap:1.4rem;padding:8vh 0 2.4rem}
+  .hero-visual img{height:min(34vh,300px)}
+}
+@media(max-width:640px){
+  .hero-in{padding:7vh 0 2rem}
+  .hero h1{font-size:clamp(2.05rem,9vw,2.7rem)}
+  .hero-strip{margin-top:1.7rem;gap:1.5rem}
+  .brand-sub{display:none}
+  .brand-name{font-size:1.15rem}
+  .brand img{height:42px}
+  .hero-visual img{height:min(30vh,240px)}
 }
 
-.content h1{
-  font-weight: 300;
-  font-size: 2em;
-  margin:15px 0;
-}
+section{padding-block:5.4rem}
+.sec-head{display:flex;align-items:center;gap:1rem;margin-bottom:2.6rem}
+.sec-head::before{content:"";width:40px;height:3px;background:var(--acc);flex:none;border-radius:2px}
+.sec-idx{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--acc-deep);font-weight:800;margin-bottom:.5rem}
+.sec-title{font-family:var(--font-display);font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;line-height:1.08;max-width:26ch;color:var(--ink);text-transform:uppercase;letter-spacing:-.005em}
+.lead{color:var(--muted);max-width:60ch;margin-top:.8rem}
 
-.content h2{
-  font-weight: 300;
-}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:1.15rem}
+.svc{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.6rem 1.5rem;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.svc:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 16px 38px rgba(10,136,206,.13)}
+.svc::after{content:"";position:absolute;top:0;left:0;width:46px;height:3px;background:var(--acc);transition:width .3s ease}
+.svc:hover::after{width:100%}
+.svc-ico{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0C2438,#0A88CE);display:grid;place-items:center;margin-bottom:1rem}
+.svc-ico svg{width:22px;height:22px;stroke:#EAF6FF;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-family:var(--font-display);font-weight:800;font-size:1.24rem;color:var(--ink);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.01em}
+.svc p{color:var(--muted);font-size:.94rem}
 
-.insignia{
-  margin:5em auto;
-  max-width:24em;
-  filter: grayscale(90%);
-  opacity:.9;
-}
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+@media(max-width:760px){.diff{grid-template-columns:1fr}}
+.diff-fig{position:relative;margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--deep)}
+.diff-fig img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.diff-tag{position:absolute;top:14px;left:14px;font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:6px 12px;border-radius:5px;color:#fff}
+.diff-tag.before{background:rgba(20,28,36,.82);border:1px solid rgba(255,255,255,.3)}
+.diff-tag.after{background:var(--acc)}
+.diff-fig figcaption{position:absolute;inset:auto 0 0 0;background:linear-gradient(180deg,transparent,rgba(6,14,22,.9) 46%);color:#EAF4FB;font-size:.92rem;font-weight:600;padding:2.4rem 1.05rem .95rem}
+.diff-note{margin-top:1.3rem;color:var(--muted);font-size:.92rem}
 
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   width:100%;
-   background:#FFF;
-}
+.band{background:var(--deep);border-block:2px solid rgba(255,255,255,.12)}
+.band .sec-title{color:var(--dink)}
+.band .sec-idx{color:var(--acc2)}
+.band .lead{color:var(--dmut)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.15rem}
+.step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:1.55rem 1.45rem}
+.step-n{font-family:var(--font-display);font-size:1.8rem;line-height:1;color:var(--acc2);margin-bottom:.5rem;font-weight:900}
+.step h3{font-family:var(--font-display);font-weight:800;font-size:1.16rem;color:var(--dink);margin-bottom:.28rem;text-transform:uppercase;letter-spacing:.01em}
+.step p{color:var(--dmut);font-size:.92rem}
 
-#footer ul{
-  margin:0;
-  padding:1.5em;
-  list-style-type: none;
-  text-align:center;
-}
+.why-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.6rem;align-items:start}
+@media(max-width:920px){.why-grid{grid-template-columns:1fr;gap:2rem}}
+.why-list{display:grid;gap:1.05rem;margin-top:1.4rem}
+.why-item{display:flex;gap:.95rem;align-items:flex-start}
+.why-tick{flex:none;width:26px;height:26px;border-radius:7px;background:var(--acc);display:grid;place-items:center;margin-top:.15rem}
+.why-tick svg{width:14px;height:14px;stroke:#FFFFFF;fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.why-item h3{font-family:var(--font-display);font-weight:800;font-size:1.16rem;color:var(--ink);text-transform:uppercase;letter-spacing:.01em}
+.why-item p{color:var(--muted);font-size:.93rem}
+.rate-panel{background:linear-gradient(150deg,#0C2438,#081624);border:1px solid rgba(96,180,232,.28);border-radius:16px;padding:2rem 1.8rem;color:#EAF4FB}
+.rate-big{font-family:var(--font-display);font-size:clamp(3rem,6vw,4.4rem);font-weight:900;color:#4CC6F4;line-height:1}
+.rate-panel .rate-lbl{color:#BFD6E6;font-size:.95rem;margin-top:.3rem}
+.rate-row{margin-top:1.6rem;border-top:1px solid rgba(255,255,255,.16);padding-top:1.3rem;display:grid;gap:1rem}
+.rate-row div{display:block}
+.rate-row b{font-family:var(--font-display);font-size:1.4rem;color:#F3FAFF;font-weight:800;display:block;text-transform:uppercase;letter-spacing:.02em}
+.rate-row span{color:#9FB9CC;font-size:.88rem}
 
-#footer ul li{
-  margin:0;
-  display: inline-block;
-  font-weight: 500;
-  font-size: 20px;
-  padding:1em 0;
-}
+.areas-fig{position:relative;margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.areas-fig img{width:100%;aspect-ratio:1080/450;object-fit:cover;display:block}
+.areas-fig figcaption{position:absolute;inset:auto 0 0 0;background:linear-gradient(180deg,transparent,rgba(6,14,22,.86));color:#EAF4FB;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;padding:2.6rem 1.2rem 1rem}
 
-#footer ul li a{
-  color:#999;
-}
+footer{background:var(--deep);color:#9DB6CA;border-top:2px solid rgba(255,255,255,.14);padding-block:4.4rem 2rem}
+.foot-grid{display:grid;grid-template-columns:1.3fr .9fr .9fr;gap:2.8rem}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr;gap:2rem}}
+.foot-brand{display:flex;gap:.9rem;align-items:center;margin-bottom:1.05rem}
+.foot-brand img{height:54px;width:auto;border-radius:9px;background:#fff;padding:5px;border:1px solid rgba(96,180,232,.45)}
+.foot-brand-name{font-family:var(--font-display);color:#F2F9FF;font-size:1.4rem;line-height:1;font-weight:800}
+.foot-brand-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc2);font-weight:700}
+footer h4{font-family:var(--font-display);font-weight:800;color:#F2F9FF;font-size:1.14rem;margin-bottom:.8rem;text-transform:uppercase;letter-spacing:.03em}
+footer p,footer a{font-size:.94rem;line-height:1.9;color:#9DB6CA;text-decoration:none}
+footer a:hover{color:#F2F9FF}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.5rem;margin-top:3rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:#7A93A8}
+</style>
+</head>
+<body>
+<script>document.documentElement.className+=' js';</script>
+<nav class="nav" aria-label="Main">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Smash Wash Cleaning Group home">
+      <img src="assets/logo.png" alt="Smash Wash Cleaning Group logo">
+      <span>
+        <span class="brand-name">Smash Wash</span><br>
+        <span class="brand-sub">Cleaning Group · Newcastle &amp; Gold Coast</span>
+      </span>
+    </a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navlinks">
+      <a href="#services">What we clean</a>
+      <a href="#difference">The difference</a>
+      <a href="#process">How it works</a>
+      <a href="#areas">Areas</a>
+    </div>
+    <div class="nav-cta">
+      <span class="nav-p">0423 060 108</span>
+      <a class="nav-btn" href="#quote">Get a free quote</a>
+    </div>
+  </div>
+</nav>
 
-/* IE 6 */
-* html #footer {
-   position:absolute;
-   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
-}
+<header class="hero" id="top">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-scrim"></div>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <p class="hero-kicker">Pressure cleaning · Newcastle NSW &amp; Gold Coast QLD</p>
+      <h1>Grime does not stand a <span class="acc">chance.</span><span class="thin">Roofs · driveways · walls · solar</span></h1>
+      <p class="hero-sub">High-pressure and soft-wash cleaning for roofs, driveways, walls and solar panels — brought back to bright across Newcastle and the Gold Coast.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+61423060108">Call 0423 060 108</a>
+        <a class="btn btn-ghost" href="#quote">Get a free quote</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <figure>
+        <div class="hv-tags"><span class="hv-tag before">Before</span><span class="hv-tag after">After</span></div>
+        <img src="assets/hero.jpg" alt="The same metal roof before and after pressure cleaning by Smash Wash Cleaning Group">
+        <figcaption>Real job — the same roof, before and after.</figcaption>
+      </figure>
+    </div>
+    <div class="hero-strip">
+      <p><strong>100% recommended</strong>32 reviews on Facebook</p>
+      <p><strong>Before &amp; after proof</strong>photographed on every job</p>
+      <p><strong>Two regions</strong>Newcastle NSW &amp; Gold Coast QLD</p>
+    </div>
+  </div>
+</header>
 
-/* Mobile */
-@media screen and (max-width: 480px) {
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head drop">
+      <div>
+        <p class="sec-idx">01 — What we clean</p>
+        <h2 class="sec-title">If it is grimy, it is on the list.</h2>
+        <p class="lead">Residential and commercial surfaces, cleaned with the right pressure and the right care for each one.</p>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <article class="svc drop">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M2 13L12 5l10 8"/><path d="M6 13v7h12v-7"/></svg></div>
+        <h3>Roof cleaning &amp; soft wash</h3>
+        <p>Lichens, moss and black staining lifted safely from tiles and metal — treated right, not blasted.</p>
+      </article>
+      <article class="svc drop">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16"/><path d="M3 10h18M3 15h18M9 4v16M15 4v16"/></svg></div>
+        <h3>Driveways &amp; concrete</h3>
+        <p>Concrete and pavers brought back to bright, cleaned evenly and right to the edges.</p>
+      </article>
+      <article class="svc drop">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg></div>
+        <h3>House washing &amp; eaves</h3>
+        <p>Walls, eaves and render washed down without harming the paint or the garden.</p>
+      </article>
+      <article class="svc drop">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12"/><path d="M4 12h16M9 6v6M15 6v6"/></svg></div>
+        <h3>Walls &amp; fences</h3>
+        <p>Green grime stripped off masonry, render and fencing along the boundary.</p>
+      </article>
+      <article class="svc drop">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div>
+        <h3>Solar panel cleaning</h3>
+        <p>Panels and roof clear of dust, leaves and grime, so they get back to full output.</p>
+      </article>
+      <article class="svc drop">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><path d="M8 8h2M14 8h2M8 12h2M14 12h2M8 16h8"/></svg></div>
+        <h3>Commercial surfaces</h3>
+        <p>Shopfronts, walkways, bins and loading areas — cleaned on a schedule, one point of contact.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-  .content img{
-    width:60%;
+<section id="difference">
+  <div class="wrap">
+    <div class="sec-head drop">
+      <div>
+        <p class="sec-idx">02 — The difference</p>
+        <h2 class="sec-title">The same roof. See the change.</h2>
+        <p class="lead">Every job is photographed, before and after — so you can see exactly what pressure cleaning does.</p>
+      </div>
+    </div>
+    <div class="diff">
+      <figure class="diff-fig drop">
+        <span class="diff-tag before">Before</span>
+        <img src="assets/gal_1.jpg" alt="Corrugated metal roof covered in dark staining and lichen before cleaning" loading="lazy">
+        <figcaption>Staining, lichen and grime across the roof sheets.</figcaption>
+      </figure>
+      <figure class="diff-fig drop">
+        <span class="diff-tag after">After</span>
+        <img src="assets/gal_2.jpg" alt="The same corrugated roof bright and clean after pressure washing" loading="lazy">
+        <figcaption>The same roof — stains gone, surface back to bright.</figcaption>
+      </figure>
+    </div>
+    <p class="diff-note drop">Photos from real jobs. More before-and-after shots available on request.</p>
+  </div>
+</section>
+
+<section class="band" id="process">
+  <div class="wrap">
+    <div class="sec-head drop">
+      <div>
+        <p class="sec-idx">03 — How it works</p>
+        <h2 class="sec-title">Quoted from a photo. Backed by proof.</h2>
+        <p class="lead">Simple, straight and quick — most quotes go out the same day.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step drop"><p class="step-n">01</p><h3>Send a photo</h3><p>Message or call with a photo of the surface and we quote it fast.</p></div>
+      <div class="step drop"><p class="step-n">02</p><h3>Lock a time</h3><p>Pick a slot that suits — we turn up when we say we will.</p></div>
+      <div class="step drop"><p class="step-n">03</p><h3>The wash</h3><p>The right pressure and mix for each surface — no damage, no shortcuts.</p></div>
+      <div class="step drop"><p class="step-n">04</p><h3>Before &amp; after</h3><p>We photograph the change so you can see exactly what was cleaned.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="drop">
+        <p class="sec-idx">04 — Why Smash Wash</p>
+        <h2 class="sec-title">Results you can see from the street.</h2>
+        <div class="why-list">
+          <div class="why-item">
+            <span class="why-tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+            <div><h3>Recommended by everyone who reviewed</h3><p>100% of the 32 reviews on the Smash Wash Facebook page recommend the work.</p></div>
+          </div>
+          <div class="why-item">
+            <span class="why-tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+            <div><h3>Before-and-after proof</h3><p>We photograph the change on every job, so the result speaks for itself.</p></div>
+          </div>
+          <div class="why-item">
+            <span class="why-tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+            <div><h3>Two regions covered</h3><p>Newcastle NSW and the Gold Coast QLD — homes, rentals and commercial.</p></div>
+          </div>
+          <div class="why-item">
+            <span class="why-tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+            <div><h3>Right method for each surface</h3><p>Soft wash where it needs a gentle touch, pressure where it needs muscle.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="rate-panel drop">
+        <div class="rate-big">100%</div>
+        <p class="rate-lbl">of Facebook reviews recommend Smash Wash Cleaning Group.</p>
+        <div class="rate-row">
+          <div><b>32 reviews</b><span>on the Smash Wash Facebook page</span></div>
+          <div><b>2 regions</b><span>Newcastle NSW &amp; Gold Coast QLD</span></div>
+          <div><b>Every job</b><span>photographed before and after</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="wrap">
+    <div class="sec-head drop">
+      <div>
+        <p class="sec-idx">05 — Where we work</p>
+        <h2 class="sec-title">Two coasts, one crew.</h2>
+        <p class="lead">Pressure cleaning across Newcastle and the Hunter, and the Gold Coast and Tweed.</p>
+      </div>
+    </div>
+    <figure class="areas-fig drop">
+      <img src="assets/gal_6.jpg" alt="Newcastle NSW and Gold Coast QLD — Smash Wash Cleaning Group service regions" loading="lazy">
+      <figcaption>Newcastle NSW · Gold Coast QLD</figcaption>
+    </figure>
+  </div>
+</section>
+
+<span id="quote" style="position:absolute;top:-90px"></span>
+<section id="lbq" aria-labelledby="lbq-h">
+<style>
+#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--ink2);--lbq-bg:var(--paper2);--lbq-panel:#fff;--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+@media(max-width:900px){#lbq .lbq-w{grid-template-columns:1fr}}
+#lbq h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin:0 0 10px;letter-spacing:-.02em;font-family:var(--disp)}
+#lbq p.lbq-s{margin:0 0 22px;color:var(--lbq-muted);max-width:52ch}
+#lbq .lbq-info{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--lbq-line);padding-top:22px}
+#lbq .lbq-info div{display:flex;gap:10px;align-items:baseline}
+#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lbq-accent);min-width:64px}
+#lbq .lbq-info a{font-weight:800;text-decoration:none}
+#lbq .lbq-f{display:grid;gap:12px;background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
+#lbq label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--paper);color:var(--ink);font:inherit;font-size:.95rem}
+#lbq textarea{min-height:96px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:var(--lbq-acc-text,#0b0e12);font:inherit;font-weight:800;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+</style>
+<div class="lbq-w">
+  <div>
+    <h2 id="lbq-h">Get a free quote</h2>
+    <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
+    <div class="lbq-info">
+      <div><b>Call</b><a href="tel:+61423060108">0423 060 108</a></div>
+      <div><b>Email</b><a href="mailto:smashwash@outlook.com">smashwash@outlook.com</a></div>
+      <div><b>Area</b><span>Newcastle & Gold Coast</span></div>
+    </div>
+  </div>
+  <form id="lbq-form" novalidate data-site="radar-156" data-biz="Smash Wash Cleaning Group">
+    <div class="lbq-f">
+      <div class="lbq-g">
+        <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
+        <div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div>
+        <div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div>
+        <div class="lbq-full"><label for="lbq-svc">Service</label>
+          <select id="lbq-svc" name="service"><option>Driveway / path cleaning</option><option>Patio / deck cleaning</option><option>House exterior</option><option>Roof / solar cleaning</option><option>Commercial cleaning</option><option>Other</option></select>
+        </div>
+        <div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="What needs cleaning, surface type, size, access…" required></textarea></div>
+      </div>
+      <label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
+      <div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit">Send quote request</button>
+      <p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p>
+    </div>
+  </form>
+</div>
+<script>
+(function(){
+  var EP = null;
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
   }
-
-  .content h1{
-    font-size: 1.8em;
-  }
-}</style></head><title>project not found</title></head><body><div class="content"><h1 data-ux="words">project not found</h1><div class="insignia"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 350" enable-background="new 0 0 350 350"><path d="M284 85.5c-2.4-2-5.1-4.4-12.5-6.3v-.1c10.6-27.2 3.3-38-6.9-46.5-7.4-6.2-20.3-7.4-30.4-5.1-10.9-20.2-35.7-27.3-59.2-27.5-23.5.2-48.3 7.3-59.3 27.4-10.1-2.3-23-1-30.4 5.1-10.2 8.5-17.5 19.3-6.9 46.5v.1c-7.4 1.9-10 4.4-12.4 6.4-5.3 4.1-9.8 10.5-9.8 20 .5 15.1 12.5 129.6 12.5 129.6 0 .3.3.6.6.6.2 0 .3-.1.4-.2l10.8-10.1v16.3c0 .4.3.6.6.6.1 0 .3 0 .4-.2l18.3-15.8v9.5c0 .4.3.6.6.6.2 0 .3-.1.4-.2l10.3-9.9 7.1-6.8c.4 36.5-1 80.9-7.3 122.2-1 6.7 2.7 8.3 6 8.3 1.8 0 3.4-.5 4.2-.9 10.1-5.3 18.5-26.4 24-49.9 4.6-19.5 9.7-44.9 14.5-75.8 2.2 1.1 8.7 3.1 15.2 3.1s12.9-2 15.2-3.1c4.7 30.8 9.9 56.2 14.5 75.8 5.5 23.5 13.9 44.6 24 49.9.8.4 2.5.9 4.2.9 3.3 0 7.1-1.6 6-8.3-6.3-41.2-7.7-85.6-7.3-122.2l7.1 6.8 10.3 9.9c.1.1.3.2.4.2.3 0 .6-.3.6-.6v-9.5l18.3 15.8c.1.1.3.2.4.2.3 0 .6-.3.6-.6v-16.3l10.8 10.1c.1.1.3.2.4.2.3 0 .6-.2.6-.6 0 0 12-114.4 12.5-129.6.4-9.5-4.1-15.9-9.4-20z" fill="#564740"/><path d="M178.7 167.9l-3.7-3.5-3.7 3.5v.1l-4.3 4.3c2.5 2.6 5.2 4 8 4s5.5-1.4 8-4l-4.3-4.4z" fill="#483A34"/><polygon points="186.8,179.9 163.2,179.9 162.2,187.7 187.8,187.7" fill="#AAD9BD"/><path d="M158.9 180.4s-3.1 22.7-4.2 30.6c-9 61.3-21.7 125.7-36.3 132-1.1.5-2.1-.5-2-1.6 1.8-9.7 5.9-35.3 7.2-58.2 1-17 1.4-47.8 1.5-79.6l8.8-8.4c.7-.7 1.8-.4 1.8.7v7.9l23.2-23.4z" fill="#F6E3D6"/><path d="M135.6 203.9v-7.9c0-1.1-1.1-1.4-1.8-.7l-5.5 5.2c-.1 2.7-1.3 51-1.3 61 0 27.8-7.2 71.4-6.5 71.4 6.3 0 15.1-94.5 18-132.1l-2.9 3.1z" fill="#FAF1EA"/><path d="M191.1 180.4s3.1 22.7 4.2 30.6c9 61.3 21.7 125.7 36.3 132 1.1.5 2.1-.5 2-1.6-1.8-9.7-5.9-35.3-7.2-58.2-1-17-1.4-47.8-1.5-79.6l-8.8-8.4c-.7-.7-1.8-.4-1.8.7v7.9l-23.2-23.4z" fill="#F6E3D6"/><path d="M266.6 83.2c-5.1-.8-20.7-.6-20.9-.6l19.5-4.5c14.9-31.7-7.9-46.8-21.7-46.8-4.7 0-17 1.7-18.4 1.7 0 0 2.3-.3 2.9-.9 0-5.9-16.5-25.4-53-25.4-36.4 0-53 19.5-53 25.4.6.6 2.9.9 2.9.9-1.4 0-13.7-1.7-18.4-1.7-13.7 0-36.6 15-21.7 46.8l19.5 4.5c-.1 0-15.8-.1-20.9.6-7 1.1-20.7 8.6-20.7 21.9 0 6.2 2.6 24.5 2.6 24.5h219.3s2.6-18.3 2.6-24.5c.1-13.3-13.6-20.8-20.6-21.9z" fill="#63C199"/><path d="M257.9 43.4c-3.3-2.4-7.7-3.4-13.6-3.4 0 0-2.6.1-4.1.3-14.1 1.8-19.1 9.4-32.7 9.4-6.9 0-3.2-16.4-3.2-16.4s17.4.4 17.4-.8c0-5.3-20.5-20.6-45.3-20.6h-3c-24.8 0-45.3 15.3-45.3 20.6 0 1.2 17.4.8 17.4.8s3.8 16.4-3.2 16.4c-13.6 0-18.6-7.6-32.7-9.4-1.5-.2-4.1-.3-4.1-.3-5.9 0-10.3 1-13.6 3.4-4.6 3.4-14 16.1 2.4 37l9.8 2.2h141.4l9.8-2.2c16.6-21 7.2-33.7 2.6-37z" fill="#C5E4D0"/><polygon points="104.3,82.6 104.3,82.6 104.3,82.6" fill="#A8E1C2"/><path d="M107.6 53.6c-1 0-1.9.3-2.7.9.3.3.4.6.4 1 0 .8-.6 1.4-1.4 1.4-.3 0-.6-.1-.9-.3-.5.9-.7 2-.7 3.1 0 3.4 2.4 6.1 5.4 6.1 3 0 5.4-2.7 5.4-6.1-.1-3.4-2.5-6.1-5.5-6.1z" fill="#483A34"/><path d="M106.5 55.5c0-.7-.3-1.4-.8-1.8-.5-.5-1.1-.8-1.8-.8-1.4 0-2.6 1.2-2.6 2.6 0 .8.4 1.6 1 2.1.4.3 1 .5 1.6.5 1.4 0 2.6-1.2 2.6-2.6z" fill="#FBF8F5"/><polygon points="170.7,94.1 164.5,88.3 170.8,94.2" fill="#564740"/><polygon points="123.3,205.3 123.3,205.3 123.3,205.3" fill="#AAD9BD"/><polygon points="128.4,200.4 125.1,203.6 128.4,200.4" fill="#A8E1C2"/><polygon points="133.8,195.2 128.4,200.4 128.4,200.4" fill="#A8E1C2"/><polygon points="128.4,200.4 128.4,200.4 128.4,200.4" fill="#A8E1C2"/><polygon points="65.3,129.6 65.3,129.6 65.3,129.6" fill="#8CD7AF"/><polygon points="171.1,94.5 173.7,96.9 170.8,94.2" fill="#564740"/><polygon points="211.2,205.3 211.2,205.3 211.2,205.3" fill="#AAD9BD"/><polygon points="206,200.4 206,200.4 206,200.4" fill="#A8E1C2"/><polygon points="180.9,108.4 180.9,108.4 180.9,108.4" fill="#8CD7AF"/><polygon points="245.7,82.6 245.7,82.6 245.7,82.6" fill="#A8E1C2"/><path d="M244.3 53.6c-1 0-1.9.3-2.7.9.3.3.4.6.4 1 0 .8-.6 1.4-1.4 1.4-.3 0-.6-.1-.9-.3-.5.9-.7 2-.7 3.1 0 3.4 2.4 6.1 5.4 6.1 3 0 5.4-2.7 5.4-6.1-.1-3.4-2.5-6.1-5.5-6.1z" fill="#483A34"/><path d="M243.2 55.5c0-.7-.3-1.4-.8-1.8-.5-.5-1.1-.8-1.8-.8-1.4 0-2.6 1.2-2.6 2.6 0 .8.4 1.6 1 2.1.4.3 1 .5 1.6.5 1.4 0 2.6-1.2 2.6-2.6z" fill="#FBF8F5"/><polygon points="179.3,94.1 185.5,88.3 179.2,94.2" fill="#564740"/><path d="M214.4 203.9v-7.9c0-1.1 1.1-1.4 1.8-.7l5.5 5.2c.1 2.7 1.3 51 1.3 61 0 27.8 7.2 71.4 6.5 71.4-6.3 0-15.1-94.5-18-132.1l2.9 3.1z" fill="#FAF1EA"/><polygon points="226.7,205.3 226.7,205.3 226.7,205.3" fill="#AAD9BD"/><polygon points="221.6,200.4 224.9,203.6 221.6,200.4" fill="#A8E1C2"/><polygon points="216.2,195.2 221.6,200.4 221.6,200.4" fill="#A8E1C2"/><polygon points="221.6,200.4 221.6,200.4 221.6,200.4" fill="#A8E1C2"/><polygon points="284.7,129.6 284.7,129.6 284.7,129.6" fill="#8CD7AF"/><polygon points="178.9,94.5 176.3,96.9 179.2,94.2" fill="#564740"/><path d="M248.9 101.7c-21.5-9.3-53.6-12.6-63.4-13.4l-6.3 5.9-.3.3-2.6 2.4c-.3.3-.8.5-1.3.5s-.9-.2-1.3-.5l-2.6-2.4-.3-.3-6.3-5.9c-9.8.8-41.9 4.1-63.4 13.4-23.1 10-35.8 28.7-35.8 27.9l1.1 11.9v-.1c34.7-39.7 104.8 26.4 104.8 26.4l3.7-3.5 3.7 3.5s70.1-66.1 104.8-26.4v.1l1.1-11.9c.2.8-12.5-17.9-35.6-27.9z" fill="#AAD9BD"/><path d="M171.3 167.9l-4.7-48.4c-5 6.5-14 12.3-28.8 12.3-23 0-36.6-30.1-71.3 9.6l7.1 77.1.5 3.7 9.8-10 1.2-67.3 1.5-1 .5 84.4 11.6-10 5.3-4.6c.4-19.7 1-53.6 1-53.6l1.6-1.1.3 62.2 9.5-9.1.6-.6 5.7-5.5c.3-16 .6-31.2.6-31.2l1.6-1.4.2 30.4 3.3-3.2 5.5-5.2c.3-.3.6-.4.9-.4.5 0 .9.4.9 1.1v7.9l35.6-36.1z" fill="#C5E4D0"/><path d="M201.7 76c-.3-.1-.6-.2-.9-.2h-51.6c-.3 0-.7.1-.9.2-.7.4-1.1 1.2-.7 1.9l.3.4 22.8 21.4.1.1 2.9 2.7c.3.3.8.5 1.3.5s.9-.2 1.3-.5l2.9-2.7.1-.1 22.8-21.4c.1-.1.2-.2.3-.4.4-.7.1-1.6-.7-1.9z" fill="#564740"/><path d="M178.7 167.9l4.7-48.4c5 6.5 14 12.3 28.8 12.3 23 0 36.6-30.1 71.3 9.6l-7.1 77.1-.5 3.7-9.8-10-1.2-67.3-1.5-1-.5 84.4-11.6-10-5.3-4.6c-.4-19.7-1-53.6-1-53.6l-1.6-1.1-.3 62.2-9.5-9.1-.6-.6-5.7-5.5c-.3-16-.6-31.2-.6-31.2l-1.6-1.4-.2 30.4-3.3-3.2-5.5-5.2c-.3-.3-.6-.4-.9-.4-.5 0-.9.4-.9 1.1v7.9l-35.6-36.1z" fill="#C5E4D0"/><path d="M271.5 63.2c0-2 0-3.9-.1-5.8v21.7c.1-16.3.1-15.5.1-15.9z" fill="#564740"/><path d="M141.8 55.9c11.4 0 4.6-18.7 4.6-18.7s.9 7.7-7.9 7.7c-17 0-17-5.9-30.6-5.9-11.2 0-14.8 3.6-14.8 3.6 25.8-6.2 32.2 13.3 48.7 13.3z" fill="#AAD9BD"/><path d="M191.1 180.4" fill="#F5E0D3"/><path d="M187.7 187l-6.2-6.2c-2.2.3-4.3.4-6.5.4s-4.4-.2-6.5-.4l-6.2 6.2-3.8 27.8c4.6 3.8 10.1 5.4 16.3 5.4h.4c6.3 0 11.7-1.6 16.3-5.4l-3.8-27.8z" fill="#C5E4D0"/><path d="M186.1 175.4l-3.1-3.2c-2.5 2.6-5.2 4-8 4s-5.5-1.4-8-4l-3.1 3.2-.6 4.5c.7.2 1.3.3 2 .4 3.2.6 6.4.9 9.7.9 3.3 0 6.6-.3 9.7-.9.7-.1 1.4-.3 2-.4l-.6-4.5z" fill="#63C199"/><path d="M208.2 55.9c-11.4 0-4.6-18.7-4.6-18.7s-.9 7.7 7.9 7.7c17 0 17-5.9 30.6-5.9 11.2 0 14.8 3.6 14.8 3.6-25.8-6.2-32.2 13.3-48.7 13.3z" fill="#AAD9BD"/></svg></div></div><div id="footer"><ul><li>powered by <a href="https://surge.sh">surge.sh</a></li></ul></div><script>
-/* LAYDBACK UX KIT v1 — our own; see pipeline/orders/ux_kit.js */
-/* ux_kit.js — LAYDBACK UX KIT v1 (own implementation, zero dependencies, MIT-clean).
- * Our vanilla take on the techniques shown in the 2026-10-12 "vibe coding" reel:
- *   Motion-style springs + drag feel, Kokonut-style scroll text / dynamic text,
- *   spotlight cards, magnetic buttons, animated counters, marquee, scroll progress, parallax.
- * Everything is hand-rolled — no copied library code, no CDN, no build step.
- *
- * Usage: inline this whole file inside the page's <script> block, then mark up elements:
- *   data-ux="words"        headline that reveals word-by-word on scroll   (add data-ux-words='["a","b"]' if JS text swap wanted — usually not; it just splits existing text)
- *   data-ux="dynamic"      rotates through words:  <span data-ux="dynamic" data-words="Concreting|Render|Tiling"></span>
- *   data-ux="count"        counts up to value:     <b data-ux="count" data-to="30" data-suffix="+">0</b>   (FACTS ONLY — never invent)
- *   data-ux="spotlight"    radial glow under the cursor on this card
- *   data-ux="magnetic"     button that leans toward the cursor
- *   data-ux="tilt"         card that tilts in 3D toward the cursor
- *   data-ux="marquee"      seamless scrolling strip (put one <span> of content inside)
- *   data-ux="parallax"     element drifts with scroll; data-speed="-0.15" optional (default -0.12)
- *   data-ux="fadein"       simple one-shot fade+rise on scroll (same as .rv, kept for completeness)
- * Top scroll progress bar: UX.progressBar() is auto-created unless <html data-ux-nobar> is set.
- *
- * Laws: reduced-motion → everything settles to final state instantly.
- * Resilient: every subsystem try/wrapped; a 1500ms timer forces all reveals visible.
- */
-(function (global) {
-  'use strict';
-  var UX = {};
-  var REDUCED = false;
-  try { REDUCED = global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-
-  /* ---------- tiny maths ---------- */
-  UX.clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
-  UX.lerp = function (a, b, k) { return a + (b - a) * k; };
-  var easeOut = function (t) { t = UX.clamp(t, 0, 1); return 1 - Math.pow(1 - t, 3); };
-
-  /* ---------- spring (Motion-style feel, hand-rolled) ----------
-   * Returns an object with .step(dt) advancing toward target; used for magnetic/tilt/drag settle. */
-  UX.spring = function (opts) {
-    var s = { k: (opts && opts.stiffness) || 170, d: (opts && opts.damping) || 22, v: 0, x: 0, target: 0 };
-    s.step = function (dt) {
-      var f = (s.target - s.x) * s.k - s.v * s.d;
-      s.v += f * (dt * 60 || 1);
-      s.x += s.v * (dt * 60 || 1);
-      return s.x;
-    };
-    return s;
-  };
-
-  /* ---------- rAF loop pool (one loop drives everything, battery friendly) ---------- */
-  var tasks = [];
-  function addTask(fn) { tasks.push(fn); ensureLoop(); }
-  var looping = false, last = 0;
-  function ensureLoop() {
-    if (looping || REDUCED) return;
-    looping = true;
-    last = 0;
-    function tick(ts) {
-      var dt = last ? (ts - last) / 1000 : 1 / 60; last = ts;
-      for (var i = 0; i < tasks.length; i++) { try { tasks[i](dt, ts); } catch (e) {} }
-      if (tasks.length) requestAnimationFrame(tick); else looping = false;
-    }
-    requestAnimationFrame(tick);
-  }
-  UX._addTask = addTask;
-  UX._removeTask = function (fn) {
-    var i = tasks.indexOf(fn); if (i >= 0) tasks.splice(i, 1);
-  };
-
-  /* ---------- in-view helper ---------- */
-  function each(sel, root, fn) {
-    var list; try { list = (root || document).querySelectorAll(sel); } catch (e) { return; }
-    for (var i = 0; i < list.length; i++) fn(list[i], i);
-  }
-  function inView(el, cb, once) {
-    if (REDUCED || !('IntersectionObserver' in global)) { cb(el); return; }
-    var hit = false;
-    var io = new IntersectionObserver(function (ents) {
-      for (var i = 0; i < ents.length; i++) {
-        if (ents[i].isIntersecting) { hit = true; cb(el); if (once !== false) io.disconnect(); }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
       }
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
-    io.observe(el);
-    setTimeout(function () { if (!hit) { try { io.disconnect(); } catch (e) {} cb(el); } }, 2500);
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        var url = B + '/functions/v1/quote-request';
+        fetch(url, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--lbq-accent)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
   }
-
-  /* ---------- 1. word reveal (Kokonut "Scroll Text" idea, ours) ---------- */
-  UX.words = function (el) {
-    if (el.getAttribute('data-ux-done')) return; el.setAttribute('data-ux-done', '1');
-    var txt = el.textContent || '';
-    if (txt.length < 2 || txt.length > 160) return;
-    var words = txt.split(/\s+/), frag = document.createDocumentFragment();
-    for (var i = 0; i < words.length; i++) {
-      var w = document.createElement('span'); w.textContent = words[i];
-      w.style.display = 'inline-block'; w.style.opacity = '0'; w.style.transform = 'translateY(0.55em)';
-      var needsSpace = i < words.length - 1; if (needsSpace) w.textContent = words[i] + '\u00A0';
-      frag.appendChild(w);
-    }
-    el.textContent = ''; el.appendChild(frag);
-    var spans = el.children;
-    var go = function () {
-      for (var j = 0; j < spans.length; j++) {
-        (function (s, j) {
-          if (REDUCED) { s.style.opacity = '1'; s.style.transform = 'none'; return; }
-          setTimeout(function () {
-            s.style.transition = 'opacity .5s ease, transform .6s cubic-bezier(.2,.7,.2,1)';
-            s.style.opacity = '1'; s.style.transform = 'none';
-          }, j * 55);
-        })(spans[j], j);
-      }
-      setTimeout(function () { for (var k = 0; k < spans.length; k++) { spans[k].style.opacity = '1'; spans[k].style.transform = 'none'; } }, 1600);
-    };
-    inView(el, go);
-  };
-
-  /* ---------- 2. dynamic text switcher (Kokonut "Dynamic Text" idea, ours) ---------- */
-  UX.dynamic = function (el) {
-    var words = (el.getAttribute('data-words') || '').split('|').filter(Boolean);
-    if (words.length < 2) return;
-    var i = 0; el.textContent = words[0];
-    if (REDUCED) return;
-    var inner = document.createElement('span'); inner.style.display = 'inline-block'; inner.style.transition = 'opacity .28s ease, transform .34s cubic-bezier(.2,.7,.2,1)';
-    el.textContent = ''; el.appendChild(inner); inner.textContent = words[0];
-    setInterval(function () {
-      inner.style.opacity = '0'; inner.style.transform = 'translateY(-0.45em)';
-      setTimeout(function () {
-        i = (i + 1) % words.length; inner.textContent = words[i];
-        inner.style.transition = 'none'; inner.style.transform = 'translateY(0.45em)';
-        void inner.offsetHeight; inner.style.transition = 'opacity .28s ease, transform .34s cubic-bezier(.2,.7,.2,1)';
-        inner.style.opacity = '1'; inner.style.transform = 'none';
-      }, 300);
-    }, 2600);
-  };
-
-  /* ---------- 3. animated counter (facts only) ---------- */
-  UX.count = function (el) {
-    var to = parseFloat(el.getAttribute('data-to') || '0'), dur = 1.4, t0 = 0;
-    var suf = el.getAttribute('data-suffix') || '', pre = el.getAttribute('data-prefix') || '';
-    var go = function () {
-      if (REDUCED) { el.textContent = pre + to + suf; return; }
-      var fn = function (dt) {
-        t0 += dt; var k = easeOut(t0 / dur);
-        el.textContent = pre + Math.round(to * k) + suf;
-        if (k >= 1) UX._removeTask(fn);
-      };
-      addTask(fn);
-    };
-    inView(el, go);
-  };
-
-  /* ---------- 4. spotlight card (blur-flare in a clipping shim; deliberately no gradient syntax) ---------- */
-  UX.spotlight = function (el) {
-    if (REDUCED) return;
-    el.style.position = el.style.position || 'relative';
-    var clip = document.createElement('div');
-    clip.setAttribute('aria-hidden', 'true');
-    clip.style.cssText = 'position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:0';
-    var g = document.createElement('i');
-    g.style.cssText = 'position:absolute;left:0;top:0;width:420px;height:420px;border-radius:50%;background:rgba(196,251,36,.10);filter:blur(58px);opacity:0;transition:opacity .4s ease;transform:translate(-50%,-50%)';
-    clip.appendChild(g); el.appendChild(clip);
-    el.addEventListener('pointermove', function (e) {
-      var r = el.getBoundingClientRect();
-      g.style.transform = 'translate(' + (e.clientX - r.left - 210).toFixed(1) + 'px,' + (e.clientY - r.top - 210).toFixed(1) + 'px)';
-      g.style.opacity = '1';
-    });
-    el.addEventListener('pointerleave', function () { g.style.opacity = '0'; });
-  };
-
-  /* ---------- 5. magnetic button ---------- */
-  UX.magnetic = function (el) {
-    if (REDUCED) return;
-    var sx = UX.spring({ stiffness: 150, damping: 15 }), sy = UX.spring({ stiffness: 150, damping: 15 });
-    var raf = 0;
-    addTask(function (dt) { if (raf || Math.abs(sx.x - sx.target) > .01 || Math.abs(sy.x - sy.target) > .01) { var x = sx.step(dt), y = sy.step(dt); el.style.transform = 'translate(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px)'; } });
-    el.addEventListener('pointermove', function (e) {
-      var r = el.getBoundingClientRect();
-      sx.target = (e.clientX - (r.left + r.width / 2)) * 0.22;
-      sy.target = (e.clientY - (r.top + r.height / 2)) * 0.22;
-    });
-    el.addEventListener('pointerleave', function () { sx.target = 0; sy.target = 0; });
-  };
-
-  /* ---------- 6. 3D tilt card ---------- */
-  UX.tilt = function (el) {
-    if (REDUCED) return;
-    var rx = UX.spring({ stiffness: 140, damping: 18 }), ry = UX.spring({ stiffness: 140, damping: 18 });
-    var t = 'perspective(900px)';
-    addTask(function (dt) { rx.step(dt); ry.step(dt); el.style.transform = t + ' rotateX(' + rx.x.toFixed(2) + 'deg) rotateY(' + ry.x.toFixed(2) + 'deg)'; });
-    el.addEventListener('pointermove', function (e) {
-      var r = el.getBoundingClientRect(), mx = (e.clientX - r.left) / r.width - .5, my = (e.clientY - r.top) / r.height - .5;
-      ry.target = mx * 7; rx.target = -my * 7;
-    });
-    el.addEventListener('pointerleave', function () { rx.target = 0; ry.target = 0; });
-  };
-
-  /* ---------- 7. marquee ---------- */
-  UX.marquee = function (el) {
-    var src = el.innerHTML; el.innerHTML = ''; el.style.overflow = 'hidden';
-    var inner = document.createElement('div');
-    inner.style.cssText = 'display:flex;gap:2.5rem;width:max-content;white-space:nowrap;will-change:transform';
-    inner.innerHTML = '<span style="display:flex;gap:2.5rem">' + src + '</span><span aria-hidden="true" style="display:flex;gap:2.5rem">' + src + '</span>';
-    el.appendChild(inner);
-    if (REDUCED) return;
-    var x = 0, half = 0;
-    var speed = parseFloat(el.getAttribute('data-speed') || '-38');
-    addTask(function (dt) {
-      if (!half) half = inner.scrollWidth / 2; if (!half) return;
-      x += speed * dt; if (x <= -half) x += half; if (x > 0) x -= half;
-      inner.style.transform = 'translateX(' + x.toFixed(1) + 'px)';
-    });
-  };
-
-  /* ---------- 8. parallax ---------- */
-  UX.parallax = function (el) {
-    if (REDUCED) return;
-    var sp = parseFloat(el.getAttribute('data-speed') || '-0.12');
-    var y = 0, target = 0;
-    addTask(function (dt) {
-      var r = el.getBoundingClientRect(), vh = global.innerHeight || 800;
-      var mid = r.top + r.height / 2 - vh / 2;
-      target = mid * sp; y = UX.lerp(y, target, 1 - Math.pow(0.001, dt));
-      el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)';
-    });
-  };
-
-  /* ---------- 9. fade-in one-shot ---------- */
-  UX.fadein = function (el) {
-    el.style.opacity = '0'; el.style.transform = 'translateY(14px)';
-    inView(el, function () {
-      el.style.transition = 'opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1)';
-      el.style.opacity = '1'; el.style.transform = 'none';
-    });
-  };
-
-  /* ---------- 10. scroll progress bar ---------- */
-  UX.progressBar = function (colour) {
-    if (document.documentElement.getAttribute('data-ux-nobar') !== null) return;
-    var bar = document.createElement('div');
-    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:' + (colour || '#c4fb24') + ';transition:width .1s linear';
-    document.body.appendChild(bar);
-    var update = function () {
-      var h = document.documentElement;
-      var max = (h.scrollHeight - h.clientHeight) || 1;
-      bar.style.width = UX.clamp((global.pageYOffset || h.scrollTop || 0) / max * 100, 0, 100) + '%';
-    };
-    addEventListener('scroll', update, { passive: true }); update();
-  };
-
-  /* ---------- auto-init ---------- */
-  UX.init = function (root) {
-    try { each('[data-ux="words"]:not([data-ux-done])', root, UX.words); } catch (e) {}
-    try { each('[data-ux="dynamic"]', root, UX.dynamic); } catch (e) {}
-    try { each('[data-ux="count"]', root, UX.count); } catch (e) {}
-    try { each('[data-ux="spotlight"]', root, UX.spotlight); } catch (e) {}
-    try { each('[data-ux="magnetic"]', root, UX.magnetic); } catch (e) {}
-    try { each('[data-ux="tilt"]', root, UX.tilt); } catch (e) {}
-    try { each('[data-ux="marquee"]', root, UX.marquee); } catch (e) {}
-    try { each('[data-ux="parallax"]', root, UX.parallax); } catch (e) {}
-    try { each('[data-ux="fadein"]:not([data-ux-done])', root, function (el) { el.setAttribute('data-ux-done', '1'); UX.fadein(el); }); } catch (e) {}
-    try { UX.progressBar(); } catch (e) {}
-  };
-  /* safety net: if anything above failed, content must still be usable */
-  setTimeout(function () {
-    each('[data-ux="words"],[data-ux="fadein"]', null, function (el) {
-      for (var i = 0; i < el.children.length; i++) { el.children[i].style.opacity = '1'; el.children[i].style.transform = 'none'; }
-      el.style.opacity = '1'; el.style.transform = 'none';
-    });
-  }, 1500);
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { UX.init(); });
-  else UX.init();
-  global.UX = UX;
-})(window);
-
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
 </script>
-</body></html>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/logo.png" alt="Smash Wash Cleaning Group logo">
+          <span>
+            <span class="foot-brand-name">Smash Wash</span><br>
+            <span class="foot-brand-sub">Cleaning Group · Newcastle &amp; Gold Coast</span>
+          </span>
+        </div>
+        <p>Smash Wash Cleaning Group — pressure and soft-wash cleaning for roofs, driveways, walls, solar and commercial property across Newcastle NSW and the Gold Coast QLD.</p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p>
+          <a href="tel:+61423060108">0423 060 108</a><br>
+          <a href="mailto:smashwash@outlook.com">smashwash@outlook.com</a><br>
+          <a href="https://www.facebook.com/thesmashwash/" rel="noopener" target="_blank">Facebook</a>
+        </p>
+      </div>
+      <div>
+        <h4>Coverage</h4>
+        <p>Newcastle NSW · Gold Coast QLD<br>100% recommended — 32 reviews</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Smash Wash Cleaning Group</span>
+      <span>Newcastle · Gold Coast</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
+  if (b && n){
+    b.addEventListener('click', function(){
+      var open = n.classList.toggle('open');
+      b.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    n.addEventListener('click', function(e){
+      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+    });
+  }
+})();
+
+(function(){
+  var els = document.querySelectorAll('.drop');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+
+setTimeout(function(){
+  document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
+}, 1100);
+
+/* 3D hero — high-pressure wash sweep revealing a clean surface */
+(function(){
+  var c = document.getElementById('heroCanvas');
+  if (!c || !c.getContext) return;
+  var ctx = c.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var px = 0, py = 0;
+  window.addEventListener('pointermove', function(e){
+    px = (e.clientX / window.innerWidth - 0.5) * 20;
+    py = (e.clientY / window.innerHeight - 0.5) * 12;
+  }, {passive: true});
+
+  function resize(){
+    W = c.clientWidth || c.offsetWidth;
+    H = c.clientHeight || c.offsetHeight;
+    if (!W || !H) return;
+    c.width = Math.round(W * DPR);
+    c.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+
+  function loop(t){
+    if (!isFinite(t)) t = 0;
+    if (!W || !H){ resize(); requestAnimationFrame(loop); return; }
+    frame(t);
+    if (!reduce) requestAnimationFrame(loop);
+  }
+
+  function frame(t){
+    var time = t * 0.001;
+    if (!isFinite(time)) time = 0;
+    ctx.clearRect(0, 0, W, H);
+
+    var hz = H * 0.60 + py * 0.4;         /* horizon */
+    var vx = W * 0.62 + px * 0.6;         /* vanishing point */
+
+    /* perspective floor grid */
+    ctx.lineWidth = 1;
+    for (var gx = -6; gx <= 6; gx++){
+      var fx = vx + gx * (W * 0.30);
+      ctx.strokeStyle = 'rgba(70,166,222,' + (0.16 - Math.abs(gx) * 0.012) + ')';
+      ctx.beginPath();
+      ctx.moveTo(vx + gx * (W * 0.028), hz);
+      ctx.lineTo(fx, H * 1.16);
+      ctx.stroke();
+    }
+    for (var r = 1; r <= 8; r++){
+      var yy = hz + (H * 1.16 - hz) * Math.pow(r / 8, 1.7);
+      ctx.strokeStyle = 'rgba(70,166,222,' + (0.10 + r * 0.006) + ')';
+      ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(W, yy); ctx.stroke();
+    }
+
+    /* wash sweep position (left -> right, loops) */
+    var sweep = (time * 0.16) % 1;
+    var sx = -W * 0.25 + sweep * (W * 1.5);
+    var nozzleY = hz - H * 0.10 + Math.sin(time * 1.1) * H * 0.015;
+
+    /* the cleaned wedge trailing the sweep */
+    var wedge = ctx.createLinearGradient(sx - W * 0.6, 0, sx, 0);
+    wedge.addColorStop(0, 'rgba(120,210,255,0)');
+    wedge.addColorStop(1, 'rgba(120,210,255,0.14)');
+    ctx.fillStyle = wedge;
+    ctx.beginPath();
+    ctx.moveTo(0, hz);
+    ctx.lineTo(sx, hz);
+    ctx.lineTo(sx - W * 0.18, H);
+    ctx.lineTo(0, H);
+    ctx.closePath();
+    ctx.fill();
+
+    /* high-pressure fan of jets from the nozzle */
+    var jets = 9;
+    for (var j = 0; j < jets; j++){
+      var spread = -0.52 + j * (1.04 / (jets - 1));
+      var ang = Math.PI / 2 + spread * 0.55 + Math.sin(time * 0.9 + j) * 0.02;
+      var len = H * (0.62 + 0.06 * Math.sin(time * 1.3 + j * 0.5));
+      var ex = sx + Math.cos(ang) * len;
+      var ey = nozzleY + Math.sin(ang) * len;
+      var jg = ctx.createLinearGradient(sx, nozzleY, ex, ey);
+      jg.addColorStop(0, 'rgba(180,232,255,0.55)');
+      jg.addColorStop(1, 'rgba(120,210,255,0)');
+      ctx.strokeStyle = jg;
+      ctx.lineWidth = 3.4 - j * 0.18;
+      ctx.beginPath(); ctx.moveTo(sx, nozzleY); ctx.lineTo(ex, ey); ctx.stroke();
+    }
+
+    /* spray droplets along the jets */
+    for (var p = 0; p < 70; p++){
+      var life = ((p * 0.123 + time * 0.5) % 1);
+      var dAng = Math.PI / 2 + (Math.sin(p * 2.3) * 0.5);
+      var dist = life * (H * (0.4 + (p % 9) * 0.05));
+      var dxp = sx + Math.cos(dAng) * dist + Math.sin(life * 6 + p) * 12;
+      var dyp = nozzleY + Math.sin(dAng) * dist;
+      ctx.fillStyle = 'rgba(190,236,255,' + (0.30 * (1 - life)) + ')';
+      ctx.beginPath(); ctx.arc(dxp, dyp, 1 + (p % 3) * 0.7, 0, Math.PI * 2); ctx.fill();
+    }
+
+    /* glow at the nozzle + sweep */
+    var rg = ctx.createRadialGradient(sx, nozzleY, 6, sx, nozzleY, W * 0.4);
+    rg.addColorStop(0, 'rgba(90,196,244,0.20)');
+    rg.addColorStop(1, 'rgba(90,196,244,0)');
+    ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
+
+    /* faint dust motes for depth */
+    for (var d = 0; d < 26; d++){
+      var mx = ((d * 0.37 + time * 0.03) % 1) * W;
+      var my = ((d * 0.61) % 1) * H * 0.9 + Math.sin(time * 0.5 + d) * 8;
+      ctx.fillStyle = 'rgba(150,200,230,' + (0.05 + (d % 4) * 0.02) + ')';
+      ctx.beginPath(); ctx.arc(mx, my, 1.1, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  if (reduce){ frame(2400); } else { requestAnimationFrame(loop); }
+})();
+</script>
+</body>
+</html>
