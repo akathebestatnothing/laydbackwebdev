@@ -19,7 +19,7 @@ setTimeout(function(){document.querySelectorAll('.rv').forEach(function(e){e.cla
   --bg: #0f1115;
   --ink: #e9eef4;
   --muted: #9aa6b2;
-  --accent: #c4fb24;
+  --accent: #e8e2d6;
   --panel: rgba(255,255,255,.045);
   --line: rgba(255,255,255,.14);
   --card: rgba(255,255,255,.03);
@@ -126,7 +126,7 @@ setTimeout(function(){document.querySelectorAll('.rv').forEach(function(e){e.cla
   </div>
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#e8e2d6))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
@@ -283,7 +283,8 @@ noscript + style { display: block; }
   z-index: 2;
   text-shadow: 0 1px 8px rgba(0,0,0,.6);
 }
-.hud b { display: block; color: #ffc48a; font-size: 13px; }
+.hud { border-left: 2px solid var(--accent); padding-left: 12px; }
+.hud b { display: block; color: var(--venetian-gold); font-size: 13px; }
 
 .cap {
   position: absolute;
@@ -295,7 +296,7 @@ noscript + style { display: block; }
   z-index: 2;
   text-shadow: 0 2px 34px rgba(0,0,0,.6);
 }
-.cap i { font-style: normal; color: #ffc48a; }
+.cap i { font-style: normal; color: var(--venetian-gold); }
 
 /* === HEADER === */
 .site-header {
@@ -1266,7 +1267,7 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Syne', system-ui, sans-se
   UX.progressBar = function (colour) {
     if (document.documentElement.getAttribute('data-ux-nobar') !== null) return;
     var bar = document.createElement('div');
-    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:' + (colour || '#c4fb24') + ';transition:width .1s linear';
+    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:' + (colour || '#e8e2d6') + ';transition:width .1s linear';
     document.body.appendChild(bar);
     var update = function () {
       var h = document.documentElement;
