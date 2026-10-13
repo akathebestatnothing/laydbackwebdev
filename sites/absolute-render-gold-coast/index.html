@@ -1303,5 +1303,11 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Syne', system-ui, sans-se
 })(window);
 
 </script>
+<script>
+
+/* reveal safety net (2026-10-13): never leave sections invisible */
+setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},1250);
+
+</script>
 </body>
 </html>

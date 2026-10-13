@@ -850,5 +850,11 @@ footer a:hover { color: var(--acc); }
 })(window);
 
 </script>
+<script>
+
+/* reveal safety net (2026-10-13): never leave sections invisible */
+setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},1250);
+
+</script>
 </body>
 </html>
