@@ -77,8 +77,14 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .hero-shade{display:none}
 .scroll-hint{display:none}
 </style>
+<style>
+/* scene v2 2026-10-13 */
+.hero-in,.hero-copy,.hero .wrap,.hero__in,.hero .container{position:relative;z-index:2}
+#heroCanvas{display:none!important}
+</style>
 </head>
 <body>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
 <script>document.documentElement.classList.add('js');</script>
 
 <a class="skip" href="#stages">Skip to content</a>
@@ -1130,6 +1136,706 @@ var b=document.getElementById('burger'),n=document.getElementById('navlinks');if
   global.UX = UX;
 })(window);
 
+</script>
+
+<script>
+/* ==== PRO SCENE LIB (pro_scene.js) v2026-10-13 ==== */
+/* pro_scene.js — PRO SCENE STANDARD for Laydback lead-site canvas animations.
+ * Copy this INTO the site's <script> block (sites are single-file). ~8KB.
+ * Goal: make a canvas scene read like a rendered illustration, not a diagram.
+ *
+ * The seven rules (a scene that breaks any of these reads amateur):
+ *  1. LIGHTING: one sun direction for the whole scene. Sky = vertical gradient with a warm
+ *     glow near the sun side; every form has a lit face and a shaded face (lit = toward sun).
+ *  2. DEPTH: atmospheric perspective — far geometry blends toward the haze colour, near
+ *     geometry is darkest/most saturated. Draw far layers first.
+ *  3. CONTACT: nothing floats. Every object gets a soft elliptical ground shadow whose
+ *     alpha grows as it settles; airborne objects get a small, tight shadow.
+ *  4. MATERIALITY: every large surface carries a texture pass (speckle/grain/streaks),
+ *     clipped to the surface, at 2–5% alpha. Flat fills = plastic = amateur.
+ *  5. MOTION: no linear motion. Ease-in-out for placement, ease-out for releases,
+ *     slight overshoot on settling. The scroll progress itself is SMOOTHED (lerp) so the
+ *     scene glides instead of snapping to the wheel.
+ *  6. CAMERA: slow parallax drift (a few px) driven by time + a small scroll offset;
+ *     foreground elements move more than background ones.
+ *  7. GRADE: finish with a vignette and a fine grain pass at very low alpha, always last.
+ */
+(function (global) {
+  'use strict';
+  var PS = {};
+
+  /* ---------- maths ---------- */
+  PS.clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
+  PS.lerp = function (a, b, k) { return a + (b - a) * k; };
+  PS.smoothstep = function (edge0, edge1, x) {
+    var t = PS.clamp((x - edge0) / (edge1 - edge0 || 1e-6), 0, 1); return t * t * (3 - 2 * t);
+  };
+  PS.ease = {
+    inOut: function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; },
+    out: function (t) { return 1 - Math.pow(1 - t, 3); },
+    in: function (t) { return t * t * t; },
+    back: function (t) { var s = 1.70158; t = PS.clamp(t, 0, 1); return 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2); }
+  };
+  /* stage(k, t0, dur) -> smoothed 0..1 (optionally with settle-overshoot) */
+  PS.stage = function (p, t0, dur, mode) {
+    var t = PS.clamp((p - t0) / (dur || 0.2), 0, 1);
+    if (mode === 'place') return PS.ease.inOut(t);
+    if (mode === 'settle') return PS.ease.back(t);
+    if (mode === 'release') return PS.ease.out(t);
+    return PS.smoothstep(0, 1, t);
+  };
+
+  /* ---------- palette helpers ---------- */
+  PS.rgb = function (c) {
+    if (Array.isArray(c)) return c;
+    if (typeof c === 'string' && c.slice(0, 3) === 'rgb') {          // already "rgb(r,g,b)"
+      var m = c.match(/-?\d+(\.\d+)?/g) || [0, 0, 0];
+      return [Math.round(+m[0] || 0), Math.round(+m[1] || 0), Math.round(+m[2] || 0)];
+    }
+    var hex = String(c).replace('#', '');
+    if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    var n = parseInt(hex, 16);
+    if (!isFinite(n)) return [128, 128, 128];
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  };
+  PS.mix = function (c1, c2, k) {
+    var a = PS.rgb(c1), b = PS.rgb(c2);
+    return 'rgb(' + Math.round(PS.lerp(a[0], b[0], k)) + ',' + Math.round(PS.lerp(a[1], b[1], k)) + ',' + Math.round(PS.lerp(a[2], b[2], k)) + ')';
+  };
+  PS.rgba = function (c, a) {
+    var v = PS.rgb(c);
+    return 'rgba(' + v[0] + ',' + v[1] + ',' + v[2] + ',' + a + ')';
+  };
+  PS.lighten = function (c, k) { return PS.mix(c, [255, 255, 255], k); };
+  PS.darken = function (c, k) { return PS.mix(c, [8, 10, 14], k); };
+
+  /* ---------- setup / loop ---------- */
+  /* PS.setup(canvas, opts)
+   *   opts.sun      : 'left' | 'right'  (default 'left')
+   *   opts.sky      : [topHex, horizonHex, hazeHex]  (haze = colour far geometry fades to)
+   *   opts.reduce   : bool (respect prefers-reduced-motion)
+   *   opts.progress : function() -> 0..1 (scroll progress; omit for a fixed p)
+   *   opts.onFrame  : function(S, p, time)  — your draw code
+   * S = state: {ctx,W,H,DPR,project(x,y,z),projectAt(yaw,x,y,z),shadow(...),sun,sky,rng}
+   */
+  PS.setup = function (canvas, opts) {
+    opts = opts || {};
+    var ctx = canvas.getContext('2d');
+    var DPR = Math.min(global.devicePixelRatio || 1, 2);
+    var S = {
+      ctx: ctx, W: 0, H: 0, DPR: DPR, sun: opts.sun || 'left',
+      skyCols: opts.sky || ['#0b1622', '#16324c', '#2b4a63'],
+      reduce: !!opts.reduce, sunAngle: opts.sun === 'right' ? 1 : -1
+    };
+    S.rng = (function (seed) {           // deterministic texture noise
+      var s = seed || 1301;
+      return function () { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
+    })(opts.seed);
+
+    S.resize = function () {
+      S.W = canvas.clientWidth || canvas.offsetWidth || global.innerWidth;
+      S.H = canvas.clientHeight || canvas.offsetHeight || global.innerHeight;
+      if (!S.W || !S.H) return false;
+      canvas.width = Math.round(S.W * DPR); canvas.height = Math.round(S.H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      return true;
+    };
+
+    /* perspective camera: floor y=0, camera at height camH looking down the z axis.
+     * horizon = 0.52H, focal = 1.05H. y is height ABOVE the floor (world units). */
+    S.horizon = 0; S.focal = 0; S.camH = 1.7;
+    S.cam = function () { S.focal = S.H * (opts.focal || 1.05); S.horizon = S.H * (opts.horizon || 0.52); };
+    S.project = function (x, y, z) {
+      if (z < 0.55) z = 0.55;
+      var s = S.focal / z;
+      return [S.W / 2 + x * s + (opts.driftX || 0) * s, S.horizon + (S.camH - y) * s];
+    };
+    /* fog: 0 = near (full colour), 1 = at the horizon (blend to haze) */
+    S.fog = function (z) { return PS.clamp((z - (opts.fogNear || 3)) / ((opts.fogFar || 26) - (opts.fogNear || 3)), 0, 1); };
+    S.skyColour = function (k) { return PS.mix(S.skyCols[0], S.skyCols[2], PS.clamp(k, 0, 1)); };
+
+    /* ---------- drawing primitives ---------- */
+    S.poly = function (pts, fill, stroke, alpha, lw) {
+      if (alpha !== undefined && alpha <= 0) return;
+      ctx.save(); if (alpha !== undefined) ctx.globalAlpha = alpha;
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath();
+      if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+      if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.lineJoin = 'round'; ctx.stroke(); }
+      ctx.restore();
+    };
+    S.sky = function (glowK) {
+      var g = ctx.createLinearGradient(0, 0, 0, S.H);
+      g.addColorStop(0, S.skyCols[0]); g.addColorStop(0.62, S.skyCols[1]); g.addColorStop(1, S.skyCols[2]);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+      if (glowK !== 0) {                                  // warm sun-side glow above the horizon
+        var gx = S.sunAngle < 0 ? S.W * 0.18 : S.W * 0.82, r = Math.max(S.W, S.H) * 0.55;
+        var rg = ctx.createRadialGradient(gx, S.horizon - S.H * 0.06, 0, gx, S.horizon - S.H * 0.06, r);
+        rg.addColorStop(0, PS.rgba(opts.glow || '#ffb877', (glowK === undefined ? 0.22 : glowK)));
+        rg.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = rg; ctx.fillRect(0, 0, S.W, S.H);
+      }
+    };
+    S.haze = function (k) {                                // horizon haze band
+      var kk = k === undefined ? 0.5 : k;
+      var g = ctx.createLinearGradient(0, S.horizon - S.H * 0.10, 0, S.horizon + S.H * 0.05);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(0.55, PS.rgba(S.skyCols[2], 0.55 * kk)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.fillRect(0, S.horizon - S.H * 0.10, S.W, S.H * 0.15);
+    };
+    /* contact shadow: ellipse on the floor plane under an object at (x,z) */
+    S.shadow = function (x, z, rx, rz, alpha, col) {
+      var c = S.project(x, 0.001, z), sx = S.focal / z;
+      ctx.save();
+      ctx.translate(c[0], c[1]);
+      ctx.scale(1, PS.clamp((rz || rx * 0.5) * sx / (rx * sx), 0.05, 1) * 0.42 + 0.12);
+      var g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * sx);
+      g.addColorStop(0, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha)));
+      g.addColorStop(0.7, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha) * 0.35));
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx * sx, 0, 6.2832); ctx.fill();
+      ctx.restore();
+    };
+    /* material texture: clip to the polygon `pts` and speckle/streak it */
+    S.texture = function (pts, kind, density, alpha) {
+      density = density || 260; alpha = alpha === undefined ? 0.05 : alpha;
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath(); ctx.clip();
+      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+      var n = Math.min(density, Math.round((x1 - x0) * (y1 - y0) / 260));
+      for (var k = 0; k < n; k++) {
+        var px = x0 + S.rng() * (x1 - x0), py = y0 + S.rng() * (y1 - y0), r = 0.4 + S.rng() * (kind === 'grain' ? 1.6 : 0.9);
+        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,' + alpha + ')' : 'rgba(0,0,0,' + alpha * 1.35 + ')';
+        if (kind === 'streak') { ctx.fillRect(px, py, r * 6, 0.7); }
+        else if (kind === 'aggregate') { ctx.beginPath(); ctx.arc(px, py, r, 0, 6.2832); ctx.fill(); }
+        else { ctx.fillRect(px, py, r, r); }
+      }
+      ctx.restore();
+    };
+    S.dust = function (n, time) {
+      n = n || 26;
+      for (var i = 0; i < n; i++) {
+        var seedX = (i * 97 % 100) / 100, seedY = (i * 57 % 100) / 100;
+        var drift = ((time * (0.004 + (i % 5) * 0.0016) + seedY) % 1);
+        var px = seedX * S.W + Math.sin(time * 0.0004 + i) * 16;
+        var py = S.horizon - S.H * 0.05 + (1 - drift) * S.H * 0.5;
+        ctx.globalAlpha = 0.05 + 0.10 * Math.abs(Math.sin(time * 0.0006 + i * 1.7));
+        ctx.fillStyle = i % 4 === 0 ? PS.rgba(opts.glow || '#ffb877', 0.9) : 'rgba(215,230,245,.75)';
+        ctx.beginPath(); ctx.arc(px, py, 0.5 + (i % 3) * 0.5, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    };
+    S.grade = function () {                                  // vignette + grain, ALWAYS last
+      var g = ctx.createRadialGradient(S.W / 2, S.H * 0.5, Math.min(S.W, S.H) * 0.35, S.W / 2, S.H * 0.5, Math.max(S.W, S.H) * 0.78);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.28)');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+      for (var i = 0; i < 120; i++) {
+        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,.014)' : 'rgba(0,0,0,.02)';
+        ctx.fillRect(S.rng() * S.W, S.rng() * S.H, 1.2, 1.2);
+      }
+    };
+    /* small scale cues that make a scene read real: cone, person silhouette, board */
+    S.scaleCue = function (x, z, kind) {
+      var s = S.focal / z;
+      if (kind === 'person') {
+        var b = S.project(x, 0, z), h = 1.72 * s * 0.32;
+        S.poly([[b[0] - 0.1 * s * 0.32, b[1]], [b[0] + 0.1 * s * 0.32, b[1]], [b[0] + 0.07 * s * 0.32, b[1] - h], [b[0] - 0.07 * s * 0.32, b[1] - h]], 'rgba(10,14,20,.72)');
+        ctx.beginPath(); ctx.arc(b[0], b[1] - h - 0.12 * s * 0.32, 0.11 * s * 0.32, 0, 6.2832); ctx.fillStyle = 'rgba(10,14,20,.72)'; ctx.fill();
+      } else {                                               // traffic cone
+        var c = S.project(x, 0, z), hh = 0.55 * s * 0.32;
+        S.poly([[c[0] - 0.16 * s * 0.32, c[1]], [c[0] + 0.16 * s * 0.32, c[1]], [c[0] + 0.02 * s * 0.32, c[1] - hh]], '#ff6a1a');
+      }
+    };
+
+
+    /* mottling: tonal patches + edge rim + contact AO — what makes a flat fill read as a material */
+    S.mottle = function (pts, baseCol, amount, patches) {
+      amount = amount === undefined ? .10 : amount;
+      patches = patches || 22;
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath(); ctx.clip();
+      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), y0 = Math.min.apply(null, ys),
+          x1 = Math.max.apply(null, xs), y1 = Math.max.apply(null, ys);
+      for (var k = 0; k < patches; k++) {
+        var cx = x0 + S.rng() * (x1 - x0), cy = y0 + S.rng() * (y1 - y0),
+            r = (0.10 + S.rng() * 0.30) * Math.max(24, (x1 - x0) * 0.35);
+        var dark = S.rng() > 0.45;
+        var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+        g.addColorStop(0, dark ? PS.rgba('#2b2f34', amount) : PS.rgba('#ffffff', amount * 0.8));
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.2832); ctx.fill();
+      }
+      ctx.restore();
+    };
+    /* AO: darkens the ground tight against a form's base (grounds it in the scene) */
+    S.contactAO = function (x, z, halfW, depth, alpha) {
+      var a = S.project(x - halfW, 0.002, z - depth), b = S.project(x + halfW, 0.002, z - depth),
+          c = S.project(x + halfW, 0.002, z + depth), d = S.project(x - halfW, 0.002, z + depth);
+      var g = ctx.createRadialGradient((a[0] + c[0]) / 2, (a[1] + c[1]) / 2, 0, (a[0] + c[0]) / 2, (a[1] + c[1]) / 2,
+                                       Math.max(30, Math.abs(b[0] - a[0]) * 0.9));
+      g.addColorStop(0, PS.rgba('#05080d', alpha === undefined ? .38 : alpha)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      S.poly([a, b, c, d], g, null, 1);
+    };
+    /* long cast shadow for a vertical form, thrown AWAY from the sun (sun is left) */
+    S.castShadow = function (x, z, halfW, height, len, alpha) {
+      var dir = S.sunAngle < 0 ? 1 : -1;                      // shadow falls to the +x side when the sun is left
+      var a = S.project(x - halfW, 0.003, z), b = S.project(x + halfW, 0.003, z),
+          c = S.project(x + halfW + dir * len, 0.003, z + len * 0.35),
+          d = S.project(x - halfW + dir * len, 0.003, z + len * 0.35);
+      S.poly([a, b, c, d], PS.rgba('#0a0f16', alpha === undefined ? .30 : alpha), null, 1);
+    };
+    /* rim light along an edge facing the sun */
+    S.rim = function (p1, p2, col, alpha, lw) {
+      ctx.save(); ctx.globalAlpha = alpha === undefined ? .8 : alpha;
+      ctx.strokeStyle = col || 'rgba(255,226,186,.9)'; ctx.lineWidth = lw || 2;
+      ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke(); ctx.restore();
+    };
+
+    /* ---------- palette helpers exposed on S too (scenes often use S.mix) ---------- */
+    S.mix = PS.mix; S.rgba = PS.rgba; S.lighten = PS.lighten; S.darken = PS.darken;
+
+    /* ---------- frame loop ---------- */
+    var t0 = 0, last = 0, current = 0, lastDraw = 0;
+    function targetP() { return opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0); }
+    /* draw exactly one frame, synchronously, swallowing errors so a bad frame can never
+       leave the hero blank or kill the loop */
+    S.drawOnce = function (p, time) {
+      if (!S.W || !S.H) { if (!S.resize()) return; S.cam(); }
+      try { opts.onFrame(S, p === undefined ? current : p, time || 0); lastDraw = Date.now(); }
+      catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
+    };
+    S.frame = function (ts) {
+      if (!t0) t0 = ts;
+      var dt = Math.min(64, ts - last); last = ts;                 // ms
+      if (!S.W || !S.H) { if (S.resize()) S.cam(); }
+      if (S.W && S.H) {
+        var target = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
+        /* frame-rate independent smoothing: the scene glides, never snaps */
+        current = PS.lerp(current, target, S.reduce ? 1 : 1 - Math.pow(0.0018, dt / 1000));
+        if (Math.abs(target - current) < 0.0004) current = target;
+        lastDraw = Date.now();
+        try { opts.onFrame(S, current, ts - t0); lastDraw = Date.now(); }
+        catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
+      }
+      if (!S.reduce) global.requestAnimationFrame(S.frame);
+    };
+    /* watchdog: if rAF is throttled (hidden tab, headless, power saving) or the loop died,
+       repaint at least 4x/second so the hero is never a blank canvas */
+    S.watch = function () {
+      if (S.reduce || S._watching) return; S._watching = true;
+      global.setInterval(function () {
+        if (Date.now() - lastDraw > 260) S.drawOnce(targetP(), Date.now());
+      }, 250);
+    };
+    S.start = function () {
+      function boot() {
+        var tries = (boot.tries = (boot.tries || 0) + 1);
+        if (!S.resize()) {                                  // wait for layout, but never forever
+          if (tries < 40) { global.requestAnimationFrame(boot); return; }
+          S.W = global.innerWidth || 1280; S.H = global.innerHeight || 720;
+        }
+        S.cam();
+        current = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
+        S.drawOnce(current, 0);                              // FIRST PAINT IS SYNCHRONOUS
+        if (!S.reduce) { global.requestAnimationFrame(S.frame); S.watch(); }
+      }
+      boot();
+      /* second synchronous attempt after layout settles (covers slow fonts/sticky layout) */
+      global.setTimeout(function () { S.drawOnce(targetP(), 0); }, 120);
+    };
+    global.addEventListener('resize', function () { if (S.resize()) S.cam(); });
+    return S;
+  };
+
+  PS.reduceMotion = function () { return global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches; };
+  PS.queryP = function () { try { var v = new URLSearchParams(global.location.search).get('p'); return v === null ? null : PS.clamp(parseFloat(v) || 0, 0, 1); } catch (e) { return null; } };
+  global.PS = PS;
+  if (typeof module !== 'undefined' && module.exports) module.exports = PS;
+})(typeof window !== 'undefined' ? window : this);
+
+</script>
+<script>
+/* ==== TRADE SCENE (integrated) ==== */
+/* ===== PRO SCENE — JEC Project Group (DUSK-WARM) =====
+ * One site panel morphing set-out → frame → clad → complete under a fixed playhead.
+ * DUSK-WARM variant: sky #12182b / #2c3a5c / #d98a55, glow #ff9d4d, strong rim light, warm lamps.
+ */
+(function () {
+  'use strict';
+  var cv = document.getElementById('sceneFixCanvas');
+  if (!cv) return;
+  var wrap = cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var stickyWrap = cv.closest('.scene-sticky, .pin, [id*="Sticky"]') || wrap;
+  var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
+      railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');
+  var fixedP = PS.queryP();
+  var NAMES = ['01 - set out', '02 - frame', '03 - clad', '04 - complete'];
+
+  var S = PS.setup(cv, {
+    sun: 'left', seed: 42, p: fixedP === null ? 0 : fixedP,
+    reduce: PS.reduceMotion() || fixedP !== null,
+    sky: ['#12182b', '#2c3a5c', '#d98a55'], glow: '#ff9d4d',
+    fogNear: 2, fogFar: 28, horizon: 0.42, focal: 1.15, camH: 1.55,
+    progress: fixedP !== null ? null : function () {
+      var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
+      return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
+    },
+    onFrame: frame
+  });
+
+  /* palette */
+  var DIRT = '#3a2f26', DIRT_D = '#1e1814', TIMBER = '#a67c4a', TIMBER_D = '#7a5c32',
+      STEEL = '#8b929e', CONC_WET = '#5a5f66', CONC_DRY = '#9a9893',
+      CLAD = '#c8b8a8', CLAD_D = '#9a8a7a', ROOF = '#4a3a2a', GLASS_DAY = '#8aa5c8',
+      GLASS_NIGHT = '#f8e8d0', ACCENT = '#d2b48c', WARM_LAMP = '#ffb86c';
+
+  /* ---------- ENVIRONMENT (DUSK-WARM) ---------- */
+  function treeLine(z, baseY, amp, col, alpha) {
+    var pts = [], x;
+    for (x = -50; x <= 50; x += 1.8) {
+      var h = Math.sin(x * 0.35) * 0.6 + Math.sin(x * 0.11 + 1.5) * 1.0 + Math.sin(x * 0.9) * 0.18;
+      pts.push(S.project(x, baseY + Math.max(0, h) * amp, z));
+    }
+    var f = S.project(-50, baseY, z), l = S.project(50, baseY, z);
+    S.poly([[f[0], f[1]]].concat(pts).concat([[l[0], l[1]]]), col, null, alpha);
+  }
+  function env(time) {
+    var ctx = S.ctx, W = S.W;
+    S.sky(0.25);
+    var sg = ctx.createLinearGradient(0, 0, 0, S.horizon + 10);
+    sg.addColorStop(0, '#0a0f1a'); sg.addColorStop(0.38, '#1a2a44');
+    sg.addColorStop(0.68, '#3d4f6e'); sg.addColorStop(1, '#e89a5a');
+    ctx.fillStyle = sg; ctx.fillRect(0, 0, W, S.horizon + 10);
+
+    /* sun glow - left side for dusk */
+    var sunX = W * 0.18, sunY = S.horizon - S.H * 0.05;
+    var ag = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, Math.max(W, S.H) * 0.5);
+    ag.addColorStop(0, 'rgba(255,180,85,.75)');
+    ag.addColorStop(0.15, 'rgba(255,157,77,.35)');
+    ag.addColorStop(1, 'rgba(255,140,60,0)');
+    ctx.fillStyle = ag; ctx.fillRect(0, 0, W, S.horizon + 50);
+    ctx.fillStyle = 'rgba(255,230,200,.9)';
+    ctx.beginPath(); ctx.arc(sunX, sunY, Math.max(10, S.H * 0.02), 0, 6.2832); ctx.fill();
+
+    treeLine(85, 0.03, 3.5, PS.mix(S.skyCols[2], '#3a3028', 0.4), 0.25);
+    treeLine(55, 0.02, 2.8, PS.mix(S.skyCols[2], '#221c18', 0.55), 0.45);
+    S.haze(0.9);
+
+    /* ground gradient - dark dusk ground */
+    var gN = S.project(0, 0, 1.8), gF = S.project(0, 0, 55);
+    var gg = ctx.createLinearGradient(0, gF[1], 0, gN[1]);
+    gg.addColorStop(0, PS.mix('#d98a55', DIRT, 0.65));
+    gg.addColorStop(0.25, PS.mix(DIRT, '#5a4532', 0.4));
+    gg.addColorStop(1, DIRT_D);
+    ctx.fillStyle = gg; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
+
+    /* subtle light streak across ground from low sun */
+    var ls = ctx.createLinearGradient(W * 0.15 - 200, 0, W * 0.15 + 200, 0);
+    ls.addColorStop(0, 'rgba(255,180,85,0)');
+    ls.addColorStop(0.5, 'rgba(255,180,85,.08)');
+    ls.addColorStop(1, 'rgba(255,180,85,0)');
+    ctx.fillStyle = ls; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
+    S.texture([S.project(-70, 0, 55), S.project(70, 0, 55), S.project(70, 0, 1.8), S.project(-70, 0, 1.8)], 'grain', 480, .025);
+  }
+  function grade(time) {
+    var ctx = S.ctx;
+    var rim = ctx.createLinearGradient(0, 0, S.W, S.H);
+    rim.addColorStop(0, 'rgba(255,180,85,.07)');
+    rim.addColorStop(0.5, 'rgba(255,180,85,0)');
+    rim.addColorStop(1, 'rgba(30,50,80,.06)');
+    ctx.fillStyle = rim; ctx.fillRect(0, 0, S.W, S.H);
+    S.dust(28, time);
+    S.grade();
+  }
+
+  /* ---------- SUBJECT: Site panel morphing through 4 stages ---------- */
+  function drawSubject(p, time) {
+    var ctx = S.ctx;
+    var X0 = -6.5, X1 = 6.5, Z0 = 4.5, Z1 = 22, BASE_H = 4.2;
+    var stage1 = PS.stage(p, 0.00, 0.22, 'place');
+    var stage2 = PS.stage(p, 0.20, 0.26, 'place');
+    var stage3 = PS.stage(p, 0.44, 0.28, 'release');
+    var stage4 = PS.stage(p, 0.68, 0.32, 'place');
+
+    /* ===== GROUND PLATE (always present) ===== */
+    var gp = [S.project(X0 - 1.5, 0, Z1 + 2), S.project(X1 + 1.5, 0, Z1 + 2),
+              S.project(X1 + 1.5, 0, Z0 - 1.5), S.project(X0 - 1.5, 0, Z0 - 1.5)];
+    S.poly(gp, PS.mix(DIRT_D, '#100c0a', 0.35));
+    S.texture(gp, 'streak', 260, .05);
+    S.mottle(gp, '#3a2f26', .1, 20);
+
+    /* ===== STAGE 1: SET-OUT (0.0 - 0.25) ===== */
+    if (stage1 > 0) {
+      var k = stage1;
+      /* survey pegs */
+      ctx.save(); ctx.globalAlpha = k;
+      for (var i = 0; i < 10; i++) {
+        var px = X0 + 1.2 + i * 1.3, pz = Z0 + 1 + (i % 2) * 2.5;
+        var peg = [S.project(px - 0.05, 0.06, pz), S.project(px + 0.05, 0.06, pz),
+                   S.project(px + 0.05, 0, pz), S.project(px - 0.05, 0, pz)];
+        S.shadow(px, pz, 0.12, 0.12, 0.55 * k);
+        S.poly(peg, ACCENT, PS.rgba('#fff8e8', 0.9), 1);
+        S.rim(peg[0], peg[1], 'rgba(255,240,220,.9)', 0.8, 1.5);
+      }
+      /* string lines */
+      var sl1 = [S.project(X0 + 0.5, 0.14, Z0 + 0.5), S.project(X1 - 0.5, 0.14, Z0 + 0.5),
+                 S.project(X1 - 0.5, 0.12, Z0 + 0.5), S.project(X0 + 0.5, 0.12, Z0 + 0.5)];
+      var sl2 = [S.project(X0 + 0.5, 0.14, Z1 - 0.5), S.project(X1 - 0.5, 0.14, Z1 - 0.5),
+                 S.project(X1 - 0.5, 0.12, Z1 - 0.5), S.project(X0 + 0.5, 0.12, Z1 - 0.5)];
+      S.poly(sl1, ACCENT, null, 0.7 * k);
+      S.poly(sl2, ACCENT, null, 0.7 * k);
+      /* corner stakes */
+      for (var c = 0; c < 4; c++) {
+        var cx = c < 2 ? X0 + 0.5 : X1 - 0.5, cz = c % 2 === 0 ? Z0 + 0.5 : Z1 - 0.5;
+        var st = [S.project(cx - 0.08, 0.35, cz), S.project(cx + 0.08, 0.35, cz),
+                  S.project(cx + 0.08, 0, cz), S.project(cx - 0.08, 0, cz)];
+        S.shadow(cx, cz, 0.2, 0.2, 0.6 * k);
+        S.poly(st, TIMBER, PS.rgba('#3a2a1a', .6), 1);
+        S.texture(st, 'streak', 60, .08);
+      }
+      ctx.restore();
+    }
+
+    /* ===== STAGE 2: FRAME (0.25 - 0.55) ===== */
+    if (stage2 > 0) {
+      var k = stage2;
+      /* floor slab */
+      var slab = [S.project(X0 + 0.2, 0.18, Z1 - 0.2), S.project(X1 - 0.2, 0.18, Z1 - 0.2),
+                  S.project(X1 - 0.2, 0.18, Z0 + 0.2), S.project(X0 + 0.2, 0.18, Z0 + 0.2)];
+      var slabBase = PS.mix(CONC_WET, CONC_DRY, 0.3);
+      var g = ctx.createLinearGradient(0, slab[0][1], 0, slab[2][1]);
+      g.addColorStop(0, PS.lighten(slabBase, .12)); g.addColorStop(0.5, slabBase); g.addColorStop(1, PS.darken(slabBase, .2));
+      S.poly(slab, g, null, k);
+      S.mottle(slab, slabBase, .08 * k, 18);
+      S.texture(slab, 'aggregate', 300, .05 * k);
+      S.contactAO(0, (Z0 + Z1) / 2, (X1 - X0) / 2 + 0.4, 3, .28 * k);
+
+      /* wall studs - placed progressively left to right */
+      var studCount = 16;
+      for (var i = 0; i < studCount; i++) {
+        var prog = PS.clamp((k * studCount - i) / 2.5, 0, 1);
+        if (prog <= 0) continue;
+        var sx = X0 + 0.8 + i * ((X1 - X0 - 1.6) / (studCount - 1));
+        var studZ = [Z0 + 0.6, Z1 - 0.6];
+        for (var zi = 0; zi < 2; zi++) {
+          var st = [S.project(sx - 0.045, 0.22, studZ[zi]), S.project(sx + 0.045, 0.22, studZ[zi]),
+                    S.project(sx + 0.045, BASE_H * prog + 0.22, studZ[zi]), S.project(sx - 0.045, BASE_H * prog + 0.22, studZ[zi])];
+          S.shadow(sx, studZ[zi], 0.1, 0.1, 0.45 * prog);
+          var face = ctx.createLinearGradient(0, st[0][1], 0, st[2][1]);
+          face.addColorStop(0, PS.lighten(TIMBER, .15)); face.addColorStop(1, PS.darken(TIMBER_D, .18));
+          S.poly(st, face, PS.rgba('#3a2a1a', .5 * prog), 1);
+          S.texture(st, 'streak', 80, .07 * prog);
+          S.rim(st[1], st[3], 'rgba(255,226,186,.7)', .6 * prog, 1.5);
+        }
+      }
+      /* top plates */
+      for (var tp = 0; tp < 2; tp++) {
+        var tz = tp === 0 ? Z0 + 0.6 : Z1 - 0.6;
+        var plate = [S.project(X0 + 0.4, BASE_H + 0.15, tz), S.project(X1 - 0.4, BASE_H + 0.15, tz),
+                     S.project(X1 - 0.4, BASE_H + 0.3, tz), S.project(X0 + 0.4, BASE_H + 0.3, tz)];
+        S.shadow(0, tz, 2.8, 0.15, 0.4 * k);
+        var pf = ctx.createLinearGradient(0, plate[0][1], 0, plate[2][1]);
+        pf.addColorStop(0, PS.lighten(TIMBER, .18)); pf.addColorStop(1, PS.darken(TIMBER_D, .2));
+        S.poly(plate, pf, PS.rgba('#3a2a1a', .55), 1);
+        S.texture(plate, 'streak', 100, .07);
+        S.rim(plate[0], plate[1], 'rgba(255,226,186,.8)', .7, 2);
+      }
+      /* roof trusses - simple gable */
+      for (var tr = 0; tr < 8; tr++) {
+        var trk = PS.clamp((k * 8 - tr) / 2, 0, 1);
+        if (trk <= 0) continue;
+        var tx = X0 + 1 + tr * ((X1 - X0 - 2) / 7);
+        var left = [S.project(tx - 0.04, BASE_H + 0.3, Z0 + 0.6), S.project(tx + 0.04, BASE_H + 0.3, Z0 + 0.6),
+                    S.project(tx + 0.04, BASE_H + 2.0 * trk + 0.3, Z0 + 0.6), S.project(tx - 0.04, BASE_H + 2.0 * trk + 0.3, Z0 + 0.6)];
+        var right = [S.project(tx - 0.04, BASE_H + 0.3, Z1 - 0.6), S.project(tx + 0.04, BASE_H + 0.3, Z1 - 0.6),
+                     S.project(tx + 0.04, BASE_H + 2.0 * trk + 0.3, Z1 - 0.6), S.project(tx - 0.04, BASE_H + 2.0 * trk + 0.3, Z1 - 0.6)];
+        var tf = ctx.createLinearGradient(0, left[0][1], 0, left[2][1]);
+        tf.addColorStop(0, PS.lighten(TIMBER, .12)); tf.addColorStop(1, PS.darken(TIMBER_D, .22));
+        S.poly(left, tf, PS.rgba('#3a2a1a', .5 * trk), 1);
+        S.poly(right, tf, PS.rgba('#3a2a1a', .5 * trk), 1);
+        S.texture(left, 'streak', 50, .06 * trk);
+        S.texture(right, 'streak', 50, .06 * trk);
+        /* ridge beam */
+        if (tr === 3 || tr === 4) {
+          var ridge = [S.project(tx - 0.03, BASE_H + 2.0 * trk + 0.35, Z0 + 0.6),
+                       S.project(tx + 0.03, BASE_H + 2.0 * trk + 0.35, Z0 + 0.6),
+                       S.project(tx + 0.03, BASE_H + 2.0 * trk + 0.35, Z1 - 0.6),
+                       S.project(tx - 0.03, BASE_H + 2.0 * trk + 0.35, Z1 - 0.6)];
+          S.poly(ridge, PS.darken(TIMBER_D, .1), PS.rgba('#3a2a1a', .5), 1);
+        }
+      }
+    }
+
+    /* ===== STAGE 3: CLAD (0.55 - 0.85) ===== */
+    if (stage3 > 0) {
+      var k = stage3;
+      /* wall cladding - applied left to right */
+      var cladX = PS.lerp(X0 + 0.5, X1 - 0.5, PS.clamp(k * 1.5, 0, 1));
+      /* front wall */
+      var fw = [S.project(X0 + 0.5, 0.22, Z0 + 0.55), S.project(cladX, 0.22, Z0 + 0.55),
+                S.project(cladX, BASE_H + 0.22, Z0 + 0.55), S.project(X0 + 0.5, BASE_H + 0.22, Z0 + 0.55)];
+      S.shadow((X0 + cladX) / 2, Z0 + 0.55, (cladX - X0) / 2 + 0.3, BASE_H / 2 + 0.2, 0.35 * k);
+      S.castShadow((X0 + cladX) / 2, Z0 + 0.55, (cladX - X0) / 2 + 0.3, BASE_H + 0.3, 3.5, .22 * k);
+      var cf = ctx.createLinearGradient(0, fw[0][1], 0, fw[2][1]);
+      cf.addColorStop(0, PS.lighten(CLAD, .15)); cf.addColorStop(0.5, CLAD); cf.addColorStop(1, PS.darken(CLAD_D, .2));
+      S.poly(fw, cf, PS.rgba('#6a5a4a', .5 * k), 1);
+      S.mottle(fw, CLAD, .08 * k, 16);
+      S.texture(fw, 'grain', 200, .04 * k);
+      S.rim(fw[1], fw[3], 'rgba(255,210,170,.75)', .8 * k, 2.5);
+
+      /* back wall */
+      var bw = [S.project(X0 + 0.5, 0.22, Z1 - 0.55), S.project(cladX, 0.22, Z1 - 0.55),
+                S.project(cladX, BASE_H + 0.22, Z1 - 0.55), S.project(X0 + 0.5, BASE_H + 0.22, Z1 - 0.55)];
+      var bcf = ctx.createLinearGradient(0, bw[0][1], 0, bw[2][1]);
+      bcf.addColorStop(0, PS.lighten(CLAD, .12)); bcf.addColorStop(0.5, CLAD_D); bcf.addColorStop(1, PS.darken(CLAD_D, .25));
+      S.poly(bw, bcf, PS.rgba('#6a5a4a', .5 * k), 1);
+      S.mottle(bw, CLAD_D, .08 * k, 14);
+      S.texture(bw, 'grain', 180, .04 * k);
+      S.rim(bw[1], bw[3], 'rgba(255,200,150,.6)', .6 * k, 2);
+
+      /* side walls */
+      var sw1 = [S.project(X0 + 0.5, 0.22, Z0 + 0.55), S.project(X0 + 0.55, 0.22, cladX === X1 - 0.5 ? Z1 - 0.55 : Z0 + 0.55 + (Z1 - Z1 - 1.1) * PS.clamp(k * 1.5, 0, 1)),
+                 S.project(X0 + 0.55, BASE_H + 0.22, cladX === X1 - 0.5 ? Z1 - 0.55 : Z0 + 0.55 + (Z1 - Z1 - 1.1) * PS.clamp(k * 1.5, 0, 1)),
+                 S.project(X0 + 0.5, BASE_H + 0.22, Z0 + 0.55)];
+      var sw2 = [S.project(X1 - 0.5, 0.22, Z0 + 0.55), S.project(X1 - 0.55, 0.22, cladX === X1 - 0.5 ? Z1 - 0.55 : Z0 + 0.55 + (Z1 - Z1 - 1.1) * PS.clamp(k * 1.5, 0, 1)),
+                 S.project(X1 - 0.55, BASE_H + 0.22, cladX === X1 - 0.5 ? Z1 - 0.55 : Z0 + 0.55 + (Z1 - Z1 - 1.1) * PS.clamp(k * 1.5, 0, 1)),
+                 S.project(X1 - 0.5, BASE_H + 0.22, Z0 + 0.55)];
+      var swf = ctx.createLinearGradient(0, sw1[0][1], 0, sw1[2][1]);
+      swf.addColorStop(0, PS.lighten(CLAD, .1)); swf.addColorStop(1, PS.darken(CLAD_D, .22));
+      S.poly(sw1, swf, PS.rgba('#6a5a4a', .5 * k), 1);
+      S.poly(sw2, swf, PS.rgba('#6a5a4a', .5 * k), 1);
+      S.texture(sw1, 'grain', 120, .04 * k);
+      S.texture(sw2, 'grain', 120, .04 * k);
+
+      /* roof sheets */
+      for (var rs = 0; rs < 6; rs++) {
+        var rsk = PS.clamp((k * 6 - rs) / 1.8, 0, 1);
+        if (rsk <= 0) continue;
+        var rz = Z0 + 0.8 + rs * ((Z1 - Z0 - 1.6) / 5);
+        var ry = BASE_H + 0.5 + Math.abs(rz - (Z0 + Z1) / 2) * 0.1;
+        var rsL = [S.project(X0 + 0.6, ry, rz), S.project(X1 - 0.6, ry, rz),
+                   S.project(X1 - 0.6, ry + 0.06, rz), S.project(X0 + 0.6, ry + 0.06, rz)];
+        var rsf = ctx.createLinearGradient(0, rsL[0][1], 0, rsL[2][1]);
+        rsf.addColorStop(0, PS.lighten(ROOF, .15)); rsf.addColorStop(1, PS.darken(ROOF, .18));
+        S.poly(rsL, rsf, PS.rgba('#2a1a0a', .6 * rsk), 1);
+        S.texture(rsL, 'streak', 80, .05 * rsk);
+        S.rim(rsL[0], rsL[1], 'rgba(255,190,130,.55)', .55 * rsk, 2);
+      }
+      /* windows - appear as cladding completes */
+      if (k > 0.4) {
+        var wk = PS.clamp((k - 0.4) / 0.6, 0, 1);
+        /* front windows */
+        var win1 = [S.project(X0 + 1.2, 1.0, Z0 + 0.58), S.project(X0 + 2.8, 1.0, Z0 + 0.58),
+                    S.project(X0 + 2.8, 2.4, Z0 + 0.58), S.project(X0 + 1.2, 2.4, Z0 + 0.58)];
+        var win2 = [S.project(X1 - 2.8, 1.0, Z0 + 0.58), S.project(X1 - 1.2, 1.0, Z0 + 0.58),
+                    S.project(X1 - 1.2, 2.4, Z0 + 0.58), S.project(X1 - 2.8, 2.4, Z0 + 0.58)];
+        S.poly(win1, PS.mix(GLASS_DAY, '#1a1a2e', 0.6), PS.rgba('#4a5a6a', .7), wk);
+        S.poly(win2, PS.mix(GLASS_DAY, '#1a1a2e', 0.6), PS.rgba('#4a5a6a', .7), wk);
+        /* back window */
+        var win3 = [S.project(-1.5, 1.0, Z1 - 0.58), S.project(1.5, 1.0, Z1 - 0.58),
+                    S.project(1.5, 2.8, Z1 - 0.58), S.project(-1.5, 2.8, Z1 - 0.58)];
+        S.poly(win3, PS.mix(GLASS_DAY, '#1a1a2e', 0.6), PS.rgba('#4a5a6a', .7), wk);
+        /* door */
+        var door = [S.project(X1 - 3.5, 0.22, Z1 - 0.58), S.project(X1 - 2.0, 0.22, Z1 - 0.58),
+                    S.project(X1 - 2.0, BASE_H + 0.1, Z1 - 0.58), S.project(X1 - 3.5, BASE_H + 0.1, Z1 - 0.58)];
+        S.poly(door, TIMBER_D, PS.rgba('#3a2a1a', .7), wk);
+        S.texture(door, 'streak', 60, .08 * wk);
+        S.rim(door[1], door[3], 'rgba(255,210,170,.7)', .7 * wk, 2);
+      }
+    }
+
+    /* ===== STAGE 4: COMPLETE (0.85 - 1.0) ===== */
+    if (stage4 > 0) {
+      var k = stage4;
+      /* warm interior light glow through windows - the key dusk feature */
+      var glowK = PS.ease.out(k);
+      /* front windows */
+      var w1 = [S.project(X0 + 1.2, 1.0, Z0 + 0.6), S.project(X0 + 2.8, 1.0, Z0 + 0.6),
+                S.project(X0 + 2.8, 2.4, Z0 + 0.6), S.project(X0 + 1.2, 2.4, Z0 + 0.6)];
+      var w2 = [S.project(X1 - 2.8, 1.0, Z0 + 0.6), S.project(X1 - 1.2, 1.0, Z0 + 0.6),
+                S.project(X1 - 1.2, 2.4, Z0 + 0.6), S.project(X1 - 2.8, 2.4, Z0 + 0.6)];
+      /* back window */
+      var w3 = [S.project(-1.5, 1.0, Z1 - 0.6), S.project(1.5, 1.0, Z1 - 0.6),
+                S.project(1.5, 2.8, Z1 - 0.6), S.project(-1.5, 2.8, Z1 - 0.6)];
+
+      var glw = ctx.createRadialGradient(
+        (w1[0][0] + w1[2][0]) / 2, (w1[0][1] + w1[2][1]) / 2, 0,
+        (w1[0][0] + w1[2][0]) / 2, (w1[0][1] + w1[2][1]) / 2, 80
+      );
+      glw.addColorStop(0, PS.rgba(WARM_LAMP, 0.45 * glowK));
+      glw.addColorStop(0.6, PS.rgba(WARM_LAMP, 0.15 * glowK));
+      glw.addColorStop(1, 'rgba(255,180,85,0)');
+      S.poly(w1, glw, null, 1);
+      S.poly(w2, glw, null, 1);
+
+      var glw2 = ctx.createRadialGradient(
+        (w3[0][0] + w3[2][0]) / 2, (w3[0][1] + w3[2][1]) / 2, 0,
+        (w3[0][0] + w3[2][0]) / 2, (w3[0][1] + w3[2][1]) / 2, 100
+      );
+      glw2.addColorStop(0, PS.rgba(WARM_LAMP, 0.5 * glowK));
+      glw2.addColorStop(0.6, PS.rgba(WARM_LAMP, 0.2 * glowK));
+      glw2.addColorStop(1, 'rgba(255,180,85,0)');
+      S.poly(w3, glw2, null, 1);
+
+      /* light spill on ground */
+      var spill1 = S.project(X0 + 2.0, 0.01, Z0 + 1.5);
+      var spill2 = S.project(X1 - 2.0, 0.01, Z0 + 1.5);
+      var spill3 = S.project(0, 0.01, Z1 - 1.5);
+      for (var sp = 0; sp < 3; sp++) {
+        var spt = [spill1, spill2, spill3][sp];
+        if (spt) {
+          var sg = ctx.createRadialGradient(spt[0], spt[1], 0, spt[0], spt[1], S.focal / (Z0 + 1.5) * 4);
+          sg.addColorStop(0, PS.rgba(WARM_LAMP, 0.18 * glowK));
+          sg.addColorStop(1, 'rgba(255,180,85,0)');
+          ctx.fillStyle = sg; ctx.fillRect(0, 0, S.W, S.H);
+        }
+      }
+
+      /* roof ridge highlight (rim light catching the peak) */
+      var ridge = [S.project(X0 + 0.5, BASE_H + 2.5, Z0 + 0.6), S.project(X1 - 0.5, BASE_H + 2.5, Z0 + 0.6),
+                   S.project(X1 - 0.5, BASE_H + 2.5, Z1 - 0.6), S.project(X0 + 0.5, BASE_H + 2.5, Z1 - 0.6)];
+      S.rim(ridge[0], ridge[1], 'rgba(255,220,180,.9)', 0.9 * k, 3);
+      S.rim(ridge[2], ridge[3], 'rgba(255,200,150,.6)', 0.6 * k, 2);
+
+      /* subtle specular on cladding facing the sun (left side) */
+      var claddL = [S.project(X0 + 0.5, 0.22, Z0 + 0.55), S.project(X0 + 0.5, 0.22, Z1 - 0.55),
+                    S.project(X0 + 0.5, BASE_H + 0.22, Z1 - 0.55), S.project(X0 + 0.5, BASE_H + 0.22, Z0 + 0.55)];
+      var spec = ctx.createLinearGradient(claddL[0][0], 0, claddL[0][0] + 30, 0);
+      spec.addColorStop(0, PS.rgba('rgba(255,230,200,.35)', glowK));
+      spec.addColorStop(1, 'rgba(255,230,200,0)');
+      S.poly(claddL, spec, null, 1);
+
+      /* scale cue - person at entrance */
+      S.scaleCue(X1 - 2.5, Z1 - 2, 'person');
+    }
+
+    /* dust on early stages (set-out and frame) */
+    if (p < 0.55) {
+      var dustK = 1 - PS.clamp(p / 0.55, 0, 1);
+      S.dust(Math.round(18 * dustK), time);
+    }
+  }
+
+  function frame(S_, p, time) {
+    S = S_;
+    env(time);
+    drawSubject(p, time);
+    grade(time);
+
+    var idx = p < 0.25 ? 0 : p < 0.55 ? 1 : p < 0.85 ? 2 : 3;
+    if (stgNum) stgNum.textContent = '0' + (idx + 1);
+    if (stgName) stgName.textContent = ['set out', 'frame', 'clad', 'complete'][idx];
+    if (railFill) railFill.style.width = Math.round(p * 100) + '%';
+    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.2, 0, 1);
+  }
+  S.start();
+})();
 </script>
 </body>
 </html>

@@ -145,8 +145,14 @@ footer a:hover { color: var(--acc); }
 @media (max-width: 900px) { footer .wrap { grid-template-columns: 1fr 1fr; } .footer__brand { grid-column: 1 / -1; } }
 @media (max-width: 600px) { footer .wrap { grid-template-columns: 1fr; } }
 </style>
+<style>
+/* scene v2 2026-10-13 */
+.hero-in,.hero-copy,.hero .wrap,.hero__in,.hero .container{position:relative;z-index:2}
+#heroCanvas{display:none!important}
+</style>
 </head>
 <body>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#services">Skip to content</a>
 
@@ -752,6 +758,902 @@ footer a:hover { color: var(--acc); }
   else UX.init();
   global.UX = UX;
 })(window);
+
+</script>
+
+<script>
+/* ==== PRO SCENE LIB (pro_scene.js) v2026-10-13 ==== */
+/* pro_scene.js — PRO SCENE STANDARD for Laydback lead-site canvas animations.
+ * Copy this INTO the site's <script> block (sites are single-file). ~8KB.
+ * Goal: make a canvas scene read like a rendered illustration, not a diagram.
+ *
+ * The seven rules (a scene that breaks any of these reads amateur):
+ *  1. LIGHTING: one sun direction for the whole scene. Sky = vertical gradient with a warm
+ *     glow near the sun side; every form has a lit face and a shaded face (lit = toward sun).
+ *  2. DEPTH: atmospheric perspective — far geometry blends toward the haze colour, near
+ *     geometry is darkest/most saturated. Draw far layers first.
+ *  3. CONTACT: nothing floats. Every object gets a soft elliptical ground shadow whose
+ *     alpha grows as it settles; airborne objects get a small, tight shadow.
+ *  4. MATERIALITY: every large surface carries a texture pass (speckle/grain/streaks),
+ *     clipped to the surface, at 2–5% alpha. Flat fills = plastic = amateur.
+ *  5. MOTION: no linear motion. Ease-in-out for placement, ease-out for releases,
+ *     slight overshoot on settling. The scroll progress itself is SMOOTHED (lerp) so the
+ *     scene glides instead of snapping to the wheel.
+ *  6. CAMERA: slow parallax drift (a few px) driven by time + a small scroll offset;
+ *     foreground elements move more than background ones.
+ *  7. GRADE: finish with a vignette and a fine grain pass at very low alpha, always last.
+ */
+(function (global) {
+  'use strict';
+  var PS = {};
+
+  /* ---------- maths ---------- */
+  PS.clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
+  PS.lerp = function (a, b, k) { return a + (b - a) * k; };
+  PS.smoothstep = function (edge0, edge1, x) {
+    var t = PS.clamp((x - edge0) / (edge1 - edge0 || 1e-6), 0, 1); return t * t * (3 - 2 * t);
+  };
+  PS.ease = {
+    inOut: function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; },
+    out: function (t) { return 1 - Math.pow(1 - t, 3); },
+    in: function (t) { return t * t * t; },
+    back: function (t) { var s = 1.70158; t = PS.clamp(t, 0, 1); return 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2); }
+  };
+  /* stage(k, t0, dur) -> smoothed 0..1 (optionally with settle-overshoot) */
+  PS.stage = function (p, t0, dur, mode) {
+    var t = PS.clamp((p - t0) / (dur || 0.2), 0, 1);
+    if (mode === 'place') return PS.ease.inOut(t);
+    if (mode === 'settle') return PS.ease.back(t);
+    if (mode === 'release') return PS.ease.out(t);
+    return PS.smoothstep(0, 1, t);
+  };
+
+  /* ---------- palette helpers ---------- */
+  PS.rgb = function (c) {
+    if (Array.isArray(c)) return c;
+    if (typeof c === 'string' && c.slice(0, 3) === 'rgb') {          // already "rgb(r,g,b)"
+      var m = c.match(/-?\d+(\.\d+)?/g) || [0, 0, 0];
+      return [Math.round(+m[0] || 0), Math.round(+m[1] || 0), Math.round(+m[2] || 0)];
+    }
+    var hex = String(c).replace('#', '');
+    if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    var n = parseInt(hex, 16);
+    if (!isFinite(n)) return [128, 128, 128];
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  };
+  PS.mix = function (c1, c2, k) {
+    var a = PS.rgb(c1), b = PS.rgb(c2);
+    return 'rgb(' + Math.round(PS.lerp(a[0], b[0], k)) + ',' + Math.round(PS.lerp(a[1], b[1], k)) + ',' + Math.round(PS.lerp(a[2], b[2], k)) + ')';
+  };
+  PS.rgba = function (c, a) {
+    var v = PS.rgb(c);
+    return 'rgba(' + v[0] + ',' + v[1] + ',' + v[2] + ',' + a + ')';
+  };
+  PS.lighten = function (c, k) { return PS.mix(c, [255, 255, 255], k); };
+  PS.darken = function (c, k) { return PS.mix(c, [8, 10, 14], k); };
+
+  /* ---------- setup / loop ---------- */
+  /* PS.setup(canvas, opts)
+   *   opts.sun      : 'left' | 'right'  (default 'left')
+   *   opts.sky      : [topHex, horizonHex, hazeHex]  (haze = colour far geometry fades to)
+   *   opts.reduce   : bool (respect prefers-reduced-motion)
+   *   opts.progress : function() -> 0..1 (scroll progress; omit for a fixed p)
+   *   opts.onFrame  : function(S, p, time)  — your draw code
+   * S = state: {ctx,W,H,DPR,project(x,y,z),projectAt(yaw,x,y,z),shadow(...),sun,sky,rng}
+   */
+  PS.setup = function (canvas, opts) {
+    opts = opts || {};
+    var ctx = canvas.getContext('2d');
+    var DPR = Math.min(global.devicePixelRatio || 1, 2);
+    var S = {
+      ctx: ctx, W: 0, H: 0, DPR: DPR, sun: opts.sun || 'left',
+      skyCols: opts.sky || ['#0b1622', '#16324c', '#2b4a63'],
+      reduce: !!opts.reduce, sunAngle: opts.sun === 'right' ? 1 : -1
+    };
+    S.rng = (function (seed) {           // deterministic texture noise
+      var s = seed || 1301;
+      return function () { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
+    })(opts.seed);
+
+    S.resize = function () {
+      S.W = canvas.clientWidth || canvas.offsetWidth || global.innerWidth;
+      S.H = canvas.clientHeight || canvas.offsetHeight || global.innerHeight;
+      if (!S.W || !S.H) return false;
+      canvas.width = Math.round(S.W * DPR); canvas.height = Math.round(S.H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      return true;
+    };
+
+    /* perspective camera: floor y=0, camera at height camH looking down the z axis.
+     * horizon = 0.52H, focal = 1.05H. y is height ABOVE the floor (world units). */
+    S.horizon = 0; S.focal = 0; S.camH = 1.7;
+    S.cam = function () { S.focal = S.H * (opts.focal || 1.05); S.horizon = S.H * (opts.horizon || 0.52); };
+    S.project = function (x, y, z) {
+      if (z < 0.55) z = 0.55;
+      var s = S.focal / z;
+      return [S.W / 2 + x * s + (opts.driftX || 0) * s, S.horizon + (S.camH - y) * s];
+    };
+    /* fog: 0 = near (full colour), 1 = at the horizon (blend to haze) */
+    S.fog = function (z) { return PS.clamp((z - (opts.fogNear || 3)) / ((opts.fogFar || 26) - (opts.fogNear || 3)), 0, 1); };
+    S.skyColour = function (k) { return PS.mix(S.skyCols[0], S.skyCols[2], PS.clamp(k, 0, 1)); };
+
+    /* ---------- drawing primitives ---------- */
+    S.poly = function (pts, fill, stroke, alpha, lw) {
+      if (alpha !== undefined && alpha <= 0) return;
+      ctx.save(); if (alpha !== undefined) ctx.globalAlpha = alpha;
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath();
+      if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+      if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.lineJoin = 'round'; ctx.stroke(); }
+      ctx.restore();
+    };
+    S.sky = function (glowK) {
+      var g = ctx.createLinearGradient(0, 0, 0, S.H);
+      g.addColorStop(0, S.skyCols[0]); g.addColorStop(0.62, S.skyCols[1]); g.addColorStop(1, S.skyCols[2]);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+      if (glowK !== 0) {                                  // warm sun-side glow above the horizon
+        var gx = S.sunAngle < 0 ? S.W * 0.18 : S.W * 0.82, r = Math.max(S.W, S.H) * 0.55;
+        var rg = ctx.createRadialGradient(gx, S.horizon - S.H * 0.06, 0, gx, S.horizon - S.H * 0.06, r);
+        rg.addColorStop(0, PS.rgba(opts.glow || '#ffb877', (glowK === undefined ? 0.22 : glowK)));
+        rg.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = rg; ctx.fillRect(0, 0, S.W, S.H);
+      }
+    };
+    S.haze = function (k) {                                // horizon haze band
+      var kk = k === undefined ? 0.5 : k;
+      var g = ctx.createLinearGradient(0, S.horizon - S.H * 0.10, 0, S.horizon + S.H * 0.05);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(0.55, PS.rgba(S.skyCols[2], 0.55 * kk)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.fillRect(0, S.horizon - S.H * 0.10, S.W, S.H * 0.15);
+    };
+    /* contact shadow: ellipse on the floor plane under an object at (x,z) */
+    S.shadow = function (x, z, rx, rz, alpha, col) {
+      var c = S.project(x, 0.001, z), sx = S.focal / z;
+      ctx.save();
+      ctx.translate(c[0], c[1]);
+      ctx.scale(1, PS.clamp((rz || rx * 0.5) * sx / (rx * sx), 0.05, 1) * 0.42 + 0.12);
+      var g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * sx);
+      g.addColorStop(0, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha)));
+      g.addColorStop(0.7, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha) * 0.35));
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx * sx, 0, 6.2832); ctx.fill();
+      ctx.restore();
+    };
+    /* material texture: clip to the polygon `pts` and speckle/streak it */
+    S.texture = function (pts, kind, density, alpha) {
+      density = density || 260; alpha = alpha === undefined ? 0.05 : alpha;
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath(); ctx.clip();
+      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+      var n = Math.min(density, Math.round((x1 - x0) * (y1 - y0) / 260));
+      for (var k = 0; k < n; k++) {
+        var px = x0 + S.rng() * (x1 - x0), py = y0 + S.rng() * (y1 - y0), r = 0.4 + S.rng() * (kind === 'grain' ? 1.6 : 0.9);
+        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,' + alpha + ')' : 'rgba(0,0,0,' + alpha * 1.35 + ')';
+        if (kind === 'streak') { ctx.fillRect(px, py, r * 6, 0.7); }
+        else if (kind === 'aggregate') { ctx.beginPath(); ctx.arc(px, py, r, 0, 6.2832); ctx.fill(); }
+        else { ctx.fillRect(px, py, r, r); }
+      }
+      ctx.restore();
+    };
+    S.dust = function (n, time) {
+      n = n || 26;
+      for (var i = 0; i < n; i++) {
+        var seedX = (i * 97 % 100) / 100, seedY = (i * 57 % 100) / 100;
+        var drift = ((time * (0.004 + (i % 5) * 0.0016) + seedY) % 1);
+        var px = seedX * S.W + Math.sin(time * 0.0004 + i) * 16;
+        var py = S.horizon - S.H * 0.05 + (1 - drift) * S.H * 0.5;
+        ctx.globalAlpha = 0.05 + 0.10 * Math.abs(Math.sin(time * 0.0006 + i * 1.7));
+        ctx.fillStyle = i % 4 === 0 ? PS.rgba(opts.glow || '#ffb877', 0.9) : 'rgba(215,230,245,.75)';
+        ctx.beginPath(); ctx.arc(px, py, 0.5 + (i % 3) * 0.5, 0, 6.2832); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    };
+    S.grade = function () {                                  // vignette + grain, ALWAYS last
+      var g = ctx.createRadialGradient(S.W / 2, S.H * 0.5, Math.min(S.W, S.H) * 0.35, S.W / 2, S.H * 0.5, Math.max(S.W, S.H) * 0.78);
+      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.28)');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
+      for (var i = 0; i < 120; i++) {
+        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,.014)' : 'rgba(0,0,0,.02)';
+        ctx.fillRect(S.rng() * S.W, S.rng() * S.H, 1.2, 1.2);
+      }
+    };
+    /* small scale cues that make a scene read real: cone, person silhouette, board */
+    S.scaleCue = function (x, z, kind) {
+      var s = S.focal / z;
+      if (kind === 'person') {
+        var b = S.project(x, 0, z), h = 1.72 * s * 0.32;
+        S.poly([[b[0] - 0.1 * s * 0.32, b[1]], [b[0] + 0.1 * s * 0.32, b[1]], [b[0] + 0.07 * s * 0.32, b[1] - h], [b[0] - 0.07 * s * 0.32, b[1] - h]], 'rgba(10,14,20,.72)');
+        ctx.beginPath(); ctx.arc(b[0], b[1] - h - 0.12 * s * 0.32, 0.11 * s * 0.32, 0, 6.2832); ctx.fillStyle = 'rgba(10,14,20,.72)'; ctx.fill();
+      } else {                                               // traffic cone
+        var c = S.project(x, 0, z), hh = 0.55 * s * 0.32;
+        S.poly([[c[0] - 0.16 * s * 0.32, c[1]], [c[0] + 0.16 * s * 0.32, c[1]], [c[0] + 0.02 * s * 0.32, c[1] - hh]], '#ff6a1a');
+      }
+    };
+
+
+    /* mottling: tonal patches + edge rim + contact AO — what makes a flat fill read as a material */
+    S.mottle = function (pts, baseCol, amount, patches) {
+      amount = amount === undefined ? .10 : amount;
+      patches = patches || 22;
+      ctx.save();
+      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+      ctx.closePath(); ctx.clip();
+      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), y0 = Math.min.apply(null, ys),
+          x1 = Math.max.apply(null, xs), y1 = Math.max.apply(null, ys);
+      for (var k = 0; k < patches; k++) {
+        var cx = x0 + S.rng() * (x1 - x0), cy = y0 + S.rng() * (y1 - y0),
+            r = (0.10 + S.rng() * 0.30) * Math.max(24, (x1 - x0) * 0.35);
+        var dark = S.rng() > 0.45;
+        var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+        g.addColorStop(0, dark ? PS.rgba('#2b2f34', amount) : PS.rgba('#ffffff', amount * 0.8));
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.2832); ctx.fill();
+      }
+      ctx.restore();
+    };
+    /* AO: darkens the ground tight against a form's base (grounds it in the scene) */
+    S.contactAO = function (x, z, halfW, depth, alpha) {
+      var a = S.project(x - halfW, 0.002, z - depth), b = S.project(x + halfW, 0.002, z - depth),
+          c = S.project(x + halfW, 0.002, z + depth), d = S.project(x - halfW, 0.002, z + depth);
+      var g = ctx.createRadialGradient((a[0] + c[0]) / 2, (a[1] + c[1]) / 2, 0, (a[0] + c[0]) / 2, (a[1] + c[1]) / 2,
+                                       Math.max(30, Math.abs(b[0] - a[0]) * 0.9));
+      g.addColorStop(0, PS.rgba('#05080d', alpha === undefined ? .38 : alpha)); g.addColorStop(1, 'rgba(0,0,0,0)');
+      S.poly([a, b, c, d], g, null, 1);
+    };
+    /* long cast shadow for a vertical form, thrown AWAY from the sun (sun is left) */
+    S.castShadow = function (x, z, halfW, height, len, alpha) {
+      var dir = S.sunAngle < 0 ? 1 : -1;                      // shadow falls to the +x side when the sun is left
+      var a = S.project(x - halfW, 0.003, z), b = S.project(x + halfW, 0.003, z),
+          c = S.project(x + halfW + dir * len, 0.003, z + len * 0.35),
+          d = S.project(x - halfW + dir * len, 0.003, z + len * 0.35);
+      S.poly([a, b, c, d], PS.rgba('#0a0f16', alpha === undefined ? .30 : alpha), null, 1);
+    };
+    /* rim light along an edge facing the sun */
+    S.rim = function (p1, p2, col, alpha, lw) {
+      ctx.save(); ctx.globalAlpha = alpha === undefined ? .8 : alpha;
+      ctx.strokeStyle = col || 'rgba(255,226,186,.9)'; ctx.lineWidth = lw || 2;
+      ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke(); ctx.restore();
+    };
+
+    /* ---------- palette helpers exposed on S too (scenes often use S.mix) ---------- */
+    S.mix = PS.mix; S.rgba = PS.rgba; S.lighten = PS.lighten; S.darken = PS.darken;
+
+    /* ---------- frame loop ---------- */
+    var t0 = 0, last = 0, current = 0, lastDraw = 0;
+    function targetP() { return opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0); }
+    /* draw exactly one frame, synchronously, swallowing errors so a bad frame can never
+       leave the hero blank or kill the loop */
+    S.drawOnce = function (p, time) {
+      if (!S.W || !S.H) { if (!S.resize()) return; S.cam(); }
+      try { opts.onFrame(S, p === undefined ? current : p, time || 0); lastDraw = Date.now(); }
+      catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
+    };
+    S.frame = function (ts) {
+      if (!t0) t0 = ts;
+      var dt = Math.min(64, ts - last); last = ts;                 // ms
+      if (!S.W || !S.H) { if (S.resize()) S.cam(); }
+      if (S.W && S.H) {
+        var target = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
+        /* frame-rate independent smoothing: the scene glides, never snaps */
+        current = PS.lerp(current, target, S.reduce ? 1 : 1 - Math.pow(0.0018, dt / 1000));
+        if (Math.abs(target - current) < 0.0004) current = target;
+        lastDraw = Date.now();
+        try { opts.onFrame(S, current, ts - t0); lastDraw = Date.now(); }
+        catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
+      }
+      if (!S.reduce) global.requestAnimationFrame(S.frame);
+    };
+    /* watchdog: if rAF is throttled (hidden tab, headless, power saving) or the loop died,
+       repaint at least 4x/second so the hero is never a blank canvas */
+    S.watch = function () {
+      if (S.reduce || S._watching) return; S._watching = true;
+      global.setInterval(function () {
+        if (Date.now() - lastDraw > 260) S.drawOnce(targetP(), Date.now());
+      }, 250);
+    };
+    S.start = function () {
+      function boot() {
+        var tries = (boot.tries = (boot.tries || 0) + 1);
+        if (!S.resize()) {                                  // wait for layout, but never forever
+          if (tries < 40) { global.requestAnimationFrame(boot); return; }
+          S.W = global.innerWidth || 1280; S.H = global.innerHeight || 720;
+        }
+        S.cam();
+        current = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
+        S.drawOnce(current, 0);                              // FIRST PAINT IS SYNCHRONOUS
+        if (!S.reduce) { global.requestAnimationFrame(S.frame); S.watch(); }
+      }
+      boot();
+      /* second synchronous attempt after layout settles (covers slow fonts/sticky layout) */
+      global.setTimeout(function () { S.drawOnce(targetP(), 0); }, 120);
+    };
+    global.addEventListener('resize', function () { if (S.resize()) S.cam(); });
+    return S;
+  };
+
+  PS.reduceMotion = function () { return global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches; };
+  PS.queryP = function () { try { var v = new URLSearchParams(global.location.search).get('p'); return v === null ? null : PS.clamp(parseFloat(v) || 0, 0, 1); } catch (e) { return null; } };
+  global.PS = PS;
+  if (typeof module !== 'undefined' && module.exports) module.exports = PS;
+})(typeof window !== 'undefined' ? window : this);
+
+</script>
+<script>
+/* ==== TRADE SCENE (integrated) ==== */
+/* ===== PRO SCENE — Cyclone Earthworks: cartage loop (dusk-warm) =====
+ * Subject: an excavator scoops spoil and swings to load a tipper; the loaded
+ * truck hauls out of frame while a second reverses in carrying quarry product
+ * and tips it into a pile; the pile is then spread as a graded pad.
+ * Standard: pro_scene.js kit. One sun (low, left), warm dusk haze, nothing
+ * floats, every surface textured, all motion eased. Uses the page's own HUD ids.
+ */
+(function () {
+  'use strict';
+  var cv = document.getElementById('sceneFixCanvas');
+  if (!cv) return;
+
+  var wrap = cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var stgNum = document.getElementById('stgNum'),
+      stgName = document.getElementById('stageName') || document.getElementById('stgName'),
+      railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');
+  var fixedP = PS.queryP();
+  var NAMES = ['dig', 'load out', 'import', 'graded'];
+
+  var S = PS.setup(cv, {
+    sun: 'left', seed: 9,
+    p: fixedP === null ? 0 : fixedP,
+    reduce: PS.reduceMotion() || fixedP !== null,
+    sky: ['#12182b', '#2c3a5c', '#d98a55'], glow: '#ff9d4d',
+    fogNear: 3, fogFar: 32, horizon: 0.45, focal: 1.22, camH: 1.5,
+    progress: fixedP !== null ? null : function () {
+      var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
+      return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
+    },
+    onFrame: frame
+  });
+
+  /* ---------- palette — olive plant, dark earth, dusk amber ---------- */
+  var DIRT = '#231c12', DIRT_D = '#120e09', DIRT_L = '#372c1c';
+  var SPOIL = '#3a2e1e', SPOIL_L = '#4d3f2a';
+  var QUARRY = '#6a5943', QUARRY_L = '#8a7659';
+  var MACH = '#5b5a51', MACH_D = '#3d3c36', MACH_L = '#7b796c';
+  var TRUCK_C = '#332d24', TRUCK_D = '#1e1a14';
+  var OLIVE = '#5c5b2f', GLASS = '#161f30', LAMP = '#ffbd6e';
+  var RIMC = 'rgba(255,214,150,.85)';
+
+  var stars = [];
+  (function () { for (var i = 0; i < 24; i++) stars.push([S.rng(), S.rng() * 0.26, 0.35 + S.rng() * 0.65]); })();
+
+  /* ---------- environment ---------- */
+  function treeLine(z, baseY, amp, col, alpha) {
+    var pts = [], x;
+    for (x = -46; x <= 46; x += 1.6) {
+      var h = Math.sin(x * 0.37) * 0.5 + Math.sin(x * 0.13 + 1.7) * 0.9 + Math.sin(x * 1.1) * 0.16;
+      pts.push(S.project(x, baseY + Math.max(0, h) * amp, z));
+    }
+    var f = S.project(-46, baseY, z), l = S.project(46, baseY, z);
+    S.poly([[f[0], f[1]]].concat(pts).concat([[l[0], l[1]]]), col, null, alpha);
+  }
+  function glow(x, y, r, a, col) {                       /* soft warm point light */
+    var g = S.ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, PS.rgba(col || LAMP, a));
+    g.addColorStop(0.35, PS.rgba(col || LAMP, a * 0.32));
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    S.ctx.fillStyle = g; S.ctx.beginPath(); S.ctx.arc(x, y, r, 0, 6.2832); S.ctx.fill();
+  }
+  function village() {                                   /* far sheds + warm windows at dusk */
+    var ctx = S.ctx;
+    var houses = [[-23, 41], [-19, 44], [-14.5, 40], [11, 39], [16, 43], [21.5, 45], [27, 41]];
+    for (var i = 0; i < houses.length; i++) {
+      var hx = houses[i][0], hz = houses[i][1], s = S.focal / hz;
+      var b = S.project(hx, 0, hz), w = (2.2 + (i % 3) * 0.6) * s, ht = (1.9 + (i % 2) * 0.5) * s;
+      S.poly([[b[0] - w * .5, b[1]], [b[0] + w * .5, b[1]], [b[0] + w * .3, b[1] - ht * 1.25], [b[0] - w * .3, b[1] - ht * 1.25]],
+             PS.mix('#1b2033', S.skyCols[2], .28));
+      var wop = [[-0.2, 0.28, 0.30], [0.08, 0.34, 0.22]];
+      for (var k = 0; k < 2; k++) {
+        var wx = b[0] + wop[k][0] * w, wy = b[1] - ht * wop[k][1], wr = Math.max(0.6, wop[k][2] * 0.09 * s + 0.6);
+        glow(wx, wy, Math.max(2.4, 1.5 * s * 0.09), 0.30, LAMP);
+        ctx.fillStyle = PS.rgba(LAMP, 0.72);
+        ctx.fillRect(wx - 0.8, wy - 0.8, 1.6 + Math.max(0, wr - 0.6), 1.6 + Math.max(0, wr - 0.6));
+      }
+    }
+    /* site shed with a wide lit door, on the pad's far edge */
+    var sb = S.project(-8.4, 0, 29), ss = S.focal / 29;
+    S.poly([[sb[0] - 2.2 * ss, sb[1]], [sb[0] + 2.2 * ss, sb[1]], [sb[0] + 1.9 * ss, sb[1] - 1.9 * ss], [sb[0] - 1.9 * ss, sb[1] - 1.9 * ss]],
+           PS.mix('#232837', S.skyCols[2], .22));
+    glow(sb[0] + 0.7 * ss, sb[1] - 0.6 * ss, Math.max(22, 1.6 * ss), 0.34, LAMP);
+    S.ctx.fillStyle = PS.rgba(LAMP, 0.62);
+    S.ctx.fillRect(sb[0] + 0.25 * ss, sb[1] - 1.15 * ss, 0.9 * ss, 1.05 * ss);
+  }
+  function lightTower(x, z, time) {                      /* work light on the pad edge */
+    var s = S.focal / z, b = S.project(x, 0, z), h = 4.2 * s;
+    S.shadow(x, z, 0.8, 0.55, .42);
+    S.poly([[b[0] - 0.1 * s, b[1]], [b[0] + 0.1 * s, b[1]], [b[0] + 0.08 * s, b[1] - h], [b[0] - 0.08 * s, b[1] - h]],
+           PS.darken(MACH_D, .15));
+    var lx = b[0] + 0.22 * s, ly = b[1] - h - 0.12 * s;
+    glow(lx, ly, Math.max(46, 7 * s), 0.30 + 0.03 * Math.sin(time * 0.0012), LAMP);
+    S.ctx.fillStyle = 'rgba(255,232,196,.95)';
+    S.ctx.beginPath(); S.ctx.arc(lx, ly, Math.max(2.2, 0.3 * s), 0, 6.2832); S.ctx.fill();
+  }
+  function env(time) {
+    var ctx = S.ctx, W = S.W, H = S.H;
+    S.sky(0.30);
+    var sg = ctx.createLinearGradient(0, 0, 0, S.horizon + 10);
+    sg.addColorStop(0, '#12182b'); sg.addColorStop(0.34, '#1d2745'); sg.addColorStop(0.66, '#2c3a5c');
+    sg.addColorStop(0.88, PS.mix('#2c3a5c', '#d98a55', 0.45)); sg.addColorStop(1, '#e2a05e');
+    ctx.fillStyle = sg; ctx.fillRect(0, 0, W, S.horizon + 10);
+    for (var si = 0; si < stars.length; si++) {          /* first stars, faint */
+      var st = stars[si], tw = 0.34 + 0.5 * Math.abs(Math.sin(time * 0.00042 + si * 1.7));
+      ctx.fillStyle = 'rgba(226,232,244,' + (0.04 + st[2] * 0.15 * tw).toFixed(3) + ')';
+      ctx.fillRect(st[0] * W, st[1] * H, 1.3, 1.3);
+    }
+    ctx.save(); ctx.translate(Math.sin(time * 0.00003) * 3, 0);   /* far layers drift slowest */
+    for (var ci = 0; ci < 9; ci++) {                     /* late cloud banks, lit undersides */
+      var cy = S.horizon * (0.16 + ci * 0.085), cw = W * (0.30 + 0.10 * ci),
+          cx = W * (0.03 + ((ci * 0.31 + time * 0.000012) % 1) * 0.94),
+          ca = 0.10 + 0.10 * Math.abs(Math.sin(ci * 1.7));
+      var cg = ctx.createLinearGradient(0, cy - 22, 0, cy + 20);
+      cg.addColorStop(0, 'rgba(24,28,44,0)');
+      cg.addColorStop(0.40, PS.rgba('#252b42', ca));
+      cg.addColorStop(0.62, PS.rgba(ci % 3 === 0 ? '#e8b076' : '#c98a5e', ca * 0.8));
+      cg.addColorStop(1, 'rgba(255,180,120,0)');
+      ctx.fillStyle = cg; ctx.beginPath(); ctx.ellipse(cx, cy, cw * 0.5, 7 + ci * 2.4, ci * 0.006 - 0.02, 0, 6.2832); ctx.fill();
+    }
+    var sunX = W * 0.26, sunY = S.horizon - S.H * 0.030;
+    var ag = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, Math.max(W, H) * 0.5);
+    ag.addColorStop(0, 'rgba(255,196,128,.62)'); ag.addColorStop(0.16, 'rgba(255,166,96,.28)');
+    ag.addColorStop(0.5, 'rgba(217,138,85,.11)'); ag.addColorStop(1, 'rgba(217,138,85,0)');
+    ctx.fillStyle = ag; ctx.fillRect(0, 0, W, S.horizon + 52);
+    ctx.fillStyle = 'rgba(255,226,178,.92)';
+    ctx.beginPath(); ctx.arc(sunX, sunY, Math.max(12, S.H * 0.027), 0, 6.2832); ctx.fill();
+    ctx.fillStyle = 'rgba(255,244,220,.85)';
+    ctx.beginPath(); ctx.arc(sunX, sunY - 2, Math.max(5, S.H * 0.012), 0, 6.2832); ctx.fill();
+    treeLine(70, 0.02, 3.2, PS.mix(S.skyCols[2], '#4a4256', 0.42), 0.34);
+    treeLine(46, 0.012, 2.5, PS.mix(S.skyCols[2], '#232741', 0.55), 0.60);
+    treeLine(30, 0.008, 1.8, PS.mix(S.skyCols[2], '#1a1b22', 0.72), 0.78);
+    ctx.restore();
+    S.haze(0.9);
+    village();
+    lightTower(7.6, 18, time);
+    var vh = ctx.createLinearGradient(0, S.horizon - S.H * 0.02, 0, S.horizon + S.H * 0.08);
+    vh.addColorStop(0, 'rgba(255,186,124,.24)'); vh.addColorStop(1, 'rgba(255,186,124,0)');
+    ctx.fillStyle = vh; ctx.fillRect(0, S.horizon - S.H * 0.02, W, S.H * 0.1);
+    var gN = S.project(0, 0, 1.9), gF = S.project(0, 0, 60);
+    var gg = ctx.createLinearGradient(0, gF[1], 0, gN[1]);
+    gg.addColorStop(0, PS.mix(S.skyCols[2], DIRT, 0.60));
+    gg.addColorStop(0.25, PS.mix(DIRT_L, '#4a3a2a', 0.40));
+    gg.addColorStop(0.6, DIRT);
+    gg.addColorStop(1, DIRT_D);
+    ctx.fillStyle = gg; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
+    S.mottle([S.project(-60, 0.001, 56), S.project(60, 0.001, 56), S.project(60, 0.001, 2), S.project(-60, 0.001, 2)], DIRT, 0.09, 30);
+    var ls = ctx.createLinearGradient(sunX - 300, 0, sunX + 300, 0);  /* low sun rakes the ground */
+    ls.addColorStop(0, 'rgba(255,168,102,0)'); ls.addColorStop(0.5, 'rgba(255,168,102,.10)'); ls.addColorStop(1, 'rgba(255,168,102,0)');
+    ctx.fillStyle = ls; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
+    S.texture([S.project(-60, 0, 56), S.project(60, 0, 56), S.project(60, 0, 2), S.project(-60, 0, 2)], 'grain', 420, .028);
+  }
+
+  /* ---------- shared material helpers ---------- */
+  function body(pts, base, mottleN) {                    /* lit face + shaded face + material + rim */
+    var ctx = S.ctx;
+    var g = ctx.createLinearGradient(0, pts[0][1], 0, pts[2][1]);
+    g.addColorStop(0, PS.lighten(base, .14)); g.addColorStop(0.55, base); g.addColorStop(1, PS.darken(base, .24));
+    S.poly(pts, g, PS.rgba('#0a0d10', .45), 1);
+    S.mottle(pts, base, 0.09, mottleN || 12);
+    S.texture(pts, 'grain', 150, .035);
+  }
+  function rim(p1, p2, a, lw) { S.rim(p1, p2, RIMC, a === undefined ? 0.75 : a, lw || 1.7); }
+  function puff(x, y, z, r, a, col) {                    /* soft dust puff */
+    var c = S.project(x, y, z), s = S.focal / z, R = Math.max(3, r * s);
+    var g = S.ctx.createRadialGradient(c[0], c[1], 0, c[0], c[1], R);
+    g.addColorStop(0, PS.rgba(col || '#8d7a63', a));
+    g.addColorStop(0.6, PS.rgba(col || '#8d7a63', a * 0.4));
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    S.ctx.fillStyle = g; S.ctx.beginPath(); S.ctx.arc(c[0], c[1], R, 0, 6.2832); S.ctx.fill();
+  }
+
+  /* ---------- spoil heap + cut (dig zone, front-left of centre) ---------- */
+  function drawDigZone(tDig, tLoadOut) {
+    var ctx = S.ctx, hz = 9.3, hh = 0.86 + 0.22 * tDig - 0.30 * tLoadOut;
+    var L = -2.9, R = -0.3;
+    var bl = S.project(L, 0.01, hz - 0.9), br = S.project(R, 0.01, hz - 0.9),
+        bf = S.project(R, 0.01, hz + 0.9), bfl = S.project(L, 0.01, hz + 0.9);
+    S.poly([bl, br, bf, bfl], PS.mix(DIRT_D, '#1d150c', .4), null, 1);   /* cut / scrape under the heap */
+    var mL = S.project(L + 0.35, hh * 0.92, hz - 0.6), mR = S.project(R - 0.35, hh * 0.8, hz - 0.6),
+        c1 = S.project(L + 1.0, hh, hz - 0.35), c2 = S.project(R - 0.9, hh * 0.86, hz + 0.4);
+    var pts = [S.project(L, 0, hz - 0.75), S.project(L, 0, hz + 0.85), c2, S.project(R - 0.2, 0, hz + 0.35)];
+    var mound = [bl, S.project(L + 0.35, hh * 0.92, hz - 0.55), c1, c2, mR, br, bf];
+    var g2 = ctx.createLinearGradient(0, S.project(0, hh, hz)[1], 0, S.project(0, 0, hz)[1]);
+    g2.addColorStop(0, PS.lighten(SPOIL_L, .16)); g2.addColorStop(0.5, SPOIL); g2.addColorStop(1, PS.darken(SPOIL, .3));
+    S.poly(mound, g2, PS.rgba('#120d07', .5), 1);
+    S.mottle(mound, SPOIL, 0.13, 16);
+    S.texture(mound, 'aggregate', 220, .06);
+    S.contactAO(-1.6, hz, 1.5, 1.0, .34);
+    S.castShadow(-1.6, hz, 0.9, hh, 1.5, .26);
+    rim(S.project(L + 0.35, hh * 0.92, hz - 0.55), c1, .8, 1.9);
+    rim(c1, c2, .5, 1.4);
+  }
+
+  /* ---------- tipper truck (side-on, facing +x) ---------- */
+  function drawTipper(x, z, o) {
+    var ctx = S.ctx, s = S.focal / z, time = o.time;
+    var lift = o.lift || 0, load = o.load === undefined ? 0 : o.load;
+    var tname = o.kind || 'spoil', loadCol = tname === 'quarry' ? QUARRY : SPOIL,
+        loadHi = tname === 'quarry' ? QUARRY_L : SPOIL_L;
+    S.shadow(x, z, 3.6, 1.3, .5);
+    S.contactAO(x, z, 3.9, 1.6, .32);
+    S.castShadow(x, z, 3.3, 2.2, 1.5, .28);
+    /* wheels (axles) */
+    var ax = [-2.6, -1.0, 2.6];
+    for (var i = 0; i < ax.length; i++) {
+      var w = S.project(x + ax[i], 0.62, z - 1.0), R = 0.62 * s;
+      ctx.fillStyle = '#0b0d10';
+      ctx.beginPath(); ctx.arc(w[0], w[1], R, 0, 6.2832); ctx.fill();
+      ctx.strokeStyle = PS.rgba(MACH_L, .32); ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.arc(w[0], w[1], R * 0.82, Math.PI * 1.05, Math.PI * 1.75); ctx.stroke();
+      ctx.fillStyle = PS.rgba(MACH, .5);
+      ctx.beginPath(); ctx.arc(w[0], w[1], R * 0.30, 0, 6.2832); ctx.fill();
+    }
+    /* chassis */
+    var ch = [S.project(x - 3.3, 1.35, z - 1.05), S.project(x + 3.4, 1.35, z - 1.05),
+              S.project(x + 3.4, 0.75, z - 1.05), S.project(x - 3.3, 0.75, z - 1.05)];
+    body(ch, TRUCK_D, 8);
+    /* tray: rigid quad, hinges at the rear, front lifts */
+    var piv = [x - 2.9, 1.42], phi = lift * 0.62;
+    var cp = Math.cos(phi), sp = Math.sin(phi);
+    function tp(lx, ly) { return [piv[0] + lx * cp - ly * sp, piv[1] + lx * sp + ly * cp]; }
+    var rb = tp(0, 0), fb = tp(4.6, 0), ft = tp(4.6, 1.35), rt = tp(0, 1.35);
+    var tray = [S.project(rb[0], rb[1], z - 1.15), S.project(fb[0], fb[1], z - 1.15),
+                S.project(ft[0], ft[1], z - 1.15), S.project(rt[0], rt[1], z - 1.15)];
+    body(tray, TRUCK_C, 10);
+    S.texture(tray, 'streak', 130, .05);
+    rim(tray[3], tray[0], .82, 1.9);                     /* rear edge catches the sun */
+    rim(tray[2], tray[3], .6, 1.5);                      /* top rail */
+    /* load inside the tray */
+    if (load > 0.03) {
+      var up = [-sp, cp];
+      var lp = [tp(0.25, 0.12), tp(4.35, 0.12), tp(4.35, 0.12 + 1.05 * load), tp(0.25, 0.12 + 1.05 * load)];
+      var lpts = [S.project(lp[0][0], lp[0][1], z - 1.05), S.project(lp[1][0], lp[1][1], z - 1.05),
+                  S.project(lp[2][0], lp[2][1], z - 1.05), S.project(lp[3][0], lp[3][1], z - 1.05)];
+      var lg = ctx.createLinearGradient(0, lpts[0][1], 0, lpts[2][1]);
+      lg.addColorStop(0, PS.lighten(loadHi, .12)); lg.addColorStop(0.45, loadCol); lg.addColorStop(1, PS.darken(loadCol, .22));
+      S.poly(lpts, lg, null, 1);
+      S.mottle(lpts, loadCol, 0.13, 12);
+      S.texture(lpts, tname === 'quarry' ? 'aggregate' : 'streak', 150, .05);
+      rim(lpts[3], lpts[2], .7, 1.6);
+      /* material pouring off the rear when tipped */
+      if (lift > 0.12) {
+        for (var d = 0; d < 12; d++) {
+          var q = ((d / 12) + lift * 1.6) % 1;
+          var fx = tp(-0.15, 1.2), fxr = piv[0] - 1.5;
+          var px = fx[0] + (fxr - fx[0]) * q, py = fx[1] + (0.15 - fx[1]) * q * q;
+          var pc = S.project(px, py, z + (q - 0.5) * 1.2);
+          ctx.fillStyle = PS.rgba(loadHi, 0.55 * (1 - q * 0.7));
+          ctx.beginPath(); ctx.arc(pc[0], pc[1], Math.max(1.2, (0.16 + 0.1 * Math.sin(time * 0.006 + d)) * s), 0, 6.2832); ctx.fill();
+        }
+      }
+    }
+    /* cab + window + warm interior */
+    var cab = [S.project(x + 1.9, 2.75, z - 1.05), S.project(x + 3.4, 2.75, z - 1.05),
+               S.project(x + 3.4, 1.35, z - 1.05), S.project(x + 1.9, 1.35, z - 1.05)];
+    body(cab, TRUCK_C, 8);
+    rim(cab[0], cab[1], .8, 1.8);
+    var win = [S.project(x + 2.05, 2.6, z - 1.12), S.project(x + 3.25, 2.6, z - 1.12),
+               S.project(x + 3.25, 1.75, z - 1.12), S.project(x + 2.05, 1.75, z - 1.12)];
+    S.poly(win, PS.rgba(GLASS, .92), null, 1);
+    rim(win[0], win[1], .4, 1.2);
+    var wc = S.project(x + 2.6, 2.2, z - 1.2);
+    glow(wc[0], wc[1], Math.max(6, 0.5 * s), .22, LAMP);   /* dash lamp at dusk */
+    /* stack + fuel tank detail */
+    S.poly([S.project(x + 1.75, 3.05, z - 0.9), S.project(x + 1.95, 3.05, z - 0.9),
+            S.project(x + 1.95, 2.6, z - 0.9), S.project(x + 1.75, 2.6, z - 0.9)], PS.darken(MACH_D, .2));
+    S.poly([S.project(x - 2.2, 1.32, z - 1.1), S.project(x - 1.0, 1.32, z - 1.1),
+            S.project(x - 1.0, 0.86, z - 1.1), S.project(x - 2.2, 0.86, z - 1.1)], PS.darken(TRUCK_C, .12));
+    /* lamps */
+    var tl = S.project(x - 3.3, 1.15, z - 1.05), hl = S.project(x + 3.42, 1.05, z - 1.05);
+    ctx.fillStyle = 'rgba(255,96,72,.9)';
+    ctx.beginPath(); ctx.arc(tl[0], tl[1], Math.max(1.4, 0.07 * s), 0, 6.2832); ctx.fill();
+    if (o.moving) {
+      glow(hl[0] + 0.35 * s, hl[1], Math.max(9, 0.9 * s), .22, '#ffd9a0');
+      ctx.fillStyle = 'rgba(255,232,190,.9)';
+      ctx.beginPath(); ctx.arc(hl[0], hl[1], Math.max(1.4, 0.07 * s), 0, 6.2832); ctx.fill();
+    }
+    /* wheel dust while moving */
+    if (o.moving > 0.05) {
+      for (var d2 = 0; d2 < 6; d2++) {
+        var dx = x - 2.4 - d2 * 0.55 - 0.2 * Math.sin(time * 0.004 + d2);
+        puff(dx, 0.22 + 0.1 * Math.sin(time * 0.005 + d2 * 1.3), z + 0.9,
+             0.5 + d2 * 0.22, 0.15 * o.moving * (0.55 + 0.45 * Math.sin(time * 0.0045 + d2)), '#9b8368');
+      }
+    }
+  }
+
+  /* ---------- excavator ---------- */
+  var EX = { x: -4.9, z: 9.4, armZ: 9.0, sx: -4.35, sy: 2.05, l1: 3.9, l2: 2.6 };
+  function ik(tx, ty) {
+    var dx = tx - EX.sx, dy = ty - EX.sy, d = Math.sqrt(dx * dx + dy * dy);
+    d = Math.min(EX.l1 + EX.l2 - 0.2, Math.max(Math.abs(EX.l1 - EX.l2) + 0.6, d));
+    var a = Math.atan2(dy, dx);
+    var ca = PS.clamp((EX.l1 * EX.l1 + d * d - EX.l2 * EX.l2) / (2 * EX.l1 * d), -1, 1);
+    var b1 = a + Math.acos(ca);
+    var ex = EX.sx + Math.cos(b1) * EX.l1, ey = EX.sy + Math.sin(b1) * EX.l1;
+    return { ex: ex, ey: ey, b2: Math.atan2(ty - ey, tx - ex) };
+  }
+  function drawExcavator(bx, by, curl, spoil, time, working) {
+    var ctx = S.ctx, x = EX.x, z = EX.z, s = S.focal / z, AZ = EX.armZ;
+    S.shadow(x, z, 2.9, 1.9, .52);
+    S.contactAO(x, z, 3.0, 2.0, .34);
+    S.castShadow(x, z, 1.3, 1.6, 1.4, .3);
+    /* tracks: top surface + near side */
+    var tt = [S.project(x - 1.75, 0.72, z - 1.05), S.project(x + 1.75, 0.72, z - 1.05),
+              S.project(x + 1.75, 0.72, z + 1.05), S.project(x - 1.75, 0.72, z + 1.05)];
+    S.poly(tt, PS.mix(MACH_D, MACH, .45), null, 1);
+    S.texture(tt, 'grain', 120, .05);
+    var ts = [S.project(x - 1.75, 0.72, z - 1.05), S.project(x + 1.75, 0.72, z - 1.05),
+              S.project(x + 1.62, 0.07, z - 1.05), S.project(x - 1.62, 0.07, z - 1.05)];
+    body(ts, MACH_D, 10);
+    rim(ts[0], ts[1], .7, 1.6);
+    ctx.save(); ctx.globalAlpha = .35; ctx.strokeStyle = '#0d0f11'; ctx.lineWidth = 1;
+    for (var tl2 = -1.5; tl2 <= 1.5; tl2 += 0.42) {          /* track lugs */
+      var la = S.project(x + tl2, 0.66, z - 1.06), lb = S.project(x + tl2, 0.16, z - 1.06);
+      ctx.beginPath(); ctx.moveTo(la[0], la[1]); ctx.lineTo(lb[0], lb[1]); ctx.stroke();
+    }
+    ctx.restore();
+    /* house */
+    var hz1 = z - 0.95, hs = [S.project(x - 1.55, 2.4, hz1), S.project(x + 1.35, 2.4, hz1),
+                              S.project(x + 1.35, 0.72, hz1), S.project(x - 1.55, 0.72, hz1)];
+    body(hs, MACH, 14);
+    S.texture(hs, 'streak', 110, .04);
+    rim(hs[0], hs[1], .9, 2.1);
+    var htop = [S.project(x - 1.55, 2.4, hz1), S.project(x + 1.35, 2.4, hz1),
+                S.project(x + 1.35, 2.4, z + 0.9), S.project(x - 1.55, 2.4, z + 0.9)];
+    S.poly(htop, PS.mix(MACH, MACH_L, .3), null, 1);
+    S.texture(htop, 'grain', 100, .045);
+    /* counterweight */
+    var cw = [S.project(x - 2.05, 2.05, hz1), S.project(x - 1.5, 2.05, hz1),
+              S.project(x - 1.5, 0.78, hz1), S.project(x - 2.05, 0.78, hz1)];
+    body(cw, PS.darken(MACH_D, .12), 8);
+    /* cab with a warm interior */
+    var cb = [S.project(x - 1.4, 3.42, z - 0.8), S.project(x - 0.15, 3.42, z - 0.8),
+              S.project(x - 0.15, 2.4, z - 0.8), S.project(x - 1.4, 2.4, z - 0.8)];
+    body(cb, MACH, 8);
+    rim(cb[0], cb[1], .95, 2.1);
+    var cwin = [S.project(x - 1.28, 3.3, z - 0.86), S.project(x - 0.27, 3.3, z - 0.86),
+                S.project(x - 0.27, 2.52, z - 0.86), S.project(x - 1.28, 2.52, z - 0.86)];
+    S.poly(cwin, PS.rgba(GLASS, .9), null, 1);
+    rim(cwin[0], cwin[1], .5, 1.3);
+    var cc = S.project(x - 0.8, 2.9, z - 0.95);
+    glow(cc[0], cc[1], Math.max(8, 0.7 * s), .30, LAMP);      /* operator lamp */
+    /* beacon */
+    var bc = S.project(x - 0.05, 3.58, z - 0.5);
+    glow(bc[0], bc[1], Math.max(5, 0.32 * s), .22 + .2 * Math.abs(Math.sin(time * 0.003)), '#ffb14a');
+    /* boom + stick via two-bone IK */
+    var k = ik(bx, by), el = [k.ex, k.ey];
+    var P0 = S.project(EX.sx, EX.sy, AZ), PE = S.project(el[0], el[1], AZ), PB = S.project(bx, by, AZ);
+    ctx.save(); ctx.lineCap = 'round';
+    ctx.lineWidth = Math.max(6, 0.46 * s); ctx.strokeStyle = PS.darken(MACH_D, .1);
+    ctx.beginPath(); ctx.moveTo(P0[0], P0[1]); ctx.lineTo(PE[0], PE[1]); ctx.stroke();
+    ctx.lineWidth = Math.max(3, 0.20 * s); ctx.strokeStyle = PS.rgba(MACH_L, .85);
+    ctx.beginPath(); ctx.moveTo(P0[0], P0[1] - 0.14 * s); ctx.lineTo(PE[0], PE[1] - 0.14 * s); ctx.stroke();
+    ctx.lineWidth = Math.max(4, 0.32 * s); ctx.strokeStyle = MACH_D;
+    ctx.beginPath(); ctx.moveTo(PE[0], PE[1]); ctx.lineTo(PB[0], PB[1]); ctx.stroke();
+    ctx.lineWidth = Math.max(2, 0.13 * s); ctx.strokeStyle = PS.rgba(MACH_L, .8);
+    ctx.beginPath(); ctx.moveTo(PE[0], PE[1] - 0.09 * s); ctx.lineTo(PB[0], PB[1] - 0.09 * s); ctx.stroke();
+    ctx.lineWidth = Math.max(2, 0.11 * s); ctx.strokeStyle = PS.rgba(OLIVE, .9);   /* ram */
+    ctx.beginPath(); ctx.moveTo(P0[0] + 0.1 * s, P0[1] + 0.3 * s); ctx.lineTo((P0[0] + PE[0]) / 2, (P0[1] + PE[1]) / 2 + 0.34 * s); ctx.stroke();
+    ctx.restore();
+    /* bucket: quad at the stick tip, rotated by the curl */
+    var u = [Math.cos(k.b2), Math.sin(k.b2)], n = [-u[1], u[0]], rot = -0.55 + curl * 1.35;
+    function bk(ox, oy) {
+      var cx2 = ox * Math.cos(rot) - oy * Math.sin(rot), cy2 = ox * Math.sin(rot) + oy * Math.cos(rot);
+      return S.project(bx + u[0] * cx2 + n[0] * cy2, by + u[1] * cx2 + n[1] * cy2, AZ);
+    }
+    var bp = [bk(0.02, -0.42), bk(0.95, -0.30), bk(0.86, 0.48), bk(0.06, 0.56)];
+    body(bp, PS.darken(MACH_D, .18), 6);
+    rim(bp[3], bp[2], .8, 1.8);
+    if (spoil > 0.04) {                                        /* spoil riding in the bucket */
+      var sp = [bk(0.16, -0.28), bk(0.82, -0.18), bk(0.78, 0.34), bk(0.22, 0.42)];
+      var sg2 = ctx.createLinearGradient(0, sp[3][1], 0, sp[0][1]);
+      sg2.addColorStop(0, PS.lighten(SPOIL_L, .2)); sg2.addColorStop(1, PS.darken(SPOIL, .2));
+      S.poly(sp, sg2, null, PS.clamp(spoil, 0, 1));
+      S.mottle(sp, SPOIL, 0.16, 8);
+    }
+    /* work light onto the dig zone */
+    var wl = S.project(EX.x + 0.2, 3.0, z - 0.9);
+    var dg = S.project(bx + 0.6, 0.1, AZ + 0.5);
+    var wg = ctx.createLinearGradient(wl[0], wl[1], dg[0], dg[1]);
+    wg.addColorStop(0, 'rgba(255,196,120,.13)'); wg.addColorStop(1, 'rgba(255,196,120,0)');
+    S.poly([wl, [dg[0] - 0.9 * s, dg[1] + 0.2 * s], [dg[0] + 0.5 * s, dg[1] + 0.2 * s]], wg, null, 1);
+    if (working) {                                             /* fresh spoil puff at the bucket */
+      puff(bx + 0.2, 0.18, AZ + 0.3, 0.4, 0.14, '#9b8368');
+    }
+  }
+
+  /* ---------- quarry pile + graded pad + dozer ---------- */
+  function drawPile(cx, z, hh, ww, time) {
+    if (hh <= 0.02) return;
+    var ctx = S.ctx;
+    var L = cx - ww / 2, R = cx + ww / 2;
+    var crestY = hh * (0.95 + 0.05 * Math.sin(time * 0.0018));
+    var pts = [S.project(L, 0.01, z - ww * 0.4), S.project(L + ww * 0.12, hh * 0.82, z - ww * 0.2),
+               S.project(L + ww * 0.38, crestY, z - ww * 0.12), S.project(cx + ww * 0.06, crestY * 0.98, z + ww * 0.1),
+               S.project(R - ww * 0.14, hh * 0.7, z + ww * 0.34), S.project(R, 0.01, z + ww * 0.4)];
+    var g = ctx.createLinearGradient(0, S.project(cx, hh, z)[1], 0, S.project(cx, 0, z)[1]);
+    g.addColorStop(0, PS.lighten(QUARRY_L, .18)); g.addColorStop(0.45, QUARRY); g.addColorStop(1, PS.darken(QUARRY, .3));
+    S.poly(pts, g, null, 1);
+    S.mottle(pts, QUARRY, 0.13, 16);
+    S.texture(pts, 'aggregate', 240, .07);
+    S.contactAO(cx, z, ww * 0.6, ww * 0.45, .32);
+    S.castShadow(cx, z, ww * 0.3, hh, 1.1, .2);
+    rim(S.project(L + ww * 0.12, hh * 0.82, z - ww * 0.2), S.project(L + ww * 0.38, crestY, z - ww * 0.12), .85, 2);
+  }
+  function drawPad(t, time) {
+    if (t <= 0.01) return;
+    var ctx = S.ctx, z0 = 12.7, z1 = 15.3, x0 = -5.2, x1 = 6.0;
+    var q = [S.project(x0, 0.05, z1), S.project(x1, 0.05, z1), S.project(x1, 0.05, z0), S.project(x0, 0.05, z0)];
+    var g = ctx.createLinearGradient(0, q[2][1], 0, q[0][1]);
+    g.addColorStop(0, PS.mix(QUARRY, '#4a3d2e', .35));
+    g.addColorStop(0.4, QUARRY);
+    g.addColorStop(1, PS.mix(QUARRY_L, '#8a6a44', .35));
+    S.poly(q, g, null, PS.clamp(0.25 + 0.75 * t, 0, 1));
+    S.mottle(q, QUARRY, 0.10, 20);
+    S.texture(q, 'aggregate', 300, .05);
+    ctx.save(); ctx.globalAlpha = 0.10 * t; ctx.strokeStyle = '#ffe0b8'; ctx.lineWidth = 1.1;
+    for (var st = 0; st < 9; st++) {                            /* grading striations */
+      var zz = z0 + 0.25 + (z1 - z0 - 0.5) * (st / 8);
+      var a = S.project(x0 + 0.4, 0.06, zz + 0.06 * Math.sin(st)), b = S.project(x1 - 0.4, 0.06, zz + 0.06 * Math.cos(st * 1.7));
+      ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+    }
+    ctx.restore();
+    var lipF = [S.project(x0, 0.05, z1), S.project(x1, 0.05, z1), S.project(x1, 0.16, z1), S.project(x0, 0.16, z1)];
+    S.poly(lipF, PS.mix(QUARRY_L, '#8a6a44', .4), null, PS.clamp(0.2 + 0.7 * t, 0, 1));
+    rim(lipF[3], lipF[2], .55 * t, 1.4);
+    S.contactAO(0.5, z1, 5.4, 0.6, .22 * t);
+  }
+  function drawDozer(x, z, low, time) {
+    var ctx = S.ctx, s = S.focal / z;
+    S.shadow(x, z, 2.0, 1.4, .5);
+    S.contactAO(x, z, 2.2, 1.5, .3);
+    S.castShadow(x, z, 1.2, 1.3, 1.1, .26);
+    var tr = [S.project(x - 1.3, 0.6, z - 0.85), S.project(x + 1.3, 0.6, z - 0.85),
+              S.project(x + 1.2, 0.06, z - 0.85), S.project(x - 1.2, 0.06, z - 0.85)];
+    body(tr, MACH_D, 8);
+    var bd = [S.project(x - 1.3, 1.35, z - 1.0), S.project(x + 1.3, 1.35, z - 1.0),
+              S.project(x + 1.3, 0.6, z - 1.0), S.project(x - 1.3, 0.6, z - 1.0)];
+    body(bd, MACH, 10);
+    rim(bd[0], bd[1], .85, 1.9);
+    var cb = [S.project(x + 0.35, 2.25, z - 0.7), S.project(x + 1.3, 2.25, z - 0.7),
+              S.project(x + 1.3, 1.35, z - 0.7), S.project(x + 0.35, 1.35, z - 0.7)];
+    body(cb, MACH_D, 6);
+    rim(cb[0], cb[1], .8, 1.7);
+    var w = [S.project(x + 0.5, 2.12, z - 0.78), S.project(x + 1.2, 2.12, z - 0.78),
+             S.project(x + 1.2, 1.5, z - 0.78), S.project(x + 0.5, 1.5, z - 0.78)];
+    S.poly(w, PS.rgba(GLASS, .9), null, 1);
+    var bxc = S.project(x + 0.85, 1.8, z - 0.82);
+    glow(bxc[0], bxc[1], Math.max(5, 0.42 * s), .24, LAMP);
+    /* blade (faces -x) + windrow ahead of it */
+    var bl = [S.project(x - 1.45, 0.22 + 1.15 * (1 - low * 0.35), z - 0.85), S.project(x - 1.45, 0.22 + 1.15 * (1 - low * 0.35), z + 0.85),
+              S.project(x - 1.45, 0.05, z + 0.85), S.project(x - 1.45, 0.05, z - 0.85)];
+    var bg = ctx.createLinearGradient(0, bl[0][1], 0, bl[3][1]);
+    bg.addColorStop(0, PS.lighten(MACH_L, .05)); bg.addColorStop(1, PS.darken(MACH_D, .2));
+    S.poly(bl, bg, PS.rgba('#0a0d10', .5), 1);
+    S.mottle(bl, MACH, 0.10, 8);
+    S.texture(bl, 'streak', 70, .05);
+    rim(bl[0], bl[1], .9, 2.1);
+    S.poly([S.project(x - 1.45, 0.36, z - 0.85), S.project(x - 1.45, 0.36, z + 0.85),
+            S.project(x - 1.45, 0.05, z + 0.85), S.project(x - 1.45, 0.05, z - 0.85)], PS.rgba(OLIVE, .8), null, 1);
+    if (low > 0.05) {
+      var wp = [S.project(x - 3.1, 0.02, z - 0.7), S.project(x - 1.9, 0.02, z - 0.5),
+                S.project(x - 1.55, 0.42 * low, z + 0.1), S.project(x - 1.9, 0.36 * low, z + 0.8),
+                S.project(x - 2.6, 0.02, z + 0.9)];
+      var wg = ctx.createLinearGradient(0, S.project(x - 2.2, 0.4 * low, z)[1], 0, S.project(x - 2.2, 0, z)[1]);
+      wg.addColorStop(0, PS.lighten(QUARRY_L, .1)); wg.addColorStop(1, PS.darken(QUARRY, .2));
+      S.poly(wp, wg, null, 1);
+      S.texture(wp, 'aggregate', 140, .06);
+      S.contactAO(x - 2.2, z, 0.9, 0.9, .26);
+      for (var d3 = 0; d3 < 3; d3++) puff(x + 1.5 + d3 * 0.4, 0.2, z - 1.0, 0.5 + d3 * 0.2, 0.12, '#9b8368');
+    }
+  }
+
+  /* ---------- subject: the cartage loop ---------- */
+  function subject(p, time) {
+    var ctx = S.ctx;
+    /* eased stage timeline */
+    var tDig = PS.stage(p, 0.00, 0.15, 'place');
+    var tLift = PS.stage(p, 0.09, 0.11, 'place');
+    var tSwing = PS.stage(p, 0.19, 0.17, 'place');
+    var tDrop = PS.stage(p, 0.34, 0.11, 'release');
+    var tHaul = PS.stage(p, 0.44, 0.24, 'place');
+    var tReturn = PS.stage(p, 0.40, 0.27, 'place');
+    var tArrive = PS.stage(p, 0.55, 0.17, 'place');
+    var tTip = PS.stage(p, 0.71, 0.11, 'release');
+    var tGrade = PS.stage(p, 0.82, 0.18, 'place');
+    /* dig zone sits behind the machines' working lane */
+    drawDigZone(tDig, PS.clamp(tHaul * 0.6, 0, 1));
+    /* truck 2 (import lane, z 14) — reverse in, tip, pull out */
+    var t2x = PS.lerp(13.0, 5.2, PS.ease.inOut(tArrive)) + PS.lerp(0, 7.6, PS.ease.in(tGrade));
+    var t2lift = tTip, t2load = 1 - PS.clamp(tTip * 1.05, 0, 1);
+    if (tArrive > 0.001) {
+      drawTipper(t2x, 14.0, {
+        time: time, kind: 'quarry', load: t2load, lift: t2lift,
+        moving: (tArrive < 0.995 ? PS.clamp(Math.sin(Math.PI * PS.clamp(tArrive, 0, 1)), 0, 1) * 0.6 : 0) +
+                (tGrade > 0.01 ? PS.clamp(Math.sin(Math.PI * PS.clamp(tGrade, 0, 1)), 0, 1) * 0.9 : 0)
+      });
+    }
+    /* quarry pile under truck 2's tailgate, then spread to a graded pad */
+    var pileGrow = PS.clamp((tTip - 0.10) / 0.7, 0, 1);
+    var pileSpread = PS.clamp((tGrade - 0.35) / 0.65, 0, 1);
+    var pileH = PS.lerp(0, 2.05, PS.ease.out(pileGrow)) * (1 - pileSpread);
+    var pileW = PS.lerp(1.2, 3.6, PS.ease.out(pileGrow));
+    drawPile(1.05, 14.15, pileH, pileW, time);
+    drawPad(PS.clamp((tGrade - 0.12) / 0.7, 0, 1), time);
+    /* dozer grades the pile left, spreading it flat */
+    if (tGrade > 0.02) drawDozer(PS.lerp(4.6, -2.4, PS.ease.inOut(tGrade)), 14.05, PS.clamp(tGrade * 2.4, 0, 1), time);
+    /* truck 1: loading bay in the middle lane (z 11) */
+    var t1x = PS.lerp(1.9, 12.6, PS.ease.in(tHaul));
+    var t1load = PS.clamp(tDrop * 1.06, 0, 1);
+    var haulSpeed = tHaul > 0.002 && tHaul < 0.998 ? PS.clamp(Math.sin(Math.PI * PS.clamp(tHaul, 0, 1)) * 1.3, 0, 1) : 0;
+    drawTipper(t1x, 11.0, {
+      time: time, kind: 'spoil', load: t1load, lift: 0,
+      moving: PS.lerp(haulSpeed, 0.10 * Math.sin(time * 0.002), 0.35)
+    });
+    /* excavator: dig -> swing -> drop -> return -> keeps working */
+    var swingK = tSwing * (1 - tReturn);
+    var digX = -0.9, digY = 0.55 - 0.3 * (1 - tDig) * 0 - 0.35 * tDig + 0.55 * (1 - tDig) * 0;
+    digY = 0.62 - 0.42 * tDig + 0.55 * tLift * 0.6;
+    var dumpX = 1.4, dumpY = 3.15;
+    var bx = PS.lerp(digX, dumpX, swingK);
+    var by = PS.lerp(digY, dumpY, swingK) + 0.42 * Math.sin(Math.PI * PS.clamp(swingK, 0, 1)) * 0.35;
+    var idle = PS.clamp((p - 0.78) / 0.22, 0, 1);
+    by += 0.12 * Math.sin(time * 0.0011) * idle;
+    var curl = PS.clamp(0.15 + 0.85 * tLift, 0, 1) * (1 - PS.clamp(tDrop * 1.2, 0, 1) * 0.85);
+    var spoilIn = PS.clamp(tLift - tDrop * 1.1, 0, 1) * (1 - PS.clamp(tReturn * 0.9, 0, 1));
+    drawExcavator(bx, by, PS.clamp(curl, 0.05, 1), spoilIn, time, tDig < 0.999 || idle > 0.1);
+    /* scale cues */
+    S.scaleCue(2.6, 10.2, 'person');
+    S.scaleCue(3.7, 8.3, 'cone');
+    S.scaleCue(4.35, 8.85, 'cone');
+    /* track marks left on the running lanes */
+    ctx.save(); ctx.globalAlpha = .12; ctx.strokeStyle = '#0d0a06'; ctx.lineWidth = 1.4;
+    for (var m = 0; m < 2; m++) {
+      var za = 13.3 + m * 1.4;
+      var a1 = S.project(-5.6, 0.02, za), a2 = S.project(7.4, 0.02, za);
+      ctx.beginPath(); ctx.moveTo(a1[0], a1[1]); ctx.lineTo(a2[0], a2[1]); ctx.stroke();
+    }
+    var b1 = S.project(-5.6, 0.02, 10.3), b2 = S.project(9.0, 0.02, 10.3);
+    ctx.beginPath(); ctx.moveTo(b1[0], b1[1]); ctx.lineTo(b2[0], b2[1]); ctx.stroke();
+    ctx.restore();
+  }
+
+  function grade(time) {
+    var ctx = S.ctx;
+    var rim2 = ctx.createLinearGradient(0, 0, S.W, S.H);
+    rim2.addColorStop(0, 'rgba(255,186,120,.07)'); rim2.addColorStop(0.5, 'rgba(255,186,120,0)'); rim2.addColorStop(1, 'rgba(46,60,96,.06)');
+    ctx.fillStyle = rim2; ctx.fillRect(0, 0, S.W, S.H);
+    S.dust(30, time);
+    S.grade();
+  }
+
+  function frame(S_, p, time) {
+    S = S_;
+    env(time);
+    var dxs = Math.sin(time * 0.000035) * 3 + (p - 0.5) * 9;   /* foreground drifts more */
+    S.ctx.save(); S.ctx.translate(dxs, 0);
+    subject(p, time);
+    S.ctx.restore();
+    grade(time);
+    var idx = p < 0.22 ? 0 : p < 0.52 ? 1 : p < 0.82 ? 2 : 3;
+    if (stgNum) stgNum.textContent = '0' + (idx + 1);
+    if (stgName) stgName.textContent = NAMES[idx];
+    if (railFill) railFill.style.width = Math.round(p * 100) + '%';
+    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.2, 0, 1);
+  }
+  S.start();
+})();
 
 </script>
 </body>

@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement | Adelaide SA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ZB Rendering - Adelaide based rendering specialists. Render & texture coating, Venetian plaster, microcement, white set finishing, feature walls. Request a free quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="logo.jpg">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<style>
+:root{
+  --bg:#0f1115;
+  --ink:#e9eef4;
+  --muted:#9aa6b2;
+  --accent:#c4fb24;
+  --panel:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --radius:12px;
+}
+@media (prefers-color-scheme: light){
+  :root{--bg:#f7fafc;--ink:#0f1115;--muted:#4a5568;--panel:rgba(15,17,21,.06);--line:rgba(15,17,21,.18)}
+}
+*, *::before, *::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .stage{height:100vh}
+  .pin{position:relative;height:100vh}
+}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}@media (prefers-reduced-motion: reduce){
+  .rv { opacity: 1; transform: none; transition: none; }
+  .js .rv { opacity: 1; }
+}
+noscript + style { display: block; }
+
+/* === STAGE / HERO CANVAS === */
+.stage { position: relative; height: 420vh; }
+.pin { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.pin canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+.hud {
+  position: absolute;
+  left: clamp(16px, 3vw, 30px);
+  bottom: clamp(16px, 2.5vh, 26px);
+  font: 600 11px/1.7 ui-monospace, Menlo, monospace;
+  letter-spacing: .18em;
+  color: #f0f4f8;
+  z-index: 2;
+  text-shadow: 0 1px 8px rgba(0,0,0,.6);
+}
+.hud b { display: block; color: #c4fb24; font-size: 13px; }
+
+.cap {
+  position: absolute;
+  left: clamp(16px, 3vw, 30px);
+  top: clamp(8vh, 11vh, 14vh);
+  max-width: 21ch;
+  font: 800 clamp(28px, 5.2vw, 68px)/1.0 'Space Grotesk', system-ui, sans-serif;
+  color: #f7fafc;
+  z-index: 2;
+  text-shadow: 0 2px 34px rgba(0,0,0,.6);
+}
+.cap i { font-style: normal; color: #c4fb24; }
+
+.rail {
+  position: absolute;
+  right: clamp(16px, 3vw, 30px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60vh;
+  max-height: 420px;
+  background: rgba(255,255,255,.12);
+  border-radius: 2px;
+  z-index: 2;
+}
+.rail-fill {
+  width: 100%;
+  height: 0%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: height 0.1s linear;
+}
+
+/* === HEADER === */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(15, 17, 21, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.site-header a { color: var(--ink); text-decoration: none; }
+.site-header nav { display: flex; gap: 8px; flex-wrap: wrap; }
+.site-header nav a {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--panel);
+  transition: background .15s, border-color .15s;
+}
+.site-header nav a:hover { background: var(--accent); color: #0b0e12; border-color: var(--accent); text-decoration: none; }
+
+/* === SECTIONS === */
+section { padding: clamp(64px, 10vh, 120px) 24px; }
+.container { max-width: 1120px; margin: 0 auto; }
+h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Space Grotesk', system-ui, sans-serif; letter-spacing: -0.02em; margin: 0 0 clamp(32px, 5vh, 56px); color: var(--ink); }
+
+/* === SERVICES === */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.services-grid article {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: transform .2s, border-color .2s;
+}
+.services-grid article:hover { transform: translateY(-2px); border-color: var(--accent); }
+.services-grid h3 { font: 600 1.15rem/1.3 'Space Grotesk', system-ui, sans-serif; margin: 0 0 8px; color: var(--ink); }
+.services-grid p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.6; }
+
+/* === ABOUT === */
+#about { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+@media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; } }
+.about-text p { margin: 0 0 16px; color: var(--muted); max-width: 56ch; }
+.about-text p:last-child { margin-bottom: 24px; }
+.about-text ul { margin: 0; padding: 0 0 0 20px; color: var(--muted); display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+.about-text li { font-size: .95rem; }
+.about-image img { border-radius: 8px; border: 1px solid var(--line); box-shadow: 0 8px 32px rgba(0,0,0,.35); }
+
+/* === EVIDENCE === */
+#evidence { background: var(--bg); }
+.evidence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.evidence-grid article { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.evidence-grid .tag { font-size: .8rem; color: var(--accent); margin: 0 0 8px; font-weight: 600; }
+.evidence-grid p { margin: 0; color: var(--muted); font-size: .95rem; }
+.evidence-grid a { color: var(--accent); }
+#evidence > .container > p { text-align: center; margin: 32px 0 0; color: var(--muted); font-size: .9rem; }
+
+/* === QUOTE / CTA === */
+#quote { background: linear-gradient(180deg, rgba(196,251,36,.06), transparent); border-top: 1px solid var(--line); }
+#quote .container { max-width: 720px; text-align: center; }
+#quote .lead { max-width: 56ch; margin: 0 auto 32px; color: var(--muted); font-size: 1.05rem; line-height: 1.65; }
+#quote a { color: var(--accent); }
+
+/* === FOOTER === */
+.site-footer { background: var(--bg); border-top: 1px solid var(--line); padding: 48px 24px 24px; }
+.footer-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: start; }
+@media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } }
+.footer-brand a { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); margin-bottom: 16px; }
+.footer-brand img { width: 36px; height: 28px; object-fit: contain; border-radius: 4px; }
+.footer-brand span { font: 700 1.1rem/1 'Space Grotesk', system-ui, sans-serif; }
+.footer-brand p { color: var(--muted); margin: 0; font-size: .9rem; max-width: 28ch; }
+.footer-contact { text-align: center; }
+.footer-contact p { margin: 4px 0; color: var(--muted); font-size: .9rem; }
+.footer-contact a { color: var(--muted); transition: color .2s; }
+.footer-contact a:hover { color: var(--accent); }
+.footer-contact .label { font-size: .75rem; letter-spacing: .18em; color: var(--accent); margin: 0 0 8px; font-weight: 600; }
+.footer-services { text-align: right; }
+@media (max-width: 720px) { .footer-services { text-align: center; } }
+.footer-services .label { font-size: .75rem; letter-spacing: .18em; color: var(--accent); margin: 0 0 8px; font-weight: 600; }
+.footer-services ul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .9rem; line-height: 2; }
+.site-footer .copyright { border-top: 1px solid var(--line); margin-top: 32px; padding-top: 24px; text-align: center; color: var(--muted); font-size: .8rem; }
+
+/* === QUOTE FORM (injected) - ensure it inherits root vars === */
+#lbq { --bg: var(--bg); --ink: var(--ink); --accent: var(--accent); --muted: var(--muted); --panel: var(--panel); --line: var(--line); }
+
+/* === REDUCED MOTION CANVAS FALLBACK === */
+@media (prefers-reduced-motion: reduce) {
+  .pin canvas { /* JS will draw one settled frame */ }
+}
+</style>
+</head>
+<body>
+<div class="stage" id="stage" aria-hidden="true">
+  <div class="pin">
+    <canvas id="c"></canvas>
+    <div class="cap" id="heroCopy">Walls floated.<br>Plaster burnished.<br><i>Light catches the finish.</i></div>
+    <div class="hud"><b id="stgNum">01</b><span id="stgName">Base coat</span></div>
+    <div class="rail" aria-hidden="true"><div class="rail-fill" id="railFill"></div></div>
+  </div>
+</div>
+<header class="site-header" role="banner">
+  <div class="container">
+    <a href="#top" aria-label="ZB Rendering home" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)">
+      <img src="logo.jpg" alt="" width="44" height="34" style="width:44px;height:34px;object-fit:contain;border-radius:4px">
+      <span style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:clamp(1.1rem,2.2vw,1.4rem);letter-spacing:.02em">ZB Rendering</span>
+    </a>
+    <nav aria-label="Primary navigation" style="display:flex;gap:8px;flex-wrap:wrap">
+      <a href="#services" style="padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink);background:var(--panel);transition:background .15s,border-color .15s">Services</a>
+      <a href="#quote" style="padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink);background:var(--panel);transition:background .15s,border-color .15s">Quote</a>
+      <a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener" aria-label="ZB Rendering on Instagram" style="padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink);background:var(--panel);transition:background .15s,border-color .15s">Instagram</a>
+      <a href="mailto:Zb_rendering@outlook.com" style="padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink);background:var(--panel);transition:background .15s,border-color .15s">Email</a>
+    </nav>
+  </div>
+</header>
+<main id="top"><section id="services" class="rv" aria-labelledby="services-heading">
+    <div class="container">
+      <header style="margin-bottom:36px">
+        <p style="font-size:.75rem;letter-spacing:.18em;color:var(--accent);margin:0 0 8px;font-weight:600">What we do</p>
+        <h2 id="services-heading" style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:0;letter-spacing:-.02em">Rendering & specialist finishes for Adelaide homes</h2>
+      </header>
+      <div class="services-grid">
+        <article class="rv" style="background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .2s,border-color .2s">
+          <h3 style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:1.15rem;margin:0 0 8px">Render & texture coating</h3>
+          <p style="margin:0;color:var(--muted);font-size:.95rem">Traditional and acrylic render systems. Float, sponge, bagged and trowel textures matched to existing or specified finish.</p>
+        </article>
+        <article class="rv" style="background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .2s,border-color .2s">
+          <h3 style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:1.15rem;margin:0 0 8px">Venetian plaster</h3>
+          <p style="margin:0;color:var(--muted);font-size:.95rem">Multi-layer polished plaster with overlapping trowel arcs. Burnished to a deep, marble-like sheen that catches raking light.</p>
+        </article>
+        <article class="rv" style="background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .2s,border-color .2s">
+          <h3 style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:1.15rem;margin:0 0 8px">Microcement</h3>
+          <p style="margin:0;color:var(--muted);font-size:.95rem">Seamless, thin-film cementitious coating for walls, floors and wet areas. Water-resistant, joint-free, contemporary minimal aesthetic.</p>
+        </article>
+        <article class="rv" style="background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .2s,border-color .2s">
+          <h3 style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:1.15rem;margin:0 0 8px">White set finishing</h3>
+          <p style="margin:0;color:var(--muted);font-size:.95rem">Smooth gypsum-based set coat over brick, block or blueboard. Level 4-5 finish ready for paint - no texture, pure flat.</p>
+        </article>
+        <article class="rv" style="background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .2s,border-color .2s">
+          <h3 style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:1.15rem;margin:0 0 8px">Feature walls</h3>
+          <p style="margin:0;color:var(--muted);font-size:.95rem">Polished or textured render. Norwood, Adelaide Hills, inner metro - interior and exterior.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="rv" aria-labelledby="about-heading">
+    <div class="container about-grid">
+      <div class="about-text">
+        <p style="font-size:.75rem;letter-spacing:.18em;color:var(--accent);margin:0 0 8px;font-weight:600">ZB Rendering</p>
+        <h2 id="about-heading" style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:clamp(1.6rem,3.5vw,2.4rem);line-height:1.15;margin:0 0 16px;letter-spacing:-.02em">Adelaide based. Trade qualified. Finish focused.</h2>
+        <p style="color:var(--muted);margin:0 0 16px;max-width:56ch">We run render, Venetian plaster, microcement and white set across metropolitan Adelaide. From new-build texture coating to high-end feature walls in Norwood and the Hills - every wall is floated, trowelled and finished to catch the light right.</p>
+        <p style="color:var(--muted);margin:0 0 24px;max-width:56ch">No subcontractors on finish coats. The same hands that float the base are the ones that burnish the final polish.</p>
+        <ul style="margin:0;padding:0 0 0 20px;color:var(--muted);display:grid;grid-template-columns:1fr 1fr;gap:8px 24px">
+          <li>Render & texture coating</li>
+          <li>Venetian plaster</li>
+          <li>Microcement</li>
+          <li>White set finishing</li>
+          <li>Feature walls</li>
+        </ul>
+      </div>
+      <div class="about-image" style="text-align:center">
+        <img src="logo.jpg" alt="ZB Rendering — Bringing homes to life" style="max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line);box-shadow:0 8px 32px rgba(0,0,0,.35)">
+      </div>
+    </div>
+  </section>
+  <section id="evidence" class="rv" aria-labelledby="evidence-heading">
+    <div class="container">
+      <header style="margin-bottom:36px;text-align:center">
+        <p style="font-size:.75rem;letter-spacing:.18em;color:var(--accent);margin:0 0 8px;font-weight:600">Evidence</p>
+        <h2 id="evidence-heading" style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:clamp(1.6rem,3.5vw,2.4rem);line-height:1.15;margin:0;letter-spacing:-.02em">Work shown on Instagram @zb_rendering</h2>
+      </header>
+      <div class="evidence-grid">
+        <article class="rv" style="background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+          <p class="tag" style="font-size:.8rem;color:var(--accent);margin:0 0 8px;font-weight:600">@zb_rendering · 587 followers</p>
+          <p style="margin:0 0 12px;color:var(--muted)">"Adelaide based - Render & texture coating, Venetian plaster, Microcement"</p>
+          <p style="margin:0;color:var(--ink);font-size:.95rem">"Feature wall completed in Norwood"</p>
+        </article>
+        <article class="rv" style="background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+          <p class="tag" style="font-size:.8rem;color:var(--accent);margin:0 0 8px;font-weight:600">Contact verified</p>
+          <p style="margin:0;color:var(--muted);font-size:.95rem">Email from profile data: <a href="mailto:Zb_rendering@outlook.com">Zb_rendering@outlook.com</a></p>
+        </article>
+      </div>
+      <p style="text-align:center;margin:32px 0 0;color:var(--muted);font-size:.9rem">No phone published - quote form or email only.</p>
+    </div>
+  </section>
+  <section id="quote" class="rv" aria-labelledby="quote-heading">
+    <div class="container" style="max-width:720px;text-align:center">
+      <p style="font-size:.75rem;letter-spacing:.18em;color:var(--accent);margin:0 0 8px;font-weight:600">Get a quote</p>
+      <h2 id="quote-heading" style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em">Tell us about the job</h2>
+      <p class="lead" style="color:var(--muted);margin:0 0 32px;max-width:56ch">Size, location, time frame - we'll reply with a free, no-obligation quote. Prefer to talk? Email <a href="mailto:Zb_rendering@outlook.com">Zb_rendering@outlook.com</a> or DM <a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener">@zb_rendering</a>.</p>
+      <!-- #lbq quote form will be injected here by inject_quote_form.py -->
+    </div>
+  </section>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#top" aria-label="ZB Rendering home" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-bottom:16px">
+        <img src="logo.jpg" alt="" width="36" height="28" style="width:36px;height:28px;object-fit:contain;border-radius:4px">
+        <span style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:1.1rem">ZB Rendering</span>
+      </a>
+      <p style="margin:4px 0;color:var(--muted);font-size:.9rem">Adelaide SA - Render & texture coating, Venetian plaster, microcement, white set, feature walls.</p>
+    </div>
+    <div class="footer-contact">
+      <p class="label" style="font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 8px;font-weight:600">Contact</p>
+      <p style="margin:4px 0;color:var(--muted);font-size:.9rem"><a href="mailto:Zb_rendering@outlook.com" style="color:var(--muted)">Zb_rendering@outlook.com</a></p>
+      <p style="margin:4px 0;color:var(--muted);font-size:.9rem"><a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener" style="color:var(--muted)">instagram.com/zb_rendering</a></p>
+      <p style="margin:16px 0 0;color:var(--muted);font-size:.9rem">No phone published</p>
+    </div>
+    <div class="footer-services">
+      <p class="label" style="font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 8px;font-weight:600">Services</p>
+      <ul style="margin:0;padding:0;list-style:none;color:var(--muted);font-size:.9rem;line-height:2">
+        <li>Render & texture coating</li>
+        <li>Venetian plaster</li>
+        <li>Microcement</li>
+        <li>White set finishing</li>
+        <li>Feature walls</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright" style="border-top:1px solid var(--line);margin-top:32px;padding-top:24px;text-align:center;color:var(--muted);font-size:.8rem">
+    <p style="margin:0">© <span id="yr"></span> ZB Rendering. All rights reserved.</p>
+  </div>
+<section id="lbq" class="v2" aria-labelledby="lbq-h">
+  <style>
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto}
+#lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
+#lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
+#lbq textarea{min-height:96px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* v1 card */
+#lbq.v1 .lbq-card{background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
+#lbq.v1 .lbq-g{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+#lbq.v1 .lbq-full{grid-column:1/-1}
+@media(max-width:640px){#lbq.v1 .lbq-g{grid-template-columns:1fr}}
+/* v2 band */
+#lbq.v2{background:var(--lbq-panel);border-top:1px solid var(--lbq-line);border-bottom:1px solid var(--lbq-line)}
+#lbq.v2 .lbq-g{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
+#lbq.v2 .lbq-full{grid-column:1/-1}
+#lbq.v2 .lbq-hd{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
+@media(max-width:760px){#lbq.v2 .lbq-g{grid-template-columns:1fr}#lbq.v2 .lbq-hd{display:block}}
+/* v3 split */
+#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+#lbq.v3 .lbq-g{display:grid;gap:12px}
+#lbq.v3 .lbq-hp2{border-top:3px solid var(--lbq-accent);padding-top:16px}
+@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
+/* v4 minimal */
+#lbq.v4 .lbq-w{max-width:620px}
+#lbq.v4 input,#lbq.v4 textarea{border:0;border-bottom:1px solid var(--lbq-line);border-radius:0;background:transparent;padding:11px 2px}
+#lbq.v4 .lbq-g{display:grid;gap:16px}
+</style>
+  <div class="lbq-w">
+      <div class="lbq-hd"><div><h2 id="lbq-h">Request a quote</h2>
+      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p></div></div><form id="lbq-form" novalidate data-site="zb-rendering" data-biz="ZB Rendering"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form>
+  </div>
+  <script>
+(function(){
+  var EP = null;
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;  // honeypot — silently accept bots
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        var url = (B === 'https://grocery-periodically-everyone-wine.trycloudflare.com' ? 'https://grocery-periodically-everyone-wine.trycloudflare.com' : B) + '/functions/v1/quote-request';
+        fetch(url, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--lbq-accent)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+<script>
+(function() {
+  // Reveal-on-scroll with IntersectionObserver + safety timeout
+  document.documentElement.classList.add('js');
+  var rv = document.querySelectorAll('.rv');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+  rv.forEach(function(el) { io.observe(el); });
+  // Safety net: reveal all after ~1100ms in case IO fails
+  setTimeout(function() { rv.forEach(function(el) { el.classList.add('on'); }); }, 1100);
+
+  // Year in footer
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</section>
+</footer>
+</body>
+</html>
