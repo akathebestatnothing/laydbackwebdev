@@ -136,7 +136,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hud-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); opacity: 0.85; }
 .hud-rail { flex: 1; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; max-width: 300px; }
 .hud-rail-fill { height: 100%; width: 0%; background: var(--accent); border-radius: 2px; transition: width 0.3s ease; }
-.hero-copy { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; z-index: 5; max-width: 700px; padding: 0 1.5rem; }
+.hero-copy { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; z-index: 5; max-width: min(700px, 92vw); padding: 0 1.5rem; }
 .hero-copy h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.05; margin-bottom: 1rem; color: var(--ink); text-shadow: 0 4px 24px var(--shadow-strong); }
 .hero-copy p { font-size: clamp(1rem, 2.2vw, 1.25rem); color: var(--ink-muted); max-width: 520px; margin: 0 auto; text-shadow: 0 2px 12px var(--shadow); }
 @media (max-width: 639px) {
@@ -214,7 +214,8 @@ img { max-width: 100%; height: auto; display: block; }
 <style id="rv-lock">html .rv.on{opacity:1!important;transform:none!important}</style>
 <style>
 /* scene v2 2026-10-13 */
-.hero-in,.hero-copy,.hero .wrap,.hero__in,.hero .container{position:relative;z-index:2}
+.hero-in,.hero .wrap,.hero__in,.hero .container{position:relative;z-index:2}
+.hero-copy{z-index:2}
 #buildCanvas{display:none!important}
 </style>
 </head><body>
