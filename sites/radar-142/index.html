@@ -386,13 +386,8 @@ h2::after {
 #splash .sp-in{display:flex;flex-direction:column;align-items:center;gap:26px;padding:0 24px;text-align:center}
 #splash .sp-logo{width:min(340px,64vw);height:auto;image-rendering:auto;filter:drop-shadow(0 10px 42px rgba(239,31,43,.28))}
 #splash .sp-tag{margin:0;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2)}
-#splash .sp-scroll{display:inline-flex;text-decoration:none;flex-direction:column;align-items:center;gap:8px;background:none;border:0;color:var(--ink2);
-  font:inherit;font-size:11px;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;padding:6px 10px}
-#splash .sp-scroll i{display:block;width:1.5px;height:44px;background:linear-gradient(180deg,var(--acc),rgba(239,31,43,0));
-  animation:spLine 1.8s ease-in-out infinite}
-#splash .sp-scroll:hover{color:var(--ink)}
-@keyframes spLine{0%{transform:scaleY(.25);transform-origin:top;opacity:.4}55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.25);transform-origin:bottom;opacity:.4}}
-@media (prefers-reduced-motion: reduce){#splash .sp-scroll i{animation:none}}
+55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.25);transform-origin:bottom;opacity:.4}}
+@media (prefers-reduced-motion: reduce){}
 
 #splash{transition:opacity .72s ease}
 #splash.sp-out{opacity:0;pointer-events:none}
