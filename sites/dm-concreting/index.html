@@ -1550,7 +1550,7 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 </script>
 
 <script>
-/* signature pack v1.1 — Webflow-reference patterns, our own implementation */
+/* signature pack v1.2 — Webflow-reference patterns, our own implementation */
 /* ============================================================
    LAYDBACK SIGNATURE PACK v1 (2026-10-13)
    Vanilla re-implementations of patterns studied in the Webflow
@@ -1686,9 +1686,15 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
     if (!host) return;
     var imgs = [];
     document.querySelectorAll('img').forEach(function (im) {
-      var s = im.getAttribute('src') || '';
-      if (/gal_|work|photo|project|job/i.test(s) && s.indexOf('logo') < 0 && imgs.length < 8) imgs.push(s);
+      var s = im.getAttribute('src') || im.getAttribute('data-src') || '';
+      if (s && /gal_|work|photo|project|job|card|slide/i.test(s) && s.indexOf('logo') < 0 && imgs.length < 8) imgs.push(s);
     });
+    if (imgs.length < 3) {
+      document.querySelectorAll('img[data-src]').forEach(function (im) {
+        var s = im.getAttribute('data-src') || '';
+        if (s && s.indexOf('logo') < 0 && imgs.length < 8) imgs.push(s);
+      });
+    }
     if (imgs.length < 3) return;
     var strip = document.createElement('div');
     strip.className = 'sigMarquee';
@@ -1721,9 +1727,10 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
       }
     }
     if (!wrap) return;
-    var figs = [].filter.call(wrap.querySelectorAll('img'), function (im) { return !/logo/i.test(im.getAttribute('src') || '') && (im.getAttribute('src') || ''); });
+    var srcOf = function (im) { return im.getAttribute('src') || im.getAttribute('data-src') || ''; };
+    var figs = [].filter.call(wrap.querySelectorAll('img'), function (im) { var s = srcOf(im); return s && !/logo/i.test(s); });
     if (figs.length < 2) return;
-    var a = figs[0].getAttribute('src'), b = figs[1].getAttribute('src');
+    var a = srcOf(figs[0]), b = srcOf(figs[1]);
     var el = document.createElement('div');
     el.className = 'sigBA';
     el.innerHTML = '<img class="sigBA-a" src="' + a + '" alt="' + (figs[0].alt || 'Before') + '" loading="lazy">' +
