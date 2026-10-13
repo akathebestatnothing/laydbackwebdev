@@ -302,6 +302,7 @@ h2::after {
 </section>
 
 <section class="band carbon" id="process">
+<canvas class="band-bubbles" aria-hidden="true"></canvas>
 <span class="red-slash" aria-hidden="true" style="top:36px;left:-7%;width:38%;transform:rotate(-4.5deg)"></span><span class="red-slash" aria-hidden="true" style="top:47px;left:-3%;width:22%;transform:rotate(-4.5deg);opacity:.5"></span>
 <div class="wrap">
   <div class="sec-head"><span class="sec-idx">02</span><div><h2 class="sec-title">Booked in, detailed, protected.</h2></div></div>
@@ -314,6 +315,7 @@ h2::after {
 </div></section>
 
 <section class="stat-band band carbon" id="stats">
+<canvas class="band-bubbles" aria-hidden="true"></canvas>
 <span class="red-slash" aria-hidden="true" style="bottom:26px;right:-6%;width:34%;transform:rotate(-4.5deg)"></span>
 <div class="wrap"><div class="stat rv d1"><b>5.0</b><span>Google rated</span></div><div class="stat rv d2"><b>Graphene</b><span>Paint protection</span></div><div class="stat rv d3"><b>In &amp; out</b><span>Full details</span></div><div class="stat rv d4"><b>West Gosford</b><span>Central Coast</span></div></div></section>
 
@@ -396,6 +398,10 @@ h2::after {
 
 /* 2026-10-13: carbon bands now share the top-of-site treatment (hex outlines + red slashes) */
 #process,#stats,footer.carbon{position:relative;overflow:hidden}
+
+/* band bubble field (matches the top-of-site treatment, 2026-10-13) */
+.band-bubbles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#process .wrap,#stats .wrap,footer .wrap{position:relative;z-index:1}
 </style>
 <div class="lbq-w">
   <div>
@@ -498,6 +504,7 @@ h2::after {
 </section>
 <div class="livery" aria-hidden="true"></div>
 <footer class="carbon">
+<canvas class="band-bubbles" aria-hidden="true"></canvas>
 <span class="red-slash" aria-hidden="true" style="top:30px;right:-8%;width:30%;transform:rotate(-4.5deg)"></span>
 <div class="wrap">
   <div>
@@ -881,6 +888,53 @@ if (hg) {
   window.addEventListener('wheel', function(){ clearTimeout(t); go(); }, { passive: true, once: true });
   window.addEventListener('touchstart', function(){ clearTimeout(t); go(); }, { passive: true, once: true });
   window.addEventListener('keydown', function(){ clearTimeout(t); go(); }, { once: true });
+})();
+</script>
+<script>
+/* band bubbles — same treatment as the top of the site (2026-10-13) */
+(function(){
+  var canv = document.querySelectorAll('.band-bubbles');
+  if (!canv.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  canv.forEach(function(c){
+    var ctx = c.getContext('2d');
+    if (!ctx) return;
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2), lastPaint = 0;
+    function resize(){
+      W = c.clientWidth || 1; H = c.clientHeight || 1;
+      c.width = Math.round(W * DPR); c.height = Math.round(H * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    function frame(t){
+      var time = t * 0.001;
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < 34; i++){
+        var bx = (i * 173 + time * 14 * (0.6 + (i % 5) * 0.3)) % W;
+        var by = (i * 97 + time * 26) % H;
+        var r = 8 + (i % 7) * 10 + (Math.sin(time * 0.8 + i) * 3);
+        var al = 0.05 + ((i * 13) % 28) * 0.008;
+        ctx.beginPath(); ctx.arc(bx, by, r, 0, 6.2832);
+        ctx.strokeStyle = 'rgba(255,255,255,' + al + ')'; ctx.lineWidth = 1.2; ctx.stroke();
+      }
+      for (var k = 0; k < 18; k++){
+        var sx = (k * 157 + time * 10) % W;
+        var sy = H * 0.1 + ((k * 79 + time * 18) % (H * 0.8));
+        var tw = 0.5 + 0.5 * Math.sin(time * 1.7 + k * 2.1);
+        ctx.fillStyle = 'rgba(239,31,43,' + (0.05 + tw * 0.10) + ')';
+        ctx.beginPath(); ctx.arc(sx, sy, 1.6 + tw * 1.4, 0, 6.2832); ctx.fill();
+      }
+      var rg = ctx.createRadialGradient(W * 0.2, H * 0.7, 10, W * 0.2, H * 0.7, W * 0.55);
+      rg.addColorStop(0, 'rgba(239,31,43,0.12)'); rg.addColorStop(1, 'rgba(239,31,43,0)');
+      ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
+      lastPaint = Date.now();
+    }
+    function loop(t){ frame(t || 0); if (!reduce) requestAnimationFrame(loop); }
+    resize();
+    window.addEventListener('resize', resize);
+    frame(0);
+    if (!reduce) requestAnimationFrame(loop);
+    setInterval(function(){ if (Date.now() - lastPaint > 500) frame(performance.now()); }, 420);
+  });
 })();
 </script></body>
 </html>
