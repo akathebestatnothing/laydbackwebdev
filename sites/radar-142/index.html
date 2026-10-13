@@ -226,7 +226,46 @@ h2::after {
 .pb-strip { position: absolute; overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .pb-strip::before { animation: none; opacity: .2; } }
 </style>
-</head>
+
+<style>
+/* ==== ALLARDS SLIDESHOW (reference-style carousel) 2026-10-13 ==== */
+.sld{margin-top:8px}
+.sld-stage{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--chip);border:1px solid var(--line)}
+.sld-item{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
+.sld-item img{width:100%;height:100%;object-fit:cover;transform:scale(1.001);transition:transform 7.5s ease-out}
+.sld-item.active{opacity:1;z-index:2}
+.sld-item.active img{transform:scale(1.05)}
+.sld-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 20px 16px;font-size:.95rem;color:var(--ink);
+  background:linear-gradient(180deg,rgba(10,10,10,0),rgba(10,10,10,.82) 55%,rgba(10,10,10,.92));}
+.sld-item figcaption span{display:inline-block;background:rgba(10,10,10,.42);border-left:2px solid var(--acc);padding:5px 10px;backdrop-filter:blur(3px);text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.sld-cap{position:absolute;top:14px;right:16px;z-index:4;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  font-size:.8rem;letter-spacing:.14em;color:var(--ink);background:rgba(10,10,10,.55);border:1px solid var(--line);
+  padding:6px 10px;backdrop-filter:blur(4px)}
+.sld-cap b{color:var(--acc);font-weight:700}
+.sld-cap i{opacity:.45;margin:0 2px;font-style:normal}
+.sld-sheen{position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 58%);
+  background-size:280% 100%;background-position:120% 0;animation:sldSheen 6.5s ease-in-out infinite}
+@keyframes sldSheen{0%,55%{background-position:120% 0}85%,100%{background-position:-40% 0}}
+.sld-ui{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px}
+.sld-dots{display:flex;gap:8px;align-items:center}
+.sld-dot{width:13px;height:13px;padding:0;border:2px solid var(--ink2);background:transparent;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .2s}
+.sld-dot.on{background:var(--acc);border-color:var(--acc);box-shadow:0 0 0 3px rgba(229,57,53,.22)}
+.sld-arrows{display:flex;gap:12px}
+.sld .hgal-btn{width:54px;height:54px;border:1.5px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font-size:20px;cursor:pointer;border-radius:6px;transition:background .15s,color .15s,border-color .15s;display:grid;place-items:center}
+.sld .hgal-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.sld .hgal-btn:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+@media (max-width:720px){.sld-stage{aspect-ratio:4/3}.sld-item figcaption{font-size:.88rem;padding:34px 14px 12px}}
+@media (prefers-reduced-motion:reduce){
+  .sld-item,.sld-item img{transition:none}
+  .sld-sheen{animation:none;opacity:0}
+}
+/* chrome sheen on the hero headline (keeps the "shiny" metal alive) */
+.hero h1{background-size:100% 170%;background-position:50% 0%;animation:chromeSheen 8s ease-in-out infinite}
+@keyframes chromeSheen{0%,100%{background-position:50% 0%;filter:brightness(1)}50%{background-position:50% 100%;filter:brightness(1.07)}}
+@media (prefers-reduced-motion:reduce){.hero h1{animation:none;background-position:50% 0%}}
+</style>
+<noscript><style>.sld-item{position:static;opacity:1;margin-top:14px}.sld-item img{transform:none}.sld-ui{display:none}.sld-sheen{display:none}</style></noscript></head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
@@ -325,9 +364,7 @@ h2::after {
 <section id="work"><div class="wrap">
   <div class="sec-head"><div class="sec-idx">05</div><div><h2 class="rv d1">In the bay.</h2><p class="lead rv d2">Cars, boats and motorhomes &mdash; every photo taken in our West Gosford workshop.</p></div></div>
 </div>
-<div class="hgal rv"><div class="track"><figure class="hg-item rv"><img src="assets/gal_1.jpg" alt="Mustang &mdash; corrected &amp; glossed &mdash; Allards Auto Detailing" loading="lazy"><figcaption><span>Mustang &mdash; corrected &amp; glossed</span><span class="mono">/01</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_2.jpg" alt="RAM 1500 &mdash; swirl-free paint &mdash; Allards Auto Detailing" loading="lazy"><figcaption><span>RAM 1500 &mdash; swirl-free paint</span><span class="mono">/02</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_3.jpg" alt="Ute &amp; caravan combo &mdash; full detail &mdash; Allards Auto Detailing" loading="lazy"><figcaption><span>Ute &amp; caravan &mdash; combo detail</span><span class="mono">/03</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_7.jpg" alt="Off-road caravan &mdash; full detail &mdash; Allards Auto Detailing" loading="lazy"><figcaption><span>Off-road caravan &mdash; full detail</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_4.jpg" alt="Ski boat &mdash; gelcoat cut &amp; polish &mdash; Allards Auto Detailing" loading="lazy"><figcaption><span>Ski boat &mdash; gelcoat cut &amp; polish</span><span class="mono">/05</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_5.jpg" alt="People-mover &mdash; multi-stage correction &mdash; Allards Auto Detailing" loading="lazy"><figcaption><span>People-mover &mdash; multi-stage correction</span><span class="mono">/06</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_6.jpg" alt="Ski boat &mdash; hull wash &amp; protect &mdash; Allards Auto Detailing" loading="lazy"><figcaption><span>Ski boat &mdash; hull wash &amp; protect</span><span class="mono">/07</span></figcaption></figure></div></div>
-<div class="hgal-nav"><button class="hgal-btn" id="hgPrev" aria-label="Previous photos">&#8592;</button><button class="hgal-btn" id="hgNext" aria-label="Next photos">&#8594;</button></div>
-</section>
+<div class="sld rv" id="showcase" role="region" aria-roledescription="carousel" aria-label="Workshop showcase"><div class="sld-stage"><figure class="sld-item active" data-i="1"><img src="assets/gal_1.jpg" alt="Mustang — corrected & glossed — Allards Auto Detailing" loading="lazy"><figcaption><span>Mustang &mdash; corrected &amp; glossed</span></figcaption></figure><figure class="sld-item" data-i="2"><img src="assets/gal_2.jpg" alt="RAM 1500 — swirl-free paint — Allards Auto Detailing" loading="lazy"><figcaption><span>RAM 1500 &mdash; swirl-free paint</span></figcaption></figure><figure class="sld-item" data-i="3"><img src="assets/gal_3.jpg" alt="Ute and caravan combo — full detail — Allards Auto Detailing" loading="lazy"><figcaption><span>Ute &amp; caravan &mdash; combo detail</span></figcaption></figure><figure class="sld-item" data-i="4"><img src="assets/gal_7.jpg" alt="Off-road caravan — full detail — Allards Auto Detailing" loading="lazy"><figcaption><span>Off-road caravan &mdash; full detail</span></figcaption></figure><figure class="sld-item" data-i="5"><img src="assets/gal_4.jpg" alt="Ski boat — gelcoat cut and polish — Allards Auto Detailing" loading="lazy"><figcaption><span>Ski boat &mdash; gelcoat cut &amp; polish</span></figcaption></figure><figure class="sld-item" data-i="6"><img src="assets/gal_5.jpg" alt="People-mover — multi-stage correction — Allards Auto Detailing" loading="lazy"><figcaption><span>People-mover &mdash; multi-stage correction</span></figcaption></figure><figure class="sld-item" data-i="7"><img src="assets/gal_6.jpg" alt="Ski boat — hull wash and protect — Allards Auto Detailing" loading="lazy"><figcaption><span>Ski boat &mdash; hull wash &amp; protect</span></figcaption></figure><div class="sld-sheen" aria-hidden="true"></div><div class="sld-cap" aria-live="polite"><b id="sldNow">01</b><i>/</i><span id="sldTot">07</span></div></div><div class="sld-ui"><div class="sld-dots" role="group" aria-label="Choose photo"><button class="sld-dot on" data-i="1" aria-label="Photo 1"></button><button class="sld-dot" data-i="2" aria-label="Photo 2"></button><button class="sld-dot" data-i="3" aria-label="Photo 3"></button><button class="sld-dot" data-i="4" aria-label="Photo 4"></button><button class="sld-dot" data-i="5" aria-label="Photo 5"></button><button class="sld-dot" data-i="6" aria-label="Photo 6"></button><button class="sld-dot" data-i="7" aria-label="Photo 7"></button></div><div class="sld-arrows"><button class="hgal-btn sld-prev" id="sldPrev" aria-label="Previous photo">&#8592;</button><button class="hgal-btn sld-next" id="sldNext" aria-label="Next photo">&#8594;</button></div></div></div> </section>
 
 <span id="quote" style="position:absolute;top:-90px"></span>
 <section class="photo-band" aria-label="Graphene-coated finish showcase">
@@ -423,7 +460,7 @@ html.js .hero-slides img.on{opacity:1}
       <div><b>Area</b><span>West Gosford &amp; the Central Coast</span></div>
     </div>
   </div>
-  <form id="lbq-form" novalidate data-site="allards-auto-detailing" data-biz="Allards Auto Detailing">
+  <form id="lbq-form" novalidate data-site="radar-142" data-biz="Allards Auto Detailing">
     <div class="lbq-f">
       <div class="lbq-g">
         <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
@@ -960,5 +997,50 @@ if (hg) {
     slides[i].classList.add('on');
   }, 5000);
 })();
-</script></body>
+</script>
+<script>
+/* ALLARDS SLIDESHOW — autoplay crossfade + Ken Burns, arrows/dots/swipe/keys, pause on hover */
+(function(){
+  var sld = document.getElementById('showcase');
+  if (!sld) return;
+  var items = Array.prototype.slice.call(sld.querySelectorAll('.sld-item'));
+  var dots = Array.prototype.slice.call(sld.querySelectorAll('.sld-dot'));
+  var now = document.getElementById('sldNow');
+  var i = 0, timer = null;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function show(n){
+    i = (n + items.length) % items.length;
+    items.forEach(function(el, k){ el.classList.toggle('active', k === i); });
+    dots.forEach(function(el, k){ el.classList.toggle('on', k === i); });
+    if (now) now.textContent = pad(i + 1);
+  }
+  function next(){ show(i + 1); }
+  function start(){ if (reduce) return; stop(); timer = setInterval(next, 5200); }
+  function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+  var p = document.getElementById('sldPrev'), q = document.getElementById('sldNext');
+  if (p) p.addEventListener('click', function(){ show(i - 1); start(); });
+  if (q) q.addEventListener('click', function(){ show(i + 1); start(); });
+  dots.forEach(function(d){ d.addEventListener('click', function(){ show(+d.dataset.i - 1); start(); }); });
+  sld.addEventListener('mouseenter', stop);
+  sld.addEventListener('mouseleave', start);
+  sld.addEventListener('focusin', stop);
+  sld.addEventListener('focusout', start);
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+  sld.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft'){ show(i - 1); start(); }
+    if (e.key === 'ArrowRight'){ show(i + 1); start(); }
+  });
+  var x0 = null;
+  sld.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive: true});
+  sld.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 42){ show(dx < 0 ? i + 1 : i - 1); start(); }
+    x0 = null;
+  }, {passive: true});
+  start();
+})();
+</script>
+</body>
 </html>
