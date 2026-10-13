@@ -411,7 +411,7 @@ if (hg) {
 </script>
 
 <script>
-/* signature pack v1.3 — Webflow-reference patterns, our own implementation */
+/* signature pack v1.4 — Webflow-reference patterns, our own implementation */
 /* ============================================================
    LAYDBACK SIGNATURE PACK v1 (2026-10-13)
    Vanilla re-implementations of patterns studied in the Webflow
@@ -438,27 +438,38 @@ if (hg) {
   /* ---------- SIG-1 · splash / loader variants ---------- */
   function splash() {
     var v = cfg.splash; if (!v) return;
+    function firstSeg(t) {
+      t = (t || '').replace(/\s+/g, ' ').trim();
+      var parts = t.split(/\s*[|\u2014\u2013\u00b7\u2022]\s*/);
+      var seg = parts.find(function (x) { return x.length >= 3; }) || t;
+      return seg.slice(0, 34).trim();
+    }
     function nameOf() {
-      var el = document.querySelector('.brand-name, .comp-name, .brand .b-txt, [class*="brand"]');
-      var t = el ? (el.textContent || '').trim().split('\n')[0].trim() : '';
-      if (t && t.length >= 2) return t.slice(0, 30);
+      var exact = document.querySelector('.brand-name, .comp-name');
+      if (exact) {
+        var t0 = firstSeg(exact.textContent);
+        if (t0.length >= 3) return t0;
+      }
       var og = document.querySelector('meta[property="og:title"]');
-      if (og && og.content) return og.content.split(/[|\u2014\u2013-]/)[0].trim().slice(0, 30);
-      return (document.title || '').split(/[|\u2014\u2013-]/)[0].trim().slice(0, 30);
+      if (og && og.content) { var t1 = firstSeg(og.content); if (t1.length >= 3) return t1; }
+      return firstSeg(document.title);
     }
     var name = nameOf() || 'Welcome';
+    var logoEl = document.querySelector('.brand-mark, .brand img, .fbrand img, header img');
+    var logo = logoEl ? (logoEl.getAttribute('src') || '') : '';
     var sp = document.createElement('div');
     sp.id = 'sigSplash';
     sp.setAttribute('aria-hidden', 'true');
+    var logoHtml = logo ? '<img class="sp-logo" src="' + logo + '" alt="">' : '';
     var inner = '';
     if (v === 'fade') {
-      inner = '<div class="sp-c"><span class="sp-w">' + name + '</span></div>';
+      inner = '<div class="sp-c">' + logoHtml + '<span class="sp-w">' + name + '</span></div>';
     } else if (v === 'ring') {
-      inner = '<div class="sp-c"><svg class="sp-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"/></svg><span class="sp-w">' + name + '</span></div>';
+      inner = '<div class="sp-c"><svg class="sp-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"/></svg>' + logoHtml + '<span class="sp-w">' + name + '</span></div>';
     } else if (v === 'curtain') {
       inner = '<div class="sp-panel sp-l"></div><div class="sp-panel sp-r"></div><div class="sp-c"><span class="sp-w">' + name + '</span></div>';
     } else if (v === 'bar') {
-      inner = '<div class="sp-c"><span class="sp-w">' + name + '</span><div class="sp-bar"><i></i></div></div>';
+      inner = '<div class="sp-c">' + logoHtml + '<span class="sp-w">' + name + '</span><div class="sp-bar"><i></i></div></div>';
     } else if (v === 'letterbox') {
       inner = '<div class="sp-panel sp-t"></div><div class="sp-panel sp-b"></div><div class="sp-c"><span class="sp-w">' + name + '</span></div>';
     } else if (v === 'type') {
@@ -472,7 +483,8 @@ if (hg) {
     var css = document.createElement('style');
     css.textContent = '#sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
       '#sigSplash .sp-c{position:relative;z-index:2;text-align:center}' +
-      '#sigSplash .sp-w{font-family:var(--disp,var(--font-display,inherit));font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:clamp(20px,4vw,34px);opacity:0;transition:opacity .5s ease}' +
+      '#sigSplash .sp-logo{display:block;margin:0 auto 16px;max-height:72px;max-width:180px;width:auto;object-fit:contain}' +
+      '#sigSplash .sp-w{display:block;font-family:var(--disp,var(--font-display,inherit));font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:clamp(22px,5vw,38px);opacity:0;transition:opacity .5s ease}' +
       '#sigSplash.on .sp-w{opacity:1}' +
       '#sigSplash .sp-ring{position:absolute;left:50%;top:50%;width:150px;height:150px;transform:translate(-50%,-54%);fill:none;stroke:var(--acc,var(--accent,#c4fb24));stroke-width:2;stroke-dasharray:340;stroke-dashoffset:340;transition:stroke-dashoffset 1.1s ease}' +
       '#sigSplash.on .sp-ring{stroke-dashoffset:0}' +
