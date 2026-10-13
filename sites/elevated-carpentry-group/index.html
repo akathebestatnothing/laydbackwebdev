@@ -11,10 +11,10 @@
   --bg:#0f1115;
   --ink:#e9eef4;
   --muted:#9aa6b2;
-  --accent:#c4fb24;
+  --accent:#e0b050;
   --panel:rgba(255,255,255,.045);
   --line:rgba(255,255,255,.14);
-  --logo-silver:#b8c0cc;
+  --logo-silver:#e8c877;
   --logo-dark:#1a1f26;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -54,8 +54,8 @@ p{margin:0 0 1.2em}
 
 <main>
   <section class="hero" id="hero" aria-labelledby="hero-title" style="position:relative;min-height:100vh">
-    <div class="stage" id="stage" style="position:relative;height:420vh">
-      <div class="pin" style="position:sticky;top:0;height:100vh;overflow:hidden">
+    <div class="stage" id="sceneWrap" style="position:relative;height:480vh">
+      <div class="pin" id="sceneSticky" style="position:sticky;top:0;height:100vh;overflow:hidden">
         <canvas id="buildCanvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
         <div class="cap" id="heroCopy" style="position:absolute;left:30px;top:11vh;max-width:21ch;font:800 clamp(32px,5.2vw,68px)/1.0 'Space Grotesk',system-ui,sans-serif;text-transform:uppercase;color:#f7fafc;z-index:2;text-shadow:0 2px 34px rgba(0,0,0,.6)">
           Custom carpentry.<br>Built to <i style="font-style:normal;color:var(--accent)">measure</i>.
@@ -576,397 +576,358 @@ p{margin:0 0 1.2em}
 </script>
 
 <script>
-(function () {
-  'use strict';
-  var cv = document.getElementById('buildCanvas');
-  if (!cv) return;
-  var wrap = document.getElementById('stage');
-  var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
-      railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');
-  var fixedP = PS.queryP();
-  var NAMES = ['Set out', 'Frame', 'Doors', 'Detail'];
 
-  var S = PS.setup(cv, {
-    sun: 'left', seed: 42, p: fixedP === null ? 0 : fixedP,
-    reduce: PS.reduceMotion() || fixedP !== null,
-    sky: ['#1a1d22', '#2a2f36', '#3d444d'], glow: '#e8dcc8', fogNear: 1.5, fogFar: 18,
-    horizon: 0.35, focal: 1.15, camH: 1.3,
-    progress: fixedP !== null ? null : function () {
-      var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
-      return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
-    },
-    onFrame: frame
+document.documentElement.classList.add('js');
+/* ===== JKB scroll-built frame engine — canvas 2D, zero deps ===== */
+(function(){
+'use strict';
+var wrap=document.getElementById('sceneWrap'),sticky=document.getElementById('sceneSticky'),cv=document.getElementById('buildCanvas');
+if(!wrap||!sticky||!cv)return;
+var ctx=cv.getContext('2d'),W=0,H=0;
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var qp=new URLSearchParams(location.search),forceP=qp.get('p');
+var azO=parseFloat(qp.get('az')||'0')||0;var DBG=qp.get('dbg')==='1';
+var CL=function(v,a,b){return v<a?a:(v>b?b:v);};
+var EZ=function(t){return 1-Math.pow(1-t,3);};
+
+function resize(){
+  var dpr=Math.min(2,window.devicePixelRatio||1);
+  W=sticky.clientWidth||window.innerWidth;H=sticky.clientHeight||window.innerHeight;
+  cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.lineJoin='round';
+}
+
+/* deterministic prng */
+var _s=1301;function rnd(){_s=(_s*1103515245+12345)%2147483648;return _s/2147483648;}
+function rr(a,b){return a+(b-a)*rnd();}
+function hex2rgb(h){return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+
+/* ===== geometry ===== */
+var FW=16,FD=10,TH=0.16,WB=0.30,WT=3.00; /* wall band y .30..3.00 */
+var A=0.4382,SL=5.5;                      /* rafter slope angle + len */
+var C={plate:'#a17937',joist:'#8a682c',stud:['#aa8239','#b08a3c','#966f30'],frame:'#7a5c28',
+       roof:'#26262b',clad:'#1c1c20',door:'#4a3a1c',glass:'#ffd27a'};
+var pieces=[];var LAY=0;
+function add(o){
+  if(o.split){
+    var sp2=o.split,n=sp2[1],axs=sp2[0];delete o.split;
+    for(var si=0;si<n;si++){
+      var c={},k2;for(k2 in o)c[k2]=o[k2];
+      var off=si-(n-1)/2,step2;
+      if(axs==='x'){step2=o.sx/n;c.sx=step2+0.03;c.cx=(o.cx||0)+off*step2;}
+      else if(axs==='z'){step2=o.sz/n;c.sz=step2+0.03;
+        var dir=rotXv([0,0,1],o.rot||0);
+        c.cz=(o.cz||0)+dir[2]*off*step2;c.cy=(o.cy||0)+dir[1]*off*step2;}
+      else{step2=o.sy/n;c.sy=step2+0.02;c.cy=(o.cy||0)+off*step2;}
+      c.t0=(o.t0||0)+si*0.004;
+      add(c);
+    }
+    return;
+  }
+  o.rot=o.rot||0;o.spin=o.spin||0;o.alpha=(o.alpha==null)?1:o.alpha;
+  o.stroke=(o.stroke==null)?true:o.stroke;o.t0=o.t0||0;o.dur=o.dur||0.12;
+  o.fly=o.fly||[0,0,0];o.axis=o.axis||[rr(-1,1),rr(0.35,1),rr(-1,1)];o.lay=(o.lay==null)?LAY:o.lay;
+  o.rgb=hex2rgb(Array.isArray(o.c)?o.c[Math.floor(rnd()*o.c.length)]:o.c);
+  o.cx=o.cx||0;o.cy=o.cy||0;o.cz=o.cz||0;
+  pieces.push(o);
+}
+
+/* floor frame */
+LAY=1;
+(function(){
+  var z;
+  add({cx:0,cy:.12,cz:-(FD/2-.25),sx:FW,sy:.24,sz:.5,c:C.frame,t0:.04,dur:.11,fly:[-3,-8,4],spin:1.2,split:['x',4]});
+  add({cx:0,cy:.12,cz:(FD/2-.25),sx:FW,sy:.24,sz:.5,c:C.frame,t0:.05,dur:.11,fly:[3,-8,-4],spin:1.2,split:['x',4]});
+  add({cx:-(FW/2-.25),cy:.12,cz:0,sx:.5,sy:.24,sz:FD-.6,c:C.frame,t0:.055,dur:.11,fly:[-7,-7,2],spin:1.1,split:['z',3]});
+  add({cx:(FW/2-.25),cy:.12,cz:0,sx:.5,sy:.24,sz:FD-.6,c:C.frame,t0:.06,dur:.11,fly:[7,-7,-2],spin:1.1,split:['z',3]});
+  for(var i=0;i<8;i++){
+    z=-4.4+i*1.26;
+    add({cx:0,cy:.10,cz:z,sx:FW-1.2,sy:.20,sz:.42,c:C.joist,t0:.07+i*.008,dur:.12,fly:[rr(-2,2),-9,rr(-2,2)],spin:rr(1.2,2.4),split:['x',3]});
+  }
+})();
+
+/* wall pieces: helper for walls along X (front/back) */
+function wallX(zw,t0,zones){
+  var xs=[];for(var x=-7.3;x<=7.31;x+=1.15)xs.push(x);
+  xs.forEach(function(x,i){
+    var inz=false;zones.forEach(function(zn){if(x>zn[0]&&x<zn[1])inz=true;});
+    if(inz)return;
+    add({cx:x,cy:1.65,cz:zw,sx:.10,sy:2.38,sz:TH,c:C.stud,t0:t0+i*.007,dur:.14,fly:[rr(-3,3),rr(6,9),zw>0?8:-8],spin:rr(1.6,3.4)});
   });
+  add({cx:0,cy:.38,cz:zw,sx:FW-2*TH,sy:.16,sz:TH,c:C.plate,t0:t0-0.03,dur:.14,fly:[rr(-2,2),-7,zw>0?6:-6],spin:1.5,split:['x',4]});
+  add({cx:0,cy:2.92,cz:zw,sx:FW-2*TH,sy:.16,sz:TH,c:C.plate,t0:t0-0.01,dur:.14,fly:[rr(-2,2),7,zw>0?5:-5],spin:1.4,split:['x',4]});
+  zones.forEach(function(zn,zi){
+    var w=zn[1]-zn[0],cxx=(zn[0]+zn[1])/2,ht=zn[2]||0;
+    add({cx:cxx,cy:2.49,cz:zw,sx:w+.3,sy:.72,sz:TH,c:C.plate,t0:t0+.10+zi*.01,dur:.13,fly:[rr(-2,2),9,zw>0?4:-4],spin:1.7});
+    if(ht){add({cx:cxx,cy:.80,cz:zw,sx:w+.3,sy:.2,sz:TH,c:C.plate,t0:t0+.12+zi*.01,dur:.13,fly:[rr(-2,2),-6,zw>0?4:-4],spin:1.3});}
+  });
+}
+function wallZ(xw,t0,zones){
+  var zs=[];for(var z=-4.3;z<=4.31;z+=1.15)zs.push(z);
+  zs.forEach(function(z,i){
+    var inz=false;zones.forEach(function(zn){if(z>zn[0]&&z<zn[1])inz=true;});
+    if(inz)return;
+    add({cx:xw,cy:1.65,cz:z,sx:TH,sy:2.38,sz:.10,c:C.stud,t0:t0+i*.007,dur:.14,fly:[xw>0?8:-8,rr(6,9),rr(-3,3)],spin:rr(1.6,3.4)});
+  });
+  add({cx:xw,cy:.38,cz:0,sx:TH,sy:.16,sz:FD-2*TH,c:C.plate,t0:t0-0.03,dur:.14,fly:[xw>0?7:-7,-6,rr(-2,2)],spin:1.4,split:['z',3]});
+  add({cx:xw,cy:2.92,cz:0,sx:TH,sy:.16,sz:FD-2*TH,c:C.plate,t0:t0-0.01,dur:.14,fly:[xw>0?6:-6,7,rr(-2,2)],spin:1.4,split:['z',3]});
+  zones.forEach(function(zn,zi){
+    var w=zn[1]-zn[0],czz=(zn[0]+zn[1])/2,ht=zn[2]||0;
+    add({cx:xw,cy:2.49,cz:czz,sx:TH,sy:.72,sz:w+.3,c:C.plate,t0:t0+.10+zi*.01,dur:.13,fly:[xw>0?4:-4,9,rr(-2,2)],spin:1.6});
+    if(ht){add({cx:xw,cy:.80,cz:czz,sx:TH,sy:.2,sz:w+.3,c:C.plate,t0:t0+.12+zi*.01,dur:.13,fly:[xw>0?4:-4,-6,rr(-2,2)],spin:1.3});}
+  });
+}
+LAY=2;
+wallX(4.92,0.16,[[-1.2,0.6,1]]);          /* back  */
+wallZ(7.92,0.22,[]);                       /* right */
+wallZ(-7.92,0.28,[[-1.2,0.6,1]]);          /* left  */
+wallX(-4.92,0.34,[[-4.6,-3.1,0],[1.7,3.5,1]]); /* front: door + window */
+/* corner posts */
+[[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(s,i){
+  add({cx:s[0]*7.92,cy:1.65,cz:s[1]*4.92,sx:.22,sy:2.6,sz:.22,c:C.plate,t0:0.14+i*.008,dur:.14,fly:[s[0]*6,7,s[1]*6],spin:1.5});
+});
 
-  /* Palette — warm timber tones, soft interior */
-  var TIMBER_LIGHT = '#c9a87a', TIMBER_MID = '#a6855a', TIMBER_DARK = '#7a5d3d',
-      TIMBER_DEEP = '#5c4228', SHADOW = '#1a1d22', SHADOW_WARM = '#2a231d',
-      GRAIN_LIGHT = '#d4b88c', GRAIN_DARK = '#6b4f2f',
-      STEEL = '#8a929c', BRASS = '#c8a95e',
-      WALL_WARM = '#e8dcc8', WALL_SHADOW = '#c4b8a8',
-      FLOOR = '#4a3f35', FLOOR_DARK = '#2e2822',
-      LIGHT_BEAM = '#f5e8d0';
-
-  /* ---------- ENVIRONMENT: interior workshop with natural light ---------- */
-  function env(time) {
-    var ctx = S.ctx, W = S.W, H = S.H;
-    /* Interior: dark walls, warm light from high windows (left/sun side) */
-    var wallGrad = ctx.createLinearGradient(0, 0, 0, H);
-    wallGrad.addColorStop(0, '#14161a');
-    wallGrad.addColorStop(0.35, '#1e2126');
-    wallGrad.addColorStop(0.65, WALL_WARM);
-    wallGrad.addColorStop(1, FLOOR);
-    ctx.fillStyle = wallGrad; ctx.fillRect(0, 0, W, H);
-
-    /* High window light beams from left (sun side) */
-    var beamCount = 3;
-    for (var bi = 0; bi < beamCount; bi++) {
-      var bx = W * (0.08 + bi * 0.15);
-      var beam = ctx.createLinearGradient(bx, 0, bx + W * 0.18, H * 0.7);
-      beam.addColorStop(0, 'rgba(245,232,208,0)');
-      beam.addColorStop(0.15, 'rgba(245,232,208,0.06)');
-      beam.addColorStop(0.5, 'rgba(245,232,208,0.03)');
-      beam.addColorStop(1, 'rgba(245,232,208,0)');
-      ctx.fillStyle = beam;
-      ctx.fillRect(bx, 0, W * 0.18, H * 0.7);
-    }
-
-    /* Floor with perspective grain */
-    var fN = S.project(-12, 0, 2), fF = S.project(12, 0, 22);
-    var fg = ctx.createLinearGradient(0, fF[1], 0, fN[1]);
-    fg.addColorStop(0, FLOOR_DARK);
-    fg.addColorStop(0.4, FLOOR);
-    fg.addColorStop(1, '#3a322a');
-    ctx.fillStyle = fg; ctx.fillRect(0, fF[1], W, fN[1] - fF[1]);
-    S.texture([S.project(-12, 0.001, 22), S.project(12, 0.001, 22), S.project(12, 0.001, 2), S.project(-12, 0.001, 2)], 'grain', 500, 0.025);
-
-    /* Dust motes in light beams */
-    S.dust(18, time);
-
-    /* Back wall suggestion */
-    var bw = S.project(-8, 0, 14), bw2 = S.project(8, 0, 14);
-    ctx.fillStyle = 'rgba(20,22,26,.6)';
-    ctx.fillRect(0, bw[1], W, H - bw[1]);
+/* trusses */
+LAY=3;
+for(var ti=0;ti<8;ti++){
+  var tx=-7.2+ti*2.057,T=0.46+ti*0.05;
+  var axT=[rr(-1,1),rr(0.5,0.9),rr(-1,1)],spT=rr(0.25,0.55);
+  var flyT=[rr(-1.5,1.5),7,rr(-2,2)];
+  add({cx:tx,cy:3.06,cz:0,sx:.14,sy:.16,sz:9.6,c:C.plate,t0:T,dur:.10,fly:flyT,spin:spT,axis:axT,split:['z',2]});
+  add({cx:tx,cy:4.12,cz:-2.4,sx:.13,sy:.24,sz:SL,rot:-A,c:C.stud,t0:T,dur:.10,fly:flyT,spin:spT,axis:axT,split:['z',3]});
+  add({cx:tx,cy:4.12,cz:2.4,sx:.13,sy:.24,sz:SL,rot:A,c:C.stud,t0:T,dur:.10,fly:flyT,spin:spT,axis:axT,split:['z',3]});
+  add({cx:tx,cy:4.15,cz:0,sx:.12,sy:2.18,sz:.12,c:C.plate,t0:T,dur:.10,fly:flyT,spin:spT,axis:axT});
+}
+LAY=4;
+for(var rk=0;rk<4;rk++){
+  add({cx:-6.225+rk*4.15,cy:5.28,cz:0,sx:4.05,sy:.18,sz:.16,c:C.plate,t0:.64+rk*.006,dur:.13,fly:[rr(-2,2),10,0],spin:1.2});
+}
+/* ridge caps + eave fascia (close the ridge notch and the open eave gap) */
+LAY=6;
+add({cx:0,cy:5.80,cz:-0.25,sx:16.9,sy:.07,sz:0.62,rot:A,c:C.roof,t0:.74,dur:.13,fly:[rr(-2,2),9,-3],spin:.7,alpha:1,stroke:false,split:['x',4]});
+add({cx:0,cy:5.80,cz:0.25,sx:16.9,sy:.07,sz:0.62,rot:-A,c:C.roof,t0:.75,dur:.13,fly:[rr(-2,2),9,3],spin:.7,alpha:1,stroke:false,split:['x',4]});
+add({cx:0,cy:3.14,cz:-5.06,sx:17.3,sy:.42,sz:.08,c:C.clad,t0:.76,dur:.13,fly:[0,2,-5],spin:.5,alpha:1,stroke:false,split:['x',4]});
+add({cx:0,cy:3.14,cz:5.06,sx:17.3,sy:.42,sz:.08,c:C.clad,t0:.77,dur:.13,fly:[0,2,5],spin:.5,alpha:1,stroke:false,split:['x',4]});
+add({cx:-8.14,cy:3.14,cz:0,sx:.08,sy:.42,sz:10.4,c:C.clad,t0:.765,dur:.13,fly:[-5,2,0],spin:.5,alpha:1,stroke:false,split:['z',3]});
+add({cx:8.14,cy:3.14,cz:0,sx:.08,sy:.42,sz:10.4,c:C.clad,t0:.775,dur:.13,fly:[5,2,0],spin:.5,alpha:1,stroke:false,split:['z',3]});
+LAY=4;
+[ [-2.64,4.01,-1],[-0.96,4.80,-1],[2.64,4.01,1],[0.96,4.80,1] ].forEach(function(b,i){
+  for(var bs=0;bs<4;bs++){
+    add({cx:-6.075+bs*4.05,cy:b[1]+.08,cz:b[0],sx:4.0,sy:.09,sz:.12,rot:b[2]*A,c:C.plate,t0:.64+i*.012+bs*.004,dur:.13,fly:[rr(-3,3),11,rr(-2,2)],spin:rr(1.4,2.4)});
   }
+});
 
-  function grade(time) {
-    S.grade();
+/* roof sheets (segmented so depth-sorting stays local) */
+LAY=5;
+var flR=[rr(-2,2),10,-3.5],axR=[rr(-1,1),rr(.5,.9),rr(-1,1)],spR=rr(.8,1.1);
+for(var rs=0;rs<6;rs++){
+  var rz=-0.15+(rs+0.5)*0.8667;
+  add({cx:0,cy:4.44-(rz-2.45)*0.469,cz:rz,sx:16.9,sy:.07,sz:0.875,rot:A,c:C.roof,t0:.72+rs*.006,dur:.14,fly:flR,spin:spR,axis:axR,alpha:1,stroke:false,split:['x',4]});
+}
+var flL=[rr(-2,2),10,3.5],axL=[rr(-1,1),rr(.5,.9),rr(-1,1)],spL=rr(.8,1.1);
+for(var ls=0;ls<6;ls++){
+  var lz=0.15-(ls+0.5)*0.8667;
+  add({cx:0,cy:4.44+(lz+2.45)*0.469,cz:lz,sx:16.9,sy:.07,sz:0.875,rot:-A,c:C.roof,t0:.72+ls*.006,dur:.14,fly:flL,spin:spL,axis:axL,alpha:1,stroke:false,split:['x',4]});
+}
+
+/* glazing + door (before cladding lands) */
+LAY=9;
+add({cx:-3.85,cy:1.33,cz:-5.08,sx:1.42,sy:2.06,sz:.05,c:C.door,t0:.70,dur:.12,fly:[-6,-2,3],spin:1.4});
+add({cx:2.6,cy:1.5,cz:-5.08,sx:1.72,sy:1.14,sz:.05,c:C.glass,t0:.72,dur:.12,fly:[rr(-2,2),5,4],spin:1.2,alpha:.42,stroke:false});
+add({cx:-8.09,cy:1.5,cz:-0.3,sx:.05,sy:1.14,sz:1.72,c:C.glass,t0:.73,dur:.12,fly:[-4,5,rr(-2,2)],spin:1.2,alpha:.42,stroke:false});
+add({cx:-0.3,cy:1.5,cz:5.08,sx:1.72,sy:1.14,sz:.05,c:C.glass,t0:.74,dur:.12,fly:[rr(-2,2),5,4],spin:1.2,alpha:.42,stroke:false});
+
+/* cladding */
+LAY=8;
+add({cx:0,cy:1.65,cz:-5.03,sx:16.3,sy:2.72,sz:.07,c:C.clad,t0:.78,dur:.14,fly:[0,1,-7],spin:.6,alpha:1,stroke:false,split:['x',4]});
+add({cx:0,cy:1.65,cz:5.03,sx:16.3,sy:2.72,sz:.07,c:C.clad,t0:.80,dur:.14,fly:[0,1,7],spin:.6,alpha:1,stroke:false,split:['x',4]});
+add({cx:-8.04,cy:1.65,cz:0,sx:.07,sy:2.72,sz:10.3,c:C.clad,t0:.795,dur:.14,fly:[-7,1,0],spin:.6,alpha:1,stroke:false,split:['z',3]});
+add({cx:8.04,cy:1.65,cz:0,sx:.07,sy:2.72,sz:10.3,c:C.clad,t0:.805,dur:.14,fly:[7,1,0],spin:.6,alpha:1,stroke:false,split:['z',3]});
+
+/* ===== render ===== */
+var FACES=[[0,2,3,1],[4,5,7,6],[0,4,6,2],[1,3,7,5],[0,1,5,4],[2,6,7,3]];
+var LX=0.42,LY=0.80,LZ=0.42;
+function rotXv(p,a){var c=Math.cos(a),s=Math.sin(a);return [p[0],p[1]*c-p[2]*s,p[1]*s+p[2]*c];}
+function rotAv(p,ax,a){var c=Math.cos(a),s=Math.sin(a),d=1-c,x=p[0],y=p[1],z=p[2],x0=ax[0],x1=ax[1],x2=ax[2];
+ return [x*(x0*x0*d+c)+y*(x0*x1*d-x2*s)+z*(x0*x2*d+x1*s),
+         x*(x1*x0*d+x2*s)+y*(x1*x1*d+c)+z*(x1*x2*d-x0*s),
+         x*(x2*x0*d-x1*s)+y*(x2*x1*d+x0*s)+z*(x2*x2*d+c)];}
+
+var smoothP=0,sP=-1,mx=0,my=0,tmx=0,tmy=0,curStage=-1;
+var stgNum=document.getElementById('stgNum'),stgName=document.getElementById('stgName'),
+    railFill=document.getElementById('railFill'),hint=document.getElementById('scrollHint'),
+    heroCopy=document.getElementById('heroCopy');
+var STAGES=[[0,'Ground & set-out'],[0.05,'Floor frame'],[0.16,'Wall frames'],[0.46,'Trusses & roof'],[0.64,'Envelope & glazing'],[0.80,'Cladding & fix-off']];
+
+function draw(p){
+  if(!isFinite(p))p=0;
+  var AZC=-0.66+p*0.30+mx*0.045+azO;
+  var ca=Math.cos(AZC),sa=Math.sin(AZC);
+  var el=0.30+0.05*p-my*0.028,ce=Math.cos(el),se=Math.sin(el);
+  var D=(W<640?26.5:33)*(1-0.10*p),f=1.55*Math.min(H,W*0.8),camY=4.35,yA=0.575;
+  function proj(x,y,z){
+    var xa=x*ca-z*sa,za=x*sa+z*ca,yy=y-camY;
+    var vy=yy*ce+za*se,vz=-yy*se+za*ce+D,s=f/Math.max(6,vz);
+    return {x:W/2+xa*s,y:H*yA-vy*s,s:s,vz:vz};
   }
-
-  /* ---------- SUBJECT: carpentry joinery unit assembling ---------- */
-  function drawSubject(p, time) {
-    var ctx = S.ctx;
-    /* Unit position in world space */
-    var UX = 0, UZ = 8.5;          /* center of unit */
-    var UW = 2.8, UH = 2.0, UD = 1.6;  /* width, height, depth */
-
-    /* Stage timings */
-    var t1 = PS.stage(p, 0.00, 0.22, 'place');   /* carcass box */
-    var t2 = PS.stage(p, 0.18, 0.22, 'place');   /* frame/face frame */
-    var t3 = PS.stage(p, 0.38, 0.28, 'release'); /* doors */
-    var t4 = PS.stage(p, 0.62, 0.38, 'place');   /* detail lighting / hardware */
-
-    var X0 = UX - UW/2, X1 = UX + UW/2;
-    var Y0 = 0, Y1 = UH;
-    var Z0 = UZ - UD/2, Z1 = UZ + UD/2;
-
-    /* ---- Helper: draw a timber board with grain ---- */
-    function drawBoard(pts, grainDir, k, baseCol, grainCol) {
-      if (k <= 0) return;
-      ctx.save();
-      ctx.globalAlpha = k;
-      var face = ctx.createLinearGradient(0, pts[0][1], 0, pts[2][1]);
-      face.addColorStop(0, PS.lighten(baseCol, 0.12));
-      face.addColorStop(0.5, baseCol);
-      face.addColorStop(1, PS.darken(baseCol, 0.18));
-      S.poly(pts, face, PS.rgba('#3a2a1a', 0.4), 1);
-      S.texture(pts, grainDir, 140, 0.055);
-      /* sun-side rim */
-      var e1 = pts[0], e2 = pts[1];
-      if (grainDir === 'streak') {
-        ctx.strokeStyle = 'rgba(255,230,190,.55)'; ctx.lineWidth = 1.5;
-        ctx.beginPath(); ctx.moveTo(e1[0], e1[1]); ctx.lineTo(e2[0], e2[1]); ctx.stroke();
-      }
-      ctx.restore();
+  /* sky + ground wash */
+  var g=ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#0c0c0e');g.addColorStop(.55,'#0e0e11');g.addColorStop(1,'#0a0a0c');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  /* perspective grid */
+  ctx.strokeStyle='rgba(242,235,221,.045)';ctx.lineWidth=1;
+  var x,z,pa,pb;
+  for(x=-12;x<=12;x+=2){pa=proj(x,0,-7);pb=proj(x,0,16);ctx.beginPath();ctx.moveTo(pa.x,pa.y);ctx.lineTo(pb.x,pb.y);ctx.stroke();}
+  for(z=-6;z<=16;z+=2){pa=proj(-12,0,z);pb=proj(12,0,z);ctx.beginPath();ctx.moveTo(pa.x,pa.y);ctx.lineTo(pb.x,pb.y);ctx.stroke();}
+  /* ground shadow */
+  var c0=proj(0,0.01,0);
+  if(c0.s>0){ctx.fillStyle='rgba(0,0,0,.30)';ctx.beginPath();ctx.ellipse(c0.x,c0.y,c0.s*9.2,c0.s*2.9,0,0,6.283);ctx.fill();}
+  /* pieces */
+  var faces=[];
+  var i,j,o,q,sp;
+  for(i=0;i<pieces.length;i++){
+    o=pieces[i];
+    q=EZ(CL((p-o.t0)/o.dur,0,1));
+    if(q<=0)continue;
+    sp=o.spin*(1-q);
+    var k=1-q,ox=o.fly[0]*k,oy=o.fly[1]*k,oz=o.fly[2]*k;
+    var vs=[];
+    for(j=0;j<8;j++){
+      var l=[o.sx*((j&1)?.5:-.5),o.sy*((j&2)?.5:-.5),o.sz*((j&4)?.5:-.5)];
+      if(o.rot)l=rotXv(l,o.rot);
+      if(sp>0.001)l=rotAv(l,o.axis,sp);
+      var wx=o.cx+ox+l[0],wy=o.cy+oy+l[1],wz=o.cz+oz+l[2];
+      var pr=proj(wx,wy,wz);
+      if(!isFinite(pr.x)||!isFinite(pr.y)){vs=null;break;}
+      vs.push({x:pr.x,y:pr.y,vz:pr.vz,wx:wx,wy:wy,wz:wz});
     }
-
-    /* ---- 1. CARCASS (box) ---- */
-    if (t1 > 0) {
-      var k = t1;
-      /* Back panel */
-      var bp = [
-        S.project(X0 - 0.04, Y0 + 0.02, Z1 + 0.02),
-        S.project(X1 + 0.04, Y0 + 0.02, Z1 + 0.02),
-        S.project(X1 + 0.04, Y1 - 0.02, Z1 + 0.02),
-        S.project(X0 - 0.04, Y1 - 0.02, Z1 + 0.02)
-      ];
-      drawBoard(bp, 'streak', k, TIMBER_DARK, GRAIN_DARK);
-      S.contactAO(0, Z1 + 0.02, UW/2 + 0.05, 0.1, 0.3);
-
-      /* Side panels */
-      var spL = [
-        S.project(X0, Y0 + 0.02, Z0 - 0.02),
-        S.project(X0, Y0 + 0.02, Z1 + 0.02),
-        S.project(X0, Y1 - 0.02, Z1 + 0.02),
-        S.project(X0, Y1 - 0.02, Z0 - 0.02)
-      ];
-      drawBoard(spL, 'streak', k, TIMBER_MID, GRAIN_DARK);
-      S.shadow(X0, (Z0+Z1)/2, 0.06, UD/2 + 0.1, 0.45);
-      S.castShadow(X0, (Z0+Z1)/2, 0.06, UH, 1.2, 0.25);
-
-      var spR = [
-        S.project(X1, Y0 + 0.02, Z1 + 0.02),
-        S.project(X1, Y0 + 0.02, Z0 - 0.02),
-        S.project(X1, Y1 - 0.02, Z0 - 0.02),
-        S.project(X1, Y1 - 0.02, Z1 + 0.02)
-      ];
-      drawBoard(spR, 'streak', k, TIMBER_MID, GRAIN_DARK);
-      S.shadow(X1, (Z0+Z1)/2, 0.06, UD/2 + 0.1, 0.45);
-
-      /* Top & bottom */
-      var top = [
-        S.project(X0 - 0.04, Y1, Z0 - 0.02),
-        S.project(X1 + 0.04, Y1, Z0 - 0.02),
-        S.project(X1 + 0.04, Y1, Z1 + 0.02),
-        S.project(X0 - 0.04, Y1, Z1 + 0.02)
-      ];
-      drawBoard(top, 'grain', k, TIMBER_LIGHT, GRAIN_LIGHT);
-
-      var bot = [
-        S.project(X0 - 0.04, Y0, Z1 + 0.02),
-        S.project(X1 + 0.04, Y0, Z1 + 0.02),
-        S.project(X1 + 0.04, Y0, Z0 - 0.02),
-        S.project(X0 - 0.04, Y0, Z0 - 0.02)
-      ];
-      drawBoard(bot, 'grain', k, TIMBER_DARK, GRAIN_DARK);
-      S.contactAO(0, UZ, UW/2 + 0.1, UD/2 + 0.1, 0.4);
+    if(!vs)continue;
+    for(j=0;j<6;j++){
+      var fc=FACES[j],a=vs[fc[0]],b=vs[fc[1]],c=vs[fc[2]],d2=vs[fc[3]];
+      var e1x=b.wx-a.wx,e1y=b.wy-a.wy,e1z=b.wz-a.wz,e2x=c.wx-a.wx,e2y=c.wy-a.wy,e2z=c.wz-a.wz;
+      var nx=e1y*e2z-e1z*e2y,ny=e1z*e2x-e1x*e2z,nz=e1x*e2y-e1y*e2x;
+      var nl=Math.sqrt(nx*nx+ny*ny+nz*nz)||1;nx/=nl;ny/=nl;nz/=nl;
+      var lam=nx*LX+ny*LY+nz*LZ;if(lam<0){nx=-nx;ny=-ny;nz=-nz;lam=-lam;}
+      var sh=0.40+0.60*Math.max(0,lam);
+      faces.push({a:a,b:b,c:c,d:d2,z:(a.vz+b.vz+c.vz+d2.vz)*0.25,l:o.lay||0,o:o,sh:sh});
     }
-
-    /* ---- 2. FACE FRAME (shadow-line reveals, stiles & rails) ---- */
-    if (t2 > 0) {
-      var k = t2;
-      var FF_THICK = 0.045;  /* face frame thickness */
-      var REVEAL = 0.03;     /* shadow line gap */
-
-      /* Stiles (vertical) - left & right */
-      var stileW = 0.12;
-      var stileL = [
-        S.project(X0 - FF_THICK, Y0 + REVEAL, Z0 - FF_THICK),
-        S.project(X0 - FF_THICK + stileW, Y0 + REVEAL, Z0 - FF_THICK),
-        S.project(X0 - FF_THICK + stileW, Y1 - REVEAL, Z0 - FF_THICK),
-        S.project(X0 - FF_THICK, Y1 - REVEAL, Z0 - FF_THICK)
-      ];
-      drawBoard(stileL, 'streak', k, TIMBER_MID, GRAIN_DARK);
-      S.shadow(X0 - FF_THICK + stileW/2, UZ, stileW/2, UD/2 + FF_THICK, 0.35);
-
-      var stileR = [
-        S.project(X1 + FF_THICK - stileW, Y0 + REVEAL, Z0 - FF_THICK),
-        S.project(X1 + FF_THICK, Y0 + REVEAL, Z0 - FF_THICK),
-        S.project(X1 + FF_THICK, Y1 - REVEAL, Z0 - FF_THICK),
-        S.project(X1 + FF_THICK - stileW, Y1 - REVEAL, Z0 - FF_THICK)
-      ];
-      drawBoard(stileR, 'streak', k, TIMBER_MID, GRAIN_DARK);
-      S.shadow(X1 + FF_THICK - stileW/2, UZ, stileW/2, UD/2 + FF_THICK, 0.35);
-
-      /* Rails (horizontal) - top, middle, bottom */
-      var railH = 0.10;
-      var railT = [
-        S.project(X0 + REVEAL, Y1 - railH - REVEAL, Z0 - FF_THICK),
-        S.project(X1 - REVEAL, Y1 - railH - REVEAL, Z0 - FF_THICK),
-        S.project(X1 - REVEAL, Y1 - REVEAL, Z0 - FF_THICK),
-        S.project(X0 + REVEAL, Y1 - REVEAL, Z0 - FF_THICK)
-      ];
-      drawBoard(railT, 'grain', k, TIMBER_MID, GRAIN_LIGHT);
-
-      var railM = [
-        S.project(X0 + REVEAL, Y0 + UH * 0.5 - railH/2, Z0 - FF_THICK),
-        S.project(X1 - REVEAL, Y0 + UH * 0.5 - railH/2, Z0 - FF_THICK),
-        S.project(X1 - REVEAL, Y0 + UH * 0.5 + railH/2, Z0 - FF_THICK),
-        S.project(X0 + REVEAL, Y0 + UH * 0.5 + railH/2, Z0 - FF_THICK)
-      ];
-      drawBoard(railM, 'grain', k, TIMBER_MID, GRAIN_LIGHT);
-
-      var railB = [
-        S.project(X0 + REVEAL, Y0 + REVEAL, Z0 - FF_THICK),
-        S.project(X1 - REVEAL, Y0 + REVEAL, Z0 - FF_THICK),
-        S.project(X1 - REVEAL, Y0 + REVEAL + railH, Z0 - FF_THICK),
-        S.project(X0 + REVEAL, Y0 + REVEAL + railH, Z0 - FF_THICK)
-      ];
-      drawBoard(railB, 'grain', k, TIMBER_MID, GRAIN_LIGHT);
-
-      /* Shadow line reveals (the dark gaps) */
-      ctx.fillStyle = 'rgba(10,12,16,.85)';
-      var revPts = [
-        S.project(X0 + REVEAL/2, Y0 + REVEAL, Z0 - FF_THICK - 0.01),
-        S.project(X1 - REVEAL/2, Y0 + REVEAL, Z0 - FF_THICK - 0.01),
-        S.project(X1 - REVEAL/2, Y1 - REVEAL, Z0 - FF_THICK - 0.01),
-        S.project(X0 + REVEAL/2, Y1 - REVEAL, Z0 - FF_THICK - 0.01)
-      ];
-      S.poly(revPts, 'rgba(10,12,16,.9)');
+  }
+  faces.sort(function(p1,p2){var dq=p1.l-p2.l;return dq!==0?dq:(p2.z-p1.z);});
+  var stOn=null;
+  for(i=0;i<faces.length;i++){
+    var F=faces[i],oo=F.o,r2=Math.round(oo.rgb[0]*F.sh),g2=Math.round(oo.rgb[1]*F.sh),b2=Math.round(oo.rgb[2]*F.sh);
+    ctx.fillStyle='rgba('+r2+','+g2+','+b2+','+oo.alpha+')';
+    ctx.beginPath();ctx.moveTo(F.a.x,F.a.y);ctx.lineTo(F.b.x,F.b.y);ctx.lineTo(F.c.x,F.c.y);ctx.lineTo(F.d.x,F.d.y);ctx.closePath();ctx.fill();
+    if(oo.stroke&&oo.alpha>0.9){stOn=stOn||('rgba(12,9,6,.5)');ctx.strokeStyle=stOn;ctx.lineWidth=.7;ctx.stroke();}
+  }
+  /* interior glow */
+  var hl=CL((p-0.82)/0.15,0,1);
+  if(hl>0.01){
+    ctx.save();ctx.globalCompositeOperation='lighter';
+    var gpts=[[-3.85,1.35,-5.1],[2.6,1.5,-5.1],[-8.1,1.5,-0.3],[-0.3,1.5,5.1]];
+    for(i=0;i<gpts.length;i++){
+      var gp=proj(gpts[i][0],gpts[i][1],gpts[i][2]),R=gp.s*2.2;
+      var rg=ctx.createRadialGradient(gp.x,gp.y,0,gp.x,gp.y,R);
+      rg.addColorStop(0,'rgba(255,152,72,'+(.22*hl)+')');rg.addColorStop(1,'rgba(255,152,72,0)');
+      ctx.fillStyle=rg;ctx.beginPath();ctx.arc(gp.x,gp.y,R,0,6.283);ctx.fill();
     }
-
-    /* ---- 3. DOORS (pair, hung square, with hinges) ---- */
-    if (t3 > 0) {
-      var k = t3;
-      var doorW = (X1 - X0 - 3*REVEAL) / 2 - 0.01;
-      var doorX0 = X0 + REVEAL;
-      var doorX1 = doorX0 + doorW;
-      var doorX2 = doorX1 + REVEAL;
-      var doorX3 = doorX2 + doorW;
-
-      var openAngleL = (1 - PS.ease.out(k)) * 0.0;  /* doors stay closed in final */
-      var openAngleR = (1 - PS.ease.out(k)) * 0.0;
-
-      /* Left door */
-      var dL = [
-        S.project(doorX0, Y0 + REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(doorX1, Y0 + REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(doorX1, Y1 - REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(doorX0, Y1 - REVEAL, Z0 - FF_THICK - 0.025)
-      ];
-      drawBoard(dL, 'streak', k, TIMBER_LIGHT, GRAIN_LIGHT);
-      S.shadow((doorX0+doorX1)/2, UZ, doorW/2, 0.03, 0.3);
-      S.castShadow((doorX0+doorX1)/2, UZ, doorW/2, UH, 0.8, 0.18);
-
-      /* Right door */
-      var dR = [
-        S.project(doorX2, Y0 + REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(doorX3, Y0 + REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(doorX3, Y1 - REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(doorX2, Y1 - REVEAL, Z0 - FF_THICK - 0.025)
-      ];
-      drawBoard(dR, 'streak', k, TIMBER_LIGHT, GRAIN_LIGHT);
-      S.shadow((doorX2+doorX3)/2, UZ, doorW/2, 0.03, 0.3);
-
-      /* Hinges (brass) - 3 per door */
-      if (k > 0.3) {
-        var hingeYs = [Y0 + UH*0.15, Y0 + UH*0.5, Y1 - UH*0.15];
-        hingeYs.forEach(function(hy) {
-          var hx = doorX1;
-          var hp = S.project(hx, hy, Z0 - FF_THICK - 0.03);
-          ctx.fillStyle = BRASS;
-          ctx.beginPath(); ctx.arc(hp[0], hp[1], S.focal/(Z0)*0.018, 0, 6.2832); ctx.fill();
-          ctx.strokeStyle = '#7a6238'; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.arc(hp[0], hp[1], S.focal/(Z0)*0.018, 0, 6.2832); ctx.stroke();
-        });
-        hingeYs.forEach(function(hy) {
-          var hx = doorX2;
-          var hp = S.project(hx, hy, Z0 - FF_THICK - 0.03);
-          ctx.fillStyle = BRASS;
-          ctx.beginPath(); ctx.arc(hp[0], hp[1], S.focal/(Z0)*0.018, 0, 6.2832); ctx.fill();
-          ctx.strokeStyle = '#7a6238'; ctx.lineWidth = 1;
-          ctx.beginPath(); ctx.arc(hp[0], hp[1], S.focal/(Z0)*0.018, 0, 6.2832); ctx.stroke();
-        });
-      }
-
-      /* Centre reveal line */
-      if (k > 0.5) {
-        var cr = S.project(doorX1, Y0 + REVEAL, Z0 - FF_THICK - 0.03);
-        var cr2 = S.project(doorX1, Y1 - REVEAL, Z0 - FF_THICK - 0.03);
-        ctx.strokeStyle = 'rgba(10,12,16,.9)';
-        ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.moveTo(cr[0], cr[1]); ctx.lineTo(cr2[0], cr2[1]); ctx.stroke();
-      }
-    }
-
-    /* ---- 4. DETAIL: raking light across grain, hardware, joinery ---- */
-    if (t4 > 0) {
-      var k = PS.clamp(t4, 0, 1);
-      /* Raking light pass across the door faces - simulates low sun across grain */
-      var doorFaceL = [
-        S.project(X0 + REVEAL, Y0 + REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(X0 + REVEAL + doorW, Y0 + REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(X0 + REVEAL + doorW, Y1 - REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(X0 + REVEAL, Y1 - REVEAL, Z0 - FF_THICK - 0.025)
-      ];
-      var doorFaceR = [
-        S.project(X0 + 2*REVEAL + doorW, Y0 + REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(X0 + 2*REVEAL + 2*doorW, Y0 + REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(X0 + 2*REVEAL + 2*doorW, Y1 - REVEAL, Z0 - FF_THICK - 0.025),
-        S.project(X0 + 2*REVEAL + doorW, Y1 - REVEAL, Z0 - FF_THICK - 0.025)
-      ];
-
-      /* Raking light gradient - moves across with subtle animation */
-      var lightPhase = (time * 0.00008) % 1;
-      var lg = ctx.createLinearGradient(0, doorFaceL[0][1], W, doorFaceL[2][1]);
-      lg.addColorStop(0, 'rgba(245,232,208,0)');
-      lg.addColorStop(0.3 + lightPhase * 0.2, 'rgba(245,232,208,' + (0.12 * k) + ')');
-      lg.addColorStop(0.6 + lightPhase * 0.2, 'rgba(245,232,208,' + (0.06 * k) + ')');
-      lg.addColorStop(1, 'rgba(245,232,208,0)');
-      ctx.save(); ctx.globalAlpha = k;
-      S.poly(doorFaceL, lg);
-      S.poly(doorFaceR, lg);
-      ctx.restore();
-
-      /* Enhanced grain highlight on door faces */
-      S.texture(doorFaceL, 'streak', 200, 0.035 * k);
-      S.texture(doorFaceR, 'streak', 200, 0.035 * k);
-
-      /* Hardware: handles/latches (brass) */
-      if (k > 0.4) {
-        var hy = Y0 + UH * 0.55;
-        var hxL = X0 + REVEAL + doorW * 0.85;
-        var hxR = X0 + 2*REVEAL + doorW * 1.15;
-
-        var hl = S.project(hxL, hy, Z0 - FF_THICK - 0.04);
-        var hr = S.project(hxR, hy, Z0 - FF_THICK - 0.04);
-        ctx.fillStyle = BRASS;
-        ctx.beginPath(); ctx.arc(hl[0], hl[1], S.focal/(Z0)*0.035, 0, 6.2832); ctx.fill();
-        ctx.beginPath(); ctx.arc(hr[0], hr[1], S.focal/(Z0)*0.035, 0, 6.2832); ctx.fill();
-        ctx.strokeStyle = '#7a6238'; ctx.lineWidth = 1.5;
-        ctx.beginPath(); ctx.arc(hl[0], hl[1], S.focal/(Z0)*0.035, 0, 6.2832); ctx.stroke();
-        ctx.beginPath(); ctx.arc(hr[0], hr[1], S.focal/(Z0)*0.035, 0, 6.2832); ctx.stroke();
-        /* Backplates */
-        ctx.fillStyle = PS.rgba(BRASS, 0.6);
-        ctx.fillRect(hl[0] - S.focal/(Z0)*0.02, hl[1] - S.focal/(Z0)*0.06, S.focal/(Z0)*0.04, S.focal/(Z0)*0.12);
-        ctx.fillRect(hr[0] - S.focal/(Z0)*0.02, hr[1] - S.focal/(Z0)*0.06, S.focal/(Z0)*0.04, S.focal/(Z0)*0.12);
-      }
-
-      /* Joinery detail: dovetail / mortise suggestion on exposed edge */
-      if (k > 0.6) {
-        var jx = X0 - FF_THICK;
-        var jz = Z0 - 0.1;
-        for (var j = 0; j < 4; j++) {
-          var jy = Y0 + 0.25 + j * 0.4;
-          var jp = S.project(jx, jy, jz);
-          var js = S.focal / jz * 0.02;
-          ctx.fillStyle = PS.rgba(TIMBER_DEEP, 0.9 * k);
-          ctx.fillRect(jp[0] - js, jp[1] - js*0.3, js*2, js*0.6);
-          ctx.strokeStyle = PS.rgba('#3a2a1a', 0.7 * k);
-          ctx.lineWidth = 1;
-          ctx.strokeRect(jp[0] - js, jp[1] - js*0.3, js*2, js*0.6);
+    var cp=proj(0,1.7,0),R2=cp.s*5;
+    var rg2=ctx.createRadialGradient(cp.x,cp.y,0,cp.x,cp.y,R2);
+    rg2.addColorStop(0,'rgba(255,152,72,'+(.08*hl)+')');rg2.addColorStop(1,'rgba(255,152,72,0)');
+    ctx.fillStyle=rg2;ctx.beginPath();ctx.arc(cp.x,cp.y,R2,0,6.283);ctx.fill();
+    ctx.restore();
+  }
+  /* vignette */
+  var vg=ctx.createRadialGradient(W/2,H*0.52,Math.min(W,H)*0.32,W/2,H*0.52,Math.max(W,H)*0.78);
+  vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,.42)');
+  ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);
+  /* hud */
+  var sI=0;
+  for(i=0;i<STAGES.length;i++){if(p>=STAGES[i][0])sI=i;}
+  if(sI!==curStage&&stgNum){
+    curStage=sI;
+    stgNum.textContent=(sI<10?'0':'')+sI;
+    stgName.textContent=STAGES[sI][1];
+  }
+  if(railFill)railFill.style.height=(p*100).toFixed(1)+'%';
+  if(heroCopy){var ho=reduce?1:CL(1-p*5.2,0,1);heroCopy.style.opacity=ho;heroCopy.style.transform='translateY('+(p*40)+'px)';}
+  if(hint)hint.style.opacity=reduce?0:CL(1-p*8,0,1);
+  if(DBG){
+    var out=[],side,ii,jj;
+    for(side=0;side<2;side++){
+      for(ii=0;ii<11;ii++){
+        var sx2=-7+ii*1.4;
+        for(jj=1;jj<6;jj++){
+          var tz2=jj/6.5;
+          var zz2=side?(-4.9+tz2*4.75):(4.9-tz2*4.75);
+          var yy2=(side?(4.44+(zz2+2.45)*0.469):(4.44-(zz2-2.45)*0.469))+0.06;
+          var q3=proj(sx2,yy2,zz2);
+          var rx2=Math.round(q3.x),ry2=Math.round(q3.y);
+          if(rx2>0&&ry2>0&&rx2<W&&ry2<H){
+            var dtx=ctx.getImageData(rx2,ry2,1,1).data;
+            var lum=(dtx[0]+dtx[1]+dtx[2])/3;
+            if(lum>92)out.push((side?'R':'L')+ii+''+jj);
+          }
         }
       }
-
-      /* Subtle specular on top edge */
-      if (k > 0.5) {
-        var te = S.project(X0, Y1, UZ);
-        var te2 = S.project(X1, Y1, UZ);
-        ctx.strokeStyle = PS.rgba(LIGHT_BEAM, 0.4 * k);
-        ctx.lineWidth = 2.5;
-        ctx.beginPath(); ctx.moveTo(te[0], te[1]); ctx.lineTo(te2[0], te2[1]); ctx.stroke();
-      }
     }
-
-    /* Ground contact for whole unit */
-    S.contactAO(UX, UZ, UW/2 + 0.15, UD/2 + 0.15, 0.35);
-    S.shadow(UX, UZ, UW/2 + 0.1, UD/2 + 0.1, 0.5);
-    S.castShadow(UX, UZ, UW/2, UH, 2.0, 0.22);
+    document.title='BRIGHT:'+(out.length?out.join(','):'none');
   }
+}
+window.__buildTo=function(x){draw(CL(+x||0,0,1));};
 
-  function frame(S_, p, time) {
-    S = S_;
-    env(time);
-    drawSubject(p, time);
-    grade(time);
-    var idx = p < 0.22 ? 0 : p < 0.38 ? 1 : p < 0.62 ? 2 : 3;
-    if (stgNum) stgNum.textContent = '0' + (idx + 1);
-    if (stgName) stgName.textContent = NAMES[idx];
-    if (railFill) railFill.style.width = Math.round(p * 100) + '%';
-    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.4, 0, 1);
-  }
-  S.start();
+function animate(ts){
+  if(!isFinite(ts))ts=0;
+  var rect=wrap.getBoundingClientRect();
+  var span=wrap.offsetHeight-sticky.offsetHeight;
+  var p=CL(-rect.top/Math.max(1,span),0,1);
+  smoothP+=(p-smoothP)*0.10;
+  if(Math.abs(smoothP-p)<0.0004)smoothP=p;
+  mx+=(tmx-mx)*0.06;my+=(tmy-my)*0.06;
+  draw(smoothP);
+  requestAnimationFrame(animate);
+}
+window.addEventListener('pointermove',function(e){tmx=(e.clientX/window.innerWidth)*2-1;tmy=(e.clientY/window.innerHeight)*2-1;},{passive:true});
+
+resize();
+window.addEventListener('resize',function(){resize();if(forceP!=null||reduce)draw(forceP!=null?CL(parseFloat(forceP)||0,0,1):1);});
+if(forceP!=null){draw(CL(parseFloat(forceP)||0,0,1));}
+else if(reduce){draw(1);}
+else{requestAnimationFrame(animate);}
 })();
+
+/* ===== lap joint detail ===== */
+(function(){
+  var c=document.getElementById('jointCanvas');if(!c)return;
+  var x=c.getContext('2d'),w=c.width,h=c.height;
+  x.clearRect(0,0,w,h);
+  x.lineCap='round';
+  x.strokeStyle='#e0b050';x.lineWidth=3;
+  x.beginPath();x.moveTo(w*0.40,h*0.10);x.lineTo(w*0.40,h*0.90);x.stroke();
+  x.beginPath();x.moveTo(w*0.08,h*0.32);x.lineTo(w*0.40,h*0.26);x.lineTo(w*0.40,h*0.40);x.lineTo(w*0.60,h*0.34);x.lineTo(w*0.92,h*0.34);x.stroke();
+  x.fillStyle='#c99a3e';
+  x.beginPath();x.arc(w*0.40,h*0.33,4.5,0,6.283);x.fill();
+  x.beginPath();x.arc(w*0.47,h*0.315,4.5,0,6.283);x.fill();
+  x.fillStyle='#b8b0a0';x.font='12px ui-monospace,Menlo,Consolas,monospace';
+  x.fillText('GLUE + SCREW',w*0.10,h*0.24);
+  x.fillText('2 / 4.2mm FIX',w*0.52,h*0.48);
+  x.strokeStyle='rgba(224,139,60,.55)';x.lineWidth=1.5;
+  x.beginPath();x.moveTo(w*0.08,h*0.72);x.lineTo(w*0.92,h*0.72);x.stroke();
+  x.strokeStyle='rgba(242,235,221,.16)';x.setLineDash([6,4]);x.lineWidth=1;
+  x.beginPath();x.moveTo(w*0.06,h*0.58);x.lineTo(w*0.94,h*0.58);x.stroke();
+  x.setLineDash([]);
+})();
+
+/* ===== reveals + year ===== */
+(function(){
+  var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+  setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},1200);
+})();
+var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
+
 </script>
 
 <!-- Reveal safety net: ~1200ms -->
@@ -1214,7 +1175,7 @@ p{margin:0 0 1.2em}
   UX.progressBar = function (colour) {
     if (document.documentElement.getAttribute('data-ux-nobar') !== null) return;
     var bar = document.createElement('div');
-    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:' + (colour || '#c4fb24') + ';transition:width .1s linear';
+    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:' + (colour || '#e0b050') + ';transition:width .1s linear';
     document.body.appendChild(bar);
     var update = function () {
       var h = document.documentElement;
