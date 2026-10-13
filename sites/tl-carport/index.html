@@ -57,7 +57,7 @@ html.no-js .rv { opacity: 1 !important; transform: none !important; }
     scroll-behavior: auto !important;
   }
   .scene-sticky { position: relative !important; height: auto !important; }
-  #sceneWrap { height: auto !important; min-height: 100vh; }
+  #sceneWrap { height: auto !important; min-height: 100vh; min-height: 100svh; }
   canvas { display: block; }
 }
 
@@ -102,7 +102,7 @@ img { max-width: 100%; height: auto; display: block; }
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: rgba(40,50,59,0.98);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   padding: 1rem 1.5rem;
 }
 @media (prefers-color-scheme: light) {
@@ -126,9 +126,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* Hero / Scene */
-.hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding-top: 72px; }
-.scene-wrap { position: relative; width: 100%; height: 100vh; overflow: hidden; }
-.scene-sticky { position: sticky; top: 0; height: 100vh; }
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding-top: 72px; }
+.scene-wrap { position: relative; width: 100%; height: 100vh; height: 100svh; overflow: hidden; }
+.scene-sticky { position: sticky; top: 0; height: 100vh; height: 100svh; }
 #buildCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .scene-hud { position: absolute; bottom: 2rem; left: 2rem; right: 2rem; display: flex; align-items: center; gap: 1rem; pointer-events: none; z-index: 10; }
 .hud-stage { display: flex; flex-direction: column; gap: 0.125rem; }
@@ -219,7 +219,7 @@ img { max-width: 100%; height: auto; display: block; }
 #buildCanvas{display:none!important}
 </style>
 </head><body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <header class="site-header" role="banner">
   <div class="header-inner">
     <a href="/" class="logo" aria-label="TL Carport home">

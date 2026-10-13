@@ -70,9 +70,9 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .btn--o:hover{border-color:var(--acc-hi);color:var(--acc-hi)}
 
 /* ===== HERO: two-column grid with real photo ===== */
-.hero{position:relative;min-height:100vh;display:grid;grid-template-rows:var(--nav-h) 1fr;background:var(--bg)}
+.hero{position:relative;min-height: 100vh; min-height: 100svh;display:grid;grid-template-rows:var(--nav-h) 1fr;background:var(--bg)}
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(27,42,58,.4) 0%,transparent 70%),radial-gradient(ellipse at 20% 80%,rgba(255,107,0,.06) 0%,transparent 60%);pointer-events:none;z-index:1}
-.hero-in{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch;padding:calc(var(--nav-h) + 4vh) clamp(1.5rem,4vw,3rem) clamp(4rem,8vh,6rem);gap:clamp(1.5rem,3vw,3rem);min-height:calc(100vh - var(--nav-h))}
+.hero-in{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch;padding:calc(var(--nav-h) + 4vh) clamp(1.5rem,4vw,3rem) clamp(4rem,8vh,6rem);gap:clamp(1.5rem,3vw,3rem);min-height:calc(100vh- var(--nav-h))}
 .hero-copy{position:relative;z-index:3;display:flex;flex-direction:column;justify:center;padding-right:1rem}
 .hero-copy .k{margin:0 0 .7rem;font-family:var(--font-m);font-size:.78rem;text-transform:uppercase;letter-spacing:.24em;color:var(--acc-hi);white-space:normal}
 .hero-copy .h1{margin:0 0 1rem;font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;line-height:1.02;letter-spacing:-.03em;color:var(--ink)}

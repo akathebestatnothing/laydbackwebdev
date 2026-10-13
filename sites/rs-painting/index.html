@@ -68,7 +68,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 clamp(1rem, 3vw, 2.5rem);
-  background: rgba(10,15,26,.92); backdrop-filter: blur(10px);
+  background: rgba(10,15,26,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line-acc); z-index: 1000;
 }
 .nav__brand {
@@ -104,7 +104,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 /* ===== hero canvas scene ===== */
 #sceneWrap { height:auto; }
 #hero {
-  position: sticky; top: 0; height: 100vh;
+  position: sticky; top: 0; height: 100vh; height: 100svh;
   display: flex; align-items: center; overflow: hidden; padding-top: var(--nav-h);
 }
 #heroCanvas { position:relative; inset: 0; width: 100%; height: 100%; display: block; }
@@ -145,7 +145,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#services">Skip to content</a>
 

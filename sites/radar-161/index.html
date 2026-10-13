@@ -38,7 +38,7 @@ p{margin:0}
 
 /* ---- nav ---- */
 .nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:background .35s,border-color .35s}
-.nav.solid{background:rgba(10,11,12,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav.solid{background:rgba(10,11,12,.92);-webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;gap:clamp(12px,2.4vw,34px);padding-block:15px}
 .brand{display:flex;align-items:center;gap:12px;flex:none}
 .brand-t{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;line-height:1.12}
@@ -179,7 +179,7 @@ html.js .drop.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav" id="nav"><div class="wrap nav-in">
   <a class="brand" href="#top"><img class="brand-logo" src="assets/logo.png" alt="McKinnon Concrete logo"><span class="brand-t">McKinnon Concrete<small>High-end concreting &mdash; Coffs Coast, NSW</small></span></a>

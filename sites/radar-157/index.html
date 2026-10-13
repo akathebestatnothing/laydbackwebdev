@@ -34,7 +34,7 @@ a { color: inherit; }
 html.js .drop { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
 html.js .drop.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { html.js .drop { opacity: 1; transform: none; transition: none; } * { animation-duration: .001s !important; transition-duration: .001s !important; } }
-.nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav-in { display: flex; align-items: center; gap: 1.4rem; height: 80px; max-width: 1360px; margin: 0 auto; padding: 0 40px; }
 .brand { display: flex; align-items: center; gap: .9rem; color: var(--ink); text-decoration: none; }
 .brand img { height: 52px; width: auto; border-radius: 6px; }
@@ -162,7 +162,7 @@ footer a:hover { color: var(--acc); }
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
   <a class="brand" href="#top"><img src="assets/logo.png" alt="By Design Concrete Construction logo"><span class="b-txt"><span class="brand-name">By Design Concrete</span><br><span class="brand-sub">Decorative · Exposed Aggregate · Slabs</span></span></a>

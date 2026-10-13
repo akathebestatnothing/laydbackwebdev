@@ -44,7 +44,7 @@ html.js .drop.in{opacity:1;transform:none}
   *{animation-duration:.001s !important;transition-duration:.001s !important}
 }
 
-.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(16,28,12,.97);backdrop-filter:blur(10px);border-bottom:2px solid var(--accent)}
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(16,28,12,.97);-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);border-bottom:2px solid var(--accent)}
 .nav-in{display:flex;align-items:center;gap:1.4rem;height:80px}
 .brand{display:flex;align-items:center;gap:.9rem;color:#fff;text-decoration:none}
 .brand img{height:48px;width:auto;border-radius:6px;background:#fff;padding:4px}
@@ -68,7 +68,7 @@ html.js .drop.in{opacity:1;transform:none}
   .burger{display:block}
 }
 
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:linear-gradient(180deg,#EDF7E3 0%,#D8EDC6 58%,#EDF7E3 100%);overflow:hidden;padding-top:80px}
+.hero{position:relative;min-height: 100vh; min-height: 100svh;display:flex;align-items:center;background:linear-gradient(180deg,#EDF7E3 0%,#D8EDC6 58%,#EDF7E3 100%);overflow:hidden;padding-top:80px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;opacity:.72}
 .hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(246,251,240,.8) 0%,rgba(246,251,240,.5) 46%,rgba(246,251,240,0) 100%);pointer-events:none}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.04fr .96fr;gap:2.6rem;align-items:center;padding-block:10vh 4.6rem;width:100%}
@@ -177,7 +177,7 @@ section#lbq{--lbq-bg:#F7FAF0;--lbq-ink:#1B2B14;--lbq-muted:#5E6F52;--lbq-panel:#
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="A.D Lawns and Landscapes home">

@@ -76,7 +76,7 @@ a:hover{text-decoration:underline}
   position:sticky;top:0;z-index:100;
   height:var(--nav-h);
   background:rgba(242,241,238,.92);
-  backdrop-filter:saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px); backdrop-filter: saturate(180%) blur(8px);
   border-bottom:1px solid var(--line);
 }
 .nav-inner{
@@ -105,7 +105,7 @@ a:hover{text-decoration:underline}
 /* === HERO - CANVAS 3D === */
 .hero{
   position:relative;
-  min-height:100vh;
+  min-height: 100vh; min-height: 100svh;
   display:flex;align-items:flex-start;
   padding:16vh 4.5vw 8vh;
   overflow:hidden;
@@ -292,7 +292,7 @@ a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <script>
 // === ENABLE JS REVEAL ===
 document.documentElement.classList.remove('no-js');

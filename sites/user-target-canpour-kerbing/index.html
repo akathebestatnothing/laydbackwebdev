@@ -36,7 +36,7 @@ html.js .rv { opacity: 0; transform: translateY(26px); transition: opacity .7s e
 html.js .rv.in, html.js .rv.on { opacity: 1; transform: none; }
 html.js .rv.d1 { transition-delay: .08s; } html.js .rv.d2 { transition-delay: .16s; } html.js .rv.d3 { transition-delay: .22s; } html.js .rv.d4 { transition-delay: .30s; }
 @media (prefers-reduced-motion: reduce) { html.js .rv { opacity: 1; transform: none; transition: none; } * { animation-duration: .001s !important; transition-duration: .001s !important; } }
-.nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav-in { display: flex; align-items: center; gap: 1.4rem; height: 80px; max-width: 1360px; margin: 0 auto; padding: 0 40px; }
 .brand { display: flex; align-items: center; gap: .9rem; color: var(--ink); text-decoration: none; }
 .brand img { height: 52px; width: auto; border-radius: 6px; }

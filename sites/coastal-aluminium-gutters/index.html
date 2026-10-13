@@ -49,7 +49,7 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .skip:focus{top:1rem}
 
 /* ===== nav ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(247,248,250,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(247,248,250,.92);-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);border-bottom:1px solid var(--line)}
 .nav-in{max-width:1240px;margin:0 auto;padding:0 20px;height:100%;display:flex;align-items:center;gap:1.5rem}
 .nav__b{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink)}
 .nav__b img{height:48px;width:auto;border-radius:6px}
@@ -76,7 +76,7 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.1) 40%,var(--bg) 100%);pointer-events:none}
 /* scroll-built hero scene: wrapper, sticky stage, canvas sizing */
 #sceneWrap{position:relative;height:auto;background:var(--bg)}
-#sceneSticky{position:relative;top:0;height:100vh;overflow:hidden}
+#sceneSticky{position:relative;top:0;height: 100vh; height: 100svh;overflow:hidden}
 #buildCanvas{position:relative;inset:0;width:100%;height:100%;display:block}
 @media(max-width:680px){#sceneWrap{height:auto}}
 .hero-copy{position:relative;z-index:2;padding:10vh 20px 3rem;width:100%;max-width:1180px;margin:0 auto}
@@ -129,7 +129,7 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 
 <a class="skip" href="#services">Skip to content</a>
 

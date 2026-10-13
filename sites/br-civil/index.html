@@ -26,7 +26,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body)
 img{max-width:100%;height:auto;display:block}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-.header{position:sticky;top:0;z-index:100;background:rgba(15,17,21,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header{position:sticky;top:0;z-index:100;background:rgba(15,17,21,.92);-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);border-bottom:1px solid var(--line)}
 .header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{font-family:var(--font-display);font-weight:800;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:-.02em;text-transform:uppercase;color:var(--ink);line-height:1}
 .logo span{color:var(--accent)}
@@ -35,9 +35,9 @@ a:hover{text-decoration:underline}
 .nav a:hover{color:var(--accent);text-decoration:none}
 .cta-btn{display:inline-block;padding:10px 20px;background:var(--accent);color:#0b0e12;font-weight:700;font-size:.8rem;letter-spacing:.06em;border-radius:6px;transition:transform .15s ease,box-shadow .15s ease}
 .cta-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(224,163,58,.3);text-decoration:none}
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero{position:relative;min-height: 100vh; min-height: 100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #sceneWrap{position:relative;height:420vh}
-#sceneSticky{position:sticky;top:0;height:100vh;overflow:hidden}
+#sceneSticky{position:sticky;top:0;height: 100vh; height: 100svh;overflow:hidden}
 #buildCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero-copy{position:absolute;left:50%;top:12vh;transform:translateX(-50%);max-width:28ch;text-align:center;z-index:10}
 .hero-copy h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 12px;color:var(--ink);text-shadow:0 2px 34px rgba(0,0,0,.6)}

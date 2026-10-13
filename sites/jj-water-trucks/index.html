@@ -48,7 +48,7 @@ html.js .drop.in{opacity:1;transform:none}
 }
 
 /* nav */
-.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(4,16,30,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(24,180,228,.35)}
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(4,16,30,.97);-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);border-bottom:1px solid rgba(24,180,228,.35)}
 .nav-in{display:flex;align-items:center;gap:1.4rem;height:78px}
 .brand{display:flex;align-items:center;gap:.9rem;color:#fff;text-decoration:none}
 .brand img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid rgba(24,180,228,.45)}
@@ -157,7 +157,7 @@ section#lbq{--lbq-bg:#F2F6FA;--lbq-ink:#132234;--lbq-muted:#54687C;--lbq-panel:#
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="J and J Water Trucks home">

@@ -34,7 +34,7 @@ a { color: inherit; }
 html.js .drop { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
 html.js .drop.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { html.js .drop { opacity: 1; transform: none; transition: none; } * { animation-duration: .001s !important; transition-duration: .001s !important; } }
-.nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(10,11,13,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(10,11,13,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav-in { display: flex; align-items: center; gap: 1.4rem; height: 80px; max-width: 1360px; margin: 0 auto; padding: 0 40px; }
 .brand { display: flex; align-items: center; gap: .7rem; color: var(--ink); text-decoration: none; }
 .brand-mark { height: 32px; width: auto; display: block; }
@@ -236,7 +236,7 @@ h2::after {
 .sld-item.active img{transform:scale(1.05)}
 .sld-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 20px 16px;font-size:.95rem;color:var(--ink);
   background:linear-gradient(180deg,rgba(10,10,10,0),rgba(10,10,10,.82) 55%,rgba(10,10,10,.92));}
-.sld-item figcaption span{display:inline-block;background:rgba(10,10,10,.42);border-left:2px solid var(--acc);padding:5px 10px;backdrop-filter:blur(3px);text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.sld-item figcaption span{display:inline-block;background:rgba(10,10,10,.42);border-left:2px solid var(--acc);padding:5px 10px;-webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);text-shadow:0 1px 8px rgba(0,0,0,.55)}
 .sld-cap{position:absolute;top:14px;right:16px;z-index:4;font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;
   font-size:.8rem;letter-spacing:.14em;color:var(--ink);background:rgba(10,10,10,.55);border:1px solid var(--line);
   padding:6px 10px;backdrop-filter:blur(4px)}
@@ -407,7 +407,7 @@ h2::after {
 .hero-enq button:hover{background:var(--acc2)}
 
 /* logo splash (layout ref 2026-10-13) */
-#splash{cursor:pointer;position:relative;z-index:5;min-height:100vh;display:grid;place-items:center;background:
+#splash{cursor:pointer;position:relative;z-index:5;min-height: 100vh; min-height: 100svh;display:grid;place-items:center;background:
   radial-gradient(120% 90% at 50% 8%, rgba(163,32,32,.09) 0%, rgba(163,32,32,0) 46%),
   linear-gradient(180deg,#0a0b0d 0%,#101216 60%,#0a0b0d 100%);
   border-bottom:1px solid var(--line)}

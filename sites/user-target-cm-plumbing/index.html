@@ -54,7 +54,7 @@ html.js .rv.d3{transition-delay:.24s}
 }
 
 /* === NAV === */
-.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(10,21,48,.96);backdrop-filter:blur(10px);border-bottom:2px solid var(--acc2)}
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(10,21,48,.96);-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);border-bottom:2px solid var(--acc2)}
 .nav-in{display:flex;align-items:center;gap:1.4rem;height:76px}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
 .brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1px solid var(--acc2)}
@@ -75,7 +75,7 @@ html.js .rv.d3{transition-delay:.24s}
 }
 
 /* === HERO === */
-.hero{position:relative;min-height:100vh;display:flex;align-items:flex-start;background:var(--dark);overflow:hidden;padding-top:96px}
+.hero{position:relative;min-height: 100vh; min-height: 100svh;display:flex;align-items:flex-start;background:var(--dark);overflow:hidden;padding-top:96px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hero-in{position:relative;z-index:3;padding-block:9vh 4rem;width:100%}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,2,23,.96) 0%,rgba(5,2,23,.82) 42%,rgba(5,2,23,.25) 100%);pointer-events:none;z-index:2}
@@ -156,7 +156,7 @@ footer a:hover{color:var(--acc2)}
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
     <a href="#top" class="brand">

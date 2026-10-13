@@ -50,7 +50,7 @@ html.js .rv.on { opacity: 1; transform: none; }
 }
 .skip { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); padding: 0.7rem 1.2rem; background: var(--acc); color: var(--bg); font-weight: 700; z-index: 10000; border-radius: 0 0 6px 6px; }
 .skip:focus { top: 1rem; }
-.nav { position: fixed; top: 0; left: 0; right: 0; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem, 4vw, 3rem); background: rgba(10, 15, 10, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); z-index: 100; }
+.nav { position: fixed; top: 0; left: 0; right: 0; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.5rem, 4vw, 3rem); background: rgba(10, 15, 10, 0.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); z-index: 100; }
 .nav__brand { display: flex; align-items: center; gap: 0.8rem; font-weight: 700; font-size: clamp(1.1rem, 2.2vw, 1.3rem); letter-spacing: 0.01em; }
 .nav__brand svg { width: 36px; height: 36px; }
 .nav__links { display: flex; gap: clamp(1rem, 2.5vw, 2rem); list-style: none; margin: 0; padding: 0; }
@@ -153,7 +153,7 @@ footer a:hover { color: var(--acc); }
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#services">Skip to content</a>
 

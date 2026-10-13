@@ -40,7 +40,7 @@ a:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:
 
 /* ===== SCENE WRAPPER ===== */
 #sceneWrap{position:relative;height:420vh}
-#sceneSticky{position:sticky;top:0;height:100vh;overflow:hidden}
+#sceneSticky{position:sticky;top:0;height: 100vh; height: 100svh;overflow:hidden}
 #sceneCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .scene-hud{position:absolute;left:24px;bottom:24px;font:600 11px/1.7 var(--font-mono);letter-spacing:.18em;color:#f0f4f8;text-transform:none;z-index:2;text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .scene-hud b{display:block;color:var(--accent);font-size:13px}
@@ -61,7 +61,7 @@ p{margin:0 0 16px;color:var(--muted);max-width:65ch}
 .small{font-size:14px;color:var(--muted)}
 
 /* ===== HEADER / NAV ===== */
-.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,20,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,20,.88);-webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
 .site-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .site-logo img{width:40px;height:40px;object-fit:contain}

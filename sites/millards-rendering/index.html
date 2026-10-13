@@ -71,7 +71,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <script>document.documentElement.classList.add('js');</script>
 
 <a class="skip" href="#services">Skip to content</a>
@@ -149,10 +149,10 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 
 /* ===== scroll-built scene ===== */
 #sceneWrap { position: relative; height:auto; background: var(--bg); perspective: 1000px; }
-#sceneSticky { position:relative; top: 0; height: 100vh; overflow: hidden; }
+#sceneSticky { position:relative; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 #buildCanvas { position:relative; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
 
-.hero-in { display: grid; grid-template-columns: 1.02fr .98fr; height: 100vh; align-items: start; }
+.hero-in { display: grid; grid-template-columns: 1.02fr .98fr; height: 100vh; height: 100svh; align-items: start; }
 .hero-copy { position: relative; left: auto; top: auto; max-width: 60ch; z-index: 3; pointer-events: none; padding: calc(var(--nav-h) + 8vh) clamp(1rem, 5vw, 6rem) 0; }
 .hero-copy a, .hero-copy .btn { pointer-events: auto; }
 .hero-copy .kick { margin: 0 0 .7rem; font-family: var(--font-d); font-size: .76rem; text-transform: uppercase; letter-spacing: .22em; color: var(--acc); font-weight: 700; }
@@ -171,7 +171,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .hero-copy .svc-strip__desc { font-size: .85rem; color: var(--ink-2); font-weight: 500; }
 @media (max-width: 760px) { .hero-copy .svc-strip { grid-template-columns: 1fr; gap: .75rem; margin-top: 1.5rem; } }
 
-.hero-visual { position: relative; height: 100%; min-height: 100vh; perspective: 1000px; }
+.hero-visual { position: relative; height: 100%; min-height: 100vh; min-height: 100svh; perspective: 1000px; }
 .hero-visual__main { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
 .hero-visual__main img { width: 100%; height: 100%; object-fit: cover; display: block; transform: translateZ(0); }
 .hero-visual__finishes { position: absolute; left: 0; right: 0; bottom: 4vh; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 0 clamp(1rem, 5vw, 6rem); pointer-events: none; transform: translateZ(20px); }

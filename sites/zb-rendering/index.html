@@ -44,7 +44,7 @@ noscript + style { display: block; }
 
 /* === STAGE / HERO CANVAS === */
 .stage { position: relative; height: 420vh; }
-.pin { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 .pin canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
 .hud {
@@ -97,7 +97,7 @@ noscript + style { display: block; }
   top: 0; left: 0; right: 0;
   z-index: 100;
   background: rgba(15, 17, 21, 0.92);
-  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px); backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
 }
 .site-header .container {
@@ -200,7 +200,7 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Space Grotesk', system-ui
 </style>
 </head>
 <body>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <div class="stage" id="stage" aria-hidden="true">
   <div class="pin">
     <canvas id="c"></canvas>
