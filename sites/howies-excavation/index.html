@@ -758,7 +758,7 @@ footer{padding:44px 0;border-top:1px solid var(--line);background:var(--coal)}
 </script>
 
 <script>
-/* signature pack v1.4 — Webflow-reference patterns, our own implementation */
+/* signature pack v1.5 — Webflow-reference patterns, our own implementation */
 /* ============================================================
    LAYDBACK SIGNATURE PACK v1 (2026-10-13)
    Vanilla re-implementations of patterns studied in the Webflow
@@ -812,7 +812,7 @@ footer{padding:44px 0;border-top:1px solid var(--line);background:var(--coal)}
     if (v === 'fade') {
       inner = '<div class="sp-c">' + logoHtml + '<span class="sp-w">' + name + '</span></div>';
     } else if (v === 'ring') {
-      inner = '<div class="sp-c"><svg class="sp-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54"/></svg>' + logoHtml + '<span class="sp-w">' + name + '</span></div>';
+      inner = '<div class="sp-c">' + logoHtml + '<span class="sp-w">' + name + '</span><div class="sp-bar"><i></i></div></div>';
     } else if (v === 'curtain') {
       inner = '<div class="sp-panel sp-l"></div><div class="sp-panel sp-r"></div><div class="sp-c"><span class="sp-w">' + name + '</span></div>';
     } else if (v === 'bar') {
