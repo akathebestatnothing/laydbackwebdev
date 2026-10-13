@@ -16,7 +16,7 @@
 <style>
 :root {
   --paper: #0a0a0a; --paper2: #111111; --ink: #f3f4f6; --ink2: #a2a7ad;
-  --acc: #e53935; --acc2: #d32f2f; --line: rgba(255,255,255,.14); --chip: #1b1d22;
+  --acc: #a32020; --acc2: #7a1717; --line: rgba(255,255,255,.14); --chip: #1b1d22;
   --deep: #000000; --light: #ffffff;
   --acc-text: #ffffff;
   --fluid: clamp(44px, 9vw, 118px);
@@ -162,14 +162,14 @@ h2 { font-weight: 900; }
 .svc-n { width: 46px; height: 46px; min-width: 46px; border: 2px solid var(--acc); border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: .95rem;
   font-weight: 800; letter-spacing: 0; background: radial-gradient(120% 120% at 30% 20%, #26282c 0%, #131417 60%, #0d0e10 100%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 0 0 1px rgba(229,57,53,.15); }
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 0 0 1px rgba(163,32,32,.15); }
 .svc-row { background: linear-gradient(180deg,#141518,#0e0f11 70%); border: 1px solid #1d1f23;
   border-radius: 12px; padding: 18px 20px; box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
 .svc-row .svc-arrow { color: var(--acc); }
 .stat-band, .band { background: linear-gradient(180deg,#17181b 0%,#101113 60%); border-top: 1px solid #24262b;
   border-bottom: 1px solid #191b1e; box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
 .red-slash { position: absolute; height: 3px; background: var(--acc); pointer-events: none;
-  box-shadow: 0 0 14px rgba(229,57,53,.45); z-index: 2; }
+  box-shadow: 0 0 12px rgba(163,32,32,.22); z-index: 2; }
 .hero h1 .thin { display: block; font-size: .34em; letter-spacing: .16em; font-weight: 800; margin-top: .55rem; line-height: 1.35; }
 
 /* ===== automotive detail pass 2: carbon fibre, hex mesh, more red lines, gloss ===== */
@@ -187,16 +187,13 @@ h2 { font-weight: 900; }
 }
 h2::after {
   content: ""; display: block; width: 66px; height: 4px; margin-top: 14px;
-  background: var(--acc); box-shadow: 0 0 16px rgba(229,57,53,.55);
-}
-.livery {
-  height: 10px; background: repeating-linear-gradient(-45deg, var(--acc) 0 16px, #0a0a0a 16px 27px);
+  background: var(--acc); box-shadow: 0 0 12px rgba(163,32,32,.3);
 }
 .svc-row { box-shadow: inset 3px 0 0 var(--acc), inset 0 1px 0 rgba(255,255,255,.05); }
 @keyframes lb-sheen { 0% { left: -45%; } 55% { left: 108%; } 100% { left: 108%; } }
 @media (prefers-reduced-motion: reduce) { }
-.btn-primary { background: linear-gradient(180deg, #ef4b44 0%, #d32f2f 60%, #a52222 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
-.stat-band .stat-n, .stat-band b { text-shadow: 0 0 18px rgba(229,57,53,.35); }
+.btn-primary { background: linear-gradient(180deg, #ef4b44 0%, #7a1717 60%, #a52222 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
+.stat-band .stat-n, .stat-band b { text-shadow: 0 0 18px rgba(163,32,32,.35); }
 
 /* ===== promo treatment: glossy banner + chrome trim + photo band ===== */
 .chrome-edge { height: 2px; background: linear-gradient(90deg, #4c5057 0%, #eef1f5 18%, #9298a0 47%, #f6f8fa 76%, #565b62 100%); opacity: .8; }
@@ -204,8 +201,8 @@ h2::after {
 .photo-band img { width: 100%; height: clamp(320px, 52vw, 560px); object-fit: cover; display: block; filter: contrast(1.06) saturate(1.05); }
 .photo-band .pb-strip {
   position: absolute; left: 0; right: 0; bottom: 0; padding: 20px clamp(18px, 4vw, 44px);
-  background: linear-gradient(180deg, rgba(211,47,47,.94) 0%, rgba(150,26,26,.96) 100%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.4), inset 0 -1px 0 rgba(0,0,0,.4), 0 -6px 28px rgba(211,47,47,.35);
+  background: linear-gradient(180deg, rgba(122,23,23,.94) 0%, rgba(150,26,26,.96) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.4), inset 0 -1px 0 rgba(0,0,0,.4), 0 -6px 28px rgba(122,23,23,.35);
   display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
 }
 .photo-band .pb-strip b { font-family: var(--disp); font-weight: 900; text-transform: uppercase; letter-spacing: .02em; font-size: clamp(19px, 2.6vw, 30px); color: #fff; }
@@ -250,7 +247,7 @@ h2::after {
 .sld-ui{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px}
 .sld-dots{display:flex;gap:8px;align-items:center}
 .sld-dot{width:13px;height:13px;padding:0;border:2px solid var(--ink2);background:transparent;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .2s}
-.sld-dot.on{background:var(--acc);border-color:var(--acc);box-shadow:0 0 0 3px rgba(229,57,53,.22)}
+.sld-dot.on{background:var(--acc);border-color:var(--acc);box-shadow:0 0 0 3px rgba(163,32,32,.22)}
 .sld-arrows{display:flex;gap:12px}
 .sld .hgal-btn{width:54px;height:54px;border:1.5px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);font-size:20px;cursor:pointer;border-radius:6px;transition:background .15s,color .15s,border-color .15s;display:grid;place-items:center}
 .sld .hgal-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
@@ -290,8 +287,7 @@ h2::after {
   <img src="assets/gal_7.jpg" alt="">
   <img src="assets/gal_6.jpg" alt="">
 </div>
-  <canvas id="heroCanvas" aria-hidden="true"></canvas>
-  <div class="hero-shade"></div>
+    <div class="hero-shade"></div>
   <div class="hero-in">
   <div class="hero-copy">
     <p class="hero-kicker">Detailing studio &mdash; West Gosford, Central Coast</p>
@@ -330,18 +326,15 @@ h2::after {
 </header>
 
 
-
-<div class="livery" aria-hidden="true"></div>
 <section id="services" style="position:relative">
-  <span class="red-slash" aria-hidden="true" style="top:26px;left:-6%;width:22%;transform:rotate(-4.5deg);opacity:.85"></span>
-  <span class="red-slash" aria-hidden="true" style="top:52px;left:-8%;width:14%;transform:rotate(-4.5deg);opacity:.45"></span><div class="wrap">
+  <span class="red-slash" aria-hidden="true" style="top:26px;left:-6%;width:22%;transform:rotate(-4.5deg);opacity:.4"></span>
+  <span class="red-slash" aria-hidden="true" style="top:52px;left:-8%;width:14%;transform:rotate(-4.5deg);opacity:.2"></span><div class="wrap">
   <div class="sec-head"><span class="sec-idx">01</span><div><h2 class="sec-title">Detailing that shows up in the reflections.</h2><p class="lead">From a maintenance wash through to a full graphene-protected detail &mdash; the right package for the finish you are chasing.</p></div></div>
   <div class="svc-grid"><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.5"/></svg></span><div class="svc-body"><h3>Machine polishing &amp; paint correction</h3><p>Swirls, haze and light defects machine-polished back so reflections run flat and clean.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.3-3 7.9-7 10-4-2.1-7-5.7-7-10V6l7-3z"/><path d="M9.3 11.8l2 2 3.6-4.2"/></svg></span><div class="svc-body"><h3>Ceramic &amp; graphene coatings</h3><p>The signature package &mdash; paint sealed with a long-life graphene coating that shrugs off water, grime and UV.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5A2 2 0 0110 2.5h.6a2 2 0 012 2v7.5h-3a1.6 1.6 0 01-1.6-1.6V4.5z"/><path d="M12.6 12h3.1a2 2 0 012 2v2.6a2 2 0 01-2 2H9"/><path d="M5.5 18.6h3.5"/></svg></span><div class="svc-body"><h3>Interior detailing &amp; protection</h3><p>Seats, carpets, dash and trim vacuumed, shampooed and dressed &mdash; the parts you live in every day.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5"/></svg></span><div class="svc-body"><h3>Wheel &amp; window protection</h3><p>Alloy wheels, glass and trim cleaned and protected to match the paintwork.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c3.1 3.7 5.5 6.5 5.5 9.5A5.5 5.5 0 0112 19a5.5 5.5 0 01-5.5-5.5C6.5 10.5 8.9 7.7 12 4z"/><path d="M10 15.6a2.2 2.2 0 002.2-2.2"/></svg></span><div class="svc-body"><h3>Exterior wash &amp; decontamination</h3><p>Foam wash, clay decontamination and a hand finish that leaves paint glassy to the touch.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5h16l-2.3 3.1a2 2 0 01-1.6.9H8.1a2 2 0 01-1.6-.9L4 15.5z"/><path d="M12 3.5v12"/><path d="M12 6l5 6h-5"/><path d="M12 8.5L8 12h4"/></svg></span><div class="svc-body"><h3>Boats &amp; motorhomes</h3><p>Gelcoat cut and polish, hull wash-downs and protection for boats, caravans and motorhomes.</p></div><span class="svc-arrow">&#8599;</span></div></div>
 </section>
 
 <section class="band carbon" id="process">
-<canvas class="band-bubbles" aria-hidden="true"></canvas>
-<span class="red-slash" aria-hidden="true" style="top:36px;left:-7%;width:38%;transform:rotate(-4.5deg)"></span><span class="red-slash" aria-hidden="true" style="top:47px;left:-3%;width:22%;transform:rotate(-4.5deg);opacity:.5"></span>
+<span class="red-slash" aria-hidden="true" style="top:36px;left:-7%;width:38%;transform:rotate(-4.5deg);opacity:.5"></span><span class="red-slash" aria-hidden="true" style="top:47px;left:-3%;width:22%;transform:rotate(-4.5deg);opacity:.22"></span>
 <div class="wrap">
   <div class="sec-head"><span class="sec-idx">02</span><div><h2 class="sec-title">Booked in, detailed, protected.</h2></div></div>
   <div class="steps"><div class="step rv"><span class="step-n">01</span><div><h3>Book it in</h3><p>Call or send the form &mdash; tell us the vehicle and what you are chasing.</p></div></div><div class="step rv"><span class="step-n">02</span><div><h3>Assess &amp; quote</h3><p>We look over the paint and interior and match the right package.</p></div></div><div class="step rv"><span class="step-n">03</span><div><h3>Detail day</h3><p>Wash, decontaminate, polish, protect &mdash; inside and out.</p></div></div><div class="step rv"><span class="step-n">04</span><div><h3>Handover</h3><p>We walk the vehicle with you under the lights so you can see the finish.</p></div></div></div>
@@ -353,7 +346,6 @@ h2::after {
 </div></section>
 
 <section class="stat-band band carbon" id="stats">
-<canvas class="band-bubbles" aria-hidden="true"></canvas>
 <div class="wrap"><div class="stat rv d1"><b>5.0</b><span>Google rated</span></div><div class="stat rv d2"><b>Graphene</b><span>Paint protection</span></div><div class="stat rv d3"><b>In &amp; out</b><span>Full details</span></div><div class="stat rv d4"><b>West Gosford</b><span>Central Coast</span></div></div></section>
 
 <section id="trust"><div class="wrap">
@@ -414,13 +406,13 @@ h2::after {
 
 /* logo splash (layout ref 2026-10-13) */
 #splash{cursor:pointer;position:relative;z-index:5;min-height:100vh;display:grid;place-items:center;background:
-  radial-gradient(120% 90% at 50% 8%, rgba(239,31,43,.14) 0%, rgba(239,31,43,0) 46%),
+  radial-gradient(120% 90% at 50% 8%, rgba(163,32,32,.09) 0%, rgba(163,32,32,0) 46%),
   linear-gradient(180deg,#0a0b0d 0%,#101216 60%,#0a0b0d 100%);
   border-bottom:1px solid var(--line)}
 #splash::after{content:"";position:absolute;left:8%;right:8%;bottom:64px;height:2px;
   background:linear-gradient(90deg,transparent,var(--acc) 30%,var(--acc2) 70%,transparent);opacity:.5}
 #splash .sp-in{display:flex;flex-direction:column;align-items:center;gap:26px;padding:0 24px;text-align:center}
-#splash .sp-logo{width:min(340px,64vw);height:auto;image-rendering:auto;filter:drop-shadow(0 10px 42px rgba(239,31,43,.28))}
+#splash .sp-logo{width:min(340px,64vw);height:auto;image-rendering:auto;filter:drop-shadow(0 10px 42px rgba(163,32,32,.28))}
 #splash .sp-tag{margin:0;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2)}
 55%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.25);transform-origin:bottom;opacity:.4}}
 @media (prefers-reduced-motion: reduce){}
@@ -433,8 +425,7 @@ h2::after {
 /* 2026-10-13: carbon bands now share the top-of-site treatment (hex outlines + red slashes) */
 #process,#stats,footer.carbon{position:relative;overflow:hidden}
 
-/* band bubble field (matches the top-of-site treatment, 2026-10-13) */
-.band-bubbles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
 #process .wrap,#stats .wrap,footer .wrap{position:relative;z-index:1}
 
 /* hero slideshow behind the text (2026-10-13) */
@@ -549,10 +540,8 @@ html.js .hero-slides img.on{opacity:1}
 })();
 </script>
 </section>
-<div class="livery" aria-hidden="true"></div>
 <footer class="carbon">
-<canvas class="band-bubbles" aria-hidden="true"></canvas>
-<span class="red-slash" aria-hidden="true" style="top:30px;right:-8%;width:30%;transform:rotate(-4.5deg)"></span>
+<span class="red-slash" aria-hidden="true" style="top:30px;right:-8%;width:30%;transform:rotate(-4.5deg);opacity:.4"></span>
 <div class="wrap">
   <div>
     <div class="fbrand"><img src="assets/logo.png" alt="Allards Auto Detailing logo"><span class="b-txt"><span class="brand-name" style="font-size:1rem;">Allards</span><br><span class="brand-sub">Auto Detailing &middot; Graphene Protection</span></span></div>
@@ -593,14 +582,6 @@ html.js .hero-slides img.on{opacity:1}
   }
 })();
 setTimeout(function(){ document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); }); }, 1100);
-/* 3D hero — cleansing bubble field (cleaning/detailing) */
-(function(){var c=document.getElementById('heroCanvas');if(!c||!c.getContext)return;var ctx=c.getContext('2d');var DPR=Math.min(window.devicePixelRatio||1,2);var W=0,H=0,reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var px=0,py=0;window.addEventListener('pointermove',function(e){px=(e.clientX/innerWidth-.5)*18;py=(e.clientY/innerHeight-.5)*12;},{passive:true});
-function resize(){W=c.clientWidth||c.offsetWidth;H=c.clientHeight||c.offsetHeight;if(!W||!H)return;c.width=Math.round(W*DPR);c.height=Math.round(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0);}
-function loop(t){if(!W||!H){resize();return;}frame(t||0);if(!reduce)requestAnimationFrame(loop);}
-function frame(t){var time=t*.001;ctx.clearRect(0,0,W,H);var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#0a0b0d');g.addColorStop(.55,'#1a1c21');g.addColorStop(1,'#0a0b0d');ctx.globalAlpha = 0.22; ctx.fillStyle=g;ctx.fillRect(0,0,W,H); ctx.globalAlpha = 1;for(var i=0;i<46;i++){var bx=(i*173+time*14*(0.6+(i%5)*.3))%W;var by=(i*97+time*26)%H;var r=8+(i%7)*10+(Math.sin(time*0.8+i)*3);var al=0.06+((i*13)%28)*0.012;ctx.strokeStyle='rgba(239,31,43,'+al+')';ctx.lineWidth=1.4;ctx.beginPath();ctx.arc(bx,by,r,0,Math.PI*2);ctx.stroke();ctx.strokeStyle='rgba(255,255,255,'+(al*0.35)+')';ctx.beginPath();ctx.arc(bx-r*0.28,by-r*0.32,r*0.16,0,Math.PI*2);ctx.stroke();}
-for(var k=0;k<26;k++){var sx=(k*157+time*10)%W;var sy=H*0.1+((k*79+time*18)%(H*0.8));var tw=0.5+0.5*Math.sin(time*1.7+k*2.1);ctx.fillStyle='rgba(239,31,43,'+(0.05+tw*0.14)+')';ctx.beginPath();ctx.arc(sx+px*0.4,sy+py*0.4,1.1+tw*1.7,0,Math.PI*2);ctx.fill();}
-var rg=ctx.createRadialGradient(W*0.2,H*0.7,10,W*0.2,H*0.7,W*0.55);rg.addColorStop(0,'rgba(239,31,43,0.14)');rg.addColorStop(1,'rgba(239,31,43,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);}
-resize();window.addEventListener('resize',resize);requestAnimationFrame(loop);})();
 var hg = document.querySelector('.hgal');
 if (hg) {
   var step = function(){ return Math.min(hg.clientWidth * 0.8, 600); };
@@ -627,277 +608,7 @@ if (hg) {
  *   data-ux="tilt"         card that tilts in 3D toward the cursor
  *   data-ux="marquee"      seamless scrolling strip (put one <span> of content inside)
  *   data-ux="parallax"     element drifts with scroll; data-speed="-0.15" optional (default -0.12)
- *   data-ux="fadein"       simple one-shot fade+rise on scroll (same as .rv, kept for completeness)
- * Top scroll progress bar: UX.progressBar() is auto-created unless <html data-ux-nobar> is set.
- *
- * Laws: reduced-motion → everything settles to final state instantly.
- * Resilient: every subsystem try/wrapped; a 1500ms timer forces all reveals visible.
- */
-(function (global) {
-  'use strict';
-  var UX = {};
-  var REDUCED = false;
-  try { REDUCED = global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-
-  /* ---------- tiny maths ---------- */
-  UX.clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
-  UX.lerp = function (a, b, k) { return a + (b - a) * k; };
-  var easeOut = function (t) { t = UX.clamp(t, 0, 1); return 1 - Math.pow(1 - t, 3); };
-
-  /* ---------- spring (Motion-style feel, hand-rolled) ----------
-   * Returns an object with .step(dt) advancing toward target; used for magnetic/tilt/drag settle. */
-  UX.spring = function (opts) {
-    var s = { k: (opts && opts.stiffness) || 170, d: (opts && opts.damping) || 22, v: 0, x: 0, target: 0 };
-    s.step = function (dt) {
-      var f = (s.target - s.x) * s.k - s.v * s.d;
-      s.v += f * (dt * 60 || 1);
-      s.x += s.v * (dt * 60 || 1);
-      return s.x;
-    };
-    return s;
-  };
-
-  /* ---------- rAF loop pool (one loop drives everything, battery friendly) ---------- */
-  var tasks = [];
-  function addTask(fn) { tasks.push(fn); ensureLoop(); }
-  var looping = false, last = 0;
-  function ensureLoop() {
-    if (looping || REDUCED) return;
-    looping = true;
-    last = 0;
-    function tick(ts) {
-      var dt = last ? (ts - last) / 1000 : 1 / 60; last = ts;
-      for (var i = 0; i < tasks.length; i++) { try { tasks[i](dt, ts); } catch (e) {} }
-      if (tasks.length) requestAnimationFrame(tick); else looping = false;
-    }
-    requestAnimationFrame(tick);
-  }
-  UX._addTask = addTask;
-  UX._removeTask = function (fn) {
-    var i = tasks.indexOf(fn); if (i >= 0) tasks.splice(i, 1);
-  };
-
-  /* ---------- in-view helper ---------- */
-  function each(sel, root, fn) {
-    var list; try { list = (root || document).querySelectorAll(sel); } catch (e) { return; }
-    for (var i = 0; i < list.length; i++) fn(list[i], i);
-  }
-  function inView(el, cb, once) {
-    if (REDUCED || !('IntersectionObserver' in global)) { cb(el); return; }
-    var hit = false;
-    var io = new IntersectionObserver(function (ents) {
-      for (var i = 0; i < ents.length; i++) {
-        if (ents[i].isIntersecting) { hit = true; cb(el); if (once !== false) io.disconnect(); }
-      }
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
-    io.observe(el);
-    setTimeout(function () { if (!hit) { try { io.disconnect(); } catch (e) {} cb(el); } }, 2500);
-  }
-
-  /* ---------- 1. word reveal (Kokonut "Scroll Text" idea, ours) ----------
-   * Structure-preserving: text nodes split into word spans; element children
-   * (e.g. <span class="acc">red word</span>, .thin sublines, <br>) are kept as units
-   * so per-site styling inside the headline survives the reveal. */
-  UX.words = function (el) {
-    if (el.getAttribute('data-ux-done')) return; el.setAttribute('data-ux-done', '1');
-    var total = (el.textContent || '').length;
-    if (total < 2 || total > 200) return;
-    var frag = document.createDocumentFragment(), units = [];
-    var kids = [];
-    for (var n = el.firstChild; n; n = n.nextSibling) kids.push(n);
-    for (var k = 0; k < kids.length; k++) {
-      var node = kids[k];
-      if (node.nodeType === 3) {
-        var parts = node.textContent.split(/(\s+)/);
-        for (var i = 0; i < parts.length; i++) {
-          var piece = parts[i];
-          if (!piece) continue;
-          if (/^\s+$/.test(piece)) { frag.appendChild(document.createTextNode(piece)); }
-          else { var sp = document.createElement('span'); sp.textContent = piece; units.push(sp); frag.appendChild(sp); }
-        }
-      } else if (node.nodeType === 1) {
-        if (node.tagName === 'BR') { frag.appendChild(document.createElement('br')); }
-        else { units.push(node); frag.appendChild(node); }
-      }
-    }
-    el.textContent = ''; el.appendChild(frag);
-    var go = function () {
-      for (var j = 0; j < units.length; j++) {
-        (function (u, j) {
-          if (REDUCED) { u.style.opacity = '1'; u.style.transform = 'none'; return; }
-          u.style.display = u.style.display || 'inline-block';
-          u.style.opacity = '0'; u.style.transform = 'translateY(0.55em)';
-          setTimeout(function () {
-            u.style.transition = 'opacity .5s ease, transform .6s cubic-bezier(.2,.7,.2,1)';
-            u.style.opacity = '1'; u.style.transform = 'none';
-          }, j * 55);
-        })(units[j], j);
-      }
-      setTimeout(function () { for (var m = 0; m < units.length; m++) { units[m].style.opacity = '1'; units[m].style.transform = 'none'; } }, 1600);
-    };
-    inView(el, go);
-  };
-
-  /* ---------- 2. dynamic text switcher (Kokonut "Dynamic Text" idea, ours) ---------- */
-  UX.dynamic = function (el) {
-    var words = (el.getAttribute('data-words') || '').split('|').filter(Boolean);
-    if (words.length < 2) return;
-    var i = 0; el.textContent = words[0];
-    if (REDUCED) return;
-    var inner = document.createElement('span'); inner.style.display = 'inline-block'; inner.style.transition = 'opacity .28s ease, transform .34s cubic-bezier(.2,.7,.2,1)';
-    el.textContent = ''; el.appendChild(inner); inner.textContent = words[0];
-    setInterval(function () {
-      inner.style.opacity = '0'; inner.style.transform = 'translateY(-0.45em)';
-      setTimeout(function () {
-        i = (i + 1) % words.length; inner.textContent = words[i];
-        inner.style.transition = 'none'; inner.style.transform = 'translateY(0.45em)';
-        void inner.offsetHeight; inner.style.transition = 'opacity .28s ease, transform .34s cubic-bezier(.2,.7,.2,1)';
-        inner.style.opacity = '1'; inner.style.transform = 'none';
-      }, 300);
-    }, 2600);
-  };
-
-  /* ---------- 3. animated counter (facts only) ---------- */
-  UX.count = function (el) {
-    var to = parseFloat(el.getAttribute('data-to') || '0'), dur = 1.4, t0 = 0;
-    var suf = el.getAttribute('data-suffix') || '', pre = el.getAttribute('data-prefix') || '';
-    var go = function () {
-      if (REDUCED) { el.textContent = pre + to + suf; return; }
-      var fn = function (dt) {
-        t0 += dt; var k = easeOut(t0 / dur);
-        el.textContent = pre + Math.round(to * k) + suf;
-        if (k >= 1) UX._removeTask(fn);
-      };
-      addTask(fn);
-    };
-    inView(el, go);
-  };
-
-  /* ---------- 4. spotlight card (blur-flare in a clipping shim; deliberately no gradient syntax) ---------- */
-  UX.spotlight = function (el) {
-    if (REDUCED) return;
-    el.style.position = el.style.position || 'relative';
-    var clip = document.createElement('div');
-    clip.setAttribute('aria-hidden', 'true');
-    clip.style.cssText = 'position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:0';
-    var g = document.createElement('i');
-    g.style.cssText = 'position:absolute;left:0;top:0;width:420px;height:420px;border-radius:50%;background:rgba(196,251,36,.10);filter:blur(58px);opacity:0;transition:opacity .4s ease;transform:translate(-50%,-50%)';
-    clip.appendChild(g); el.appendChild(clip);
-    el.addEventListener('pointermove', function (e) {
-      var r = el.getBoundingClientRect();
-      g.style.transform = 'translate(' + (e.clientX - r.left - 210).toFixed(1) + 'px,' + (e.clientY - r.top - 210).toFixed(1) + 'px)';
-      g.style.opacity = '1';
-    });
-    el.addEventListener('pointerleave', function () { g.style.opacity = '0'; });
-  };
-
-  /* ---------- 5. magnetic button ---------- */
-  UX.magnetic = function (el) {
-    if (REDUCED) return;
-    var sx = UX.spring({ stiffness: 150, damping: 15 }), sy = UX.spring({ stiffness: 150, damping: 15 });
-    var raf = 0;
-    addTask(function (dt) { if (raf || Math.abs(sx.x - sx.target) > .01 || Math.abs(sy.x - sy.target) > .01) { var x = sx.step(dt), y = sy.step(dt); el.style.transform = 'translate(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px)'; } });
-    el.addEventListener('pointermove', function (e) {
-      var r = el.getBoundingClientRect();
-      sx.target = (e.clientX - (r.left + r.width / 2)) * 0.22;
-      sy.target = (e.clientY - (r.top + r.height / 2)) * 0.22;
-    });
-    el.addEventListener('pointerleave', function () { sx.target = 0; sy.target = 0; });
-  };
-
-  /* ---------- 6. 3D tilt card ---------- */
-  UX.tilt = function (el) {
-    if (REDUCED) return;
-    var rx = UX.spring({ stiffness: 140, damping: 18 }), ry = UX.spring({ stiffness: 140, damping: 18 });
-    var t = 'perspective(900px)';
-    addTask(function (dt) { rx.step(dt); ry.step(dt); el.style.transform = t + ' rotateX(' + rx.x.toFixed(2) + 'deg) rotateY(' + ry.x.toFixed(2) + 'deg)'; });
-    el.addEventListener('pointermove', function (e) {
-      var r = el.getBoundingClientRect(), mx = (e.clientX - r.left) / r.width - .5, my = (e.clientY - r.top) / r.height - .5;
-      ry.target = mx * 7; rx.target = -my * 7;
-    });
-    el.addEventListener('pointerleave', function () { rx.target = 0; ry.target = 0; });
-  };
-
-  /* ---------- 7. marquee ---------- */
-  UX.marquee = function (el) {
-    var src = el.innerHTML; el.innerHTML = ''; el.style.overflow = 'hidden';
-    var inner = document.createElement('div');
-    inner.style.cssText = 'display:flex;gap:2.5rem;width:max-content;white-space:nowrap;will-change:transform';
-    inner.innerHTML = '<span style="display:flex;gap:2.5rem">' + src + '</span><span aria-hidden="true" style="display:flex;gap:2.5rem">' + src + '</span>';
-    el.appendChild(inner);
-    if (REDUCED) return;
-    var x = 0, half = 0;
-    var speed = parseFloat(el.getAttribute('data-speed') || '-38');
-    addTask(function (dt) {
-      if (!half) half = inner.scrollWidth / 2; if (!half) return;
-      x += speed * dt; if (x <= -half) x += half; if (x > 0) x -= half;
-      inner.style.transform = 'translateX(' + x.toFixed(1) + 'px)';
-    });
-  };
-
-  /* ---------- 8. parallax ---------- */
-  UX.parallax = function (el) {
-    if (REDUCED) return;
-    var sp = parseFloat(el.getAttribute('data-speed') || '-0.12');
-    var y = 0, target = 0;
-    addTask(function (dt) {
-      var r = el.getBoundingClientRect(), vh = global.innerHeight || 800;
-      var mid = r.top + r.height / 2 - vh / 2;
-      target = mid * sp; y = UX.lerp(y, target, 1 - Math.pow(0.001, dt));
-      el.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0)';
-    });
-  };
-
-  /* ---------- 9. fade-in one-shot ---------- */
-  UX.fadein = function (el) {
-    el.style.opacity = '0'; el.style.transform = 'translateY(14px)';
-    inView(el, function () {
-      el.style.transition = 'opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1)';
-      el.style.opacity = '1'; el.style.transform = 'none';
-    });
-  };
-
-  /* ---------- 10. scroll progress bar ---------- */
-  UX.progressBar = function (colour) {
-    if (document.documentElement.getAttribute('data-ux-nobar') !== null) return;
-    var bar = document.createElement('div');
-    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:' + (colour || '#c4fb24') + ';transition:width .1s linear';
-    document.body.appendChild(bar);
-    var update = function () {
-      var h = document.documentElement;
-      var max = (h.scrollHeight - h.clientHeight) || 1;
-      bar.style.width = UX.clamp((global.pageYOffset || h.scrollTop || 0) / max * 100, 0, 100) + '%';
-    };
-    addEventListener('scroll', update, { passive: true }); update();
-  };
-
-  /* ---------- auto-init ---------- */
-  UX.init = function (root) {
-    try { each('[data-ux="words"]:not([data-ux-done])', root, UX.words); } catch (e) {}
-    try { each('[data-ux="dynamic"]', root, UX.dynamic); } catch (e) {}
-    try { each('[data-ux="count"]', root, UX.count); } catch (e) {}
-    try { each('[data-ux="spotlight"]', root, UX.spotlight); } catch (e) {}
-    try { each('[data-ux="magnetic"]', root, UX.magnetic); } catch (e) {}
-    try { each('[data-ux="tilt"]', root, UX.tilt); } catch (e) {}
-    try { each('[data-ux="marquee"]', root, UX.marquee); } catch (e) {}
-    try { each('[data-ux="parallax"]', root, UX.parallax); } catch (e) {}
-    try { each('[data-ux="fadein"]:not([data-ux-done])', root, function (el) { el.setAttribute('data-ux-done', '1'); UX.fadein(el); }); } catch (e) {}
-    try { UX.progressBar(); } catch (e) {}
-  };
-  /* safety net: if anything above failed, content must still be usable */
-  setTimeout(function () {
-    each('[data-ux="words"],[data-ux="fadein"]', null, function (el) {
-      for (var i = 0; i < el.children.length; i++) { el.children[i].style.opacity = '1'; el.children[i].style.transform = 'none'; }
-      el.style.opacity = '1'; el.style.transform = 'none';
-    });
-  }, 1500);
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { UX.init(); });
-  else UX.init();
-  global.UX = UX;
-})(window);
-
-</script>
+ *   data-ux="fadein"       simple one-shot fade+rise on scroll (same as .rv, kept for </script>
 
 <script>
 /* hero enquiry card -> prefills the one #lbq form (layout ref 2026-10-13) */
@@ -936,53 +647,7 @@ if (hg) {
   window.addEventListener('keydown', function(){ clearTimeout(t); go(); }, { once: true });
 })();
 </script>
-<script>
-/* band bubbles — same treatment as the top of the site (2026-10-13) */
-(function(){
-  var canv = document.querySelectorAll('.band-bubbles');
-  if (!canv.length) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  canv.forEach(function(c){
-    var ctx = c.getContext('2d');
-    if (!ctx) return;
-    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2), lastPaint = 0;
-    function resize(){
-      W = c.clientWidth || 1; H = c.clientHeight || 1;
-      c.width = Math.round(W * DPR); c.height = Math.round(H * DPR);
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    }
-    function frame(t){
-      var time = t * 0.001;
-      ctx.clearRect(0, 0, W, H);
-      for (var i = 0; i < 34; i++){
-        var bx = (i * 173 + time * 14 * (0.6 + (i % 5) * 0.3)) % W;
-        var by = (i * 97 + time * 26) % H;
-        var r = 8 + (i % 7) * 10 + (Math.sin(time * 0.8 + i) * 3);
-        var al = 0.05 + ((i * 13) % 28) * 0.008;
-        ctx.beginPath(); ctx.arc(bx, by, r, 0, 6.2832);
-        ctx.strokeStyle = 'rgba(255,255,255,' + al + ')'; ctx.lineWidth = 1.2; ctx.stroke();
-      }
-      for (var k = 0; k < 18; k++){
-        var sx = (k * 157 + time * 10) % W;
-        var sy = H * 0.1 + ((k * 79 + time * 18) % (H * 0.8));
-        var tw = 0.5 + 0.5 * Math.sin(time * 1.7 + k * 2.1);
-        ctx.fillStyle = 'rgba(239,31,43,' + (0.05 + tw * 0.10) + ')';
-        ctx.beginPath(); ctx.arc(sx, sy, 1.6 + tw * 1.4, 0, 6.2832); ctx.fill();
-      }
-      var rg = ctx.createRadialGradient(W * 0.2, H * 0.7, 10, W * 0.2, H * 0.7, W * 0.55);
-      rg.addColorStop(0, 'rgba(239,31,43,0.12)'); rg.addColorStop(1, 'rgba(239,31,43,0)');
-      ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
-      lastPaint = Date.now();
-    }
-    function loop(t){ frame(t || 0); if (!reduce) requestAnimationFrame(loop); }
-    resize();
-    window.addEventListener('resize', resize);
-    frame(0);
-    if (!reduce) requestAnimationFrame(loop);
-    setInterval(function(){ if (Date.now() - lastPaint > 500) frame(performance.now()); }, 420);
-  });
-})();
-</script>
+
 <script>
 /* hero slideshow (2026-10-13) */
 (function(){
