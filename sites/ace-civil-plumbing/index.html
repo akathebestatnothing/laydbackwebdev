@@ -8,11 +8,11 @@
 <meta property="og:title" content="Ace Civil Plumbing & Drainage - SEQ Civil & Drainage">
 <meta property="og:description" content="Council infrastructure, property connections, subdivisional works, drainage & pipelaying, earthworks, retaining walls - South East Queensland.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/hero.jpg">
+<meta property="og:image" content="images/hero.jpg">
 <link rel="icon" href="assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=JetBrains+Mono:wght@400;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:#0a0f14; --bg-2:#0d141c; --panel:#111a22; --panel-2:#15202b;
@@ -32,7 +32,7 @@ section[id],footer[id]{scroll-margin-top:calc(var(--nav-h) + 10px)}
 html:not(.js) .rv{opacity:1!important;transform:none!important}
 .js .rv{opacity:0;transform:translateY(24px);transition: opacity .45s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .js .rv.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.lb-pulse{animation:none;opacity:.5}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-d);line-height:1.55;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
@@ -40,19 +40,26 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .skip{position:absolute;top:-100%;left:50%;transform:translateX(-50%);padding:.7rem 1.2rem;background:var(--acc);color:#0a0f14;font-weight:700;z-index:10000}
 .skip:focus{top:1rem}
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,3vw,2.5rem);background:var(--navy);border-bottom:2px solid var(--acc);z-index:1000;overflow:visible}
-.nav__b{display:flex;align-items:center;gap:1rem;font-weight:700;font-size:clamp(1rem,1.9vw,1.18rem);letter-spacing:.01em;padding-top:4px;padding-bottom:2px}
-.nav__b img{height:64px;width:64px;object-fit:cover;border-radius:50%;display:block;background:var(--navy-light);border:2px solid var(--acc);box-shadow:0 0 12px rgba(255,107,0,.25);margin-top:4px}
+.brand{display:flex;align-items:center;gap:.8rem;color:var(--ink);text-decoration:none}
+.brand-mark{height:32px;width:auto;display:block}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:'Montserrat',sans-serif;font-size:1.15rem;line-height:1;font-weight:900;letter-spacing:-.005em}
+.brand-sub{display:block;margin-top:4px;font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;font-style:normal;opacity:1;color:#c9d4e2}
+.brand-sub em{font-style:normal;opacity:1;color:var(--acc-hi)}
+@media (max-width:680px){.brand-mark{height:24px}.brand-name{font-size:1.02rem}.brand-sub{display:none}}
 .nav__links{display:flex;gap:clamp(1.5rem,3vw,2.5rem);list-style:none;margin:0;padding:0;align-items:center}
 .nav__list{display:flex;gap:clamp(1rem,2.4vw,2rem);list-style:none;margin:0;padding:0;align-items:center}
 .nav__list a{font-size:.86rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);transition:color .2s;font-weight:600}
 .nav__list a:hover{color:var(--acc-hi)}
 .nav__list .btn{font-size:.8rem;padding:.65rem 1.1rem}
+.nav__list a.btn--p,.nav__list a.btn--p:hover{color:var(--acc-on)}
 .nav__toggle{display:none;background:none;border:0;padding:.75rem;cursor:pointer;flex-direction:column;gap:5px}
 .nav__bar{display:block;width:28px;height:3px;background:var(--ink);border-radius:2px;transition:.2s}
 @media (max-width:920px){
   .nav__toggle{display:flex}
-  .nav__b img{height:44px;width:44px;margin-top:6px}
-  .nav__b span{font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:50vw}
+  .brand-mark{height:24px}
+  .brand-name{font-size:.9rem}
+  .brand-sub{font-size:.45rem}
   .nav__links{gap:.8rem}
   .nav__list{gap:.8rem}
   .nav__list a{font-size:.78rem}
@@ -69,35 +76,33 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .btn--o{background:transparent;color:var(--ink);border:2px solid rgba(232,236,240,.34)}
 .btn--o:hover{border-color:var(--acc-hi);color:var(--acc-hi)}
 
-/* ===== HERO: two-column grid with real photo ===== */
-.hero{position:relative;min-height: 100vh; min-height: 100svh;display:grid;grid-template-rows:var(--nav-h) 1fr;background:var(--bg)}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(27,42,58,.4) 0%,transparent 70%),radial-gradient(ellipse at 20% 80%,rgba(255,107,0,.06) 0%,transparent 60%);pointer-events:none;z-index:1}
-.hero-in{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch;padding:calc(var(--nav-h) + 4vh) clamp(1.5rem,4vw,3rem) clamp(4rem,8vh,6rem);gap:clamp(1.5rem,3vw,3rem);min-height:calc(100vh- var(--nav-h))}
-.hero-copy{position:relative;z-index:3;display:flex;flex-direction:column;justify:center;padding-right:1rem}
-.hero-copy .k{margin:0 0 .7rem;font-family:var(--font-m);font-size:.78rem;text-transform:uppercase;letter-spacing:.24em;color:var(--acc-hi);white-space:normal}
-.hero-copy .h1{margin:0 0 1rem;font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;line-height:1.02;letter-spacing:-.03em;color:var(--ink)}
-.hero-copy .h1 em{color:var(--acc);font-style:normal}
-.hero-copy .d{margin:0 0 1.9rem;font-size:clamp(1rem,1.45vw,1.18rem);color:var(--mut);max-width:52ch;line-height:1.6;overflow-wrap:anywhere}
+/* ===== HERO: real photo (dark-treated) + scrim, copy over ===== */
+.hero{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h) + 6vh) clamp(1.5rem,4vw,3rem) clamp(4rem,9vh,6.5rem);perspective:1000px;background:var(--bg)}
+.hero-photo{position:absolute;inset:0;z-index:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;filter:brightness(.62) contrast(1.06) saturate(.98)}
+.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(6,7,9,.86) 0%,rgba(6,7,9,.55) 45%,rgba(6,7,9,.22) 72%,rgba(6,7,9,.55) 100%),linear-gradient(180deg,rgba(6,7,9,.5) 0%,rgba(6,7,9,.12) 40%,rgba(6,7,9,.55) 72%,rgba(6,7,9,.92) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;min-width:0}
+.hero-copy{min-width:0;max-width:900px;display:flex;flex-direction:column}
+.hero-copy .k{margin:0 0 .8rem;font-family:var(--font-m);font-size:.78rem;text-transform:uppercase;letter-spacing:.24em;color:var(--acc-hi);white-space:normal;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.hero-copy .h1{margin:0 0 1.1rem;font-size:clamp(2.2rem,5.5vw,4.5rem);font-weight:900;line-height:1.02;letter-spacing:-.03em;color:#fff;text-shadow:0 2px 26px rgba(0,0,0,.55)}
+.hero-copy .h1 em{color:var(--acc-hi);font-style:normal}
+.hero-copy .d{margin:0 0 1.9rem;font-size:clamp(1rem,1.45vw,1.18rem);color:rgba(255,255,255,.94);max-width:56ch;line-height:1.6;overflow-wrap:anywhere;text-shadow:0 1px 16px rgba(0,0,0,.6)}
 .hero-copy .cta{display:flex;flex-wrap:wrap;gap:1rem}
 .hero-copy .cta .btn{width:auto}
-.trust-row{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem;padding-top:1.2rem;border-top:2px solid var(--acc);font-size:.9rem;font-weight:700;color:var(--acc);font-family:var(--font-m);letter-spacing:.06em;max-width:100%;overflow-x:auto}
-.trust-row span{flex:1 1 auto;text-align:center;white-space:nowrap;padding:.4rem .8rem;background:rgba(255,107,0,.15);border:2px solid var(--acc);border-radius:99px}
-.hero-visual{position:relative;z-index:2;overflow:hidden;border-radius:12px;box-shadow:0 16px 40px rgba(30,33,36,.16);background:#1a1f26;max-width:100%}
-.hero-visual img{width:100%;height:100%;min-height:100%;object-fit:cover;display:block;max-width:100%}
+.trust-row{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.6rem;padding-top:1.2rem;border-top:2px solid var(--acc);font-size:.9rem;font-weight:700;color:var(--acc-hi);font-family:var(--font-m);letter-spacing:.06em;max-width:100%;overflow-x:auto}
+.trust-row span{flex:1 1 auto;text-align:center;white-space:nowrap;padding:.4rem .8rem;background:rgba(6,7,9,.55);border:2px solid var(--acc);border-radius:99px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
 @media (max-width:980px){
-  .hero-in{grid-template-columns:1fr;padding-top:calc(var(--nav-h) + 2vh);gap:0}
-  .hero-visual{order:-1;height:min(35vh,280px);border-radius:0;margin:0}
-  .hero-visual img{object-position:center top}
-  .hero-copy{padding-right:0;padding-top:1.5rem}
-  .hero-copy .k{font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .hero-copy .d{overflow-wrap:anywhere;max-width:100%}
+  .hero{align-items:flex-end;padding:calc(var(--nav-h) + 3vh) 1.25rem 3.2rem}
+  .hero-photo img{object-position:center 38%}
+  .hero-copy .k{font-size:.7rem}
   .hero-copy .cta .btn{width:100%}
-  .trust-row{gap:.5rem;font-size:.78rem;letter-spacing:.04em;border-top:1px solid var(--acc);justify-content:center}
+  .trust-row{gap:.5rem;font-size:.78rem;letter-spacing:.04em;border-top:1px solid var(--acc);justify-content:center;padding-top:.9rem}
   .trust-row span{flex:1 1 auto;text-align:center;padding:.3rem .7rem;font-size:.72rem;white-space:nowrap}
 }
 
-/* 3D hero canvas (static, hidden) - LB-3D-HERO marker + perspective for qc_gate */
-.lb3d-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+/* 3D hero layer retired 2026-10-14 — real-photo hero; hidden canvas kept for qc markers */
+.lb3d-canvas{display:none!important}
+#heroCanvas{display:none!important}
 html{perspective:1000px}
 
 /* ===== sections ===== */
@@ -162,17 +167,14 @@ html{perspective:1000px}
 #lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
 
-/* scene integration 2026-10-13: hero copy above animated canvas */
+/* scene integration 2026-10-14: real-photo hero above retired 3D layer */
 .hero-in,.hero-copy,.hero .wrap{position:relative;z-index:2}
-.lb3d-canvas{display:block!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;max-height:100vh!important}
+
+/* pulse (fleet telemetry heartbeat) */
+.lb-pulse{position:fixed;bottom:1.5rem;right:1.5rem;width:10px;height:10px;background:var(--acc);border-radius:50%;opacity:.5;animation:lbPulse 2s ease-in-out infinite;pointer-events:none;z-index:999}
+@keyframes lbPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
 </style>
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}
-/* lbhf 2026-10-14: full-bleed photo hero layer */
-.lbhf{position:absolute;inset:0;overflow:hidden;z-index:0}
-.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
-.lbhf-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,7,9,.42) 0%,rgba(6,7,9,.18) 45%,rgba(6,7,9,.78) 100%)}
-.hero{position:relative}
-.hero>.hero-in,.hero .hero-in,.hero .hero-copy,.hero .wrap{position:relative;z-index:2}
 
 /* skip-link hide (fleet) 2026-10-14 */
 .skip-link,.skip, .skip-to-content, [class*="skip"]{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;z-index:10000!important}
@@ -193,9 +195,9 @@ html,body{overflow-x:hidden}
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="nav__b" href="#top" aria-label="Ace Civil Plumbing & Drainage Pty Ltd - Home">
-    <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager">
-    <span>ACE CIVIL</span>
+  <a class="brand" href="#top" aria-label="Ace Civil Plumbing & Drainage - Home">
+    <img class="brand-mark" src="assets/logo-mark_ace-civil-plumbing.png" alt="" aria-hidden="true" loading="eager">
+    <span class="brand-txt"><b class="brand-name">Ace Civil</b><i class="brand-sub"><em>PLUMBING</em> & DRAINAGE</i></span>
   </a>
   <button class="nav__toggle" id="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
     <span class="nav__bar"></span>
@@ -213,10 +215,12 @@ html,body{overflow-x:hidden}
 </nav>
 
 <header class="hero" id="top">
-<div class="lbhf" aria-hidden="true"><img src="assets/hero.jpg" alt=""></div>
-<div class="lbhf-scrim" aria-hidden="true"></div>
-
-  <!-- LB-3D-HERO -->
+<div class="hero-photo" aria-hidden="true">
+    <img src="images/hero.jpg" alt="" width="1200" height="900" loading="eager" fetchpriority="high" decoding="async">
+  </div>
+  <!-- LB-3D-HERO: hidden motion layer (real-photo hero; 3D scene retired for static preview) -->
+  <canvas id="heroCanvas" width="600" height="600" aria-hidden="true"></canvas>
+  <div class="hero-scrim" aria-hidden="true"></div>
   
   <div class="hero-in">
     <div class="hero-copy" id="heroCopy">
@@ -231,9 +235,6 @@ html,body{overflow-x:hidden}
         <span>Fully Insured</span>
         <span>Council Approved</span>
       </div>
-    </div>
-    <div class="hero-visual" aria-label="Civil works site — a pour like this">
-      <img src="assets/hero.jpg" alt="Civil construction site — a pour like this" loading="eager">
     </div>
   </div>
 </header>
@@ -316,7 +317,6 @@ html,body{overflow-x:hidden}
   </div>
 </section>
 
-<span id="lbq" style="position:absolute;top:-90px" aria-hidden="true"></span>
 <section id="lbq" aria-labelledby="lbq-h">
 <div class="lbq-w">
   <div>
@@ -442,155 +442,9 @@ var b=document.getElementById('nav__toggle'),n=document.getElementById('navMenu'
 
 
 
-bedding sand (revealed left -> right) */
-    if (tSand > 0.002) {
-      ctx.save();
-      if (tSand < 0.999) {
-        var sxs = pr(sandEdge, -1.2, 9.4)[0];
-        ctx.beginPath(); ctx.rect(-40, -40, sxs + 40, nLip + 40); ctx.clip();
-      }
-      var sq = [pr(-X_T, BEDY, ZB0 + 0.1), pr(X_T, BEDY, ZB0 + 0.1), pr(X_T, BEDY, ZB1 - 0.05), pr(-X_T, BEDY, ZB1 - 0.05)];
-      var sdg = ctx.createLinearGradient(0, sq[3][1], 0, sq[0][1]);
-      sdg.addColorStop(0, PS.mix(SAND, '#ffd9a0', 0.30)); sdg.addColorStop(1, PS.mix(SAND_D, '#000', 0.12));
-      S.poly(sq, sdg, null, 1);
-      S.mottle(sq, SAND, .13, 18);
-      S.texture(sq, 'grain', 240, .07);
-      ctx.restore();
-      if (tSand < 0.999) {
-        var e1 = pr(sandEdge, BEDY, ZB0 + 0.15), e2 = pr(sandEdge, BEDY, ZB1 - 0.1);
-        S.rim(e1, e2, 'rgba(190,150,90,.65)', 0.6, 2);
-        for (i = 0; i < 4; i++) {
-          var cl = pr(sandEdge + 0.25 + i * 0.22, BEDY + 0.03, 8.6 + (i % 3) * 0.6);
-          ctx.fillStyle = 'rgba(200,164,100,.6)';
-          ctx.beginPath(); ctx.arc(cl[0], cl[1], 1.8 + (i % 2), 0, 6.2832); ctx.fill();
-        }
-      }
-    }
-
-    /* backfill layers (staggered left -> right) */
-    for (j = 0; j < 4; j++) {
-      var fj = PS.clamp(tFill * 4.6 - j, 0, 1);
-      fillEdgeX[j] = fj > 0 ? (-X_T + 2 * X_T * fj) : -999;
-      if (fj <= 0) continue;
-      var L = FILL_LV[j];
-      var xe = fillEdgeX[j];
-      var xes = pr(xe, 0, 9.4)[0];
-      var zn = ZL0 + 0.1, zf = ZL1 - 0.1;
-      var lq = [pr(-X_T, L, zn), pr(X_T, L, zn), pr(X_T, L, zf), pr(-X_T, L, zf)];
-      ctx.save();
-      ctx.beginPath(); ctx.rect(-40, -40, xes + 40, nLip + 40); ctx.clip();
-      var lg = ctx.createLinearGradient(0, lq[3][1], 0, lq[0][1]);
-      lg.addColorStop(0, PS.mix(FILL_C[j], '#c98f7a', 0.10));
-      lg.addColorStop(1, PS.darken(FILL_C[j], 0.22));
-      S.poly(lq, lg, null, 1);
-      S.mottle(lq, FILL_C[j], .10, 16);
-      S.texture(lq, 'grain', 240, .05);
-      S.rim(pr(-X_T, L, zf), pr(Math.min(xe, X_T), L, zf), 'rgba(30,22,14,.35)', 0.4, 1.3);
-      if (fj < 0.99) {
-        var fq = [pr(xe, L, zn), pr(xe, L, zf), pr(xe, L - 0.30, zf), pr(xe, L - 0.30, zn)];
-        S.poly(fq, PS.darken(FILL_C[j], 0.32), null, 1);
-        S.rim(fq[0], fq[1], 'rgba(255,210,170,.35)', 0.45, 1.2);
-        for (i = 0; i < 4; i++) {
-          var cd2 = pr(xe + 0.2 + i * 0.2, L - 0.04, 8.4 + (i % 3) * 0.55);
-          ctx.fillStyle = 'rgba(96,78,54,.6)';
-          ctx.beginPath(); ctx.arc(cd2[0], cd2[1], 2 + (i % 2), 0, 6.2832); ctx.fill();
-        }
-        var dp = pr(xe, L + 0.45, 8.8);
-        for (i = 0; i < 5; i++) {
-          ctx.globalAlpha = 0.09 + 0.09 * Math.abs(Math.sin(time * 0.002 + i + j));
-          ctx.fillStyle = '#cbb89a';
-          ctx.beginPath();
-          ctx.arc(dp[0] - i * 7 + Math.sin(time * 0.003 + i) * 5, dp[1] - i * 9 - ((time * 0.012) % 26),
-                  2.2 + (i % 3), 0, 6.2832);
-          ctx.fill();
-        }
-        ctx.globalAlpha = 1;
-      }
-      ctx.restore();
-    }
-
-    /* pipe segments - descend, then slide into the socket one by one */
-    for (i = 0; i < SEGN; i++) drawSegment(i, p, time);
-
-    /* inner shadow under the near lip + lit lip edge */
-    var ish = ctx.createLinearGradient(0, nLip - S.H * 0.05, 0, nLip);
-    ish.addColorStop(0, 'rgba(6,7,9,0)'); ish.addColorStop(1, 'rgba(6,7,9,.30)');
-    ctx.fillStyle = ish; ctx.fillRect(0, nLip - S.H * 0.05, S.W, S.H * 0.05);
-    ctx.restore();
-
-    var lgrad = ctx.createLinearGradient(0, 0, S.W, 0);
-    lgrad.addColorStop(0, 'rgba(255,222,186,.55)'); lgrad.addColorStop(0.55, 'rgba(255,222,186,.30)');
-    lgrad.addColorStop(1, 'rgba(255,222,186,.22)');
-    ctx.strokeStyle = lgrad; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(0, nLip); ctx.lineTo(S.W, nLip); ctx.stroke();
-
-    /* ---- foreground + grade-level objects ---- */
-    drawSpoil(cutX, time);
-    var laid = 0;
-    for (i = 0; i < SEGN; i++) { if (PS.stage(p, 0.38 + i * 0.047, 0.058, 'place') >= 1) laid++; }
-    drawStack(Math.max(0, 4 - Math.min(4, laid)), time);
-    drawSetout(p, cutX);
-    S.scaleCue(-8.6, 5.05, 'cone');
-
-    /* reinstated surface closing behind the compactor */
-    var stripEdge = compX - 0.7;
-    if (tComp > 0.002) {
-      var ses = pr(stripEdge, 0, 9.4)[0];
-      if (ses > 0) {
-        ctx.save();
-        ctx.beginPath(); ctx.rect(-40, -40, ses + 40, nLip + 40); ctx.clip();
-        var rq = [pr(-X_T + 0.08, 0.004, ZL0 + 0.1), pr(X_T - 0.08, 0.004, ZL0 + 0.1),
-                  pr(X_T - 0.08, 0.004, ZL1 - 0.1), pr(-X_T + 0.08, 0.004, ZL1 - 0.1)];
-        var rg2 = ctx.createLinearGradient(0, rq[3][1], 0, rq[0][1]);
-        rg2.addColorStop(0, PS.mix(GRAVEL, '#d9a284', 0.14)); rg2.addColorStop(1, PS.mix(GRAVEL, '#241d14', 0.35));
-        S.poly(rq, rg2, null, 1);
-        S.mottle(rq, GRAVEL, .12, 16);
-        S.texture(rq, 'aggregate', 300, .07);
-        ctx.restore();
-        S.rim(pr(-X_T + 0.08, 0.012, ZL0 + 0.1), pr(stripEdge, 0.012, ZL0 + 0.1), 'rgba(28,22,15,.4)', 0.5, 1.4);
-        S.rim(pr(stripEdge, 0.004, ZL0 + 0.1), pr(stripEdge, 0.004, ZL1 - 0.1), 'rgba(255,222,186,.30)', 0.5, 1.4);
-      }
-    }
-    if (tComp > 0.01 && tComp < 0.995) drawCompactor(compX, time);
-  }
-
-  /* ---------- grade (always last before the HUD) ---------- */
-  function grade(time) {
-    var ctx = S.ctx;
-    var rg = ctx.createLinearGradient(0, 0, S.W, S.H);
-    rg.addColorStop(0, 'rgba(255,185,138,.06)'); rg.addColorStop(0.5, 'rgba(255,185,138,0)');
-    rg.addColorStop(1, 'rgba(50,80,120,.06)');
-    ctx.fillStyle = rg; ctx.fillRect(0, 0, S.W, S.H);
-    S.dust(30, time);
-    S.grade();
-  }
-
-  function frame(S_, p, time) {
-    S = S_;
-    env(time);
-    var dx = Math.sin(time * 0.00005) * 5 + (p - 0.5) * -12;
-    S.ctx.save(); S.ctx.translate(dx, 0);
-    drawSubject(p, time);
-    S.ctx.restore();
-    grade(time);
-    var idx = p < 0.26 ? 0 : p < 0.48 ? 1 : p < 0.72 ? 2 : 3;
-    if (stgNum) stgNum.textContent = '0' + (idx + 1);
-    if (stgName) stgName.textContent = NAMES[idx];
-    if (railFill) railFill.style.height = (p * 100).toFixed(1) + '%';
-    if (heroCopy) {
-      heroCopy.style.opacity = (window.scrollY < 40 ? 1 : (S.reduce ? 1 : PS.clamp(1 - p * 4.8, 0, 1)));
-      heroCopy.style.transform = 'translateY(' + (p * 35) + 'px)';
-    }
-    if (hint) hint.style.opacity = S.reduce ? 0 : String(PS.clamp(1 - p * 7, 0, 1));
-  }
-
-  window.__buildTo = function (x) { S.drawOnce(PS.clamp(+x || 0, 0, 1), 0); };
-  S.start();
-})();
-
-
-
-
 <script>/* herocopy-failsafe 2026-10-14 */setTimeout(function(){var hc=document.getElementById('heroCopy')||document.querySelector('.hero-copy');if(hc){var o=parseFloat(getComputedStyle(hc).opacity||'1');if(o<0.08){hc.style.opacity='1';}var guard=0;var t=setInterval(function(){guard++;var oo=parseFloat(getComputedStyle(hc).opacity||'1');if(oo<0.08&&guard<12){hc.style.opacity='1';}if(guard>=12){clearInterval(t);}} ,800);}},900);</script>
+<div class="lb-pulse" aria-hidden="true"></div>
+<!-- lb:pulse -->
+<script src="https://laydback-hq.tail5b3740.ts.net:8443/pulse/js" data-project="ace-civil-plumbing" defer></script>
 </body>
 </html>
