@@ -224,6 +224,14 @@ html{perspective:1000px}
 /* skip-link hide (fleet) 2026-10-14 */
 .skip-link,.skip, .skip-to-content, [class*="skip"]{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;z-index:10000!important}
 .skip-link:focus,[class*="skip"]:focus{left:16px!important;top:16px!important;width:auto!important;height:auto!important;padding:10px 16px!important;background:#111!important;color:#fff!important;border-radius:6px!important;overflow:visible!important}
+
+/* medina-hero-bg 2026-10-14 */
+.hero{position:relative;overflow:hidden}
+.medina-hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.medina-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:saturate(1.04) contrast(1.02)}
+.medina-hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,10,11,.42) 0%,rgba(9,10,11,.16) 40%,rgba(9,10,11,.78) 100%)}
+.hero .hero-in,.hero .hero-copy{position:relative;z-index:2}
+.hero .k,.hero .h1,.hero .d{text-shadow:0 1px 16px rgba(0,0,0,.45)}
 </style></noscript><a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
@@ -246,6 +254,8 @@ html{perspective:1000px}
 </nav>
 
 <header class="hero" id="top" aria-label="Medina Rendering - Mix to Wall">
+<div class="medina-hero-bg" aria-hidden="true"><img src="assets/sponge.jpg" alt="Sponge finish render — Medina Rendering" width="1620" height="2160"></div>
+<div class="medina-hero-scrim" aria-hidden="true"></div>
   <!-- LB-3D-HERO -->
   <canvas class="lb3d-canvas" id="heroCanvas" aria-hidden="true"></canvas>
   <div class="hero-in">
