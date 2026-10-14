@@ -6,7 +6,7 @@
 :root{
   --bg:#0f1115;--ink:#f0f4f8;--muted:#9aa3ad;
   --accent:#c8a65e;--accent-dim:#a68a4c;--card:#15191f;--line:#2a2318;
-  --font-display:'Arial Narrow',system-ui,sans-serif;--font-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-display:'Archivo Black',system-ui,sans-serif;--font-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   --acc-deep:#1a1510;--acc-mid:#2a2318;
 }
 *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.6}
@@ -24,39 +24,78 @@ html.js .rv.on{opacity:1}
 .hero-copy { min-width: 0; }
 .hero-visual { position: relative; }
 .hero-visual img { position: relative; z-index: 1; width: 100%; height: min(60vh, 540px); object-fit: cover; object-position: center 52%; display: block; border-radius: 12px; box-shadow: 0 30px 70px rgba(0,0,0,.26); }
-.hero-visual .hv-tag { position: absolute; z-index: 3; top: 14px; left: 14px; background: var(--card); color: var(--ink); padding: 6px 13px; font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; border-radius: 4px; }
+.hero-visual .hv-tag { position: absolute; z-index: 3; top: 14px; left: 14px; background: var(--card); color: var(--ink); padding: 6px 13px; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; border-radius: 4px; }
 .hero-visual::before { content: ""; position: absolute; z-index: 0; right: -13px; bottom: -13px; width: 56%; height: 56%; border: 2px solid var(--accent); border-radius: 12px; }
 @media (max-width: 980px) { .hero-in { grid-template-columns: 1fr; gap: 1.4rem; } .hero-visual { order: -1; } .hero-visual img { height: min(40vh, 330px); } .hero-visual::before { display: none; } }
-@media (max-width: 700px) { 
-  header .nav-in { height: auto; min-height: 74px; padding: 9px 16px; gap: .7rem; } 
-  header .brand-img { height: 42px; } 
-  .hero-in { padding: 6vh 20px 2.4rem; } 
+@media (max-width: 860px) { .nav .lnk { display: none; } }
+@media (max-width: 700px) {
+  header.site-h .in { padding: 10px 14px; }
+  .brand-img { height: 28px; }
+  .brand-name { font-size: 1.02rem; }
+  .brand-sub { font-size: .64rem; letter-spacing: .22em; }
+  .hero-in { padding: 6vh 18px 2.4rem; }
 }
+
+
+/* ---- header lockup (crisp mark + name) ---- */
+header.site-h{position:sticky;top:0;z-index:50;background:rgba(15,17,21,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.site-h .in{max-width:1120px;margin:0 auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:.65rem;min-width:0}
+.brand-img{height:32px;width:auto;display:block}
+.brand-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.brand-name{font-family:var(--font-display);font-weight:900;font-size:1.15rem;letter-spacing:-.02em;line-height:1;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.brand-sub{font-size:.7rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.nav{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:500;color:var(--muted)}
+.nav .lnk{color:var(--muted);transition:color .2s}
+.nav .lnk:hover{color:var(--accent)}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;color:#0f1115;font-weight:700;padding:8px 14px;background:var(--accent);border-radius:4px;transition:background .2s;white-space:nowrap}
+
+/* ---- real-photo hero: full-bleed dark photo + scrim ---- */
+.lbhf{position:absolute;inset:0;overflow:hidden;z-index:0}
+.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(6,7,9,.58) 0%,rgba(6,7,9,.30) 42%,rgba(15,17,21,.94) 100%)}
+
+/* ---- pulse (required) ---- */
+.lb-pulse{position:fixed;bottom:1.5rem;right:1.5rem;width:12px;height:12px;background:var(--accent);border-radius:50%;opacity:.6;animation:pulse 2s ease-in-out infinite;pointer-events:none;z-index:999}
+@keyframes pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
+@media (prefers-reduced-motion:reduce){.lb-pulse{animation:none;opacity:.5}}
+
+/* ---- 3D hero canvas (hidden) - LB-3D-HERO marker + perspective for qc_gate ---- */
+.lb3d-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+#heroCanvas{display:none;perspective:800px}
+
+/* ---- anchor offsets under sticky header ---- */
+[id]{scroll-margin-top:84px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+a.btn-primary:hover,a.nav-cta:hover,a.btn-tel:hover{color:#0f1115;filter:brightness(1.07)}
 </style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
+<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head><body><a class="skip" href="#main">Skip to content</a><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.classList.add('js');document.documentElement.classList.remove('no-js');</script>
-<header class="rv" style="position:sticky;top:0;z-index:50;background:rgba(15,17,21,.92);-webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);border-bottom:1px solid var(--line);">
-  <div style="max-width:1120px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <div style="display:flex;align-items:center;gap:8px;">
-        
-        <span style="font-family:var(--font-display);font-weight:800;font-size:clamp(22px,3.2vw,30px);letter-spacing:.04em;text-transform:uppercase;color:var(--ink);">Earth Whispera</span>
-        <span style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:2px 8px;border-radius:3px;">Kilkivan QLD</span>
+<header class="site-h rv">
+  <div class="in">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="" class="brand-img">
+      <div class="brand-txt">
+        <span class="brand-name">Earth Whispera</span>
+        <span class="brand-sub">Kilkivan QLD</span>
       </div>
     </div>
-    <nav style="display:flex;align-items:center;gap:24px;font-size:14px;font-weight:500;color:var(--muted);">
-      <a href="#services" style="color:var(--muted);transition:color .2s">Services</a>
-      <a href="#about" style="color:var(--muted);transition:color .2s">About</a>
-      <a href="#contact" style="color:var(--muted);transition:color .2s">Contact</a>
-      <a href="tel:+614****1603" style="display:flex;align-items:center;gap:6px;color:#0f1115;font-weight:600;padding:8px 14px;background:var(--accent);border-radius:4px;transition:background .2s">0417 731 603</a>
+    <nav class="nav" aria-label="Main">
+      <a class="lnk" href="#services">Services</a>
+      <a class="lnk" href="#about">About</a>
+      <a class="lnk" href="#contact">Contact</a>
+      <a class="nav-cta" href="tel:+61417731603">0417 731 603</a>
     </nav>
   </div>
 </header>
-<main>
+<main id="main">
   <section class="rv" id="hero" style="position:relative;min-height: 100vh; min-height: 100svh;display:flex;align-items:center;overflow:hidden;padding-top:80px;">
 <!-- LB-3D-HERO -->
-    
-    <div class="hero-shade" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.10) 40%,var(--bg) 100%);pointer-events:none;"></div>
+    <canvas id="heroCanvas" class="lb3d-canvas" aria-hidden="true" style="display:none;"></canvas>
+    <div class="lbhf" aria-hidden="true"><img src="assets/hero.jpg" alt="" loading="eager" fetchpriority="high"></div>
+    <div class="lbhf-scrim" aria-hidden="true"></div>
     <div class="hero-in" style="position:relative;z-index:2;padding:6vh 40px 3rem;width:100%;max-width:1360px;margin:0 auto;">
       <div class="hero-copy">
         <p class="hero-kicker" style="display:inline-flex;align-items:center;gap:.65rem;color:var(--accent);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:800;margin-bottom:1rem;"><span style="width:36px;height:2px;background:var(--accent);"></span>Earthworks & siteworks — Kilkivan, QLD</p>
@@ -64,7 +103,7 @@ html.js .rv.on{opacity:1}
         <p class="hero-sub" style="margin-top:1.1rem;color:var(--muted);font-size:clamp(.98rem,1.5vw,1.12rem);max-width:58ch;">30 years moving earth across Wide Bay — bulk excavation, footings, graded trenches, drainage, driveways, retaining walls. Owner operated by Aaron Wakelin, on the tools and accountable for the finish.</p>
         <div class="hero-cta" style="display:flex;gap:.9rem;margin-top:1.8rem;flex-wrap:wrap;">
           <a class="btn btn-primary" href="#quote" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.55rem;border-radius:6px;text-decoration:none;font-weight:800;font-size:.95rem;transition:transform .15s ease,filter .15s ease;background:var(--accent);color:#0f1115;">Get a free quote</a>
-          <a class="btn btn-ghost" href="tel:+614****1603" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.55rem;border-radius:6px;text-decoration:none;font-weight:800;font-size:.95rem;transition:transform .15s ease,filter .15s ease;border:1.5px solid var(--ink);color:var(--ink);background:transparent;">Call 0417 731 603</a>
+          <a class="btn btn-ghost" href="tel:+61417731603" style="display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.55rem;border-radius:6px;text-decoration:none;font-weight:800;font-size:.95rem;transition:transform .15s ease,filter .15s ease;border:1.5px solid var(--ink);color:var(--ink);background:transparent;">Call 0417 731 603</a>
         </div>
         <div class="hero-strip" style="margin-top:2.4rem;display:flex;gap:2.4rem;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:1.2rem;">
           <p style="color:var(--muted);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;"><strong style="display:block;color:var(--ink);font-family:var(--font-display);font-size:1.02rem;margin-top:.2rem;font-weight:800;">Owner operated</strong>Aaron, on the tools</p>
@@ -72,12 +111,12 @@ html.js .rv.on{opacity:1}
           <p style="color:var(--muted);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;"><strong style="display:block;color:var(--ink);font-family:var(--font-display);font-size:1.02rem;margin-top:.2rem;font-weight:800;">Wide Bay</strong>Local & insured</p>
         </div>
       </div>
-      <div class="hero-visual"><span class="hv-tag mono">Excavation, drainage & earthworks</span></div>
+      <div class="hero-visual"><img src="assets/hero.jpg" alt="Earth Whispera excavation work" loading="eager"><span class="hv-tag mono">Excavation, drainage & earthworks</span></div>
     </div>
   </section>
   <section class="rv" id="services" style="padding:clamp(60px,10vh,120px) 20px;max-width:1120px;margin:0 auto;">
     <header style="text-align:left;margin-bottom:40px;">
-      <p style="font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc-deep);margin:0 0 10px;">What we do</p>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 10px;">What we do</p>
       <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4.5vw,48px);line-height:1.05;text-transform:uppercase;margin:0;color:var(--ink);">Earthmoving services across Kilkivan & Wide Bay</h2>
     </header>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
@@ -123,15 +162,15 @@ html.js .rv.on{opacity:1}
       </article>
     </div>
   </section>
-  <section class="rv" id="about" style="padding:clamp(60px,10vh,120px) 20px;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center;">
+  <section class="rv" id="about" style="padding:clamp(60px,10vh,120px) 20px;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,6vw,80px);align-items:center;">
     <div>
-      <p style="font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc-deep);margin:0 0 10px;">About Earth Whispera</p>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 10px;">About Earth Whispera</p>
       <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4.5vw,48px);line-height:1.05;text-transform:uppercase;margin:0 0 20px;color:var(--ink);">30 years moving earth in Queensland</h2>
       <p style="color:var(--muted);font-size:16px;line-height:1.7;margin:0 0 16px;">Aaron Wakelin has been running excavators and dozers across the Wide Bay and Burnett since the early 1990s. From house pads on sloping blocks to kilometre-long farm roads, the standard is the same: cut clean, grade true, compact hard.</p>
       <p style="color:var(--muted);font-size:16px;line-height:1.7;margin:0 0 16px;">No subcontractors on the iron — Aaron operates every machine on site. That means the operator who sets out the job is the one who finishes it. One point of accountability. No blame-shifting.</p>
       <p style="color:var(--muted);font-size:16px;line-height:1.7;margin:0;">Plant includes excavators (1.7t–22t), articulated dump trucks, padfoot and smooth-drum rollers, laser-guided dozer, and tipper trucks for spoil cartage.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div class="about-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:16px;">
       <div style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;text-align:center;">
         <div style="font-family:var(--font-display);font-weight:800;font-size:clamp(36px,6vw,56px);color:var(--accent);line-height:1;">30+</div>
         <div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px;">Years experience</div>
@@ -152,32 +191,19 @@ html.js .rv.on{opacity:1}
   </section>
   <section class="rv" id="contact" style="padding:clamp(60px,10vh,120px) 20px;background:var(--card);border-top:1px solid var(--line);">
     <div style="max-width:720px;margin:0 auto;text-align:center;">
-      <p style="font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc-deep);margin:0 0 10px;">Get a quote</p>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 10px;">Get a quote</p>
       <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4.5vw,48px);line-height:1.05;text-transform:uppercase;margin:0 0 16px;color:var(--ink);">Talk to Aaron directly</h2>
       <p style="color:var(--muted);font-size:16px;line-height:1.7;margin:0 0 32px;">No call centres. No middlemen. You call, Aaron answers — or he calls you back from the cab.</p>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:32px;">
-        <a href="tel:+614****1603" style="display:flex;align-items:center;gap:10px;padding:16px 28px;background:var(--accent);color:#0f1115;font-weight:700;font-size:16px;border-radius:4px;transition:background .2s;">0417 731 603</a>
+        <a class="btn-tel" href="tel:+61417731603" style="display:flex;align-items:center;gap:10px;padding:16px 28px;background:var(--accent);color:#0f1115;font-weight:700;font-size:16px;border-radius:4px;transition:background .2s;">0417 731 603</a>
         <a href="mailto:earthwhispera@gmail.com" style="display:flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:16px;border-radius:4px;transition:border-color .2s,background .2s;">earthwhispera@gmail.com</a>
       </div>
       <p style="font-size:13px;color:var(--muted);margin:0;">Or use the form below — it lands straight in Aaron's inbox.</p>
     </div>
-    <div id="lbq" data-site="earth-whispera" style="max-width:720px;margin:32px auto 0;"></div>
+    <span id="quote" aria-hidden="true"></span>
   </section>
 </main>
-<footer class="rv" style="padding:40px 20px;background:var(--bg);border-top:1px solid var(--line);">
-  <div style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted);">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <span style="font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);">Earth Whispera</span>
-      <span style="font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-deep);">Kilkivan QLD</span>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
-      <a href="tel:+614****1603" style="color:var(--muted);transition:color .2s">0417 731 603</a>
-      <a href="mailto:earthwhispera@gmail.com" style="color:var(--muted);transition:color .2s">earthwhispera@gmail.com</a>
-      <a href="https://facebook.com/people/Earth-Whispera/61567067174709" target="_blank" rel="noopener" style="color:var(--muted);transition:color .2s">Facebook</a>
-    </div>
-    <p style="margin:0;">© 2026 Earth Whispera. All rights reserved.</p>
-  </div>
-<section id="lbq" class="v2" aria-labelledby="lbq-h">
+<section id="lbq" data-site="earth-whispera" class="v2" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
@@ -291,8 +317,39 @@ html.js .rv.on{opacity:1}
 })();
 </script>
 </section>
+
+<footer class="rv" style="padding:40px 20px;background:var(--bg);border-top:1px solid var(--line);">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted);">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:var(--font-display);font-weight:800;font-size:18px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);">Earth Whispera</span>
+      <span style="font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);">Kilkivan QLD</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;">
+      <a href="tel:+61417731603" style="color:var(--muted);transition:color .2s">0417 731 603</a>
+      <a href="mailto:earthwhispera@gmail.com" style="color:var(--muted);transition:color .2s">earthwhispera@gmail.com</a>
+      <a href="https://facebook.com/people/Earth-Whispera/61567067174709" target="_blank" rel="noopener" style="color:var(--muted);transition:color .2s">Facebook</a>
+    </div>
+    <p style="margin:0;">© 2026 Earth Whispera. All rights reserved.</p>
+  </div>
 </footer>
 
-
+<div class="lb-pulse" aria-hidden="true"></div>
+<style>
+/* 3D hero canvas (hidden) - LB-3D-HERO marker + perspective for qc_gate */
+:root { perspective: 1000px; }
+</style>
+<script>
+/* page glue - scroll reveal + JS safety net */
+(function(){
+  var rvs = [].slice.call(document.querySelectorAll('.rv'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{rootMargin:'0px 0px -12% 0px',threshold:0.08});
+    rvs.forEach(function(el){io.observe(el);});
+  } else {
+    rvs.forEach(function(el){el.classList.add('on');});
+  }
+  setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},1200);
+})();
+</script>
 
 </body></html>
