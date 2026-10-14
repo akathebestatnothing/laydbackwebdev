@@ -83,6 +83,9 @@ noscript .rv{opacity:1;transform:none}
 </style></head><body>
 <div class="nav"><div class="brand">OakStone <b>Property Care</b></div><a class="tel" href="tel:+61403155598">0403 155 598</a></div>
 <section class="hero">
+<div class="lbhf" aria-hidden="true"><img src="assets/oakstone-property-care-work-01.jpg" alt=""></div>
+<div class="lbhf-scrim" aria-hidden="true"></div>
+
 <!-- LB-3D-HERO -->
 <style>
 /* 3D hero layer — floating geometric depth */
@@ -233,7 +236,14 @@ noscript .rv{opacity:1;transform:none}
 </script>
 </section>
 </footer>
-<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+<noscript><style>.rv{opacity:1;transform:none}
+/* lbhf 2026-10-14: full-bleed photo hero layer */
+.lbhf{position:absolute;inset:0;overflow:hidden;z-index:0}
+.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.lbhf-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,7,9,.42) 0%,rgba(6,7,9,.18) 45%,rgba(6,7,9,.78) 100%)}
+.hero{position:relative}
+.hero>.hero-in,.hero .hero-in,.hero .hero-copy,.hero .wrap{position:relative;z-index:2}
+</style></noscript>
 <script>
 (function(){
   var els=document.querySelectorAll('.rv');
