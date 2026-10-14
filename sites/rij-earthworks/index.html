@@ -51,60 +51,21 @@ a{color:inherit}
 .hero{position:relative;overflow:hidden;min-height:94vh;display:flex;align-items:center;padding:150px 0 10vh}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(15,17,19,.92) 0%,rgba(15,17,19,.66) 45%,rgba(15,17,19,.25) 100%)}
-.hero-in{position:relative;z-index:2;width:100%}
+.hero-in{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(24px,4vw,56px);align-items:center}
+.hero-copy{min-width:0}
+.hero-visual{min-width:0}
+.hero-visual figure{position:relative;margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.hero-visual img{width:100%;height:min(58vh,530px);object-fit:cover;display:block}
 .hero-kick{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--disp);font-size:.85rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
 .hero-kick::before{content:"";width:36px;height:2px;background:var(--gold)}
 h1{font-family:var(--disp);font-weight:800;font-size:clamp(48px,10.4vw,118px);line-height:.94;letter-spacing:.01em;text-transform:uppercase;max-width:14ch}
 h1 em{font-style:normal;color:var(--gold)}
 .hero-sub{margin-top:22px;max-width:56ch;font-size:clamp(1rem,1.3vw,1.12rem);color:var(--mut)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:30px}
-.hero-strip{display:flex;flex-wrap:wrap;gap:12px 36px;margin-top:46px;padding-top:20px;border-top:1px solid var(--line)}
+.hero-strip{grid-column:1/-1;margin-top:46px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 36px}
 .hero-strip p{font-family:var(--disp);font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
 .hero-strip b{display:block;color:var(--ink);font-weight:700}
-/* sections */
-section{padding:clamp(64px,9.5vw,124px) 0}
-.idx{font-family:var(--disp);font-size:.85rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
-h2{font-family:var(--disp);font-weight:800;font-size:clamp(34px,5.4vw,64px);line-height:1;text-transform:uppercase;margin-top:12px;max-width:24ch}
-.sec-sub{color:var(--mut);max-width:60ch;margin-top:16px}
-/* services index */
-.svc-list{border-top:1px solid var(--line);margin-top:clamp(28px,4vw,52px)}
-.svc-row{display:grid;grid-template-columns:88px 1fr auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);transition:padding-left .25s ease}
-.svc-row:hover{padding-left:10px}
-.svc-row .n{font-family:var(--disp);font-size:.95rem;letter-spacing:.2em;color:var(--dim)}
-.svc-row h3{font-family:var(--disp);font-weight:700;font-size:clamp(20px,2.6vw,30px);text-transform:uppercase;letter-spacing:.03em}
-.svc-row .d{color:var(--mut);font-size:.95rem;max-width:56ch}
-.svc-row .tick{width:26px;height:26px;border:1.5px solid var(--line);rotate:45deg;transition:border-color .25s ease,background .25s ease}
-.svc-row:hover .tick{border-color:var(--gold);background:rgba(212,160,23,.18)}
-/* about band */
-.about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(26px,4vw,64px);align-items:center}
-.about .ph{border:1px solid var(--line);position:relative}
-.about .ph img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-.about .ph::after{content:"";position:absolute;inset:0;border:1px solid rgba(212,160,23,.35);translate:10px 10px;pointer-events:none}
-.about p{color:var(--mut);margin-top:16px;max-width:58ch}
-.about .pride{font-family:var(--disp);font-size:clamp(22px,3vw,34px);text-transform:uppercase;line-height:1.15;color:var(--ink);font-weight:700}
-.about .pride em{font-style:normal;color:var(--gold)}
-/* work grid */
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,22px);margin-top:clamp(28px,4vw,52px)}
-.work-grid figure{border:1px solid var(--line);position:relative;overflow:hidden}
-.work-grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .5s ease}
-.work-grid figure:hover img{transform:scale(1.04)}
-.work-grid figcaption{position:absolute;left:0;bottom:0;padding:10px 14px;font-family:var(--disp);font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;background:rgba(15,17,19,.82);border-top:1px solid var(--line);width:100%}
-/* areas band */
-.band{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--gold);padding:clamp(34px,5.5vw,68px);overflow:hidden}
-.band p{color:var(--mut);max-width:62ch;margin-top:14px}
-.band .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.band .tags span{border:1px solid var(--line);padding:8px 16px;font-family:var(--disp);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
-/* contact */
-.contact{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,60px);align-items:start}
-.contact .big-a{font-family:var(--disp);font-weight:800;font-size:clamp(30px,5.6vw,64px);text-transform:uppercase;line-height:1;margin-top:12px}
-.contact .big-a a{color:var(--gold);text-decoration:none}
-.contact .big-a a:hover{color:var(--gold-hi)}
-.contact .note{color:var(--mut);margin-top:16px;max-width:48ch}
-.contact .fb{display:inline-flex;align-items:center;gap:.5rem;margin-top:20px;font-family:var(--disp);letter-spacing:.1em;text-transform:uppercase;font-size:1rem;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:3px}
-footer{border-top:1px solid var(--line);padding:40px 0 56px;background:var(--panel)}
-footer .fin{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
-footer p,footer a{font-size:.9rem;color:var(--mut)}
-@media (max-width:920px){.about,.contact{grid-template-columns:1fr}.work-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:920px){.hero-in{grid-template-columns:1fr;gap:1.4rem;padding:8vh 0 2.4rem}.hero-visual img{height:min(34vh,300px)}}
 @media (max-width:820px){
   .nav-links{position:fixed;inset:74px 0 auto 0;background:var(--bg);flex-direction:column;padding:20px var(--gut) 30px;border-bottom:1px solid var(--line);display:none}
   .nav-links.open{display:flex}
@@ -139,16 +100,23 @@ footer p,footer a{font-size:.9rem;color:var(--mut)}
   <canvas id="cutCanvas" aria-hidden="true"></canvas>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-in wrap">
-    <p class="hero-kick">Branxton &middot; Hunter Valley &middot; NSW</p>
-    <h1>Ground <em>works</em> done right.</h1>
-    <p class="hero-sub">RIJ Earthworks takes pride in all the work we do &mdash; from drainage and driveways to retaining walls, shed pads, trenches, tree clearing, cut fills and site clean-ups.</p>
-    <div class="hero-cta">
-      <a class="btn btn-gold" href="#contact">Get a quote</a>
-      <a class="btn btn-line" href="#services">What we do</a>
+    <div class="hero-copy">
+      <p class="hero-kick">Branxton &middot; Hunter Valley &middot; NSW</p>
+      <h1>Ground <em>works</em> done right.</h1>
+      <p class="hero-sub">RIJ Earthworks takes pride in all the work we do &mdash; from drainage and driveways to retaining walls, shed pads, trenches, tree clearing, cut fills and site clean-ups.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#contact">Get a quote</a>
+        <a class="btn btn-line" href="#services">What we do</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <figure>
+        <img src="assets/hero-work.jpg" alt="RIJ Earthworks excavator on site in the Hunter Valley" loading="eager" width="800" height="600" decoding="async">
+      </figure>
     </div>
     <div class="hero-strip">
-      <p><b>0419 632 321</b>Call the crew</p>
-      <p><b>Branxton NSW</b>Local &amp; surrounds</p>
+      <p><b><a href="tel:+614****2321">0419 632 321</a></b>Call the crew</p>
+      <p><b>Branxton NSW</b>Local & surrounds</p>
       <p><b>Every job</b>Big or small</p>
     </div>
   </div>
@@ -232,7 +200,7 @@ footer p,footer a{font-size:.9rem;color:var(--mut)}
 <footer>
   <div class="wrap fin">
     <p><b style="color:var(--ink);font-family:var(--disp);letter-spacing:.06em">RIJ EARTHWORKS</b> &mdash; Branxton NSW.</p>
-    <p>0419 632 321 &middot; <a href="https://www.facebook.com/profile.php?id=61591449337485" target="_blank" rel="noopener">Facebook</a> &middot; <a href="#top">Back to top</a></p>
+    <p><a href="tel:+61419632321">0419 632 321</a> &middot; <a href="https://www.facebook.com/profile.php?id=61591449337485" target="_blank" rel="noopener">Facebook</a> &middot; <a href="#top">Back to top</a></p>
   </div>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
@@ -349,7 +317,7 @@ footer p,footer a{font-size:.9rem;color:var(--mut)}
 </script>
 </section>
 </footer>
-
+<span id="quote" style="position:absolute;top:-90px"></span>
 <section id="legal" style="display:none" aria-hidden="true">
   <p>Privacy: details sent through the quote form are used only to respond to your enquiry and are never sold or shared. Terms: quotes are free and remain valid for 30 days.</p>
 </section>
