@@ -49,22 +49,30 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .skip { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); padding: .7rem 1.2rem; background: var(--acc); color: #fff; font-weight: 700; z-index: 10000; }
 .skip:focus { top: 1rem; }
 .nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1rem, 3vw, 2.5rem); background: rgba(10,10,10,.92); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line-acc); z-index: 1000; }
-.nav__b { display: flex; align-items: center; gap: .85rem; font-weight: 800; font-size: clamp(1rem, 1.9vw, 1.18rem); letter-spacing: .01em; }
-.nav__b img { height: 46px; width: 46px; object-fit: cover; border-radius: 4px; border: 2px solid var(--acc); display: block; }
+.nav__b { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--ink); }
+.nav__b .brand-txt { display: flex; flex-direction: column; line-height: 1; }
+.nav__b .brand-name { font-family: var(--font-d); font-size: 1.15rem; line-height: 1; font-weight: 900; letter-spacing: .02em; }
+.nav__b .brand-sub { display: block; margin-top: 4px; font-family: var(--font-d); font-size: .5rem; letter-spacing: .3em; text-transform: uppercase; color: var(--mut); font-weight: 700; }
+.nav__b .brand-sub em { font-style: normal; color: var(--acc-hi); }
+.nav__b .brand-mark { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; }
+@media (max-width: 640px) {
+  .nav__b .brand-name { font-size: 1.05rem; }
+  .nav__b .brand-sub { font-size: .44rem; letter-spacing: .24em; margin-top: 3px; }
+}
 .nav__links { display: flex; gap: clamp(1rem, 2.4vw, 2rem); list-style: none; margin: 0; padding: 0; }
 .nav__links a { font-size: .78rem; text-transform: uppercase; letter-spacing: .13em; color: var(--mut); transition: color .2s; }
 .nav__links a:hover { color: var(--acc-hi); }
-.nav__cta a { display: inline-flex; align-items: center; gap: .45rem; padding: .58rem 1.15rem; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; background: var(--acc); color: #fff; border-radius: 6px; }
-.nav__cta a:hover { background: var(--acc-2); }
-@media (max-width: 680px) { .nav__links { display: none; } }
+.nav__cta a { display: inline-flex; align-items: center; gap: .45rem; padding: .58rem 1.15rem; font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; }
+.nav__cta a:hover { background: var(--acc); color: #fff; border-color: var(--acc); }
+@media (max-width: 680px) { .nav__links { display: none; } .nav__cta { display: none; } }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .8rem 1.5rem; font-size: .86rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; border: 0; border-radius: 6px; cursor: pointer; }
 .btn--p { background: var(--acc); color: #fff; }
 .btn--p:hover { background: var(--acc-2); }
 .btn--o { background: transparent; color: var(--ink); border: 2px solid rgba(255,255,255,.34); }
 .btn--o:hover { border-color: var(--acc-hi); color: var(--acc-hi); }
 /* ===== scroll-built scene ===== */
-#sceneWrap { position: relative; height:auto; background: var(--bg); }
-#sceneSticky { position:relative; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+#sceneWrap { position: relative; height: 400vh; background: var(--bg); }
+#sceneSticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 #buildCanvas { position:relative; inset: 0; width: 100%; height: 100%; display: block; }
 .hero-copy { position: absolute; left: clamp(1rem, 6vw, 7rem); top: calc(var(--nav-h) + 7vh); max-width: 64ch; z-index: 3; pointer-events: none; }
 .hero-copy a, .hero-copy .btn { pointer-events: auto; }
@@ -74,7 +82,6 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .hero-copy .d { margin: 0 0 1.9rem; font-size: clamp(1rem, 1.45vw, 1.18rem); color: var(--mut); max-width: 52ch; }
 .hero-copy .cta { display: flex; flex-wrap: wrap; gap: 1rem; }
 .scroll-hint{display:none}
-.scroll-hint{display:none}
 @keyframes hintDrop { 0% { transform: translateY(-8px); opacity: 0; } 45% { opacity: 1; } 100% { transform: translateY(10px); opacity: 0; } }
 .hud { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
 .stg { position: absolute; left: clamp(1rem, 6vw, 7rem); bottom: 4.5vh; font-family: var(--font-m); }
@@ -82,7 +89,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .stg span { display: block; margin-top: .35rem; font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; color: var(--acc-hi); }
 .rail { position: absolute; right: clamp(1rem, 3.4vw, 2.6rem); top: 24vh; bottom: 24vh; width: 2px; background: rgba(255,255,255,.12); }
 .rail i { position: absolute; left: 0; top: 0; width: 100%; height: 0%; background: linear-gradient(180deg, var(--acc-hi), var(--acc)); display: block; }
-@media (max-width: 680px) { #sceneWrap { height:auto; } .scroll-hint{display:none} }
+@media (max-width: 680px) { #sceneWrap { height: 350vh; } .scroll-hint{display:none} }
 /* ===== sections ===== */
 .sec { max-width: 1180px; margin: 0 auto; padding: clamp(4rem, 8.5vw, 7rem) clamp(1rem, 4vw, 2.6rem); position: relative; }
 .sec--panel { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -113,16 +120,20 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .hero-in,.hero .wrap,.hero__in,.hero .container{position:relative;z-index:2}
 .hero-copy{z-index:2}
 </style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
+<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript>
+<style>/* scene-hide-20261014 */#buildCanvas{display:none !important}#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important}</style>
+</head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
   <a class="nav__b" href="#top" aria-label="Allway Civil Pty Ltd — Home">
-    <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager">
-    <span>Allway Civil</span>
+    <img class="brand-mark" src="assets/logo.jpg" alt="Allway Civil Pty Ltd" width="80" height="80">
+    <div class="brand-txt">
+      <span class="brand-name">Allway Civil</span>
+      <span class="brand-sub">Central Coast&nbsp;·&nbsp;Newcastle&nbsp;·&nbsp;Sydney</span>
+    </div>
   </a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
@@ -130,20 +141,28 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
     <li><a href="#areas">Area</a></li>
     <li><a href="#lbq" data-ux="magnetic">Quote</a></li>
   </ul>
-  <div class="nav__cta"><a href="mailto:allwaycivil@outlook.com.au" aria-label="Email Allway Civil">Get a quote</a></div>
+  <div class="nav__cta">
+    <a href="tel:0405733769" aria-label="Call Allway Civil">Call</a>
+    <a href="mailto:allwaycivil@outlook.com.au" aria-label="Email Allway Civil">Email</a>
+  </div>
 </nav>
 
 <header id="top">
+<!-- LB-3D-HERO -->
+<canvas id="lbfx" aria-hidden="true"></canvas>
+<div class="lbfx-shade" aria-hidden="true"></div>
+  <div class="hero-bg">
+    <img src="assets/hero-excavator.jpg" alt="Tight-access excavation with compact machinery — Allway Civil Pty Ltd" width="1900" height="1425">
+  </div>
 <div class="lbwm" aria-hidden="true">EARTHWORKS</div>
 
 <div id="sceneWrap" aria-label="Scroll to watch the tight-access combo">
   <div id="sceneSticky">
-    
-
+    <canvas id="buildCanvas" aria-hidden="true"></canvas>
     <div class="hero-copy" id="heroCopy">
-      <p class="k">Central Coast - Newcastle - Sydney</p>
-      <h1 class="h1" data-ux="words">Tight access.<br><em>Combo</em> power.</h1>
-      <p class="d">Excavation, wet hire, plant hire, labour hire - bobcat & tipper, posi track, excavator & truck combos. We fit where others can't.</p>
+      <p class="k">Central Coast · Newcastle · Sydney</p>
+      <h1 class="h1" data-ux="words">Tight-access excavation.<br><em>Combo</em> power.</h1>
+      <p class="d">Excavation, wet hire, plant hire, labour hire — bobcat & tipper, posi track, excavator & truck combos. We fit where others can't.</p>
       <div class="cta">
         <a class="btn btn--p" href="#lbq" data-ux="magnetic">Get a free quote</a>
         <a class="btn btn--o" href="mailto:allwaycivil@outlook.com.au" aria-label="Email Allway Civil">Email us</a>
@@ -151,9 +170,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
     </div>
 
     <div class="hud" aria-hidden="true">
-      <div class="stg"></div>
-      <div class="rail"></div>
-      
+      <div class="rail"><i id="railFill"></i></div>
     </div>
   </div>
 </div>
@@ -953,20 +970,19 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
  */
 (function () {
   'use strict';
-  var cv = document.getElementById('sceneFixCanvas');
+  var cv = document.getElementById('buildCanvas');
   if (!cv) return;
-  var wrap = (cv.parentElement || cv).closest('[id*="Wrap"]:not(canvas), [id*="scene"]:not(canvas), .scene, .stage, header') || document.body;
-  var stickyWrap = cv.closest('.scene-sticky, .pin, [id*="Sticky"]') || wrap;
+  var wrap = document.getElementById('sceneWrap');
   var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
       railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');
   var fixedP = PS.queryP();
-  var NAMES = ['01 - set & tie', '02 - formwork', '03 - place concrete', '04 - screed & finish'];
+  var NAMES = ['01 - cut trench', '02 - excavate & load', '03 - swing & dump', '04 - backfill & level'];
 
   var S = PS.setup(cv, {
     sun: 'left', seed: 11, p: fixedP === null ? 0 : fixedP,
     reduce: PS.reduceMotion() || fixedP !== null,
-    sky: ['#123049', '#3d5f7d', '#c98b5e'], glow: '#ffb066', fogNear: 3, fogFar: 34,
-    horizon: 0.44, focal: 1.25, camH: 1.45,
+    sky: ['#123049', '#3d5f7d', '#c98b5e'], glow: '#ffb066', fogNear: 4, fogFar: 28,
+    horizon: 0.52, focal: 0.85, camH: 1.1,
     progress: fixedP !== null ? null : function () {
       var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
       return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
@@ -991,144 +1007,161 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
     var ctx = S.ctx, W = S.W;
     S.sky(0);
     var sg = ctx.createLinearGradient(0, 0, 0, S.horizon + 8);
-    sg.addColorStop(0, '#0e2c46'); sg.addColorStop(0.45, '#2d5473'); sg.addColorStop(0.78, '#8d7a72'); sg.addColorStop(1, '#e0a06a');
+    sg.addColorStop(0, '#0a1a2a'); sg.addColorStop(0.45, '#1a3a5a'); sg.addColorStop(0.78, '#3a3a3a'); sg.addColorStop(1, '#5a4a3a');
     ctx.fillStyle = sg; ctx.fillRect(0, 0, W, S.horizon + 8);
-    for (var ci = 0; ci < 11; ci++) {
-      var cy = S.horizon * (0.10 + ci * 0.075), cw = W * (0.34 + 0.10 * ci), cx = W * (0.02 + ((ci * 0.29 + time * 0.00001) % 1) * 0.96);
-      var cg = ctx.createLinearGradient(0, cy - 20, 0, cy + 22), ca = 0.07 + 0.09 * Math.abs(Math.sin(ci * 1.7));
-      cg.addColorStop(0, 'rgba(255,224,196,0)'); cg.addColorStop(0.42, PS.rgba(ci % 3 === 0 ? '#ffe6cf' : '#ffcfae', ca));
-      cg.addColorStop(0.62, PS.rgba('#ffd0aa', ca * 0.6)); cg.addColorStop(1, 'rgba(255,208,170,0)');
-      ctx.fillStyle = cg; ctx.beginPath(); ctx.ellipse(cx, cy, cw * 0.5, 8 + ci * 2.6, ci * 0.008 - 0.02, 0, 6.2832); ctx.fill();
+    for (var ci = 0; ci < 3; ci++) {
+      var cy = S.horizon * (0.12 + ci * 0.15), cw = W * (0.5 + 0.06 * ci), cx = W * (0.1 + ((ci * 0.4 + time * 0.000006) % 1) * 0.8);
+      var cg = ctx.createLinearGradient(0, cy - 10, 0, cy + 10), ca = 0.02 + 0.03 * Math.abs(Math.sin(ci * 1.7));
+      cg.addColorStop(0, 'rgba(255,200,160,0)'); cg.addColorStop(0.42, PS.rgba('#d4a888', ca));
+      cg.addColorStop(0.62, PS.rgba('#b89070', ca * 0.4)); cg.addColorStop(1, 'rgba(180,120,80,0)');
+      ctx.fillStyle = cg; ctx.beginPath(); ctx.ellipse(cx, cy, cw * 0.5, 4 + ci * 1.5, ci * 0.004 - 0.01, 0, 6.2832); ctx.fill();
     }
-    var sunX = W * 0.30, sunY = S.horizon - S.H * 0.055;
-    var ag = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, Math.max(W, S.H) * 0.42);
-    ag.addColorStop(0, 'rgba(255,224,182,.85)'); ag.addColorStop(0.18, 'rgba(255,190,132,.34)'); ag.addColorStop(1, 'rgba(255,170,110,0)');
-    ctx.fillStyle = ag; ctx.fillRect(0, 0, W, S.horizon + 40);
-    ctx.fillStyle = 'rgba(255,242,214,.95)'; ctx.beginPath(); ctx.arc(sunX, sunY, Math.max(11, S.H * 0.022), 0, 6.2832); ctx.fill();
-    treeLine(78, 0.02, 3.0, PS.mix(S.skyCols[2], '#54606c', 0.30), 0.30);
-    treeLine(52, 0.01, 2.4, PS.mix(S.skyCols[2], '#22323f', 0.5), 0.5);
-    S.haze(0.85);
-    var vh = ctx.createLinearGradient(0, S.horizon - S.H * 0.012, 0, S.horizon + S.H * 0.075);
-    vh.addColorStop(0, 'rgba(255,206,164,.30)'); vh.addColorStop(1, 'rgba(255,206,164,0)');
-    ctx.fillStyle = vh; ctx.fillRect(0, S.horizon - S.H * 0.012, W, S.H * 0.09);
+    var sunX = W * 0.25, sunY = S.horizon - S.H * 0.06;
+    var ag = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, Math.max(W, S.H) * 0.35);
+    ag.addColorStop(0, 'rgba(255,200,150,.6)'); ag.addColorStop(0.18, 'rgba(255,160,100,.2)'); ag.addColorStop(1, 'rgba(255,140,80,0)');
+    ctx.fillStyle = ag; ctx.fillRect(0, 0, W, S.horizon + 30);
+    ctx.fillStyle = 'rgba(255,220,190,.7)'; ctx.beginPath(); ctx.arc(sunX, sunY, Math.max(8, S.H * 0.018), 0, 6.2832); ctx.fill();
+    treeLine(78, 0.02, 2.8, PS.mix(S.skyCols[2], '#404850', 0.4), 0.2);
+    treeLine(52, 0.01, 2.2, PS.mix(S.skyCols[2], '#1a2530', 0.6), 0.35);
+    S.haze(0.95);
+    var vh = ctx.createLinearGradient(0, S.horizon - S.H * 0.01, 0, S.horizon + S.H * 0.06);
+    vh.addColorStop(0, 'rgba(255,180,130,.15)'); vh.addColorStop(1, 'rgba(255,180,130,0)');
+    ctx.fillStyle = vh; ctx.fillRect(0, S.horizon - S.H * 0.01, W, S.H * 0.07);
     var gN = S.project(0, 0, 2.0), gF = S.project(0, 0, 60);
     var gg = ctx.createLinearGradient(0, gF[1], 0, gN[1]);
-    gg.addColorStop(0, PS.mix('#c98b5e', DIRT, 0.72)); gg.addColorStop(0.3, PS.mix(DIRT, '#7a5c3c', 0.35)); gg.addColorStop(1, DIRT_D);
+    gg.addColorStop(0, PS.mix('#8a6a4a', DIRT, 0.7)); gg.addColorStop(0.3, PS.mix(DIRT, '#5a4a3a', 0.4)); gg.addColorStop(1, DIRT_D);
     ctx.fillStyle = gg; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
-    var ls = ctx.createLinearGradient(W * 0.30 - 240, 0, W * 0.30 + 240, 0);
-    ls.addColorStop(0, 'rgba(255,196,138,0)'); ls.addColorStop(0.5, 'rgba(255,196,138,.13)'); ls.addColorStop(1, 'rgba(255,196,138,0)');
+    var ls = ctx.createLinearGradient(W * 0.25 - 200, 0, W * 0.25 + 200, 0);
+    ls.addColorStop(0, 'rgba(255,160,110,0)'); ls.addColorStop(0.5, 'rgba(255,160,110,.06)'); ls.addColorStop(1, 'rgba(255,160,110,0)');
     ctx.fillStyle = ls; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
-    S.texture([S.project(-60, 0, 58), S.project(60, 0, 58), S.project(60, 0, 2), S.project(-60, 0, 2)], 'grain', 420, .03);
+    S.texture([S.project(-60, 0, 58), S.project(60, 0, 58), S.project(60, 0, 2), S.project(-60, 0, 2)], 'grain', 500, .04);
   }
   function grade(time) {
     var ctx = S.ctx;
     var rim = ctx.createLinearGradient(0, 0, S.W, S.H);
-    rim.addColorStop(0, 'rgba(255,196,138,.06)'); rim.addColorStop(0.5, 'rgba(255,196,138,0)'); rim.addColorStop(1, 'rgba(60,90,120,.05)');
+    rim.addColorStop(0, 'rgba(255,160,110,.04)'); rim.addColorStop(0.5, 'rgba(255,160,110,0)'); rim.addColorStop(1, 'rgba(40,60,80,.03)');
     ctx.fillStyle = rim; ctx.fillRect(0, 0, S.W, S.H);
-    S.dust(34, time);
+    S.dust(20, time);
     S.grade();
   }
 
-  /* ---------- SUBJECT (replace per trade; slab pour shown as the worked example) ---------- */
-  function drawSubject(p, time) {
-    var ctx = S.ctx, X0 = -4.6, X1 = 4.6, Z0 = 5.2, Z1 = 19.5, SLAB = 0.42;
-    var t1 = PS.stage(p, 0.00, 0.20, 'place'), t2 = PS.stage(p, 0.18, 0.20, 'place'),
-        t3 = PS.stage(p, 0.38, 0.34, 'release'), t4 = PS.stage(p, 0.66, 0.34, 'place');
-    S.poly([S.project(X0 - 1.3, 0, Z1 + 1.4), S.project(X1 + 1.3, 0, Z1 + 1.4), S.project(X1 + 1.3, 0, Z0 - 1.2), S.project(X0 - 1.3, 0, Z0 - 1.2)], PS.mix(DIRT_D, '#20190f', .30));
-    S.texture([S.project(X0 - 1.2, .002, Z1 + 1.3), S.project(X1 + 1.2, .002, Z1 + 1.3), S.project(X1 + 1.2, .002, Z0 - 1.1), S.project(X0 - 1.2, .002, Z0 - 1.1)], 'streak', 240, .045);
-    S.mottle([S.project(X0 - 1.2, .002, Z1 + 1.3), S.project(X1 + 1.2, .002, Z1 + 1.3), S.project(X1 + 1.2, .002, Z0 - 1.1), S.project(X0 - 1.2, .002, Z0 - 1.1)], '#4a3b2c', .09, 18);
-    var hx = S.project(-6.6, 0, Z0 - 1.4), hs = S.focal / (Z0 - 1.4);
-    S.poly([[hx[0] - 2.6 * hs * .3, hx[1]], [hx[0] + 2.2 * hs * .3, hx[1]], [hx[0] + 1.4 * hs * .3, hx[1] - 0.85 * hs * .3], [hx[0] - 1.7 * hs * .3, hx[1] - 0.55 * hs * .3]], PS.mix(DIRT, '#8a6a42', .25));
-    S.texture([[hx[0] - 2.6 * hs * .3, hx[1]], [hx[0] + 2.2 * hs * .3, hx[1]], [hx[0] + 1.4 * hs * .3, hx[1] - 0.85 * hs * .3], [hx[0] - 1.7 * hs * .3, hx[1] - 0.55 * hs * .3]], 'grain', 160, .05);
-    S.contactAO(-6.6, Z0 - 1.4, 2.6 * hs * .3, 0.9, .34);
-    S.scaleCue(-6.4, Z0 + 2.6, 'cone');
-    var barsZ = 14, barsX = 10, bi = 0;
-    ctx.lineCap = 'round';
-    for (var bz = Z0 + 0.6; bz < Z1 - 0.3; bz += (Z1 - Z0 - 0.9) / barsZ, bi++) {
-      var k = PS.clamp((t1 * (barsZ + barsX) - bi) / 1.3, 0, 1); if (k <= 0) continue;
-      var sa = S.project(X0 + 0.3, 0.10, bz), sb = S.project(X1 - 0.3, 0.10, bz);
-      ctx.globalAlpha = k; ctx.lineWidth = 2.2; ctx.strokeStyle = PS.rgba('#3d4148', .9);
-      ctx.beginPath(); ctx.moveTo(sa[0], sa[1] + 1.5); ctx.lineTo(sb[0], sb[1] + 1.5); ctx.stroke();
-      ctx.lineWidth = 1.7; ctx.strokeStyle = PS.rgba(STEEL, .95);
-      ctx.beginPath(); ctx.moveTo(sa[0], sa[1]); ctx.lineTo(sb[0], sb[1]); ctx.stroke();
-      ctx.lineWidth = 0.9; ctx.strokeStyle = 'rgba(255,235,214,.5)';
-      ctx.beginPath(); ctx.moveTo(sa[0], sa[1] - 1.1); ctx.lineTo(sb[0], sb[1] - 1.1); ctx.stroke();
-    }
-    for (var bx = X0 + 0.6, bj = 0; bx < X1 - 0.3; bx += (X1 - X0 - 1.2) / barsX, bj++) {
-      var k2 = PS.clamp((t1 * (barsZ + barsX) - barsZ - bj) / 1.3, 0, 1); if (k2 <= 0) continue;
-      var sc = S.project(bx, 0.10, Z0 + 0.4), sd = S.project(bx, 0.10, Z1 - 0.2);
-      ctx.globalAlpha = k2 * 0.95; ctx.lineWidth = 1.6; ctx.strokeStyle = PS.rgba(STEEL, .8);
-      ctx.beginPath(); ctx.moveTo(sc[0], sc[1]); ctx.lineTo(sd[0], sd[1]); ctx.stroke();
-    }
-    ctx.globalAlpha = 1;
-    [[X0 - 0.18, 'v'], [X1 + 0.18, 'v'], [Z0 - 0.22, 'h'], [Z1 + 0.22, 'h']].forEach(function (bd, idx) {
-      var k = PS.clamp((t2 - 4 * 0.06 + idx * 0.06) / 0.5, 0, 1); if (k <= 0) return;
-      var hgt = 0.60 - (1 - PS.ease.out(k)) * 0.75;
-      var pts = bd[1] === 'v'
-        ? [S.project(bd[0] - 0.10, hgt, Z1 + 0.28), S.project(bd[0] + 0.10, hgt, Z1 + 0.28), S.project(bd[0] + 0.10, 0, Z1 + 0.28), S.project(bd[0] - 0.10, 0, Z1 + 0.28)]
-        : [S.project(X0 - 0.18, hgt, bd[0]), S.project(X1 + 0.18, hgt, bd[0]), S.project(X1 + 0.18, 0, bd[0]), S.project(X0 - 0.18, 0, bd[0])];
-      S.shadow(bd[1] === 'v' ? bd[0] : 0, bd[1] === 'v' ? (Z0 + Z1) / 2 : bd[0], bd[1] === 'v' ? 0.55 : 4.8, bd[1] === 'v' ? 7 : 0.6, .38);
-      S.castShadow(bd[1] === 'v' ? bd[0] : 0, bd[1] === 'v' ? (Z0 + Z1) / 2 : bd[0],
-                   bd[1] === 'v' ? 0.12 : 4.6, hgt, bd[1] === 'v' ? 1.5 : 0.9, .26);
-      var face = ctx.createLinearGradient(0, pts[0][1], 0, pts[3][1]);
-      face.addColorStop(0, PS.lighten(bd[1] === 'v' ? TIMBER : TIMBER_D, .16));
-      face.addColorStop(1, PS.darken(bd[1] === 'v' ? TIMBER_D : TIMBER, .22));
-      S.poly(pts, face, PS.rgba('#3a2a1a', .55), 1);
-      S.texture(pts, 'streak', 110, .06);
-      var e1 = bd[1] === 'v' ? S.project(bd[0] - 0.10, hgt, Z1 + 0.28) : S.project(X0 - 0.18, hgt, bd[0]);
-      var e2 = bd[1] === 'v' ? S.project(bd[0] + 0.10, hgt, Z1 + 0.28) : S.project(X1 + 0.18, hgt, bd[0]);
-      ctx.strokeStyle = 'rgba(255,226,186,.75)'; ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.moveTo(e1[0], e1[1]); ctx.lineTo(e2[0], e2[1]); ctx.stroke();
-    });
-    if (t3 > 0) {
-      var zF = Z0 + (Z1 - Z0) * t3, base = PS.mix(CONC_WET, CONC_DRY, PS.clamp(t4 * 1.05, 0, 1));
-      var a3 = S.project(X0 + 0.06, SLAB, zF), b3 = S.project(X1 - 0.06, SLAB, zF),
-          c3 = S.project(X1 - 0.06, SLAB, Z0 + 0.06), d3 = S.project(X0 + 0.06, SLAB, Z0 + 0.06);
-      var g3 = ctx.createLinearGradient(0, a3[1], 0, d3[1]);
-      g3.addColorStop(0, PS.lighten(base, .14)); g3.addColorStop(.55, base); g3.addColorStop(1, PS.darken(base, .24));
-      S.poly([a3, b3, c3, d3], g3, null, 1);
-      S.mottle([a3, b3, c3, d3], base, .13, 26);                    /* tonal patches: reads as real concrete */
-      S.texture([a3, b3, c3, d3], 'aggregate', 360, .06);
-      if (t4 < 0.8) {
-        var sheen = ctx.createLinearGradient(0, a3[1], 0, a3[1] + (d3[1] - a3[1]) * .30);
-        sheen.addColorStop(0, 'rgba(255,238,214,.28)'); sheen.addColorStop(1, 'rgba(255,238,214,0)');
-        S.poly([a3, b3, c3, d3], sheen, null, 1);
+  /* ---------- SUBJECT (replace per trade; excavator/bobcat in tight access shown as the worked example) ---------- */
+    function drawSubject(p, time) {
+      var ctx = S.ctx, X0 = -3.5, X1 = 3.5, Z0 = 4.0, Z1 = 16.0, GRD = 0.0;
+      var t1 = PS.stage(p, 0.00, 0.25, 'place'), t2 = PS.stage(p, 0.22, 0.25, 'place'),
+          t3 = PS.stage(p, 0.45, 0.30, 'release'), t4 = PS.stage(p, 0.70, 0.30, 'place');
+      /* ----- ground plane & trench cut ----- */
+      S.poly([S.project(X0 - 1.5, GRD, Z1 + 1.8), S.project(X1 + 1.5, GRD, Z1 + 1.8), S.project(X1 + 1.5, GRD, Z0 - 1.5), S.project(X0 - 1.5, GRD, Z0 - 1.5)], DIRT_D);
+      S.texture([S.project(X0 - 1.4, GRD + 0.003, Z1 + 1.7), S.project(X1 + 1.4, GRD + 0.003, Z1 + 1.7), S.project(X1 + 1.4, GRD + 0.003, Z0 - 1.4), S.project(X0 - 1.4, GRD + 0.003, Z0 - 1.4)], 'streak', 260, .05);
+      S.mottle([S.project(X0 - 1.4, GRD + 0.003, Z1 + 1.7), S.project(X1 + 1.4, GRD + 0.003, Z1 + 1.7), S.project(X1 + 1.4, GRD + 0.003, Z0 - 1.4), S.project(X0 - 1.4, GRD + 0.003, Z0 - 1.4)], DIRT, .12, 22);
+      /* ----- spoil pile near trench edge ----- */
+      var spZ = Z0 + 2.0, spX = X1 + 1.8;
+      var sp = PS.clamp(t1 * 1.8, 0, 1);
+      if (sp > 0.05) {
+        var pts = [S.project(spX - 0.9 * sp, 0.4 * sp, spZ), S.project(spX + 0.9 * sp, 0.4 * sp, spZ), S.project(spX + 0.7 * sp, GRD + 0.01, spZ + 1.2), S.project(spX - 0.7 * sp, GRD + 0.01, spZ + 1.2)];
+        S.poly(pts, PS.mix(DIRT, DIRT_D, 0.55));
+        S.mottle(pts, DIRT_D, .18, 18);
+        S.contactAO(spX, spZ, 1.1 * sp, 1.2, .35);
       }
-      S.rim(a3, b3, 'rgba(255,246,232,.72)', 1, 2.6);              /* sun-side edge of the slab */
-      S.rim(c3, b3, 'rgba(255,214,170,.30)', .55, 1.6);
-      S.contactAO(0, (Z0 + zF) / 2, (X1 - X0) / 2 + 0.35, Math.max(1.2, (zF - Z0) / 2 + 0.4), .34);
-      var glintX = S.project(0, SLAB, zF)[0], glintY = (a3[1] + d3[1]) / 2;
-      var gl = ctx.createRadialGradient(glintX, glintY, 0, glintX, glintY, Math.max(90, (d3[1] - a3[1]) * 0.55));
-      gl.addColorStop(0, 'rgba(255,238,206,' + (0.26 * (1 - t4)) + ')'); gl.addColorStop(1, 'rgba(255,238,206,0)');
-      S.poly([a3, b3, c3, d3], gl, null, 1);
-      if (t4 > 0.30) {
-        ctx.save(); ctx.globalAlpha = PS.clamp((t4 - 0.30) / 0.7, 0, 1) * 0.16;
-        ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 1.1;
-        for (var ar = 0; ar < 9; ar++) {
-          var zc2 = Z0 + 0.9 + ((Z1 - Z0 - 1.4) * (ar / 9)), cx2 = -3.2 + ((ar * 2.7) % 6.4);
-          var pc = S.project(cx2, SLAB, zc2), rw = (1.5 + 0.35 * (ar % 3)) * S.focal / zc2;
-          ctx.beginPath(); ctx.ellipse(pc[0], pc[1], rw * 0.30, rw * 0.10, 0, 0, 6.2832); ctx.stroke();
+      /* ----- excavator (3t class) - body, boom, arm, bucket ----- */
+      var exZ = Z0 + 0.8 + (Z1 - Z0 - 4) * PS.clamp(t2 * 1.2, 0, 1);
+      var exX = X0 + 0.2;
+      var exRot = -0.35 + 0.7 * PS.clamp((t2 - 0.1) / 0.4, 0, 1); /* slew from trench to spoil */
+      var exBody = S.project(exX, 0.75, exZ);
+      var exScale = S.focal / exZ;
+      /* tracks */
+      var trY = 0.75, trH = 0.35;
+      [[exX - 0.55, trY, exZ - 1.1, exZ + 1.1], [exX + 0.55, trY, exZ - 1.1, exZ + 1.1]].forEach(function(t) {
+        var a = S.project(t[0], t[1], t[2]), b = S.project(t[0], t[1] + trH, t[2]), c = S.project(t[0], t[1] + trH, t[3]), d = S.project(t[0], t[1], t[3]);
+        var g = ctx.createLinearGradient(0, a[1], 0, b[1]);
+        g.addColorStop(0, '#1a1c1e'); g.addColorStop(0.5, '#2a2d30'); g.addColorStop(1, '#1a1c1e');
+        S.poly([a, b, c, d], g, PS.rgba('#0a0b0c', .9), 1.2);
+        S.mottle([a, b, c, d], '#111315', .15, 10);
+      });
+      /* body - yellow construction machinery */
+      var bx = S.project(exX, 0.95, exZ), bw = 0.85 * exScale, bh = 0.65 * exScale;
+      var bodyPts = [[bx[0] - bw, bx[1] - bh], [bx[0] + bw, bx[1] - bh], [bx[0] + bw * 0.8, bx[1] + bh], [bx[0] - bw * 0.8, bx[1] + bh]];
+      var bg = ctx.createLinearGradient(0, bodyPts[0][1], 0, bodyPts[2][1]);
+      bg.addColorStop(0, '#ffc107'); bg.addColorStop(0.4, '#e6a800'); bg.addColorStop(1, '#b8860b');
+      S.poly(bodyPts, bg, PS.rgba('#7a5a08', .9), 1.5);
+      S.rim(bodyPts[0], bodyPts[1], 'rgba(255,220,100,.6)', 1.2, 2.8);
+      /* cab window */
+      var wx = bodyPts[0][0] + bw * 0.3, wy1 = bodyPts[0][1] + bh * 0.15, wy2 = bodyPts[0][1] + bh * 0.65;
+      ctx.fillStyle = 'rgba(180,210,235,.85)'; ctx.fillRect(wx, wy1, bw * 0.7, wy2 - wy1);
+      /* boom + arm + bucket */
+      var boomLen = 3.8 * exScale, armLen = 2.6 * exScale;
+      var boomAng = -0.5 + 0.3 * Math.sin(time * 0.0007 + exRot); /* subtle hydraulic motion */
+      var armAng = boomAng - 0.8 + 0.4 * PS.clamp(t3 * 1.5, 0, 1);
+      var boomTip = [bx[0] + Math.cos(boomAng) * boomLen, bx[1] - Math.sin(boomAng) * boomLen];
+      var bucketTip = [boomTip[0] + Math.cos(armAng) * armLen, boomTip[1] - Math.sin(armAng) * armLen];
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = PS.rgba('#5a5f66', .95); ctx.lineWidth = 6 * exScale;
+      ctx.beginPath(); ctx.moveTo(bx[0], bx[1] - bh * 0.3); ctx.lineTo(boomTip[0], boomTip[1]); ctx.stroke();
+      ctx.strokeStyle = PS.rgba('#7a808a', .95); ctx.lineWidth = 5 * exScale;
+      ctx.beginPath(); ctx.moveTo(boomTip[0], boomTip[1]); ctx.lineTo(bucketTip[0], bucketTip[1]); ctx.stroke();
+      /* bucket */
+      var bkw = 0.7 * exScale, bkh = 0.5 * exScale;
+      var bucketPts = [[bucketTip[0] - bkw, bucketTip[1] - bkh], [bucketTip[0] + bkw, bucketTip[1] - bkh], [bucketTip[0] + bkw * 0.6, bucketTip[1] + bkh], [bucketTip[0] - bkw * 0.6, bucketTip[1] + bkh]];
+      var bkg = ctx.createLinearGradient(0, bucketPts[0][1], 0, bucketPts[2][1]);
+      bkg.addColorStop(0, '#3a3f46'); bkg.addColorStop(0.5, '#2a2e34'); bkg.addColorStop(1, '#1a1c1e');
+      S.poly(bucketPts, bkg, PS.rgba('#0a0b0c', .9), 1.2);
+      S.rim(bucketPts[0], bucketPts[1], 'rgba(255,220,180,.25)', .8, 1.6);
+      /* teeth glint */
+      if (t3 > 0.4) {
+        ctx.save(); ctx.globalAlpha = PS.clamp((t3 - 0.4) / 0.6, 0, 1) * 0.25;
+        ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+        for (var ti = 0; ti < 4; ti++) {
+          var tx = bucketTip[0] - bkw * 0.5 + (bkw * 1.0 * ti / 3);
+          ctx.beginPath(); ctx.moveTo(tx, bucketPts[3][1]); ctx.lineTo(tx, bucketTip[1] + bkh * 0.3); ctx.stroke();
         }
         ctx.restore();
-        S.texture([a3, b3, c3, d3], 'grain', 260, .035);
       }
-      if (t3 > 0.12 && t4 < 0.9) {
-        var bb1 = S.project(X0 + 0.25, 0.68, zF), bb2 = S.project(X1 - 0.25, 0.68, zF),
-            bb3 = S.project(X1 - 0.25, SLAB, zF), bb4 = S.project(X0 + 0.25, SLAB, zF);
-        S.shadow(0, zF, 3.9, 0.4, .4);
-        var bg = ctx.createLinearGradient(0, bb1[1], 0, bb3[1]);
-        bg.addColorStop(0, '#e3e6ea'); bg.addColorStop(1, '#9aa1aa');
-        S.poly([bb1, bb2, bb3, bb4], bg, 'rgba(70,76,84,.8)', 1);
-        ctx.strokeStyle = 'rgba(255,255,255,.8)'; ctx.lineWidth = 2.2;
-        ctx.beginPath(); ctx.moveTo(bb1[0], bb1[1]); ctx.lineTo(bb2[0], bb2[1]); ctx.stroke();
-        var wx = S.project(X1 + 0.55, 0, zF), ws = S.focal / zF * 0.32;
-        S.shadow(X1 + 0.55, zF, 0.5, 0.3, .4);
-        S.poly([[wx[0] - 0.16 * ws, wx[1]], [wx[0] + 0.16 * ws, wx[1]], [wx[0] + 0.13 * ws, wx[1] - 1.05 * ws], [wx[0] - 0.13 * ws, wx[1] - 1.05 * ws]], HIVIS);
-        ctx.fillStyle = 'rgba(20,24,30,.85)'; ctx.beginPath(); ctx.arc(wx[0], wx[1] - 1.18 * ws, 0.15 * ws, 0, 6.2832); ctx.fill();
-        S.poly([[wx[0] + 0.13 * ws, wx[1] - 1.0 * ws], [wx[0] + 0.62 * ws, wx[1] - 0.72 * ws], [wx[0] + 0.58 * ws, wx[1] - 0.6 * ws], [wx[0] + 0.11 * ws, wx[1] - 0.86 * ws]], HIVIS);
+      /* ----- posi track / bobcat loading spoil into tipper (later stage) ----- */
+      if (t3 > 0.2) {
+        var ptZ = Z0 + 3.0, ptX = X1 - 0.5;
+        var ptProg = PS.clamp((t3 - 0.2) / 0.5, 0, 1);
+        var ptBody = S.project(ptX, 0.65, ptZ);
+        var ptScale = S.focal / ptZ;
+        /* tracks */
+        [[ptX - 0.45, 0.65, ptZ - 0.9, ptZ + 0.9], [ptX + 0.45, 0.65, ptZ - 0.9, ptZ + 0.9]].forEach(function(t) {
+          var a = S.project(t[0], t[1], t[2]), b = S.project(t[0], t[1] + 0.28, t[2]), c = S.project(t[0], t[1] + 0.28, t[3]), d = S.project(t[0], t[1], t[3]);
+          var g = ctx.createLinearGradient(0, a[1], 0, b[1]);
+          g.addColorStop(0, '#1a1c1e'); g.addColorStop(1, '#2a2d30');
+          S.poly([a, b, c, d], g, PS.rgba('#0a0b0c', .9), 1);
+        });
+        /* body - white/orange posi track */
+        var pb = ptBody, pbw = 0.6 * ptScale, pbh = 0.5 * ptScale;
+        var bpts = [[pb[0] - pbw, pb[1] - pbh], [pb[0] + pbw, pb[1] - pbh], [pb[0] + pbw * 0.7, pb[1] + pbh], [pb[0] - pbw * 0.7, pb[1] + pbh]];
+        var pbg = ctx.createLinearGradient(0, bpts[0][1], 0, bpts[2][1]);
+        pbg.addColorStop(0, '#fff8f0'); pbg.addColorStop(0.5, '#ffe0c0'); pbg.addColorStop(1, '#e8d0b0');
+        S.poly(bpts, pbg, PS.rgba('#8a7050', .9), 1);
+        S.rim(bpts[0], bpts[1], 'rgba(255,220,180,.35)', 1, 2);
+        /* bucket */
+        var bktX = ptX + 1.2 + 0.6 * ptProg, bktZ = ptZ - 0.5 + 0.8 * ptProg;
+        var bkt = S.project(bktX, 0.85, bktZ);
+        var bkw2 = 0.45 * ptScale, bkh2 = 0.35 * ptScale;
+        var bkpts = [[bkt[0] - bkw2, bkt[1] - bkh2], [bkt[0] + bkw2, bkt[1] - bkh2], [bkt[0] + bkw2 * 0.7, bkt[1] + bkh2], [bkt[0] - bkw2 * 0.7, bkt[1] + bkh2]];
+        var bkg2 = ctx.createLinearGradient(0, bkpts[0][1], 0, bkpts[2][1]);
+        bkg2.addColorStop(0, '#3a3f46'); bkg2.addColorStop(0.5, '#2a2e34'); bkg2.addColorStop(1, '#1a1c1e');
+        S.poly(bkpts, bkg2, PS.rgba('#0a0b0c', .9), 1);
+        /* tipper truck waiting - white/blue */
+        var tpZ = ptZ + 1.8, tpX = ptX + 0.4;
+        var tp = S.project(tpX, 0.7, tpZ);
+        var tpw = 1.8 * S.focal / tpZ, tph = 0.85 * S.focal / tpZ;
+        var tpts = [[tp[0] - tpw, tp[1] - tph], [tp[0] + tpw, tp[1] - tph], [tp[0] + tpw, tp[1] + tph * 0.7], [tp[0] - tpw, tp[1] + tph * 0.7]];
+        var tpg = ctx.createLinearGradient(0, tpts[0][1], 0, tpts[2][1]);
+        tpg.addColorStop(0, '#e8eaed'); tpg.addColorStop(1, '#c0c4c8');
+        S.poly(tpts, tpg, PS.rgba('#7a8088', .9), 1.2);
+        S.rim(tpts[0], tpts[1], 'rgba(255,255,255,.3)', 1, 2);
+        /* tipper tray - load of spoil */
+        var ty = tpts[0][1], th = tph * 0.7;
+        var trayPts = [[tp[0] - tpw * 0.9, ty], [tp[0] + tpw * 0.9, ty], [tp[0] + tpw * 0.9, ty - th], [tp[0] - tpw * 0.9, ty - th]];
+        var trg = ctx.createLinearGradient(0, ty, 0, ty - th);
+        trg.addColorStop(0, DIRT); trg.addColorStop(1, DIRT_D);
+        S.poly(trayPts, trg, PS.rgba('#3a2a1a', .7), 1);
+        S.mottle(trayPts, DIRT_D, .15, 14);
       }
     }
-  }
 
   function frame(S_, p, time) {
     S = S_;
@@ -1136,8 +1169,6 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
     drawSubject(p, time);
     grade(time);
     var idx = p < 0.2 ? 0 : p < 0.38 ? 1 : p < 0.66 ? 2 : 3;
-    if (stgNum) stgNum.textContent = '0' + (idx + 1);
-    if (stgName) stgName.textContent = ['Set & tie', 'Formwork', 'Place concrete', 'Screed & finish'][idx];
     if (railFill) railFill.style.width = Math.round(p * 100) + '%';
     if (heroCopy) heroCopy.style.opacity = (window.scrollY < 40 ? 1 : PS.clamp(1 - p * 2.4, 0, 1));
   }

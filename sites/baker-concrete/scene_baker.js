@@ -16,7 +16,7 @@
   var S = PS.setup(cv, {
     sun: 'left', seed: 11, p: fixedP === null ? 0 : fixedP,
     reduce: PS.reduceMotion() || fixedP !== null,
-    sky: ['#fafafa', '#e8e8e8', '#d0d0d0'], glow: '#e8e8e8', fogNear: 2, fogFar: 28,
+    sky: ['#1a1a1a', '#2a2a2a', '#3a3a3a'], glow: '#393f65', fogNear: 2, fogFar: 28,
     horizon: 0.42, focal: 1.35, camH: 1.35,
     progress: fixedP !== null ? null : function () {
       var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
@@ -25,35 +25,35 @@
     onFrame: frame
   });
 
-  /* Palette — white/graphite/cool grey per brand */
+  /* Palette — dark concrete/graphite/brand navy per brand */
   var GRAPHITE  = '#2d2d2d';
   var GRAPHITE_D = '#1a1a1a';
-  var COOL_GREY = '#6b6b6b';
-  var COOL_GREY_D = '#4a4a4a';
+  var COOL_GREY = '#8a8a8a';
+  var COOL_GREY_D = '#6b6b6b';
   var WHITE     = '#fafafa';
-  var WHITE_WARM = '#f5f3f0';
-  var TIMBER    = '#8a6a42';
-  var TIMBER_D  = '#6b4f2f';
-  var TIMBER_L  = '#a68a6b';
-  var STEEL     = '#9aa6b4';
-  var STEEL_D   = '#6b7a8a';
-  var CONC_WET  = '#c9c8c3';
-  var CONC_DRY  = '#e8e6e2';
-  var BOARD_GRAIN = '#5a4a3a';
+  var WHITE_WARM = '#e8e6e2';
+  var TIMBER    = '#c4a07a';
+  var TIMBER_D  = '#a0805a';
+  var TIMBER_L  = '#d4b890';
+  var STEEL     = '#b0bcc8';
+  var STEEL_D   = '#8a9aad';
+  var CONC_WET  = '#d8d6d0';
+  var CONC_DRY  = '#f0eeea';
+  var BOARD_GRAIN = '#7a6a5a';
 
   /* ---------- ENVIRONMENT — calm architectural light (overcast) ---------- */
   function env(time) {
     var ctx = S.ctx, W = S.W;
     S.sky(0.15); // subtle glow
     var g = ctx.createLinearGradient(0, 0, 0, S.H);
-    g.addColorStop(0, '#fcfcfc');
-    g.addColorStop(0.42, '#f0f0f0');
-    g.addColorStop(0.7, '#e0e0e0');
-    g.addColorStop(1, '#d0d0d0');
+    g.addColorStop(0, '#fafafa');
+    g.addColorStop(0.42, '#e8e8e8');
+    g.addColorStop(0.7, '#d8d8d8');
+    g.addColorStop(1, '#c8c8c8');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, S.H);
-    S.haze(0.6);
+    S.haze(0.4);
     var vh = ctx.createLinearGradient(0, S.horizon - S.H * 0.01, 0, S.horizon + S.H * 0.06);
-    vh.addColorStop(0, 'rgba(200,200,200,.18)'); vh.addColorStop(1, 'rgba(200,200,200,0)');
+    vh.addColorStop(0, 'rgba(57,63,101,.12)'); vh.addColorStop(1, 'rgba(57,63,101,0)');
     ctx.fillStyle = vh; ctx.fillRect(0, S.horizon - S.H * 0.01, W, S.H * 0.07);
     var gN = S.project(0, 0, 1.5), gF = S.project(0, 0, 45);
     var gg = ctx.createLinearGradient(0, gF[1], 0, gN[1]);
@@ -420,9 +420,9 @@
     if (stgName) stgName.textContent = labels[Math.min(idx, labels.length - 1)];
     if (railFill) railFill.style.height = Math.round(p * 100) + '%';
     if (heroCopy) {
-      var ho = PS.clamp(1 - p * 2.8, 0, 1);
+      var ho = PS.clamp(1 - p * 1.5, 0, 1);
       heroCopy.style.opacity = ho;
-      heroCopy.style.transform = 'translateY(' + (p * 30) + 'px)';
+      heroCopy.style.transform = 'translateY(' + (p * 15) + 'px)';
     }
     var hint = document.getElementById('scrollHint');
     if (hint) hint.style.opacity = PS.clamp(1 - p * 6, 0, 1);

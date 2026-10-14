@@ -12,8 +12,8 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Montserrat:wght@700;900&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Montserrat:wght@700;900&family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   --coal:#0D0F0C;
@@ -22,6 +22,7 @@
   --lime:#C6D62A;
   --lime-bright:#DCEB4A;
   --lime-dim:#8A9420;
+  --lime-deep:#4A520F;
   --bone:#F4F6EE;
   --bone2:#E6EAD8;
   --ink:#171A12;
@@ -44,45 +45,66 @@ html.js .drop.in{opacity:1;transform:none}
   *{animation-duration:.001s !important;transition-duration:.001s !important}
 }
 
-.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(13,15,12,.97);-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);border-bottom:2px solid var(--lime)}
-.nav-in{display:flex;align-items:center;gap:1.4rem;height:78px}
-.brand{display:flex;align-items:center;gap:.9rem;color:#fff;text-decoration:none}
-.brand img{height:50px;width:auto;border-radius:4px}
-.brand-name{font-family:var(--font-display);font-size:1.4rem;letter-spacing:.02em;line-height:1;color:#fff;font-weight:600}
-.brand-sub{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);font-weight:600}
-.nav-links{display:flex;gap:1.35rem;margin-left:auto;align-items:center}
-.nav-links a{color:#B9C0A8;text-decoration:none;font-size:.92rem;font-weight:500}
-.nav-links a:hover{color:#fff}
-.nav-cta{background:var(--lime);color:#171A12 !important;padding:.55rem 1.2rem;border-radius:6px;font-weight:700}
-.nav-cta:hover{filter:brightness(1.06)}
-.burger{display:none;margin-left:auto;background:none;border:1px solid rgba(198,214,42,.5);border-radius:6px;padding:.4rem .6rem;cursor:pointer}
-.burger span{display:block;width:20px;height:2px;background:#fff;margin:4px 0;transition:.3s}
-.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-@media(max-width:920px){
-  .nav-links{position:fixed;inset:78px 0 auto 0;background:#0D0F0C;flex-direction:column;padding:1.2rem;gap:1rem;transform:translateY(-140%);transition:transform .35s ease;border-bottom:2px solid var(--lime)}
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(10,12,8,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:1.4rem;height:90px;max-width:1360px;margin:0 auto;padding:0 40px}
+.brand{display:flex;align-items:center;gap:.7rem;color:var(--ink);text-decoration:none}
+.brand-mark{height:32px;width:auto;display:block}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:'Montserrat','Saira Condensed','Arial Narrow',sans-serif;font-size:1.16rem;line-height:1;font-weight:900;letter-spacing:.025em}
+.brand-sub{display:block;margin-top:4px;font-family:'Montserrat','Saira Condensed',sans-serif;font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:#c3c7cc;font-weight:700;font-style:normal}
+.brand-sub em{font-style:normal;color:var(--acc)}
+.nav-links{display:flex;gap:1.3rem;margin-left:auto;align-items:center}
+.nav-links a{color:#F6F8EC;text-decoration:none;font-size:.9rem;font-weight:600;letter-spacing:.03em}
+.nav-links a:hover{color:var(--lime)}
+.nav-cta{display:flex;gap:.8rem;align-items:center}
+.nav-p{font-size:.82rem;font-weight:700;color:#F6F8EC}
+
+/* Mobile nav */
+@media(max-width:640px){
+  .brand-mark{height:24px}
+  .brand-name{font-size:1rem}
+  .brand-sub{font-size:.44rem;letter-spacing:.24em;margin-top:3px}
+  .nav-in{padding:0 18px;gap:.9rem}
+  .nav-links{position:fixed;inset:90px 0 auto 0;background:rgba(10,12,8,.92);flex-direction:column;padding:1.2rem;gap:1rem;transform:translateY(-140%);transition:transform .35s ease;border-bottom:1px solid var(--line)}
   .nav-links.open{transform:none}
-  .nav-links a{width:100%;text-align:center;padding:.5rem 0}
-  .nav-cta{display:inline-block;margin-top:.3rem}
-  .burger{display:block}
+  .nav-links a{width:100%;text-align:center;padding:.5rem 0;color:#F6F8EC}
+  .nav-cta{display:flex;flex-direction:column;gap:.5rem;align-items:stretch}
+  .nav-cta .btn{width:100%;justify-content:center}
+  .burger{display:block;background:none;border:1px solid rgba(198,214,42,.5);border-radius:6px;padding:.4rem .6rem;cursor:pointer}
+  .burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0;transition:.3s}
+  .burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 }
 
+/* btn-sm for nav cta */
+.btn-sm{padding:.5rem 1rem;font-size:.87rem}
+
 /* hero — night pylon with current flowing up the lines */
-.hero{position:relative;min-height:95vh;display:flex;align-items:flex-start;background:linear-gradient(180deg,#0A0C08 0%,#12160C 60%,#0D0F0C 100%);overflow:hidden;padding-top:78px}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero{position:relative;min-height:95vh;display:flex;align-items:flex-start;background:linear-gradient(180deg,#0A0C08 0%,#12160C 60%,#0D0F0C 100%);overflow:hidden;padding-top:90px}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:none}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,8,.06) 0%,rgba(10,12,8,.04) 38%,rgba(10,12,8,.84) 100%);pointer-events:none}
-.hero-in{position:relative;z-index:2;padding-block:12.5vh 3.4rem;width:100%}
+.hero-in{position:relative;z-index:2;padding-block:12.5vh 3.4rem;width:100%;display:grid;grid-template-columns:1.02fr .98fr;gap:1.15rem;align-items:center}
+@media(max-width:980px){
+  .hero-in{grid-template-columns:1fr}
+  .hero-visual{order:-1}
+}
+.hero-copy{position:relative;z-index:3}
+.hero-copy::before{content:"";position:absolute;inset:-8% -6%;background:radial-gradient(112% 76% at 26% 46%,rgba(255,255,255,.95),rgba(255,255,255,0) 76%);z-index:-1}
+.hero-visual img{width:100%;height:min(56vh,540px);object-fit:cover;border-radius:12px;box-shadow:0 16px 40px rgba(30,33,36,.16)}
+@media(max-width:980px){
+  .hero-visual img{height:min(30vh,240px)}
+}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:var(--lime-bright);font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
 .hero-kicker::before{content:"";width:36px;height:2px;background:var(--lime)}
-.hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4.7rem);line-height:1.04;color:#F6F8EC;font-weight:600;max-width:22ch}
-.hero h1 em{font-style:normal;color:var(--lime-bright)}
-.hero-sub{margin-top:1.1rem;color:#AEB69A;font-size:clamp(.99rem,1.5vw,1.1rem);max-width:56ch}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4.7rem);line-height:1.04;color:#F6F8EC;font-weight:700;max-width:22ch}
+.hero h1 em{font-style:normal;color:#F6F8EC}
+.hero-sub{margin-top:1.1rem;color:#D4D9C9;font-size:clamp(.99rem,1.5vw,1.1rem);max-width:56ch;line-height:1.6}
 .hero-cta{display:flex;gap:.9rem;margin-top:1.8rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.55rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:.97rem;transition:transform .15s ease,filter .15s ease}
 .btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
 .btn-primary{background:var(--lime);color:#171A12}
-.btn-ghost{border:1.5px solid rgba(246,248,236,.4);color:#F6F8EC}
+.btn-ghost{background:transparent;border:1.5px solid var(--lime);color:var(--lime)}
 .hero-strip{margin-top:2.6rem;display:flex;gap:2.6rem;flex-wrap:wrap;border-top:1px solid rgba(198,214,42,.45);padding-top:1.2rem}
 .hero-strip p{color:#77806A;font-size:.71rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
 .hero-strip strong{display:block;color:#F6F8EC;font-family:var(--font-display);font-size:1.05rem;margin-top:.2rem;font-weight:500}
@@ -90,7 +112,7 @@ html.js .drop.in{opacity:1;transform:none}
 section{padding-block:5.4rem}
 .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.4rem}
 .sec-head::before{content:"";width:40px;height:3px;background:var(--lime-dim);flex:none;align-self:center;border-radius:2px}
-.sec-kicker{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:#7E8C1E;font-weight:700}
+.sec-kicker{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--lime-deep);font-weight:700}
 .sec-title{font-family:var(--font-display);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:600;line-height:1.1;margin-top:.35rem;max-width:28ch;color:var(--coal)}
 .sec-sub{color:var(--muted);max-width:60ch;margin-top:.85rem}
 
@@ -144,44 +166,54 @@ footer{background:#0A0C08;border-top:2px solid rgba(198,214,42,.5);color:#9AA488
 .foot-bottom{border-top:1px solid rgba(198,214,42,.3);padding-top:1.5rem;margin-top:3rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.79rem;color:#6E7660}
 section#lbq{--lbq-bg:#F4F6EE;--lbq-ink:#171A12;--lbq-muted:#5D6450;--lbq-panel:#FFFFFF;--lbq-line:#D8DEC6;--lbq-accent:#7E8C1E}
 </style>
+
+<style>#heroCanvas{display:none;perspective:800px}</style>
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Ben Thompson Electrical home">
-      <img src="assets/logo-mark_ben-thompson.png" alt="Ben Thompson Electrical logo" height="50">
-      <span>
-        <span class="brand-name">Ben Thompson</span><br>
-        <span class="brand-sub">Electrical &middot; Wingham NSW</span>
+      <img class="brand-mark" src="assets/logo-mark_ben-thompson.png" alt="">
+      <span class="brand-txt">
+        <b class="brand-name">BEN THOMPSON</b>
+        <i class="brand-sub"><em>ELECTRICAL</em> · WINGHAM NSW</i>
       </span>
     </a>
-    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
-      <span></span><span></span><span></span>
-    </button>
     <div class="nav-links" id="navlinks">
       <a href="#services">Services</a>
       <a href="#process">How we work</a>
       <a href="#areas">Service areas</a>
-      <a class="nav-cta" href="#quote">Get a quote</a>
+      <a href="#quote">Get a quote</a>
     </div>
+    <div class="nav-cta">
+      <span class="mono nav-p">0437 756 502</span>
+      <a href="#quote" class="btn btn-primary btn-sm">Get a quote</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <!-- LB-3D-HERO -->
   <div class="hero-shade"></div>
   <div class="wrap hero-in">
-    <p class="hero-kicker">Wingham NSW &middot; Licensed Electrician</p>
-    <h1 data-ux="words">Power done <em>right, first time.</em></h1>
-    <p class="hero-sub">Ben Thompson Electrical — licensed electrician based in Wingham, servicing all surrounding areas. Switchboards, power, lighting and maintenance for homes and businesses.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="tel:+61437756502">Call 0437 756 502</a>
-      <a class="btn btn-ghost" href="#quote">Get a quote</a>
+    <div class="hero-copy">
+      <p class="hero-kicker">Wingham NSW &middot; Licensed Electrician</p>
+      <h1>Power done <em>right, first time.</em></h1>
+      <p class="hero-sub">Licensed electrician in Wingham NSW. Switchboard upgrades, power points, lighting, fault finding & maintenance. No call-out fees. Servicing Taree, Forster, Gloucester & the Mid North Coast.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+61437756502">Call 0437 756 502</a>
+        <a class="btn btn-ghost" href="#quote">Get a quote</a>
+      </div>
+      <div class="hero-strip">
+        <p><strong>Residential</strong>homes & renovations</p>
+        <p><strong>Commercial</strong>shops & offices</p>
+        <p><strong>Maintenance</strong>faults & repairs</p>
+      </div>
     </div>
-    <div class="hero-strip">
-      <p><strong>Residential</strong>homes &amp; renovations</p>
-      <p><strong>Commercial</strong>shops &amp; offices</p>
-      <p><strong>Maintenance</strong>faults &amp; repairs</p>
+    <div class="hero-visual">
+      <img src="assets/hero-electrical-real.jpg" alt="Ben Thompson Electrical — switchboard upgrade and electrical installation on site" loading="eager">
     </div>
   </div>
 </header>
@@ -277,7 +309,7 @@ section#lbq{--lbq-bg:#F4F6EE;--lbq-ink:#171A12;--lbq-muted:#5D6450;--lbq-panel:#
         </div>
       </div>
       <div class="why-visual drop">
-        <img src="assets/logo.jpg" alt="Ben Thompson Electrical logo">
+        <img src="assets/work-real.jpg" alt="Ben Thompson Electrical — switchboard upgrade and electrical installation on site" loading="lazy">
         <p>Ben Thompson Electrical — Wingham, NSW.</p>
       </div>
     </div>
@@ -310,7 +342,7 @@ section#lbq{--lbq-bg:#F4F6EE;--lbq-ink:#171A12;--lbq-muted:#5D6450;--lbq-panel:#
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <img src="assets/logo.jpg" alt="Ben Thompson Electrical logo" height="52">
+          <img src="assets/logo-mark_ben-thompson.png" alt="Ben Thompson Electrical logo" height="52">
           <span>
             <span class="foot-brand-name">Ben Thompson</span><br>
             <span class="foot-brand-sub">Electrical &middot; Wingham NSW</span>
@@ -333,6 +365,7 @@ section#lbq{--lbq-bg:#F4F6EE;--lbq-ink:#171A12;--lbq-muted:#5D6450;--lbq-panel:#
       <span>Licensed electrician</span>
     </div>
   </div>
+<p style="position:absolute;top:-90px" id="quote"></p>
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
