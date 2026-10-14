@@ -14,8 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#EFE8DC; --paper:#FBF8F2; --ink:#191612; --ink2:#6E6659; --line:rgba(25,22,18,.14);
-  --acc:#191612; --shine:#FFFFFF; --gut:clamp(18px,4.6vw,64px);
+  --bg:#FAF6F3; --paper:#FFFFFF; --ink:#171114; --ink2:#6B5A61; --line:rgba(23,17,20,.14);
+  --acc:#C9457A; --acc-deep:#A93264; --blush:#F5DCE5; --shine:#FFFFFF; --gut:clamp(18px,4.6vw,64px);
   --disp:'Fraunces',Georgia,serif; --body:'Outfit',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -116,7 +116,7 @@ footer p,footer a{font-size:.86rem;color:var(--ink2)}
     <div class="nav-links" id="navlinks">
       <a href="#services">Services</a><a href="#more">Details</a><a href="#areas">Areas</a><a href="#book">Book</a>
     </div>
-    <div class="nav-cta"><a class="btn btn-dark btn-sm" href="#book">Message to book</a></div>
+    <div class="nav-cta"><a class="btn btn-pink btn-sm" href="#book">Message to book</a></div>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -127,17 +127,17 @@ footer p,footer a{font-size:.86rem;color:var(--ink2)}
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-in wrap">
     <p class="hero-kick">Newcastle &middot; Lake Macquarie &middot; surrounds</p>
-    <h1>Making homes <em>spotless.</em></h1>
-    <p class="hero-sub">Deep cleans, regular cleans and move-out cleans for homes across Newcastle and Lake Macquarie.</p>
+    <h1>Clean homes,<br><em>happier lives.</em></h1>
+    <p class="hero-sub">Making homes spotless across Newcastle &amp; Lake Macquarie &mdash; deep cleans, regular cleans and move-out cleans.</p>
     <div class="hero-cta">
-      <a class="btn btn-dark" href="#book">Message to book</a>
-      <a class="btn btn-ghost" href="#services">What we clean</a>
+      <a class="btn btn-pink" href="#book">Message to book</a>
+      <a class="btn btn-ghost" href="#services" style="border-color:var(--acc);color:var(--acc-deep)">What we clean</a>
     </div>
     <div class="hero-strip">
       <p><b>Deep cleans</b>Top-to-bottom reset</p>
       <p><b>Regular cleans</b>Booked on your schedule</p>
       <p><b>Move-out cleans</b>End-of-lease ready</p>
-      <p><b>Instagram</b>@grimeclub_ &mdash; book by DM</p>
+      <p><b>Call or DM</b>0449 880 127 &middot; @grimeclub_</p>
     </div>
   </div>
 </header>
@@ -218,7 +218,7 @@ footer p,footer a{font-size:.86rem;color:var(--ink2)}
 <footer>
   <div class="wrap fin">
     <p><b style="color:var(--ink);font-family:var(--disp)">Grime Club</b> &mdash; cleaning service, Newcastle &amp; Lake Macquarie.</p>
-    <p><a href="https://www.instagram.com/grimeclub_/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="#top">Back to top</a></p>
+    <p>0449 880 127 &middot; <a href="https://www.instagram.com/grimeclub_/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="#top">Back to top</a></p>
   </div>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
@@ -262,6 +262,26 @@ footer p,footer a{font-size:.86rem;color:var(--ink2)}
 /* lbq contrast contract (light site) */
 #lbq{--lbq-accent:#191612!important;--lbq-ink:#191612!important;--lbq-muted:#4A4438!important;--lbq-bg:#FBF8F2!important;--lbq-panel:#FFFFFF!important;--lbq-line:rgba(25,22,18,.18)!important}
 #lbq .lbq-note,#lbq small,#lbq .muted{color:#4A4438!important}
+
+/* Grime Club ad-palette pass 2026-10-14 */
+h1 em{color:var(--acc)!important}
+.hero-kick{color:var(--acc-deep)}
+.hero-kick::before{background:var(--acc)}
+.sec-idx{color:var(--acc)}
+.brand-sub{color:var(--acc-deep)}
+.btn-pink{background:var(--acc);color:#fff}
+.btn-pink:hover{box-shadow:0 10px 26px rgba(201,69,122,.35)}
+.svc{border-top:3px solid var(--acc)}
+.svc .n{color:var(--acc)}
+.svc h3{color:var(--ink)}
+.band{background:var(--ink)}
+.band .tags span{border-color:rgba(245,220,229,.4);color:var(--blush)}
+.hero-strip b{color:var(--acc-deep)}
+.rows .k{color:var(--acc)}
+footer{background:var(--ink);border-top:0}
+footer p,footer a{color:rgba(250,246,243,.82)}
+footer b{color:#fff!important}
+#lbq{--lbq-accent:#C9457A!important;--lbq-ink:#171114!important;--lbq-muted:#6B5A61!important;--lbq-bg:#FAF6F3!important;--lbq-panel:#FFFFFF!important;--lbq-line:rgba(23,17,20,.16)!important}
 </style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
@@ -369,7 +389,7 @@ footer p,footer a{font-size:.86rem;color:var(--ink2)}
       var bx = ((b + 0.5) / bands) * W + Math.sin(t * 0.12 + b) * 22;
       var grad = g.createLinearGradient(bx - 120, 0, bx + 120, 0);
       grad.addColorStop(0, 'rgba(255,255,255,0)');
-      grad.addColorStop(0.5, 'rgba(255,255,255,.20)');
+      grad.addColorStop(0.5, 'rgba(201,69,122,.14)');
       grad.addColorStop(1, 'rgba(255,255,255,0)');
       g.fillStyle = grad;
       g.fillRect(bx - 130, H*0.06, 260, H*0.86);
@@ -382,12 +402,12 @@ footer p,footer a{font-size:.86rem;color:var(--ink2)}
       var wg = g.createLinearGradient(wx - 170, 0, wx + 170, 0);
       var fade = Math.sin(p * Math.PI);
       wg.addColorStop(0, 'rgba(255,255,255,0)');
-      wg.addColorStop(0.5, 'rgba(255,255,255,' + (0.5 * fade).toFixed(3) + ')');
+      wg.addColorStop(0.5, 'rgba(201,69,122,' + (0.36 * fade).toFixed(3) + ')');
       wg.addColorStop(1, 'rgba(255,255,255,0)');
       g.fillStyle = wg;
       g.fillRect(wx - 180, H*0.04, 360, H*0.9);
       /* leading glint line */
-      g.fillStyle = 'rgba(255,255,255,' + (0.5 * fade).toFixed(3) + ')';
+      g.fillStyle = 'rgba(169,50,100,' + (0.55 * fade).toFixed(3) + ')';
       g.fillRect(wx + 150, H*0.1, 2.2, H*0.78);
     }
     /* sparkles */
@@ -398,7 +418,7 @@ footer p,footer a{font-size:.86rem;color:var(--ink2)}
       var x = sp.x * W + Math.sin(sp.ph + t*0.3) * 8;
       var y = sp.y * H + Math.cos(sp.ph + t*0.24) * 8;
       var r = sp.r * (0.6 + tw * 0.9);
-      g.strokeStyle = 'rgba(255,255,255,' + (0.85 * (tw - 0.55) / 0.45).toFixed(3) + ')';
+      g.strokeStyle = 'rgba(201,69,122,' + (0.8 * (tw - 0.55) / 0.45).toFixed(3) + ')';
       g.lineWidth = 1.2;
       g.beginPath();
       g.moveTo(x - r*2.4, y); g.lineTo(x + r*2.4, y);
