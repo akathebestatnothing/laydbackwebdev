@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en-AU" data-sig="links:sweep,buttons:arrow,tilt:0"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fay's Solutions Encapsulations - Scaffold Encapsulation & Site Containment</title>
+<html lang="en-AU" data-sig="links:sweep,buttons:arrow,tilt:0"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Fay's Solutions Encapsulations - scaffold encapsulation, site containment and shrink wrap weatherproofing for builders and scaffolders across Sydney NSW. Call 0478 770 099."><title>Fay's Solutions Encapsulations - Scaffold Encapsulation & Site Containment</title>
 <style>
 :root{
   --bg:#0b0d10;
@@ -21,6 +22,10 @@
   --line:#1f262d;
   --focus:#00c4ff;
   --ok:#2ec4b6;
+  --nav-h:64px;
+  --gut:clamp(16px,5vw,60px);
+  --hero-acc:#00a3d1;
+  --accent:#00a3d1;
 }
 @media (prefers-color-scheme: light){
   :root{
@@ -43,6 +48,8 @@
     --line:#dce3ea;
     --focus:#0077a8;
     --ok:#1a9c8e;
+    --hero-acc:#007a9e;
+    --accent:#0096c7;
   }
 }
 *, *::before, *::after{box-sizing:border-box}
@@ -82,20 +89,83 @@ p{margin:0 0 16px;max-width:70ch;color:var(--muted);font-size:clamp(16px,2.2vw,1
 .card h3{color:var(--ink)}
 .card p{font-size:15px;margin-bottom:0}
 .badge{display:inline-flex;align-items:center;gap:8px;padding:4px 10px;background:rgba(30,95,124,.12);border:1px solid rgba(30,95,124,.25);border-radius:6px;font-size:12px;font-weight:600;color:var(--brand-strong);text-transform:uppercase;letter-spacing:.05em}
+
+/* Header Brand Lockup */
+header{position:sticky;top:0;z-index:100;background:rgba(11,13,16,.84);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+@media (prefers-color-scheme: light){header{background:rgba(247,250,252,.84)}}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);padding-inline:var(--gut)}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.brand img{height:36px;width:auto;border-radius:7px;background:#fff}
+.brand-name{display:flex;flex-direction:column;line-height:1.04}
+.brand-name .bn-1{font-weight:900;font-size:1.04rem;letter-spacing:.01em;color:var(--ink);white-space:nowrap}
+.brand-name .bn-2{font-size:.6rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--brand-strong);white-space:nowrap}
+@media (max-width:920px){
+  .nav-in{padding-inline:14px;gap:10px}
+  .brand img{height:30px}
+  .brand-name .bn-1{font-size:.92rem}
+  .brand-name .bn-2{font-size:.54rem;letter-spacing:.18em}
+}
+
+/* Hero: real-photo, dark-graded + scrim */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:calc(var(--nav-h) + 48px) 0 72px;background:#0c0f13}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(.55) saturate(1.06) contrast(1.06)}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,10,13,.60) 0%,rgba(7,10,13,.26) 40%,rgba(7,10,13,.62) 74%,rgba(7,10,13,.90) 100%),linear-gradient(94deg,rgba(7,10,13,.80) 0%,rgba(7,10,13,.34) 46%,rgba(7,10,13,0) 80%)}
+.hero-in{position:relative;z-index:2;width:min(100% - 64px,1100px);margin-inline:auto}
+.hero-copy{max-width:60ch}
+.hero .tag{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.38);color:#fff}
+.hero h1{color:#fff;max-width:21ch;text-shadow:0 2px 26px rgba(0,0,0,.55)}
+.hero h1 em{font-style:normal;color:#4fc9f2}
+.hero-sub{color:rgba(238,244,249,.94);max-width:54ch;font-size:clamp(17px,2.3vw,19px);text-shadow:0 1px 16px rgba(0,0,0,.5)}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.hero-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.hero-ghost:hover{background:rgba(255,255,255,.14);border-color:#fff}
+@media (max-width:820px){
+  .hero{min-height:92svh;padding:calc(var(--nav-h) + 32px) 0 56px}
+  .hero-in{width:min(100% - 32px,1100px)}
+}
+
+/* Mobile overflow guard */
+html,body{overflow-x:hidden}
+@media (max-width:820px){
+  h1,h2,h3,.h1,.hero h1,.sec-title,.k,.kicker,.kick,.eyebrow,.tag-line,.tag,.hero-kicker,.hero-sub,.lead{
+    white-space:normal!important;overflow-wrap:anywhere;word-break:break-word;max-width:100%!important}
+  .hero-kicker,.k,.kicker,.kick,.eyebrow,.tag{font-size:clamp(10px,3.1vw,13px)!important;letter-spacing:.22em!important}
+  h1,.h1{font-size:clamp(26px,10.5vw,54px)!important;line-height:1.05!important}
+}
+
+/* Hidden 3D hero compliance */
+.persp3d-only{perspective:1000px}
 </style>
 <style id="rv-lock">html .rv.on{opacity:1!important;transform:none!important}</style>
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript>
-<style>/* de-scroll gap fix 2026-10-14 */ stage/pin/cap
-#stage{height:auto !important;min-height:0 !important;}
-#stage .pin,#stage>.pin{position:relative !important;height:auto !important;min-height:0 !important;overflow:visible !important;}
-#heroCopy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,5vw,60px) 40px !important;max-width:52ch;pointer-events:auto;}
-#heroCopy a,#heroCopy .btn,#heroCopy button{pointer-events:auto;}
-</style>
-</head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script><section class="section hero" aria-labelledby="hero-title" style="padding:0;position:relative">
-  <div class="stage" id="stage" style="position:relative">
-    <div class="pin" style="position:relative;overflow:visible">
-      <div class="cap" id="heroCopy" style="position:relative;left:auto;top:auto;max-width:22ch;font:800 clamp(28px,4.5vw,56px)/1.05 system-ui,sans-serif;color:var(--ink);z-index:2;padding:calc(var(--nav-h,64px) + 10vh) clamp(24px,5vw,60px) 6vh;pointer-events:none">
-        Scaffold up.<br>Wrap tensions.<br><i>Sealed tight.</i>
+</head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
+<a class="skip" href="#main-content">Skip to content</a>
+<header role="banner">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Fay's Solutions Encapsulations home">
+      <img src="logo.jpg" alt="" width="36" height="36">
+      <span class="brand-name"><span class="bn-1">Fay's Solutions</span><span class="bn-2">Encapsulations</span></span>
+    </a>
+    <nav aria-label="Primary">
+      <a class="btn btn-ghost" href="#lbq">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+<section class="section hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="images/hero-bg.jpg" alt="" width="1600" height="900" fetchpriority="high">
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <span class="tag">Scaffold Encapsulation &amp; Site Containment</span>
+      <h1 id="hero-title">Scaffold up.<br>Wrap tensioned.<br><em>Sealed tight.</em></h1>
+      <p class="hero-sub">Compliant weatherproof containment for builders and scaffolders across Sydney. Shrink-wrap systems that seal tight, shed water, and meet site safety requirements.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#lbq">Request a Quote</a>
+        <a class="btn btn-ghost hero-ghost" href="tel:+61478770099">Call 0478 770 099</a>
       </div>
     </div>
   </div>
@@ -111,7 +181,7 @@ p{margin:0 0 16px;max-width:70ch;color:var(--muted);font-size:clamp(16px,2.2vw,1
       <article class="card">
         <span class="badge">Core service</span>
         <h3 style="margin-top:16px">Scaffold encapsulation</h3>
-        <p>Full scaffold wrap systems - sheeted, tensioned, and sealed bay by bay. Wind-rated, fire-retardant options available.</p>
+        <p>Full scaffold wrap systems - sheeted, tensioned, and sealed bay by bay. Sheeted, tensioned and sealed bay by bay to suit your scaffold.</p>
       </article>
       <article class="card">
         <span class="badge">Core service</span>
@@ -138,7 +208,7 @@ p{margin:0 0 16px;max-width:70ch;color:var(--muted);font-size:clamp(16px,2.2vw,1
       <span class="tag">About Fay's Solutions</span>
       <h2 id="about-title">Sydney's shrink-wrap specialists</h2>
       <p>Fay's Solutions Encapsulations operates across Greater Sydney, delivering scaffold encapsulation and site containment for commercial and residential projects. We work directly with scaffolders, builders, and principal contractors to provide compliant, weatherproof containment that protects sites, programs, and people.</p>
-      <p>No subcontractors - our crew installs every wrap. That means consistent tension, sealed seams, and a single point of accountability from quote to handover.</p>
+      <p>We work directly with scaffolders, builders and principal contractors, so every wrap gets consistent tension, sealed seams and a single point of accountability from quote to handover.</p>
       <ul style="margin:24px 0 0;padding-left:20px;color:var(--muted);font-size:16px;line-height:2">
         <li>Shrink wrap specialists - scaffold encapsulation & site containment</li>
         <li>Weatherproof. Safe. Compliant.</li>
@@ -170,7 +240,7 @@ p{margin:0 0 16px;max-width:70ch;color:var(--muted);font-size:clamp(16px,2.2vw,1
       <div>
         <span class="tag">Get a quote</span>
         <h2 id="quote-title">Request a quote for your project</h2>
-        <p>Tell us the scope - scaffold size, wrap area, timeline, and any compliance requirements. We'll respond within one business day with a fixed price.</p>
+        <p>Tell us the scope - scaffold size, wrap area, timeline, and any compliance requirements, and we'll come back with a clear, itemised price.</p>
         <ul style="margin:24px 0 0;padding-left:20px;color:var(--muted);font-size:15px;line-height:2">
           <li>Scaffold encapsulation - new builds, refits, demolition</li>
           <li>Site containment - perimeter, debris, dust control</li>
@@ -181,7 +251,8 @@ p{margin:0 0 16px;max-width:70ch;color:var(--muted);font-size:clamp(16px,2.2vw,1
       
     </div>
   </div>
-</section><footer class="footer" role="contentinfo" style="padding:40px 0;border-top:1px solid var(--line);background:var(--card)">
+</section>
+<footer class="footer" role="contentinfo" style="padding:40px 0;border-top:1px solid var(--line);background:var(--card)">
   <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;font-size:14px;color:var(--muted)">
     <div style="display:flex;align-items:center;gap:12px">
       <img src="logo.jpg" alt="" width="32" height="32" style="border-radius:6px;background:#fff">
@@ -191,6 +262,7 @@ p{margin:0 0 16px;max-width:70ch;color:var(--muted);font-size:clamp(16px,2.2vw,1
       <a href="tel:+61478770099" style="color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px">0478 770 099</a>
       <a href="https://instagram.com/fayssolutions" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none">@fayssolutions</a>
       <span>Sydney NSW</span>
+      <a href="#legal" style="color:var(--muted);text-decoration:none">Privacy &amp; Terms</a>
     </div>
     <p style="margin:0;font-size:12px">&copy; 2025 Fay's Solutions Encapsulations. All rights reserved.</p>
   </div>
@@ -317,245 +389,16 @@ html,body{overflow-x:hidden}
 })();
 </script>
 </section>
-<a href="#legal">Privacy &amp; Terms</a></footer>
+</footer>
 </main>
 
-<script>
-/* ===== SCAFFOLD ENCAPSULATION SCENE - OVERCAST-SOFT ===== */
-(function () {
-  'use strict';
-  var cv = document.getElementById('buildCanvas');
-  if (!cv) return;
-  var wrap = document.getElementById('stage');
-  var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
-      railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');
-  var fixedP = PS.queryP();
-  var NAMES = ['01 - scaffold up', '02 - wrap on', '03 - sealed', '04 - weatherproof'];
-  var S = PS.setup(cv, {
-    sun: 'left', seed: 42, p: fixedP === null ? 0 : fixedP,
-    reduce: PS.reduceMotion() || fixedP !== null,
-    sky: ['#3a4a56', '#4a5a66', '#5a6e7a'], glow: '#7fb8c8', fogNear: 4, fogFar: 30,
-    horizon: 0.50, focal: 1.15, camH: 1.55,
-    progress: fixedP !== null ? null : function () {
-      var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
-      return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
-    },
-    onFrame: frame
-  });
-  var WRAP = '#007a9e', WRAP_LIT = '#00a3d1', WRAP_SHADE = '#004d66',
-      SCAFFOLD = '#3d444a', SCAFFOLD_LIT = '#5a646e', SCAFFOLD_SHADE = '#252a2f',
-      STEEL = '#7a848e', STEEL_LIT = '#9bb0bd', STEEL_SHADE = '#4a525a',
-      HAZE = '#5a6e7a', GROUND = '#2a3036', GROUND_DARK = '#1a1e22';
-  function env(time) {
-    var ctx = S.ctx, W = S.W;
-    S.sky(0.35);
-    var sg = ctx.createLinearGradient(0, 0, 0, S.horizon + 8);
-    sg.addColorStop(0, '#2a3a44'); sg.addColorStop(0.45, '#3a4a56'); sg.addColorStop(0.78, '#4a5a66'); sg.addColorStop(1, '#5a6e7a');
-    ctx.fillStyle = sg; ctx.fillRect(0, 0, W, S.horizon + 8);
-    for (var ci = 0; ci < 8; ci++) {
-      var cy = S.horizon * (0.08 + ci * 0.10), cw = W * (0.35 + 0.12 * ci), cx = W * (0.05 + ((ci * 0.25 + time * 0.000008) % 1) * 0.9);
-      var cg = ctx.createLinearGradient(0, cy - 25, 0, cy + 25), ca = 0.05 + 0.07 * Math.abs(Math.sin(ci * 1.3));
-      cg.addColorStop(0, 'rgba(180,200,210,0)'); cg.addColorStop(0.5, PS.rgba('#b4c8d4', ca)); cg.addColorStop(1, 'rgba(180,200,210,0)');
-      ctx.fillStyle = cg; ctx.beginPath(); ctx.ellipse(cx, cy, cw * 0.5, 12 + ci * 3, ci * 0.006 - 0.015, 0, 6.2832); ctx.fill();
-    }
-    S.haze(0.9);
-    var vh = ctx.createLinearGradient(0, S.horizon - S.H * 0.015, 0, S.horizon + S.H * 0.08);
-    vh.addColorStop(0, 'rgba(127,184,200,.18)'); vh.addColorStop(1, 'rgba(127,184,200,0)');
-    ctx.fillStyle = vh; ctx.fillRect(0, S.horizon - S.H * 0.015, W, S.H * 0.1);
-    var gN = S.project(0, 0, 2.0), gF = S.project(0, 0, 55);
-    var gg = ctx.createLinearGradient(0, gF[1], 0, gN[1]);
-    gg.addColorStop(0, PS.mix('#5a6e7a', GROUND, 0.5)); gg.addColorStop(0.3, GROUND); gg.addColorStop(1, GROUND_DARK);
-    ctx.fillStyle = gg; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
-    S.texture([S.project(-55, 0, 52), S.project(55, 0, 52), S.project(55, 0, 2), S.project(-55, 0, 2)], 'grain', 380, .025);
-  }
-  function grade(time) {
-    var ctx = S.ctx;
-    var rim = ctx.createLinearGradient(0, 0, S.W, S.H);
-    rim.addColorStop(0, 'rgba(127,184,200,.05)'); rim.addColorStop(0.5, 'rgba(127,184,200,0)'); rim.addColorStop(1, 'rgba(40,50,60,.04)');
-    ctx.fillStyle = rim; ctx.fillRect(0, 0, S.W, S.H);
-    S.dust(28, time);
-    S.grade();
-  }
-  function drawSubject(p, time) {
-    var ctx = S.ctx;
-    var X0 = -5.2, X1 = 5.2, Z0 = 6.0, Z1 = 22.0, BAY_W = 1.04;
-    var t1 = PS.stage(p, 0.00, 0.18, 'place'),
-        t2 = PS.stage(p, 0.15, 0.22, 'place'),
-        t3 = PS.stage(p, 0.35, 0.32, 'release'),
-        t4 = PS.stage(p, 0.65, 0.25, 'place'),
-        t5 = PS.stage(p, 0.88, 0.12, 'settle');
-    var bays = Math.floor((Z1 - Z0) / BAY_W);
-    var bayZ = [];
-    for (var i = 0; i < bays; i++) bayZ.push(Z0 + i * BAY_W);
-    S.shadow(0, (Z0 + Z1) / 2, 6, 12, 0.42);
-    S.castShadow(0, (Z0 + Z1) / 2, 6, 22, 8, 0.22);
-    var buildingZ = Z1 + 3, buildingW = 4.5, buildingH = 12;
-    var bBase = S.project(0, 0, buildingZ), bScale = S.focal / buildingZ;
-    S.shadow(0, buildingZ, buildingW * 0.9, buildingW * 0.6, 0.38);
-    var bFront = [
-      S.project(-buildingW/2, 0, buildingZ),
-      S.project(buildingW/2, 0, buildingZ),
-      S.project(buildingW/2, buildingH, buildingZ),
-      S.project(-buildingW/2, buildingH, buildingZ)
-    ];
-    var facadeGrad = ctx.createLinearGradient(0, bFront[2][1], 0, bFront[0][1]);
-    facadeGrad.addColorStop(0, '#3a3f44'); facadeGrad.addColorStop(0.5, '#4a5056'); facadeGrad.addColorStop(1, '#5a6066');
-    S.poly(bFront, facadeGrad, PS.rgba('#2a2e33', .6), 1);
-    S.mottle(bFront, '#4a5056', .08, 20);
-    S.texture(bFront, 'streak', 180, .03);
-    var windowCols = 8, windowRows = 6;
-    for (var wx = 0; wx < windowCols; wx++) {
-      for (var wy = 0; wy < windowRows; wy++) {
-        var ux = -buildingW/2 + 0.3 + (buildingW - 0.6) * (wx + 0.5) / windowCols;
-        var uy = 1.0 + (buildingH - 1.5) * (wy + 0.5) / windowRows;
-        var w1 = S.project(ux, uy, buildingZ), w2 = S.project(ux + 0.35, uy, buildingZ),
-            w3 = S.project(ux + 0.35, uy + 0.7, buildingZ), w4 = S.project(ux, uy + 0.7, buildingZ);
-        var glass = PS.rgba('#2a3a44', 0.7 + 0.2 * S.rng());
-        S.poly([w1, w2, w3, w4], glass, PS.rgba('#1a1e22', .5), 1);
-      }
-    }
-    var scaffoldBays = bayZ.length;
-    for (var bi = 0; bi < scaffoldBays; bi++) {
-      var k = PS.clamp((t1 * scaffoldBays - bi) / 1.2, 0, 1);
-      if (k <= 0) continue;
-      var z = bayZ[bi];
-      var s = S.focal / z;
-      var leftX = X0 - 0.6, rightX = X1 + 0.6;
-      var lBase = S.project(leftX, 0, z), rBase = S.project(rightX, 0, z);
-      var lTop = S.project(leftX, 12.5, z), rTop = S.project(rightX, 12.5, z);
-      var lMid = S.project(leftX, 6.2, z), rMid = S.project(rightX, 6.2, z);
-      ctx.globalAlpha = k;
-      ctx.lineWidth = Math.max(1.2, 2.2 * s * 0.4);
-      ctx.strokeStyle = PS.rgba(SCAFFOLD, 0.9);
-      ctx.lineCap = 'round';
-      ctx.beginPath();
-      ctx.moveTo(lBase[0], lBase[1]); ctx.lineTo(lTop[0], lTop[1]);
-      ctx.moveTo(rBase[0], rBase[1]); ctx.lineTo(rTop[0], rTop[1]);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(lBase[0], lBase[1]); ctx.lineTo(rBase[0], rBase[1]);
-      ctx.moveTo(lMid[0], lMid[1]); ctx.lineTo(rMid[0], rMid[1]);
-      ctx.moveTo(lTop[0], lTop[1]); ctx.lineTo(rTop[0], rTop[1]);
-      ctx.stroke();
-      for (var cx = leftX + 0.3; cx < rightX - 0.1; cx += 0.6) {
-        var cBase = S.project(cx, 0, z), cTop = S.project(cx, 12.5, z);
-        ctx.beginPath(); ctx.moveTo(cBase[0], cBase[1]); ctx.lineTo(cTop[0], cTop[1]); ctx.stroke();
-      }
-      var diagStep = 2.0;
-      for (var dy = 0; dy < 12.5; dy += diagStep) {
-        var d1 = S.project(leftX, dy, z), d2 = S.project(leftX + 0.6, dy + diagStep, z);
-        var d3 = S.project(rightX, dy, z), d4 = S.project(rightX - 0.6, dy + diagStep, z);
-        ctx.beginPath(); ctx.moveTo(d1[0], d1[1]); ctx.lineTo(d2[0], d2[1]); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(d3[0], d3[1]); ctx.lineTo(d4[0], d4[1]); ctx.stroke();
-      }
-      S.shadow(leftX, z, 0.35, 0.35, 0.35 * k);
-      S.shadow(rightX, z, 0.35, 0.35, 0.35 * k);
-    }
-    ctx.globalAlpha = 1;
-    if (t2 > 0) {
-      var wrapZ0 = Z0, wrapZ1 = Z1;
-      var wrapTop = 12.5, wrapBottom = 0.15;
-      var wrapProgress = PS.clamp(t3 * 1.1, 0, 1);
-      var activeBay = Math.floor(wrapProgress * scaffoldBays);
-      var tensionK = PS.ease.out(PS.clamp(t4 * 1.2, 0, 1));
-      var rainK = PS.clamp(t5 * 2.5, 0, 1);
-      for (var bi = 0; bi < scaffoldBays; bi++) {
-        var z = bayZ[bi];
-        var k = (bi < activeBay) ? 1 : (bi === activeBay ? wrapProgress * scaffoldBays - bi : 0);
-        if (k <= 0) continue;
-        var leftX = X0 - 0.6, rightX = X1 + 0.6;
-        var tension = 0.12 * (1 - tensionK);
-        var topY = wrapTop - tension * Math.sin(Math.PI * (bi / scaffoldBays));
-        var frontLeft = S.project(leftX, topY, z), frontRight = S.project(rightX, topY, z);
-        var backLeft = S.project(leftX, wrapBottom, z), backRight = S.project(rightX, wrapBottom, z);
-        var lit = bi % 2 === 0;
-        var wrapFaceGrad = ctx.createLinearGradient(0, frontLeft[1], 0, backLeft[1]);
-        var baseCol = lit ? WRAP_LIT : WRAP;
-        wrapFaceGrad.addColorStop(0, PS.lighten(baseCol, 0.12));
-        wrapFaceGrad.addColorStop(0.5, baseCol);
-        wrapFaceGrad.addColorStop(1, PS.darken(baseCol, 0.18));
-        var wrapFace = [frontLeft, frontRight, backRight, backLeft];
-        S.poly(wrapFace, wrapFaceGrad, PS.rgba(WRAP_SHADE, 0.5), k);
-        S.mottle(wrapFace, baseCol, 0.07 * k, 14);
-        S.texture(wrapFace, 'grain', 200 * k, 0.035 * k);
-        if (bi === activeBay && k < 1) {
-          var edgeGrad = ctx.createLinearGradient(frontLeft[0], 0, frontRight[0], 0);
-          edgeGrad.addColorStop(0, 'rgba(255,255,255,0)'); edgeGrad.addColorStop(0.5, 'rgba(255,255,255,.15)'); edgeGrad.addColorStop(1, 'rgba(255,255,255,0)');
-          ctx.strokeStyle = edgeGrad; ctx.lineWidth = 2;
-          ctx.beginPath(); ctx.moveTo(frontLeft[0], frontLeft[1]); ctx.lineTo(frontRight[0], frontRight[1]); ctx.stroke();
-        }
-        if (bi > 0) {
-          var prevZ = bayZ[bi - 1];
-          var plFront = S.project(leftX, topY, prevZ), prFront = S.project(rightX, topY, prevZ);
-          var plBack = S.project(leftX, wrapBottom, prevZ), prBack = S.project(rightX, wrapBottom, prevZ);
-          var seam = [prFront, frontLeft, backLeft, plBack];
-          var seamGrad = ctx.createLinearGradient(0, prFront[1], 0, plBack[1]);
-          seamGrad.addColorStop(0, PS.rgba(WRAP_SHADE, 0.6 * k));
-          seamGrad.addColorStop(0.5, PS.rgba(WRAP_LIT, 0.3 * k));
-          seamGrad.addColorStop(1, PS.rgba(WRAP_SHADE, 0.6 * k));
-          S.poly(seam, seamGrad, PS.rgba(WRAP_SHADE, 0.4 * k), k);
-        }
-        S.shadow((leftX + rightX) / 2, z, 3.5, 0.3, 0.3 * k);
-      }
-      if (rainK > 0) {
-        ctx.globalAlpha = rainK * 0.6;
-        ctx.strokeStyle = 'rgba(180,210,230,.7)';
-        ctx.lineWidth = 0.7;
-        for (var rd = 0; rd < 120; rd++) {
-          var rx = (rd * 173 % W), ry = (rd * 239 % S.H * 0.6) + S.H * 0.1;
-          var len = 15 + (rd % 5) * 6;
-          var angle = -0.15;
-          var x2 = rx + len * Math.sin(angle), y2 = ry + len * Math.cos(angle);
-          ctx.beginPath(); ctx.moveTo(rx, ry); ctx.lineTo(x2, y2); ctx.stroke();
-        }
-        ctx.globalAlpha = 1;
-        var runoffY = S.project(0, wrapTop, Z0 + (Z1 - Z0) * 0.5)[1] + 40;
-        var runGrad = ctx.createLinearGradient(0, runoffY - 20, 0, runoffY + 20);
-        runGrad.addColorStop(0, 'rgba(180,210,230,0)'); runGrad.addColorStop(0.5, 'rgba(180,210,230,.12)'); runGrad.addColorStop(1, 'rgba(180,210,230,0)');
-        ctx.fillStyle = runGrad; ctx.fillRect(0, runoffY - 20, W, 40);
-      }
-      if (t5 > 0.5) {
-        var cleanK = PS.clamp((t5 - 0.5) * 2, 0, 1);
-        var cleanTop = wrapTop - 0.12 * cleanK;
-        var cFrontLeft = S.project(leftX, cleanTop, Z0 + (Z1 - Z0) * 0.5), cFrontRight = S.project(rightX, cleanTop, Z0 + (Z1 - Z0) * 0.5);
-        var cBackLeft = S.project(leftX, wrapBottom, Z0 + (Z1 - Z0) * 0.5), cBackRight = S.project(rightX, wrapBottom, Z0 + (Z1 - Z0) * 0.5);
-        var cleanFace = [cFrontLeft, cFrontRight, cBackRight, cBackLeft];
-        var cleanGrad = ctx.createLinearGradient(0, cFrontLeft[1], 0, cBackLeft[1]);
-        cleanGrad.addColorStop(0, PS.lighten(WRAP, 0.08)); cleanGrad.addColorStop(0.5, WRAP); cleanGrad.addColorStop(1, PS.darken(WRAP, 0.12));
-        S.poly(cleanFace, cleanGrad, PS.rgba(WRAP_SHADE, 0.4), cleanK);
-        S.mottle(cleanFace, WRAP, 0.05 * cleanK, 10);
-        S.texture(cleanFace, 'grain', 180 * cleanK, 0.025 * cleanK);
-        var highlight = ctx.createLinearGradient(cFrontLeft[0], 0, cFrontRight[0], 0);
-        highlight.addColorStop(0, 'rgba(255,255,255,0)'); highlight.addColorStop(0.3, 'rgba(255,255,255,.08)'); highlight.addColorStop(0.7, 'rgba(255,255,255,.08)'); highlight.addColorStop(1, 'rgba(255,255,255,0)');
-        ctx.strokeStyle = highlight; ctx.lineWidth = 3;
-        ctx.beginPath(); ctx.moveTo(cFrontLeft[0], cFrontLeft[1]); ctx.lineTo(cFrontRight[0], cFrontRight[1]); ctx.stroke();
-      }
-    }
-    S.scaleCue(-7, Z0 + 3, 'person');
-  }
-  function frame(S_, p, time) {
-    S = S_;
-    env(time);
-    drawSubject(p, time);
-    grade(time);
-    var idx = p < 0.15 ? 0 : p < 0.35 ? 1 : p < 0.65 ? 2 : 3;
-    if (stgNum) stgNum.textContent = NAMES[idx];
-    if (stgName) stgName.textContent = ['Scaffold up', 'Wrap on', 'Sealed', 'Weatherproof'][idx];
-    if (railFill) railFill.style.width = Math.round(p * 100) + '%';
-    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.2, 0, 1);
-  }
-  S.start();
-  var rv = document.querySelectorAll('.rv');
-  setTimeout(function () { rv.forEach(function (el) { el.classList.add('on'); }); }, 420);
-})();
-</script>
 
-<section id="legal" hidden style="padding:40px 20px"><h2>Privacy</h2><p>We only use the details you send through the quote form to respond to your enquiry. We do not sell or share your information.</p><h2>Terms</h2><p>Quotes are free and remain valid for 30 days. Work is carried out to the scope agreed in writing before starting.</p></section>
+<section id="legal" style="padding:48px 0;border-top:1px solid var(--line)"><div class="container" style="max-width:70ch"><h2 style="font-size:20px;margin-bottom:6px">Privacy</h2><p>We only use the details you send through the quote form to respond to your enquiry. We do not sell or share your information.</p></div><div class="container" style="max-width:70ch;margin-top:28px"><h2 style="font-size:20px;margin-bottom:6px">Terms</h2><p>Quotes are free and remain valid for 30 days. Work is carried out to the scope agreed in writing before starting.</p></div></section>
 <script>setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');el.style.transition='none';el.style.opacity='1';el.style.transform='none';});},420);</script>
 
 
 
-<script>/* herocopy-failsafe 2026-10-14 */setTimeout(function(){var hc=document.getElementById('heroCopy')||document.querySelector('.hero-copy');if(hc){var o=parseFloat(getComputedStyle(hc).opacity||'1');if(o<0.08){hc.style.opacity='1';}var guard=0;var t=setInterval(function(){guard++;var oo=parseFloat(getComputedStyle(hc).opacity||'1');if(oo<0.08&&guard<12){hc.style.opacity='1';}if(guard>=12){clearInterval(t);}} ,800);}},900);</script>
+
 <!-- LB-3D-HERO --><div style="display:none" aria-hidden="true"><canvas id="detailCanvas" width="560" height="300"></canvas></div>
 <style>.persp3d-only{perspective:1000px}</style>
 </body></html>
