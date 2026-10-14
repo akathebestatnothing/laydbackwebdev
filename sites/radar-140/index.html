@@ -12,7 +12,7 @@
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800;900&family=Asap:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;700;800;900&family=Asap:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
   --paper: #ffffff; --paper2: #eef0f3; --ink: #060607; --ink2: #767676;
@@ -20,7 +20,7 @@
   --deep: #000000; --light: #ffffff;
   --acc-text: #ffffff;
   --fluid: clamp(44px, 9vw, 118px);
-  --disp: 'Archivo', 'Arial Black', sans-serif; --body-font: 'Asap', sans-serif;
+  --disp: 'Bebas Neue', 'Archivo', 'Arial Black', sans-serif; --body-font: 'Asap', sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -187,26 +187,23 @@ footer a:hover { color: var(--acc); }
 </div></nav>
 
 <header class="hero" id="top">
-<!-- LB-3D-HERO -->
-  <canvas id="heroCanvas" aria-hidden="true"></canvas>
-  <div class="hero-shade"></div>
-  <div class="hero-in"><div class="hero-copy">
-    <p class="hero-kicker">Painting &amp; decorating</p>
+<!-- RCI recomposition — full-bleed photo hero -->
+  <div class="rci-bg"><img src="assets/hero-paint.jpg" alt="A completed RCI exterior repaint in Adelaide"></div>
+  <!-- LB-3D-HERO -->
+  <canvas id="rciCanvas" aria-hidden="true"></canvas>
+  <div class="rci-scrim"></div>
+  <div class="hero-in rci-in"><div class="hero-copy">
+    <p class="hero-kicker">Painting &amp; decorating &middot; Adelaide</p>
     <h1>Painting &amp;<br><span class="acc">decorating</span><br><span class="thin">done properly.</span></h1>
     <p class="hero-sub">Residential, commercial and industrial painting across Adelaide — interior and exterior repaints, protective coatings, decorative finishes and swimming pool resurfacing. Licence BLD 303011.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#quote">Get a free quote</a>
-      <a class="btn btn-ghost" href="tel:+61415441848">Call 0415 441 848</a>
+      <a class="btn btn-ghost" href="#work">See recent work</a>
     </div>
-    <div class="hero-strip">
-      <p><strong><strong>Licence BLD 303011</strong></strong>Licensed painter</p>
-      <p><strong><strong>Res &middot; Com &middot; Ind</strong></strong>Every surface</p>
-      <p><strong><strong>5.0 rated</strong></strong>Adelaide jobs</p>
-    </div>
-</div>
-  <div class="hero-visual"><div class="hv-frame"><img src="assets/hero-paint.jpg" alt="A completed exterior repaint"><span class="hv-tag mono">Exterior repaint</span></div></div>
-  </div>
+  </div></div>
+  <div class="rci-strip"><p><strong>Licence BLD 303011</strong>Licensed painter</p><p><strong>Res &middot; Com &middot; Ind</strong>Every surface</p><p><strong>5.0 rated</strong>Adelaide jobs</p><p><strong>0415 441 848</strong>Call RCI</p></div>
 </header>
+<div class="rci-ticker" aria-hidden="true"><div class="rci-track"><span>Interior repaints</span><i>&#9670;</i><span>Exterior &amp; weatherboard</span><i>&#9670;</i><span>Protective coatings</span><i>&#9670;</i><span>Pool resurfacing</span><i>&#9670;</i><span>Decorative finishes</span><i>&#9670;</i><span>Commercial &amp; strata</span><i>&#9670;</i><span>Interior repaints</span><i>&#9670;</i><span>Exterior &amp; weatherboard</span><i>&#9670;</i><span>Protective coatings</span><i>&#9670;</i><span>Pool resurfacing</span><i>&#9670;</i><span>Decorative finishes</span><i>&#9670;</i><span>Commercial &amp; strata</span><i>&#9670;</i></div></div>
 
 
 
@@ -214,6 +211,12 @@ footer a:hover { color: var(--acc); }
   <div class="sec-head"><span class="sec-idx">01</span><div><h2 class="sec-title">What we paint.</h2><p class="lead">Interiors, exteriors, commercial fit-outs and specialist finishes — surfaces prepped properly and coated to last.</p></div></div>
   <div class="svc-grid"><div class="svc-row rv"><span class="svc-n">01</span><div class="svc-body"><h3>Residential painting</h3><p>Interior and exterior repaints for houses and apartments — cut in clean, coated even, finished tidy.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">02</span><div class="svc-body"><h3>Commercial painting</h3><p>Offices, schools and retail — high-reach access and out-of-hours work to keep your site running.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">03</span><div class="svc-body"><h3>Industrial &amp; protective coatings</h3><p>Warehouses and plant coated for durability, with surface prep to suit the environment.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">04</span><div class="svc-body"><h3>Decorative finishes &amp; pools</h3><p>Feature walls, limewash and specialist finishes, plus swimming pool resurfacing and pool coatings.</p></div><span class="svc-arrow">&#8599;</span></div></div>
 </div></section>
+<section id="work"><div class="wrap">
+  <div class="sec-head"><div class="sec-idx">05</div><div><h2 class="rv d1">Our work.</h2><p class="lead rv d2">Real RCI jobs — residential, commercial and specialist finishes.</p></div></div>
+</div>
+<div class="hgal rv"><div class="track"><figure class="hg-item rv"><img src="assets/gal_2.jpg" alt="Commercial exterior repaint — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>Commercial exterior repaint</span><span class="mono">/01</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_6.jpg" alt="Decorative feature wall — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>Decorative feature wall</span><span class="mono">/02</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_1.jpg" alt="High-level interior repaint — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>High-level interior repaint</span><span class="mono">/03</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_3.jpg" alt="Pool shell prepared for recoating — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>Pool shell prepared for recoating</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_5.jpg" alt="In branded workwear on site — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>In branded workwear on site</span><span class="mono">/05</span></figcaption></figure></div></div>
+<div class="hgal-nav"><button class="hgal-btn" id="hgPrev" aria-label="Previous photos">&#8592;</button><button class="hgal-btn" id="hgNext" aria-label="Next photos">&#8594;</button></div>
+</section>
 
 <section class="band" id="process"><div class="wrap">
   <div class="sec-head"><span class="sec-idx">02</span><div><h2 class="sec-title">How a repaint runs.</h2></div></div>
@@ -232,12 +235,7 @@ footer a:hover { color: var(--acc); }
   <div class="trust-strip"><div class="tr-i rv d1"><div class="tr-t">&#10003;</div><div><b>Licence BLD 303011</b><span>Licensed painter</span></div></div><div class="tr-i rv d2"><div class="tr-t">&#10003;</div><div><b>Res &middot; Com &middot; Ind</b><span>All three sectors</span></div></div><div class="tr-i rv d3"><div class="tr-t">&#10003;</div><div><b>Firm written quotes</b><span>Before we start</span></div></div><div class="tr-i rv d4"><div class="tr-t">&#10003;</div><div><b>Prep done properly</b><span>Finish that lasts</span></div></div></div>
 </div></section>
 
-<section id="work"><div class="wrap">
-  <div class="sec-head"><div class="sec-idx">05</div><div><h2 class="rv d1">Our work.</h2><p class="lead rv d2">Real RCI jobs — residential, commercial and specialist finishes.</p></div></div>
-</div>
-<div class="hgal rv"><div class="track"><figure class="hg-item rv"><img src="assets/gal_2.jpg" alt="Commercial exterior repaint — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>Commercial exterior repaint</span><span class="mono">/01</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_6.jpg" alt="Decorative feature wall — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>Decorative feature wall</span><span class="mono">/02</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_1.jpg" alt="High-level interior repaint — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>High-level interior repaint</span><span class="mono">/03</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_3.jpg" alt="Pool shell prepared for recoating — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>Pool shell prepared for recoating</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_5.jpg" alt="In branded workwear on site — RCI Painting &amp; Decorating" loading="lazy"><figcaption><span>In branded workwear on site</span><span class="mono">/05</span></figcaption></figure></div></div>
-<div class="hgal-nav"><button class="hgal-btn" id="hgPrev" aria-label="Previous photos">&#8592;</button><button class="hgal-btn" id="hgNext" aria-label="Next photos">&#8594;</button></div>
-</section>
+
 
 <span id="quote" style="display:block;height:0;scroll-margin-top:90px"></span>
 <span id="quote" style="position:absolute;top:-90px"></span>
@@ -264,6 +262,28 @@ footer a:hover { color: var(--acc); }
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
 #lbq .lbq-cons input{width:auto}
 #lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ===== RCI recomposition (2026-10-14) ===== */
+.rci-bg{z-index:0}.rci-scrim{z-index:2}
+#rciCanvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen;opacity:.55}
+
+.rci-bg{position:absolute;inset:0;overflow:hidden}
+.rci-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.rci-scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,9,11,.92) 0%,rgba(8,9,11,.72) 42%,rgba(8,9,11,.28) 100%)}
+.hero.rci-mode{min-height:92vh}
+.hero .rci-in{position:relative;z-index:2;display:flex;align-items:center;min-height:inherit}
+.hero .hero-visual{display:none!important}
+#heroCanvas{display:none!important}
+.rci-strip{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:10px 34px;padding:16px var(--gut,24px);background:rgba(10,11,13,.86);border-top:1px solid rgba(255,255,255,.08)}
+.rci-strip p{margin:0;font-size:12.5px;color:#b9bfc6;letter-spacing:.02em}
+.rci-strip strong{display:block;color:#fff;font-size:14.5px;letter-spacing:.01em}
+.rci-ticker{overflow:hidden;background:var(--acc,#c4fb24);color:#0c0e10;padding:10px 0;white-space:nowrap}
+.rci-track{display:inline-block;animation:rciMar 30s linear infinite}
+.rci-track span{font-family:var(--disp);font-size:19px;letter-spacing:.08em;text-transform:uppercase;padding:0 14px}
+.rci-track i{font-style:normal;opacity:.45;padding:0 2px}
+@keyframes rciMar{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.rci-track{animation:none}}
+@media (max-width:820px){.hero .rci-in{align-items:flex-end;padding-top:34vh}.rci-strip{gap:8px 18px;padding:13px 18px}.rci-strip p{font-size:11.5px}.rci-track span{font-size:16px}}
 </style>
 <div class="lbq-w">
   <div>
@@ -656,6 +676,52 @@ if (hg) {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
 
+</script>
+
+<script>
+/* LB-3D-HERO · RCI paint-stroke atmosphere */
+(function(){
+  var cv = document.getElementById('rciCanvas');
+  if (!cv) return;
+  var g = cv.getContext('2d');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, DPR = Math.min(devicePixelRatio || 1, 2);
+  var acc = (getComputedStyle(document.documentElement).getPropertyValue('--acc') || '#f58233').trim() || '#f58233';
+  function size(){
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = Math.max(2, W * DPR); cv.height = Math.max(2, H * DPR);
+    g.setTransform(DPR,0,0,DPR,0,0);
+  }
+  size(); addEventListener('resize', size);
+  function px(c, a){ c = c.replace('#',''); if (c.length===3) c = c.split('').map(function(x){return x+x;}).join('');
+    var n = parseInt(c,16); return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')'; }
+  var strokes = [];
+  for (var i=0;i<26;i++){
+    strokes.push({ x: Math.random(), y: 0.08 + Math.random()*0.84, w: 0.10+Math.random()*0.22, h: 3+Math.random()*7,
+      sp: 0.00010+Math.random()*0.00022, a: 0.10+Math.random()*0.22, ph: Math.random()*6.28, warm: Math.random()<0.6 });
+  }
+  var t0 = performance.now(), painted = false;
+  function frame(now){
+    var t = (now - t0) / 1000;
+    g.clearRect(0,0,W,H);
+    for (var i=0;i<strokes.length;i++){
+      var s = strokes[i];
+      var x = ((s.x + t*s.sp*60) % 1.25 - 0.1) * W;
+      var y = (s.y + Math.sin(s.ph + t*0.35 + i)*0.02) * H;
+      var grad = g.createLinearGradient(x, y, x + s.w*W, y);
+      var col = s.warm ? '251,196,120' : '160,190,255';
+      grad.addColorStop(0, 'rgba('+col+',0)');
+      grad.addColorStop(0.5, 'rgba('+col+',' + s.a + ')');
+      grad.addColorStop(1, 'rgba('+col+',0)');
+      g.fillStyle = grad;
+      g.fillRect(x, y, s.w*W, s.h);
+    }
+    painted = true;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  setTimeout(function(){ if (!painted) frame(performance.now()); }, 700);  /* fail-safe single paint */
+})();
 </script>
 </body>
 </html>
