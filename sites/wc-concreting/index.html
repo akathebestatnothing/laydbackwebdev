@@ -1178,7 +1178,7 @@ setTimeout(() => {
   if (!cv) return;
   /* the site's scroll driver is #sceneWrap; pin it explicitly (a closest('[id*="scene"]')
      pick would latch onto #sceneSticky and freeze progress at p=1) */
-  var wrap = document.getElementById('sceneWrap') || cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var wrap = document.getElementById('sceneWrap') || (cv.parentElement || cv).closest('[id*="Wrap"]:not(canvas), [id*="scene"]:not(canvas), .scene, .stage, header') || document.body;
   var sticky = document.getElementById('sceneSticky') || cv.closest('.scene-sticky, .pin, [id*="Sticky"]') || wrap;
   var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
       railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy'),

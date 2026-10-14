@@ -1112,7 +1112,7 @@ footer a:hover { color: var(--acc); }
   var cv = document.getElementById('sceneFixCanvas');
   if (!cv) return;
 
-  var wrap = cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var wrap = (cv.parentElement || cv).closest('[id*="Wrap"]:not(canvas), [id*="scene"]:not(canvas), .scene, .stage, header') || document.body;
   var stgNum = document.getElementById('stgNum'),
       stgName = document.getElementById('stageName') || document.getElementById('stgName'),
       railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');

@@ -1038,7 +1038,7 @@ var b=document.getElementById('nav__toggle'),n=document.getElementById('navMenu'
   'use strict';
   var cv = document.querySelector('#buildCanvas, #heroCanvas, #c, .scene canvas, .pin canvas') || document.querySelector('canvas');
   if (!cv) return;
-  var wrap = document.getElementById('sceneWrap') || cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var wrap = document.getElementById('sceneWrap') || (cv.parentElement || cv).closest('[id*="Wrap"]:not(canvas), [id*="scene"]:not(canvas), .scene, .stage, header') || document.body;
   var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
       railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy'),
       hint = document.getElementById('scrollHint');

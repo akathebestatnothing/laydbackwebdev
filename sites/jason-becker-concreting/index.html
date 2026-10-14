@@ -1157,7 +1157,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
   'use strict';
   var cv = document.getElementById('sceneFixCanvas');
   if (!cv) return;
-  var wrap = cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var wrap = (cv.parentElement || cv).closest('[id*="Wrap"]:not(canvas), [id*="scene"]:not(canvas), .scene, .stage, header') || document.body;
   var stickyWrap = cv.closest('.scene-sticky, .pin, [id*="Sticky"]') || wrap;
   var hudEls = [].slice.call(document.querySelectorAll('.hud b'));
   var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),

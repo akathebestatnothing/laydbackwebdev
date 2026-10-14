@@ -802,7 +802,7 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Space Grotesk', system-ui
   'use strict';
   var cv = document.getElementById('sceneFixCanvas');
   if (!cv) return;
-  var wrap = cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
+  var wrap = (cv.parentElement || cv).closest('[id*="Wrap"]:not(canvas), [id*="scene"]:not(canvas), .scene, .stage, header') || document.body;
   var stickyWrap = cv.closest('.scene-sticky, .pin, [id*="Sticky"]') || wrap;
   var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
       railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');
