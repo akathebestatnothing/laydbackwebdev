@@ -936,12 +936,16 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
   function hx(c, a){ c = (c||'').replace('#',''); if (c.length === 3) c = c.split('').map(function(x){return x+x;}).join(''); var n = parseInt(c,16); if (isNaN(n)) n = 0xc8a25e; return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')'; }
   function size(){ W = cv.clientWidth; H = cv.clientHeight; cv.width = Math.max(2, W*DPR); cv.height = Math.max(2, H*DPR); g.setTransform(DPR,0,0,DPR,0,0); }
   size(); addEventListener('resize', size);
+  /* lbfx-retry: re-measure until layout gives a size */
+  (function re(){ if (!W || !H) { size(); setTimeout(re, 180); } })();
+  addEventListener('load', function(){ size(); });
   var parts = [];
   for (var i = 0; i < 34; i++) parts.push({x: Math.random(), y: Math.random(), r: 1+Math.random()*2.6, s: 0.00004+Math.random()*0.00012, o: 0.05+Math.random()*0.16, d: Math.random()*6.28});
   var t0 = 0, painted = false;
   function frame(now){
     if (!t0) t0 = now;
     var t = (now - t0) / 1000;
+    if (!W || !H) size();
     g.clearRect(0,0,W,H);
     var lx = W*0.78, ly = H*0.12, lg = g.createRadialGradient(lx, ly, 10, lx, ly, Math.max(W,H)*0.7);
     lg.addColorStop(0, hx(acc, 0.20)); lg.addColorStop(0.5, hx(acc, 0.05)); lg.addColorStop(1, 'rgba(0,0,0,0)');
