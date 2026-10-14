@@ -88,6 +88,8 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 #sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
 #sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
 </style>
+
+<style>#heroCanvas{display:none;perspective:800px}</style>
 </head>
 <body><a class="skip" href="#services">Skip to content</a>
 
@@ -268,5 +270,8 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 })();
 var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 </script>
+
+<!-- LB-3D-HERO -->
+<canvas id="heroCanvas" aria-hidden="true"></canvas>
 </body>
 </html>
