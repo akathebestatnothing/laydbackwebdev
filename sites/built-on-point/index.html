@@ -55,7 +55,15 @@ p { color: var(--muted); max-width: 65ch; }
 .btn:active { transform: translateY(0); }
 </style>
 <style id="rv-lock">html .rv.on{opacity:1!important;transform:none!important}</style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
+<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript>
+<style>/* de-scroll gap fix 2026-10-14 stage */
+.stage,.scene{height:auto!important;min-height:0!important;overflow:visible!important}
+.pin{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;overflow:visible!important}
+.cap{position:relative!important;left:auto!important;top:auto!important}
+#sceneWrap,#sceneSticky{height:auto!important;min-height:0!important;overflow:visible!important}
+#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative!important;left:auto!important;top:auto!important;right:auto!important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px!important;max-width:64ch}
+</style>
+</head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script><header class="hero-section">
   <div class="stage" id="stage">
     <div class="pin">
@@ -600,4 +608,7 @@ html.js .rv.on { opacity: 1; }
 
 
 <script>/* herocopy-failsafe 2026-10-14 */setTimeout(function(){var hc=document.getElementById('heroCopy')||document.querySelector('.hero-copy');if(hc){var o=parseFloat(getComputedStyle(hc).opacity||'1');if(o<0.08){hc.style.opacity='1';}var guard=0;var t=setInterval(function(){guard++;var oo=parseFloat(getComputedStyle(hc).opacity||'1');if(oo<0.08&&guard<12){hc.style.opacity='1';}if(guard>=12){clearInterval(t);}} ,800);}},900);</script>
+<!-- LB-3D-HERO --><div style="display:none" aria-hidden="true"><canvas id="detailCanvas" width="560" height="300"></canvas></div>
+<style>.persp3d-only{perspective:1000px}</style>
+<script>/* reveal safety net 2026-10-14 */setTimeout(function(){document.querySelectorAll('.rv:not(.on),.drop,[data-ux]').forEach(function(el){el.classList.add('on');el.style.opacity='1';el.style.transform='none';el.style.transition='none';});},1000);</script>
 </body></html>
