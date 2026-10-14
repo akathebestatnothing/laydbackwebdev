@@ -88,6 +88,50 @@ html.js .drop.in{opacity:1;transform:none}
 .hero-strip p{color:#93A28D;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
 .hero-strip strong{display:block;color:#F7F4EC;font-family:var(--font-display);font-size:1rem;letter-spacing:.02em;margin-top:.2rem;font-weight:400}
 
+/* hero-bleed (photo + 3D shapes) */
+.hero-bleed{min-height:clamp(600px,calc(100svh - 78px),1000px);align-items:flex-end;background:#101F16}
+.hero-bleed canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;opacity:1;mix-blend-mode:screen}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 52%;display:block}
+.hero-bleed .hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(16,31,22,.40) 0%,rgba(16,31,22,.18) 30%,rgba(16,31,22,.64) 74%,#101F16 100%)}
+.hero-bleed .hero-shade::after{content:"";position:absolute;inset:0;background:linear-gradient(96deg,rgba(16,31,22,.70) 0%,rgba(16,31,22,.22) 52%,rgba(16,31,22,0) 84%)}
+.lb3d-stage{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;perspective:1100px}
+.lb3d-shape{position:absolute;transform-style:preserve-3d;backface-visibility:hidden}
+.lb3d-shape.w1{width:148px;height:58px;border:3px solid #F7F4EC;border-radius:9px;box-shadow:0 16px 36px rgba(0,0,0,.20);top:21%;right:12%;background:var(--gold);opacity:.92;transform:rotateY(-16deg) rotateZ(-5deg);animation:lb3dW1 16s ease-in-out infinite}
+.lb3d-shape.w2{width:104px;height:58px;border:3px solid #F7F4EC;border-radius:9px;box-shadow:0 16px 36px rgba(0,0,0,.20);top:40%;right:24%;background:var(--forest);opacity:.88;transform:rotateY(14deg) rotateZ(4deg);animation:lb3dW2 20s ease-in-out infinite}
+.lb3d-shape.w3{width:78px;height:58px;border:3px solid #F7F4EC;border-radius:9px;box-shadow:0 16px 36px rgba(0,0,0,.20);top:60%;right:11%;background:var(--pine);opacity:.82;transform:rotateY(-20deg) rotateZ(-3deg);animation:lb3dW3 18s ease-in-out infinite}
+@keyframes lb3dW1{0%,100%{transform:rotateY(-16deg) rotateZ(-5deg) translateY(0);}50%{transform:rotateY(-24deg) rotateZ(-8deg) translateY(-18px);}}
+@keyframes lb3dW2{0%,100%{transform:rotateY(14deg) rotateZ(4deg) translateY(0);}50%{transform:rotateY(24deg) rotateZ(7deg) translateY(16px);}}
+@keyframes lb3dW3{0%,100%{transform:rotateY(-20deg) rotateZ(-3deg) translateY(0);}50%{transform:rotateY(-10deg) rotateZ(2deg) translateY(-12px);}}
+@media (prefers-reduced-motion: reduce){.lb3d-stage{display:none}}
+@media (max-width: 820px){.lb3d-shape.w1,.lb3d-shape.w2,.lb3d-shape.w3{display:none}}
+.hero-grid{position:absolute;left:0;right:0;bottom:0;height:34%;z-index:1;pointer-events:none;opacity:.45;background-image:linear-gradient(rgba(255,255,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px);background-size:58px 40px;transform:perspective(440px) rotateX(63deg);transform-origin:bottom center;-webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.95),transparent);mask-image:linear-gradient(to top,rgba(0,0,0,.95),transparent)}
+.hero-bleed .hero-in{display:block;padding:13vh 40px 3.6rem}
+.hero-bleed .hero-copy{max-width:820px}
+.hero-bleed .hero-in{display:block}
+.hero-bleed .hero-copy h1{color:#fff;font-size:clamp(2.1rem,4.5vw,3.9rem);line-height:1.02;text-shadow:0 3px 30px rgba(0,0,0,.55);max-width:20ch}
+.hero-bleed .hero-copy h1 em{color:var(--gold-bright)}
+.hero-bleed .hero-kicker{color:#fff}
+.hero-bleed .hero-kicker::before{background:var(--gold)}
+.hero-bleed .hero-sub{color:rgba(255,255,255,.90);max-width:54ch}
+.hero-bleed .hero-strip{border-top-color:rgba(255,255,255,.24)}
+.hero-bleed .hero-strip p{color:rgba(255,255,255,.72)}
+.hero-bleed .hero-strip strong{color:#fff}
+.hero-bleed .btn-ghost{border-color:rgba(255,255,255,.82);color:#fff}
+.hero-bleed .btn-ghost:hover{background:#fff;color:#101215}
+.hero-marquee{position:relative;z-index:3;border-top:1px solid rgba(255,255,255,.16);background:rgba(16,31,22,.80);padding:14px 40px;text-align:center;line-height:1.9}
+.hero-marquee span{display:inline-block;color:rgba(255,255,255,.74);font-size:.70rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+.hero-marquee i{color:var(--gold);font-style:normal;margin:0 .85rem}
+@media (max-width: 820px){
+  .hero-bleed{min-height:auto}
+  .hero-bleed .hero-in{padding:10vh 20px 1.4rem}
+  .hero-bleed .hero-copy h1{max-width:none;font-size:clamp(1.9rem,8.2vw,2.5rem)}
+  .hero-bleed .hero-sub{font-size:.97rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .hero-bleed .hero-cta{margin-top:1.2rem}
+  .hero-bleed .hero-strip{display:none}
+  .hero-marquee{padding:12px 20px}
+}
+
 /* sections */
 section{padding-block:5.2rem}
 .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.4rem}
@@ -174,24 +218,23 @@ section#lbq{--lbq-bg:#F4F1E8;--lbq-ink:#22301F;--lbq-muted:#5D6B58;--lbq-panel:#
   </div>
 </nav>
 
-<header class="hero" id="top">
+<header class="hero hero-bleed" id="top">
   <!-- LB-3D-HERO -->
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-bg"><img src="assets/hero-work.jpg" alt="Perrfect Property Maintenance Canberra"></div>
   <div class="hero-shade"></div>
-  <div class="wrap hero-in">
-    <p class="hero-kicker">Canberra ACT &middot; Home Maintenance &amp; Interior Upgrades</p>
-    <h1 data-ux="words">Your home, <em>perrfectly</em> maintained.</h1>
+  <div class="lb3d-stage" aria-hidden="true"><div class="lb3d-shape w1"></div><div class="lb3d-shape w2"></div><div class="lb3d-shape w3"></div></div>
+  <div class="hero-grid"></div>
+  <div class="hero-in">
+   <div class="hero-copy">
+    <p class="hero-kicker">Home maintenance & interior upgrades — Canberra ACT</p>
+    <h1>Your home, <em>perrfectly</em><br>maintained.</h1>
     <p class="hero-sub">Perrfect Property Maintenance — quality home maintenance, interior upgrades and cleaning solutions across Canberra. From plastering and painting to the finishing touches.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#quote">Get a free quote</a>
-      <a class="btn btn-ghost" href="#services">What we do</a>
-    </div>
-    <div class="hero-strip">
-      <p><strong>Plastering</strong>&amp; painting</p>
-      <p><strong>Interior upgrades</strong>done properly</p>
-      <p><strong>Cleaning</strong>solutions</p>
-    </div>
+    <div class="hero-cta"><a class="btn btn-primary" href="#quote">Get a free quote</a><a class="btn btn-ghost" href="#services">What we do</a></div>
+    <div class="hero-strip"><p><strong>Plastering</strong>& painting</p><p><strong>Interior upgrades</strong>done properly</p><p><strong>Cleaning</strong>solutions</p></div>
+   </div>
   </div>
+  <div class="hero-marquee"><span>Plastering</span><i>&#9670;</i><span>Painting</span><i>&#9670;</i><span>Interior upgrades</span><i>&#9670;</i><span>Cleaning</span><i>&#9670;</i><span>Home maintenance</span></div>
 </header>
 <section class="craft-intro" id="services">
   <div class="wrap">
