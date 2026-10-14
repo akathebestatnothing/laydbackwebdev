@@ -190,7 +190,7 @@ html.js .drop.in{opacity:1;transform:none}
 </div></nav>
 
 <header class="hero" id="top"><!-- LB-3D-HERO -->
-  <div class="hero-bg"><img src="assets/gal_6.jpg" alt="Polished concrete driveway with crisp lines and a modern home — McKinnon Concrete" width="1600" height="1000"></div>
+  <div class="hero-bg"><img src="assets/hero-mck.jpg" alt="Polished concrete driveway with crisp lines and a modern home — McKinnon Concrete" width="1620" height="2160"></div>
   <div class="hero-scrim"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-3d" aria-hidden="true"><div class="plane"></div></div>
@@ -264,6 +264,13 @@ html.js .drop.in{opacity:1;transform:none}
 .hero img{object-position:center 38%!important}
 .hero .hero-shade{background:linear-gradient(180deg,rgba(8,9,10,.5) 0%,rgba(8,9,10,.25) 40%,rgba(8,9,10,.88) 100%)!important}
 .nav .brand{gap:12px!important}.nav .brand img{max-height:40px;width:auto}
+
+/* 161 hero definitive fix 2026-10-14 */
+.hero{position:relative;overflow:hidden;min-height:88vh}
+.hero-bg{position:absolute!important;inset:0!important;z-index:0!important;display:block!important}
+.hero-bg img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 42%!important;filter:saturate(1.06) contrast(1.03)!important;display:block!important}
+.hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,10,11,.42) 0%,rgba(9,10,11,.16) 38%,rgba(9,10,11,.72) 82%,rgba(9,10,11,.92) 100%)!important}
+.hero .hero-in{position:relative;z-index:2}
 </style>
 <div class="lbq-w">
   <div>
