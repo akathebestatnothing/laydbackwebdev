@@ -16,19 +16,19 @@
 <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
 <style>
 :root {
-  --bg: #1a1612;
-  --paper: #fefcf8;
-  --paper2: #f5f0e8;
-  --ink: #1d1a16;
-  --ink2: #6d655c;
-  --acc: #d4a574;
-  --acc2: #e8c9a8;
-  --acc-dark: #b8956a;
+  --bg: #1B1C1E;
+  --paper: #FCFCFC;
+  --paper2: #F2F2F3;
+  --ink: #1D1B1C;
+  --ink2: #585758;
+  --acc: #9fa2a5;
+  --acc2: #c9cbcd;
+  --acc-dark: #47484B;
   --line: rgba(29,26,22,.16);
-  --chip: #ebe5db;
-  --warm: #c9a87d;
-  --warm-light: #f2ebe0;
-  --deep: #0d0b09;
+  --chip: #f4f4f3;
+  --warm: #b7b9bc;
+  --warm-light: #F0F0F2;
+  --deep: #0F0F11;
   --fluid: clamp(44px, 9vw, 118px);
   --disp: 'Archivo Black', 'Arial Black', sans-serif;
   --disp-alt: 'DM Serif Display', Georgia, serif;
@@ -542,7 +542,7 @@ const prog=document.getElementById('sa-progress');window.addEventListener('scrol
       (function typ() { if (i <= name.length) { el.textContent = name.slice(0, i++); setTimeout(typ, 45); } })();
     }
     var css = document.createElement('style');
-    css.textContent = '#sigSplash{animation:sigSplashAutoOut .5s ease 2.6s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
+    css.textContent = '#sigSplash{animation:sigSplashAutoOut .5s ease 2.6s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#17181a;color:#f4f5f7;pointer-events:none}' +
       '#sigSplash .sp-c{position:relative;z-index:2;text-align:center}' +
       '#sigSplash .sp-logo{display:block;margin:0 auto 16px;max-height:72px;max-width:180px;width:auto;object-fit:contain}' +
       '#sigSplash .sp-w{display:block;font-family:var(--disp,var(--font-display,inherit));font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:clamp(22px,5vw,38px);opacity:0;transition:opacity .5s ease}' +
@@ -552,7 +552,7 @@ const prog=document.getElementById('sa-progress');window.addEventListener('scrol
       '#sigSplash .sp-bar{width:190px;height:2px;background:rgba(128,128,128,.3);margin:16px auto 0;overflow:hidden}' +
       '#sigSplash .sp-bar i{display:block;height:100%;width:0;background:var(--acc,var(--accent,#c4fb24));animation:spBar 1.15s ease forwards}' +
       '@keyframes spBar{to{width:100%}}' +
-      '#sigSplash .sp-panel{position:absolute;background:#0e1014;z-index:1}' +
+      '#sigSplash .sp-panel{position:absolute;background:#17181a;z-index:1}' +
       '#sigSplash .sp-l{inset:0 50% 0 0}#sigSplash .sp-r{inset:0 0 0 50%}' +
       '#sigSplash .sp-t{inset:0 0 50% 0}#sigSplash .sp-b{inset:50% 0 0 0}' +
       '#sigSplash.out .sp-panel{transition:transform .7s cubic-bezier(.7,0,.3,1)}' +
