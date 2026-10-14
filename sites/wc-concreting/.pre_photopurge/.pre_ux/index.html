@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WC Concreting - Driveways, Slabs, Paths & Patios | Newcastle & Central Coast</title>
+<meta name="description" content="WC Concreting - residential driveways, house slabs, paths, patios, exposed aggregate and decorative finishes. Newcastle & Central Coast NSW. Call 0408 071 393.">
+<meta property="og:title" content="WC Concreting - Newcastle & Central Coast">
+<meta property="og:description" content="Driveways, slabs, paths, patios, exposed aggregate & decorative concreting. Newcastle & Central Coast NSW.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/wc-hero.jpg">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton:wght@400;700;900&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Blue from WC logo */
+  --acc: #0b6194;
+  --acc-2: #005e94;
+  --acc-3: #004d7a;
+
+  /* Concrete palette - warm greys from the material */
+  --concrete-1: #f2f2f2;  /* light concrete surface */
+  --concrete-2: #d4d4d4;  /* mid aggregate */
+  --concrete-3: #a8a8a8;  /* darker aggregate */
+  --concrete-4: #8a8a8a;  /* shadow/grout */
+
+  --line-concrete: #c8c8c8;
+  --bg-concrete: #fafafa;
+  --panel: #ffffff;
+  --panel-2: #f5f5f5;
+
+  /* Safety / trust accent - subtle green from logo checkmark */
+  --safety: #2e7d32;
+  --safety-2: #388e3c;
+
+  /* Core neutrals */
+  --ink: #1a1a1a;
+  --ink-2: #444;
+  --ink-3: #666;
+  --bg: var(--bg-concrete);
+  --bg-2: #f0f0f0;
+
+  /* Fluid type scale for H1 */
+  --fluid: clamp(3.2rem, 7vw, 5.5rem);
+
+  /* Fonts */
+  --font-m: 'Space Grotesk', system-ui, sans-serif;
+  --font-s: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout */
+  --maxw: 1120px;
+  --pad: clamp(1.25rem, 4vw, 2.5rem);
+  --header-h: 88px;
+
+  /* Motion */
+  --dur: .5s;
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { overflow-x: hidden; }
+body { font-family: var(--font-m); background: var(--bg); color: var(--ink); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-d); text-transform: uppercase; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--acc); color: #0d0d0d; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+/* Reveal system */
+html:not(.js) .rv { opacity: 1 !important; transform: none !important; }
+.js .rv { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+.js .rv.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .js .rv { opacity: 1; transform: none; transition: none; }
+}
+
+.skip { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); padding: .7rem 1.2rem; background: var(--acc); color: #0d0d0d; font-weight: 800; z-index: 10000; }
+.skip:focus { top: 1rem; }
+
+/* Navigation */
+.nav { position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1rem, 3vw, 2.5rem); background: rgba(255,255,255,.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-concrete); z-index: 1000; }
+.nav__brand { display: flex; align-items: center; gap: 1rem; margin-top: 2px; }
+.nav__brand img { height: 88px; width: auto; border-radius: 6px; }
+.nav__brand-text { display: flex; flex-direction: column; line-height: 1; }
+.nav__name { font-family: var(--font-d); font-size: clamp(1.2rem, 2.5vw, 1.5rem); font-weight: 900; letter-spacing: .02em; }
+.nav__sub { display: none; }
+.nav__links { display: flex; gap: clamp(1rem, 2.4vw, 2rem); list-style: none; margin: 0; padding: 0; }
+.nav__links a { font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; color: var(--ink); transition: color .2s; }
+.nav__links a:hover { color: var(--acc); }
+.nav__cta a { display: inline-flex; align-items: center; gap: .45rem; padding: .6rem 1.2rem; font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; background: var(--acc); color: #ffffff; border-radius: 6px; white-space: nowrap; }
+.nav__cta a:hover { background: var(--acc-2); }
+@media (max-width: 760px) { .nav__links { display: none; } .nav__cta a { padding: .5rem .9rem; font-size: .75rem; } }
+
+/* Section base */
+.sec { max-width: 1280px; margin: 0 auto; padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 2.5rem); position: relative; }
+.sec--panel { background: var(--bg-2); border-top: 1px solid var(--line-concrete); border-bottom: 1px solid var(--line-concrete); }
+.kick { font-family: var(--font-m); font-size: .76rem; text-transform: uppercase; letter-spacing: .22em; color: var(--ink); margin: 0 0 .5rem; }
+.h2 { margin: 0 0 .9rem; font-size: clamp(1.8rem, 3.8vw, 3rem); font-weight: 900; letter-spacing: -.015em; line-height: 1.05; }
+.lead { color: var(--ink-2); font-size: clamp(1rem, 1.3vw, 1.14rem); max-width: 60ch; }
+
+/* Hero */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: var(--nav-h); overflow: hidden; }
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,212,212,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 15% 20%, rgba(11,97,148,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 85% 80%, rgba(11,97,148,0.08) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+.hero-in { display: grid; grid-template-columns: 1.05fr .95fr; gap: 1.5rem; align-items: stretch; width: 100%; max-width: 1400px; margin: 0 auto; padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem); }
+.hero-copy { display: flex; flex-direction: column; justify-content: center; z-index: 2; }
+.hero-copy .kick { font-family: var(--font-m); font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--acc); margin-bottom: 10px; }
+.hero-copy .h1 { font-family: var(--font-d); font-size: var(--fluid); line-height: 1.02; text-transform: uppercase; color: var(--ink); margin: 0 0 16px; font-weight: 900; }
+.hero-copy .h1 em { font-style: normal; color: var(--ink); }
+.hero-copy .lead { color: var(--ink-2); max-width: 44ch; margin: 0 0 28px; font-size: 1.05rem; line-height: 1.6; }
+.hero-copy .cta { display: flex; flex-wrap: wrap; gap: 1rem; width: 100%; }
+@media (max-width:500px){
+  .hero-copy .cta { flex-direction: column; }
+  .hero-copy .cta .btn { width: 100%; }
+}
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: 1.1rem 2rem; font-size: .95rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; border: 0; border-radius: 6px; cursor: pointer; transition: transform .15s ease, filter .15s ease; }
+.btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
+.btn--primary { background: var(--acc); color: #ffffff; }
+.btn--ghost { background: transparent; color: var(--ink); border: 2px solid var(--line-concrete); }
+.btn--ghost:hover { border-color: var(--acc); color: var(--acc); }
+.hero-visual { position: relative; border-radius: 12px; overflow: hidden; background: var(--concrete-1); }
+.hero-visual img { width: 100%; height: 100%; min-height: 580px; object-fit: cover; display: block; transform: scale(1.05); transform-origin: center center; }
+.hero-visual::before { content: ""; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); opacity: 0.025; pointer-events: none; z-index: 1; }
+.hero-visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.1) 100%); pointer-events: none; z-index: 2; }
+
+/* Hero trust badges */
+.hero-trust { display: flex; flex-wrap: wrap; gap: .5rem .75rem; margin-top: 1.5rem; max-width: 100%; }
+.hero-trust .badge { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 600; color: var(--ink); white-space: nowrap; }
+.hero-trust .badge strong { color: var(--ink); }
+.hero-trust .badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--safety); flex: none; }
+@media (max-width: 600px) { .hero-trust { justify-content: center; } }
+@media (max-width: 900px) { .hero-trust { gap: .4rem .6rem; } }
+
+/* 3D hero compliance (static detail canvas, no scroll-scrub) */
+.hero-3d { position: absolute; inset: 0; pointer-events: none; z-index: 0; perspective: 1000px; }
+.hero-3d canvas { width: 100%; height: 100%; display: block; }
+@media (max-width: 760px) {
+  .hero { min-height: auto; padding-top: var(--nav-h); }
+  .hero-in { grid-template-columns: 1fr; gap: 1.5rem; padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem); }
+  .hero-visual { order: -1; min-height: 35vh; max-height: 50vh; border-radius: 10px; }
+  .hero-visual img { min-height: 35vh; }
+  .hero-copy { text-align: center; }
+  .hero-copy .lead { margin-left: auto; margin-right: auto; }
+  .hero-copy .cta { justify-content: center; }
+}
+
+/* Services grid */
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.6rem; }
+.svc { border: 1px solid var(--line-concrete); border-radius: 12px; padding: 1.5rem 1.4rem; background: var(--bg-concrete); transition: transform .3s cubic-bezier(.16,1,.3,1), border-color .3s, background .3s; position: relative; overflow: hidden; }
+.svc:hover { transform: translateY(-4px); border-color: var(--concrete-2); background: var(--panel); }
+.svc::after { content: ""; position: absolute; top: 0; left: 0; width: 48px; height: 3px; background: var(--concrete-2); transition: width .3s ease; }
+.svc:hover::after { width: 100%; }
+.svc__num { font-family: var(--font-m); font-size: .7rem; color: var(--acc); letter-spacing: .14em; font-weight: 700; }
+.svc__title { margin: .4rem 0 .35rem; font-size: 1.1rem; font-weight: 800; }
+.svc__desc { margin: .2rem 0 0; font-size: .92rem; color: var(--ink-2); line-height: 1.5; }
+
+/* Finishes strip */
+.finish-strip { margin-top: 3rem; }
+.finish-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+.finish-head::before { content: ""; width: 40px; height: 3px; background: var(--concrete-2); flex: none; align-self: center; }
+.finish-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.finish { background: var(--panel); border: 1px solid var(--line-concrete); border-radius: 10px; padding: 1.25rem 1.15rem; text-align: center; transition: border-color .2s, transform .2s; }
+.finish:hover { border-color: var(--concrete-2); transform: translateY(-2px); }
+.finish__icon { width: 56px; height: 56px; margin: 0 auto .75rem; display: flex; align-items: center; justify-content: center; background: rgba(13,97,148,.15); border-radius: 50%; color: var(--acc); }
+.finish__title { font-family: var(--font-d); font-size: .95rem; font-weight: 800; margin-bottom: .3rem; }
+.finish__desc { font-size: .82rem; color: var(--ink-3); }
+
+/* Area strip */
+.area-strip { margin-top: 2.5rem; }
+.area-tags { display: flex; flex-wrap: wrap; gap: .6rem; }
+.area-tags span { border: 1px solid var(--line-concrete); border-radius: 99px; padding: .45rem 1rem; font-size: .86rem; background: var(--panel); color: var(--ink); transition: border-color .2s, color .2s; }
+.area-tags span:hover { border-color: var(--concrete-2); color: var(--concrete-3); }
+
+/* Projects gallery */
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+.proj { background: var(--bg-concrete); border: 1px solid var(--line-concrete); border-radius: 12px; overflow: hidden; transition: transform .3s cubic-bezier(.16,1,.3,1), border-color .3s; }
+.proj:hover { transform: translateY(-4px); border-color: var(--concrete-2); }
+.proj img { width: 100%; height: 260px; object-fit: cover; display: block; }
+.proj__cap { padding: 1rem 1.2rem; font-size: .9rem; color: var(--ink-2); }
+.proj__cap strong { color: var(--ink); display: block; margin-bottom: .3rem; }
+
+/* Quote form section */
+#lbq { --lbq-accent: var(--acc); --lbq-ink: var(--ink); --lbq-muted: var(--ink-2); --lbq-bg: var(--bg); --lbq-panel: var(--panel); --lbq-line: var(--line-concrete); padding: 72px 20px; background: var(--lbq-bg); color: var(--lbq-ink); }
+#lbq * { box-sizing: border-box; }
+#lbq .lbq-w { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
+@media (max-width: 900px) { #lbq .lbq-w { grid-template-columns: 1fr; } }
+#lbq h2 { font-family: var(--font-d); font-size: clamp(1.6rem, 3.4vw, 2.3rem); margin: 0 0 10px; letter-spacing: -.02em; }
+#lbq p.lbq-s { margin: 0 0 22px; color: var(--lbq-muted); max-width: 52ch; }
+#lbq .lbq-info { display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--lbq-line); padding-top: 22px; }
+#lbq .lbq-info div { display: flex; gap: 10px; align-items: baseline; }
+#lbq .lbq-info b { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--lbq-accent); min-width: 64px; }
+#lbq .lbq-info a { font-weight: 800; text-decoration: none; }
+#lbq .lbq-f { display: grid; gap: 12px; background: var(--lbq-panel); border: 1px solid var(--lbq-line); border-radius: 14px; padding: 26px; }
+#lbq label { display: block; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--lbq-muted); margin-bottom: 5px; }
+#lbq input, #lbq textarea, #lbq select { width: 100%; padding: 12px 14px; border: 1px solid var(--lbq-line); border-radius: 8px; background: var(--bg); color: var(--ink); font: inherit; font-size: .95rem; }
+#lbq textarea { min-height: 96px; resize: vertical; }
+#lbq input:focus, #lbq textarea:focus, #lbq select:focus { outline: 2px solid var(--lbq-accent); outline-offset: 1px; border-color: transparent; }
+#lbq button { margin-top: 6px; padding: 13px 22px; border: 0; border-radius: 8px; background: var(--lbq-accent); color: var(--ink); font: inherit; font-weight: 800; font-size: .95rem; cursor: pointer; letter-spacing: .02em; }
+#lbq button:disabled { opacity: .6; cursor: wait; }
+#lbq .lbq-st { margin: 10px 0 0; font-size: .9rem; color: var(--lbq-muted); min-height: 1.2em; }
+#lbq .lbq-cons { display: flex; gap: 9px; align-items: center; margin-top: 12px; font-size: .82rem; color: var(--lbq-muted); text-transform: none; letter-spacing: 0; }
+#lbq .lbq-cons input { width: auto; }
+#lbq .lbq-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Footer */
+.foot { margin: 0; padding: 3rem clamp(1rem, 4vw, 2.5rem); border-top: 1px solid var(--line-concrete); background: var(--bg-2); }
+.foot-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+@media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+.foot h3 { font-size: 1rem; font-weight: 800; margin: 0 0 .6rem; }
+.foot p { margin: 0; font-size: .88rem; color: var(--ink-2); }
+.foot a { color: var(--acc); }
+.foot a:hover { text-decoration: underline; }
+.foot-brand { display: flex; align-items: center; gap: 12px; }
+.foot-brand img { height: 52px; object-fit: contain; border-radius: 6px; }
+.foot-bar { max-width: 1280px; margin: 2.5rem auto 0; padding: 1.2rem clamp(1rem, 4vw, 2.5rem); border-top: 1px solid var(--line-concrete); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: .75rem; color: var(--ink-3); font-family: var(--font-m); }
+</style>
+</head>
+<body>
+<script>document.documentElement.className+=' js';</script>
+<a class="skip" href="#services">Skip to content</a>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a class="nav__brand" href="#top" aria-label="WC Concreting - Home">
+    <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager">
+    <span class="nav__brand-text"><span class="nav__name">WC Concreting</span><span class="nav__sub">Driveways · Slabs · Patios</span></span>
+  </a>
+  <div class="nav__center">
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#finishes">Finishes</a></li>
+      <li><a href="#area">Area</a></li>
+    </ul>
+  </div>
+  <div class="nav__cta"><a href="tel:+614****1393" aria-label="Call 0408 071 393">Call 0408 071 393</a></div>
+</nav>
+
+<header id="top">
+  <div class="hero" aria-label="WC Concreting hero">
+    <div class="hero-3d" aria-hidden="true"><canvas id="heroCanvas"></canvas></div>
+    <div class="hero-in">
+      <div class="hero-copy">
+        <p class="kick">Newcastle & Central Coast</p>
+        <h1 class="h1">Concrete <em>poured.</em><br>Finished <em>properly.</em></h1>
+        <p class="lead">Driveways, house slabs, paths, patios, exposed aggregate & decorative finishes - formed, poured, screeded and broomed to a standard that lasts.</p>
+        <div class="cta">
+          <a class="btn btn--primary" href="#lbq">Get a free quote</a>
+        </div>
+        <div class="hero-trust" aria-label="Trust indicators">
+          <span class="badge"><strong>20+ years on the tools</strong></span>
+          <span class="badge"><strong>Fully licensed & insured</strong></span>
+          <span class="badge"><strong>Owner-operator Warrick C.</strong></span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="Exposed aggregate driveway example">
+        <img src="assets/wc-hero.jpg" alt="Finished exposed aggregate driveway - a pour like this" width="1200" height="856" loading="eager">
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="services" aria-labelledby="s-t">
+  <p class="kick" aria-hidden="true">What we do</p>
+  <h2 class="h2" id="s-t">Concrete for every part of the home</h2>
+  <p class="lead rv">From the drive you arrive on to the patio you entertain on - every slab gets the same prep, reinforcement and finish discipline.</p>
+  <div class="svc-grid">
+    <article class="svc rv"><p class="svc__num">01</p><h3 class="svc__title">Driveways</h3><p class="svc__desc">Formed and reinforced driveways - plain, coloured or exposed aggregate - built to take the weight and the weather.</p></article>
+    <article class="svc rv"><p class="svc__num">02</p><h3 class="svc__title">House Slabs</h3><p class="svc__desc">Waffle pod and conventional raft slabs to engineer's spec - vapour barrier, reinforcement, Termimesh and inspection ready.</p></article>
+    <article class="svc rv"><p class="svc__num">03</p><h3 class="svc__title">Paths & Walkways</h3><p class="svc__desc">Front entries, side access and garden paths - formed to fall, broom or exposed finish, cut joints where needed.</p></article>
+    <article class="svc rv"><p class="svc__num">04</p><h3 class="svc__title">Patios & Alfresco</h3><p class="svc__desc">Entertainment slabs at the right level - flush to internal floors, soaked for pavers or left as a finished surface.</p></article>
+    <article class="svc rv"><p class="svc__num">05</p><h3 class="svc__title">Exposed Aggregate</h3><p class="svc__desc">Seeded and washed finishes in a range of stone - non-slip, hard-wearing and the classic Australian driveway look.</p></article>
+    <article class="svc rv"><p class="svc__num">06</p><h3 class="svc__title">Decorative Finishes</h3><p class="svc__desc">Coloured oxides, stencil patterns, saw-cut geometry and trowel textures - detail work that lifts a plain slab.</p></article>
+  </div>
+</section>
+
+<section class="sec sec--panel" id="finishes" aria-labelledby="f-t">
+  <div class="inner">
+    <p class="kick" aria-hidden="true">Finishes</p>
+    <h2 class="h2" id="f-t">The surface you see and feel</h2>
+    <p class="lead rv">Finish isn't cosmetic - it's grip, drainage, wear resistance and how the slab ages. We match the finish to the job.</p>
+    <div class="finish-strip">
+      <div class="finish-head"><h3 style="font-family:var(--font-d);font-size:clamp(1.2rem,2.8vw,1.7rem);font-weight:900">Choose your finish</h3></div>
+      <div class="finish-grid">
+        <div class="finish rv">
+          <div class="finish__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M2 12h20"/><path d="M2 16h20"/></svg></div>
+          <div class="finish__title">Broom Finish</div>
+          <div class="finish__desc">Standard non-slip texture - consistent strokes, even fall, clean edges.</div>
+        </div>
+        <div class="finish rv">
+          <div class="finish__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <div class="finish__title">Exposed Aggregate</div>
+          <div class="finish__desc">Seeded stone washed to reveal texture - tough, timeless, high traction.</div>
+        </div>
+        <div class="finish rv">
+          <div class="finish__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg></div>
+          <div class="finish__title">Saw-Cut Pattern</div>
+          <div class="finish__desc">Control joints cut to a grid or geometric layout - planned cracking, clean lines.</div>
+        </div>
+        <div class="finish rv">
+          <div class="finish__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><path d="M12 3l4 4"/><path d="M12 3l-4 4"/></svg></div>
+          <div class="finish__title">Coloured Oxide</div>
+          <div class="finish__desc">Integral colour through the mix - no surface coating to peel or wear through.</div>
+        </div>
+        <div class="finish rv">
+          <div class="finish__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/><path d="M6 15l6 6 6-6"/></svg></div>
+          <div class="finish__title">Stencil / Stamp</div>
+          <div class="finish__desc">Patterned texture - pavers, tile, slate or custom - sealed for longevity.</div>
+        </div>
+        <div class="finish rv">
+          <div class="finish__icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M8 8h8"/><path d="M8 16h8"/></svg></div>
+          <div class="finish__title">Steel Trowel</div>
+          <div class="finish__desc">Smooth, dense internal slabs - ready for tiles, vinyl or polished overlay.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="projects" aria-labelledby="proj-t">
+  <p class="kick" aria-hidden="true">Recent work</p>
+  <h2 class="h2" id="proj-t">Finished jobs around Newcastle & Central Coast</h2>
+  <p class="lead rv">Every driveway, slab and patio below was formed, poured and finished by us. Click any image to view larger.</p>
+  <div class="proj-grid">
+    <article class="proj rv">
+      <img src="assets/wc-gal1.jpg" alt="Exposed aggregate driveway - a finish like this" width="1200" height="856" loading="lazy">
+      <div class="proj__cap"><strong>Exposed aggregate driveway</strong> — seeded stone, washed finish, non-slip.</div>
+    </article>
+    <article class="proj rv">
+      <img src="assets/wc-gal2.jpg" alt="House slab and alfresco patio - a pour like this" width="1200" height="856" loading="lazy">
+      <div class="proj__cap"><strong>House slab & alfresco patio</strong> — waffle pod slab, flush indoor/outdoor transition.</div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="area" aria-labelledby="ar-t">
+  <p class="kick" aria-hidden="true">Service area</p>
+  <h2 class="h2" id="ar-t">Newcastle & Central Coast</h2>
+  <p class="lead rv">Based in Newcastle and working across the wider region for residential and light commercial concreting.</p>
+  <div class="area-strip">
+    <div class="area-tags" aria-label="Service areas">
+      <span class="rv">Newcastle</span><span class="rv">Lake Macquarie</span><span class="rv">Maitland</span><span class="rv">Port Stephens</span><span class="rv">Cessnock</span><span class="rv">Central Coast</span><span class="rv">Gosford</span><span class="rv">Wyong</span><span class="rv">The Entrance</span><span class="rv">Toukley</span>
+    </div>
+  </div>
+</section>
+
+<span id="quote" style="position:absolute;top:-90px" aria-hidden="true"></span>
+<section id="lbq" aria-labelledby="lbq-h">
+  <div class="lbq-w">
+    <div>
+      <h2 id="lbq-h">Get a free quote</h2>
+      <p class="lbq-s">Tell us about the job and we'll come back with a firm price - no surprises, no obligation.</p>
+      <div class="lbq-info">
+        <div><b>Call</b><a href="tel:+614****1393">0408 071 393</a></div>
+        <div><b>Email</b><a href="mailto:wc.concreting@hotmail.com">wc.concreting@hotmail.com</a></div>
+        <div><b>Area</b><span>Newcastle & Central Coast, NSW</span></div>
+        <div><b>Facebook</b><a href="https://facebook.com/people/WC-Concreting/61593409611976" rel="noopener" target="_blank">WC Concreting</a></div>
+      </div>
+    </div>
+    <form id="lbq-form" novalidate data-site="wc-concreting" data-biz="WC Concreting">
+      <div class="lbq-f">
+        <div class="lbq-g">
+          <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
+          <div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div>
+          <div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div>
+          <div class="lbq-full"><label for="lbq-svc">Service</label>
+            <select id="lbq-svc" name="service">
+              <option>Driveway</option>
+              <option>House slab</option>
+              <option>Path / walkway</option>
+              <option>Patio / alfresco</option>
+              <option>Exposed aggregate</option>
+              <option>Decorative finish</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, finish, access, timing..." required></textarea></div>
+        </div>
+        <label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
+        <div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button type="submit">Send quote request</button>
+        <p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+  <script>
+  (function(){
+    var EP = null;
+    function base(cb){
+      if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+      var done = false;
+      var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+      fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+        .then(function(r){ return r.text(); })
+        .then(function(txt){
+          var b = (txt||'').trim().replace(/\/+$/, '');
+          if (done) return;
+          done = true; clearTimeout(t);
+          cb(/^https:\/\/[a-z0-9.\-]+(:?\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+        })
+        .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+    }
+    function init(){
+      var f = document.getElementById('lbq-form');
+      if (!f) return;
+      var st = document.getElementById('lbq-st');
+      var btn = f.querySelector('button[type=submit]');
+      f.addEventListener('submit', function(e){
+        e.preventDefault();
+        var d = {};
+        new FormData(f).forEach(function(v,k){ d[k]=v; });
+        if (d.website) return;
+        if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+          st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+          st.style.color = 'var(--acc)';
+          return;
+        }
+        btn.disabled = true;
+        st.textContent = 'Sending\u2026';
+        st.style.color = '';
+        base(function(B){
+          var url = B + '/functions/v1/quote-request';
+          fetch(url, {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({
+              site_id: f.dataset.site || '',
+              business_name: f.dataset.biz || '',
+              name: d.name, phone: d.phone, email: d.email,
+              service: d.service || '', message: d.message,
+              consent: !!d.consent
+            })
+          })
+          .then(function(r){ return r.json().catch(function(){ return {}; }); })
+          .then(function(x){
+            if (x && x.success) {
+              f.reset();
+              st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+              st.style.color = 'var(--lbq-accent)';
+            } else {
+              throw new Error((x && x.error) || 'Could not send');
+            }
+          })
+          .catch(function(err){
+            st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
+            st.style.color = 'var(--acc)';
+          })
+          .finally(function(){ btn.disabled = false; });
+        });
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+  </script>
+</section>
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand"><img src="assets/logo.jpg" alt="" aria-hidden="true"><span class="nav__brand-text"><span class="nav__name">WC Concreting</span><span class="nav__sub">Driveways &middot; Slabs &middot; Patios</span></span></div>
+      <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink-2);">Concreting - Newcastle & Central Coast NSW.<br>Driveways, slabs, paths, patios, exposed aggregate & decorative finishes.</p>
+    </div>
+    <div><h3>Services</h3><a href="#services">Driveways</a><a href="#services">House slabs</a><a href="#services">Paths & walkways</a><a href="#services">Patios</a><a href="#finishes">Finishes</a><a href="#lbq">Get a quote</a></div>
+    <div><h3>Company</h3><a href="#finishes">Our finishes</a><a href="#area">Service area</a><a href="#lbq">Free quote</a></div>
+    <div><h3>Contact</h3><a href="tel:+614****1393">0408 071 393</a><a href="mailto:wc.concreting@hotmail.com">wc.concreting@hotmail.com</a><a href="https://facebook.com/people/WC-Concreting/61593409611976" rel="noopener" target="_blank">Facebook</a></div>
+  </div>
+  <div class="foot-bar">
+    <span>&copy; 2025 WC Concreting. All rights reserved.</span>
+    <span>Built by Laydback</span>
+  </div>
+</footer>
+
+<script>
+// Subtle static 3D hero detail - screed/float geometry (no scroll-scrub, de-scroll law compliant)
+(() => {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, dpr, rafId;
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.width = Math.floor(rect.width * dpr);
+    h = canvas.height = Math.floor(rect.height * dpr);
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.scale(dpr, dpr);
+    draw();
+  }
+  function draw() {
+    if (!w || !h) return;
+    const cw = w / dpr, ch = h / dpr;
+    ctx.clearRect(0, 0, cw, ch);
+    // Subtle screed/float lines - barely visible, static - blue accent from logo
+    ctx.strokeStyle = 'rgba(11,97,148,0.025)';
+    ctx.lineWidth = 1;
+    const spacing = 60;
+    for (let x = -cw; x < cw * 2; x += spacing) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x + ch * 0.3, ch);
+      ctx.stroke();
+    }
+    // Faint aggregate speckles - blue accent
+    ctx.fillStyle = 'rgba(11,97,148,0.015)';
+    for (let i = 0; i < 120; i++) {
+      const x = Math.random() * cw;
+      const y = Math.random() * ch;
+      const r = Math.random() * 1.5 + 0.5;
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+  function loop() {
+    draw();
+    rafId = requestAnimationFrame(loop);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  loop();
+  // Cleanup on unload
+  window.addEventListener('beforeunload', () => {
+    window.removeEventListener('resize', resize);
+    if (rafId) cancelAnimationFrame(rafId);
+  });
+})();
+
+// JS safety net - reveal all .rv elements after ~1100ms if JS reveal fails
+setTimeout(() => {
+  document.querySelectorAll('.rv').forEach(el => el.classList.add('on'));
+}, 1100);
+</script>
+</body>
+</html>
