@@ -206,7 +206,7 @@ p { margin: 0 0 16px; color: var(--muted); }
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 <style id="rv-lock">html .rv.on{opacity:1!important;transform:none!important}</style>
 </head>
-<body>
+<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2600);</script>
 <div class="scene-wrap" id="sceneWrap">
   <div class="scene-sticky">
     <canvas class="scene-canvas" id="buildCanvas" aria-hidden="true"></canvas>
@@ -1505,7 +1505,7 @@ p { margin: 0 0 16px; color: var(--muted); }
       (function typ() { if (i <= name.length) { el.textContent = name.slice(0, i++); setTimeout(typ, 45); } })();
     }
     var css = document.createElement('style');
-    css.textContent = '#sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
+    css.textContent = '#sigSplash{animation:sigSplashAutoOut .5s ease 2.6s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
       '#sigSplash .sp-c{position:relative;z-index:2;text-align:center}' +
       '#sigSplash .sp-logo{display:block;margin:0 auto 16px;max-height:72px;max-width:180px;width:auto;object-fit:contain}' +
       '#sigSplash .sp-w{display:block;font-family:var(--disp,var(--font-display,inherit));font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:clamp(22px,5vw,38px);opacity:0;transition:opacity .5s ease}' +
@@ -1530,7 +1530,7 @@ p { margin: 0 0 16px; color: var(--muted); }
     document.head.appendChild(css);
     document.body.appendChild(sp);
     requestAnimationFrame(function () { requestAnimationFrame(function () { sp.classList.add('on'); }); });
-    var HOLD = reduce ? 350 : 1250;
+    var HOLD = reduce ? 300 : 900;
     setTimeout(function () {
       sp.classList.add('out');
       setTimeout(function () { sp.remove(); }, 1000);
