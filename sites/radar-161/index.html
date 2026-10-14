@@ -10,7 +10,7 @@
 <meta property="og:description" content="Exposed aggregate, polished concrete, retaining walls, driveways and slabs across the Coffs Coast.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/gal_1.jpg">
-<link rel="icon" href="assets/gal_1.jpg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
 :root{
   --bg:#0c0d0e; --panel:#141618; --panel2:#1a1d20; --line:#2a2e32; --line2:#3a4046;
   --fg:#f2f3f4; --dim:#a6adb3; --mute:#818a91;
-  --acc:#c9ced3; --acc-soft:#9aa2aa; --hero-acc:#e6e9ec; --acc-text:#ffffff;
+  --acc:#c9ced3; --acc-soft:#9aa2aa; --hero-acc:#e6e9ec; --acc-text:#101418;
   --disp:'Saira Condensed','Archivo',sans-serif; --body:'Inter',system-ui,sans-serif;
   --gut:clamp(18px,4.4vw,60px);
 }
@@ -41,8 +41,8 @@ p{margin:0}
 .nav.solid{background:rgba(10,11,12,.92);-webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;gap:clamp(12px,2.4vw,34px);padding-block:15px}
 .brand{display:flex;align-items:center;gap:12px;flex:none}
-.brand-t{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;line-height:1.12}
-.brand-t small{display:block;font-family:"JetBrains Mono",monospace;font-weight:400;font-size:9.5px;letter-spacing:.2em;color:var(--dim);margin-top:3px}
+.brand-t{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;line-height:1.3}
+.brand-t small{display:block;font-family:"JetBrains Mono",monospace;font-weight:400;font-size:11px;letter-spacing:.2em;color:var(--dim);margin-top:3px}
 .nav-links{display:flex;gap:clamp(12px,1.7vw,28px);margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#d3d8de;font-weight:600}
 .nav-links a:hover{color:#fff}
 .nav-tel{flex:none;font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.05em;border:1px solid var(--line2);padding:10px 16px;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
@@ -72,17 +72,13 @@ p{margin:0}
 #heroCanvas{display:none}
 .hero-in{position:relative;z-index:3;padding-bottom:clamp(46px,7vh,88px);width:100%;max-width:min(1360px,94vw);display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,3vw,48px);align-items:center}
 .hero-copy{position:relative;z-index:3}
-.hero-copy::before{content:"";position:absolute;inset:-8% -6%;background:radial-gradient(112% 76% at 26% 46%,rgba(255,255,255,.95),rgba(255,255,255,0) 76%);z-index:-1}
+.hero-copy::before{display:none}
 .hero-visual{display:block}
 .hero-visual img{width:100%;height:min(56vh,540px);object-fit:cover;object-position:center 44%;border:1px solid var(--line);border-radius:8px;box-shadow:0 16px 40px rgba(30,33,36,.16)}
 .hero h1{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45),0 0 4px rgba(0,0,0,.35)}
 @media(max-width:760px){
-  .hero{min-height:auto;display:block;background:var(--bg);padding-top:74px}
-  .hero-bg,.hero-scrim,.hero-grid,.hero-3d{display:none}
+  .hero{min-height:clamp(560px,86svh,760px);padding-top:74px}
   .hero-in{grid-template-columns:1fr;padding-top:12px;padding-bottom:30px}
-  .hero-visual{order:-1}
-  .hero-visual img{height:min(30vh,240px);border-radius:6px}
-  .hero-copy::before{display:none}
   .hero h1{font-size:clamp(31px,8.6vw,46px);margin-top:14px}
   .hero-sub{margin-top:14px}
   .hero-cta{margin-top:18px}
@@ -117,6 +113,7 @@ section{padding:clamp(58px,8vw,104px) 0}
 .trust-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
 .tr-i{display:flex;gap:14px;align-items:flex-start}
 .tr-t{width:32px;height:32px;flex:none;background:var(--acc);color:var(--acc-text);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900}
+.tr-t::before{content:"";width:11px;height:6px;border-left:2.5px solid var(--acc-text);border-bottom:2.5px solid var(--acc-text);transform:rotate(-45deg) translateY(-1px)}
 .tr-i b{font-size:15px;display:block;text-transform:uppercase;font-family:var(--disp)}
 .tr-i span{font-size:13px;color:var(--dim)}
 .stat-band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
@@ -155,10 +152,10 @@ html.js .drop.in{opacity:1;transform:none}
 .hero-scrim{background:linear-gradient(to top,rgba(8,9,10,.94) 0%,rgba(8,9,10,.78) 22%,rgba(8,9,10,.32) 46%,rgba(8,9,10,.03) 72%,rgba(9,11,13,.16) 100%)}
 .nav{background:linear-gradient(to bottom,rgba(8,9,10,.70),rgba(8,9,10,.12) 70%,rgba(8,9,10,0));backdrop-filter:blur(8px)}
 .nav.solid{background:rgba(10,11,12,.94)}
-.brand-logo{height:48px;width:auto;display:block;flex:none}
+.brand-logo{height:48px;width:auto;display:block;flex:none;background:#eceef0;border-radius:7px;padding:4px 6px}
 .brand{gap:12px}
 .brand-mark{flex:none;display:block}
-.brand-t small{font-size:10.5px;color:#cbd1d6;letter-spacing:.15em}
+.brand-t small{font-size:11px;color:#cbd1d6;letter-spacing:.15em}
 @media(max-width:640px){.brand-logo{height:40px}}
 
 .hero-bg img{filter:saturate(1.10) contrast(1.06) brightness(1.04)}
@@ -179,7 +176,7 @@ html.js .drop.in{opacity:1;transform:none}
 </style>
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
-<canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
+<canvas id="heroCanvas" aria-hidden="true" style="display:none"></canvas>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav" id="nav"><div class="wrap nav-in">
   <a class="brand" href="#top"><img class="brand-mark" src="assets/logo-mark.png" alt="McKinnon Concrete"><span class="brand-txt"><b class="brand-name">McKinnon</b><i class="brand-sub">Concrete</i></span></a>
@@ -202,7 +199,6 @@ html.js .drop.in{opacity:1;transform:none}
       <p class="hero-sub">Exposed aggregate, polished concrete floors, retaining walls, driveways and slabs across Coffs Harbour and the Coffs Coast &mdash; 17+ years on the tools and a finish that speaks for itself.</p>
       <div class="hero-cta"><a class="btn btn-primary" href="#quote">Get a free quote</a> <a class="btn btn-ghost" href="tel:+61427236325">Call 0427 236 325</a></div>
     </div>
-    <div class="hero-visual"><img src="assets/gal_3.jpg" alt="Polished concrete floor with exposed aggregate close-up showing stone texture" width="1200" height="800"></div>
   </div>
 </header>
 
@@ -219,12 +215,12 @@ html.js .drop.in{opacity:1;transform:none}
 <section id="work"><div class="wrap">
   <div class="sec-head"><span class="sec-idx">03 / WORK</span><div><h2 class="sec-title">Recent pours</h2><p class="lead">Polished floors, aggregate, walls and pours &mdash; recent jobs on the Coffs Coast.</p></div></div>
 </div>
-<div class="hgal drop"><div class="track"></div></div>
+<div class="hgal drop"><div class="track"><figure class="hg-item"><img src="assets/g1.jpg" alt="Concrete slab &amp; driveway"><figcaption><span>Concrete slab &amp; driveway</span><span>/01</span></figcaption></figure><figure class="hg-item"><img src="assets/g2.jpg" alt="Screed &amp; finish"><figcaption><span>Screed &amp; finish</span><span>/02</span></figcaption></figure><figure class="hg-item"><img src="assets/g3.jpg" alt="Exposed aggregate"><figcaption><span>Exposed aggregate</span><span>/03</span></figcaption></figure><figure class="hg-item"><img src="assets/g4.jpg" alt="Concrete works"><figcaption><span>Concrete works</span><span>/04</span></figcaption></figure></div></div>
 </section>
 
 <section id="trust"><div class="wrap">
   <div class="sec-head"><span class="sec-idx">04 / WHY US</span><div><h2 class="sec-title">Why the Coffs Coast calls McKinnon</h2></div></div>
-  <div class="trust-strip"><div class="tr-i drop d1"><div class="tr-t">&#10003;</div><div><b>High-end finishes</b><span>Aggregate &amp; polished</span></div></div><div class="tr-i drop d2"><div class="tr-t">&#10003;</div><div><b>17+ years</b><span>On the tools</span></div></div><div class="tr-i drop d3"><div class="tr-t">&#10003;</div><div><b>5.0 Google rating</b><span>Reviews from real jobs</span></div></div><div class="tr-i drop d4"><div class="tr-t">&#10003;</div><div><b>Coffs Coast</b><span>Local crew</span></div></div></div>
+  <div class="trust-strip"><div class="tr-i drop d1"><div class="tr-t" aria-hidden="true"></div><div><b>High-end finishes</b><span>Aggregate &amp; polished</span></div></div><div class="tr-i drop d2"><div class="tr-t" aria-hidden="true"></div><div><b>17+ years</b><span>On the tools</span></div></div><div class="tr-i drop d3"><div class="tr-t" aria-hidden="true"></div><div><b>5.0 Google rating</b><span>Reviews from real jobs</span></div></div><div class="tr-i drop d4"><div class="tr-t" aria-hidden="true"></div><div><b>Coffs Coast</b><span>Local crew</span></div></div></div>
 </div></section>
 
 <section class="stat-band band"><div class="wrap"><div class="stat drop d1"><b>17+</b><span>Years in concrete</span></div><div class="stat drop d2"><b>5.0</b><span>Google rating</span></div><div class="stat drop d3"><b>Coffs Coast</b><span>Local crew</span></div></div></section>
@@ -237,7 +233,7 @@ html.js .drop.in{opacity:1;transform:none}
 <span id="quote" style="display:block;height:0;scroll-margin-top:90px"></span>
 <section id="lbq" aria-labelledby="lbq-h">
 <style>
-#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--ink2);--lbq-bg:var(--paper2);--lbq-panel:#fff;--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--fg);--lbq-muted:var(--dim);--lbq-bg:var(--panel);--lbq-panel:var(--panel2);--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
 @media(max-width:900px){#lbq .lbq-w{grid-template-columns:1fr}}
@@ -248,8 +244,11 @@ html.js .drop.in{opacity:1;transform:none}
 #lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lbq-accent);min-width:64px}
 #lbq .lbq-info a{font-weight:800;text-decoration:none}
 #lbq .lbq-f{display:grid;gap:12px;background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
+#lbq .lbq-g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#lbq .lbq-full{grid-column:1/-1}
+@media(max-width:700px){#lbq .lbq-g{grid-template-columns:1fr}}
 #lbq label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
-#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--paper);color:var(--ink);font:inherit;font-size:.95rem}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
 #lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:var(--lbq-acc-text,#0b0e12);font:inherit;font-weight:800;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
@@ -262,31 +261,42 @@ html.js .drop.in{opacity:1;transform:none}
 /* hero polish 2026-10-14 */
 .hero h1{font-size:clamp(30px,7.2vw,58px);line-height:1.02;text-shadow:0 2px 26px rgba(0,0,0,.7),0 1px 3px rgba(0,0,0,.5)}
 .hero img{object-position:center 38%!important}
-.hero .hero-shade{background:linear-gradient(180deg,rgba(8,9,10,.5) 0%,rgba(8,9,10,.25) 40%,rgba(8,9,10,.88) 100%)!important}
-.nav .brand{gap:12px!important}.nav .brand img{max-height:40px;width:auto}
+.nav .brand{gap:12px!important}.nav .brand img{max-height:48px;width:auto}
 
-/* 161 hero definitive fix 2026-10-14 */
-.hero{position:relative;overflow:hidden;min-height:88vh}
+/* 161 hero definitive fix 2026-10-15 */
+.hero{position:relative;overflow:hidden;min-height:clamp(620px,88vh,980px)}
 .hero-bg{position:absolute!important;inset:0!important;z-index:0!important;display:block!important}
-.hero-bg img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 42%!important;filter:saturate(1.06) contrast(1.03)!important;display:block!important}
-.hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,10,11,.42) 0%,rgba(9,10,11,.16) 38%,rgba(9,10,11,.72) 82%,rgba(9,10,11,.92) 100%)!important}
-.hero .hero-in{position:relative;z-index:2}
+.hero-bg img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 42%!important;filter:brightness(.62) contrast(1.08) saturate(1.02)!important;display:block!important}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(9,10,11,.60) 0%,rgba(9,10,11,.34) 34%,rgba(9,10,11,.70) 72%,rgba(9,10,11,.95) 100%)!important}
+.hero-grid{z-index:2}
+.hero-3d{z-index:3}
+.hero .hero-in{position:relative;z-index:4}
+.hero .eyebrow{color:#eef0f2;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.55)}
+.hero .hero-sub{max-width:62ch}
+@media(min-width:761px){.hero .hero-in{grid-template-columns:minmax(0,820px) 1fr}.hero .eyebrow{white-space:nowrap}}
+/* hero CTA buttons + h1 accent 2026-10-15 */
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center}
+.hero h1 .acc{color:var(--hero-acc)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;padding:15px 26px;border:1px solid transparent;transition:background .22s,color .22s,border-color .22s,transform .22s}
+.btn-primary{background:var(--acc);color:var(--acc-text);border-color:var(--acc)}
+.btn-primary:hover{background:#fff;border-color:#fff;color:#0d1013;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#f2f3f4;border-color:rgba(242,243,244,.42)}
+.btn-ghost:hover{background:rgba(242,243,244,.12);border-color:rgba(242,243,244,.72)}
 
 /* brand header — Allards pattern 2026-10-14 */
 .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-.brand-mark{height:40px;width:auto;display:block;image-rendering:-webkit-optimize-contrast}
+.brand-mark{height:48px;width:auto;display:block;image-rendering:-webkit-optimize-contrast;background:#eceef0;border-radius:7px;padding:4px 6px;filter:contrast(1.16) brightness(1.04)}
 .brand-txt{display:flex;flex-direction:column;line-height:1}
 .brand-name{font-family:'Saira Condensed','Archivo',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:.05em;text-transform:uppercase;color:#fff;line-height:.95}
 .brand-sub{display:block;font-family:'Saira Condensed',sans-serif;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--acc,#c9ced3);margin-top:4px;font-style:normal}
-@media (max-width:820px){.brand-mark{height:34px}.brand-name{font-size:1.28rem}}
+@media (max-width:820px){.brand-mark{height:42px}.brand-name{font-size:1.28rem}}
 
 /* brand header polish v2 */
 .brand{gap:.85rem!important}
-.brand-sub{font-size:.66rem!important;letter-spacing:.36em!important;font-weight:600!important}
+.brand-sub{font-size:.72rem!important;letter-spacing:.34em!important;font-weight:600!important}
 .nav{background:rgba(10,11,12,.95)!important}
 
 /* hero text legibility boost 2026-10-14 */
-.hero-shade{background:linear-gradient(180deg,rgba(9,10,11,.55) 0%,rgba(9,10,11,.30) 34%,rgba(9,10,11,.55) 62%,rgba(9,10,11,.88) 88%,rgba(9,10,11,.95) 100%)!important}
 .hero-copy{text-shadow:0 1px 2px rgba(0,0,0,.5)}
 
 /* mobile overflow guard 2026-10-14 */
@@ -427,237 +437,7 @@ resize();window.addEventListener('resize',resize);requestAnimationFrame(loop);})
 (function(){var g=document.querySelector('.hgal');if(!g)return;var d=0,x0=0;g.addEventListener('pointerdown',function(e){d=1;x0=e.clientX+g.scrollLeft;});window.addEventListener('pointerup',function(){d=0;});g.addEventListener('pointermove',function(e){if(d){g.scrollLeft=x0-e.clientX;}});})();
 </script>
 
-: 0.81, dur: 0.13 }];
 
-  function drawPolish(k, prog, t4) {
-    if (prog <= 0.004) return;
-    var ctx = S.ctx, b = BANDS[k];
-    var xc = PS.lerp(b.from, b.to, prog);
-    var xa = Math.min(b.from, xc), xb = Math.max(b.from, xc);
-    var pts = [S.project(xa, SLAB + 0.007, b.z - 1.0), S.project(xb, SLAB + 0.007, b.z - 1.0),
-               S.project(xb, SLAB + 0.007, b.z + 1.0), S.project(xa, SLAB + 0.007, b.z + 1.0)];
-    S.poly(pts, 'rgba(238,240,236,.12)', null, 1);
-    var done = PS.clamp((prog - 0.25) / 0.75, 0, 1);
-    for (var i = 0; i < 5; i++) {
-      var ax = PS.lerp(xa, xb, i / 4.6 + 0.06);
-      var ac = S.project(ax, SLAB + 0.008, b.z + 0.18 * Math.sin(i * 1.9));
-      var rw = (0.85 + (i % 3) * 0.22) * S.focal / b.z;
-      var a = PS.clamp(prog * 1.2 - i * 0.16, 0, 1) * 0.15 * (0.5 + 0.5 * done) * (1 - t4 * 0.35);
-      if (a <= 0.01) continue;
-      ctx.strokeStyle = 'rgba(255,255,252,' + a.toFixed(3) + ')';
-      ctx.lineWidth = 1.1;
-      ctx.beginPath(); ctx.ellipse(ac[0], ac[1], rw * 0.34, rw * 0.105, (i % 5) * 0.12 - 0.25, 0, 6.2832); ctx.stroke();
-    }
-  }
-
-  /* ---------- screed rail sweeping toward the camera ---------- */
-  function drawRail(railZ, active) {
-    var ctx = S.ctx;
-    var x0 = -7.5, x1 = 7.5, hB = SLAB + 0.02, hT = SLAB + 0.17, dz = 0.13, zF = railZ - dz, zB = railZ + dz;
-    contactShadow(0, railZ + 0.30, 7.8, 0.55, 0.26);
-    if (active) {                                        /* wet lip pushed ahead of the blade */
-      var bl = S.project(0, SLAB + 0.035, railZ - 0.55), sl = S.focal / (railZ - 0.55);
-      var lg = ctx.createLinearGradient(0, bl[1] - sl * 0.05, 0, bl[1] + sl * 0.09);
-      lg.addColorStop(0, PS.rgba(WET_L, 0.75)); lg.addColorStop(1, PS.rgba(WET_D, 0));
-      ctx.fillStyle = lg;
-      ctx.beginPath(); ctx.ellipse(bl[0], bl[1], 8.6 * sl, 0.28 * sl, 0, 0, 6.2832); ctx.fill();
-    }
-    var top = [S.project(x0, hT, zF), S.project(x1, hT, zF), S.project(x1, hT, zB), S.project(x0, hT, zB)];
-    var front = [S.project(x0, hB, zF), S.project(x1, hB, zF), S.project(x1, hT, zF), S.project(x0, hT, zF)];
-    var tg = ctx.createLinearGradient(top[0][0], 0, top[1][0], 0);
-    tg.addColorStop(0, PS.lighten(STEEL, .30)); tg.addColorStop(0.5, PS.lighten(STEEL, .14)); tg.addColorStop(1, PS.lighten(STEEL, .02));
-    S.poly(top, tg, 'rgba(90,98,106,.5)', 1);
-    var fg2 = ctx.createLinearGradient(0, front[0][1], 0, front[2][1]);
-    fg2.addColorStop(0, PS.lighten(STEEL, .10)); fg2.addColorStop(1, PS.darken(STEEL, .32));
-    S.poly(front, fg2, 'rgba(52,58,64,.55)', 1);
-    var sA = S.project(x0, hB + 0.038, zF), sB = S.project(x1, hB + 0.038, zF),
-        sC = S.project(x1, hB + 0.082, zF), sD = S.project(x0, hB + 0.082, zF);
-    S.poly([sA, sB, sC, sD], PS.rgba(OXIDE, .92), null, 1);     /* oxide stripe: the brand accent */
-    S.rim(S.project(x0, hB, zF), S.project(x1, hB, zF), 'rgba(28,32,36,.8)', .8, 2.4);
-    S.rim(top[0], top[1], 'rgba(255,246,224,.85)', .9, 2.4);
-  }
-
-  /* ---------- walk-behind power float ---------- */
-  function machineState(p) {
-    if (p < 0.46) return null;
-    var segs = [
-      [0.46, 0.50, 7.6, 5.4, 12.7, 12.7, -1],
-      [0.50, 0.63, 5.4, -5.4, 12.7, 12.7, 0],
-      [0.63, 0.655, -5.4, -5.4, 12.7, 9.1, -1],
-      [0.655, 0.785, -5.4, 5.4, 9.1, 9.1, 1],
-      [0.785, 0.81, 5.4, 5.4, 9.1, 5.5, -1],
-      [0.81, 0.94, 5.4, -5.4, 5.5, 5.5, 2],
-      [0.94, 2.0, -5.4, -5.4, 5.5, 5.5, -1]
-    ];
-    for (var i = 0; i < segs.length; i++) {
-      var g = segs[i];
-      if (p >= g[0] && p < g[1]) {
-        var k = PS.stage(p, g[0], g[1] - g[0], 'place');
-        return { x: PS.lerp(g[2], g[3], k), z: PS.lerp(g[4], g[5], k), pass: g[6] };
-      }
-    }
-    return { x: -5.4, z: 5.5, pass: -1 };
-  }
-
-  function drawMachine(mx, mz, time) {
-    var ctx = S.ctx, s = S.focal / mz;
-    var dc = S.project(mx, SLAB + 0.014, mz);
-    var rx = 0.58 * s, ry = rx * 0.30;
-    contactShadow(mx, mz, 0.85, 0.55, 0.40);
-    /* sheen the disc is working into the surface */
-    var pg = ctx.createRadialGradient(dc[0], dc[1], 0, dc[0], dc[1], rx * 1.55);
-    pg.addColorStop(0, 'rgba(255,250,236,.16)'); pg.addColorStop(1, 'rgba(255,250,236,0)');
-    ctx.fillStyle = pg;
-    ctx.beginPath(); ctx.ellipse(dc[0], dc[1], rx * 1.55, ry * 1.5, 0, 0, 6.2832); ctx.fill();
-    /* disc */
-    var dg = ctx.createLinearGradient(dc[0] - rx, dc[1] - ry, dc[0] + rx, dc[1] + ry);
-    dg.addColorStop(0, '#585d63'); dg.addColorStop(0.55, '#43484e'); dg.addColorStop(1, '#33373c');
-    ctx.fillStyle = dg;
-    ctx.beginPath(); ctx.ellipse(dc[0], dc[1], rx, ry, 0, 0, 6.2832); ctx.fill();
-    /* three blades spinning */
-    var ang = time * 0.0075;
-    for (var b = 0; b < 3; b++) {
-      var aa = ang + b * 2.0944;
-      ctx.strokeStyle = 'rgba(154,161,168,.9)'; ctx.lineWidth = Math.max(1, rx * 0.055);
-      ctx.beginPath();
-      ctx.moveTo(dc[0] - Math.cos(aa) * rx * 0.9, dc[1] - Math.sin(aa) * ry * 0.9);
-      ctx.lineTo(dc[0] + Math.cos(aa) * rx * 0.9, dc[1] + Math.sin(aa) * ry * 0.9);
-      ctx.stroke();
-    }
-    ctx.strokeStyle = 'rgba(24,27,31,.85)'; ctx.lineWidth = Math.max(1.4, rx * 0.07);
-    ctx.beginPath(); ctx.ellipse(dc[0], dc[1], rx, ry, 0, 0, 6.2832); ctx.stroke();
-    ctx.fillStyle = '#24272b';
-    ctx.beginPath(); ctx.ellipse(dc[0], dc[1], rx * 0.16, ry * 0.5 + 1, 0, 0, 6.2832); ctx.fill();
-    /* shaft + motor housing */
-    var mc = S.project(mx, 0.43, mz);
-    ctx.strokeStyle = '#5f656b'; ctx.lineWidth = Math.max(1.6, rx * 0.07);
-    ctx.beginPath(); ctx.moveTo(dc[0], dc[1] - ry * 0.6); ctx.lineTo(mc[0] + rx * 0.05, mc[1] + rx * 0.28); ctx.stroke();
-    var mw = 0.24, mTop = 0.57, mBot = 0.31;
-    var f0 = S.project(mx - mw, mBot, mz - 0.15), f1 = S.project(mx + mw, mBot, mz - 0.15),
-        f2 = S.project(mx + mw, mTop, mz - 0.15), f3 = S.project(mx - mw, mTop, mz - 0.15);
-    var mg = ctx.createLinearGradient(f0[0], 0, f1[0], 0);
-    mg.addColorStop(0, PS.lighten(OXIDE, .22)); mg.addColorStop(0.55, OXIDE); mg.addColorStop(1, PS.darken(OXIDE, .30));
-    S.poly([f0, f1, f2, f3], mg, 'rgba(40,16,10,.7)', 1);
-    var k0 = S.project(mx - mw, mTop, mz + 0.15), k1 = S.project(mx + mw, mTop, mz + 0.15);
-    var tg2 = ctx.createLinearGradient(f3[0], 0, f2[0], 0);
-    tg2.addColorStop(0, PS.lighten(OXIDE, .45)); tg2.addColorStop(1, PS.lighten(OXIDE, .18));
-    S.poly([f3, f2, k1, k0], tg2, null, 1);
-    ctx.strokeStyle = 'rgba(60,24,14,.55)'; ctx.lineWidth = 1;
-    for (var fin = 1; fin <= 3; fin++) {
-      var fx = PS.lerp(f0[0], f1[0], fin / 4);
-      ctx.beginPath(); ctx.moveTo(fx, PS.lerp(f0[1], f3[1], 0.18)); ctx.lineTo(fx, PS.lerp(f0[1], f3[1], 0.82)); ctx.stroke();
-    }
-    S.rim(f3, f2, 'rgba(255,240,214,.75)', .8, 1.8);
-    /* handle bar over the housing */
-    var h1 = S.project(mx + 0.06, mTop, mz + 0.02), h2 = S.project(mx + 0.78, 1.04, mz + 0.30);
-    ctx.strokeStyle = 'rgba(38,42,48,.95)'; ctx.lineWidth = Math.max(2, rx * 0.10);
-    ctx.beginPath(); ctx.moveTo(h1[0], h1[1]); ctx.lineTo(h2[0], h2[1]); ctx.stroke();
-    ctx.strokeStyle = 'rgba(96,102,110,.9)'; ctx.lineWidth = Math.max(1.2, rx * 0.05);
-    ctx.beginPath(); ctx.moveTo(h1[0] + 3, h1[1]); ctx.lineTo(h2[0] + 3, h2[1]); ctx.stroke();
-    ctx.fillStyle = '#1c1f24';
-    ctx.beginPath(); ctx.ellipse(h2[0] + 2, h2[1], Math.max(3, rx * 0.12), Math.max(2, rx * 0.05), 0.6, 0, 6.2832); ctx.fill();
-  }
-
-  /* ---------- finish details: aggregate resolving, vapour ---------- */
-  function drawSpeckles(t4, railZ, zW) {
-    var ctx = S.ctx, lim = Math.max(railZ + 0.3, zW + 0.2);
-    for (var i = 0; i < speckles.length; i++) {
-      var sp = speckles[i];
-      if (sp.z < lim) continue;
-      var a = PS.clamp(0.05 + (t4 * 1.1 - sp.d * 0.35) * 0.42, 0, 0.5);
-      if (a < 0.02) continue;
-      var c = S.project(sp.x, SLAB + 0.009, sp.z), s = S.focal / sp.z;
-      ctx.fillStyle = PS.rgba(sp.c, a);
-      ctx.beginPath();
-      ctx.ellipse(c[0], c[1], Math.max(0.7, sp.r * s), Math.max(0.5, sp.r * s * 0.36), 0, 0, 6.2832);
-      ctx.fill();
-    }
-  }
-
-  function drawWisps(t4, time) {
-    if (t4 <= 0.05) return;
-    var ctx = S.ctx;
-    for (var i = 0; i < wisps.length; i++) {
-      var wp = wisps[i];
-      var lift = 0.02 + t4 * 0.05 + 0.015 * Math.sin(time * 0.0009 + wp.ph);
-      var a = 0.055 * t4 * (0.55 + 0.45 * Math.sin(time * 0.0011 + wp.ph));
-      if (a <= 0.008) continue;
-      var c = S.project(wp.x, SLAB + lift, wp.z), s = S.focal / wp.z;
-      var g = ctx.createRadialGradient(c[0], c[1], 0, c[0], c[1], wp.r * s);
-      g.addColorStop(0, PS.rgba('#eef4fa', a)); g.addColorStop(1, 'rgba(238,244,250,0)');
-      ctx.fillStyle = g;
-      ctx.beginPath(); ctx.ellipse(c[0], c[1], wp.r * s, wp.r * s * 0.22, 0, 0, 6.2832); ctx.fill();
-    }
-  }
-
-  function finishGlow(t4, time) {
-    if (t4 <= 0.02) return;
-    var ctx = S.ctx;
-    var gx = S.W * (0.5 + 0.34 * Math.sin(time * 0.00013));
-    var gy = S.project(0, SLAB, 8)[1];
-    var g = ctx.createRadialGradient(gx, gy, 0, gx, gy, Math.max(S.W, S.H) * 0.55);
-    g.addColorStop(0, 'rgba(255,252,242,' + (0.10 * t4).toFixed(3) + ')'); g.addColorStop(1, 'rgba(255,252,242,0)');
-    S.poly(slabPts(SLAB + 0.011, Z0 + 0.3, Z1), g, null, 1);
-  }
-
-  /* ---------- frame ---------- */
-  function frame(S_, p, time) {
-    S = S_;
-    if (!S.W || !S.H) return;
-    var ctx = S.ctx;
-    ctx.clearRect(0, 0, S.W, S.H);
-
-    var t1 = PS.stage(p, 0.00, 0.30, 'release');        /* pour advances toward camera */
-    var t2 = PS.stage(p, 0.28, 0.26, 'place');          /* screed rail sweeps toward camera */
-    var t4 = PS.stage(p, 0.88, 0.12, 'release');        /* finish: speckle resolves, bleed evaporates */
-    var zW = PS.lerp(16.4, 2.9, t1);
-    var railZ = PS.lerp(16.6, 3.0, t2);
-
-    sky(time);
-    band(110, 9, 0.011, PS.mix('#7d92a7', HAZE, 0.68), 1);
-    band(58, 5.5, 0.030, PS.mix('#54656b', HAZE, 0.50), 1);
-    band(34, 2.6, 0.055, PS.mix(TREE, HAZE, 0.30), 1);
-    S.haze(0.7);
-    ground(S.H + 2);
-    plankStack(-7.35, 12.6, 1.9, 2, false);
-    plankStack(7.75, 14.5, 1.6, 2, true);
-    formBoards();
-    scaleCues();
-    drawBed();
-    drawWet(p, t1, zW, railZ, t4, time);
-    drawBleed(railZ, t4);
-    drawFlat(railZ, t2, t4);
-    drawPolish(0, PS.stage(p, PASS[0].t0, PASS[0].dur, 'place'), t4);
-    drawPolish(1, PS.stage(p, PASS[1].t0, PASS[1].dur, 'place'), t4);
-    drawPolish(2, PS.stage(p, PASS[2].t0, PASS[2].dur, 'place'), t4);
-    finishGlow(t4, time);
-    drawSpeckles(t4, railZ, zW);
-    drawRail(railZ, t2 > 0.01 && t2 < 1);
-    var ms = machineState(p);
-    if (ms) drawMachine(ms.x, ms.z, time);
-    drawWisps(t4, time);
-
-    /* grade: warm/cool split, dust, vignette + grain (always last) */
-    var rimg = ctx.createLinearGradient(0, 0, S.W, S.H);
-    rimg.addColorStop(0, 'rgba(255,244,216,.05)'); rimg.addColorStop(0.5, 'rgba(255,244,216,0)'); rimg.addColorStop(1, 'rgba(58,96,136,.045)');
-    ctx.fillStyle = rimg; ctx.fillRect(0, 0, S.W, S.H);
-    S.dust(24, time);
-    S.grade();
-
-    /* HUD */
-    var idx = p < 0.28 ? 0 : p < 0.50 ? 1 : p < 0.90 ? 2 : 3;
-    if (stgNum) stgNum.textContent = '0' + (idx + 1);
-    if (stgName) stgName.textContent = NAMES[idx];
-    if (railFill) railFill.style.height = Math.round(p * 100) + '%';
-    if (heroCopy) {
-      heroCopy.style.opacity = S.reduce ? 1 : PS.clamp(1 - p * 2.4, 0, 1);
-      heroCopy.style.transform = 'translateY(' + (p * 36).toFixed(1) + 'px)';
-    }
-    if (hint) hint.style.opacity = S.reduce ? 0 : PS.clamp(1 - p * 7, 0, 1);
-  }
-
-  S.start();
-})();
 
 
 

@@ -49,7 +49,7 @@ html.js .drop.in{opacity:1;transform:none}
 .brand{display:flex;align-items:center;gap:.9rem;color:#fff;text-decoration:none}
 .brand img{height:48px;width:auto;border-radius:6px;background:#fff;padding:4px}
 .brand-name{font-family:var(--font-display);font-size:1.28rem;line-height:1;color:#fff;font-weight:700;letter-spacing:.02em}
-.brand-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#8FB4D9;font-weight:700}
+.brand-sub{font-size:.69rem;letter-spacing:.2em;text-transform:uppercase;color:#8FB4D9;font-weight:700}
 .nav-links{display:flex;gap:1.35rem;margin-left:auto;align-items:center}
 .nav-links a{color:#A9BAD0;text-decoration:none;font-size:.92rem;font-weight:500}
 .nav-links a:hover{color:#fff}
@@ -69,12 +69,14 @@ html.js .drop.in{opacity:1;transform:none}
 }
 
 .hero{position:relative;min-height:95vh;display:flex;align-items:flex-start;background:linear-gradient(180deg,#0E1B2A 0%,#16283C 58%,#0E1B2A 100%);overflow:hidden;padding-top:80px}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 0%,rgba(0,0,0,.03) 38%,rgba(10,16,22,.88) 100%);pointer-events:none}
+#heroCanvas{display:none;perspective:800px}
+.hero-photo{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+.hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,9,14,.62) 0%,rgba(8,12,18,.34) 40%,rgba(10,16,22,.90) 100%);pointer-events:none}
 .hero-in{position:relative;z-index:2;padding-block:12.5vh 3.4rem;width:100%}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#8FB4D9;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
 .hero-kicker::before{content:"";width:36px;height:2px;background:var(--accent)}
-.hero h1{font-family:var(--font-display);font-size:clamp(2.3rem,5.8vw,4.5rem);line-height:1.06;color:#F4F8FA;font-weight:700;max-width:22ch;letter-spacing:-.01em}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.3rem,5.8vw,4.5rem);line-height:1.1;padding-bottom:.04em;color:#F4F8FA;font-weight:700;max-width:22ch;letter-spacing:-.01em}
 .hero h1 em{font-style:normal;color:#8FB4D9}
 .hero-sub{margin-top:1.1rem;color:#A9BAC6;font-size:clamp(.98rem,1.5vw,1.09rem);max-width:56ch}
 .hero-cta{display:flex;gap:.9rem;margin-top:1.8rem;flex-wrap:wrap}
@@ -83,7 +85,7 @@ html.js .drop.in{opacity:1;transform:none}
 .btn-primary{background:var(--accent);color:#FFFFFF}
 .btn-ghost{border:1.5px solid rgba(244,248,250,.4);color:#F4F8FA}
 .hero-strip{margin-top:2.6rem;display:flex;gap:2.6rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:1.2rem}
-.hero-strip p{color:#7A8B98;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+.hero-strip p{color:#9FB2BE;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
 .hero-strip strong{display:block;color:#F4F8FA;font-family:var(--font-display);font-size:1.05rem;margin-top:.2rem;font-weight:600}
 
 section{padding-block:5.4rem}
@@ -148,7 +150,7 @@ footer{background:#0E1B2A;border-top:2px solid rgba(255,255,255,.16);color:#9CB0
 .foot-brand{display:flex;gap:.9rem;align-items:center;margin-bottom:1.05rem}
 .foot-brand img{height:52px;width:auto;border-radius:6px;background:#fff;padding:4px}
 .foot-brand-name{font-family:var(--font-display);color:#F4F8FA;font-size:1.24rem;line-height:1;font-weight:700}
-.foot-brand-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#8FB4D9;font-weight:700}
+.foot-brand-sub{font-size:.69rem;letter-spacing:.2em;text-transform:uppercase;color:#8FB4D9;font-weight:700}
 .foot h4{font-family:var(--font-display);font-weight:700;color:#F4F8FA;font-size:1.06rem;margin-bottom:.8rem}
 .foot p,.foot a{font-size:.93rem;line-height:1.85;color:#9CB0C6;text-decoration:none}
 .foot a:hover{color:#F4F8FA}
@@ -156,7 +158,7 @@ footer{background:#0E1B2A;border-top:2px solid rgba(255,255,255,.16);color:#9CB0
 section#lbq{--lbq-bg:#F5F7FA;--lbq-ink:#1A2432;--lbq-muted:#5C6A7C;--lbq-panel:#FFFFFF;--lbq-line:#D4DDE8;--lbq-accent:#4A6FA5}
 </style>
 </head>
-<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
+<body>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="T&T Patios home">
@@ -172,14 +174,16 @@ section#lbq{--lbq-bg:#F5F7FA;--lbq-ink:#1A2432;--lbq-muted:#5C6A7C;--lbq-panel:#
     <div class="nav-links" id="navlinks">
       <a href="#services">Services</a>
       <a href="#process">How we build</a>
-      <a href="#areas">Get a quote</a>
-      <a class="nav-cta" href="#quote">Get a quote</a>
+      <a href="#areas">Service areas</a>
+      <a class="nav-cta" href="#lbq">Get a quote</a>
     </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  
+  <!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" class="lb3d-canvas" aria-hidden="true" style="display:none;"></canvas>
+  <div class="hero-photo" aria-hidden="true"><img src="assets/hero.jpg" alt="" width="1400" height="1119" loading="eager" fetchpriority="high" decoding="async"></div>
   <div class="hero-shade"></div>
   <div class="wrap hero-in">
     <p class="hero-kicker">Cabramatta NSW · Carports & Patios</p>
@@ -187,7 +191,7 @@ section#lbq{--lbq-bg:#F5F7FA;--lbq-ink:#1A2432;--lbq-muted:#5C6A7C;--lbq-panel:#
     <p class="hero-sub">Custom outdoor structures for South West Sydney — designed around your block, your home and how you actually use the space.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:+61452616368">Call 0452 616 368</a>
-      <a class="btn btn-ghost" href="#quote">Get a quote</a>
+      <a class="btn btn-ghost" href="#lbq">Get a quote</a>
     </div>
     <div class="hero-strip">
       <p><strong>Carports</strong>strong & practical</p>
@@ -349,7 +353,7 @@ section#lbq{--lbq-bg:#F5F7FA;--lbq-ink:#1A2432;--lbq-muted:#5C6A7C;--lbq-panel:#
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#FFFFFF;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
 #lbq button:disabled{opacity:.6;cursor:wait}
 #lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
@@ -378,10 +382,10 @@ section#lbq{--lbq-bg:#F5F7FA;--lbq-ink:#1A2432;--lbq-muted:#5C6A7C;--lbq-panel:#
 
 /* brand header — Allards pattern 2026-10-14 */
 .brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.brand img, .brand-mark{height:40px!important;width:auto!important;max-height:40px!important;display:block;image-rendering:-webkit-optimize-contrast}
+.brand img, .brand-mark{height:52px!important;width:auto!important;max-height:52px!important;display:block;image-rendering:-webkit-optimize-contrast}
 .brand-name,.comp-name{font-size:clamp(1.05rem,4.2vw,1.5rem)!important;line-height:1!important;letter-spacing:.045em!important;white-space:nowrap}
-.brand-sub,.comp-sub{font-size:.62rem!important;letter-spacing:.32em!important;font-weight:600!important;margin-top:4px;text-transform:uppercase}
-@media (max-width:820px){.brand img,.brand-mark{height:34px!important}.brand-name,.comp-name{font-size:clamp(1rem,4.4vw,1.3rem)!important}}
+.brand-sub,.comp-sub{font-size:.69rem!important;letter-spacing:.2em!important;font-weight:600!important;margin-top:4px;text-transform:uppercase}
+@media (max-width:820px){.brand img,.brand-mark{height:44px!important}.brand-name,.comp-name{font-size:clamp(1rem,4.4vw,1.3rem)!important}}
 
 /* mobile overflow guard 2026-10-14 */
 html,body{overflow-x:hidden}
@@ -490,7 +494,7 @@ setTimeout(function(){
 
 (function(){
   var c = document.getElementById('heroCanvas');
-  if (!c || !c.getContext) return;
+  if (!c || !c.getContext || c.offsetParent === null) return;
   var ctx = c.getContext('2d');
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
   var W = 0, H = 0;
