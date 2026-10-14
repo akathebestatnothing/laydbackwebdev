@@ -147,6 +147,8 @@ footer a:hover{color:var(--acc)}
 @media(max-width:900px){footer .wrap{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){footer .wrap{grid-template-columns:1fr}}
 </style>
+
+<style>#heroCanvas{display:none;perspective:800px}</style>
 </head>
 <body>
 <script>document.documentElement.className+=' js';</script>
@@ -406,5 +408,8 @@ n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.rem
 var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();})();
 </script>
 
+
+<!-- LB-3D-HERO -->
+<canvas id="heroCanvas" aria-hidden="true"></canvas>
 </body>
 </html>
