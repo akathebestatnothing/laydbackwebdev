@@ -547,11 +547,13 @@ setTimeout(function(){
   document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
 }, 1100);
 
-/* hero: paint roller sweeping a fresh coat across the wall */
+/* hero: paint roller sweeping a fresh coat across the wall — disabled for hero-bleed (photo) layouts */
 (function(){
   var c = document.getElementById('heroCanvas');
   if (!c || !c.getContext) return;
   if (getComputedStyle(c).display === 'none' || !c.offsetParent) return; /* LB-3D-HERO hidden — skip RAF loop */
+  var hero = c.closest('.hero');
+  if (hero && hero.classList.contains('hero-bleed')) return; /* hero-bleed uses CSS 3D shapes only */
   var ctx = c.getContext('2d');
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
   var W = 0, H = 0;
