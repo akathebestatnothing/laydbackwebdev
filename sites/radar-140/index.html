@@ -180,7 +180,7 @@ footer a:hover { color: var(--acc); }
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2600);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="brand" href="#top"><img src="assets/logo.png" alt="RCI Painting &amp; Decorating logo"><span class="b-txt"><span class="brand-name">RCI Painting</span><br><span class="brand-sub">Residential &middot; Commercial &middot; Industrial</span></span></a>
+  <a class="brand" href="#top"><img src="assets/logo-mark_radar-140.png" alt="RCI Painting &amp; Decorating logo"><span class="b-txt"><span class="brand-name">RCI Painting</span><br><span class="brand-sub">Residential &middot; Commercial &middot; Industrial</span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#work">Work</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="mono nav-p">0415 441 848</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -292,6 +292,13 @@ footer a:hover { color: var(--acc); }
 .hero .hero-kicker{color:#f2c9a4!important;letter-spacing:.14em}
 .hero .hero-sub{color:#d9dde1!important;text-shadow:0 1px 12px rgba(0,0,0,.5)}
 .hero .hero-cta .btn-ghost{border-color:rgba(255,255,255,.5)!important;color:#fff!important}
+
+/* brand header — Allards pattern 2026-10-14 */
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand img, .brand-mark{height:40px!important;width:auto!important;max-height:40px!important;display:block;image-rendering:-webkit-optimize-contrast}
+.brand-name,.comp-name{font-size:clamp(1.05rem,4.2vw,1.5rem)!important;line-height:1!important;letter-spacing:.045em!important;white-space:nowrap}
+.brand-sub,.comp-sub{font-size:.62rem!important;letter-spacing:.32em!important;font-weight:600!important;margin-top:4px;text-transform:uppercase}
+@media (max-width:820px){.brand img,.brand-mark{height:34px!important}.brand-name,.comp-name{font-size:clamp(1rem,4.4vw,1.3rem)!important}}
 </style>
 <div class="lbq-w">
   <div>
