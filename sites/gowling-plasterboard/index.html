@@ -12,7 +12,7 @@
 <link rel="icon" href="assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton:wght@400;700;800;900&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton:wght@400;700;800;900&family=Barlow:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #F0F8F2;
@@ -26,7 +26,7 @@
   --line-acc: rgba(58,143,74,.35);
   --panel: #fff;
   --panel-2: #faf9f6;
-  --nav-h: 200px;
+  --nav-h: 88px;
   --font-d: 'Anton', 'Arial Narrow', sans-serif;
   --font-m: 'Barlow', sans-serif;
   --fluid: clamp(40px, 8vw, 110px);
@@ -72,14 +72,12 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   border-bottom: 1px solid var(--line);
   z-index: 1000;
 }
-.nav__brand {
-  display: flex; align-items: center; gap: .85rem;
-  font-weight: 800; font-size: clamp(1rem, 1.9vw, 1.18rem);
-  letter-spacing: .01em; color: var(--ink);
-}
-.nav__brand img {
-  height: 48px; width: auto; border-radius: 6px; display: block;
-}
+.brand { display: flex; align-items: center; gap: .8rem; color: var(--ink); text-decoration: none; }
+.brand-mark { height: 32px; width: auto; display: block; }
+.brand-txt { display: flex; flex-direction: column; line-height: 1; }
+.brand-name { font-family: 'Manrope', var(--font-m), sans-serif; font-size: 1.16rem; line-height: 1; font-weight: 700; letter-spacing: .01em; color: var(--ink); }
+.brand-sub { display: block; margin-top: 4px; font-family: 'Manrope', var(--font-m), sans-serif; font-size: .5rem; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; font-style: normal; }
+.brand-sub em { font-style: normal; color: var(--acc); }
 .nav__links {
   display: flex; gap: clamp(1rem, 2.4vw, 2rem);
   list-style: none; margin: 0; padding: 0;
@@ -191,6 +189,10 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 @media (max-width: 680px) {
   #sceneWrap { height: 360vh; }
   .scroll-hint { bottom: 3vh; }
+  .brand-mark { height: 24px; }
+  .brand-name { font-size: 1.02rem; }
+  .brand-sub { display: none; }
+  .nav__cta a { font-size: .72rem; padding: .5rem .8rem; }
 }
 /* ===== Sections ===== */
 .sec {
@@ -242,9 +244,9 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="nav__brand" href="#top" aria-label="Gowling Plasterboard Linings - Home">
-    <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager">
-    <span>Gowling Plasterboard Linings</span>
+  <a class="brand" href="#top" aria-label="Gowling Plasterboard Linings - Home">
+    <img class="brand-mark" src="assets/logo-mark_gowling-plasterboard.png" alt="" aria-hidden="true" loading="eager">
+    <span class="brand-txt"><b class="brand-name">Gowling</b><i class="brand-sub"><em>Plasterboard</em> Linings</i></span>
   </a>
   <ul class="nav__links">
     <li><a href="#services">What We Do</a></li>
