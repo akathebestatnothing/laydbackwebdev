@@ -176,6 +176,7 @@ section#lbq{--lbq-bg:#FAF5EC;--lbq-ink:#2A1E11;--lbq-muted:#77654E;--lbq-panel:#
 
 <header class="hero" id="top">
   <!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" aria-hidden="true" class="hero-canvas"></canvas>
   
   <div class="hero-shade"></div>
   <div class="wrap hero-in">
@@ -187,13 +188,14 @@ section#lbq{--lbq-bg:#FAF5EC;--lbq-ink:#2A1E11;--lbq-muted:#77654E;--lbq-panel:#
       <a class="btn btn-ghost" href="#services">What we lay</a>
     </div>
     <div class="hero-strip">
-      <p><strong>Timber &amp; hybrid</strong>supplied and laid</p>
-      <p><strong>Proper prep</strong>subfloor sorted first</p>
-      <p><strong>Clean finish</strong>neat edges, tidy site</p>
-    </div>
-  </div>
-</header>
-<section class="svc-intro" id="services">
+          <p><strong>Timber & hybrid</strong>supplied and laid</p>
+          <p><strong>Proper prep</strong>subfloor sorted first</p>
+          <p><strong>Clean finish</strong>neat edges, tidy site</p>
+        </div>
+      </div>
+    </header>
+    <span id="quote" style="position:absolute;top:-90px"></span>
+    <section class="svc-intro" id="services">
   <div class="wrap">
     <div class="sec-head drop">
       <div>
@@ -330,7 +332,7 @@ section#lbq{--lbq-bg:#FAF5EC;--lbq-ink:#2A1E11;--lbq-muted:#77654E;--lbq-panel:#
 </section>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:#8A5A28;--lbq-ink:#2A1E11;--lbq-muted:#77654E;--lbq-bg:#FAF5EC;--lbq-panel:#FFFFFF;--lbq-line:#E2D5BF;padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
@@ -340,7 +342,7 @@ section#lbq{--lbq-bg:#FAF5EC;--lbq-ink:#2A1E11;--lbq-muted:#77654E;--lbq-panel:#
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#FBF4E8;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
 #lbq button:disabled{opacity:.6;cursor:wait}
 #lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
