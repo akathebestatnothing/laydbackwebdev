@@ -220,9 +220,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="nav__brand" href="#top" aria-label="Gowling Plasterboard Linings - Home">
-    <img src="assets/logo.png" alt="" aria-hidden="true" loading="eager">
-  </a>
+  <a class="nav__brand" href="#top" aria-label="Gowling Plasterboard Linings - Home"><img class="brand-mark" src="assets/logo-mark_gowling-plasterboard.png" alt="Gowling Plasterboard Linings" width="80" height="80"><span class="brand-txt"><b class="brand-name">Gowling Plasterboard Linings</b></span></a>
   <ul class="nav__links">
     <li><a href="#services">What We Do</a></li>
     <li><a href="#finish">How We Finish</a></li>
@@ -341,7 +339,15 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 #lbq.v3 .lbq-g{display:grid;gap:12px}
 #lbq.v3 .lbq-hp2{border-top:3px solid var(--lbq-accent);padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
-  </style>
+  
+/* brand header — Allards pattern P2 2026-10-14 */
+.brand,.nav-brand,.nav-logo,.logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:40px!important;width:auto!important;max-height:40px!important;display:block;border-radius:0!important;image-rendering:-webkit-optimize-contrast}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-name,.comp-name{font-family:var(--font-display,var(--disp,inherit));font-size:clamp(1.05rem,4.2vw,1.5rem)!important;line-height:1!important;letter-spacing:.045em!important;text-transform:uppercase;white-space:nowrap;margin:0}
+.brand-sub{display:block;font-size:.62rem!important;letter-spacing:.32em!important;font-weight:600!important;text-transform:uppercase;margin-top:4px;font-style:normal;opacity:.92}
+@media (max-width:820px){.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:33px!important}.brand-name{font-size:1.02rem!important}}
+</style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
       <p class="lbq-s">Tell us a few details and we'll get back to you with a free, no-obligation quote.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call, text or email - we reply fast.</p></div><div><form id="lbq-form" novalidate data-site="gowling-plasterboard" data-biz="Gowling Plasterboard Linings"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Plasterboard type, rooms, timeline, access…" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>

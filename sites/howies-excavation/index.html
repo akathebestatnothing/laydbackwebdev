@@ -170,10 +170,7 @@ footer{padding:44px 0;border-top:1px solid var(--line);background:var(--coal)}
 
 <nav class="nav">
   <div class="nav-in">
-    <a class="brand" href="#top">
-      <img src="images/howies-logo.jpg" alt="Howie's Excavation and Construction logo" width="44" height="44">
-      <span><b>Howie's Excavation</b><span>&amp; Construction</span></span>
-    </a>
+    <a class="brand" href="#top"><img class="brand-mark" src="images/logo-mark_howies-excavation.png" alt="Howie's Excavation & Construction" width="80" height="80"><span class="brand-txt"><b class="brand-name">Howie's Excavation & Construction</b><i class="brand-sub">RATHMINES NSW</i></span></a>
     <div class="nav-links" id="navLinks">
       <a href="#services">Services</a>
       <a href="#work">Our Work</a>
@@ -423,6 +420,14 @@ footer{padding:44px 0;border-top:1px solid var(--line);background:var(--coal)}
 .drop{opacity:1!important;transform:none!important}
 .strata-in{transform:rotateX(64deg)!important}
 .ticker-in{animation:none!important}
+
+/* brand header — Allards pattern P2 2026-10-14 */
+.brand,.nav-brand,.nav-logo,.logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:40px!important;width:auto!important;max-height:40px!important;display:block;border-radius:0!important;image-rendering:-webkit-optimize-contrast}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-name,.comp-name{font-family:var(--font-display,var(--disp,inherit));font-size:clamp(1.05rem,4.2vw,1.5rem)!important;line-height:1!important;letter-spacing:.045em!important;text-transform:uppercase;white-space:nowrap;margin:0}
+.brand-sub{display:block;font-size:.62rem!important;letter-spacing:.32em!important;font-weight:600!important;text-transform:uppercase;margin-top:4px;font-style:normal;opacity:.92}
+@media (max-width:820px){.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:33px!important}.brand-name{font-size:1.02rem!important}}
 </style>
 </noscript>
 

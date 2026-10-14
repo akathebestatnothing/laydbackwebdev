@@ -83,10 +83,7 @@
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2600);</script>
 <header>
   <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a href="#" class="logo" aria-label="Alpine Edge Contracting home">
-      <img src="assets/logo.jpg" alt="" loading="eager" width="120" height="101">
-      <span>Alpine Edge Contracting</span>
-    </a>
+    <a href="#" class="logo" aria-label="Alpine Edge Contracting home"><img class="brand-mark" src="assets/logo-mark_alpine-edge-contracting.png" alt="Alpine Edge Contracting" width="80" height="80"><span class="brand-txt"><b class="brand-name">Alpine Edge Contracting</b></span></a>
     <nav class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
@@ -271,6 +268,14 @@
 #lbq.v4 .lbq-w{max-width:620px}
 #lbq.v4 input,#lbq.v4 textarea{border:0;border-bottom:1px solid var(--lbq-line);border-radius:0;background:transparent;padding:11px 2px}
 #lbq.v4 .lbq-g{display:grid;gap:16px}
+
+/* brand header — Allards pattern P2 2026-10-14 */
+.brand,.nav-brand,.nav-logo,.logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:40px!important;width:auto!important;max-height:40px!important;display:block;border-radius:0!important;image-rendering:-webkit-optimize-contrast}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-name,.comp-name{font-family:var(--font-display,var(--disp,inherit));font-size:clamp(1.05rem,4.2vw,1.5rem)!important;line-height:1!important;letter-spacing:.045em!important;text-transform:uppercase;white-space:nowrap;margin:0}
+.brand-sub{display:block;font-size:.62rem!important;letter-spacing:.32em!important;font-weight:600!important;text-transform:uppercase;margin-top:4px;font-style:normal;opacity:.92}
+@media (max-width:820px){.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:33px!important}.brand-name{font-size:1.02rem!important}}
 </style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
