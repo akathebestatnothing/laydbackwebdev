@@ -53,7 +53,7 @@ html.js .drop.in{opacity:1;transform:none}
 .nav-links{display:flex;gap:1.35rem;margin-left:auto;align-items:center}
 .nav-links a{color:#A9C4A5;text-decoration:none;font-size:.92rem;font-weight:500}
 .nav-links a:hover{color:#fff}
-.nav-cta{background:var(--accent);color:#FFFFFF !important;padding:.55rem 1.2rem;border-radius:6px;font-weight:700}
+.nav-cta{background:var(--accent);color:#0C130C !important;padding:.55rem 1.2rem;border-radius:6px;font-weight:700}
 .nav-cta:hover{filter:brightness(1.08)}
 .burger{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:.4rem .6rem;cursor:pointer}
 .burger span{display:block;width:20px;height:2px;background:#fff;margin:4px 0;transition:.3s}
@@ -68,10 +68,10 @@ html.js .drop.in{opacity:1;transform:none}
   .burger{display:block}
 }
 
-.hero{position:relative;min-height:95vh;display:flex;align-items:flex-start;background:linear-gradient(180deg,#0C130C 0%,#13200F 58%,#0C130C 100%);overflow:hidden;padding-top:80px}
+.hero{position:relative;min-height:95vh;display:flex;align-items:flex-start;background:#0C130C url("assets/work.jpg") center 45%/cover no-repeat;perspective:1200px;overflow:hidden;padding-top:80px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 0%,rgba(0,0,0,.03) 38%,rgba(10,16,22,.88) 100%);pointer-events:none}
-.hero-in{position:relative;z-index:2;padding-block:12.5vh 3.4rem;width:100%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,11,6,.90) 0%,rgba(6,11,6,.60) 52%,rgba(6,11,6,.32) 100%),linear-gradient(180deg,rgba(6,11,6,.72) 0%,rgba(6,11,6,.38) 44%,rgba(6,11,6,.94) 100%);pointer-events:none}
+.hero-in{position:relative;z-index:2;padding-block:12.5vh 3.4rem}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#B8E04A;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
 .hero-kicker::before{content:"";width:36px;height:2px;background:var(--accent)}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.3rem,5.8vw,4.5rem);line-height:1.06;color:#F4F8FA;font-weight:700;max-width:22ch;letter-spacing:-.01em}
@@ -80,10 +80,10 @@ html.js .drop.in{opacity:1;transform:none}
 .hero-cta{display:flex;gap:.9rem;margin-top:1.8rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.55rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .15s ease,filter .15s ease}
 .btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
-.btn-primary{background:var(--accent);color:#FFFFFF}
+.btn-primary{background:var(--accent);color:#0C130C}
 .btn-ghost{border:1.5px solid rgba(244,248,250,.4);color:#F4F8FA}
 .hero-strip{margin-top:2.6rem;display:flex;gap:2.6rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:1.2rem}
-.hero-strip p{color:#7A8B98;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+.hero-strip p{color:#B3CBB0;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
 .hero-strip strong{display:block;color:#F4F8FA;font-family:var(--font-display);font-size:1.05rem;margin-top:.2rem;font-weight:600}
 
 section{padding-block:5.4rem}
@@ -95,7 +95,7 @@ section{padding-block:5.4rem}
 
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(284px,1fr));gap:1.15rem}
 .svc{background:#FFFFFF;border:1px solid var(--line);border-radius:10px;padding:1.65rem 1.5rem;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
-.svc:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,40,60,.12)}
+.svc:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 14px 34px rgba(12,25,8,.16)}
 .svc::after{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--accent);transition:width .3s ease}
 .svc:hover::after{width:100%}
 .svc-ico{width:44px;height:44px;border-radius:9px;background:linear-gradient(135deg,#0C130C,#4C9A2A);display:grid;place-items:center;margin-bottom:.95rem}
@@ -109,7 +109,7 @@ section{padding-block:5.4rem}
 .band .sec-sub{color:var(--dmut)}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(284px,1fr));gap:1.15rem}
 .step{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:1.55rem 1.45rem}
-.step-n{font-family:var(--font-display);font-size:1.75rem;line-height:1;color:#B8E04A;margin-bottom:.5rem;font-weight:700}
+.step p.step-n{font-family:var(--font-display);font-size:1.75rem;line-height:1;color:#B8E04A;margin-bottom:.5rem;font-weight:700}
 .step h3{font-family:var(--font-display);font-weight:700;font-size:1.06rem;color:var(--dink);margin-bottom:.3rem}
 .step p{color:var(--dmut);font-size:.92rem}
 
@@ -148,7 +148,7 @@ footer{background:#0C130C;border-top:2px solid rgba(255,255,255,.16);color:#9CB8
 .foot-brand{display:flex;gap:.9rem;align-items:center;margin-bottom:1.05rem}
 .foot-brand img{height:52px;width:auto;border-radius:6px;background:#fff;padding:4px}
 .foot-brand-name{font-family:var(--font-display);color:#F4F8FA;font-size:1.24rem;line-height:1;font-weight:700}
-.foot-brand-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#B8E04A;font-weight:700}
+.foot-brand-sub{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#B8E04A;font-weight:700}
 .foot h4{font-family:var(--font-display);font-weight:700;color:#F4F8FA;font-size:1.06rem;margin-bottom:.8rem}
 .foot p,.foot a{font-size:.93rem;line-height:1.85;color:#9CB89A;text-decoration:none}
 .foot a:hover{color:#F4F8FA}
@@ -161,9 +161,9 @@ section#lbq{--lbq-bg:#F5F8F2;--lbq-ink:#1B281A;--lbq-muted:#5E705C;--lbq-panel:#
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Thane Gillham Mowing home">
       <img src="assets/logo-mark_thane-gillham-mowing.png" alt="Thane Gillham Mowing logo" height="48">
-      <span>
-        <span class="brand-name">Thane Gillham Mowing</span><br>
-        <span class="brand-sub">Lawn Mowing · Hunter NSW</span>
+      <span class="brand-txt">
+        <span class="brand-name">Thane Gillham Mowing</span>
+        <span class="brand-sub">Lawn Mowing &middot; Hunter NSW</span>
       </span>
     </a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
@@ -172,22 +172,23 @@ section#lbq{--lbq-bg:#F5F8F2;--lbq-ink:#1B281A;--lbq-muted:#5E705C;--lbq-panel:#
     <div class="nav-links" id="navlinks">
       <a href="#services">Services</a>
       <a href="#process">How it works</a>
-      <a href="#areas">Get a quote</a>
-      <a class="nav-cta" href="#quote">Get a quote</a>
+      <a href="#areas">Areas</a>
+      <a class="nav-cta" href="#lbq">Get a quote</a>
     </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  
+  <!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" hidden aria-hidden="true"></canvas>
   <div class="hero-shade"></div>
   <div class="wrap hero-in">
     <p class="hero-kicker">Raymond Terrace · Hunter NSW</p>
     <h1 data-ux="words">A tidy lawn, <em>without lifting a finger.</em></h1>
-    <p class="hero-sub">Reliable lawn mowing and yard care across the Hunter — between Raymond Terrace, Newcastle and everywhere in between.</p>
+    <p class="hero-sub">Reliable lawn mowing and yard care across the Hunter — from Raymond Terrace and Newcastle to the surrounding areas.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:+61404697621">Call 0404 697 621</a>
-      <a class="btn btn-ghost" href="#quote">Get a quote</a>
+      <a class="btn btn-ghost" href="#lbq">Get a quote</a>
     </div>
     <div class="hero-strip">
       <p><strong>Lawn mowing</strong>regular & one-off</p>
@@ -268,7 +269,7 @@ section#lbq{--lbq-bg:#F5F8F2;--lbq-ink:#1B281A;--lbq-muted:#5E705C;--lbq-panel:#
         <div class="why-list" style="margin-top:1.6rem">
           <div class="why-item">
             <span class="why-tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
-            <div><h3>Hunter local</h3><p>Servicing between Raymond Terrace, Newcastle and the surrounding areas.</p></div>
+            <div><h3>Hunter local</h3><p>Servicing Raymond Terrace, Newcastle and the surrounding areas.</p></div>
           </div>
           <div class="why-item">
             <span class="why-tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
@@ -321,7 +322,7 @@ section#lbq{--lbq-bg:#F5F8F2;--lbq-ink:#1B281A;--lbq-muted:#5E705C;--lbq-panel:#
             <span class="foot-brand-sub">Lawn Mowing · Hunter NSW</span>
           </span>
         </div>
-        <p>Thane Gillham Mowing — reliable lawn mowing and yard care, servicing the Hunter regions between Raymond Terrace, Newcastle and surrounding areas NSW.</p>
+        <p>Thane Gillham Mowing — reliable lawn mowing and yard care across the Hunter region: Raymond Terrace, Newcastle and surrounding areas, NSW.</p>
       </div>
       <div>
         <h4>Get in touch</h4>
@@ -391,6 +392,13 @@ html,body{overflow-x:hidden}
   .hero-kicker,.k,.kicker,.kick,.eyebrow,.tag{font-size:clamp(10px,3.1vw,13px)!important;letter-spacing:.22em!important}
   h1,.h1{font-size:clamp(26px,10.5vw,54px)!important;line-height:1.05!important}
 }
+/* hero canvas hidden (LB-3D-HERO marker kept) + lockup + pulse 2026-10-14 */
+#heroCanvas{display:none!important}
+.brand-txt{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand-sub,.comp-sub{font-size:.7rem!important;letter-spacing:.24em!important}
+.lb-pulse{position:fixed;bottom:1.5rem;right:1.5rem;width:10px;height:10px;background:var(--accent);border-radius:50%;opacity:.5;animation:lbPulse 2s ease-in-out infinite;pointer-events:none;z-index:999}
+@keyframes lbPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
+@media (prefers-reduced-motion:reduce){.lb-pulse{animation:none;opacity:.5}}
 </style>
   <div class="lbq-w">
       <h2 id="lbq-h">Request a quote</h2>
@@ -490,7 +498,7 @@ setTimeout(function(){
 
 (function(){
   var c = document.getElementById('heroCanvas');
-  if (!c || !c.getContext) return;
+  if (!c || c.hidden || !c.getContext || getComputedStyle(c).display === 'none') return;
   var ctx = c.getContext('2d');
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
   var W = 0, H = 0;
@@ -554,5 +562,7 @@ setTimeout(function(){
 
 
 
+<div class="lb-pulse" aria-hidden="true"></div>
+<!-- lb:pulse -->
 </body>
 </html>

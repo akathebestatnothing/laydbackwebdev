@@ -15,8 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800;900&family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --paper: #ffffff; --paper2: #cfe9fb; --ink: #060608; --ink2: #767677;
-  --acc: #028ceb; --acc2: #39a5ef; --line: rgba(6,6,8,.16); --chip: #cfe9fb;
+  --paper: #ffffff; --paper2: #cfe9fb; --ink: #060608; --ink2: #5c5c5e;
+  --acc: #0d65ae; --acc2: #39a5ef; --line: rgba(6,6,8,.16); --chip: #cfe9fb;
   --deep: #000001; --light: #ffffff;
   --acc-text: #ffffff;
   --fluid: clamp(44px, 9vw, 118px);
@@ -57,49 +57,45 @@ html.js .drop.in { opacity: 1; transform: none; }
   .nav-cta { display: none; }
   .burger { display: block; }
 }
-.hero { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; padding-top: 80px; }
-.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: .72; }
-.hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.10) 40%, #ffffff 100%); pointer-events: none; }
-.hero-in { position: relative; z-index: 2; padding: 11vh 40px 3.4rem; width: 100%; max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 1.06fr .94fr; gap: 3.2rem; align-items: center; }
-.hero-copy { min-width: 0; }
-.hero-visual { position: relative; }
-.hero-visual figure { position: relative; margin: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,.26); border: 1px solid var(--line); background: var(--paper2); }
-.hero-visual img { width: 100%; height: min(66vh, 580px); object-fit: cover; object-position: center 50%; display: block; }
-.hero-visual .hero-tag { position: absolute; top: 16px; left: 16px; background: var(--acc); color: var(--acc-text); padding: 7px 15px; font-size: 11px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; border-radius: 5px; z-index: 3; box-shadow: 0 6px 18px rgba(0,0,0,.22); }
-.hero-visual .hv-motif { position: absolute; left: 0; right: 0; bottom: 0; height: 12px; opacity: .95; background-repeat: repeat-x; }
-.hero-kicker { display: inline-flex; align-items: center; gap: .65rem; color: var(--acc); font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 800; margin-bottom: 1rem; }
-.hero-kicker::before { content: ""; width: 36px; height: 2px; background: var(--acc); }
-.hero h1 { font-family: 'Archivo', system-ui, sans-serif; font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.04; color: var(--ink); font-weight: 900; max-width: 22ch; letter-spacing: -.01em; }
-.hero h1 .acc { color: var(--acc); }
-.hero h1 .thin { font-weight: 400; display: block; font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--ink2); text-transform: none; letter-spacing: 0; margin-top: 8px; }
-.hero-sub { margin-top: 1.1rem; color: var(--ink2); font-size: clamp(.98rem, 1.5vw, 1.12rem); max-width: 58ch; }
+.hero { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; padding-top: 80px; background: #0a1622; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+#heroCanvas { display: none; perspective: 800px; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background-image: url('assets/gal_2.jpg'); background-size: cover; background-position: center 42%; background-repeat: no-repeat; filter: brightness(.52) saturate(.92) contrast(1.06); }
+.hero-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(5,13,23,.86) 0%, rgba(5,13,23,.6) 45%, rgba(5,13,23,.84) 100%); }
+.hero-in { position: relative; z-index: 2; padding: 11vh 40px 3.4rem; width: 100%; max-width: 1360px; margin: 0 auto; display: block; }
+.hero-copy { min-width: 0; max-width: 780px; }
+.hero-kicker { display: inline-flex; align-items: center; gap: .65rem; color: #6fc0f7; font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 800; margin-bottom: 1rem; }
+.hero-kicker::before { content: ""; width: 36px; height: 2px; background: #6fc0f7; }
+.hero h1 { font-family: 'Archivo', system-ui, sans-serif; font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.04; color: #ffffff; font-weight: 900; max-width: 22ch; letter-spacing: -.01em; text-shadow: 0 2px 26px rgba(0,0,0,.45); }
+.hero h1 .acc { color: #4fb0f5; }
+.hero h1 .thin { font-weight: 400; display: block; font-size: clamp(1.1rem, 2vw, 1.5rem); color: rgba(255,255,255,.82); text-transform: none; letter-spacing: 0; margin-top: 8px; }
+.hero-sub { margin-top: 1.1rem; color: rgba(255,255,255,.85); font-size: clamp(.98rem, 1.5vw, 1.12rem); max-width: 58ch; }
 .hero-cta { display: flex; gap: .9rem; margin-top: 1.8rem; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.55rem; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: .95rem; transition: transform .15s ease, filter .15s ease; }
 .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
 .btn-primary { background: var(--acc); color: #ffffff; }
-.btn-ghost { border: 1.5px solid var(--ink); color: var(--ink); background: transparent; }
-.hero-strip { margin-top: 2.4rem; display: flex; gap: 2.4rem; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 1.2rem; }
-.hero-strip p { color: var(--ink2); font-size: .7rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 700; }
-.hero-strip strong { display: block; color: var(--ink); font-family: 'Archivo', system-ui, sans-serif; font-size: 1.02rem; margin-top: .2rem; font-weight: 800; }
-.hero-photo { max-width: 1360px; margin: 1.4rem auto 0; padding: 0 40px; }
-@media (max-width: 1000px) { .hero-in { grid-template-columns: 1fr; gap: 1.4rem; } .hero-visual { order: -1; } .hero-visual img { height: min(38vh, 320px); } }
-@media (max-width: 820px) { .hero-in { padding: 9vh 20px 2rem; } .hero-photo { padding: 0 20px; } }
-@media (max-width: 640px) { .brand-sub { display: none; } .brand-name { font-size: 1.06rem; } .brand img { height: 42px; } .nav-in { padding: 0 18px; gap: .9rem; } .hero-visual img { height: min(33vh, 250px); } .hero-in { padding: 8vh 20px 1.6rem; } .hero h1 { font-size: clamp(1.9rem, 8.4vw, 2.4rem); } .hero-strip { margin-top: 1.6rem; gap: 1.6rem; } }
+.btn-ghost { border: 1.5px solid rgba(255,255,255,.85); color: #ffffff; background: rgba(255,255,255,.06); }
+.hero-strip { margin-top: 2.4rem; display: flex; gap: 2.4rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.22); padding-top: 1.2rem; }
+.hero-strip p { color: rgba(255,255,255,.72); font-size: .7rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 700; }
+.hero-strip strong { display: block; color: #ffffff; font-family: 'Archivo', system-ui, sans-serif; font-size: 1.02rem; margin-top: .2rem; font-weight: 800; }
+@media (max-width: 1000px) { .hero-in { padding: 10vh 24px 2.6rem; } }
+@media (max-width: 820px) { .hero-in { padding: 9vh 20px 2rem; } }
+@media (max-width: 640px) { .brand-sub { display: none; } .brand-name { font-size: 1.06rem; } .brand img { height: 42px; } .nav-in { padding: 0 18px; gap: .9rem; } .hero-in { padding: 8vh 20px 1.6rem; } .hero h1 { font-size: clamp(1.9rem, 8.4vw, 2.4rem); } .hero-strip { margin-top: 1.6rem; gap: 1.6rem; } }
 section { padding: 5.4rem 0; }
 .wrap { max-width: 1320px; margin: 0 auto; padding: 0 44px; }
 .sec-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.6rem; }
 .sec-head::before { content: ""; width: 40px; height: 3px; background: var(--acc); flex: none; align-self: center; }
-.sec-idx { font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; color: var(--acc); font-weight: 800; margin-bottom: 1rem; }
 .sec-kicker { font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; color: var(--acc); font-weight: 800; }
 .sec-title { font-family: 'Archivo', system-ui, sans-serif; font-size: clamp(1.8rem, 3.6vw, 2.9rem); font-weight: 900; line-height: 1.1; margin-top: .3rem; max-width: 28ch; letter-spacing: -.01em; }
 .lead { color: var(--ink2); max-width: 60ch; margin-top: .9rem; }
-.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(292px, 1fr)); gap: 1.15rem; }
-.svc { background: var(--chip); border: 1px solid var(--line); border-radius: 10px; padding: 1.65rem 1.5rem; position: relative; overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
-.svc:hover { border-color: var(--acc); transform: translateY(-3px); }
-.svc::after { content: ""; position: absolute; top: 0; left: 0; width: 44px; height: 3px; background: var(--acc); transition: width .3s ease; }
-.svc:hover::after { width: 100%; }
-.svc h3 { font-family: 'Archivo', system-ui, sans-serif; font-weight: 800; font-size: 1.12rem; margin-bottom: .35rem; }
-.svc p { color: var(--ink2); font-size: .94rem; }
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.15rem; }
+.svc, .svc-row { background: var(--chip); border: 1px solid var(--line); border-radius: 10px; padding: 1.65rem 1.5rem; position: relative; overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
+.svc-row .svc-body { margin-top: .3rem; }
+.svc:hover, .svc-row:hover { border-color: var(--acc); transform: translateY(-3px); }
+.svc::after, .svc-row::after { content: ""; position: absolute; top: 0; left: 0; width: 44px; height: 3px; background: var(--acc); transition: width .3s ease; }
+.svc:hover::after, .svc-row:hover::after { width: 100%; }
+.svc h3, .svc-row h3 { font-family: 'Archivo', system-ui, sans-serif; font-weight: 800; font-size: 1.12rem; margin-bottom: .35rem; }
+.svc p, .svc-row p { color: var(--ink2); font-size: .94rem; }
 .svc-n { font-size: .8rem; font-weight: 800; color: var(--acc); letter-spacing: .1em; }
 .svc-arrow { color: var(--acc); font-size: 1.2rem; position: absolute; right: 18px; top: 18px; }
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(292px, 1fr)); gap: 1.15rem; }
@@ -136,7 +132,8 @@ details.faq .a { color: var(--ink2); padding: 14px 0 4px; max-width: 700px; }
 .hgal .track { display: inline-flex; gap: 22px; padding: 0 44px; }
 .hg-item { flex: 0 0 auto; width: min(560px, 78vw); margin: 0; }
 .hg-item img { width: 100%; height: 380px; object-fit: cover; display: block; border-radius: 8px; }
-.hg-item figcaption { display: flex; justify-content: space-between; padding: 12px 2px; font-size: 13px; color: var(--ink2); }
+.hg-item figcaption { display: flex; justify-content: space-between; gap: 12px; padding: 12px 2px; font-size: 14.5px; color: var(--ink); }
+.hg-item figcaption .mono { color: var(--ink2); }
 .hgal-nav { display: flex; gap: 12px; justify-content: flex-end; padding: 0 44px; margin-top: 18px; }
 .hgal-btn { width: 52px; height: 52px; border: 1.5px solid var(--ink); background: transparent; font-size: 20px; cursor: pointer; color: var(--ink); transition: background .15s, color .15s; }
 .hgal-btn:hover { background: var(--acc); border-color: var(--acc); color: #ffffff; }
@@ -149,22 +146,23 @@ footer a:hover { color: var(--acc); }
 .fbrand img { height: 56px; object-fit: contain; border-radius: 6px; }
 .footer-bar { max-width: 1360px; margin: 50px auto 0; padding: 22px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink2); }
 @media (max-width: 900px) { footer .wrap { grid-template-columns: 1fr 1fr; } }
-.hv-motif{background-image:repeating-linear-gradient(90deg,var(--acc) 0 18px,var(--acc2) 18px 22px,transparent 22px 40px);}.hero-kicker::before{background:var(--acc)}
+@media (max-width: 700px) { footer .wrap { grid-template-columns: 1fr 1fr; gap: 26px; } footer .wrap > div:first-child { grid-column: 1 / -1; } }
 </style>
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="brand" href="#top"><img src="assets/logo-mark_radar-167.png" alt="H2O Plumbing Sydney logo"><span class="b-txt"><span class="brand-name">H2O Plumbing Sydney</span><br><span class="brand-sub">Licensed Plumbers &middot; 24/7</span></span></a>
+  <a class="brand" href="#top"><span class="brand-badge"><img src="assets/logo-mark_radar-167.png" alt=""></span><span class="b-txt"><span class="brand-name">H2O Plumbing Sydney</span><br><span class="brand-sub">Licensed Plumbers &middot; 24/7</span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#work">Work</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
-  <div class="nav-cta"><span class="mono nav-p">0403 042 209</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
+  <div class="nav-cta"><span class="nav-p">0403 042 209</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
 
 <header class="hero" id="top">
   <!-- LB-3D-HERO -->
-  
-  <div class="hero-shade"></div>
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-in">
     <div class="hero-copy">
     <p class="hero-kicker">Licensed plumbers &mdash; Sydney wide, 24/7</p>
@@ -175,17 +173,10 @@ footer a:hover { color: var(--acc); }
       <a class="btn btn-ghost" href="tel:+61403042209">Call 0403 042 209</a>
     </div>
     <div class="hero-strip">
-      <p><strong><strong>24/7 emergency</strong></strong>blocked drains and burst pipes</p>
-      <p><strong><strong>Upfront pricing</strong></strong>a price before we start</p>
-      <p><strong><strong>Licensed &amp; insured</strong></strong>Sydney wide, res &amp; commercial</p>
+      <p><strong>24/7 emergency</strong> blocked drains and burst pipes</p>
+      <p><strong>Upfront pricing</strong> a price before we start</p>
+      <p><strong>Licensed &amp; insured</strong> Sydney wide, res &amp; commercial</p>
     </div>
-    </div>
-    <div class="hero-visual">
-      <figure>
-        <span class="hero-tag mono">Hot water system install</span>
-        <img src="assets/why.jpg" alt="H2O Plumbing Sydney — Hot water system install">
-        <span class="hv-motif" aria-hidden="true"></span>
-      </figure>
     </div>
   </div>
 </header>
@@ -193,38 +184,38 @@ footer a:hover { color: var(--acc); }
 
 
 <section id="services"><div class="wrap">
-  <div class="sec-head"><span class="sec-idx">01</span><div><h2 class="sec-title">The plumbing we do.</h2><p class="lead">From a blocked drain at midnight to a full hot water replacement &mdash; one licensed team for the whole job.</p></div></div>
+  <div class="sec-head"><div><h2 class="sec-title">The plumbing we do.</h2><p class="lead">From a blocked drain at midnight to a full hot water replacement &mdash; one licensed team for the whole job.</p></div></div>
   <div class="svc-grid"><div class="svc-row rv"><span class="svc-n">01</span><div class="svc-body"><h3>Blocked drains</h3><p>Drains cleared with the right gear &mdash; jetted, cabled and camera-checked so the blockage is actually gone.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">02</span><div class="svc-body"><h3>Hot water</h3><p>Hot water systems repaired, replaced and installed &mdash; electric, gas and heat pump, back on the same day where we can.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">03</span><div class="svc-body"><h3>Pipe relining</h3><p>Cracked and root-invaded pipes relined from the inside &mdash; no digging up the yard or the slab.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">04</span><div class="svc-body"><h3>Leaks &amp; repairs</h3><p>Leaks in walls, under slabs and at fittings found, exposed and repaired properly.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">05</span><div class="svc-body"><h3>Gas fitting</h3><p>Gas lines, appliances and leak checks by a licensed gas fitter &mdash; safe and certified.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">06</span><div class="svc-body"><h3>Meters, RPZ &amp; upgrades</h3><p>Water meters, backflow (RPZ) valves and plumbing upgrades for homes and businesses.</p></div><span class="svc-arrow">&#8599;</span></div></div>
 </div></section>
 
 <section class="band" id="process"><div class="wrap">
-  <div class="sec-head"><span class="sec-idx">02</span><div><h2 class="sec-title">How a callout runs.</h2></div></div>
+  <div class="sec-head"><div><h2 class="sec-title">How a callout runs.</h2></div></div>
   <div class="steps"><div class="step rv"><span class="step-n">01</span><div><h3>Call us</h3><p>Tell us what is happening &mdash; we will tell you what to do before we arrive.</p></div></div><div class="step rv"><span class="step-n">02</span><div><h3>Upfront quote</h3><p>Diagnosed on site and priced before any work starts &mdash; no surprises.</p></div></div><div class="step rv"><span class="step-n">03</span><div><h3>Fixed right</h3><p>The job done with the right parts and gear, tested before we leave.</p></div></div><div class="step rv"><span class="step-n">04</span><div><h3>Tested &amp; tidied</h3><p>System tested, area cleaned and the fix explained.</p></div></div></div>
 </div></section>
 
 <section id="faq"><div class="wrap faq-wrap">
-  <div class="sec-head"><span class="sec-idx">03</span><div><h2 class="sec-title">Asked on every callout.</h2></div></div>
+  <div class="sec-head"><div><h2 class="sec-title">Asked on every callout.</h2></div></div>
   <details class="faq rv"><summary>Do you do emergency callouts?</summary><div class="a">Yes &mdash; 24/7 emergency response for blocked drains, burst pipes and no-hot-water.</div></details><details class="faq rv"><summary>Do you charge before quoting?</summary><div class="a">No &mdash; we give you an upfront price before any work begins.</div></details><details class="faq rv"><summary>Can you reline a pipe without digging?</summary><div class="a">Yes &mdash; pipe relining repairs damaged pipes from the inside, so there is no trench in the yard.</div></details><details class="faq rv"><summary>Are you licensed and insured?</summary><div class="a">Yes &mdash; licensed plumbers and gas fitters, fully insured, across Sydney.</div></details>
 </div></section>
 
 <section class="stat-band band" id="stats"><div class="wrap"><div class="stat rv d1"><b>24/7</b><span>Emergency</span></div><div class="stat rv d2"><b>Licensed</b><span>&amp; insured</span></div><div class="stat rv d3"><b>Upfront</b><span>Pricing</span></div><div class="stat rv d4"><b>Sydney</b><span>Wide</span></div></div></section>
 
 <section id="trust"><div class="wrap">
-  <div class="sec-head"><span class="sec-idx">04</span><div><h2 class="sec-title">Why Sydney calls H2O.</h2></div></div>
+  <div class="sec-head"><div><h2 class="sec-title">Why Sydney calls H2O.</h2></div></div>
   <div class="trust-strip"><div class="tr-i rv d1"><div class="tr-t">&#10003;</div><div><b>Upfront pricing</b><span>Quote before we start</span></div></div><div class="tr-i rv d2"><div class="tr-t">&#10003;</div><div><b>Licensed &amp; insured</b><span>Sydney wide</span></div></div><div class="tr-i rv d3"><div class="tr-t">&#10003;</div><div><b>24/7 emergency</b><span>When it cannot wait</span></div></div><div class="tr-i rv d4"><div class="tr-t">&#10003;</div><div><b>Fixed right</b><span>Tested before we leave</span></div></div></div>
 </div></section>
 
 <section id="work"><div class="wrap">
-  <div class="sec-head"><div class="sec-idx">05</div><div><h2 class="rv d1">On the tools.</h2><p class="lead rv d2">Real plumbing jobs across Sydney &mdash; drains, hot water, relining and repairs.</p></div></div>
+  <div class="sec-head"><div><h2 class="rv d1">On the tools.</h2><p class="lead rv d2">Real plumbing jobs across Sydney &mdash; drains, hot water, relining and repairs.</p></div></div>
 </div>
-<div class="hgal rv"><div class="track"><figure class="hg-item rv"><img src="assets/gal_1.jpg" alt="Blocked drain &mdash; cleared — H2O Plumbing Sydney" loading="lazy"><figcaption><span>Blocked drain &mdash; cleared</span><span class="mono">/01</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_2.jpg" alt="Manifold &amp; valve replacement — H2O Plumbing Sydney" loading="lazy"><figcaption><span>Manifold &amp; valve replacement</span><span class="mono">/02</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_3.jpg" alt="In-wall tap rough-in — H2O Plumbing Sydney" loading="lazy"><figcaption><span>In-wall tap rough-in</span><span class="mono">/03</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_5.jpg" alt="Pool filter &amp; valve — H2O Plumbing Sydney" loading="lazy"><figcaption><span>Pool filter &amp; valve</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item rv"><img src="assets/why.jpg" alt="Hot water cylinder &mdash; full install — H2O Plumbing Sydney" loading="lazy"><figcaption><span>Hot water cylinder &mdash; full install</span><span class="mono">/05</span></figcaption></figure></div></div>
+<div class="hgal rv"><div class="track"><figure class="hg-item rv"><img src="assets/gal_3.jpg" alt="In-wall tap rough-in — H2O Plumbing Sydney" loading="lazy"><figcaption><span>In-wall tap rough-in</span><span class="mono">/01</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_2.jpg" alt="Manifold &amp; valve replacement — H2O Plumbing Sydney" loading="lazy"><figcaption><span>Manifold &amp; valve replacement</span><span class="mono">/02</span></figcaption></figure><figure class="hg-item rv"><img src="assets/why.jpg" alt="Hot water cylinder &mdash; full install — H2O Plumbing Sydney" loading="lazy"><figcaption><span>Hot water cylinder &mdash; full install</span><span class="mono">/03</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_5.jpg" alt="Pool filter &amp; valve — H2O Plumbing Sydney" loading="lazy"><figcaption><span>Pool filter &amp; valve</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_1.jpg" alt="Blocked drain &mdash; cleared — H2O Plumbing Sydney" loading="lazy"><figcaption><span>Blocked drain &mdash; cleared</span><span class="mono">/05</span></figcaption></figure></div></div>
 <div class="hgal-nav"><button class="hgal-btn" id="hgPrev" aria-label="Previous photos">&#8592;</button><button class="hgal-btn" id="hgNext" aria-label="Next photos">&#8594;</button></div>
 </section>
 
 <span id="quote" style="position:absolute;top:-90px"></span>
 <section id="lbq" aria-labelledby="lbq-h">
 <style>
-#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--ink2);--lbq-bg:var(--paper2);--lbq-panel:#fff;--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--acc);--lbq-acc-text:var(--acc-text);--lbq-ink:var(--ink);--lbq-muted:var(--ink2);--lbq-bg:var(--paper2);--lbq-panel:#fff;--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
 @media(max-width:900px){#lbq .lbq-w{grid-template-columns:1fr}}
@@ -249,9 +240,11 @@ footer a:hover { color: var(--acc); }
 /* brand header — Allards pattern 2026-10-14 */
 .brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
 .brand img, .brand-mark{height:40px!important;width:auto!important;max-height:40px!important;display:block;image-rendering:-webkit-optimize-contrast}
+.brand .brand-badge{width:46px;height:46px;flex:none;border-radius:12px;background:linear-gradient(140deg,#0f2f52,#0a4a80 55%,#0d65ae);display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);box-shadow:0 3px 10px rgba(6,14,24,.22)}
+.brand .brand-badge img{height:31px!important;max-height:31px!important;width:auto!important}
 .brand-name,.comp-name{font-size:clamp(1.05rem,4.2vw,1.5rem)!important;line-height:1!important;letter-spacing:.045em!important;white-space:nowrap}
 .brand-sub,.comp-sub{font-size:.62rem!important;letter-spacing:.32em!important;font-weight:600!important;margin-top:4px;text-transform:uppercase}
-@media (max-width:820px){.brand img,.brand-mark{height:34px!important}.brand-name,.comp-name{font-size:clamp(1rem,4.4vw,1.3rem)!important}}
+@media (max-width:820px){.brand img,.brand-mark{height:34px!important}.brand .brand-badge{width:38px;height:38px;border-radius:10px}.brand .brand-badge img{height:25px!important;max-height:25px!important}.brand-name,.comp-name{font-size:clamp(1rem,4.4vw,1.3rem)!important}}
 
 /* mobile overflow guard 2026-10-14 */
 html,body{overflow-x:hidden}

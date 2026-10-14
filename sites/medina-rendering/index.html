@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/logo.jpg">
+  <link rel="icon" href="assets/logo-mark_medina-rendering.png">
   <style>
     /* ===== CSS Variables ===== */
     :root{
       --ink:#0f0e10; --ink-soft:#3a3839; --muted:#6b6869;
       --paper:#faf9f7; --paper-alt:#f2efe9;
-      --brand:#00cecd; --brand-ink:#007d7c; --teal:#00cecd; --gold:#d4a843; --rust:#c45d2e;
+      --brand:#00cecd; --brand-ink:#00706f; --teal:#00cecd; --gold:#d4a843; --rust:#c45d2e; --slate:#3b3e50;
       --line:rgba(15,14,16,.08); --line-strong:rgba(15,14,16,.16);
       --shadow:0 4px 24px rgba(15,14,16,.06),0 1px 3px rgba(15,14,16,.04);
       --shadow-lg:0 12px 48px rgba(15,14,16,.1),0 4px 12px rgba(15,14,16,.06);
@@ -30,7 +30,7 @@
     }
     @media(prefers-color-scheme:dark){
       :root{
-        --ink:#f2efe9; --ink-soft:#c8c4c1; --muted:#9a9693;
+        --ink:#f2efe9; --ink-soft:#c8c4c1; --muted:#9a9693; --brand-ink:#4fd9d8;
         --paper:#0f0e10; --paper-alt:#1a1819;
         --line:rgba(242,239,233,.08); --line-strong:rgba(242,239,233,.16);
         --shadow:0 4px 24px rgba(0,0,0,.3),0 1px 3px rgba(0,0,0,.2);
@@ -40,7 +40,7 @@
 
     /* ===== Reset ===== */
     *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 8px)}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*, *::before, *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
     body{margin:0;font-family:var(--ff-sans);font-size:var(--fs-step-0);line-height:1.65;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     img{max-width:100%;height:auto;display:block}
@@ -68,52 +68,44 @@
     .nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(250,249,247,.85);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
     @media(prefers-color-scheme:dark){.nav{background:rgba(15,14,16,.85);border-bottom-color:var(--line)}}
     .nav-in{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--space)}
-    .nav-brand{display:flex;align-items:center;gap:.625rem;font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-1);color:var(--ink)}
-    .nav-brand img{width:36px;height:36px;border-radius:8px;object-fit:cover}
+    .nav-brand{display:flex;align-items:center;gap:.75rem;font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-1);color:var(--ink);white-space:nowrap;min-width:0}
+    .nav-brand img{width:40px;height:40px;border-radius:9px;object-fit:contain}
     .nav__links{display:none;gap:2.5rem;list-style:none;margin:0;padding:0;font-weight:500;font-size:.9375rem}
     .nav__links a{color:var(--ink-soft);transition:color .15s var(--ease)}
     .nav__links a:hover{color:var(--ink)}
     .nav__cta{display:none}
     @media(min-width:768px){.nav__links{display:flex}.nav__cta{display:block}}
 
-    /* ===== Hero with 3D Canvas (PRO SCENE LAYOUT) ===== */
-    #sceneWrap{height:auto}
-    .scene-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
-    #heroCanvas{position:relative;inset:0;width:100%;height:100%;display:block}
-
-    .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:var(--nav-h)}
-    .hero-shade{position:absolute;inset:0;background:rgba(255,255,255,.03);pointer-events:none}
-    .hero-in{position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-    .hero-copy{display:flex;flex-direction:column;gap:1.25rem}
-    .hero-kicker{font-family:var(--ff-disp);font-weight:600;font-size:var(--fs-step-0);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-    .hero h1{margin:0;font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-4);line-height:1.05;letter-spacing:-.02em}
-    .hero h1 em{font-style:italic;color:var(--ink-soft)}
-    .hero-sub{margin:0;font-size:var(--fs-step-1);color:var(--ink-soft);max-width:52ch}
+    /* ===== Hero: real-photo dark hero + scrim (LB-3D-HERO) ===== */
+    #heroCanvas{display:none;perspective:800px}
+    .hero{position:relative;display:flex;align-items:center;min-height:min(92vh,900px);overflow:hidden;padding:calc(var(--nav-h) + 3rem) 0 3.5rem;background:var(--ink);border-bottom:1px solid var(--line)}
+    .hero-media{position:absolute;inset:-3%;z-index:0}
+    .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(.55) saturate(.9)}
+    .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,14,16,.88) 0%,rgba(15,14,16,.55) 46%,rgba(15,14,16,.92) 100%),radial-gradient(120% 90% at 16% 28%,rgba(0,206,209,.16) 0%,rgba(0,206,209,0) 55%)}
+    .hero-in{position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);perspective:1200px}
+    .hero-copy{display:flex;flex-direction:column;gap:1.25rem;max-width:50rem}
+    .hero-kicker{font-family:var(--ff-disp);font-weight:600;font-size:var(--fs-step-0);letter-spacing:.08em;color:rgba(242,239,233,.78);text-transform:uppercase}
+    .hero h1{margin:0;font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-4);line-height:1.05;letter-spacing:-.02em;color:#faf9f7;text-shadow:0 2px 28px rgba(0,0,0,.55)}
+    .hero h1 em{font-style:italic;color:var(--gold)}
+    .hero-sub{margin:0;font-size:var(--fs-step-1);color:#ded9d2;max-width:54ch}
     .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
-    .hero-stats{display:flex;gap:2.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+    .hero-cta .btn--p{background:var(--brand);color:#07302e;font-weight:700}
+    .hero-cta .btn--p:hover{background:#33d9d8;color:#07302e}
+    .hero-stats{display:flex;gap:2.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(242,239,233,.24)}
     .hero-stat{display:flex;flex-direction:column}
-    .hero-stat strong{font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-2);line-height:1.1;color:var(--ink)}
-    .hero-stat span{font-size:.8125rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-    .hero-visual{display:none}
-    @media(min-width:900px){.hero-visual{display:block}}
-    @media(max-width:899px){.hero-in{grid-template-columns:1fr;text-align:center}.hero-cta{justify-content:center}.hero-stats{justify-content:center}.hero h1 br{display:none}}
+    .hero-stat strong{font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-2);line-height:1.1;color:#faf9f7}
+    .hero-stat span{font-size:.8125rem;color:rgba(242,239,233,.72);text-transform:uppercase;letter-spacing:.05em}
+    @media(max-width:899px){.hero-in{text-align:center}.hero-copy{margin:0 auto}.hero-cta{justify-content:center}.hero-stats{justify-content:center}.hero h1 br{display:none}}
 
-    /* ===== HUD ===== */
-    .hud{position:fixed;right:clamp(1rem,3vw,2.5rem);bottom:clamp(1rem,3vw,2.5rem);z-index:10;display:flex;flex-direction:column;align-items:flex-end;gap:.75rem;pointer-events:none}
-    .stage{display:flex;flex-direction:column;align-items:flex-end;gap:.125rem}
-    .stage__num{font-family:var(--ff-disp);font-weight:700;font-size:clamp(1.5rem,1.2rem+1.5vw,2.5rem);line-height:1;color:var(--ink);text-shadow:0 2px 8px rgba(15,14,16,.15)}
-    .stage__name{font-family:var(--ff-disp);font-weight:500;font-size:clamp(.75rem,.7rem+.25vw,.875rem);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
-    .rail{width:4px;height:160px;background:var(--line);border-radius:2px;overflow:hidden}
-    .rail__fill{width:100%;height:0%;background:var(--brand);transition:height .25s var(--ease-out)}
-    .scroll-hint{display:none}
-    .scroll-hint{display:none}
-    @keyframes bounce{0%,100%{transform:rotate(-45deg) translate(0,0)}50%{transform:rotate(-45deg) translate(4px,4px)}}
-    @media(max-width:599px){.hud{right:1rem;bottom:1rem}.rail{height:100px}}
+    /* ===== Pulse (fleet telemetry heartbeat) ===== */
+    .lb-pulse{position:fixed;bottom:1.5rem;right:1.5rem;width:10px;height:10px;background:var(--brand);border-radius:50%;opacity:.5;animation:lbPulse 2s ease-in-out infinite;pointer-events:none;z-index:999}
+    @keyframes lbPulse{0%,100%{transform:scale(1);opacity:.45}50%{transform:scale(1.25);opacity:.75}}
 
     /* ===== Sections ===== */
-    .sec{padding:clamp(4rem,8vw,7rem) 0}
+    .sec{padding:clamp(4rem,8vw,7rem) var(--space)}
+    .sec-head,.svc-grid,.flow,.trust-grid,.lbq-in{max-width:var(--max-w);margin-left:auto;margin-right:auto}
     .sec-head{margin-bottom:clamp(2.5rem,5vw,4rem);text-align:center}
-    .sec-idx{display:inline-block;font-family:var(--ff-disp);font-weight:600;font-size:.75rem;color:var(--brand);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem}
+    .sec-idx{display:inline-block;font-family:var(--ff-disp);font-weight:600;font-size:.75rem;color:var(--brand-ink);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem}
     .sec-title{margin:0;font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-3);line-height:1.15;letter-spacing:-.02em}
     .lead{margin:1rem auto 0;max-width:60ch;font-size:var(--fs-step-1);color:var(--ink-soft)}
 
@@ -121,8 +113,8 @@
     .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.25rem,3vw,2rem)}
     @media(max-width:700px){.svc-grid{grid-template-columns:1fr}}
     .svc{position:relative;padding:clamp(1.5rem,3vw,2rem);background:var(--paper-alt);border:1px solid var(--line);border-radius:var(--radius-lg);transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
-    .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--line-strong)}
-    .svc__num{display:inline-block;font-family:var(--ff-disp);font-weight:700;font-size:.75rem;color:var(--brand);background:rgba(0,206,209,.1);padding:.25rem .625rem;border-radius:999px;margin-bottom:.75rem}
+    .svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--slate)}
+    .svc__num{display:inline-block;font-family:var(--ff-disp);font-weight:700;font-size:.75rem;color:var(--brand-ink);background:rgba(0,206,209,.16);padding:.25rem .625rem;border-radius:999px;margin-bottom:.75rem}
     .svc h3{margin:0 0 .5rem;font-family:var(--ff-disp);font-weight:600;font-size:var(--fs-step-1)}
     .svc p{margin:0;color:var(--ink-soft);font-size:.9375rem;line-height:1.7}
 
@@ -133,7 +125,7 @@
     @media(max-width:500px){.flow{grid-template-columns:1fr}}
     .flow-i{position:relative;padding:clamp(1.25rem,2.5vw,1.75rem);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg)}
     .flow-i::before{content:var(--i);position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-family:var(--ff-disp);font-weight:700;font-size:clamp(1.75rem,1.3rem+2.25vw,2.75rem);color:var(--brand);background:var(--paper-alt);padding:0 .625rem;border-radius:var(--radius);z-index:1}
-    .step-n{display:inline-block;font-family:var(--ff-disp);font-weight:600;font-size:.75rem;color:var(--brand);margin-bottom:.5rem}
+    .step-n{display:inline-block;font-family:var(--ff-disp);font-weight:600;font-size:.75rem;color:var(--brand-ink);margin-bottom:.5rem}
     .flow-i h3{margin:0 0 .5rem;font-family:var(--ff-disp);font-weight:600;font-size:var(--fs-step-1)}
     .flow-i p{margin:0;color:var(--ink-soft);font-size:.9375rem;line-height:1.7}
 
@@ -156,17 +148,17 @@
     .trust p{margin:0;color:var(--ink-soft);font-size:.9375rem;line-height:1.7}
 
     /* ===== Quote Form (LBQ) ===== */
-    .lbq{background:var(--ink);color:var(--paper);border-radius:var(--radius-lg);overflow:hidden}
+    .lbq{max-width:var(--max-w);margin-left:auto;margin-right:auto;background:#0f0e10;color:#faf9f7;border-radius:var(--radius-lg);overflow:hidden}
     .lbq-in{padding:clamp(2.5rem,5vw,4rem);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:start}
     @media(max-width:850px){.lbq-in{grid-template-columns:1fr}}
     .lbq-copy h2{margin:0 0 .75rem;font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-3);line-height:1.15}
-    .lbq-copy p{margin:0;color:var(--ink-soft);font-size:var(--fs-step-1)}
+    .lbq-copy p{margin:0;color:rgba(242,239,233,.8);font-size:var(--fs-step-1)}
     .lbq-form{display:grid;gap:1rem}
     .field{display:grid;gap:.375rem}
     .field label{font-family:var(--ff-disp);font-weight:500;font-size:.8125rem;color:rgba(242,239,233,.7);text-transform:uppercase;letter-spacing:.05em}
-    .field input,.field textarea,.field select{width:100%;padding:.875rem 1rem;font-family:var(--ff-sans);font-size:var(--fs-step-0);color:var(--paper);background:rgba(242,239,233,.06);border:1px solid rgba(242,239,233,.16);border-radius:var(--radius);transition:border-color .15s var(--ease),background .15s var(--ease)}
-    .field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--brand);background:rgba(242,239,233,.1)}
-    .field input::placeholder,.field textarea::placeholder{color:rgba(242,239,233,.35)}
+    .field input,.field textarea,.field select{width:100%;padding:.875rem 1rem;font-family:var(--ff-sans);font-size:var(--fs-step-0);color:#faf9f7;background:#1c1b1e;border:1px solid rgba(242,239,233,.2);border-radius:var(--radius);transition:border-color .15s var(--ease),background .15s var(--ease)}
+    .field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--brand);background:#232225}
+    .field input::placeholder,.field textarea::placeholder{color:rgba(242,239,233,.55)}
     .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
     @media(max-width:480px){.field-row{grid-template-columns:1fr}}
     .field textarea{min-height:120px;resize:vertical}
@@ -188,16 +180,13 @@
     .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0,0,0,0) !important;white-space:nowrap !important;border:0 !important}
   </style>
 
-<style>/* de-scroll gap fix 2026-10-14 */
-#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
-#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
-</style>
+<noscript><style>.rv{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-in">
       <a class="nav-brand" href="#top" aria-label="Medina Rendering - Home">
-        <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager">
+        <img src="assets/logo-mark_medina-rendering.png" width="40" height="40" alt="" aria-hidden="true" loading="eager">
         Medina Rendering
       </a>
       <ul class="nav__links">
@@ -211,11 +200,11 @@
   </nav>
 
   <header class="hero" id="top" aria-label="Medina Rendering - Mix to Wall">
-    <div id="sceneWrap">
-      <div class="scene-sticky">
-        
-        <div class="hero-shade"></div>
-        <div class="hero-in">
+    <!-- LB-3D-HERO -->
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-media" aria-hidden="true"><img src="assets/hero.jpg" alt="" width="1200" height="900" loading="eager" decoding="async"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-in">
           <div class="hero-copy rv">
             <p class="hero-kicker">Cement · Acrylic · Texture · Repairs</p>
             <h1>Render <em>done right.</em><br><span class="teal">One sweep.</span></h1>
@@ -229,17 +218,7 @@
               <div class="hero-stat"><strong>2</strong><span>Grain Changes</span></div>
             </div>
           </div>
-          <div class="hero-visual rv">
-            <img src="assets/logo.jpg" alt="Medina Rendering - rendering in progress" loading="eager">
-          </div>
         </div>
-        <div class="hud" aria-hidden="true">
-          <div class="stage"></div>
-          <div class="rail"></div>
-          
-        </div>
-      </div>
-    </div>
   </header>
 
   <section class="sec" id="services" aria-labelledby="s-t">
@@ -313,7 +292,7 @@
         <h2 id="lbq-t">Get a fixed quote.</h2>
         <p>Tell us the substrate, area, and finish. We'll reply with mix spec, coat thicknesses, texture, timeline, and price - in writing.</p>
       </div>
-      <form class="lbq-form" id="lbq-form" novalidate>
+      <form class="lbq-form" id="lbq-form" novalidate data-site="medina-rendering" data-biz="Medina Rendering Pty Ltd">
         <input type="hidden" name="website" class="honey" tabindex="-1" autocomplete="off">
         <div class="field-row">
           <div class="field">
@@ -354,24 +333,7 @@
         <button class="btn btn--p form-submit" type="submit">Request Quote</button>
       </form>
     </div>
-  </section>
-
-  <footer class="foot" role="contentinfo">
-    <div class="foot-in">
-      <a class="foot-brand" href="#top" aria-label="Medina Rendering - Home">
-        <img src="assets/logo.jpg" alt="" aria-hidden="true">
-        Medina Rendering
-      </a>
-      <nav class="foot-nav" aria-label="Footer navigation">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
-        <a href="#lbq">Get a Quote</a>
-      </nav>
-      <p class="foot-copy">&copy; <span id="year"></span> Medina Rendering. All rights reserved.</p>
-    </div>
-  </footer>
-
+  
   <script>
   (function(){
     var EP = null;
@@ -398,6 +360,7 @@
         e.preventDefault();
         var d = {};
         new FormData(f).forEach(function(v,k){ d[k]=v; });
+        d.site_id = f.dataset.site || 'medina-rendering';
         if (d.website) return;
         if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
           st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
@@ -435,6 +398,24 @@
     else init();
   })();
   </script>
+</section>
+
+  <footer class="foot" role="contentinfo">
+    <div class="foot-in">
+      <a class="foot-brand" href="#top" aria-label="Medina Rendering - Home">
+        <img src="assets/logo-mark_medina-rendering.png" width="32" height="32" alt="" aria-hidden="true">
+        Medina Rendering
+      </a>
+      <nav class="foot-nav" aria-label="Footer navigation">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#lbq">Get a Quote</a>
+      </nav>
+      <p class="foot-copy">&copy; <span id="year"></span> Medina Rendering. All rights reserved.</p>
+    </div>
+  </footer>
+
 
   <script>
   /* ===== Reveals + Year ===== */
@@ -447,9 +428,10 @@
   })();
   var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
 
-  /* ===== PRO SCENE KIT + MEDINA RENDERING SCENE (OVERCAST-SOFT) ===== */
   </script>
-  
-  
+
+  <div class="lb-pulse" aria-hidden="true"></div>
+  <!-- lb:pulse -->
+  <script src="https://laydback-hq.tail5b3740.ts.net:8443/pulse/js" data-project="medina-rendering" defer></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner container">
-    <a class="nav-brand" href="./" aria-label="SDC Landscaping and Maintenance — Home">
-      <img src="harvest/ig_profile.jpg" alt="" loading="eager" fetchpriority="high" width="1179" height="820">
-      <span style="font-family:Space Grotesk,sans-serif;font-weight:600;font-size:.9rem;letter-spacing:.01em">SDC Landscaping & Maintenance</span>
+    <a class="nav-brand" href="#home" aria-label="SDC Landscaping and Maintenance — Home">
+      <img class="brand-mark" src="harvest/logo-mark_sdc-landscaping.png" alt="" width="400" height="278">
+      <span class="brand-txt"><strong class="brand-name">SDC Landscaping &amp; Maintenance</strong><span class="brand-sub">Cameron Park NSW</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -14,7 +14,10 @@
 </nav>
 
 <header class="hero" id="home" role="banner">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="lbhf" aria-hidden="true"><img src="assets/hero.jpg" alt="" loading="eager" fetchpriority="high" width="1200" height="900"></div>
+  <div class="lbhf-scrim" aria-hidden="true"></div>
+  <!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" aria-hidden="true" style="display:none"></canvas>
   <div class="hero-content container">
     <div class="hero-copy">
       <p class="rv">Construction landscaping across Newcastle, Hunter & Lake Macquarie</p>
