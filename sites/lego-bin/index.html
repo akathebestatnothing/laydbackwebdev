@@ -173,6 +173,12 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
  font-size:clamp(84px,24vw,210px);line-height:.8;letter-spacing:-.02em;
  color:color-mix(in srgb,var(--acc,#c4fb24) 13%,transparent);pointer-events:none;user-select:none;white-space:nowrap;max-width:130%}
 @media (max-width:820px){.hero .lbwm{font-size:clamp(64px,28vw,140px);bottom:-5%}}
+
+/* lbfx hero layer 2026-10-14 */
+.hero,.lbfx-host{position:relative;isolation:isolate}
+#lbfx{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.lbfx-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(7,8,10,.30) 0%,rgba(7,8,10,.06) 45%,rgba(7,8,10,.42) 100%)}
+.hero>*:not(#lbfx):not(.lbfx-shade),.lbfx-host>*:not(#lbfx):not(.lbfx-shade){position:relative;z-index:2}
 </style></noscript></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2600);</script>
 <a class="skip" href="#services">Skip to content</a>
@@ -193,6 +199,9 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 </nav>
 
 <header id="top">
+<!-- LB-3D-HERO -->
+<canvas id="lbfx" aria-hidden="true"></canvas>
+<div class="lbfx-shade" aria-hidden="true"></div>
 <div class="lbwm" aria-hidden="true">SKIP BINS</div>
 
 <div id="sceneWrap" aria-label="Scroll through the skip bin lifecycle">
@@ -911,6 +920,40 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
 
+</script>
+<script>
+/* lbfx — ambient hero motion (light streaks + dust) */
+(function(){
+  var cv = document.getElementById('lbfx'); if (!cv) return;
+  var g = cv.getContext('2d');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DPR = Math.min(devicePixelRatio || 1, 2), W = 0, H = 0;
+  var acc = (getComputedStyle(document.documentElement).getPropertyValue('--acc') || getComputedStyle(document.documentElement).getPropertyValue('--accent') || '#c8a25e').trim() || '#c8a25e';
+  function hx(c, a){ c = (c||'').replace('#',''); if (c.length === 3) c = c.split('').map(function(x){return x+x;}).join(''); var n = parseInt(c,16); if (isNaN(n)) n = 0xc8a25e; return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')'; }
+  function size(){ W = cv.clientWidth; H = cv.clientHeight; cv.width = Math.max(2, W*DPR); cv.height = Math.max(2, H*DPR); g.setTransform(DPR,0,0,DPR,0,0); }
+  size(); addEventListener('resize', size);
+  var parts = [];
+  for (var i = 0; i < 34; i++) parts.push({x: Math.random(), y: Math.random(), r: 1+Math.random()*2.6, s: 0.00004+Math.random()*0.00012, o: 0.05+Math.random()*0.16, d: Math.random()*6.28});
+  var t0 = 0, painted = false;
+  function frame(now){
+    if (!t0) t0 = now;
+    var t = (now - t0) / 1000;
+    g.clearRect(0,0,W,H);
+    var lx = W*0.78, ly = H*0.12, lg = g.createRadialGradient(lx, ly, 10, lx, ly, Math.max(W,H)*0.7);
+    lg.addColorStop(0, hx(acc, 0.20)); lg.addColorStop(0.5, hx(acc, 0.05)); lg.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = lg; g.fillRect(0,0,W,H);
+    for (var i = 0; i < parts.length; i++){ var p = parts[i];
+      var x = ((p.x + t*p.s*40) % 1.15 - 0.07) * W;
+      var y = (p.y + Math.sin(p.d + t*0.25)*0.015) * H;
+      g.fillStyle = i % 3 ? hx(acc, p.o) : 'rgba(235,238,242,' + (p.o*0.8) + ')';
+      g.beginPath(); g.arc(x, y, p.r, 0, 6.283); g.fill();
+    }
+    painted = true;
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  setTimeout(function(){ if (!painted) frame(performance.now() + 16); }, 600);
+})();
 </script>
 </body>
 </html>
