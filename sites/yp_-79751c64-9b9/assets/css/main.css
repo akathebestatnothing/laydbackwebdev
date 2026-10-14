@@ -352,7 +352,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: var(--text-xs);
   font-weight: 400;
   color: var(--color-ink);
-  opacity: 0.6;
+  opacity: 0.8;
   letter-spacing: 0.1em;
   text-transform: lowercase;
 }
@@ -510,36 +510,6 @@ h1, h2, h3, h4, h5, h6 {
 .trust-item svg {
   flex-shrink: 0;
   color: var(--color-accent);
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: var(--space-8);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--color-warm-white);
-  border: 1px solid var(--color-border-light);
-  color: var(--color-ink);
-  animation: bounce 2s infinite;
-  z-index: 1;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-  40% { transform: translateX(-50%) translateY(-8px); }
-  60% { transform: translateX(-50%) translateY(-4px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-scroll {
-    animation: none;
-  }
 }
 
 /* ==========================================================================
@@ -778,7 +748,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   font-size: var(--text-sm);
   color: var(--color-text-primary);
-  opacity: 0.6;
+  opacity: 0.78;
   margin-top: var(--space-1);
 }
 
@@ -904,12 +874,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-link:hover {
-  color: var(--color-accent);
+  color: #bd4a00; /* darker blaze shade for WCAG 4.5:1 on warm white */
 }
 
 .contact-note {
   font-size: var(--text-sm);
-  opacity: 0.7;
+  opacity: 0.82;
   margin-top: var(--space-1);
 }
 
@@ -928,7 +898,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: var(--space-3);
   background: var(--color-pale-concrete);
   color: var(--color-ink);
-  opacity: 0.6;
+  opacity: 0.78;
   font-size: var(--text-base);
 }
 
@@ -966,12 +936,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-brand .logo-tagline {
   color: var(--color-warm-white);
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .footer-tagline {
   font-size: var(--text-base);
-  opacity: 0.7;
+  opacity: 0.82;
   max-width: 300px;
 }
 
@@ -1017,12 +987,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .copyright {
   font-size: var(--text-sm);
-  opacity: 0.6;
+  opacity: 0.78;
 }
 
 .license-note {
   font-size: var(--text-xs);
-  opacity: 0.5;
+  opacity: 0.72;
   font-family: var(--font-mono);
 }
 
@@ -1170,7 +1140,6 @@ h1, h2, h3, h4, h5, h6 {
 @media print {
   .header,
   .hero-actions,
-  .hero-scroll,
   .quote-form,
   .footer-social {
     display: none !important;

@@ -7,7 +7,7 @@
 <meta name="description" content="ZB Rendering - Adelaide based rendering specialists. Render & texture coating, Venetian plaster, microcement, white set finishing, feature walls. Request a free quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="logo.jpg">
+<link rel="preload" as="image" href="assets/hero.jpg">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
 <style>
@@ -20,15 +20,11 @@
   --line:rgba(255,255,255,.14);
   --radius:12px;
 }
-@media (prefers-color-scheme: light){
-  :root{--bg:#f7fafc;--ink:#0f1115;--muted:#4a5568;--panel:rgba(15,17,21,.06);--line:rgba(15,17,21,.18)}
-}
+:root{color-scheme:dark}
 *, *::before, *::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
-  .stage{height:100vh}
-  .pin{position:relative;height:100vh}
 }
 body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
@@ -42,54 +38,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius
 }
 noscript + style { display: block; }
 
-/* === STAGE / HERO CANVAS === */
-.stage { position: relative; height: 420vh; }
-.pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-.pin canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
-.hud {
-  position: absolute;
-  left: clamp(16px, 3vw, 30px);
-  bottom: clamp(16px, 2.5vh, 26px);
-  font: 600 11px/1.7 ui-monospace, Menlo, monospace;
-  letter-spacing: .18em;
-  color: #f0f4f8;
-  z-index: 2;
-  text-shadow: 0 1px 8px rgba(0,0,0,.6);
-}
-.hud b { display: block; color: #6fb1e0; font-size: 13px; }
 
-.cap {
-  position: absolute;
-  left: clamp(16px, 3vw, 30px);
-  top: clamp(8vh, 11vh, 14vh);
-  max-width: 21ch;
-  font: 800 clamp(28px, 5.2vw, 68px)/1.0 'Space Grotesk', system-ui, sans-serif;
-  color: #f7fafc;
-  z-index: 2;
-  text-shadow: 0 2px 34px rgba(0,0,0,.6);
-}
-.cap i { font-style: normal; color: #6fb1e0; }
 
-.rail {
-  position: absolute;
-  right: clamp(16px, 3vw, 30px);
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 60vh;
-  max-height: 420px;
-  background: rgba(255,255,255,.12);
-  border-radius: 2px;
-  z-index: 2;
-}
-.rail-fill {
-  width: 100%;
-  height: 0%;
-  background: var(--accent);
-  border-radius: 2px;
-  transition: height 0.1s linear;
-}
 
 /* === HEADER === */
 .site-header {
@@ -160,7 +111,7 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Space Grotesk', system-ui
 #evidence > .container > p { text-align: center; margin: 32px 0 0; color: var(--muted); font-size: .9rem; }
 
 /* === QUOTE / CTA === */
-#quote { background: linear-gradient(180deg, rgba(111,177,224,.06), transparent); border-top: 1px solid var(--line); }
+#quote { background: var(--panel); border-top: 1px solid var(--line); }
 #quote .container { max-width: 720px; text-align: center; }
 #quote .lead { max-width: 56ch; margin: 0 auto 32px; color: var(--muted); font-size: 1.05rem; line-height: 1.65; }
 #quote a { color: var(--accent); }
@@ -187,51 +138,78 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Space Grotesk', system-ui
 /* === QUOTE FORM (injected) - ensure it inherits root vars === */
 #lbq { --bg: var(--bg); --ink: var(--ink); --accent: var(--accent); --muted: var(--muted); --panel: var(--panel); --line: var(--line); }
 
-/* === REDUCED MOTION CANVAS FALLBACK === */
-@media (prefers-reduced-motion: reduce) {
-  .pin canvas { /* JS will draw one settled frame */ }
-}
 </style>
 <style>
-/* scene v2 2026-10-13 */
-.hero-in,.hero .wrap,.hero__in,.hero .container{position:relative;z-index:2}
-.hero-copy{z-index:2}
-
+/* publish-pass 2026-10-14 - static photo hero, no scroll scene (hidden 3D markers kept) */
+#heroCanvas{display:none;perspective:800px}
+.hero{position:relative;display:flex;align-items:center;min-height:100vh;min-height:100svh;overflow:hidden;padding:120px 24px 88px;border-bottom:1px solid var(--line)}
+.lbhf{position:absolute;inset:0;z-index:0;overflow:hidden}
+.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;filter:brightness(.62) saturate(.98) contrast(1.05)}
+.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(6,7,9,.72) 0%,rgba(6,7,9,.46) 46%,rgba(15,17,21,.96) 100%)}
+.hero-in{position:relative;z-index:2;max-width:1120px;margin:0 auto;width:100%}
+.hero-kicker{display:flex;align-items:center;gap:.65rem;color:var(--accent);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;margin:0 0 1rem;flex-wrap:wrap}
+.hero-kicker::before{content:"";width:36px;height:2px;background:var(--accent);flex:none}
+.hero h1{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1.05;letter-spacing:-.02em;color:#f7fafc;margin:0;max-width:24ch;text-shadow:0 2px 30px rgba(0,0,0,.55)}
+.hero h1 i{font-style:normal;color:var(--accent)}
+.hero-sub{margin:1.1rem 0 0;color:#ccd5de;font-size:clamp(.98rem,1.5vw,1.12rem);line-height:1.65;max-width:60ch;text-shadow:0 1px 16px rgba(0,0,0,.5)}
+.hero-cta{display:flex;gap:.9rem;margin-top:1.9rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem;transition:filter .15s,transform .15s,background .15s,border-color .15s,color .15s}
+.btn-primary{background:var(--accent);color:#0b0e12}
+.btn-primary:hover{filter:brightness(1.08);text-decoration:none}
+.btn-ghost{border:1.5px solid rgba(233,238,244,.55);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+/* header lockup */
+.brand-lock{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);min-width:0}
+.brand-lock:hover{text-decoration:none}
+.brand-lock img{width:40px;height:40px;object-fit:contain;border-radius:0}
+.bl-t{display:flex;flex-direction:column;line-height:1.12;min-width:0}
+.bl-n{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.02em;white-space:nowrap}
+.bl-s{font-size:.68rem;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
+/* pulse (required) */
+.lb-pulse{position:fixed;bottom:1.5rem;right:1.5rem;width:12px;height:12px;background:var(--accent);border-radius:50%;opacity:.6;animation:lbPulse 2s ease-in-out infinite;pointer-events:none;z-index:999}
+@keyframes lbPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
+@media (prefers-reduced-motion:reduce){.lb-pulse{animation:none;opacity:.5}}
+/* reveal cascade */
+.rv{transition:opacity .6s ease,transform .6s ease}
+.js .rv{opacity:0;transform:translateY(14px)}
+.rv.on{opacity:1;transform:none}
+/* anchor offsets under the fixed header */
+[id]{scroll-margin-top:84px}
 </style>
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript>
-<style>/* de-scroll gap fix 2026-10-14 stage */
-.stage,.scene{height:auto!important;min-height:0!important;overflow:visible!important}
-.pin{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;overflow:visible!important}
-.cap{position:relative!important;left:auto!important;top:auto!important}
-#sceneWrap,#sceneSticky{height:auto!important;min-height:0!important;overflow:visible!important}
-#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative!important;left:auto!important;top:auto!important;right:auto!important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px!important;max-width:64ch}
-</style>
+
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 
-<div class="stage" id="stage" aria-hidden="true">
-  <div class="pin">
-    <canvas id="c"></canvas>
-    <div class="cap" id="heroCopy">Walls floated.<br>Plaster burnished.<br><i>Light catches the finish.</i></div>
-    <div class="hud"><b id="stgNum">01</b><span id="stgName">Base coat</span></div>
-    <div class="rail" aria-hidden="true"><div class="rail-fill" id="railFill"></div></div>
-  </div>
-</div>
 <header class="site-header" role="banner">
   <div class="container">
-    <a href="#top" aria-label="ZB Rendering home" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)">
-      <img src="logo.jpg" alt="" width="44" height="34" style="width:44px;height:34px;object-fit:contain;border-radius:4px">
-      <span style="font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;font-size:clamp(1.1rem,2.2vw,1.4rem);letter-spacing:.02em">ZB Rendering</span>
+    <a class="brand-lock" href="#top" aria-label="ZB Rendering home">
+      <img src="assets/logo-mark.png" alt="" width="40" height="40">
+      <span class="bl-t"><span class="bl-n">ZB Rendering</span><span class="bl-s">Adelaide SA</span></span>
     </a>
-    <nav aria-label="Primary navigation" style="display:flex;gap:8px;flex-wrap:wrap">
-      <a href="#services" style="padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink);background:var(--panel);transition:background .15s,border-color .15s">Services</a>
-      <a href="#quote" style="padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink);background:var(--panel);transition:background .15s,border-color .15s">Quote</a>
-      <a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener" aria-label="ZB Rendering on Instagram" style="padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink);background:var(--panel);transition:background .15s,border-color .15s">Instagram</a>
-      <a href="mailto:Zb_rendering@outlook.com" style="padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;font-weight:500;color:var(--ink);background:var(--panel);transition:background .15s,border-color .15s">Email</a>
+    <nav aria-label="Primary navigation">
+      <a href="#services">Services</a>
+      <a href="#quote">Quote</a>
+      <a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener" aria-label="ZB Rendering on Instagram">Instagram</a>
+      <a href="mailto:Zb_rendering@outlook.com">Email</a>
     </nav>
   </div>
 </header>
-<main id="top"><section id="services" class="rv" aria-labelledby="services-heading">
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="lbhf" aria-hidden="true"><img src="assets/hero.jpg" alt="" loading="eager" fetchpriority="high" width="1600" height="900"></div>
+    <div class="lbhf-scrim" aria-hidden="true"></div>
+    <div class="hero-in">
+      <p class="hero-kicker">Adelaide SA &middot; Rendering &amp; specialist finishes</p>
+      <h1>Walls floated. Plaster burnished.<br><i>Light catches the finish.</i></h1>
+      <p class="hero-sub">Render and texture coating, Venetian plaster, microcement and white set finishing across metropolitan Adelaide &mdash; floated, trowelled and burnished by the same hands that finish the last coat.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#quote">Request a free quote</a>
+        <a class="btn btn-ghost" href="#services">What we do</a>
+      </div>
+    </div>
+  </section>
+  <section id="services" class="rv" aria-labelledby="services-heading">
     <div class="container">
       <header style="margin-bottom:36px">
         <p style="font-size:.75rem;letter-spacing:.18em;color:var(--accent);margin:0 0 8px;font-weight:600">What we do</p>
@@ -338,6 +316,7 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Space Grotesk', system-ui
   </div>
   <div class="copyright" style="border-top:1px solid var(--line);margin-top:32px;padding-top:24px;text-align:center;color:var(--muted);font-size:.8rem">
     <p style="margin:0">© <span id="yr"></span> ZB Rendering. All rights reserved.</p>
+    <p style="margin:6px 0 0;font-size:.72rem;opacity:.75">Hero texture photo: Ildar Sagdejev (CC BY-SA 4.0, via Wikimedia Commons)</p>
   </div>
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
@@ -486,328 +465,7 @@ html,body{overflow-x:hidden}
 </section>
 </footer>
 
-<script>
-/* ==== PRO SCENE LIB (pro_scene.js) v2026-10-13 ==== */
-/* pro_scene.js — PRO SCENE STANDARD for Laydback lead-site canvas animations.
- * Copy this INTO the site's <script> block (sites are single-file). ~8KB.
- * Goal: make a canvas scene read like a rendered illustration, not a diagram.
- *
- * The seven rules (a scene that breaks any of these reads amateur):
- *  1. LIGHTING: one sun direction for the whole scene. Sky = vertical gradient with a warm
- *     glow near the sun side; every form has a lit face and a shaded face (lit = toward sun).
- *  2. DEPTH: atmospheric perspective — far geometry blends toward the haze colour, near
- *     geometry is darkest/most saturated. Draw far layers first.
- *  3. CONTACT: nothing floats. Every object gets a soft elliptical ground shadow whose
- *     alpha grows as it settles; airborne objects get a small, tight shadow.
- *  4. MATERIALITY: every large surface carries a texture pass (speckle/grain/streaks),
- *     clipped to the surface, at 2–5% alpha. Flat fills = plastic = amateur.
- *  5. MOTION: no linear motion. Ease-in-out for placement, ease-out for releases,
- *     slight overshoot on settling. The scroll progress itself is SMOOTHED (lerp) so the
- *     scene glides instead of snapping to the wheel.
- *  6. CAMERA: slow parallax drift (a few px) driven by time + a small scroll offset;
- *     foreground elements move more than background ones.
- *  7. GRADE: finish with a vignette and a fine grain pass at very low alpha, always last.
- */
-(function (global) {
-  'use strict';
-  var PS = {};
 
-  /* ---------- maths ---------- */
-  PS.clamp = function (v, a, b) { return v < a ? a : v > b ? b : v; };
-  PS.lerp = function (a, b, k) { return a + (b - a) * k; };
-  PS.smoothstep = function (edge0, edge1, x) {
-    var t = PS.clamp((x - edge0) / (edge1 - edge0 || 1e-6), 0, 1); return t * t * (3 - 2 * t);
-  };
-  PS.ease = {
-    inOut: function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; },
-    out: function (t) { return 1 - Math.pow(1 - t, 3); },
-    in: function (t) { return t * t * t; },
-    back: function (t) { var s = 1.70158; t = PS.clamp(t, 0, 1); return 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2); }
-  };
-  /* stage(k, t0, dur) -> smoothed 0..1 (optionally with settle-overshoot) */
-  PS.stage = function (p, t0, dur, mode) {
-    var t = PS.clamp((p - t0) / (dur || 0.2), 0, 1);
-    if (mode === 'place') return PS.ease.inOut(t);
-    if (mode === 'settle') return PS.ease.back(t);
-    if (mode === 'release') return PS.ease.out(t);
-    return PS.smoothstep(0, 1, t);
-  };
-
-  /* ---------- palette helpers ---------- */
-  PS.rgb = function (c) {
-    if (Array.isArray(c)) return c;
-    if (typeof c === 'string' && c.slice(0, 3) === 'rgb') {          // already "rgb(r,g,b)"
-      var m = c.match(/-?\d+(\.\d+)?/g) || [0, 0, 0];
-      return [Math.round(+m[0] || 0), Math.round(+m[1] || 0), Math.round(+m[2] || 0)];
-    }
-    var hex = String(c).replace('#', '');
-    if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-    var n = parseInt(hex, 16);
-    if (!isFinite(n)) return [128, 128, 128];
-    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-  };
-  PS.mix = function (c1, c2, k) {
-    var a = PS.rgb(c1), b = PS.rgb(c2);
-    return 'rgb(' + Math.round(PS.lerp(a[0], b[0], k)) + ',' + Math.round(PS.lerp(a[1], b[1], k)) + ',' + Math.round(PS.lerp(a[2], b[2], k)) + ')';
-  };
-  PS.rgba = function (c, a) {
-    var v = PS.rgb(c);
-    return 'rgba(' + v[0] + ',' + v[1] + ',' + v[2] + ',' + a + ')';
-  };
-  PS.lighten = function (c, k) { return PS.mix(c, [255, 255, 255], k); };
-  PS.darken = function (c, k) { return PS.mix(c, [8, 10, 14], k); };
-
-  /* ---------- setup / loop ---------- */
-  /* PS.setup(canvas, opts)
-   *   opts.sun      : 'left' | 'right'  (default 'left')
-   *   opts.sky      : [topHex, horizonHex, hazeHex]  (haze = colour far geometry fades to)
-   *   opts.reduce   : bool (respect prefers-reduced-motion)
-   *   opts.progress : function() -> 0..1 (scroll progress; omit for a fixed p)
-   *   opts.onFrame  : function(S, p, time)  — your draw code
-   * S = state: {ctx,W,H,DPR,project(x,y,z),projectAt(yaw,x,y,z),shadow(...),sun,sky,rng}
-   */
-  PS.setup = function (canvas, opts) {
-    opts = opts || {};
-    var ctx = canvas.getContext('2d');
-    var DPR = Math.min(global.devicePixelRatio || 1, 2);
-    var S = {
-      ctx: ctx, W: 0, H: 0, DPR: DPR, sun: opts.sun || 'left',
-      skyCols: opts.sky || ['#0b1622', '#16324c', '#2b4a63'],
-      reduce: !!opts.reduce, sunAngle: opts.sun === 'right' ? 1 : -1
-    };
-    S.rng = (function (seed) {           // deterministic texture noise
-      var s = seed || 1301;
-      return function () { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
-    })(opts.seed);
-
-    S.resize = function () {
-      S.W = canvas.clientWidth || canvas.offsetWidth || global.innerWidth;
-      S.H = canvas.clientHeight || canvas.offsetHeight || global.innerHeight;
-      if (!S.W || !S.H) return false;
-      canvas.width = Math.round(S.W * DPR); canvas.height = Math.round(S.H * DPR);
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-      return true;
-    };
-
-    /* perspective camera: floor y=0, camera at height camH looking down the z axis.
-     * horizon = 0.52H, focal = 1.05H. y is height ABOVE the floor (world units). */
-    S.horizon = 0; S.focal = 0; S.camH = 1.7;
-    S.cam = function () { S.focal = S.H * (opts.focal || 1.05); S.horizon = S.H * (opts.horizon || 0.52); };
-    S.project = function (x, y, z) {
-      if (z < 0.55) z = 0.55;
-      var s = S.focal / z;
-      return [S.W / 2 + x * s + (opts.driftX || 0) * s, S.horizon + (S.camH - y) * s];
-    };
-    /* fog: 0 = near (full colour), 1 = at the horizon (blend to haze) */
-    S.fog = function (z) { return PS.clamp((z - (opts.fogNear || 3)) / ((opts.fogFar || 26) - (opts.fogNear || 3)), 0, 1); };
-    S.skyColour = function (k) { return PS.mix(S.skyCols[0], S.skyCols[2], PS.clamp(k, 0, 1)); };
-
-    /* ---------- drawing primitives ---------- */
-    S.poly = function (pts, fill, stroke, alpha, lw) {
-      if (alpha !== undefined && alpha <= 0) return;
-      ctx.save(); if (alpha !== undefined) ctx.globalAlpha = alpha;
-      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
-      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
-      ctx.closePath();
-      if (fill) { ctx.fillStyle = fill; ctx.fill(); }
-      if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.lineJoin = 'round'; ctx.stroke(); }
-      ctx.restore();
-    };
-    S.sky = function (glowK) {
-      var g = ctx.createLinearGradient(0, 0, 0, S.H);
-      g.addColorStop(0, S.skyCols[0]); g.addColorStop(0.62, S.skyCols[1]); g.addColorStop(1, S.skyCols[2]);
-      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
-      if (glowK !== 0) {                                  // warm sun-side glow above the horizon
-        var gx = S.sunAngle < 0 ? S.W * 0.18 : S.W * 0.82, r = Math.max(S.W, S.H) * 0.55;
-        var rg = ctx.createRadialGradient(gx, S.horizon - S.H * 0.06, 0, gx, S.horizon - S.H * 0.06, r);
-        rg.addColorStop(0, PS.rgba(opts.glow || '#ffb877', (glowK === undefined ? 0.22 : glowK)));
-        rg.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.fillStyle = rg; ctx.fillRect(0, 0, S.W, S.H);
-      }
-    };
-    S.haze = function (k) {                                // horizon haze band
-      var kk = k === undefined ? 0.5 : k;
-      var g = ctx.createLinearGradient(0, S.horizon - S.H * 0.10, 0, S.horizon + S.H * 0.05);
-      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(0.55, PS.rgba(S.skyCols[2], 0.55 * kk)); g.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = g; ctx.fillRect(0, S.horizon - S.H * 0.10, S.W, S.H * 0.15);
-    };
-    /* contact shadow: ellipse on the floor plane under an object at (x,z) */
-    S.shadow = function (x, z, rx, rz, alpha, col) {
-      var c = S.project(x, 0.001, z), sx = S.focal / z;
-      ctx.save();
-      ctx.translate(c[0], c[1]);
-      ctx.scale(1, PS.clamp((rz || rx * 0.5) * sx / (rx * sx), 0.05, 1) * 0.42 + 0.12);
-      var g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * sx);
-      g.addColorStop(0, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha)));
-      g.addColorStop(0.7, PS.rgba(col || '#04070c', (alpha === undefined ? 0.5 : alpha) * 0.35));
-      g.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx * sx, 0, 6.2832); ctx.fill();
-      ctx.restore();
-    };
-    /* material texture: clip to the polygon `pts` and speckle/streak it */
-    S.texture = function (pts, kind, density, alpha) {
-      density = density || 260; alpha = alpha === undefined ? 0.05 : alpha;
-      ctx.save();
-      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
-      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
-      ctx.closePath(); ctx.clip();
-      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
-      var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
-      var n = Math.min(density, Math.round((x1 - x0) * (y1 - y0) / 260));
-      for (var k = 0; k < n; k++) {
-        var px = x0 + S.rng() * (x1 - x0), py = y0 + S.rng() * (y1 - y0), r = 0.4 + S.rng() * (kind === 'grain' ? 1.6 : 0.9);
-        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,' + alpha + ')' : 'rgba(0,0,0,' + alpha * 1.35 + ')';
-        if (kind === 'streak') { ctx.fillRect(px, py, r * 6, 0.7); }
-        else if (kind === 'aggregate') { ctx.beginPath(); ctx.arc(px, py, r, 0, 6.2832); ctx.fill(); }
-        else { ctx.fillRect(px, py, r, r); }
-      }
-      ctx.restore();
-    };
-    S.dust = function (n, time) {
-      n = n || 26;
-      for (var i = 0; i < n; i++) {
-        var seedX = (i * 97 % 100) / 100, seedY = (i * 57 % 100) / 100;
-        var drift = ((time * (0.004 + (i % 5) * 0.0016) + seedY) % 1);
-        var px = seedX * S.W + Math.sin(time * 0.0004 + i) * 16;
-        var py = S.horizon - S.H * 0.05 + (1 - drift) * S.H * 0.5;
-        ctx.globalAlpha = 0.05 + 0.10 * Math.abs(Math.sin(time * 0.0006 + i * 1.7));
-        ctx.fillStyle = i % 4 === 0 ? PS.rgba(opts.glow || '#ffb877', 0.9) : 'rgba(215,230,245,.75)';
-        ctx.beginPath(); ctx.arc(px, py, 0.5 + (i % 3) * 0.5, 0, 6.2832); ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-    };
-    S.grade = function () {                                  // vignette + grain, ALWAYS last
-      var g = ctx.createRadialGradient(S.W / 2, S.H * 0.5, Math.min(S.W, S.H) * 0.35, S.W / 2, S.H * 0.5, Math.max(S.W, S.H) * 0.78);
-      g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.28)');
-      ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
-      for (var i = 0; i < 120; i++) {
-        ctx.fillStyle = S.rng() > 0.5 ? 'rgba(255,255,255,.014)' : 'rgba(0,0,0,.02)';
-        ctx.fillRect(S.rng() * S.W, S.rng() * S.H, 1.2, 1.2);
-      }
-    };
-    /* small scale cues that make a scene read real: cone, person silhouette, board */
-    S.scaleCue = function (x, z, kind) {
-      var s = S.focal / z;
-      if (kind === 'person') {
-        var b = S.project(x, 0, z), h = 1.72 * s * 0.32;
-        S.poly([[b[0] - 0.1 * s * 0.32, b[1]], [b[0] + 0.1 * s * 0.32, b[1]], [b[0] + 0.07 * s * 0.32, b[1] - h], [b[0] - 0.07 * s * 0.32, b[1] - h]], 'rgba(10,14,20,.72)');
-        ctx.beginPath(); ctx.arc(b[0], b[1] - h - 0.12 * s * 0.32, 0.11 * s * 0.32, 0, 6.2832); ctx.fillStyle = 'rgba(10,14,20,.72)'; ctx.fill();
-      } else {                                               // traffic cone
-        var c = S.project(x, 0, z), hh = 0.55 * s * 0.32;
-        S.poly([[c[0] - 0.16 * s * 0.32, c[1]], [c[0] + 0.16 * s * 0.32, c[1]], [c[0] + 0.02 * s * 0.32, c[1] - hh]], '#ff6a1a');
-      }
-    };
-
-
-    /* mottling: tonal patches + edge rim + contact AO — what makes a flat fill read as a material */
-    S.mottle = function (pts, baseCol, amount, patches) {
-      amount = amount === undefined ? .10 : amount;
-      patches = patches || 22;
-      ctx.save();
-      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
-      for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
-      ctx.closePath(); ctx.clip();
-      var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
-      var x0 = Math.min.apply(null, xs), y0 = Math.min.apply(null, ys),
-          x1 = Math.max.apply(null, xs), y1 = Math.max.apply(null, ys);
-      for (var k = 0; k < patches; k++) {
-        var cx = x0 + S.rng() * (x1 - x0), cy = y0 + S.rng() * (y1 - y0),
-            r = (0.10 + S.rng() * 0.30) * Math.max(24, (x1 - x0) * 0.35);
-        var dark = S.rng() > 0.45;
-        var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-        g.addColorStop(0, dark ? PS.rgba('#2b2f34', amount) : PS.rgba('#ffffff', amount * 0.8));
-        g.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.2832); ctx.fill();
-      }
-      ctx.restore();
-    };
-    /* AO: darkens the ground tight against a form's base (grounds it in the scene) */
-    S.contactAO = function (x, z, halfW, depth, alpha) {
-      var a = S.project(x - halfW, 0.002, z - depth), b = S.project(x + halfW, 0.002, z - depth),
-          c = S.project(x + halfW, 0.002, z + depth), d = S.project(x - halfW, 0.002, z + depth);
-      var g = ctx.createRadialGradient((a[0] + c[0]) / 2, (a[1] + c[1]) / 2, 0, (a[0] + c[0]) / 2, (a[1] + c[1]) / 2,
-                                       Math.max(30, Math.abs(b[0] - a[0]) * 0.9));
-      g.addColorStop(0, PS.rgba('#05080d', alpha === undefined ? .38 : alpha)); g.addColorStop(1, 'rgba(0,0,0,0)');
-      S.poly([a, b, c, d], g, null, 1);
-    };
-    /* long cast shadow for a vertical form, thrown AWAY from the sun (sun is left) */
-    S.castShadow = function (x, z, halfW, height, len, alpha) {
-      var dir = S.sunAngle < 0 ? 1 : -1;                      // shadow falls to the +x side when the sun is left
-      var a = S.project(x - halfW, 0.003, z), b = S.project(x + halfW, 0.003, z),
-          c = S.project(x + halfW + dir * len, 0.003, z + len * 0.35),
-          d = S.project(x - halfW + dir * len, 0.003, z + len * 0.35);
-      S.poly([a, b, c, d], PS.rgba('#0a0f16', alpha === undefined ? .30 : alpha), null, 1);
-    };
-    /* rim light along an edge facing the sun */
-    S.rim = function (p1, p2, col, alpha, lw) {
-      ctx.save(); ctx.globalAlpha = alpha === undefined ? .8 : alpha;
-      ctx.strokeStyle = col || 'rgba(255,226,186,.9)'; ctx.lineWidth = lw || 2;
-      ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke(); ctx.restore();
-    };
-
-    /* ---------- palette helpers exposed on S too (scenes often use S.mix) ---------- */
-    S.mix = PS.mix; S.rgba = PS.rgba; S.lighten = PS.lighten; S.darken = PS.darken;
-
-    /* ---------- frame loop ---------- */
-    var t0 = 0, last = 0, current = 0, lastDraw = 0;
-    function targetP() { return opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0); }
-    /* draw exactly one frame, synchronously, swallowing errors so a bad frame can never
-       leave the hero blank or kill the loop */
-    S.drawOnce = function (p, time) {
-      if (!S.W || !S.H) { if (!S.resize()) return; S.cam(); }
-      try { opts.onFrame(S, p === undefined ? current : p, time || 0); lastDraw = Date.now(); }
-      catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
-    };
-    S.frame = function (ts) {
-      if (!t0) t0 = ts;
-      var dt = Math.min(64, ts - last); last = ts;                 // ms
-      if (!S.W || !S.H) { if (S.resize()) S.cam(); }
-      if (S.W && S.H) {
-        var target = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
-        /* frame-rate independent smoothing: the scene glides, never snaps */
-        current = PS.lerp(current, target, S.reduce ? 1 : 1 - Math.pow(0.0018, dt / 1000));
-        if (Math.abs(target - current) < 0.0004) current = target;
-        lastDraw = Date.now();
-        try { opts.onFrame(S, current, ts - t0); lastDraw = Date.now(); }
-        catch (e) { if (!S._errOnce) { S._errOnce = true; if (global.console) console.warn('[scene] frame error', e); } }
-      }
-      if (!S.reduce) global.requestAnimationFrame(S.frame);
-    };
-    /* watchdog: if rAF is throttled (hidden tab, headless, power saving) or the loop died,
-       repaint at least 4x/second so the hero is never a blank canvas */
-    S.watch = function () {
-      if (S.reduce || S._watching) return; S._watching = true;
-      global.setInterval(function () {
-        if (Date.now() - lastDraw > 260) S.drawOnce(targetP(), Date.now());
-      }, 250);
-    };
-    S.start = function () {
-      function boot() {
-        var tries = (boot.tries = (boot.tries || 0) + 1);
-        if (!S.resize()) {                                  // wait for layout, but never forever
-          if (tries < 40) { global.requestAnimationFrame(boot); return; }
-          S.W = global.innerWidth || 1280; S.H = global.innerHeight || 720;
-        }
-        S.cam();
-        current = opts.progress ? PS.clamp(opts.progress(), 0, 1) : (opts.p || 0);
-        S.drawOnce(current, 0);                              // FIRST PAINT IS SYNCHRONOUS
-        if (!S.reduce) { global.requestAnimationFrame(S.frame); S.watch(); }
-      }
-      boot();
-      /* second synchronous attempt after layout settles (covers slow fonts/sticky layout) */
-      global.setTimeout(function () { S.drawOnce(targetP(), 0); }, 120);
-    };
-    global.addEventListener('resize', function () { if (S.resize()) S.cam(); });
-    return S;
-  };
-
-  PS.reduceMotion = function () { return global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches; };
-  PS.queryP = function () { try { var v = new URLSearchParams(global.location.search).get('p'); return v === null ? null : PS.clamp(parseFloat(v) || 0, 0, 1); } catch (e) { return null; } };
-  global.PS = PS;
-  if (typeof module !== 'undefined' && module.exports) module.exports = PS;
-})(typeof window !== 'undefined' ? window : this);
-
-</script>
 
 
 <script>
@@ -1041,9 +699,10 @@ html,body{overflow-x:hidden}
 })();
 
 </script>
-<script>/* herocopy-failsafe 2026-10-14 */setTimeout(function(){var hc=document.getElementById('heroCopy')||document.querySelector('.hero-copy');if(hc){var o=parseFloat(getComputedStyle(hc).opacity||'1');if(o<0.08){hc.style.opacity='1';}var guard=0;var t=setInterval(function(){guard++;var oo=parseFloat(getComputedStyle(hc).opacity||'1');if(oo<0.08&&guard<12){hc.style.opacity='1';}if(guard>=12){clearInterval(t);}} ,800);}},900);</script>
-<!-- LB-3D-HERO --><div style="display:none" aria-hidden="true"><canvas id="detailCanvas" width="560" height="300"></canvas></div>
-<style>.persp3d-only{perspective:1000px}</style>
+
+<!-- LB-3D-HERO --><div style="display:none" aria-hidden="true"><canvas id="heroCanvas" width="1200" height="600"></canvas></div>
+<div class="lb-pulse" aria-hidden="true"></div>
+<style>#heroCanvas{display:none;perspective:800px}.persp3d-only{perspective:1000px}</style>
 <script>/* reveal safety net 2026-10-14 */setTimeout(function(){document.querySelectorAll('.rv:not(.on),.drop,[data-ux]').forEach(function(el){el.classList.add('on');el.style.opacity='1';el.style.transform='none';el.style.transition='none';});},1000);</script>
 </body>
 </html>

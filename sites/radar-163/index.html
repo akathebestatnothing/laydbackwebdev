@@ -8,14 +8,14 @@
 <meta property="og:title" content="Gorilla Fencing — Fencing & Gates, Cairns">
 <meta property="og:description" content="Timber, Colorbond and pool fencing, gates and repairs — Cairns, QLD.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/logo.png">
+<meta property="og:image" content="https://laydbackapps.com/sites/radar-163/assets/logo.png">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;800;900&family=Russo+One:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --paper: #ffffff; --paper2: #fff2db; --ink: #060607; --ink2: #767676;
+  --paper: #ffffff; --paper2: #fff2db; --ink: #060607; --ink2: #575757;
   --acc: #ffbc40; --acc2: #ffca6a; --line: rgba(6,6,7,.16); --chip: #fff2db;
   --deep: #000000; --light: #ffffff;
   --acc-text: #0c0e12;
@@ -45,6 +45,7 @@ html.js .drop.in { opacity: 1; transform: none; }
 .nav-links a:hover { color: var(--acc); }
 .nav-cta { display: flex; gap: .8rem; align-items: center; }
 .nav-p { font-size: .82rem; font-weight: 700; color: var(--ink); }
+.nav-tel { display: none; }
 .burger { display: none; margin-left: auto; background: none; border: 1px solid var(--line); border-radius: 6px; padding: .4rem .6rem; cursor: pointer; }
 .burger span { display: block; width: 20px; height: 2px; background: var(--ink); margin: 4px 0; transition: .3s; }
 .burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
@@ -56,10 +57,13 @@ html.js .drop.in { opacity: 1; transform: none; }
   .nav-links a { width: 100%; text-align: center; padding: .5rem 0; }
   .nav-cta { display: none; }
   .burger { display: block; }
+  .nav-tel { display: block; }
 }
 .hero { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; padding-top: 80px; }
-.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.10) 40%, #ffffff 100%); pointer-events: none; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+.hero { perspective: 1200px; background: #0b0c0e; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; z-index: 0; filter: brightness(1.55) contrast(1.06) saturate(1.06); }
+.hero-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgba(8,9,11,.90) 0%, rgba(8,9,11,.58) 42%, rgba(8,9,11,.20) 70%, rgba(8,9,11,.10) 100%), linear-gradient(180deg, rgba(8,9,11,.30) 0%, rgba(8,9,11,0) 48%, rgba(8,9,11,.32) 100%); }
 .hero-in { position: relative; z-index: 2; padding: 10vh 40px 3rem; width: 100%; max-width: 1360px; margin: 0 auto; }
 .hero-kicker { display: inline-flex; align-items: center; gap: .65rem; color: var(--acc); font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; font-weight: 800; margin-bottom: 1rem; }
 .hero-kicker::before { content: ""; width: 36px; height: 2px; background: var(--acc); }
@@ -94,12 +98,12 @@ section { padding: 5.4rem 0; }
 .sec-title { font-family: 'Russo One', 'Arial Black', sans-serif; font-size: clamp(1.8rem, 3.6vw, 2.9rem); font-weight: 900; line-height: 1.1; margin-top: .3rem; max-width: 28ch; letter-spacing: -.01em; }
 .lead { color: var(--ink2); max-width: 60ch; margin-top: .9rem; }
 .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(292px, 1fr)); gap: 1.15rem; }
-.svc { background: var(--chip); border: 1px solid var(--line); border-radius: 10px; padding: 1.65rem 1.5rem; position: relative; overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
-.svc:hover { border-color: var(--acc); transform: translateY(-3px); }
-.svc::after { content: ""; position: absolute; top: 0; left: 0; width: 44px; height: 3px; background: var(--acc); transition: width .3s ease; }
-.svc:hover::after { width: 100%; }
-.svc h3 { font-family: 'Russo One', 'Arial Black', sans-serif; font-weight: 800; font-size: 1.12rem; margin-bottom: .35rem; }
-.svc p { color: var(--ink2); font-size: .94rem; }
+.svc-row { background: var(--chip); border: 1px solid var(--line); border-radius: 10px; padding: 1.65rem 1.5rem; position: relative; overflow: hidden; transition: border-color .2s ease, transform .2s ease; }
+.svc-row:hover { border-color: var(--acc); transform: translateY(-3px); }
+.svc-row::after { content: ""; position: absolute; top: 0; left: 0; width: 44px; height: 3px; background: var(--acc); transition: width .3s ease; }
+.svc-row:hover::after { width: 100%; }
+.svc-row h3 { font-family: 'Russo One', 'Arial Black', sans-serif; font-weight: 800; font-size: 1.12rem; margin-bottom: .35rem; }
+.svc-row p { color: var(--ink2); font-size: .94rem; }
 .svc-n { font-size: .8rem; font-weight: 800; color: var(--acc); letter-spacing: .1em; }
 .svc-arrow { color: var(--acc); font-size: 1.2rem; position: absolute; right: 18px; top: 18px; }
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(292px, 1fr)); gap: 1.15rem; }
@@ -149,18 +153,13 @@ footer a:hover { color: var(--acc); }
 .fbrand img { height: 56px; object-fit: contain; border-radius: 6px; }
 .footer-bar { max-width: 1360px; margin: 50px auto 0; padding: 22px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink2); }
 @media (max-width: 900px) { footer .wrap { grid-template-columns: 1fr 1fr; } }
-:root{--acc-deep:#7d5d22;--acc-mid:#aa7e2c}
+:root{--acc-deep:#7d5d22;--acc-mid:#8f6420}
 
-/* ---- real-photo hero column (chunk fix5) ---- */
-.hero-in { display: grid; grid-template-columns: 1.02fr .98fr; gap: clamp(26px, 3.6vw, 56px); align-items: center; }
-.hero-copy { min-width: 0; }
-.hero h1 { font-size: clamp(1.95rem, 3.8vw, 3.35rem); }
-.hero-visual { position: relative; }
-.hero-visual img { position: relative; z-index: 1; width: 100%; height: min(60vh, 540px); object-fit: cover; object-position: center 52%; display: block; border-radius: 12px; box-shadow: 0 30px 70px rgba(0,0,0,.26); }
-.hero-visual .hv-tag { position: absolute; z-index: 3; top: 14px; left: 14px; background: var(--paper); color: var(--ink); padding: 6px 13px; font-size: 10.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; border-radius: 4px; }
-.hero-visual::before { content: ""; position: absolute; z-index: 0; right: -13px; bottom: -13px; width: 56%; height: 56%; border: 2px solid var(--acc); border-radius: 12px; }
-@media (max-width: 980px) { .hero-in { grid-template-columns: 1fr; gap: 1.4rem; } .hero-visual { order: -1; } .hero-visual img { height: min(40vh, 330px); } .hero-visual::before { display: none; } }
-@media (max-width: 700px) { .nav-in { height: auto; min-height: 74px; padding: 9px 16px; gap: .7rem; } .brand img { height: 42px; } .brand-name { font-size: 1.02rem; } .brand-sub { font-size: .5rem; letter-spacing: .13em; } .nav-links { inset: 74px 0 auto 0; } .hero-in { padding: 6vh 20px 2.4rem; } }
+/* ---- dark-photo hero + scrim (fix6) ---- */
+.hero-in { position: relative; z-index: 2; padding: 11vh 40px 4.5rem; width: 100%; max-width: 1360px; margin: 0 auto; }
+.hero-copy { min-width: 0; max-width: 760px; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); }
+@media (max-width: 700px) { .nav-in { height: auto; min-height: 74px; padding: 9px 16px; gap: .7rem; } .brand img { height: 42px; } .brand-name { font-size: 1.02rem; } .brand-sub { font-size: .56rem; letter-spacing: .18em; } .nav-links { inset: 74px 0 auto 0; } .hero-in { padding: 7vh 20px 2.8rem; } }
 
 .brand-sub, .hero-kicker, .sec-idx, .sec-kicker, .svc-n, .svc-arrow,
 footer h4, .nav-links a:hover, footer a:hover { color: var(--acc-deep); }
@@ -171,16 +170,17 @@ footer h4, .nav-links a:hover, footer a:hover { color: var(--acc-deep); }
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="brand" href="#top"><img src="assets/logo-mark_radar-163.png" alt="Gorilla Fencing logo"><span class="b-txt"><span class="brand-name">Gorilla Fencing</span><br><span class="brand-sub">Fencing · Gates · Cairns</span></span></a>
-  <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
+  <a class="brand" href="#top"><img src="assets/logo.png" alt="Gorilla Fencing logo"><span class="b-txt"><span class="brand-name">Gorilla Fencing</span><br><span class="brand-sub">Fencing · Gates · Cairns</span></span></a>
+  <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a><a class="nav-tel mono" href="tel:+61402779811">Call 0402 779 811</a></div>
   <div class="nav-cta"><span class="mono nav-p">0402 779 811</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
 
 <header class="hero" id="top">
 <!-- LB-3D-HERO -->
-  
-  <div class="hero-shade"></div>
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <img class="hero-bg" src="assets/hero.jpg" alt="Timber fence install in Cairns — Gorilla Fencing">
+  <div class="hero-scrim"></div>
   <div class="hero-in">
   <div class="hero-copy">
     <p class="hero-kicker">Fencing & gates — Cairns, QLD</p>
@@ -196,7 +196,6 @@ footer h4, .nav-links a:hover, footer a:hover { color: var(--acc-deep); }
       <p><strong>Gates & repairs</strong>Done properly</p>
     </div>
   </div>
-    <div class="hero-visual"><span class="hv-tag mono">Timber fencing — built straight</span><img src="assets/hero.jpg" alt="Timber fence install in Cairns &mdash; Gorilla Fencing"></div>
   </div>
 </header>
 
@@ -242,7 +241,7 @@ footer h4, .nav-links a:hover, footer a:hover { color: var(--acc-deep); }
 #lbq p.lbq-s{margin:0 0 22px;color:var(--lbq-muted);max-width:52ch}
 #lbq .lbq-info{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--lbq-line);padding-top:22px}
 #lbq .lbq-info div{display:flex;gap:10px;align-items:baseline}
-#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lbq-accent);min-width:64px}
+#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc-deep);min-width:64px}
 #lbq .lbq-info a{font-weight:800;text-decoration:none}
 #lbq .lbq-f{display:grid;gap:12px;background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
 #lbq label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
@@ -258,10 +257,10 @@ footer h4, .nav-links a:hover, footer a:hover { color: var(--acc-deep); }
 
 /* brand header — Allards pattern 2026-10-14 */
 .brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.brand img, .brand-mark{height:40px!important;width:auto!important;max-height:40px!important;display:block;image-rendering:-webkit-optimize-contrast}
+.brand img, .brand-mark{height:46px!important;width:auto!important;max-height:46px!important;display:block;image-rendering:-webkit-optimize-contrast}
 .brand-name,.comp-name{font-size:clamp(1.05rem,4.2vw,1.5rem)!important;line-height:1!important;letter-spacing:.045em!important;white-space:nowrap}
-.brand-sub,.comp-sub{font-size:.62rem!important;letter-spacing:.32em!important;font-weight:600!important;margin-top:4px;text-transform:uppercase}
-@media (max-width:820px){.brand img,.brand-mark{height:34px!important}.brand-name,.comp-name{font-size:clamp(1rem,4.4vw,1.3rem)!important}}
+.brand-sub,.comp-sub{font-size:.72rem!important;letter-spacing:.26em!important;font-weight:600!important;margin-top:4px;text-transform:uppercase}
+@media (max-width:820px){.brand img,.brand-mark{height:38px!important}.brand-name,.comp-name{font-size:clamp(1rem,4.4vw,1.3rem)!important}}
 
 /* mobile overflow guard 2026-10-14 */
 html,body{overflow-x:hidden}
@@ -271,13 +270,27 @@ html,body{overflow-x:hidden}
   .hero-kicker,.k,.kicker,.kick,.eyebrow,.tag{font-size:clamp(10px,3.1vw,13px)!important;letter-spacing:.22em!important}
   h1,.h1{font-size:clamp(26px,10.5vw,54px)!important;line-height:1.05!important}
 }
+
+/* ---- dark-hero text + contrast (fix6) ---- */
+.hero h1 { color: #fff; }
+.hero h1 .acc { color: var(--acc); }
+.hero h1 .thin { color: rgba(255,255,255,.82); }
+.hero-kicker { color: var(--acc2); }
+.hero-kicker::before { background: var(--acc2); }
+.hero-sub { color: rgba(255,255,255,.87); }
+.hero-strip { border-top: 1px solid rgba(255,255,255,.28); }
+.hero-strip p { color: rgba(255,255,255,.72); }
+.hero-strip strong { color: #fff; }
+.hero .btn-ghost { border-color: rgba(255,255,255,.85); color: #fff; }
+.hero .btn-ghost:hover { background: rgba(255,255,255,.12); }
+@media (max-width: 820px) { .hero-in { padding: 7vh 20px 2.8rem; } .hero-bg { object-position: center 48%; } .hero-scrim { background: linear-gradient(180deg, rgba(8,9,11,.55) 0%, rgba(8,9,11,.40) 45%, rgba(8,9,11,.60) 100%), linear-gradient(90deg, rgba(8,9,11,.35) 0%, rgba(8,9,11,.05) 100%); } }
 </style>
 <div class="lbq-w">
   <div>
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:+61402 779 811">0402 779 811</a></div>
+      <div><b>Call</b><a href="tel:+61402779811">0402 779 811</a></div>
       <div><b>Email</b><a href="mailto:gorillafencingcairns@gmail.com">gorillafencingcairns@gmail.com</a></div>
       <div><b>Area</b><span>Cairns, QLD & surrounds</span></div>
     </div>
@@ -381,7 +394,7 @@ html,body{overflow-x:hidden}
   <div><h4>Contact</h4><a href="tel:+61402779811">0402 779 811</a><a href="mailto:gorillafencingcairns@gmail.com">gorillafencingcairns@gmail.com</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
-  <span>&copy; 2026 GORILLA FENCING &middot; </span>
+  <span>&copy; 2026 Gorilla Fencing &middot; Cairns QLD</span>
   <a href="tel:+61402779811">0402 779 811</a><a href="mailto:gorillafencingcairns@gmail.com">gorillafencingcairns@gmail.com</a>
 </div>
 </footer>
@@ -417,8 +430,10 @@ if (hg) {
   if (prev) prev.addEventListener('click', function(){ hg.scrollBy({ left: -step(), behavior: 'smooth' }); });
   if (next) next.addEventListener('click', function(){ hg.scrollBy({ left: step(), behavior: 'smooth' }); });
 }
+(function(){var b=document.getElementById('burger'),n=document.getElementById('navlinks');if(!b||!n)return;b.addEventListener('click',function(){var open=n.classList.toggle('open');b.classList.toggle('open',open);b.setAttribute('aria-expanded',open?'true':'false');});n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.classList.remove('open');b.setAttribute('aria-expanded','false');}});})();
 </script>
-
+<!-- lb:pulse -->
+<script src="https://laydback-hq.tail5b3740.ts.net:8443/pulse/js" data-project="radar-163" defer></script>
 
 </body>
 </html>

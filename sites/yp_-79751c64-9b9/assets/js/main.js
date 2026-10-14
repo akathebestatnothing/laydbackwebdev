@@ -40,8 +40,9 @@ class ParticleRibbonHero {
   }
 
   init() {
-    this.canvas = document.getElementById('hero-canvas');
-    if (!this.canvas) return;
+    // real canvas first (the hero is a wrapper div; older builds put the id on a <canvas>)
+    this.canvas = document.getElementById('lb3d-stage') || document.getElementById('hero-canvas');
+    if (!this.canvas || typeof this.canvas.getContext !== 'function') return;
 
     // Check for reduced motion preference
     this.isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -49,6 +50,9 @@ class ParticleRibbonHero {
       this.canvas.style.display = 'none';
       return;
     }
+
+    // hidden hero (photo hero standard): never run the loop on an invisible canvas
+    if (this.canvas.offsetParent === null || this.canvas.clientWidth === 0) return;
 
     this.ctx = this.canvas.getContext('2d', { alpha: true });
     this.dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -271,7 +275,7 @@ class ParticleRibbonHero {
   }
 
   animate(timestamp = 0) {
-    if (this.isReducedMotion) return;
+    if (this.isReducedMotion || !this.ctx) return;
 
     const deltaTime = timestamp - (this.lastTime || timestamp);
     this.lastTime = timestamp;
@@ -547,8 +551,9 @@ function initScrollReveal() {
 document.documentElement.classList.add('no-js');
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize hero canvas
-  const hero = new ParticleRibbonHero();
+  // Initialize hero canvas — never let a hero failure stop the rest of the page
+  let hero = null;
+  try { hero = new ParticleRibbonHero(); } catch (err) { console.warn('Hero init skipped:', err); }
 
   // Initialize form
   const quoteForm = new QuoteForm();
