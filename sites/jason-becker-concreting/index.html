@@ -87,7 +87,7 @@ section{padding:96px 0;border-top:1px solid var(--line)}
 footer{padding:44px 0;border-top:1px solid var(--line);color:var(--ink-2);font-size:.86rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
 /* ---------- reveal ---------- */
-.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.js .rv{opacity:0;transform:translateY(22px);transition: opacity .45s ease,transform .7s ease}
 .js .rv.on{opacity:1;transform:none}
 .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 @media (prefers-reduced-motion: reduce){
@@ -115,7 +115,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
 .hero-copy{z-index:2}
 </style>
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
-<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2600);</script>
+<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <a class="skip" href="#services">Skip to content</a>
 <nav class="nav" role="navigation" aria-label="Primary">
@@ -251,7 +251,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
 #lbq.v3 .lbq-g{display:grid;gap:12px}
 #lbq.v3 .lbq-hp2{padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
-  </style>
+  
+/* skip-link hide (fleet) 2026-10-14 */
+.skip-link,.skip, .skip-to-content, [class*="skip"]{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;z-index:10000!important}
+.skip-link:focus,[class*="skip"]:focus{left:16px!important;top:16px!important;width:auto!important;height:auto!important;padding:10px 16px!important;background:#111!important;color:#fff!important;border-radius:6px!important;overflow:visible!important}
+</style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
       <p class="lbq-s">Tell us a few details and we'll get back to you with a free, no-obligation quote.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call, text or email – we reply fast.</p></div><div><form id="lbq-form" novalidate data-site="jason-becker-concreting" data-biz="DM Concreting"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame..." required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
@@ -353,7 +357,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
     }, {rootMargin:'0px 0px -12% 0px', threshold:0.08});
     rvs.forEach(function(el){ io.observe(el); });
   } else { rvs.forEach(function(el){ el.classList.add('on'); }); }
-  setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},1200);
+  setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},420);
 
   /* ---------- scroll-scrubbed pour scene ---------- */
   var cv = document.getElementById('heroCanvas');
@@ -1661,7 +1665,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
       (function typ() { if (i <= name.length) { el.textContent = name.slice(0, i++); setTimeout(typ, 45); } })();
     }
     var css = document.createElement('style');
-    css.textContent = '#sigSplash{animation:sigSplashAutoOut .5s ease 2.6s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
+    css.textContent = '#sigSplash{animation:sigSplashAutoOut .45s ease 2.0s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
       '#sigSplash .sp-c{position:relative;z-index:2;text-align:center}' +
       '#sigSplash .sp-logo{display:block;margin:0 auto 16px;max-height:72px;max-width:180px;width:auto;object-fit:contain}' +
       '#sigSplash .sp-w{display:block;font-family:var(--disp,var(--font-display,inherit));font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:clamp(22px,5vw,38px);opacity:0;transition:opacity .5s ease}' +
@@ -1686,7 +1690,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
     document.head.appendChild(css);
     document.body.appendChild(sp);
     requestAnimationFrame(function () { requestAnimationFrame(function () { sp.classList.add('on'); }); });
-    var HOLD = reduce ? 300 : 900;
+    var HOLD = reduce ? 250 : 650;
     setTimeout(function () {
       sp.classList.add('out');
       setTimeout(function () { sp.remove(); }, 1000);

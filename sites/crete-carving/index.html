@@ -45,13 +45,13 @@ nav .tel{font-size:13px;font-weight:600;border-bottom:2px solid var(--accent);pa
 .tel.ghost{white-space:nowrap;font-size:16px;font-family:Inter;color:var(--muted);border-bottom:none;margin-left:18px}
 footer{padding:30px 5vw 44px;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between}
 footer .trust{display:flex;gap:20px}
-.rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.rv{opacity:0;transform:translateY(30px);transition: opacity .45s ease,transform .8s ease}
 .rv.on{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 @media (max-width:760px){.svc{grid-template-columns:1fr;gap:8px}.hero h1{font-size:clamp(44px,13vw,90px)}nav .tel{padding:10px 2px}}
 </style>
 </head>
-<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2600);</script>
+<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <nav>
   <a class="brand" href="#top"><span>Crete Carving</span></a>
 </nav>
@@ -693,7 +693,7 @@ footer .trust{display:flex;gap:20px}
       (function typ() { if (i <= name.length) { el.textContent = name.slice(0, i++); setTimeout(typ, 45); } })();
     }
     var css = document.createElement('style');
-    css.textContent = '#sigSplash{animation:sigSplashAutoOut .5s ease 2.6s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
+    css.textContent = '#sigSplash{animation:sigSplashAutoOut .45s ease 2.0s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
       '#sigSplash .sp-c{position:relative;z-index:2;text-align:center}' +
       '#sigSplash .sp-logo{display:block;margin:0 auto 16px;max-height:72px;max-width:180px;width:auto;object-fit:contain}' +
       '#sigSplash .sp-w{display:block;font-family:var(--disp,var(--font-display,inherit));font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:clamp(22px,5vw,38px);opacity:0;transition:opacity .5s ease}' +
@@ -718,7 +718,7 @@ footer .trust{display:flex;gap:20px}
     document.head.appendChild(css);
     document.body.appendChild(sp);
     requestAnimationFrame(function () { requestAnimationFrame(function () { sp.classList.add('on'); }); });
-    var HOLD = reduce ? 300 : 900;
+    var HOLD = reduce ? 250 : 650;
     setTimeout(function () {
       sp.classList.add('out');
       setTimeout(function () { sp.remove(); }, 1000);

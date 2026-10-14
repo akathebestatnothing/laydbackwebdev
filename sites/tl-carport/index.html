@@ -91,7 +91,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
-.rv { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv { opacity: 0; transform: translateY(16px); transition: opacity .45s ease, transform 0.6s ease; }
 .rv.on { opacity: 1; transform: translateY(0); }
 
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
@@ -218,7 +218,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-copy{z-index:2}
 #buildCanvas{display:none!important}
 </style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2600);</script>
+<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <header class="site-header" role="banner">
   <div class="header-inner">
@@ -1027,7 +1027,7 @@ img { max-width: 100%; height: auto; display: block; }
     entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
   rv.forEach(function (el) { io.observe(el); });
-  setTimeout(function () { rv.forEach(function (el) { el.classList.add('on'); }); }, 1200);
+  setTimeout(function () { rv.forEach(function (el) { el.classList.add('on'); }); }, 420);
 
   document.documentElement.classList.remove('no-js');
 
@@ -1035,7 +1035,7 @@ img { max-width: 100%; height: auto; display: block; }
 })();
 </script>
 <section id="legal" hidden style="padding:40px 20px"><h2>Privacy</h2><p>We only use the details you send through the quote form to respond to your enquiry. We do not sell or share your information.</p><h2>Terms</h2><p>Quotes are free and remain valid for 30 days. Work is carried out to the scope agreed in writing before starting.</p></section>
-<script>setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');el.style.transition='none';el.style.opacity='1';el.style.transform='none';});},1200);</script>
+<script>setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');el.style.transition='none';el.style.opacity='1';el.style.transform='none';});},420);</script>
 <script>
 /* LAYDBACK UX KIT v1 — our own; see pipeline/orders/ux_kit.js */
 /* ux_kit.js — LAYDBACK UX KIT v1 (own implementation, zero dependencies, MIT-clean).
@@ -1808,7 +1808,7 @@ img { max-width: 100%; height: auto; display: block; }
       (function typ() { if (i <= name.length) { el.textContent = name.slice(0, i++); setTimeout(typ, 45); } })();
     }
     var css = document.createElement('style');
-    css.textContent = '#sigSplash{animation:sigSplashAutoOut .5s ease 2.6s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
+    css.textContent = '#sigSplash{animation:sigSplashAutoOut .45s ease 2.0s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
       '#sigSplash .sp-c{position:relative;z-index:2;text-align:center}' +
       '#sigSplash .sp-logo{display:block;margin:0 auto 16px;max-height:72px;max-width:180px;width:auto;object-fit:contain}' +
       '#sigSplash .sp-w{display:block;font-family:var(--disp,var(--font-display,inherit));font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:clamp(22px,5vw,38px);opacity:0;transition:opacity .5s ease}' +
@@ -1833,7 +1833,7 @@ img { max-width: 100%; height: auto; display: block; }
     document.head.appendChild(css);
     document.body.appendChild(sp);
     requestAnimationFrame(function () { requestAnimationFrame(function () { sp.classList.add('on'); }); });
-    var HOLD = reduce ? 300 : 900;
+    var HOLD = reduce ? 250 : 650;
     setTimeout(function () {
       sp.classList.add('out');
       setTimeout(function () { sp.remove(); }, 1000);
