@@ -19,11 +19,11 @@
   --bg-2: #E6F2E9;
   --ink: #2A6A37;
   --ink-2: #4A5D52;
-  --acc: #3A8F4A;
-  --acc-2: #2E703B;
+  --acc: #2E703B;
+  --acc-2: #245C31;
   --acc-hi: #4ADE4A;
   --line: rgba(42,106,55,.12);
-  --line-acc: rgba(58,143,74,.35);
+  --line-acc: rgba(46,112,59,.35);
   --panel: #fff;
   --panel-2: #faf9f6;
   --nav-h: 88px;
@@ -73,10 +73,10 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   z-index: 1000;
 }
 .brand { display: flex; align-items: center; gap: .8rem; color: var(--ink); text-decoration: none; }
-.brand-mark { height: 32px; width: auto; display: block; }
+.brand-mark { height: 32px; width: auto; display: block; object-fit: contain; }
 .brand-txt { display: flex; flex-direction: column; line-height: 1; }
 .brand-name { font-family: 'Manrope', var(--font-m), sans-serif; font-size: 1.16rem; line-height: 1; font-weight: 700; letter-spacing: .01em; color: var(--ink); }
-.brand-sub { display: block; margin-top: 4px; font-family: 'Manrope', var(--font-m), sans-serif; font-size: .5rem; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; font-style: normal; }
+.brand-sub { display: block; margin-top: 3px; font-family: 'Manrope', var(--font-m), sans-serif; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; font-style: normal; }
 .brand-sub em { font-style: normal; color: var(--acc); }
 .nav__links {
   display: flex; gap: clamp(1rem, 2.4vw, 2rem);
@@ -104,80 +104,44 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 }
 .btn--p { background: var(--acc); color: #fff; }
 .btn--p:hover { background: var(--acc-2); }
-.btn--o { background: transparent; color: var(--ink); border: 2px solid rgba(26,26,26,.34); }
+.btn--o { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.6); }
 .btn--o:hover { border-color: var(--acc-hi); color: var(--acc-hi); }
-/* ===== Scroll-built hero scene ===== */
-#sceneWrap {
-  position: relative; height:auto; background: var(--bg);
-}
-#sceneSticky {
-  position:relative; top: 0; height: 100vh; overflow: hidden;
-}
-#buildCanvas {
-  position:relative; inset: 0; width: 100%; height: 100%; display: block;
-}
+/* ===== Hero - real photo, darkened + scrim (de-scroll 2026-10-14: scroll scene removed; #heroCanvas kept as hidden LB-3D-HERO marker, no scroll choreography) ===== */
+#sceneWrap { position: relative; background: #0c1e12; }
+#sceneSticky { position: relative; overflow: visible; height: auto; min-height: clamp(560px, 100svh, 980px); }
+#heroCanvas { display: none !important; perspective: 800px; }
+.lbhf { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+.lbhf img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; filter: brightness(.74) saturate(.95) contrast(1.05); }
+.lbhf-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(100deg, rgba(6,16,10,.86) 0%, rgba(6,16,10,.52) 48%, rgba(6,16,10,.26) 100%), linear-gradient(180deg, rgba(6,16,10,.72) 0%, rgba(8,22,13,.40) 44%, rgba(5,14,9,.90) 100%); }
 .hero-copy {
-  position: absolute;
-  left: clamp(1rem, 6vw, 7rem);
-  top: calc(var(--nav-h) + 7vh);
-  max-width: 64ch; z-index: 3; pointer-events: none;
+  position: relative; z-index: 3;
+  max-width: 64ch;
+  padding: calc(var(--nav-h) + 8vh) clamp(1rem, 6vw, 7rem) clamp(56px, 10vh, 120px);
 }
-.hero-copy a, .hero-copy .btn { pointer-events: auto; }
 .hero-copy .k {
   margin: 0 0 .7rem;
   font-family: var(--font-m); font-size: .78rem;
-  text-transform:none; letter-spacing: .24em; color: var(--acc);
+  letter-spacing: .16em; color: #A7E3B4;
 }
 .hero-copy .h1 {
   margin: 0 0 1rem;
   font-size: clamp(2.4rem, 6vw, 4.9rem);
-  font-weight: 900; line-height: 1.01; letter-spacing: -.03em; color: var(--ink);
+  font-weight: 900; line-height: 1.01; letter-spacing: -.03em; color: #fff;
   font-family: var(--font-d);
+  text-shadow: 0 2px 18px rgba(4,12,7,.55);
 }
-.hero-copy .h1 em { color: var(--acc); font-style: normal; }
+.hero-copy .h1 em { color: #A7E3B4; font-style: normal; }
 .hero-copy .d {
   margin: 0 0 1.9rem;
   font-size: clamp(1rem, 1.45vw, 1.18rem);
-  color: var(--ink-2); max-width: 52ch;
+  color: rgba(255,255,255,.94); max-width: 52ch;
+  text-shadow: 0 1px 10px rgba(4,12,7,.5);
 }
 .hero-copy .cta { display: flex; flex-wrap: wrap; gap: 1rem; }
-.scroll-hint{display:none}
-.scroll-hint{display:none}
-@keyframes hintDrop {
-  0% { transform: translateY(-8px); opacity: 0; }
-  45% { opacity: 1; }
-  100% { transform: translateY(10px); opacity: 0; }
-}
-.hud { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.stg {
-  position: absolute;
-  left: clamp(1rem, 6vw, 7rem);
-  bottom: 4.5vh;
-  font-family: var(--font-m);
-}
-.stg b {
-  display: block; font-size: clamp(2.1rem, 5vw, 3.4rem);
-  font-weight: 900; letter-spacing: -.04em;
-  color: rgba(26,26,26,.13); line-height: 1;
-}
-.stg span {
-  display: block; margin-top: .35rem;
-  font-size: .78rem; letter-spacing: .24em;
-  text-transform:none; color: var(--acc);
-}
-.rail {
-  position: absolute;
-  right: clamp(1rem, 3.4vw, 2.6rem);
-  top: 24vh; bottom: 24vh; width: 2px;
-  background: rgba(26,26,26,.12);
-}
-.rail i {
-  position: absolute; left: 0; top: 0; width: 100%; height: 0%;
-  background: var(--acc); display: block;
-}
+@media (max-width: 900px) { .brand-mark { height: 28px; } }
 @media (max-width: 680px) {
-  #sceneWrap { height:auto; }
-  .scroll-hint{display:none}
+  #sceneSticky { min-height: 92svh; }
+  .lbhf img { object-position: center 42%; }
   .brand-mark { height: 24px; }
   .brand-name { font-size: 1.02rem; }
   .brand-sub { display: none; }
@@ -193,7 +157,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .sec--panel > .inner { max-width: 1180px; margin: 0 auto; padding: clamp(4rem, 8.5vw, 7rem) clamp(1rem, 4vw, 2.6rem); }
 .kick {
   font-family: var(--font-m); font-size: .76rem;
-  text-transform:none; letter-spacing: .22em; color: var(--acc);
+  letter-spacing: .16em; color: var(--acc);
   margin: 0 0 .5rem;
 }
 .h2 {
@@ -210,13 +174,13 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s;
 }
 .svc__it:hover { transform: translateY(-4px); border-color: var(--line-acc); background: var(--panel-2); }
-.svc__n { font-family: var(--font-m); font-size: .72rem; color: var(--acc); letter-spacing: .14em; }
+.svc__n { font-family: var(--font-m); font-size: .76rem; color: var(--acc); letter-spacing: .12em; }
 .svc__h { margin: .4rem 0 .35rem; font-size: 1.06rem; font-weight: 800; font-family: var(--font-d); }
 .svc__p { margin: .2rem 0 0; font-size: .92rem; color: var(--ink-2); line-height: 1.5; }
 .about { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(1.6rem, 4vw, 3.4rem); align-items: start; margin-top: 2.4rem; }
 .about__art { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); padding: 1.4rem; }
-.about__art canvas { width: 100%; height: 300px; display: block; }
-.about__cap { font-family: var(--font-m); font-size: .72rem; color: var(--ink-2); margin: .6rem 0 0; letter-spacing: .06em; }
+.about__art img { width: 100%; height: auto; display: block; border-radius: 8px; }
+.about__cap { font-family: var(--font-m); font-size: .76rem; color: var(--ink-2); margin: .6rem 0 0; letter-spacing: .05em; }
 .about__lis { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
 .about__lis li { display: flex; gap: .75rem; align-items: flex-start; font-size: .98rem; color: var(--ink); }
 .about__lis li::before { content: ""; width: 10px; height: 10px; background: var(--acc); border-radius: 2px; margin-top: .38rem; flex: none; }
@@ -227,13 +191,12 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .foot h3 { margin: 0 0 .4rem; font-size: 1rem; font-weight: 800; font-family: var(--font-d); }
 .foot p { margin: 0; font-size: .88rem; color: var(--ink-2); }
 .foot a { color: var(--acc); }
+/* pulse (required) */
+.lb-pulse { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 12px; height: 12px; background: var(--acc); border-radius: 50%; opacity: .6; animation: lbPulse 2s ease-in-out infinite; pointer-events: none; z-index: 999; }
+@keyframes lbPulse { 0%,100% { opacity: .3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
+@media (prefers-reduced-motion: reduce) { .lb-pulse { animation: none; opacity: .5; } }
 </style>
-
-<style>/* de-scroll gap fix 2026-10-14 */
-#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
-#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
-</style>
-</head><body>
+</head><body><script>document.documentElement.classList.add('js');</script>
 
 <a class="skip" href="#services">Skip to content</a>
 
@@ -252,10 +215,12 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 </nav>
 
 <header id="top">
-
-<div id="sceneWrap" aria-label="Scroll to watch the sheet-lift build">
+<div id="sceneWrap">
   <div id="sceneSticky">
-    
+    <div class="lbhf" aria-hidden="true"><img src="assets/hero-plasterboard.jpg" alt="" width="886" height="1180" fetchpriority="high" decoding="async"></div>
+    <div class="lbhf-scrim" aria-hidden="true"></div>
+    <!-- LB-3D-HERO -->
+    <canvas id="heroCanvas" aria-hidden="true" style="display:none"></canvas>
 
     <div class="hero-copy" id="heroCopy">
       <p class="k">South Australia · Mallee & Riverland · VIC/NSW</p>
@@ -266,15 +231,8 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
         <a class="btn btn--o" href="tel:+61407013770" aria-label="Call 0407 013 770">Call 0407 013 770</a>
       </div>
     </div>
-
-    <div class="hud" aria-hidden="true">
-      <div class="stg"></div>
-      <div class="rail"></div>
-      
-    </div>
   </div>
 </div>
-
 </header>
 
 <section class="sec" id="services" aria-labelledby="s-t">
@@ -282,7 +240,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   <h2 class="h2" id="s-t">Plasterboard, start to finish</h2>
   <div class="svc">
     <article class="svc__it rv"><p class="svc__n">01</p><h3 class="svc__h">Plasterboard Installation & Fixing</h3><p class="svc__p">Walls and ceilings - square, level, screwed to spec. Residential and commercial.</p></article>
-    <article class="svc__it rv"><p class="svc__n">02</p><h3 class="svc__h">Flushing & Finishing</h3><p class="svc__p">Hand-tool flushing - joints taped, compound run, sanded to a smooth skimmed face. Stated on our page.</p></article>
+    <article class="svc__it rv"><p class="svc__n">02</p><h3 class="svc__h">Flushing & Finishing</h3><p class="svc__p">Hand-tool flushing - joints taped, compound run, sanded to a smooth skimmed face.</p></article>
     <article class="svc__it rv"><p class="svc__n">03</p><h3 class="svc__h">New Builds</h3><p class="svc__p">Full house and commercial fit-outs - on program, ready for paint.</p></article>
     <article class="svc__it rv"><p class="svc__n">04</p><h3 class="svc__h">Renovations</h3><p class="svc__p">Strip-out, re-sheet, re-flush - matched to existing levels and cornices.</p></article>
     <article class="svc__it rv"><p class="svc__n">05</p><h3 class="svc__h">Patch Ups & Repairs</h3><p class="svc__p">Holes, cracks, water damage, movement joints - invisible repairs.</p></article>
@@ -296,15 +254,15 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   <h2 class="h2" id="f-t">Hand-tool flushing,<br>joint by joint</h2>
   <div class="about">
     <div class="about__art rv">
-      <canvas id="jointCanvas" width="560" height="300" aria-hidden="true"></canvas>
-      <p class="about__cap">// PLASTERBOARD JOINT DETAIL - tape bedded, compound feathered, sanded flat</p>
+      <img src="assets/work-1.jpg" alt="Ceiling plasterboard sheets fixed and screw-set, ready for hand-tool flushing" width="1180" height="886">
+      <p class="about__cap">// ON THE TOOLS - ceiling sheets fixed square, joints ready for tape and flush</p>
     </div>
     <ul class="about__lis">
       <li class="rv">Every joint gets paper tape bedded in compound - no mesh shortcuts, no visible ridges.</li>
       <li class="rv">Three-coat flush: bed, fill, finish - each coat feathered wider, sanded between coats.</li>
       <li class="rv">Hand tools only - broad knives and trowels, not spray texture. The finish reads flat under critical light.</li>
       <li class="rv">Cornice snapped clean across the top - mitred returns, stopped ends, no gaps.</li>
-      <li class="rv">20 years on the tools. Owner-operator, accountable for the finish.</li>
+      <li class="rv">20 years on the tools - residential and commercial plasterboard, installed and finished.</li>
     </ul>
   </div>
   </div>
@@ -343,7 +301,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#fff;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
 #lbq button:disabled{opacity:.6;cursor:wait}
 #lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
@@ -438,5 +396,6 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 })();
 var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 </script>
+<div class="lb-pulse" aria-hidden="true"></div>
 </body>
 </html>

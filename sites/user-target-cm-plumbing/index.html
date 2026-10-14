@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU" class="no-js" data-sig="links:bg,buttons:arrow,tilt:1,marquee:1">
+<html lang="en-AU" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,11 +9,11 @@
 <meta property="og:title" content="CM Plumbing — All Things Plumbing">
 <meta property="og:description" content="Blocked drains, hot water systems, leaks and repairs. Reliable local plumbing, done right. Get a free quote.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="images/logo.jpg">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   --bg:#F4F7FB;
@@ -42,9 +42,7 @@ a{color:inherit}
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 
 html.js .rv{opacity:0;transform:translateY(22px);transition: opacity .45s ease-out,transform .7s ease-out}
-html.js .rv.in{opacity:1;transform:none}
-html.js .rv.in{opacity:1;transform:none}
-html.js .rv.on{opacity:1;transform:none}
+html.js .rv.in,html.js .rv.on{opacity:1;transform:none}
 html.js .rv.d1{transition-delay:.08s}
 html.js .rv.d2{transition-delay:.16s}
 html.js .rv.d3{transition-delay:.24s}
@@ -55,44 +53,48 @@ html.js .rv.d3{transition-delay:.24s}
 
 /* === NAV === */
 .nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(10,21,48,.96);-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);border-bottom:2px solid var(--acc2)}
-.nav-in{display:flex;align-items:center;gap:1.4rem;height:76px}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1px solid var(--acc2)}
-.brand .b-txt{display:flex;flex-direction:column;line-height:1.15}
-.brand .comp-name{font-family:var(--font-display);font-weight:800;font-size:1.02rem;letter-spacing:.01em;color:#F4F8FD}
-.brand .comp-sub{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc2);font-weight:700}
+.nav-in{display:flex;align-items:center;gap:1.4rem;height:64px}
+.brand{display:flex;align-items:center;gap:.7rem;color:inherit;text-decoration:none;min-width:0}
+.brand-mark{height:40px;width:40px;border-radius:50%;object-fit:cover;display:block;border:1px solid var(--acc2)}
+.brand-txt,.brand .b-txt{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand-name,.brand .comp-name{font-family:'Montserrat',sans-serif;font-size:1.18rem;line-height:1;font-weight:800;letter-spacing:.04em;color:#F4F8FD;white-space:nowrap}
+.brand-sub,.brand .comp-sub{display:block;margin-top:4px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;font-style:normal;color:#AFC0DE;white-space:nowrap}
+.brand-sub em,.brand .comp-sub em{font-style:normal;opacity:1;color:var(--acc2)}
+@media(max-width:680px){.nav-in{height:56px}.brand-mark{height:34px;width:34px}.brand-name,.brand .comp-name{font-size:1.02rem}.brand-sub,.brand .comp-sub{display:none}}
 .nav-links{display:flex;gap:1.5rem;list-style:none;margin-left:auto;align-items:center}
 .nav-links a{color:#C6D4EA;font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:color .15s}
 .nav-links a:hover{color:#fff}
 .nav-cta a{display:inline-flex;align-items:center;gap:.5rem;padding:9px 16px;border-radius:999px;background:var(--acc2);color:#04122E;font-weight:800;font-size:.82rem;text-decoration:none;letter-spacing:.02em;transition:transform .15s,box-shadow .15s}
-.nav-cta a:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(35,168,225,.35)}
+.nav-cta a:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(4,18,46,.5)}
+@media(max-width:680px){.nav-cta a{font-size:.72rem;padding:.5rem .8rem}}
 #burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:6px}
-@media (max-width:760px){
-  .nav-links{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,21,48,.98);padding:10px 0;border-bottom:2px solid var(--acc2)}
+@media (max-width:680px){
+  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,21,48,.98);padding:10px 0;border-bottom:2px solid var(--acc2)}
   .nav-links.open{display:flex}
   .nav-links a{padding:12px 24px}
   #burger{display:block;margin-left:auto}
 }
 
 /* === HERO === */
-.hero{position:relative;min-height:100vh;display:flex;align-items:flex-start;background:var(--dark);overflow:hidden;padding-top:96px}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-in{position:relative;z-index:3;padding-block:9vh 4rem;width:100%}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,2,23,.96) 0%,rgba(5,2,23,.82) 42%,rgba(5,2,23,.25) 100%);pointer-events:none;z-index:2}
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-start;background:var(--dark) url('images/hero.jpg') right center/cover no-repeat;overflow:hidden;padding-top:96px;perspective:1400px}
+.hero canvas{display:none}
+.hero-in{position:relative;z-index:3;padding-block:9vh 4rem;transform:translateZ(0)}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,2,23,.94) 0%,rgba(5,2,23,.84) 40%,rgba(5,2,23,.32) 100%);pointer-events:none;z-index:2}
+@media (max-width:760px){.hero{background-position:center 62%}.hero-shade{background:linear-gradient(180deg,rgba(5,2,23,.9) 0%,rgba(5,2,23,.72) 55%,rgba(5,2,23,.42) 100%)}.hero-in{padding-block:5vh 3rem}}
 .kick{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc2);font-weight:700;background:rgba(35,168,225,.12);border:1px solid rgba(35,168,225,.35);padding:7px 14px;border-radius:999px}
 h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.04;color:#F6FAFF;font-weight:900;letter-spacing:-.02em;max-width:20ch;margin-top:1.4rem}
 h1 .acc{color:var(--acc2)}
-h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;color:#9FB4D6;margin-top:1rem;text-transform:uppercase}
+h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;line-height:1.65;color:#9FB4D6;margin-top:1rem;text-transform:uppercase}
 .hero-sub{max-width:52ch;margin-top:1.8rem}
-.hero-sub p{color:#B9C9E0;font-size:1.02rem}
+.hero-sub p{color:#CBD9EE;font-size:1.02rem}
 .hero-ctas{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:13px 22px;border-radius:999px;font-weight:800;font-size:.92rem;text-decoration:none;transition:transform .15s,box-shadow .15s}
 .btn-acc{background:var(--acc2);color:#04122E}
-.btn-acc:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(35,168,225,.4)}
+.btn-acc:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(4,18,46,.45)}
 .btn-ghost{border:1.5px solid rgba(159,180,214,.5);color:#D9E4F5;background:transparent}
 .btn-ghost:hover{border-color:var(--acc2);color:#fff}
 @media (max-width:640px){
-  .hero{min-height:92vh}
+  .hero{min-height:100vh}
   .nav-cta span{display:none}
 }
 
@@ -111,7 +113,7 @@ h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;colo
 
 .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:transform .18s,box-shadow .18s}
 .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(26,67,149,.10)}
-.card .ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#1A4395,#23A8E1);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.1rem;font-family:var(--font-display)}
+.card .ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#1A4395,#23A8E1);display:flex;align-items:center;justify-content:center;color:#04122E;font-weight:800;font-size:1.1rem;font-family:var(--font-display)}
 .card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-top:.9rem}
 .card p{color:var(--ink2);font-size:.92rem;margin-top:.45rem}
 
@@ -149,15 +151,12 @@ footer a:hover{color:var(--acc2)}
 .footer-bar{border-top:1px solid rgba(147,167,200,.16);margin-top:2.6rem;padding-top:1.2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:#5F7AA6}
 </style>
 </head>
-<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
+<body>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a href="#top" class="brand">
-      <img src="images/logo-mark_cm.png" alt="CM Plumbing logo">
-      <span class="b-txt">
-        <span class="comp-name">CM Plumbing</span>
-        <span class="comp-sub">All Things Plumbing</span>
-      </span>
+    <a href="#top" class="brand" aria-label="CM Plumbing - Home">
+      <img class="brand-mark" src="images/logo.jpg" alt="" aria-hidden="true" loading="eager">
+      <span class="brand-txt b-txt"><b class="brand-name comp-name">CM Plumbing</b><i class="brand-sub comp-sub"><em>All</em> Things Plumbing</i></span>
     </a>
     <ul class="nav-links" id="navlinks">
       <li><a href="#services">Services</a></li>
@@ -169,17 +168,18 @@ footer a:hover{color:var(--acc2)}
     <button id="burger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
   </div>
 </nav>
+<script>(function(){var b=document.getElementById('burger'),n=document.getElementById('navlinks');if(!b||!n)return;b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu');});})();</script>
 
 <header class="hero" id="top">
 <!-- LB-3D-HERO -->
 
-<canvas id="pipeCanvas" aria-hidden="true"></canvas>
+<canvas id="heroCanvas" aria-hidden="true" hidden></canvas>
 <div class="hero-shade"></div>
   <div class="wrap hero-in">
     <span class="kick">All Things Plumbing</span>
-    <h1 data-ux="words">Plumbing, <span class="acc">fixed properly</span> — first time.<span class="thin">Blocked drains &middot; Hot water &middot; Leaks &middot; Renovations</span></h1>
+    <h1>Plumbing, <span class="acc">fixed properly</span>, first time.<span class="thin">Blocked drains&nbsp;&middot;&nbsp;Hot water&nbsp;&middot;&nbsp;Leaks&nbsp;&middot;&nbsp;Renovations</span></h1>
     <div class="hero-sub">
-      <p class="rv d2">CM Plumbing is your local plumbing specialist — blocked drains cleared, hot water sorted fast, and leaks fixed for good. Tell us the problem, get a firm, no-obligation quote.</p>
+      <p class="rv d2">CM Plumbing is your local plumbing specialist: blocked drains cleared, hot water sorted fast, and leaks fixed for good. Tell us the problem, get a firm, no-obligation quote.</p>
       <div class="hero-ctas rv d3">
         <a href="#quote" class="btn btn-acc">Get a free quote</a>
         <a href="#services" class="btn btn-ghost">See services</a>
@@ -269,7 +269,7 @@ footer a:hover{color:var(--acc2)}
   <div class="wrap">
     <h2 class="rv">Got a plumbing problem? Let's sort it.</h2>
     <p class="rv">Send a few details and get a firm quote — no obligation, no surprises.</p>
-    <a href="#lbq" class="btn btn-acc rv" style="display:inline-flex" data-ux="magnetic">Request a free quote</a>
+    <a href="#lbq" class="btn btn-acc rv" style="display:inline-flex">Request a free quote</a>
   </div>
 </section>
 </main>
@@ -330,13 +330,6 @@ footer a:hover{color:var(--acc2)}
 #lbq.v2 .lbq-g{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
 #lbq.v2 .lbq-full{grid-column:1/-1}
 @media(max-width:640px){#lbq.v2 .lbq-g{grid-template-columns:1fr}}
-  
-/* brand header — Allards pattern 2026-10-14 */
-.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.brand img, .brand-mark{height:40px!important;width:auto!important;max-height:40px!important;display:block;image-rendering:-webkit-optimize-contrast}
-.brand-name,.comp-name{font-size:clamp(1.05rem,4.2vw,1.5rem)!important;line-height:1!important;letter-spacing:.045em!important;white-space:nowrap}
-.brand-sub,.comp-sub{font-size:.62rem!important;letter-spacing:.32em!important;font-weight:600!important;margin-top:4px;text-transform:uppercase}
-@media (max-width:820px){.brand img,.brand-mark{height:34px!important}.brand-name,.comp-name{font-size:clamp(1rem,4.4vw,1.3rem)!important}}
 
 /* mobile overflow guard 2026-10-14 */
 html,body{overflow-x:hidden}
@@ -441,8 +434,8 @@ setTimeout(function(){
    pressure gauge needle breathing, rotating diffuse glow. Distinct from H2O's
    horizontal manifold and mana's slab cross-section. */
 (function(){
-  var c = document.getElementById('pipeCanvas');
-  if (!c || !c.getContext) return;
+  var c = document.getElementById('heroCanvas');
+  if (!c || c.hidden || !c.getContext) return;
   var ctx = c.getContext('2d');
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
   var W = 0, H = 0;

@@ -19,8 +19,8 @@ document.documentElement.classList.add('js');
 <style>
 :root{
   --paper:#F3EFE8; --paper2:#EAE3D7; --ink:#221E19; --muted:#57503F;
-  --acc:#B4542E; --acc-deep:#8F3E22; --amber:#C08A3E; --line:rgba(34,30,25,.16);
-  --slab:#2A2621; --slab-ink:#F3EFE8; --accent:#B4542E;
+  --acc:#963F1F; --acc-deep:#7E3418; --amber:#C08A3E; --amber-ink:#85561C; --line:rgba(34,30,25,.16);
+  --slab:#2A2621; --slab-ink:#F3EFE8; --accent:#963F1F; --clay:#D9A566;
   --disp:'Archivo Black','Arial Black',sans-serif; --body:'Inter',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -76,35 +76,38 @@ section,header,footer,nav{scroll-margin-top:94px}
   .brand-tag{font-size:9px}
 }
 
-/* ---- hero ---- */
-.hero{position:relative;overflow:hidden;background:linear-gradient(178deg,var(--paper) 0%,var(--paper2) 100%)}
-.hero-inner{max-width:1360px;margin:0 auto;padding:86px 40px 96px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:start}
-.hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+/* ---- hero: real project photo, darkened, with scrim ---- */
+.hero{position:relative;overflow:hidden;background:#1B150F}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 60%;filter:brightness(.52) saturate(1.05) contrast(1.03)}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(24,18,13,.95) 0%,rgba(24,18,13,.88) 30%,rgba(24,18,13,.62) 60%,rgba(24,18,13,.34) 100%)}
+.hero-3d{display:none;perspective:900px}
+.hero-inner{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:92px 40px 104px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
 .hero-copy{position:relative;z-index:2}
-.kick{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);border-bottom:2px solid var(--amber);padding-bottom:5px}
-.hero-title{font-size:clamp(42px,6.8vw,88px);line-height:.98;font-weight:900;letter-spacing:-.022em;text-transform:uppercase;margin-top:26px}
-.hero-title em{color:var(--acc);font-style:normal}
+.kick{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);border-bottom:2px solid var(--amber);padding-bottom:5px}
+.hero-title{font-size:clamp(42px,6.8vw,88px);line-height:.98;font-weight:900;letter-spacing:-.022em;text-transform:uppercase;margin-top:26px;color:var(--paper)}
+.hero-title em{color:var(--clay);font-style:normal}
 .hero-title .un{display:block}
-.hero-sub{margin-top:24px;font-size:17px;font-weight:500;color:var(--ink);max-width:560px}
+.hero-sub{margin-top:24px;font-size:17px;font-weight:500;color:#EBE2D4;max-width:560px}
 .hero-ctas{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.hero-ctas .btn-ghost{border-color:rgba(243,239,232,.55);color:var(--paper)}
+.hero-ctas .btn-ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
 .hero-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px}
-.chip{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border:1px solid rgba(34,30,25,.28);background:rgba(243,239,232,.92);padding:9px 14px;border-radius:3px}
-.chip b{color:var(--amber)}
-/* hero photo stage — clean industrial frame */
+.chip{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border:1px solid rgba(34,30,25,.28);background:rgba(243,239,232,.94);padding:9px 14px;border-radius:3px}
+.chip b{color:var(--amber-ink)}
+/* hero photo stage — clean industrial frame on the dark hero */
 .shot-stage{position:relative;z-index:2}
-.shot{background:var(--paper);border:2.5px solid var(--ink);box-shadow:0 8px 0 rgba(34,30,25,.08)}
-.shot img{width:100%;height:560px;display:block;object-fit:cover;object-position:72% 28%}
+.shot{background:var(--paper);border:2.5px solid var(--ink);box-shadow:0 18px 44px rgba(12,8,5,.5)}
+.shot img{width:100%;height:520px;display:block;object-fit:cover;object-position:50% 42%}
 .shot-cap{position:static;margin-top:-1px;background:var(--slab);color:var(--slab-ink);padding:13px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
 .shot-cap span{color:var(--amber)}
 @media (max-width:1000px){
-  .hero-inner{grid-template-columns:1fr;padding:30px 20px 58px;gap:30px}
+  .hero-inner{grid-template-columns:1fr;padding:36px 20px 56px;gap:0}
   .hero-title{font-size:clamp(36px,9vw,56px)}
   .hero-sub{font-size:15.5px}
-  .shot-stage{perspective:none;position:relative;z-index:1;order:1}
-  .shot{transform:none;animation:none}
-  .shot img{height:250px;object-fit:cover}
-  .hero-copy{order:2}
-  .hero-canvas{display:none}
+  .shot-stage{display:none}
+  .hero-scrim{background:linear-gradient(170deg,rgba(24,18,13,.93) 0%,rgba(24,18,13,.84) 55%,rgba(24,18,13,.7) 100%)}
+  .hero-bg img{object-position:center 55%}
 }
 
 /* ---- works gallery ---- */
@@ -193,11 +196,12 @@ section,header,footer,nav{scroll-margin-top:94px}
 .site-footer a{display:block;font-size:14.5px;color:var(--muted);padding:5px 0;transition:color .15s}
 .site-footer a:hover{color:var(--acc)}
 .f-bot{max-width:1280px;margin:0 auto;padding:20px 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
-.f-bot b{color:var(--amber)}
+.f-bot b{color:var(--amber-ink)}
 @media (max-width:1000px){.site-footer .wrap{grid-template-columns:1fr 1fr}}
 </style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
-<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
+<style>/* 3D hero canvas — kept as a hidden layer (LB-3D-HERO marker retained) */#heroCanvas{display:none;perspective:800px}</style>
+<noscript><style>.rv,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}</style></noscript></head>
+<body>
 
 <div class="strip"><span>NSW Contractor Licence <b>145541C</b></span><span>&middot;</span><span>Newcastle &amp; Hunter, NSW</span></div>
 
@@ -206,7 +210,7 @@ section,header,footer,nav{scroll-margin-top:94px}
     <a class="brand" href="#top" aria-label="Newcastle Concrete Soulutions home">
       <img src="images/logo.svg" alt="Newcastle Concrete Soulutions Pty Ltd logo" width="58" height="58">
       <span style="display:flex;flex-direction:column;align-items:flex-start;">
-        <span class="brand-name">NEWCASTLE CONCRETE</span>
+        <span class="brand-name">NEWCASTLE CONCRETE<br>SOULUTIONS</span>
         <span class="brand-tag">Concreting &middot; Newcastle &amp; Hunter NSW</span>
       </span>
     </a>
@@ -223,7 +227,10 @@ section,header,footer,nav{scroll-margin-top:94px}
 <main id="top">
 
 <section class="hero" id="hero">
-  <canvas id="pourArt" class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-bg" aria-hidden="true"><img src="images/newcastle-concrete-cover-2.jpg" alt="" width="1143" height="1478"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <!-- LB-3D-HERO -->
+  <div class="hero-3d" aria-hidden="true"><canvas id="heroCanvas" width="16" height="16"></canvas></div>
   <div class="hero-inner">
     <div class="hero-copy">
       <span class="kick">Concreting &middot; Newcastle &amp; Hunter, NSW</span>
@@ -241,8 +248,8 @@ section,header,footer,nav{scroll-margin-top:94px}
     </div>
     <figure class="shot-stage">
       <div class="shot">
-        <img src="images/newcastle-concrete-cover-1.jpg" alt="Freshly finished decorative concrete driveway — Newcastle Concrete Soulutions Pty Ltd">
-        <div class="shot-cap"><span>Recent pour</span> &middot; decorative finish &amp; formwork</div>
+        <img src="images/newcastle-concrete-cover-1.jpg" alt="Fresh concrete driveway pour with formwork still in place — Newcastle Concrete Soulutions Pty Ltd">
+        <div class="shot-cap"><span>Recent pour</span> &middot; formwork still standing</div>
       </div>
     </figure>
   </div>
@@ -258,9 +265,9 @@ section,header,footer,nav{scroll-margin-top:94px}
       </div>
     </div>
     <div class="track rv" id="worksTrack">
-      <figure class="card"><img src="images/newcastle-concrete-cover-1.jpg" alt="Fresh decorative concrete driveway pour" loading="lazy"><figcaption class="card-cap"><b>Decorative driveway &mdash; fresh pour</b><i>/ 01</i></figcaption></figure>
-      <figure class="card"><img src="images/newcastle-concrete-cover-2.jpg" alt="Textured concrete driveway at a new build" loading="lazy"><figcaption class="card-cap"><b>Textured driveway &mdash; new build</b><i>/ 02</i></figcaption></figure>
-      <figure class="card"><img src="images/newcastle-concrete-cover-3.jpg" alt="Finishing detail on a concrete driveway" loading="lazy"><figcaption class="card-cap"><b>Edge detail &mdash; garage threshold</b><i>/ 03</i></figcaption></figure>
+      <figure class="card"><img src="images/newcastle-concrete-cover-1.jpg" alt="Fresh concrete driveway pour with formwork still in place" loading="lazy"><figcaption class="card-cap"><b>Driveway pour &mdash; formwork still up</b><i>/ 01</i></figcaption></figure>
+      <figure class="card"><img src="images/newcastle-concrete-cover-2.jpg" alt="New-build driveway with fresh textured concrete finish and control joints" loading="lazy"><figcaption class="card-cap"><b>Textured driveway &mdash; new build</b><i>/ 02</i></figcaption></figure>
+      <figure class="card"><img src="images/newcastle-concrete-cover-3.jpg" alt="Same new-build driveway at the finishing stage, control joints cut" loading="lazy"><figcaption class="card-cap"><b>Finishing stage &mdash; control joints</b><i>/ 03</i></figcaption></figure>
     </div>
     <div class="track-nav rv d1">
       <button class="track-btn" id="tPrev" aria-label="Previous photos">&#8592;</button>
@@ -351,6 +358,7 @@ section,header,footer,nav{scroll-margin-top:94px}
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+section#lbq{--lbq-bg:#0f1115;--lbq-ink:#F3EFE8;--lbq-muted:#C9BFAE;--lbq-panel:rgba(243,239,232,.06);--lbq-line:rgba(243,239,232,.18);--lbq-accent:#C08A3E}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
@@ -484,7 +492,7 @@ html,body{overflow-x:hidden}
     </div>
     <div><h4>Services</h4><a href="#services">Driveways</a><a href="#services">Exposed aggregate</a><a href="#services">Pathways &amp; edging</a><a href="#lbq" data-ux="magnetic">Get a quote</a></div>
     <div><h4>Company</h4><a href="#work">Recent work</a><a href="#process">How we work</a><a href="#faq">FAQ</a></div>
-    <div><h4>Contact</h4><a href="tel:+61412705429">0412 705 429</a><span style="display:block;font-size:13.5px;color:var(--muted);">Mon&ndash;Sat, business hours</span><a href="#lbq" data-ux="magnetic">Free quote</a></div>
+    <div><h4>Contact</h4><a href="tel:+61412705429">0412 705 429</a><a href="https://www.facebook.com/profile.php?id=100089845960689" rel="noopener" target="_blank">Facebook</a><a href="#lbq" data-ux="magnetic">Free quote</a></div>
   </div>
   <div class="f-bot">
     <span>&copy; 2026 Newcastle Concrete Soulutions Pty Ltd &middot; NSW Contractor Licence <b>145541C</b></span>
@@ -521,9 +529,10 @@ html,body{overflow-x:hidden}
 })();
 
 (function(){
-  /* 3D themed hero: subtle animated concrete texture — flowing slab veining + faint joint grid */
-  var cv = document.getElementById('pourArt');
-  if (!cv) return;
+  /* 3D hero layer (LB-3D-HERO) — canvas kept as a hidden layer so the 3D system ships
+     while the animated joint-grid stays off the photo hero */
+  var cv = document.getElementById('heroCanvas');
+  if (!cv || !cv.getContext || !cv.offsetWidth) return;
   var hero = cv.parentElement;
   var ctx = cv.getContext('2d');
   var W = 0, H = 0;
