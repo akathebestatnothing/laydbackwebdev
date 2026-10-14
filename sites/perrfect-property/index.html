@@ -547,13 +547,13 @@ setTimeout(function(){
   document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
 }, 1100);
 
-/* hero: paint roller sweeping a fresh coat across the wall — disabled for hero-bleed (photo) layouts */
+/* hero: subtle ambient canvas overlay for hero-bleed layouts */
 (function(){
   var c = document.getElementById('heroCanvas');
   if (!c || !c.getContext) return;
-  if (getComputedStyle(c).display === 'none' || !c.offsetParent) return; /* LB-3D-HERO hidden — skip RAF loop */
+  if (getComputedStyle(c).display === 'none' || !c.offsetParent) return;
   var hero = c.closest('.hero');
-  if (hero && hero.classList.contains('hero-bleed')) return; /* hero-bleed uses CSS 3D shapes only */
+  if (!hero || !hero.classList.contains('hero-bleed')) return;
   var ctx = c.getContext('2d');
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
   var W = 0, H = 0;
@@ -570,93 +570,67 @@ setTimeout(function(){
   }
 
   window.addEventListener('pointermove', function(e){
-    px = (e.clientX / window.innerWidth - 0.5) * 20;
-    py = (e.clientY / window.innerHeight - 0.5) * 10;
+    px = (e.clientX / window.innerWidth - 0.5) * 12;
+    py = (e.clientY / window.innerHeight - 0.5) * 6;
   }, {passive: true});
+
+  var particles = [];
+  for (var i = 0; i < 40; i++){
+    particles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.2,
+      r: 0.6 + Math.random() * 1.2,
+      a: 0.04 + Math.random() * 0.08
+    });
+  }
 
   function frame(t){
     if (!W || !H){ resize(); return; }
     var time = (t || 0) * 0.001;
     ctx.clearRect(0, 0, W, H);
 
-    /* wall base — warm deep green */
-    var bg = ctx.createLinearGradient(0, 0, 0, H);
-    bg.addColorStop(0, '#152B1E');
-    bg.addColorStop(0.55, '#1C3524');
-    bg.addColorStop(1, '#101F16');
-    ctx.fillStyle = bg;
+    /* subtle radial vignette */
+    var vg = ctx.createRadialGradient(W*0.5, H*0.35, 10, W*0.5, H*0.35, Math.max(W,H)*0.7);
+    vg.addColorStop(0, 'rgba(21,43,30,0)');
+    vg.addColorStop(0.6, 'rgba(21,43,30,0.08)');
+    vg.addColorStop(1, 'rgba(21,43,30,0.22)');
+    ctx.fillStyle = vg;
     ctx.fillRect(0, 0, W, H);
 
-    /* fresh-painted band sweeping down (lighter, warm) */
-    var bandY = ((time * 0.045) % 1.3 - 0.15) * H;
-    var bandH = H * 0.5;
-    var bg2 = ctx.createLinearGradient(0, bandY, 0, bandY + bandH);
-    bg2.addColorStop(0, 'rgba(64,92,60,0.0)');
-    bg2.addColorStop(0.35, 'rgba(74,106,66,0.5)');
-    bg2.addColorStop(1, 'rgba(74,106,66,0.0)');
-    ctx.fillStyle = bg2;
-    ctx.fillRect(0, bandY - bandH * 0.1, W, bandH * 1.2);
-
-    /* subtle wall texture: faint vertical strokes */
-    ctx.strokeStyle = 'rgba(255,255,255,0.025)';
-    ctx.lineWidth = 1;
-    for (var wx = 0; wx < W; wx += 36){
+    /* floating dust motes - gold tinted */
+    for (var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      p.x += p.vx + px * 0.02;
+      p.y += p.vy + py * 0.01 + Math.sin(time * 0.5 + i) * 0.15;
+      if (p.x < -10) p.x = W + 10;
+      if (p.x > W + 10) p.x = -10;
+      if (p.y < -10) p.y = H + 10;
+      if (p.y > H + 10) p.y = -10;
       ctx.beginPath();
-      ctx.moveTo(wx + px * 0.3, 0);
-      ctx.lineTo(wx + px * 0.3 + 8, H);
-      ctx.stroke();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(217,164,65,' + p.a + ')';
+      ctx.fill();
     }
 
-    /* roller: cylinder + handle, moving left-right as it paints */
-    var rx = W * (0.5 + 0.34 * Math.sin(time * 0.5)) + px;
-    var ry = H * 0.78 + py;
-    /* paint trail behind roller */
-    var trail = ctx.createLinearGradient(rx - 260, 0, rx, 0);
-    trail.addColorStop(0, 'rgba(217,164,65,0)');
-    trail.addColorStop(1, 'rgba(217,164,65,0.07)');
-    ctx.fillStyle = trail;
-    ctx.fillRect(rx - 260, ry - 46, 260, 92);
-
-    /* roller cylinder */
-    ctx.save();
-    ctx.translate(rx, ry);
-    ctx.rotate(-0.06);
-    ctx.fillStyle = '#E8E2D2';
-    ctx.beginPath();
-    ctx.roundRect(-38, -46, 76, 92, 12);
-    ctx.fill();
-    ctx.fillStyle = 'rgba(217,164,65,0.55)';
-    ctx.beginPath();
-    ctx.roundRect(-38, -46, 76, 22, {tl:12, tr:12, bl:0, br:0});
-    ctx.fill();
-    ctx.fillStyle = '#8C8272';
-    ctx.fillRect(-6, 44, 12, 54);
-    ctx.restore();
-
-    /* gold glow at roller */
-    var g = ctx.createRadialGradient(rx, ry, 4, rx, ry, 150);
-    g.addColorStop(0, 'rgba(240,185,74,0.14)');
-    g.addColorStop(1, 'rgba(240,185,74,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(rx - 170, ry - 170, 340, 340);
-
-    /* dust motes */
-    for (var d = 0; d < 40; d++){
-      var dx = ((d * 97.13) % W) + Math.sin(time * 0.4 + d) * 14 + px;
-      var dy = ((d * 53.71 + time * 8) % H) + py;
-      var da = 0.05 + 0.05 * Math.sin(time + d * 2.2);
-      ctx.fillStyle = 'rgba(240,235,220,' + Math.max(0.02, da).toFixed(3) + ')';
-      ctx.fillRect(dx, dy, 1.6, 1.6);
-    }
+    /* subtle horizontal shimmer band */
+    var shY = H * (0.35 + 0.3 * Math.sin(time * 0.12));
+    var shG = ctx.createLinearGradient(0, shY, 0, shY + 60);
+    shG.addColorStop(0, 'rgba(217,164,65,0)');
+    shG.addColorStop(0.5, 'rgba(217,164,65,0.018)');
+    shG.addColorStop(1, 'rgba(217,164,65,0)');
+    ctx.fillStyle = shG;
+    ctx.fillRect(0, shY, W, 60);
   }
 
   function loop(t){
-    frame(t || 0);
+    frame(t);
     if (!reduce) requestAnimationFrame(loop);
   }
   resize();
   window.addEventListener('resize', resize);
-  loop(0);
+  requestAnimationFrame(loop);
 })();
 </script>
 
