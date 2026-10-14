@@ -48,6 +48,10 @@
 .hero-in,.hero .wrap,.hero__in,.hero .container{position:relative;z-index:2}
 .hero-copy{z-index:2}
 #lb3d-stage{display:none!important}
+
+/* skip-link: hide until keyboard focus (fix 2026-10-14) */
+.skip-link{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;z-index:10000!important}
+.skip-link:focus{left:16px!important;top:16px!important;width:auto!important;height:auto!important;padding:10px 16px!important;background:#111!important;color:#fff!important;border-radius:6px!important;overflow:visible!important}
 </style>
 </head>
 <body>
