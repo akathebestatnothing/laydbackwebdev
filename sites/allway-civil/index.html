@@ -134,6 +134,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 </nav>
 
 <header id="top">
+<div class="lbwm" aria-hidden="true">EARTHWORKS</div>
 
 <div id="sceneWrap" aria-label="Scroll to watch the tight-access combo">
   <div id="sceneSticky">
@@ -227,7 +228,20 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 #lbq.v3 .lbq-g{display:grid;gap:12px}
 #lbq.v3 .lbq-hp2{padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
-  </style>
+  
+/* LB-EDITORIAL-HERO kit 2026-10-14 */
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:radial-gradient(90% 60% at 88% -12%,color-mix(in srgb,var(--acc,#c4fb24) 26%,transparent),transparent 62%),
+            radial-gradient(70% 55% at -8% 112%,color-mix(in srgb,var(--acc,#c4fb24) 16%,transparent),transparent 58%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.45;mix-blend-mode:overlay;
+ background-image:repeating-linear-gradient(0deg,rgba(120,124,130,.12) 0 1px,transparent 1px 6px)}
+.hero>*{position:relative;z-index:1}
+.hero .lbwm{position:absolute;right:-3%;bottom:-7%;z-index:0;font-family:var(--disp,inherit);font-weight:900;
+ font-size:clamp(84px,24vw,210px);line-height:.8;letter-spacing:-.02em;
+ color:color-mix(in srgb,var(--acc,#c4fb24) 13%,transparent);pointer-events:none;user-select:none;white-space:nowrap;max-width:130%}
+@media (max-width:820px){.hero .lbwm{font-size:clamp(64px,28vw,140px);bottom:-5%}}
+</style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
       <p class="lbq-s">Tell us about the job — access, machine, timing — and we'll come back with a firm price.</p><p class="lbq-s" style="margin-bottom:0">Prefer email? <a href="mailto:allwaycivil@outlook.com.au">allwaycivil@outlook.com.au</a></p></div><div><form id="lbq-form" novalidate data-site="allway-civil" data-biz="Allway Civil Pty Ltd"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-svc">Service</label>
