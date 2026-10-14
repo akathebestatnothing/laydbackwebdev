@@ -29,8 +29,12 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 .skip{position:absolute;top:-100%;left:50%;transform:translateX(-50%);padding:.7rem 1.2rem;background:var(--acc);color:#fff;font-weight:700;z-index:10000}
 .skip:focus{top:1rem}
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,3vw,2.5rem);background:var(--cream);border-bottom:2px solid var(--acc);z-index:1000}
-.nav__b{display:flex;align-items:center;gap:.85rem;font-weight:800;font-size:clamp(1rem,1.9vw,1.2rem)}
-.nav__b img{height:48px;width:48px;object-fit:cover;border-radius:50%;border:2px solid var(--acc);display:block}
+.brand{display:flex;align-items:center;gap:.8rem;color:var(--ink);text-decoration:none}
+.brand-mark{height:32px;width:auto;display:block}
+.brand-txt{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:'Montserrat',sans-serif;font-size:1.16rem;line-height:1;font-weight:700}
+.brand-sub{display:block;margin-top:4px;font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;font-style:normal;opacity:.75}
+.brand-sub em{font-style:normal;opacity:1;color:var(--acc)}
 .nav__links{display:flex;gap:clamp(1rem,2.4vw,2rem);list-style:none;margin:0;padding:0}
 .nav__links a{font-size:.78rem;text-transform:uppercase;letter-spacing:.11em;color:var(--mut);transition:color .2s}
 .nav__links a:hover{color:var(--acc)}
@@ -39,6 +43,10 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 @media (max-width:640px){
   .nav__links{display:none}
   #burger{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);font-size:1.3rem;line-height:1;cursor:pointer;margin-left:.4rem}
+  .brand-mark{height:24px}
+  .brand-name{font-size:1.02rem}
+  .brand-sub{display:none}
+  .nav__cta a{font-size:.72rem;padding:.5rem .8rem}
 }
 .navpanel{display:none}
 @media (max-width:640px){
@@ -94,13 +102,16 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 @media (max-width:760px){.about{grid-template-columns:1fr}}
 
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="nav__b" href="#top" aria-label="Babylon Floor Sanding — Home">
-    <img src="assets/logo.png" alt="" aria-hidden="true" loading="eager">
-    <span>Babylon Floor Sanding</span>
+  <a class="brand" href="#top" aria-label="Babylon Floor Sanding - Home">
+    <img class="brand-mark" src="assets/logo-mark_babylon-floor-sanding.png" alt="" aria-hidden="true" loading="eager">
+    <span class="brand-txt"><b class="brand-name">Babylon</b><i class="brand-sub"><em>Floor</em> Sanding</i></span>
   </a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
