@@ -144,7 +144,12 @@ p{margin:0 0 16px;color:var(--muted);max-width:65ch}
 /* ===== UTILITIES ===== */
 .divider{height:1px;background:none;margin:48px 0}
 .tagline{font:600 12px/1 var(--font-mono);letter-spacing:.18em;text-transform:none;color:var(--accent);margin-bottom:12px;display:block}</style><style id="rv-lock">html .rv.on{opacity:1!important;transform:none!important}</style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
+<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript>
+<style>/* de-scroll gap fix 2026-10-14 */
+#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
+#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
+</style>
+</head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header class="site-header" role="banner">
   <div class="wrap">

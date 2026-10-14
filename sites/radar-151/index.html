@@ -128,6 +128,11 @@ footer a:hover{color:#fff}
 .footer-bar{max-width:1220px;margin:42px auto 0;padding:18px clamp(1.2rem,4vw,2.5rem);border-top:1px solid rgba(255,255,255,.13);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.8rem;color:#98a2b0}
 @media (max-width:900px){footer .fw{grid-template-columns:1fr 1fr}}
 </style>
+
+<style>/* de-scroll gap fix 2026-10-14 */
+#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
+#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
+</style>
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 

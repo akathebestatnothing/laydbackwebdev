@@ -109,6 +109,11 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .foot h3{margin:0 0 .4rem;font-size:1rem;font-weight:800}
 .foot p{margin:0;font-size:.88rem;color:var(--ink-2)}
 .foot a{color:var(--acc-hi)}</style>
+
+<style>/* de-scroll gap fix 2026-10-14 */
+#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
+#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
+</style>
 </head>
 <body>
 

@@ -187,6 +187,11 @@
     /* ===== Utilities ===== */
     .visually-hidden{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0,0,0,0) !important;white-space:nowrap !important;border:0 !important}
   </style>
+
+<style>/* de-scroll gap fix 2026-10-14 */
+#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
+#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
+</style>
 </head>
 <body>
   <nav class="nav" role="navigation" aria-label="Main navigation">
