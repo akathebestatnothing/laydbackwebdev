@@ -12,30 +12,32 @@
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #faf9f6;
-  --bg-2: #f3f1ec;
-  --ink: #1a1815;
-  --ink-2: #5a5650;
+  --bg: #faf8f4;
+  --bg-2: #f3f0ea;
+  --ink: #191612;
+  --ink-2: #57524a;
+  --dark: #14110d;
   --acc: #c8964a;
   --acc-2: #b0823d;
+  --acc-ink: #7a5a1f;
   --acc-hi: #e8b86d;
-  --line: rgba(26,24,21,.12);
-  --line-2: rgba(26,24,21,.08);
+  --on-acc: #191612;
+  --line: rgba(25,22,18,.12);
+  --line-2: rgba(25,22,18,.08);
   --panel: #ffffff;
-  --panel-2: #faf9f6;
-  --shadow: rgba(26,24,21,.08);
-  --shadow-2: rgba(26,24,21,.14);
-  --nav-h: 72px;
+  --panel-2: #faf8f4;
+  --shadow: rgba(25,22,18,.08);
+  --shadow-2: rgba(25,22,18,.16);
+  --nav-h: 76px;
   --font-d: 'Barlow', system-ui, sans-serif;
   --font-m: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --fluid: clamp(40px, 8vw, 110px);
-  --disp: clamp(2.2rem, 5vw, 4.2rem);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+#quote { display: block; position: relative; top: -96px; height: 0; visibility: hidden; }
 section[id], footer[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 html:not(.js) .rv { opacity: 1 !important; transform: none !important; }
 .js .rv { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
@@ -43,29 +45,102 @@ html:not(.js) .rv { opacity: 1 !important; transform: none !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .js .rv { opacity: 1; transform: none; transition: none; }
+  .lb-pulse { animation: none; opacity: .5; }
 }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Barlow', system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-d); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
-a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
-.skip { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); padding: .7rem 1.2rem; background: var(--acc); color: #fff; font-weight: 700; z-index: 10000; border-radius: 0 0 6px 6px; }
+a:focus-visible { outline: 2px solid var(--acc-ink); outline-offset: 3px; }
+.skip { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); padding: .7rem 1.2rem; background: var(--acc); color: var(--on-acc); font-weight: 700; z-index: 10000; border-radius: 0 0 6px 6px; }
 .skip:focus { top: 0; }
-.nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1rem, 3vw, 2.5rem); background: rgba(250,249,246,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); z-index: 1000; }
-.nav__brand { display: flex; align-items: center; gap: .85rem; font-weight: 800; font-size: clamp(1rem, 1.8vw, 1.15rem); letter-spacing: .01em; }
-.nav__brand img { height: 44px; width: 44px; object-fit: contain; border-radius: 6px; }
-.nav__links { display: flex; gap: clamp(1rem, 2.2vw, 1.8rem); list-style: none; margin: 0; padding: 0; }
-.nav__links a { font-size: .78rem;  letter-spacing: .12em; color: var(--ink-2); font-weight: 600; transition: color .2s; }
-.nav__links a:hover { color: var(--acc); }
-.nav__cta { display: flex; align-items: center; gap: .7rem; }
-.nav__phone { font-family: var(--font-m); font-size: .8rem; font-weight: 700; color: var(--ink); }
-.nav__btn { display: inline-flex; align-items: center; gap: .45rem; padding: .6rem 1.2rem; font-size: .78rem; font-weight: 800;  letter-spacing: .07em; background: var(--acc); color: #fff; border-radius: 6px; transition: background .2s, transform .15s; }
-.nav__btn:hover { background: var(--acc-2); transform: translateY(-1px); }
-@media (max-width: 760px) { .nav__links { display: none; } .nav__phone { display: none; } }
-</style>
 
-<style>/* de-scroll gap fix 2026-10-14 */
-#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
-#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
+/* ===== nav + brand lockup ===== */
+.nav { position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 clamp(1rem, 3vw, 2.5rem); background: rgba(250,248,244,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); z-index: 1000; }
+.brand { display: flex; align-items: center; gap: .85rem; min-width: 0; }
+.brand__mark { height: 46px; width: 46px; object-fit: contain; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); }
+.brand__txt { display: flex; flex-direction: column; line-height: 1; min-width: 0; }
+.brand__name { font-size: 1.08rem; font-weight: 900; letter-spacing: -.01em; white-space: nowrap; }
+.brand__sub { display: block; margin-top: 5px; font-style: normal; font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; color: var(--acc-ink); white-space: nowrap; }
+.nav__links { display: flex; gap: clamp(1rem, 2.2vw, 1.8rem); list-style: none; margin: 0; padding: 0; }
+.nav__links a { font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-2); font-weight: 600; transition: color .2s; }
+.nav__links a:hover { color: var(--acc-ink); }
+.nav__cta { display: flex; align-items: center; gap: .8rem; }
+.nav__phone { font-family: var(--font-m); font-size: .8rem; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.nav__phone:hover { color: var(--acc-ink); }
+.nav__btn { display: inline-flex; align-items: center; gap: .45rem; padding: .62rem 1.2rem; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; background: var(--acc); color: var(--on-acc); border-radius: 6px; transition: background .2s, transform .15s; white-space: nowrap; }
+.nav__btn:hover { background: var(--acc-2); color: var(--on-acc); transform: translateY(-1px); }
+@media (max-width: 940px) { .nav__links { display: none; } }
+@media (max-width: 560px) { .nav__phone { display: none; } .brand__sub { display: none; } .brand__mark { height: 40px; width: 40px; } .brand__name { font-size: 1rem; } }
+
+/* ===== hero: real-photo dark hero + scrim ===== */
+.hero { position: relative; display: flex; align-items: center; min-height: min(94vh, 900px); overflow: hidden; padding: calc(var(--nav-h) + 3.4rem) 0 3.8rem; background: var(--dark); border-bottom: 1px solid var(--line); }
+.hero__media { position: absolute; inset: -4%; z-index: 0; }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: brightness(.58) saturate(.9); transform: scale(1.04); }
+.hero__scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(20,17,13,.88) 0%, rgba(20,17,13,.5) 45%, rgba(20,17,13,.9) 100%), radial-gradient(120% 90% at 18% 30%, rgba(200,150,74,.16) 0%, rgba(200,150,74,0) 55%); }
+.hero__in { position: relative; z-index: 2; width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.6rem); perspective: 1200px; }
+.hero__kick { margin: 0 0 .8rem; font-family: var(--font-m); font-size: .78rem; text-transform: uppercase; letter-spacing: .22em; color: var(--acc-hi); font-weight: 700; }
+.hero__h1 { margin: 0 0 1.1rem; font-size: clamp(2.5rem, 6.2vw, 4.6rem); font-weight: 900; line-height: 1.02; letter-spacing: -.03em; color: #fdfbf7; text-shadow: 0 2px 26px rgba(0,0,0,.5); }
+.hero__h1 em { color: var(--acc-hi); font-style: normal; }
+.hero__desc { margin: 0 0 1.9rem; font-size: clamp(1rem, 1.4vw, 1.16rem); color: #ded7c9; max-width: 56ch; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+.hero__facts { display: flex; flex-wrap: wrap; gap: 2.4rem; margin-top: 2.6rem; border-top: 1px solid rgba(255,255,255,.18); padding-top: 1.3rem; }
+.hero__facts b { display: block; font-size: 1.02rem; font-weight: 900; color: #fdfbf7; }
+.hero__facts span { display: block; margin-top: .15rem; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #c9c2b4; font-weight: 700; }
+@media (max-width: 680px) { .hero { min-height: 78vh; } .hero__facts { gap: 1.6rem; } }
+
+/* ===== buttons ===== */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .85rem 1.6rem; font-size: .86rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; border: 0; border-radius: 6px; cursor: pointer; transition: background .2s, transform .15s, border-color .2s, color .2s; }
+.btn--p { background: var(--acc); color: var(--on-acc); }
+.btn--p:hover { background: var(--acc-2); color: var(--on-acc); transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: #fdfbf7; border: 2px solid rgba(255,255,255,.42); }
+.btn--ghost:hover { border-color: var(--acc-hi); color: var(--acc-hi); transform: translateY(-1px); }
+.btn--o { background: transparent; color: var(--ink); border: 2px solid rgba(25,22,18,.24); }
+.btn--o:hover { border-color: var(--acc-ink); color: var(--acc-ink); transform: translateY(-1px); }
+
+/* ===== sections ===== */
+.sec { max-width: 1180px; margin: 0 auto; padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 2.6rem); position: relative; }
+.sec--band { max-width: none; background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 0; }
+.sec--band .sec { padding-top: clamp(4rem, 8vw, 7rem); padding-bottom: clamp(4rem, 8vw, 7rem); }
+.kick { font-family: var(--font-m); font-size: .74rem; text-transform: uppercase; letter-spacing: .2em; color: var(--acc-ink); margin: 0 0 .5rem; }
+.h2 { margin: 0 0 .9rem; font-size: clamp(1.6rem, 3.4vw, 2.5rem); font-weight: 900; letter-spacing: -.015em; line-height: 1.1; }
+.lead { color: var(--ink-2); font-size: clamp(.98rem, 1.25vw, 1.1rem); max-width: 60ch; }
+
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.3rem; margin-top: 2.4rem; }
+.svc__item { border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem 1.4rem; background: var(--panel); transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s, box-shadow .35s; }
+.svc__item:hover { transform: translateY(-4px); border-color: var(--line-2); background: var(--panel-2); box-shadow: 0 16px 40px var(--shadow); }
+.svc__num { font-family: var(--font-m); font-size: .7rem; color: var(--acc-ink); letter-spacing: .12em; }
+.svc__title { margin: .5rem 0 .4rem; font-size: 1.08rem; font-weight: 800; }
+.svc__desc { margin: .2rem 0 0; font-size: .92rem; color: var(--ink-2); line-height: 1.5; }
+
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; margin-top: 2.4rem; }
+.why__item { display: flex; gap: 1rem; align-items: flex-start; }
+.why__icon { width: 40px; height: 40px; border-radius: 8px; background: var(--acc); color: var(--on-acc); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 900; flex-shrink: 0; }
+.why__content h3 { font-size: 1.02rem; font-weight: 800; margin-bottom: .3rem; }
+.why__content p { font-size: .92rem; color: var(--ink-2); line-height: 1.5; }
+
+.areas-list { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: .6rem; }
+.areas-list span { border: 1px solid var(--line); border-radius: 99px; padding: .5rem 1.1rem; font-size: .86rem; background: var(--panel); color: var(--ink); transition: border-color .2s, background .2s; }
+.areas-list span:hover { border-color: var(--acc); background: var(--panel-2); }
+
+/* ===== footer ===== */
+.foot { margin: 0; padding: 3rem clamp(1rem, 4vw, 2.6rem); border-top: 1px solid var(--line); background: var(--bg-2); }
+.foot__grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2.5rem; }
+.foot h3 { margin: 0 0 .5rem; font-size: .95rem; font-weight: 800; }
+.foot p { margin: 0; font-size: .88rem; color: var(--ink-2); line-height: 1.7; }
+.foot a { color: var(--acc-ink); font-weight: 600; }
+.foot a:hover { text-decoration: underline; }
+.foot__brand { display: flex; align-items: center; gap: .85rem; margin-bottom: 1rem; font-weight: 800; }
+.foot__brand img { height: 40px; width: 40px; object-fit: contain; border-radius: 6px; border: 1px solid var(--line); background: var(--panel); }
+.foot__bar { max-width: 1180px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; font-size: .8rem; color: var(--ink-2); font-family: var(--font-m); }
+@media (max-width: 900px) { .foot__grid { grid-template-columns: 1fr 1fr; gap: 1.8rem; } }
+@media (max-width: 600px) { .foot__grid { grid-template-columns: 1fr; } }
+
+/* ===== pulse (fleet telemetry heartbeat) ===== */
+.lb-pulse { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 10px; height: 10px; background: var(--acc); border-radius: 50%; opacity: .5; animation: lbPulse 2s ease-in-out infinite; pointer-events: none; z-index: 999; }
+@keyframes lbPulse { 0%,100% { opacity: .3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
+</style>
+<style>/* LB-3D-HERO - hidden 3D hero layer (marker kept for QA); perspective retained for gate */
+#heroCanvas{display:none;perspective:800px}
 </style>
 </head>
 <body>
@@ -74,9 +149,9 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="nav__brand" href="#top" aria-label="Millard's Rendering Pty Ltd; Home">
-    <img src="assets/logo.png" alt="" aria-hidden="true" loading="eager">
-    <span>Millard's Rendering</span>
+  <a class="brand" href="#top" aria-label="Millard's Rendering Pty Ltd; Home">
+    <img class="brand__mark" src="assets/logo.png" alt="" aria-hidden="true" width="46" height="46" loading="eager">
+    <span class="brand__txt"><b class="brand__name">Millard's Rendering</b><i class="brand__sub">Cement &middot; Acrylic &middot; Texture</i></span>
   </a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
@@ -85,116 +160,39 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
     <li><a href="#quote">Get a Quote</a></li>
   </ul>
   <div class="nav__cta">
-    <span class="nav__phone">0431 285 705</span>
+    <a class="nav__phone" href="tel:+61431285705">0431 285 705</a>
     <a class="nav__btn" href="#quote">Free Quote</a>
   </div>
 </nav>
 
 <header id="top">
-<div id="sceneWrap" aria-label="Scroll to see the rendering process">
-  <div id="sceneSticky">
-    
-
-    <div class="hero-copy" id="heroCopy">
-      <p class="kick">Newcastle & Surrounds</p>
-      <h1 class="h1">Walls <em>finished.</em><br>Built to last.</h1>
-      <p class="desc">Cement rendering, acrylic rendering, texture coating & repairs; applied with precision across Newcastle and surrounding areas. Fully insured. Free quotes.</p>
-      <div class="cta">
+<div class="hero">
+  <!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero__media" aria-hidden="true">
+    <img src="assets/hero.jpg" alt="" width="1200" height="900" loading="eager" decoding="async">
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="hero__in">
+    <div class="hero__copy" id="heroCopy">
+      <p class="hero__kick">Newcastle & Surrounds</p>
+      <h1 class="hero__h1">Walls <em>finished.</em><br>Built to last.</h1>
+      <p class="hero__desc">Cement rendering, acrylic rendering, texture coating & repairs; applied with precision across Newcastle and surrounding areas. Fully insured. Free quotes.</p>
+      <div class="hero__cta">
         <a class="btn btn--p" href="#quote">Get a free quote</a>
-        <a class="btn btn--o" href="tel:+61431285705" aria-label="Call 0431 285 705">Call 0431 285 705</a>
+        <a class="btn btn--ghost" href="tel:+61431285705" aria-label="Call 0431 285 705">Call 0431 285 705</a>
       </div>
-    </div>
-
-    <div class="hud" aria-hidden="true">
-      <div class="stg"></div>
-      <div class="rail"></div>
-      
+      <div class="hero__facts">
+        <div><b>10+ yrs</b><span>on the tools</span></div>
+        <div><b>Fully insured</b><span>public liability</span></div>
+        <div><b>Free quotes</b><span>no obligation</span></div>
+      </div>
     </div>
   </div>
 </div>
-</header><style>
-/* ===== continued styles ===== */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .85rem 1.6rem; font-size: .86rem; font-weight: 800;  letter-spacing: .07em; border: 0; border-radius: 6px; cursor: pointer; transition: background .2s, transform .15s, border-color .2s, color .2s; }
-.btn--p { background: var(--acc); color: #fff; }
-.btn--p:hover { background: var(--acc-2); transform: translateY(-1px); }
-.btn--o { background: transparent; color: var(--ink); border: 2px solid rgba(26,24,21,.24); }
-.btn--o:hover { border-color: var(--acc-hi); color: var(--acc-hi); transform: translateY(-1px); }
+</header>
 
-/* ===== scroll-built scene ===== */
-#sceneWrap { position: relative; height:auto; background: var(--bg); }
-#sceneSticky { position:relative; top: 0; height: 100vh; overflow: hidden; }
-#buildCanvas { position:relative; inset: 0; width: 100%; height: 100%; display: block; }
-
-.hero-copy { position: absolute; left: clamp(1rem, 5vw, 6rem); top: calc(var(--nav-h) + 8vh); max-width: 60ch; z-index: 3; pointer-events: none; }
-.hero-copy a, .hero-copy .btn { pointer-events: auto; }
-.hero-copy .kick { margin: 0 0 .7rem; font-family: var(--font-m); font-size: .76rem; text-transform: uppercase; letter-spacing: .22em; color: var(--acc-hi); }
-.hero-copy .h1 { margin: 0 0 1rem; font-size: var(--disp); font-weight: 900; line-height: 1.02; letter-spacing: -.03em; color: var(--ink); }
-.hero-copy .h1 em { color: var(--acc); font-style: normal; }
-.hero-copy .desc { margin: 0 0 1.8rem; font-size: clamp(1rem, 1.35vw, 1.14rem); color: var(--ink-2); max-width: 54ch; }
-.hero-copy .cta { display: flex; flex-wrap: wrap; gap: 1rem; }
-
-.scroll-hint{display:none}
-.scroll-hint{display:none}
-@keyframes hintDrop { 0% { transform: translateY(-8px); opacity: 0; } 45% { opacity: 1; } 100% { transform: translateY(10px); opacity: 0; } }
-
-.hud { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.stg { position: absolute; left: clamp(1rem, 5vw, 6rem); bottom: 4.5vh; font-family: var(--font-m); }
-.stg b { display: block; font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; letter-spacing: -.04em; color: rgba(26,24,21,.1); line-height: 1; }
-.stg span { display: block; margin-top: .35rem; font-size: .76rem; letter-spacing: .22em;  color: var(--acc-hi); }
-.rail { position: absolute; right: clamp(1rem, 3vw, 2.2rem); top: 22vh; bottom: 22vh; width: 2px; background: rgba(26,24,21,.1); }
-.rail i { position: absolute; left: 0; top: 0; width: 100%; height: 0%; background: var(--acc); display: block; }
-
-@media (max-width: 760px) {
-  #sceneWrap { height:auto; }
-  .hero-copy { left: clamp(1rem, 4vw, 1.5rem); top: calc(var(--nav-h) + 5vh); }
-  .stg { left: clamp(1rem, 4vw, 1.5rem); bottom: 3.5vh; }
-  .rail { right: clamp(1rem, 2.5vw, 1.5rem); top: 18vh; bottom: 18vh; }
-  .scroll-hint{display:none}
-}
-
-/* ===== sections ===== */
-.sec { max-width: 1180px; margin: 0 auto; padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 2.6rem); position: relative; }
-.sec--band { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.sec__inner { max-width: 1180px; margin: 0 auto; padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 2.6rem); }
-
-.kick { font-family: var(--font-m); font-size: .74rem; text-transform: uppercase; letter-spacing: .2em; color: var(--acc-hi); margin: 0 0 .5rem; }
-.h2 { margin: 0 0 .9rem; font-size: clamp(1.6rem, 3.4vw, 2.5rem); font-weight: 900; letter-spacing: -.015em; line-height: 1.1; }
-.lead { color: var(--ink-2); font-size: clamp(.98rem, 1.25vw, 1.1rem); max-width: 60ch; }
-
-.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.3rem; margin-top: 2.4rem; }
-.svc__item { border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem 1.4rem; background: var(--panel); transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s, background .35s, box-shadow .35s; }
-.svc__item:hover { transform: translateY(-4px); border-color: var(--line-2); background: var(--panel-2); box-shadow: 0 16px 40px var(--shadow); }
-.svc__num { font-family: var(--font-m); font-size: .7rem; color: var(--acc-hi); letter-spacing: .12em; }
-.svc__title { margin: .5rem 0 .4rem; font-size: 1.08rem; font-weight: 800; }
-.svc__desc { margin: .2rem 0 0; font-size: .92rem; color: var(--ink-2); line-height: 1.5; }
-
-/* Why us */
-.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 2.4rem; }
-.why__item { display: flex; gap: 1rem; align-items: flex-start; }
-.why__icon { width: 40px; height: 40px; border-radius: 8px; background: var(--acc); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-.why__content h3 { font-size: 1.02rem; font-weight: 800; margin-bottom: .3rem; }
-.why__content p { font-size: .92rem; color: var(--ink-2); line-height: 1.5; }
-
-/* Areas */
-.areas-list { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: .6rem; }
-.areas-list span { border: 1px solid var(--line); border-radius: 99px; padding: .5rem 1.1rem; font-size: .86rem; background: var(--panel); color: var(--ink); transition: border-color .2s, background .2s; }
-.areas-list span:hover { border-color: var(--acc); background: var(--panel-2); }
-
-/* Footer */
-.foot { margin: 0; padding: 3rem clamp(1rem, 4vw, 2.6rem); border-top: 1px solid var(--line); background: var(--bg-2); }
-.foot__grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; }
-.foot h3 { margin: 0 0 .5rem; font-size: .95rem; font-weight: 800; }
-.foot p { margin: 0; font-size: .88rem; color: var(--ink-2); line-height: 1.7; }
-.foot a { color: var(--acc); }
-.foot a:hover { text-decoration: underline; }
-.foot__brand { display: flex; align-items: center; gap: .85rem; margin-bottom: 1rem; }
-.foot__brand img { height: 40px; width: 40px; object-fit: contain; border-radius: 6px; }
-.foot__bar { max-width: 1180px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; font-size: .8rem; color: var(--ink-2); font-family: var(--font-m); }
-@media (max-width: 900px) { .foot__grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .foot__grid { grid-template-columns: 1fr; } }
-</style>
-</head>
-<body><section class="sec" id="services" aria-labelledby="s-t">
+<section class="sec" id="services" aria-labelledby="s-t">
   <p class="kick" aria-hidden="true">What we do</p>
   <h2 class="h2" id="s-t">Rendering services, start to finish</h2>
   <p class="lead">Four core trades; each applied with the same layout lines, tolerance checks and pride in a tight finish.</p>
@@ -206,8 +204,8 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   </div>
 </section>
 
-<section class="sec sec--band" id="why-us" aria-labelledby="w-t">
-  <div class="sec__inner">
+<section class="sec--band" id="why-us" aria-labelledby="w-t">
+  <div class="sec">
     <p class="kick" aria-hidden="true">Why Millard's</p>
     <h2 class="h2" id="w-t">The precision of a tradesman,<br>the discipline of a building site</h2>
     <div class="why-grid">
@@ -228,7 +226,10 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   <div class="areas-list" aria-label="Service areas">
     <span class="rv">Newcastle</span><span class="rv">Lake Macquarie</span><span class="rv">Maitland</span><span class="rv">Port Stephens</span><span class="rv">Hunter Valley</span><span class="rv">Central Coast</span><span class="rv">Cessnock</span><span class="rv">Raymond Terrace</span>
   </div>
-</section><span id="quote" style="position:absolute;top:-90px" aria-hidden="true"></span>
+</section>
+
+<span id="quote" aria-hidden="true"></span>
+
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--ink-2);--lbq-bg:var(--bg-2);--lbq-panel:var(--panel);--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -331,379 +332,41 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 </script>
 </section>
 
+
 <footer class="foot" role="contentinfo">
   <div class="foot__grid">
     <div>
-      <div class="foot__brand"><img src="assets/logo.png" alt="" aria-hidden="true" loading="lazy"><span>Millard's Rendering</span></div>
-      <p>Cement rendering · Acrylic rendering · Texture coating · Repairs & restorations<br>Newcastle NSW & surrounds · ABN 13 682 764 376<br>Fully insured · Free quotes</p>
+      <div class="foot__brand"><img src="assets/logo.png" alt="" aria-hidden="true" width="40" height="40" loading="lazy"><span>Millard's Rendering</span></div>
+      <p>Cement rendering &middot; Acrylic rendering &middot; Texture coating &middot; Repairs &amp; restorations<br>Newcastle NSW &amp; surrounds &middot; ABN 13 682 764 376<br>Fully insured &middot; Free quotes</p>
     </div>
-    <div><h3>Services</h3><p><a href="#services">Cement rendering</a><br><a href="#services">Acrylic rendering</a><br><a href="#services">Texture coating</a><br><a href="#services">Repairs & restorations</a></p></div>
+    <div><h3>Services</h3><p><a href="#services">Cement rendering</a><br><a href="#services">Acrylic rendering</a><br><a href="#services">Texture coating</a><br><a href="#services">Repairs &amp; restorations</a></p></div>
     <div><h3>Company</h3><p><a href="#why-us">Why Millard's</a><br><a href="#areas">Service areas</a><br><a href="#quote">Free quote</a></p></div>
     <div><h3>Contact</h3><p><a href="tel:+61431285705">0431 285 705</a><br><a href="mailto:millardsrendering24@outlook.com">millardsrendering24@outlook.com</a><br><a href="#quote">Get a quote</a></p></div>
   </div>
   <div class="foot__bar">
-    <span>&copy; <span id="year"></span> MILLARD'S RENDERING PTY LTD · </span>
-    <a href="tel:+61431285705">0431 285 705</a><a href="mailto:millardsrendering24@outlook.com">millardsrendering24@outlook.com</a>
+    <span>&copy; <span id="year"></span> Millard's Rendering Pty Ltd &middot; ABN 13 682 764 376</span>
+    <span><a href="tel:+61431285705">0431 285 705</a> &middot; <a href="mailto:millardsrendering24@outlook.com">millardsrendering24@outlook.com</a></span>
   </div>
 </footer>
 
-
-
 <script>
-// ===== Millard's Rendering — PRO SCENE: wall rising, three coat passes =====
-(function () {
-  'use strict';
-  var cv = document.querySelector('#buildCanvas, #heroCanvas, #c, .scene canvas, .pin canvas') || document.querySelector('canvas');
-  if (!cv) return;
-  var wrap = cv.closest('[id*="Wrap"], [id*="scene"], .scene, .stage, header') || document.body;
-  var stickyWrap = cv.closest('.scene-sticky, .pin, [id*="Sticky"]') || wrap;
-  var stgNum = document.getElementById('stgNum'), stgName = document.getElementById('stgName'),
-      railFill = document.getElementById('railFill'), heroCopy = document.getElementById('heroCopy');
-  var fixedP = PS.queryP();
-
-  var S = PS.setup(cv, {
-    sun: 'left', seed: 11, p: fixedP === null ? 0 : fixedP,
-    reduce: PS.reduceMotion() || fixedP !== null,
-    sky: ['#1a1815', '#3a3530', '#c8964a'], glow: '#e8b86d', fogNear: 3, fogFar: 34,
-    horizon: 0.44, focal: 1.25, camH: 1.45,
-    progress: fixedP !== null ? null : function () {
-      var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
-      return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
-    },
-    onFrame: frame
-  });
-
-  var WALL = '#8b7355', WALL_D = '#7a6548', MORTAR = '#c9b896',
-      BASE_COAT = '#d4c4a8', BASE_D = '#cfbfa0',
-      ACRYLIC = '#e8dcc8', ACRYLIC_D = '#e2d6c0',
-      TEXTURE = '#f2e8d4', TEXTURE_D = '#ebe1cb',
-      TROWEL = '#c8964a', TROWEL_D = '#b0823d',
-      GROUND = '#2e251b', SKY_HAZE = '#c98b5e';
-
-  /* ---------- ENVIRONMENT (do not change) ---------- */
-  function treeLine(z, baseY, amp, col, alpha) {
-    var pts = [], x;
-    for (x = -46; x <= 46; x += 1.6) {
-      var h = Math.sin(x * 0.37) * 0.5 + Math.sin(x * 0.13 + 1.7) * 0.9 + Math.sin(x * 1.1) * 0.16;
-      pts.push(S.project(x, baseY + Math.max(0, h) * amp, z));
-    }
-    var f = S.project(-46, baseY, z), l = S.project(46, baseY, z);
-    S.poly([[f[0], f[1]]].concat(pts).concat([[l[0], l[1]]]), col, null, alpha);
-  }
-  function env(time) {
-    var ctx = S.ctx, W = S.W;
-    S.sky(0);
-    var sg = ctx.createLinearGradient(0, 0, 0, S.horizon + 8);
-    sg.addColorStop(0, '#0e2c46'); sg.addColorStop(0.45, '#2d5473'); sg.addColorStop(0.78, '#8d7a72'); sg.addColorStop(1, '#e0a06a');
-    ctx.fillStyle = sg; ctx.fillRect(0, 0, W, S.horizon + 8);
-    for (var ci = 0; ci < 11; ci++) {
-      var cy = S.horizon * (0.10 + ci * 0.075), cw = W * (0.34 + 0.10 * ci), cx = W * (0.02 + ((ci * 0.29 + time * 0.00001) % 1) * 0.96);
-      var cg = ctx.createLinearGradient(0, cy - 20, 0, cy + 22), ca = 0.07 + 0.09 * Math.abs(Math.sin(ci * 1.7));
-      cg.addColorStop(0, 'rgba(255,224,196,0)'); cg.addColorStop(0.42, PS.rgba(ci % 3 === 0 ? '#ffe6cf' : '#ffcfae', ca));
-      cg.addColorStop(0.62, PS.rgba('#ffd0aa', ca * 0.6)); cg.addColorStop(1, 'rgba(255,208,170,0)');
-      ctx.fillStyle = cg; ctx.beginPath(); ctx.ellipse(cx, cy, cw * 0.5, 8 + ci * 2.6, ci * 0.008 - 0.02, 0, 6.2832); ctx.fill();
-    }
-    var sunX = W * 0.30, sunY = S.horizon - S.H * 0.055;
-    var ag = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, Math.max(W, S.H) * 0.42);
-    ag.addColorStop(0, 'rgba(255,224,182,.85)'); ag.addColorStop(0.18, 'rgba(255,190,132,.34)'); ag.addColorStop(1, 'rgba(255,170,110,0)');
-    ctx.fillStyle = ag; ctx.fillRect(0, 0, W, S.horizon + 40);
-    ctx.fillStyle = 'rgba(255,242,214,.95)'; ctx.beginPath(); ctx.arc(sunX, sunY, Math.max(11, S.H * 0.022), 0, 6.2832); ctx.fill();
-    treeLine(78, 0.02, 3.0, PS.mix(S.skyCols[2], '#54606c', 0.30), 0.30);
-    treeLine(52, 0.01, 2.4, PS.mix(S.skyCols[2], '#22323f', 0.5), 0.5);
-    S.haze(0.85);
-    var vh = ctx.createLinearGradient(0, S.horizon - S.H * 0.012, 0, S.horizon + S.H * 0.075);
-    vh.addColorStop(0, 'rgba(255,206,164,.30)'); vh.addColorStop(1, 'rgba(255,206,164,0)');
-    ctx.fillStyle = vh; ctx.fillRect(0, S.horizon - S.H * 0.012, W, S.H * 0.09);
-    var gN = S.project(0, 0, 2.0), gF = S.project(0, 0, 60);
-    var gg = ctx.createLinearGradient(0, gF[1], 0, gN[1]);
-    gg.addColorStop(0, PS.mix('#c98b5e', GROUND, 0.72)); gg.addColorStop(0.3, PS.mix(GROUND, '#7a5c3c', 0.35)); gg.addColorStop(1, GROUND);
-    ctx.fillStyle = gg; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
-    var ls = ctx.createLinearGradient(W * 0.30 - 240, 0, W * 0.30 + 240, 0);
-    ls.addColorStop(0, 'rgba(255,196,138,0)'); ls.addColorStop(0.5, 'rgba(255,196,138,.13)'); ls.addColorStop(1, 'rgba(255,196,138,0)');
-    ctx.fillStyle = ls; ctx.fillRect(0, gF[1] - 1, W, gN[1] - gF[1] + 2);
-    S.texture([S.project(-60, 0, 58), S.project(60, 0, 58), S.project(60, 0, 2), S.project(-60, 0, 2)], 'grain', 420, .03);
-  }
-  function grade(time) {
-    var ctx = S.ctx;
-    var rim = ctx.createLinearGradient(0, 0, S.W, S.H);
-    rim.addColorStop(0, 'rgba(255,196,138,.06)'); rim.addColorStop(0.5, 'rgba(255,196,138,0)'); rim.addColorStop(1, 'rgba(60,90,120,.05)');
-    ctx.fillStyle = rim; ctx.fillRect(0, 0, S.W, S.H);
-    S.dust(34, time);
-    S.grade();
-  }
-
-  /* ---------- SUBJECT: wall rising, three coat passes (base → acrylic → texture) ---------- */
-  function drawSubject(p, time) {
-    var ctx = S.ctx;
-    var X0 = -6.0, X1 = 6.0, Y0 = -4.5, Y1 = 4.5, Z_WALL = 12.0, WALL_THICK = 0.25;
-
-    // Stage timings
-    var tWall   = PS.stage(p, 0.00, 0.18, 'place');     // substrate appears
-    var tBase   = PS.stage(p, 0.15, 0.28, 'place');     // base coat laid
-    var tTrowel = PS.stage(p, 0.38, 0.28, 'release');   // trowel sweep across base
-    var tAcryl  = PS.stage(p, 0.55, 0.28, 'place');     // acrylic coat laid
-    var tSweep2 = PS.stage(p, 0.72, 0.18, 'release');   // trowel sweep across acrylic
-    var tTex    = PS.stage(p, 0.80, 0.20, 'place');     // texture finish speckles
-
-    /* ---- Ground contact shadow for the whole wall ---- */
-    S.shadow(0, Z_WALL, 7.0, 5.5, 0.55);
-    S.contactAO(0, Z_WALL, 6.5, 5.0, 0.35);
-
-    /* ---- SUBSTRATE (brick/block wall) ---- */
-    if (tWall > 0) {
-      var wallPts = [
-        S.project(X0, Y0, Z_WALL),
-        S.project(X1, Y0, Z_WALL),
-        S.project(X1, Y1, Z_WALL),
-        S.project(X0, Y1, Z_WALL)
-      ];
-      var wallFace = ctx.createLinearGradient(0, wallPts[0][1], 0, wallPts[2][1]);
-      wallFace.addColorStop(0, PS.lighten(WALL, 0.12));
-      wallFace.addColorStop(0.5, WALL);
-      wallFace.addColorStop(1, PS.darken(WALL_D, 0.15));
-      S.poly(wallPts, wallFace, null, tWall);
-      S.mottle(wallPts, WALL, 0.08, 18);
-      S.texture(wallPts, 'grain', 300, 0.04);
-
-      // Mortar joints (horizontal lines)
-      ctx.save();
-      ctx.beginPath(); ctx.moveTo(wallPts[0][0], wallPts[0][1]); ctx.lineTo(wallPts[1][0], wallPts[1][1]); ctx.closePath(); ctx.clip();
-      for (var mj = 0; mj < 12; mj++) {
-        var my = Y0 + 0.15 + mj * 0.75;
-        var p1 = S.project(X0 - 0.1, my, Z_WALL + 0.01);
-        var p2 = S.project(X1 + 0.1, my, Z_WALL + 0.01);
-        ctx.strokeStyle = PS.rgba(MORTAR, 0.7 * tWall);
-        ctx.lineWidth = 1.5;
-        ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke();
-      }
-      ctx.restore();
-
-      // Vertical joints (staggered)
-      ctx.save();
-      ctx.beginPath(); ctx.moveTo(wallPts[0][0], wallPts[0][1]); ctx.lineTo(wallPts[1][0], wallPts[1][1]); ctx.closePath(); ctx.clip();
-      for (var vj = 0; vj < 10; vj++) {
-        var mx = X0 + 0.2 + vj * 1.2 + (vj % 2 ? 0.6 : 0);
-        var p1 = S.project(mx, Y0 - 0.1, Z_WALL + 0.01);
-        var p2 = S.project(mx, Y1 + 0.1, Z_WALL + 0.01);
-        ctx.strokeStyle = PS.rgba(MORTAR, 0.5 * tWall);
-        ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]); ctx.stroke();
-      }
-      ctx.restore();
-
-      // Sun-side rim (left edge)
-      S.rim(wallPts[0], wallPts[3], 'rgba(255,226,186,.6)', 0.6, 1.5);
-    }
-
-    /* ---- BASE COAT (scratch coat) - rough, sandy, warm beige ---- */
-    if (tBase > 0) {
-      var baseZ = Z_WALL + WALL_THICK + 0.04;
-      var basePts = [
-        S.project(X0 - 0.1, Y0 - 0.1, baseZ),
-        S.project(X1 + 0.1, Y0 - 0.1, baseZ),
-        S.project(X1 + 0.1, Y1 + 0.1, baseZ),
-        S.project(X0 - 0.1, Y1 + 0.1, baseZ)
-      ];
-      var baseGrad = ctx.createLinearGradient(0, basePts[0][1], 0, basePts[2][1]);
-      baseGrad.addColorStop(0, PS.lighten(BASE_COAT, 0.10));
-      baseGrad.addColorStop(0.5, BASE_COAT);
-      baseGrad.addColorStop(1, PS.darken(BASE_D, 0.12));
-      S.poly(basePts, baseGrad, null, tBase);
-
-      // Materiality: mottle + grain texture (sandy feel)
-      S.mottle(basePts, BASE_COAT, 0.12, 22);
-      S.texture(basePts, 'grain', 400, 0.05);
-      S.texture(basePts, 'aggregate', 180, 0.03);
-
-      // Contact shadow on wall face
-      S.shadow(0, baseZ, 6.5, 5.0, 0.35 * tBase);
-      S.contactAO(0, baseZ, 6.2, 4.8, 0.25 * tBase);
-
-      // Sun-side highlight (top edge of base coat)
-      S.rim(basePts[0], basePts[1], 'rgba(255,238,214,.55)', 0.7 * tBase, 1.2);
-    }
-
-    /* ---- TROWEL SWEEP 1: across base coat ---- */
-    if (tTrowel > 0) {
-      // Trowel position sweeps bottom-to-top
-      var trowelY = PS.lerp(Y0 - 0.3, Y1 + 0.3, PS.ease.out(tTrowel));
-      var trowelZ = baseZ + 0.08;
-      var trowelW = 2.2, trowelH = 0.35;
-
-      // Trowel tool (steel blade)
-      var tp1 = S.project(X0 - 1.5, trowelY, trowelZ);
-      var tp2 = S.project(X0 - 1.5 + trowelW, trowelY, trowelZ);
-      var tp3 = S.project(X0 - 1.5 + trowelW, trowelY + trowelH, trowelZ);
-      var tp4 = S.project(X0 - 1.5, trowelY + trowelH, trowelZ);
-      var trowelGrad = ctx.createLinearGradient(0, tp1[1], 0, tp3[1]);
-      trowelGrad.addColorStop(0, PS.lighten('#9aa6b4', 0.2));
-      trowelGrad.addColorStop(0.5, '#9aa6b4');
-      trowelGrad.addColorStop(1, PS.darken('#7a8494', 0.2));
-      S.poly([tp1, tp2, tp3, tp4], trowelGrad, 'rgba(60,70,80,.8)', tTrowel);
-
-      // Trowel handle
-      var hp1 = S.project(X0 - 1.5 - 0.4, trowelY + trowelH * 0.5, trowelZ + 0.15);
-      var hp2 = S.project(X0 - 1.5 - 1.2, trowelY + trowelH * 0.5, trowelZ + 0.15);
-      ctx.strokeStyle = PS.rgba('#3a3530', tTrowel);
-      ctx.lineWidth = 3;
-      ctx.lineCap = 'round';
-      ctx.beginPath(); ctx.moveTo(hp1[0], hp1[1]); ctx.lineTo(hp2[0], hp2[1]); ctx.stroke();
-
-      // Fresh sweep mark behind trowel (wet sheen)
-      if (tTrowel < 0.9) {
-        var sweepY = trowelY - 0.6;
-        var sw1 = S.project(X0 - 0.5, sweepY, baseZ + 0.01);
-        var sw2 = S.project(X1 + 0.5, sweepY, baseZ + 0.01);
-        var sw3 = S.project(X1 + 0.5, sweepY + 0.4, baseZ + 0.01);
-        var sw4 = S.project(X0 - 0.5, sweepY + 0.4, baseZ + 0.01);
-        var sheen = ctx.createLinearGradient(0, sw1[1], 0, sw3[1]);
-        sheen.addColorStop(0, 'rgba(255,242,214,0)');
-        sheen.addColorStop(0.5, 'rgba(255,238,206,.18)');
-        sheen.addColorStop(1, 'rgba(255,242,214,0)');
-        ctx.globalAlpha = tTrowel * 0.8;
-        S.poly([sw1, sw2, sw3, sw4], sheen, null, 1);
-        ctx.globalAlpha = 1;
-      }
-    }
-
-    /* ---- ACRYLIC COAT - smoother, cooler/whiter tone ---- */
-    if (tAcryl > 0) {
-      var acrylZ = Z_WALL + WALL_THICK + 0.04 + 0.08 + 0.06;
-      var acrylPts = [
-        S.project(X0 - 0.15, Y0 - 0.15, acrylZ),
-        S.project(X1 + 0.15, Y0 - 0.15, acrylZ),
-        S.project(X1 + 0.15, Y1 + 0.15, acrylZ),
-        S.project(X0 - 0.15, Y1 + 0.15, acrylZ)
-      ];
-      var acrylGrad = ctx.createLinearGradient(0, acrylPts[0][1], 0, acrylPts[2][1]);
-      acrylGrad.addColorStop(0, PS.lighten(ACRYLIC, 0.14));
-      acrylGrad.addColorStop(0.5, ACRYLIC);
-      acrylGrad.addColorStop(1, PS.darken(ACRYLIC_D, 0.10));
-      S.poly(acrylPts, acrylGrad, null, tAcryl);
-
-      // Materiality: finer grain, less aggregate, more streaks (smoother)
-      S.mottle(acrylPts, ACRYLIC, 0.08, 16);
-      S.texture(acrylPts, 'streak', 220, 0.04);
-      S.texture(acrylPts, 'grain', 180, 0.025);
-
-      // Contact shadow
-      S.shadow(0, acrylZ, 6.8, 5.2, 0.32 * tAcryl);
-      S.contactAO(0, acrylZ, 6.5, 5.0, 0.22 * tAcryl);
-
-      // Sun-side rim (top edge)
-      S.rim(acrylPts[0], acrylPts[1], 'rgba(255,246,232,.7)', 0.8 * tAcryl, 1.8);
-
-      // Subtle wet sheen while fresh
-      if (tAcryl < 0.7) {
-        var glintX = S.project(0, 0, acrylZ)[0];
-        var glintY = (acrylPts[0][1] + acrylPts[2][1]) * 0.5;
-        var gl = ctx.createRadialGradient(glintX, glintY, 0, glintX, glintY, Math.max(80, (acrylPts[2][1] - acrylPts[0][1]) * 0.5));
-        gl.addColorStop(0, 'rgba(255,246,232,' + (0.22 * (1 - tAcryl)) + ')');
-        gl.addColorStop(1, 'rgba(255,246,232,0)');
-        S.poly(acrylPts, gl, null, 1);
-      }
-    }
-
-    /* ---- TROWEL SWEEP 2: across acrylic coat (finishing pass) ---- */
-    if (tSweep2 > 0) {
-      var trowelY2 = PS.lerp(Y0 - 0.3, Y1 + 0.3, PS.ease.out(tSweep2));
-      var trowelZ2 = acrylZ + 0.06;
-
-      // Trowel blade
-      var tp1 = S.project(X0 - 1.5, trowelY2, trowelZ2);
-      var tp2 = S.project(X0 - 1.5 + 2.2, trowelY2, trowelZ2);
-      var tp3 = S.project(X0 - 1.5 + 2.2, trowelY2 + 0.35, trowelZ2);
-      var tp4 = S.project(X0 - 1.5, trowelY2 + 0.35, trowelZ2);
-      var trowelGrad = ctx.createLinearGradient(0, tp1[1], 0, tp3[1]);
-      trowelGrad.addColorStop(0, PS.lighten('#9aa6b4', 0.25));
-      trowelGrad.addColorStop(0.5, '#9aa6b4');
-      trowelGrad.addColorStop(1, PS.darken('#7a8494', 0.25));
-      S.poly([tp1, tp2, tp3, tp4], trowelGrad, 'rgba(60,70,80,.85)', tSweep2);
-
-      // Handle
-      var hp1 = S.project(X0 - 1.5 - 0.4, trowelY2 + 0.17, trowelZ2 + 0.15);
-      var hp2 = S.project(X0 - 1.5 - 1.2, trowelY2 + 0.17, trowelZ2 + 0.15);
-      ctx.strokeStyle = PS.rgba('#3a3530', tSweep2);
-      ctx.lineWidth = 3;
-      ctx.lineCap = 'round';
-      ctx.beginPath(); ctx.moveTo(hp1[0], hp1[1]); ctx.lineTo(hp2[0], hp2[1]); ctx.stroke();
-
-      // Finishing sheen
-      if (tSweep2 < 0.85) {
-        var sweepY = trowelY2 - 0.5;
-        var sw1 = S.project(X0 - 0.5, sweepY, acrylZ + 0.01);
-        var sw2 = S.project(X1 + 0.5, sweepY, acrylZ + 0.01);
-        var sw3 = S.project(X1 + 0.5, sweepY + 0.35, acrylZ + 0.01);
-        var sw4 = S.project(X0 - 0.5, sweepY + 0.35, acrylZ + 0.01);
-        var sheen = ctx.createLinearGradient(0, sw1[1], 0, sw3[1]);
-        sheen.addColorStop(0, 'rgba(255,242,214,0)');
-        sheen.addColorStop(0.5, 'rgba(255,246,232,.22)');
-        sheen.addColorStop(1, 'rgba(255,242,214,0)');
-        ctx.globalAlpha = tSweep2 * 0.85;
-        S.poly([sw1, sw2, sw3, sw4], sheen, null, 1);
-        ctx.globalAlpha = 1;
-      }
-    }
-
-    /* ---- TEXTURE FINISH - fine speckle/grain, visible texture ---- */
-    if (tTex > 0) {
-      var texZ = Z_WALL + WALL_THICK + 0.04 + 0.08 + 0.06 + 0.06 + 0.05;
-      var texPts = [
-        S.project(X0 - 0.2, Y0 - 0.2, texZ),
-        S.project(X1 + 0.2, Y0 - 0.2, texZ),
-        S.project(X1 + 0.2, Y1 + 0.2, texZ),
-        S.project(X0 - 0.2, Y1 + 0.2, texZ)
-      ];
-      var texGrad = ctx.createLinearGradient(0, texPts[0][1], 0, texPts[2][1]);
-      texGrad.addColorStop(0, PS.lighten(TEXTURE, 0.12));
-      texGrad.addColorStop(0.5, TEXTURE);
-      texGrad.addColorStop(1, PS.darken(TEXTURE_D, 0.08));
-      S.poly(texPts, texGrad, null, tTex);
-
-      // Materiality: visible texture - aggregate speckles + fine grain
-      S.mottle(texPts, TEXTURE, 0.06, 14);
-      S.texture(texPts, 'aggregate', 320, 0.06);  // visible sand/aggregate
-      S.texture(texPts, 'grain', 260, 0.035);
-      S.texture(texPts, 'streak', 120, 0.02);     // subtle tool marks
-
-      // Contact shadow
-      S.shadow(0, texZ, 7.0, 5.5, 0.38 * tTex);
-      S.contactAO(0, texZ, 6.8, 5.3, 0.28 * tTex);
-
-      // Strong sun-side rim (final coat catches light)
-      S.rim(texPts[0], texPts[1], 'rgba(255,246,232,.85)', 0.9 * tTex, 2.2);
-      S.rim(texPts[3], texPts[2], 'rgba(255,214,170,.45)', 0.5 * tTex, 1.4);
-    }
-
-    /* ---- Scale cue: person at base of wall ---- */
-    S.scaleCue(-7.5, Z_WALL + 4, 'person');
-  }
-
-  function frame(S_, p, time) {
-    S = S_;
-    env(time);
-    drawSubject(p, time);
-    grade(time);
-    var idx = p < 0.15 ? 0 : p < 0.40 ? 1 : p < 0.55 ? 2 : p < 0.72 ? 3 : p < 0.80 ? 4 : 5;
-    if (stgNum) stgNum.textContent = (idx < 10 ? '0' : '') + (idx + 1);
-    if (stgName) stgName.textContent = ['Substrate', 'Base coat', 'Trowel pass', 'Acrylic coat', 'Finish pass', 'Texture coat'][idx];
-    if (railFill) railFill.style.width = Math.round(p * 100) + '%';
-    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.4, 0, 1);
-  }
-  S.start();
-})();
-</script>
-
-<script>
-// ===== reveals + year =====
+// ===== reveals + year - content visible with or without JS =====
 (function(){
-  var obs=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
-  },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
-  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+  var rvs=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+    rvs.forEach(function(el){obs.observe(el);});
+  } else {
+    rvs.forEach(function(el){el.classList.add('on');});
+  }
   setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},1200);
 })();
 var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 </script>
+<div class="lb-pulse" aria-hidden="true"></div>
+<!-- lb:pulse -->
+<script src="https://laydback-hq.tail5b3740.ts.net:8443/pulse/js" data-project="millards-rendering" defer></script>
 </body>
 </html>
