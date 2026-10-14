@@ -1237,7 +1237,7 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Space Grotesk', system-ui
     if (stgNum) stgNum.textContent = (idx < 10 ? '0' : '') + idx;
     if (stgName) stgName.textContent = NAMES[idx];
     if (railFill) railFill.style.width = Math.round(p * 100) + '%';
-    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.4, 0, 1);
+    if (heroCopy) heroCopy.style.opacity = (window.scrollY < 40 ? 1 : PS.clamp(1 - p * 2.4, 0, 1));
   }
   S.start();
 })();

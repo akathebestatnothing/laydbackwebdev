@@ -1217,7 +1217,7 @@ section{padding-block:5.2rem}
     if (stgNum) stgNum.textContent = '0' + (idx + 1);
     if (stgName) stgName.textContent = ['Set & tie', 'Formwork', 'Place concrete', 'Screed & finish'][idx];
     if (railFill) railFill.style.width = Math.round(p * 100) + '%';
-    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.4, 0, 1);
+    if (heroCopy) heroCopy.style.opacity = (window.scrollY < 40 ? 1 : PS.clamp(1 - p * 2.4, 0, 1));
   }
   S.start();
 })();

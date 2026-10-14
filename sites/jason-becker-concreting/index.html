@@ -1584,7 +1584,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
     if (stgNum) stgNum.textContent = '0' + (idx + 1);
     if (stgName) stgName.textContent = ['Set & tie', 'Formed', 'Poured', 'Finished'][idx];
     if (railFill) railFill.style.width = Math.round(p * 100) + '%';
-    if (heroCopy) heroCopy.style.opacity = PS.clamp(1 - p * 2.4, 0, 1);
+    if (heroCopy) heroCopy.style.opacity = (window.scrollY < 40 ? 1 : PS.clamp(1 - p * 2.4, 0, 1));
     for (var h = 0; h < hudEls.length; h++) {
       if (h === idx) hudEls[h].classList.add('on'); else hudEls[h].classList.remove('on');
     }

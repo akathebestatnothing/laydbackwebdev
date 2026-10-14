@@ -1517,7 +1517,7 @@ var b=document.getElementById('nav__toggle'),n=document.getElementById('navMenu'
     if (stgName) stgName.textContent = NAMES[idx];
     if (railFill) railFill.style.height = (p * 100).toFixed(1) + '%';
     if (heroCopy) {
-      heroCopy.style.opacity = S.reduce ? 1 : PS.clamp(1 - p * 4.8, 0, 1);
+      heroCopy.style.opacity = (window.scrollY < 40 ? 1 : (S.reduce ? 1 : PS.clamp(1 - p * 4.8, 0, 1)));
       heroCopy.style.transform = 'translateY(' + (p * 35) + 'px)';
     }
     if (hint) hint.style.opacity = S.reduce ? 0 : String(PS.clamp(1 - p * 7, 0, 1));
