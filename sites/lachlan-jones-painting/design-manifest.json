@@ -1,0 +1,13 @@
+{
+  "composition": "stacked-manifesto (#5)",
+  "lead_id": "lachlan-jones-painting",
+  "company": "Lachlan Jones Painting & Decorating",
+  "palette": {
+    "bg": "#faf8f4",
+    "ink": "#141210",
+    "accent": "#50B0B0",
+    "muted": "#6f6a62"
+  },
+  "typography": "Fraunces serif display + Inter",
+  "unique_vs": "typographic hero (no image hero), single column, italic serif accents \u2014 distinct from editorial-split/fullbleed-drag/rail-timeline/mosaic-marquee"
+}
