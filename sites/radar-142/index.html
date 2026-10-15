@@ -16,7 +16,7 @@
 <style>
 :root {
   --paper: #0a0a0a; --paper2: #111111; --ink: #f3f4f6; --ink2: #a2a7ad;
-  --acc: #a32020; --acc2: #7a1717; --line: rgba(255,255,255,.14); --chip: #1b1d22;
+  --acc: #c4fb24; --acc2: #7a1717; --line: rgba(255,255,255,.14); --chip: #1b1d22;
   --deep: #000000; --light: #ffffff;
   --acc-text: #ffffff;
   --fluid: clamp(44px, 9vw, 118px);
@@ -297,7 +297,7 @@ h2::after {
     <p class="hero-sub">Full interior and exterior details, machine paint correction and long-life graphene protection &mdash; cars, 4WDs, boats and motorhomes, done in the West Gosford workshop by people who care about the reflections.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#quote">Get a free quote</a>
-      <a class="btn btn-ghost" href="tel:+61405733769">Call 0405 733 769</a>
+      <a class="btn btn-ghost" href="#quote-heading">Call 0405 733 769</a>
     </div>
     <div class="hero-strip">
       <p><strong><strong>Graphene protection</strong></strong>long-life paint seal</p>
@@ -306,6 +306,8 @@ h2::after {
     </div>
     </div>
     <div class="hero-visual">
+      <canvas id="heroCanvas" style="width:100%;height:100%;display:block"></canvas>
+      <style>#heroCanvas{display:block;perspective:800px}</style>
       <div class="hero-enq">
           <p class="he-label">What does your car need?</p>
           <select id="he-svc" aria-label="What does your car need?">
@@ -369,7 +371,7 @@ h2::after {
     </div>
     <div class="pb-cta">
       <a class="pb-btn" href="#quote">Get a free quote</a>
-      <a class="pb-phone" href="tel:+61405733769">0405 733 769</a>
+      <a class="pb-phone" href="#quote-heading">0405 733 769</a>
     </div>
   </div>
 </section>
@@ -447,7 +449,7 @@ html.js .hero-slides img.on{opacity:1}
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:+61405733769">0405 733 769</a></div>
+      <div><b>Call</b><a href="#quote-heading">0405 733 769</a></div>
       <div><b>Email</b><a href="mailto:allardsdetailing@gmail.com">allardsdetailing@gmail.com</a></div>
       <div><b>Area</b><span>West Gosford &amp; the Central Coast</span></div>
     </div>
@@ -549,11 +551,11 @@ html.js .hero-slides img.on{opacity:1}
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Car detailing &middot; Paint correction &middot; Graphene protection &mdash; West Gosford.<br></p>
   </div>
   <div><h4>Services</h4><a href="#services">Graphene protection</a><a href="#services">Full detail</a><a href="#services">Paint correction</a><a href="#quote">Book a detail</a></div><div><h4>Studio</h4><a href="#process">How it works</a><a href="#faq">FAQ</a><a href="#work">Recent work</a><a href="#quote">Free quote</a></div>
-  <div><h4>Contact</h4><a href="tel:+61405733769">0405 733 769</a><a href="mailto:allardsdetailing@gmail.com">allardsdetailing@gmail.com</a><a href="#quote">Free quote</a></div>
+  <div><h4>Contact</h4><a href="#quote-heading">0405 733 769</a><a href="mailto:allardsdetailing@gmail.com">allardsdetailing@gmail.com</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
   <span>&copy; 2026 ALLARDS AUTO DETAILING &middot; </span>
-  <a href="tel:+61405733769">0405 733 769</a><a href="mailto:allardsdetailing@gmail.com">allardsdetailing@gmail.com</a>
+  <a href="#quote-heading">0405 733 769</a><a href="mailto:allardsdetailing@gmail.com">allardsdetailing@gmail.com</a>
 </div>
 </footer>
 
@@ -706,6 +708,31 @@ if (hg) {
     x0 = null;
   }, {passive: true});
   start();
+})();
+</script>
+
+<script>
+/* RENDER FINISH SCROLL SCENE — trade-accurate rendering/plastering scene
+ * Environment: MIDDAY-NEUTRAL with coastal light
+ */
+(function () {
+  'use strict';
+  var cv = document.getElementById('heroCanvas') || document.getElementById('buildCanvas');
+  if (!cv) return;
+  var wrap = document.getElementById('stage') || document.getElementById('sceneWrap') || document.body;
+  var fixedP = (window.PS && PS.queryP) ? PS.queryP() : null;
+
+  var S = (window.PS && PS.setup) ? PS.setup(cv, {
+    sun: 'right', seed: 42, p: fixedP === null ? 0 : fixedP,
+    reduce: (window.PS && PS.reduceMotion) ? (PS.reduceMotion() || fixedP !== null) : false,
+    sky: ['#8fc5e8', '#c8dff0', '#e8f2f8'], glow: '#ffd8a0', fogNear: 4, fogFar: 40,
+    horizon: 0.48, focal: 1.15, camH: 1.55,
+    progress: fixedP !== null ? null : function () {
+      var r = wrap.getBoundingClientRect(), span = r.height - window.innerHeight;
+      return span <= 0 ? 1 : PS.clamp(-r.top / span, 0, 1);
+    },
+    onFrame: function () {}
+  }) : null;
 })();
 </script>
 </body>
