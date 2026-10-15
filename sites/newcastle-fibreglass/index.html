@@ -36,12 +36,12 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 /* nav + header lockup */
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,3vw,2.5rem);background:rgba(8,34,80,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(140,225,255,.45);z-index:1000}
 .brand{display:flex;align-items:center;gap:.75rem;color:inherit;text-decoration:none;min-width:0}
-.brand-mark{height:38px;width:38px;object-fit:cover;border-radius:50%;border:2px solid rgba(160,220,255,.75);display:block;flex:none}
+.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;line-height:1;min-width:0}
 .brand-name{font-family:'Montserrat',sans-serif;font-size:1.06rem;line-height:1;font-weight:800;color:#fff;white-space:nowrap}
 .brand-sub{display:block;margin-top:4px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#bfd8f2;white-space:nowrap}
 .brand-sub em{font-style:normal;color:var(--acc-lite)}
-@media(max-width:680px){.brand-mark{height:30px;width:30px}.brand-name{font-size:.95rem;white-space:normal}.brand-sub{display:none}}
+@media(max-width:680px){.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name{font-size:.95rem;white-space:normal}.brand-sub{display:none}}
 @media(max-width:640px){.nav__cta a{font-size:.72rem;padding:.5rem .8rem;letter-spacing:.04em}}
 .nav__links{display:flex;gap:clamp(1rem,2.4vw,2rem);list-style:none;margin:0;padding:0}
 .nav__links a{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);transition:color .2s}
@@ -63,7 +63,7 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
   .navpanel.open a{display:block;padding:.6rem 0;font-size:.95rem;color:#fff;text-transform:uppercase;letter-spacing:.08em}
   .navpanel.open a:hover{color:var(--acc-lite)}
 }
-@media (max-width:400px){.brand-mark{height:28px;width:28px}.brand-name{font-size:.86rem}.nav__cta a{font-size:.7rem;padding:.45rem .6rem;letter-spacing:.01em}}
+@media (max-width:400px){.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name{font-size:.86rem}.nav__cta a{font-size:.7rem;padding:.45rem .6rem;letter-spacing:.01em}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.78rem 1.5rem;font-size:.86rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;border:0;border-radius:6px;cursor:pointer}
 .btn--p{background:var(--acc);color:#0e3a7e}
 .btn--p:hover{background:var(--acc-lite);color:#0e3a7e}

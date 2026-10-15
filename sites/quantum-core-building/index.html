@@ -44,12 +44,12 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .skip:focus{top:1rem}
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,3vw,2.5rem);background:rgba(0,0,0,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-acc);z-index:1000}
 .brand{display:flex;align-items:center;gap:.8rem;color:var(--ink);text-decoration:none}
-.brand-mark{height:32px;width:32px;display:block;border-radius:50%;border:1.5px solid rgba(255,127,0,.55);background:#0b0b0b;object-fit:cover}
+.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;line-height:1}
 .brand-name{font-family:'Montserrat',sans-serif;font-size:1.15rem;line-height:1;font-weight:800;letter-spacing:-.012em}
 .brand-sub{display:block;margin-top:4px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;font-style:normal;opacity:.85}
 .brand-sub em{font-style:normal;opacity:1;color:var(--acc)}
-@media (max-width:680px){.brand-mark{height:24px}.brand-name{font-size:1.02rem}.brand-sub{display:none} .nav{height:72px}}
+@media (max-width:680px){.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name{font-size:1.02rem}.brand-sub{display:none} .nav{height:72px}}
 @media (max-width:420px){.brand-name{font-size:.9rem}}
 @media (max-width:680px){:root{--nav-h:72px}}
 .nav__links{display:flex;gap:clamp(1rem,2.4vw,2rem);list-style:none;margin:0;padding:0}

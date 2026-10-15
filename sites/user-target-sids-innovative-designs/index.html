@@ -71,7 +71,7 @@ h1 .acc { color: var(--acc); }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero-photo { max-width: 1360px; margin: 0 auto; padding: 0 40px; }
 .hero-photo .ph { position: relative; }
-.hero-photo img { width: 100%; height: min(56vh, 560px); object-fit: cover; object-position: center 40%; display: block; }
+/* hero-photo uses gradient instead of stretched photo */
 .hero-photo .tag { position: absolute; top: 18px; left: 18px; background: var(--paper); color: var(--ink); padding: 6px 14px; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
 .hero-photo .cap { position: absolute; right: 24px; bottom: 20px; color: #fff; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
 
@@ -180,7 +180,7 @@ section { padding: 110px 0; }
 footer { padding: 70px 0 0; }
 footer .wrap { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding-bottom: 50px; }
 footer .fbrand { display: flex; align-items: center; gap: 14px; }
-footer .fbrand img { height: 58px; object-fit: contain; }
+footer .fbrand img{height:56px;width:auto;object-fit:contain;border-radius:6px}
 footer .fbrand .bname { font-weight: 900; font-size: 19px; text-transform: uppercase; letter-spacing: .05em; }
 footer h4 { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--acc); margin-bottom: 16px; font-weight: 800; }
 footer a { color: var(--ink2); text-decoration: none; font-size: 14px; display: block; padding: 3px 0; }

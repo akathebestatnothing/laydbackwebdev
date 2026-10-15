@@ -29,7 +29,7 @@ a:hover{text-decoration:underline}
 .header{position:sticky;top:0;z-index:100;background:rgba(15,17,21,.92);-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);border-bottom:1px solid var(--line)}
 .header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px}
 .brand{display:flex;align-items:center;gap:.7rem;color:var(--ink);text-decoration:none}
-.brand-mark{height:32px;width:auto;display:block}
+.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;line-height:1}
 .brand-name{font-family:var(--font-display);font-weight:800;font-size:1.15rem;line-height:1;letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
 .brand-sub{display:block;margin-top:4px;font-family:var(--font-display);font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);font-weight:700}
@@ -40,7 +40,7 @@ a:hover{text-decoration:underline}
 .cta-btn{display:inline-block;padding:10px 20px;background:var(--accent);color:#0b0e12;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;transition:transform .15s ease,box-shadow .15s ease}
 .cta-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(224,163,58,.3);text-decoration:none}
 @media(max-width:820px){
-  .brand-mark{height:24px}
+  .brand-mark{height:48px;width:auto;object-fit:contain}
   .brand-name{font-size:1rem}
   .brand-sub{font-size:.44rem;letter-spacing:.24em;margin-top:3px}
   .header-inner{padding:0 18px;gap:.9rem;height:64px}

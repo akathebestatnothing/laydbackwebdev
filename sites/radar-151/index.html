@@ -38,7 +38,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:.005em;text-tran
 .mono{font-family:var(--font-m)}
 .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,3vw,2.5rem);background:rgba(255,255,255,.94);-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);border-bottom:1px solid var(--line);z-index:1000}
 .brand{display:flex;align-items:center;gap:.7rem;color:var(--ink);text-decoration:none;min-width:0}
-.brand-mark{height:38px;width:auto;display:block;flex:none;border-radius:6px}
+.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;gap:3px;line-height:1;min-width:0}
 .brand-name{font-family:'Montserrat','Encode Sans',sans-serif;font-size:clamp(1.02rem,3.2vw,1.26rem);line-height:1;font-weight:700;letter-spacing:.01em;white-space:nowrap}
 .brand-sub{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -54,13 +54,12 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:.005em;text-tran
 .btn--o:hover{background:var(--acc);color:#fff}
 .nav__cta .btn{padding:.52rem 1.05rem;font-size:.75rem;white-space:nowrap}
 @media (max-width:900px){.nav__links{display:none}.nav__p{display:none}}
-@media (max-width:640px){.brand-mark{height:30px}.brand-name{font-size:1.04rem}.brand-sub{display:none}}
+@media (max-width:640px){.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name{font-size:1.04rem}.brand-sub{display:none}}
 
 /* ============ hero: real photo (>=1080) + dark scrim ============ */
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#0b111c;perspective:1200px}
 #heroCanvas{display:none}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;filter:saturate(.92) brightness(.6)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
 .hero-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 22% 40%,rgba(8,12,20,.66) 0%,rgba(8,12,20,.34) 55%,rgba(8,12,20,.14) 100%),linear-gradient(180deg,rgba(8,12,20,.86) 0%,rgba(8,12,20,.48) 44%,rgba(8,12,20,.9) 100%)}
 .hero-copy{position:relative;z-index:2;max-width:660px;padding:calc(var(--nav-h) + 8vh) clamp(1.2rem,4.5vw,4rem) 5rem;pointer-events:auto}
 .hero-copy .k{display:inline-flex;align-items:center;gap:.6rem;margin:0 0 .9rem;font-family:var(--font-m);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:#a9c4ee}
@@ -161,9 +160,7 @@ footer a:hover{color:#fff}
 <header id="top" class="hero">
   <!-- LB-3D-HERO -->
   <canvas id="heroCanvas" hidden aria-hidden="true"></canvas>
-  <div class="hero-bg">
-    <img src="assets/gal_1.jpg" alt="Freshly restored tiled roof on a Central Coast home — Done Right Roof &amp; Restoration" width="1200" height="904" fetchpriority="high" decoding="async">
-  </div>
+  <div class="hero-bg"></div>
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="hero-copy" id="heroCopy">
     <p class="k"><i></i>Licensed roof tiler · Central Coast NSW</p>

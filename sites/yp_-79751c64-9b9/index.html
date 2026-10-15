@@ -67,8 +67,8 @@ html,body{overflow-x:hidden}
 /* hero is a real photograph under a dark scrim */
 .hero{background:#0e1219}
 .hero-canvas{display:none!important}
-.hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 46%;filter:brightness(.5) saturate(.85) contrast(1.05)}
+.hero-photo{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
+/* hero-photo uses gradient instead of stretched photo */
 .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,12,20,.70) 0%,rgba(10,12,20,.38) 40%,rgba(10,12,20,.44) 68%,rgba(10,12,20,.78) 100%)}
 .hero-content{position:relative;z-index:2}
 .hero-title,.hero-title-line{color:var(--color-warm-white)}
@@ -138,7 +138,7 @@ html,body{overflow-x:hidden}
     <!-- Hero Section with 3D Canvas Particle Ribbon -->
     <section class="hero" aria-labelledby="hero-title">
       <!-- LB-3D-HERO --><div class="hero-canvas" id="hero-canvas" aria-hidden="true"><canvas id="lb3d-stage" class="lb-3d-hero" width="560" height="300"></canvas></div>
-      <div class="hero-photo" aria-hidden="true"><img src="assets/photos/hero-plumbing.jpg" alt="" width="1920" height="1080" loading="eager" decoding="async"></div>
+      <div class="hero-photo" aria-hidden="true"></div>
       <div class="hero-scrim" aria-hidden="true"></div>
       <div class="hero-content container">
         <h1 id="hero-title" class="hero-title" data-ux="words">

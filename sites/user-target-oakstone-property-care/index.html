@@ -14,7 +14,7 @@ img{max-width:100%}
 /* NAV — brand lockup: monogram tile + name + area line, phone right. No pill, no capsule. */
 .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 6vw;border-bottom:2px solid var(--ink);background:var(--bg)}
 .nav .brand{display:flex;align-items:center;gap:14px;min-width:0}
-.nav .brand-mark{width:46px;height:46px;flex:none;display:grid;place-items:center;background:var(--deep);color:var(--bg);font-family:'Fraunces',serif;font-weight:900;font-size:19px;letter-spacing:.01em;border-bottom:4px solid var(--accent)}
+.nav .brand-mark{height:48px;width:auto;object-fit:contain}
 .nav .brand-txt{display:flex;flex-direction:column;min-width:0}
 .nav .brand-name{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(18px,2vw,25px);line-height:1.05;letter-spacing:-.01em}
 .nav .brand-name b{color:var(--accent);font-weight:900}
@@ -101,7 +101,7 @@ html,body{overflow-x:hidden}
 @media (max-width:760px){
   .nav{padding:16px 5vw;gap:12px}
   .nav .brand{gap:11px}
-  .nav .brand-mark{width:38px;height:38px;font-size:15px;border-bottom-width:3px}
+  .nav .brand-mark{height:48px;width:auto;object-fit:contain}
   .nav .brand-name{font-size:16px}
   .nav .brand-sub{font-size:11px;letter-spacing:.16em;margin-top:4px}
   .nav .tel{font-size:14.5px;padding:4px 0;border-bottom-width:2px}
@@ -124,7 +124,7 @@ html,body{overflow-x:hidden}
   .nav .brand-name{font-size:14px}
   .nav .brand-sub{font-size:11px;letter-spacing:.12em}
   .nav .tel{font-size:13px}
-  .nav .brand-mark{width:34px;height:34px;font-size:13px}
+  .nav .brand-mark{height:48px;width:auto;object-fit:contain}
 }
 </style></head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <div class="nav" id="top">

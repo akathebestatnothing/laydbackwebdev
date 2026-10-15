@@ -164,8 +164,8 @@ html:not(.js) .rv { opacity: 1 !important; transform: none !important; }
 /* Hero - real photo (see LB-3D-HERO layer) */
 #sceneWrap { position: relative; }
 #sceneSticky { position: relative; height: 100vh; min-height: 640px; overflow: hidden; perspective: 1000px; display: flex; align-items: flex-end; }
-.hero-photo { position: absolute; inset: 0; z-index: 0; }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 58%; display: block; filter: brightness(.84) contrast(1.07) saturate(1.02); }
+.hero-photo{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
+/* hero-photo uses gradient instead of stretched photo */
 .hero-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(180deg, rgba(13,13,13,.72) 0%, rgba(13,13,13,.3) 30%, rgba(13,13,13,.52) 58%, rgba(13,13,13,.94) 100%); }
 #heroCanvas { display: none; }
@@ -203,9 +203,7 @@ html:not(.js) .rv { opacity: 1 !important; transform: none !important; }
 <header id="top">
   <div id="sceneWrap" aria-label="WC Concreting - exposed aggregate driveway finish">
     <div id="sceneSticky">
-      <div class="hero-photo">
-        <img src="assets/wc-hero.jpg" alt="Finished exposed aggregate driveway - a pour like this" width="1200" height="856" loading="eager" fetchpriority="high">
-      </div>
+      <div class="hero-photo"></div>
       <div class="hero-scrim" aria-hidden="true"></div>
       <!-- LB-3D-HERO: hidden motion layer (3D scene retired for static preview) -->
       <canvas id="heroCanvas" width="600" height="600" aria-hidden="true"></canvas>

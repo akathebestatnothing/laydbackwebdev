@@ -31,8 +31,7 @@ img{max-width:100%;display:block}
 @media(max-width:760px){.nav-links{display:none}}
 /* hero — plants FIRST, full-bleed lush */
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
 .hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,40,12,.28) 0%,rgba(20,40,12,.55) 70%,rgba(20,40,12,.82) 100%)}
 .hero .hero-3d{position:absolute;inset:0;pointer-events:none;z-index:2;perspective:900px}
 .hero .h3d-leaf{position:absolute;width:26px;height:26px;background:radial-gradient(circle at 35% 35%, rgba(168,199,58,.85), rgba(74,122,46,.55));border-radius:60% 40% 55% 45%;opacity:.4;will-change:transform;animation:floatLeaf 11s ease-in-out infinite}
@@ -115,7 +114,7 @@ footer strong{color:#fff}
 </header>
 
 <header class="hero" id="top">
-  <div class="hero-bg"><img src="assets/work.jpg" alt="Plants at Charlestown Garden Centre"></div>
+  <div class="hero-bg"></div>
   <div class="hero-shade"></div>
   <div class="hero-3d" aria-hidden="true">
     <span class="h3d-leaf" style="left:8%;top:70%"></span>

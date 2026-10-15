@@ -167,7 +167,7 @@ section#lbq{--lbq-bg:#EDF3FA;--lbq-ink:#152238;--lbq-muted:#54627C;--lbq-panel:#
 
 <header class="hero" id="top">
 <!-- LB-3D-HERO -->
-  <div class="hero-bg"><img src="images/hero.jpg" alt="Mops &amp; Spades Home &amp; Garden — home and garden care, Camperdown VIC" width="1179" height="484"></div>
+  <div class="hero-bg"></div>
   <canvas id="heroCanvas" aria-hidden="true" hidden></canvas>
   <div class="hero-scrim"></div>
   
@@ -364,7 +364,7 @@ section#lbq{--lbq-bg:#EDF3FA;--lbq-ink:#152238;--lbq-muted:#54627C;--lbq-panel:#
 .hero{position:relative;isolation:isolate;overflow:hidden;perspective:1200px}
 .hero>*{position:relative;z-index:1}
 .hero .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
-.hero .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:blur(1px) brightness(.5) saturate(.95) contrast(1.05)}
+.hero /* hero-bg uses gradient instead of stretched photo */
 .hero .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(100deg,rgba(11,27,50,.94) 0%,rgba(11,27,50,.78) 42%,rgba(11,27,50,.42) 72%,rgba(11,27,50,.62) 100%)}
 .hero .hero-shade{z-index:1}
 .hero .hero-in{z-index:3}
@@ -373,10 +373,10 @@ section#lbq{--lbq-bg:#EDF3FA;--lbq-ink:#152238;--lbq-muted:#54627C;--lbq-panel:#
 
 /* brand header — locked lockup 2026-10-14: 32px crisp mark + 800-weight wordmark */
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-.brand img, .brand-mark{height:32px!important;width:auto!important;max-height:32px!important;display:block;image-rendering:-webkit-optimize-contrast}
+.brand img, .brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-name,.comp-name{font-size:1.15rem!important;line-height:1!important;letter-spacing:-.01em!important;font-weight:800!important;white-space:nowrap}
 .brand-sub,.comp-sub{font-size:.66rem!important;letter-spacing:.18em!important;font-weight:700!important;margin-top:3px;text-transform:uppercase;color:#9BE0BF}
-@media (max-width:820px){.brand img,.brand-mark{height:28px!important}.brand-name,.comp-name{font-size:1.06rem!important}}
+@media (max-width:820px){.brand img,.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name,.comp-name{font-size:1.06rem!important}}
 
 /* contrast pass 2026-10-14 */
 .nav-cta,.btn-primary{background:#0E6E48}

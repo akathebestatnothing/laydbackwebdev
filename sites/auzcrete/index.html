@@ -491,11 +491,11 @@ document.documentElement.classList.add('js');
 
 /* brand header — Allards pattern P2 2026-10-14 */
 .brand,.nav-brand,.nav-logo,.logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:32px!important;width:auto!important;max-height:32px!important;display:block;border-radius:0!important;image-rendering:-webkit-optimize-contrast}
+.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;line-height:1}
 .brand-name,.comp-name{font-family:var(--font-display,var(--disp,inherit));font-weight:800!important;font-size:1.15rem!important;line-height:1!important;letter-spacing:-.012em!important;text-transform:uppercase;white-space:nowrap;margin:0}
 .brand-sub{display:block;font-size:.7rem!important;letter-spacing:.24em!important;font-weight:600!important;text-transform:uppercase;margin-top:4px;font-style:normal;opacity:.92}
-@media (max-width:820px){.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:24px!important}.brand-name{font-size:1.02rem!important;letter-spacing:-.008em!important}}
+@media (max-width:820px){.brand img,.nav-brand img,.nav-logo img,.logo img,.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name{font-size:1.02rem!important;letter-spacing:-.008em!important}}
 
 /* mobile overflow guard 2026-10-14 */
 html,body{overflow-x:hidden}

@@ -48,7 +48,7 @@ html.js .drop.in{opacity:1;transform:none}
 .nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(10,12,8,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;gap:1.4rem;height:90px;max-width:1360px;margin:0 auto;padding:0 40px}
 .brand{display:flex;align-items:center;gap:.7rem;color:#F6F8EC;text-decoration:none}
-.brand-mark{height:32px;width:auto;display:block}
+.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;line-height:1}
 .brand-name{font-family:'Montserrat','Saira Condensed','Arial Narrow',sans-serif;font-size:1.16rem;line-height:1;font-weight:900;letter-spacing:.025em}
 .brand-sub{display:block;margin-top:4px;font-family:'Montserrat','Saira Condensed',sans-serif;font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:#c3c7cc;font-weight:700;font-style:normal}
@@ -66,7 +66,7 @@ html.js .drop.in{opacity:1;transform:none}
 
 /* Mobile nav */
 @media(max-width:640px){
-  .brand-mark{height:24px}
+  .brand-mark{height:48px;width:auto;object-fit:contain}
   .brand-name{font-size:1rem}
   .brand-sub{font-size:.44rem;letter-spacing:.24em;margin-top:3px}
   .nav-in{padding:0 18px;gap:.9rem}
@@ -410,11 +410,11 @@ section#lbq{--lbq-bg:#F4F6EE;--lbq-ink:#171A12;--lbq-muted:#5D6450;--lbq-panel:#
 
 /* brand header — Allards pattern 2026-10-14 (sized to this site's lockup spec: 32px / 24px mark) */
 .brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
-.brand img, .brand-mark{height:32px!important;width:auto!important;max-height:32px!important;display:block;image-rendering:-webkit-optimize-contrast}
+.brand img, .brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-mark,.brand img{background:#F4F6EE;border-radius:6px;padding:3px}
 .brand-name,.comp-name{font-size:1.16rem!important;line-height:1!important;letter-spacing:.025em!important;font-weight:900;white-space:nowrap}
 .brand-sub,.comp-sub{font-size:.7rem!important;letter-spacing:.24em!important;font-weight:700!important;margin-top:4px;text-transform:uppercase}
-@media (max-width:820px){.brand img,.brand-mark{height:24px!important}.brand-name,.comp-name{font-size:1rem!important}.brand-sub,.comp-sub{font-size:.5rem!important;letter-spacing:.22em!important}}
+@media (max-width:820px){.brand img,.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name,.comp-name{font-size:1rem!important}.brand-sub,.comp-sub{font-size:.5rem!important;letter-spacing:.22em!important}}
 
 /* hero canvas hidden (LB-3D-HERO marker kept) + pulse 2026-10-14 */
 #heroCanvas{display:none!important}

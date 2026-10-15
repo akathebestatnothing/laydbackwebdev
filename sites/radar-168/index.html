@@ -75,8 +75,7 @@ html.js .drop.in { opacity: 1; transform: none; }
 
 /* ---- hero ---- */
 .hero{position:relative;min-height:clamp(720px,100svh,1100px);display:flex;align-items:center;overflow:hidden;isolation:isolate;padding-top:72px}
-.hero-bg{position:absolute;inset:0;z-index:-3}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(1.07) contrast(1.03) brightness(.95)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
 .hero-scrim{position:absolute;inset:0;z-index:-2;background:linear-gradient(to top,rgba(20,18,16,1) 0%,rgba(20,18,16,.98) 20%,rgba(20,18,16,.8) 45%,rgba(20,18,16,.35) 70%,rgba(20,18,16,.15) 100%)}
 .hero-grid{position:absolute;inset:0;z-index:-1;opacity:.08;pointer-events:none;background-image:linear-gradient(to right,rgba(154,154,156,.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(154,154,156,.035) 1px,transparent 1px);background-size:clamp(58px,7.6vw,128px) clamp(58px,7.6vw,128px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 20%,#000 55%,transparent 85%);mask-image:linear-gradient(to bottom,transparent 0,#000 20%,#000 55%,transparent 85%)}
 .hero-3d{display:none}
@@ -168,7 +167,7 @@ footer h4 { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; c
 footer a { display: block; text-decoration: none; color: var(--ink2); font-size: 14.5px; padding: 5px 0; }
 footer a:hover { color: var(--acc); }
 .fbrand { display: flex; align-items: center; gap: 14px; }
-.fbrand img { height: 56px; object-fit: contain; border-radius: 6px; }
+.fbrand img{height:56px;width:auto;object-fit:contain;border-radius:6px}
 .footer-bar { max-width: 1360px; margin: 50px auto 0; padding: 22px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink2); }
 @media (max-width: 900px) { footer .wrap { grid-template-columns: 1fr 1fr; } }
 
@@ -213,7 +212,7 @@ footer a:hover { color: var(--acc); }
 </div></nav>
 
 <header class="hero" id="top"><!-- LB-3D-HERO -->
-  <div class="hero-bg"><img src="assets/hero.jpg" alt="Close-up finished exposed aggregate concrete surface showing stone texture and broom finish in warm afternoon light — Onyx Concrete Co project" width="1600" height="1080"></div>
+  <div class="hero-bg"></div>
   <div class="hero-scrim"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-3d" aria-hidden="true"><div class="plane"></div></div>

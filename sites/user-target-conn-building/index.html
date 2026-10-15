@@ -49,7 +49,7 @@ a { color: inherit; }
 .nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(26,22,18,.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(184,149,106,.18); }
 .nav-in { display: flex; align-items: center; gap: 1rem; height: 72px; max-width: 1360px; margin: 0 auto; padding: 0 var(--gut); }
 .brand { display: flex; align-items: center; gap: .7rem; color: #fff; text-decoration: none; flex-shrink: 0; }
-.brand-mark { flex-shrink: 0; }
+.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt { display: flex; flex-direction: column; line-height: 1; min-width: 0; }
 .brand-name { font-family: var(--disp); font-size: 1.05rem; line-height: 1; font-weight: 900; letter-spacing: .01em; }
 .brand-sub { font-size: .72rem; color: rgba(255,255,255,.75); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-top: 3px; }
@@ -70,7 +70,7 @@ a { color: inherit; }
 .burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 @media(max-width:920px){
   .nav-in { height: 66px; padding: 0 16px; }
-  .brand-mark { width: 32px; height: 32px; }
+  .brand-mark{height:48px;width:auto;object-fit:contain}
   .brand-name { font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 44vw; }
   .brand-sub { display: none; }
   .nav-links { position: fixed; inset: 66px 0 auto 0; background: rgba(26,22,18,.98); flex-direction: column; padding: 1rem; gap: .8rem; transform: translateY(-140%); transition: transform .35s ease; border-bottom: 1px solid rgba(184,149,106,.18); }
@@ -81,8 +81,7 @@ a { color: inherit; }
 }
 
 .hero{position:relative;min-height:clamp(720px,100svh,1100px);display:flex;align-items:center;overflow:hidden;isolation:isolate;padding-top:96px}
-.hero-bg{position:absolute;inset:0;z-index:-3}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:saturate(1.05) contrast(1.05) brightness(0.7)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
 .hero-scrim{position:absolute;inset:0;z-index:-2;background:linear-gradient(to top,rgba(13,11,9,.98) 0%,rgba(13,11,9,.85) 10%,rgba(13,11,9,.55) 28%,rgba(13,11,9,.25) 50%,transparent 85%)}
 .hero-grain{position:absolute;inset:0;z-index:-1;opacity:.03;pointer-events:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" fill="%238b6b42"/></svg>');background-size:clamp(200px,15vw,360px)}
 .hero-grid{position:absolute;inset:0;z-index:-1;opacity:.1;pointer-events:none;background-image:linear-gradient(to right,rgba(212,165,116,.12) 1px,transparent 1px),linear-gradient(to bottom,rgba(212,165,116,.08) 1px,transparent 1px);background-size:clamp(58px,7.6vw,128px) clamp(58px,7.6vw,128px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 45%,transparent 75%);mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 45%,transparent 75%)}
@@ -239,7 +238,7 @@ footer a:hover { color: var(--acc2); }
 </nav>
 
 <header class="hero" id="top"><!-- LB-3D-HERO -->
-  <div class="hero-bg"><img src="assets/conn_photo_3.jpg" alt="Conn Building — excavation and site works under way" width="810" height="1080"></div>
+  <div class="hero-bg"></div>
   <div class="hero-scrim"></div>
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>

@@ -73,7 +73,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   z-index: 1000;
 }
 .brand { display: flex; align-items: center; gap: .8rem; color: var(--ink); text-decoration: none; }
-.brand-mark { height: 32px; width: auto; display: block; object-fit: contain; }
+.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt { display: flex; flex-direction: column; line-height: 1; }
 .brand-name { font-family: 'Manrope', var(--font-m), sans-serif; font-size: 1.16rem; line-height: 1; font-weight: 700; letter-spacing: .01em; color: var(--ink); }
 .brand-sub { display: block; margin-top: 3px; font-family: 'Manrope', var(--font-m), sans-serif; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; font-style: normal; }
@@ -138,11 +138,11 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
   text-shadow: 0 1px 10px rgba(4,12,7,.5);
 }
 .hero-copy .cta { display: flex; flex-wrap: wrap; gap: 1rem; }
-@media (max-width: 900px) { .brand-mark { height: 28px; } }
+@media (max-width: 900px) { .brand-mark{height:48px;width:auto;object-fit:contain} }
 @media (max-width: 680px) {
   #sceneSticky { min-height: 92svh; }
   .lbhf img { object-position: center 42%; }
-  .brand-mark { height: 24px; }
+  .brand-mark{height:48px;width:auto;object-fit:contain}
   .brand-name { font-size: 1.02rem; }
   .brand-sub { display: none; }
   .nav__cta a { font-size: .72rem; padding: .5rem .8rem; }

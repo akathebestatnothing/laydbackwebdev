@@ -54,7 +54,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .nav__b .brand-name { font-family: var(--font-d); font-size: 1.15rem; line-height: 1; font-weight: 900; letter-spacing: .02em; }
 .nav__b .brand-sub { display: block; margin-top: 4px; font-family: var(--font-d); font-size: .5rem; letter-spacing: .3em; text-transform: uppercase; color: var(--mut); font-weight: 700; }
 .nav__b .brand-sub em { font-style: normal; color: var(--acc-hi); }
-.nav__b .brand-mark { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; }
+.nav__b .brand-mark{height:48px;width:auto;object-fit:contain}
 @media (max-width: 640px) {
   .nav__b .brand-name { font-size: 1.05rem; }
   .nav__b .brand-sub { font-size: .44rem; letter-spacing: .24em; margin-top: 3px; }
@@ -151,9 +151,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 <!-- LB-3D-HERO -->
 <canvas id="lbfx" aria-hidden="true"></canvas>
 <div class="lbfx-shade" aria-hidden="true"></div>
-  <div class="hero-bg">
-    <img src="assets/hero-excavator.jpg" alt="Tight-access excavation with compact machinery — Allway Civil Pty Ltd" width="1900" height="1425">
-  </div>
+  <div class="hero-bg"></div>
 <div class="lbwm" aria-hidden="true">EARTHWORKS</div>
 
 <div id="sceneWrap" aria-label="Scroll to watch the tight-access combo">

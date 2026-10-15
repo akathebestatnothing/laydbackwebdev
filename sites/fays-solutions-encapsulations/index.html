@@ -108,8 +108,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(11,13,16,.84);backdrop-
 
 /* Hero: real-photo, dark-graded + scrim */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:calc(var(--nav-h) + 48px) 0 72px;background:#0c0f13}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(.55) saturate(1.06) contrast(1.06)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
 .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,10,13,.60) 0%,rgba(7,10,13,.26) 40%,rgba(7,10,13,.62) 74%,rgba(7,10,13,.90) 100%),linear-gradient(94deg,rgba(7,10,13,.80) 0%,rgba(7,10,13,.34) 46%,rgba(7,10,13,0) 80%)}
 .hero-in{position:relative;z-index:2;width:min(100% - 64px,1100px);margin-inline:auto}
 .hero-copy{max-width:60ch}
@@ -154,9 +153,7 @@ html,body{overflow-x:hidden}
 </header>
 <main id="main-content">
 <section class="section hero" id="top" aria-labelledby="hero-title">
-  <div class="hero-bg" aria-hidden="true">
-    <img src="images/hero-bg.jpg" alt="" width="1600" height="900" fetchpriority="high">
-  </div>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-in">
     <div class="hero-copy">

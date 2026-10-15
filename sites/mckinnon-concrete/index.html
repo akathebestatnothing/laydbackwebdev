@@ -63,8 +63,7 @@ p{margin:0}
 
 /* ---- hero ---- */
 .hero{position:relative;min-height:clamp(660px,100svh,1020px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:-3}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:grayscale(.18) contrast(1.05) brightness(.86)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
 .hero-scrim{position:absolute;inset:0;z-index:-2;background:linear-gradient(to top,rgba(8,9,10,.95) 0%,rgba(8,9,10,.84) 24%,rgba(8,9,10,.40) 46%,rgba(8,9,10,.05) 70%,rgba(9,11,13,.22) 100%)}
 .hero-grid{position:absolute;inset:0;z-index:-1;opacity:.4;pointer-events:none;background-image:linear-gradient(to right,rgba(230,232,230,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(230,232,230,.045) 1px,transparent 1px);background-size:clamp(58px,7.6vw,128px) clamp(58px,7.6vw,128px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 24%,#000 60%,transparent 88%);mask-image:linear-gradient(to bottom,transparent 0,#000 24%,#000 60%,transparent 88%)}
 .hero-3d{position:absolute;inset:96px 0 auto;height:54%;z-index:-1;perspective:900px;perspective-origin:60% 40%;pointer-events:none;overflow:hidden}
@@ -168,7 +167,7 @@ html.js .drop.in{opacity:1;transform:none}
 .nav.solid{background:rgba(10,11,12,.94)}
 .brand-logo{height:44px;width:auto;display:block;flex:none}
 .brand{gap:12px}
-.brand-mark{flex:none;display:block}
+.brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-t small{font-size:10.5px;color:#cbd1d6;letter-spacing:.15em}
 @media(max-width:640px){.brand-logo{height:36px}}
 
@@ -198,7 +197,7 @@ html.js .drop.in{opacity:1;transform:none}
 </div></nav>
 
 <header class="hero" id="top"><!-- LB-3D-HERO -->
-  <div class="hero-bg"><img src="assets/hero.jpg" alt="Finished exposed aggregate concrete driveway" width="1600" height="1000"></div>
+  <div class="hero-bg"></div>
   <div class="hero-scrim"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-3d" aria-hidden="true"><div class="plane"></div></div>
