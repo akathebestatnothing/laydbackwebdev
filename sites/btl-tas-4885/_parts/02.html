@@ -1,0 +1,115 @@
+
+/* ---------- waterline rows (what we do) ---------- */
+.row{display:grid;grid-template-columns:var(--gut) minmax(0,1.02fr) minmax(0,1fr);gap:14px 36px;
+ padding:33px var(--pad);border-bottom:1px solid var(--line);align-items:baseline}
+.row h3{font-size:clamp(25px,2.9vw,39px)}
+.row p{color:var(--mute)}
+.lv{font:400 11px/1 var(--m);letter-spacing:.13em;color:var(--teal);padding-top:7px}
+.lv2{font:400 11px/1.5 var(--m);letter-spacing:.13em;color:var(--teal)}
+/* ---------- stepped run (how a job runs) ---------- */
+.run{border-top:1px solid var(--line)}
+.run-row{position:relative;display:grid;grid-template-columns:84px minmax(0,1fr);gap:22px;
+ padding:30px var(--pad);border-top:1px solid var(--line)}
+.run-row:last-of-type{border-bottom:1px solid var(--line)}
+.run-row + .run-row{padding-left:calc(var(--pad) + 58px)}
+.run-row + .run-row + .run-row{padding-left:calc(var(--pad) + 116px)}
+.run-row + .run-row:before{content:"";position:absolute;left:calc(var(--pad) + 57px);top:-1px;bottom:0;
+ width:1px;background:var(--line)}
+.run-row + .run-row + .run-row:before{left:calc(var(--pad) + 115px)}
+.run-row h3{font-size:clamp(23px,2.5vw,33px)}
+.run-row p{color:var(--mute);margin-top:7px;max-width:56ch}
+/* ---------- service area ---------- */
+.area{padding:74px 0 88px;border-top:1px solid var(--line)}
+.area .big{font-family:var(--d);font-weight:700;font-size:clamp(54px,12.4vw,168px);line-height:.86;
+ letter-spacing:-.02em;margin:6px 0 24px}
+.area p{color:var(--mute);max-width:60ch;font-size:18px}
+/* ---------- quote block (injected #lbq, v4, re-skinned) ---------- */
+section#lbq{--lbq-accent:var(--teal);--lbq-ink:var(--ink);--lbq-muted:var(--mute);--lbq-bg:var(--bone);
+ --lbq-line:var(--line2);--lbq-panel:transparent;padding:76px 0 86px;border-top:1px solid var(--line)}
+section#lbq h2{font-family:var(--d);font-weight:700;font-size:clamp(30px,4.1vw,54px);letter-spacing:-.015em}
+section#lbq p.lbq-s{font-family:var(--b);color:var(--mute);max-width:50ch}
+section#lbq label{font:400 11px/1 var(--m)!important;letter-spacing:.13em;color:var(--teal)!important}
+section#lbq input,section#lbq textarea{font-family:var(--b)!important;font-size:17px!important;
+ color:var(--ink)!important;border-bottom:1px solid var(--line2)!important}
+section#lbq .lbq-w{max-width:680px}
+section#lbq .lbq-g{gap:22px!important}
+section#lbq button{background:var(--ink)!important;color:var(--bone)!important;border-radius:0!important;
+ font:600 15px/1 var(--m)!important;letter-spacing:.06em;padding:17px 26px!important;transition:none}
+section#lbq button:hover{background:var(--teal)!important}
+section#lbq .lbq-cons{color:var(--mute)!important;font-family:var(--b)}
+section#lbq .lbq-st{font-family:var(--b)}
+/* ---------- footer ---------- */
+.ft{border-top:1px solid var(--line);padding:54px 0 40px}
+.ft-in{display:grid;grid-template-columns:var(--gut) minmax(0,1.35fr) minmax(0,1fr);gap:22px}
+.ft-b{display:flex;gap:14px;align-items:center}
+.ft-b img{width:40px;height:40px}
+.ft-n{font-family:var(--d);font-weight:700;font-size:40px;line-height:1}
+.ft-d{color:var(--mute);margin-top:11px;max-width:46ch}
+.ft-l{display:grid;gap:11px;font-size:15px;align-content:start}
+.ft-l a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:2px}
+.ft-l a:hover{color:var(--ink);border-bottom-color:var(--teal)}
+.ft-bt{margin-top:34px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+ border-top:1px solid var(--line);padding-top:15px;font:400 11px/1.7 var(--m)}
+.ft-bt span{color:var(--mute)}
+/* ---------- reveals + no-JS fallbacks ---------- */
+.rv{transition:opacity .72s cubic-bezier(.22,.61,.36,1),transform .72s cubic-bezier(.22,.61,.36,1)}
+.js .rv{opacity:0;transform:translateY(15px)}
+.rv.on{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+ .rv,.js .rv{opacity:1;transform:none}
+ .pl{transform:none}
+ .pl-band i{animation:none}
+ .btn,.btn2,.hd-call,.nav a,.pl{transition:none}
+}
+@media (max-width:880px){
+ :root{--gut:46px;--pad:18px}
+ .nav{display:none}
+ .brand img{width:31px;height:31px}
+ .row{grid-template-columns:var(--gut) minmax(0,1fr);gap:8px 20px}
+ .row p{grid-column:2}
+ .run-row + .run-row,.run-row + .run-row + .run-row{padding-left:calc(var(--pad) + 30px)}
+ .run-row + .run-row:before{left:calc(var(--pad) + 29px)}
+ .run-row + .run-row + .run-row:before{left:calc(var(--pad) + 29px)}
+ .ft-in{grid-template-columns:var(--gut) minmax(0,1fr)}
+ .slab{min-height:0;padding:68px 0 54px}
+ #wlfield{height:42%}
+ .reg{display:none}
+}
+@media (max-width:560px){
+ .run-row{grid-template-columns:1fr;gap:8px}
+ .cta{flex-direction:column;align-items:stretch}
+ .btn,.btn2{text-align:center}
+}
+</style>
+</head>
+<body>
+<header class="hd">
+  <div class="hd-in">
+    <div class="gut"><span class="wl">WL 00</span></div>
+    <a class="brand" href="#top">
+      <img src="assets/logo.svg" alt="" width="36" height="36">
+      <span class="bn">BTL</span>
+    </a>
+    <a class="hd-call" href="{{TEL}}">Call {{PHONE}}</a>
+  </div>
+</header>
+<main id="top">
+<section class="slab" aria-labelledby="h1">
+  <div class="pl pl-field" aria-hidden="true"></div>
+  <canvas id="wlfield" aria-hidden="true"></canvas>
+  <div class="pl pl-band" aria-hidden="true"><i></i><b></b></div>
+  <div class="pl pl-type">
+    <div class="wl-in pad" style="width:100%">
+      <div class="gut wl-slab"><span class="wl">WL 01</span><span class="tick"></span></div>
+      <div class="slab-body">
+        <h1 class="hd-1" id="h1">Plumbing maintenance and gas, <em>across Tasmania</em>.</h1>
+        <p class="lede">BTL handles plumbing maintenance and gas work: the servicing, the repairs and the
+        general plumbing jobs that turn up around a property.</p>
+        <p class="cta"><a class="btn" href="{{TEL}}">Call {{PHONE}}</a>
+        <a class="btn2" href="#lbq">Request a quote</a></p>
+      </div>
+    </div>
+  </div>
+  <p class="reg">TASMANIA</p>
+</section>
