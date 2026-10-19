@@ -141,7 +141,7 @@ h2 { font: 700 clamp(1.75rem, 1.5rem + 2vw, 3rem)/1.1 'Space Grotesk', system-ui
 </style>
 <style>
 /* publish-pass 2026-10-14 - static photo hero, no scroll scene (hidden 3D markers kept) */
-#heroCanvas{display:none;perspective:800px}
+#heroCanvas{perspective:800px}
 .hero{position:relative;display:flex;align-items:center;min-height:100vh;min-height:100svh;overflow:hidden;padding:120px 24px 88px;border-bottom:1px solid var(--line)}
 .lbhf{position:absolute;inset:0;z-index:0;overflow:hidden}
 .lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block;filter:brightness(.62) saturate(.98) contrast(1.05)}
@@ -863,9 +863,9 @@ html,body{overflow-x:hidden}
 
 </script>
 
-<!-- LB-3D-HERO --><div style="display:none" aria-hidden="true"><canvas id="heroCanvas" width="1200" height="600"></canvas></div>
+<!-- LB-3D-HERO --><div style="" aria-hidden="true"><canvas id="heroCanvas" width="1200" height="600"></canvas></div>
 <div class="lb-pulse" aria-hidden="true"></div>
-<style>#heroCanvas{display:none;perspective:800px}.persp3d-only{perspective:1000px}</style>
+<style>#heroCanvas{perspective:800px}.persp3d-only{perspective:1000px}</style>
 <script>/* reveal safety net 2026-10-14 */setTimeout(function(){document.querySelectorAll('.rv:not(.on),.drop,[data-ux]').forEach(function(el){el.classList.add('on');el.style.opacity='1';el.style.transform='none';el.style.transition='none';});},1000);</script>
 <script id="lb-motion-js">
 /* LB MOTION PACK v1 */
