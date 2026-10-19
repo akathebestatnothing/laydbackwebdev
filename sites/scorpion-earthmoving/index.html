@@ -143,7 +143,9 @@ footer a:hover { color: var(--venom); }
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style id="lb-motion-css">
 /* ==== LB MOTION PACK ==== */
-.lb-rb{position:relative;width:100%;overflow:hidden;background:#0c0d10}
+.lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
+.lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
+.lb-mq{max-width:100%;overflow:hidden}
 .lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
 .lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
 .lb-rb__slide.is-on{opacity:1}
