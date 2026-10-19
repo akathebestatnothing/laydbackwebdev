@@ -129,7 +129,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Hero / photo */
 .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: 96px 1.5rem 72px; isolation: isolate; overflow: hidden; perspective: 1200px; background: var(--charcoal); }
-#heroCanvas { display: none !important; }
 .hero-photo{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
 .hero-shade { position: absolute; inset: 0; z-index: 1; background: rgba(18,23,28,.58); }
 .hero-copy { position: relative; z-index: 2; text-align: center; max-width: min(760px, 92vw); margin: 0 auto; padding: 0; pointer-events: auto; }
@@ -209,10 +208,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-bottom { border-top: 1px solid var(--line); margin-top: 3rem; padding-top: 1.5rem; text-align: center; font-size: 0.8125rem; color: var(--ink-muted); }
 
 </style>
-<style id="rv-lock">html .rv.on{opacity:1!important;transform:none!important}</style>
-<style>
-/* LB-EDITORIAL-HERO kit 2026-10-14 - photo hero + brand lockup + contrast pins */
-#heroCanvas{display:none!important}
+<style id="rv-lock">html .rv.on{opacity:1!important;transform:none!important}
 .hero-copy{z-index:2;pointer-events:auto}
 /* quote section: header copy + house quote form together, pinned to dark section palette */
 #quote{background:var(--charcoal-light)}
@@ -627,7 +623,7 @@ html,body{overflow-x:hidden}
   </section>
 </main>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="site/images/hero-carport.jpg" alt="TL Carport" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">TL Carport</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">TL Carport &mdash; recent work</div></div></section><footer class="contact" role="contentinfo">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/hero-carport.jpg" alt="TL Carport" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">TL Carport</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">TL Carport &mdash; recent work</div></div></section><footer class="contact" role="contentinfo">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-block">
