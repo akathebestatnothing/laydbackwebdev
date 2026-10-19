@@ -277,6 +277,11 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
 }
 </style>
+<style id="lb-hero-css">
+canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
+  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
+}
+</style>
 </head>
 <body>
 <script>document.documentElement.className+=' js';</script>
@@ -471,132 +476,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 </div>
 </footer>
 
-<script>
-(function(){
-  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
-  if (b && n){
-    b.addEventListener('click', function(){
-      var open = n.classList.toggle('open');
-      b.classList.toggle('open', open);
-      b.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    n.addEventListener('click', function(e){
-      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
-    });
-  }
-})();
-(function(){
-  var els = document.querySelectorAll('.drop');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
-    els.forEach(function(el){ io.observe(el); });
-  } else {
-    els.forEach(function(el){ el.classList.add('in'); });
-  }
-})();
-setTimeout(function(){ document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); }); }, 1200);
-var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
-
-/* 3D Hero — Cut-and-fill pad levelling with grade stakes (earthworks) */
-(function(){
-  var c=document.getElementById('heroCanvas');if(!c||!c.getContext)return;
-  var ctx=c.getContext('2d');
-  var DPR=Math.min(window.devicePixelRatio||1,2);
-  var W=0,H=0,reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var px=0,py=0;
-  window.addEventListener('pointermove',function(e){px=(e.clientX/innerWidth-.5)*12;py=(e.clientY/innerHeight-.5)*8;},{passive:true});
-  function resize(){W=c.clientWidth||c.offsetWidth;H=c.clientHeight||c.offsetHeight;if(!W||!H)return;c.width=Math.round(W*DPR);c.height=Math.round(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0);}
-  function loop(t){if(!W||!H){resize();return;}frame(t||0);if(!reduce)requestAnimationFrame(loop);}
-  function frame(t){
-    var time=t*.001;
-    ctx.clearRect(0,0,W,H);
-    /* sky gradient - desert dawn */
-    var g=ctx.createLinearGradient(0,0,0,H);
-    g.addColorStop(0,'#1a1510');g.addColorStop(0.35,'#2a221a');g.addColorStop(0.65,'#3d3020');g.addColorStop(1,'#4a3a28');
-    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
-    /* distant haze line */
-    ctx.fillStyle='rgba(196,122,26,.08)';ctx.fillRect(0,H*0.32,W,2);
-    /* ground plane base */
-    var groundY=H*0.52;
-    var profile=0.38+0.14*Math.sin(time*.28);
-    var ground=groundY+H*profile;
-    /* cut zone (left) - darker earth */
-    ctx.fillStyle='rgba(26,21,16,.7)';
-    ctx.beginPath();ctx.moveTo(0,H);ctx.lineTo(0,ground);
-    for(var i=0;i<=16;i++){
-      var x=i/16*W*0.48;
-      var y=ground+Math.sin(x*.008+time*.35)*H*.015;
-      ctx.lineTo(x,y);
-    }
-    ctx.lineTo(W*0.48,H);ctx.closePath();ctx.fill();
-    /* fill zone (right) - lighter ochre */
-    ctx.fillStyle='rgba(196,122,26,.18)';
-    ctx.beginPath();ctx.moveTo(W*0.48,H);ctx.lineTo(W*0.48,ground);
-    for(var j=0;j<=16;j++){
-      var x2=W*0.48+j/16*W*0.52;
-      var y2=ground+Math.sin(x2*.008+time*.35)*H*.015;
-      ctx.lineTo(x2,y2);
-    }
-    ctx.lineTo(W,H);ctx.closePath();ctx.fill();
-    /* grade stakes along the pad */
-    var stakeCount=18;
-    for(var s=0;s<stakeCount;s++){
-      var sx=(s/(stakeCount-1))*W;
-      var stakeGround=ground+Math.sin(sx*.008+time*.35)*H*.015;
-      var stakeH=H*0.18;
-      /* stake post */
-      ctx.strokeStyle='rgba(232,197,26,0.6)';ctx.lineWidth=2;
-      ctx.beginPath();ctx.moveTo(sx,stakeGround);ctx.lineTo(sx,stakeGround-stakeH);ctx.stroke();
-      /* laser target on stake */
-      var targetY=stakeGround-stakeH*0.3;
-      ctx.fillStyle='rgba(232,197,26,0.9)';
-      ctx.beginPath();ctx.arc(sx,targetY,4,0,Math.PI*2);ctx.fill();
-      ctx.strokeStyle='rgba(10,8,6,0.8)';ctx.lineWidth=1;
-      ctx.stroke();
-      /* crosshair */
-      ctx.strokeStyle='rgba(10,8,6,0.7)';ctx.lineWidth=1.5;
-      ctx.beginPath();ctx.moveTo(sx-3,targetY);ctx.lineTo(sx+3,targetY);ctx.moveTo(sx,targetY-3);ctx.lineTo(sx,targetY+3);ctx.stroke();
-    }
-    /* machine cutting on left */
-    var machineX=W*0.18+Math.sin(time*0.6)*W*0.06;
-    var machineY=ground+Math.sin(machineX*.008+time*.35)*H*.015-H*0.08;
-    ctx.fillStyle='rgba(26,21,16,0.85)';
-    ctx.beginPath();ctx.roundRect(machineX-25,machineY-18,50,36,4);ctx.fill();
-    /* bucket cutting */
-    var bucketX=machineX+30+Math.sin(time*1.2)*12;
-    var bucketY=machineY+10;
-    ctx.fillStyle='rgba(196,122,26,0.6)';
-    ctx.beginPath();ctx.moveTo(bucketX,bucketY);ctx.lineTo(bucketX+18,bucketY+8);ctx.lineTo(bucketX+18,bucketY+22);ctx.lineTo(bucketX,bucketY+14);ctx.closePath();ctx.fill();
-    /* spoil being pushed */
-    for(var p=0;p<8;p++){
-      var spx=W*0.3+(p/8)*W*0.3+Math.sin(time*2+p)*15;
-      var spy=ground+Math.sin(spx*.008+time*.35)*H*.015-H*0.02;
-      var sps=3+Math.sin(time*3+p)*2;
-      ctx.fillStyle='rgba(196,122,26,'+(0.2+0.1*Math.sin(time*2+p))+')';
-      ctx.beginPath();ctx.arc(spx,spy,sps,0,Math.PI*2);ctx.fill();
-    }
-    /* dust particles */
-    for(var d=0;d<30;d++){
-      var dx=(d*211+time*40)%W;
-      var dy=ground+Math.sin(dx*.009+time*.4)*H*.015+((d*73)%24)-H*0.12;
-      var tw=0.3+0.4*Math.sin(time*1.1+d);
-      ctx.fillStyle='rgba(196,122,26,'+(0.03+tw*0.06)+')';
-      ctx.beginPath();ctx.arc(dx+px*.2,dy,1+tw*1.5,0,Math.PI*2);ctx.fill();
-    }
-    /* finish pass line - the flat pad */
-    var flatY=groundY+H*0.4;
-    ctx.strokeStyle='rgba(232,197,26,0.4)';ctx.lineWidth=1;ctx.setLineDash([8,6]);
-    ctx.beginPath();ctx.moveTo(0,flatY);ctx.lineTo(W,flatY);ctx.stroke();ctx.setLineDash([]);
-    /* venom accent glow on right */
-    var rg=ctx.createRadialGradient(W*0.75,H*0.25,20,W*0.75,H*0.25,W*0.5);
-    rg.addColorStop(0,'rgba(232,197,26,0.12)');rg.addColorStop(1,'rgba(232,197,26,0)');
-    ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);
-  }
-  resize();window.addEventListener('resize',resize);requestAnimationFrame(loop);
-})();
-</script>
+<!-- lb: old box-hero engine removed -->
 <!-- lb:pulse -->
 <script src="https://laydback-hq.tail5b3740.ts.net:8443/pulse/js" data-project="scorpion-earthmoving" defer></script>
 <script id="lb-motion-js">
@@ -643,6 +523,112 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
       { threshold: 0.25 }).observe(rb);
   } else { play(); }
   go(0);
+})();
+</script>
+<script id="lb-hero-js">
+/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
+(function(){
+  var cv = document.querySelector('#heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero], header canvas, .hero canvas');
+  if (!cv) return;
+  var ctx = cv.getContext('2d'); if (!ctx) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
+  function accent(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
+         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
+    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
+  }
+  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
+  var ACC = hex2rgb(accent());
+  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
+    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
+    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
+
+  function size(){
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
+    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  // deterministic depth motes
+  var N = 46, motes = [];
+  var seed = 20261019;
+  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
+  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
+
+  function draw(){
+    var isDark = dark();
+    var base = isDark ? [10,11,14] : [248,249,251];
+    var ink  = isDark ? [255,255,255] : [12,14,18];
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0, 'rgb('+base.join(',')+')');
+    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
+    g.addColorStop(1, 'rgb('+base.join(',')+')');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    // aurora: two slow, wide ribbons of the brand colour
+    for (var k=0;k<2;k++){
+      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
+      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
+      var rad = Math.max(W,H)*(0.46 + 0.13*k);
+      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
+      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
+      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+    }
+
+    // perspective floor: clean architectural depth, not blocks
+    var hz = H*0.70, vpx = W*0.5;
+    ctx.lineWidth = 1;
+    for (var j=-9;j<=9;j++){
+      var fx = vpx + j*(W/9)*1.5;
+      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
+    }
+    for (var r=1;r<=9;r++){
+      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
+    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
+    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
+    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
+
+    // depth motes: size + opacity track z, slow parallax drift
+    for (var q=0;q<motes.length;q++){
+      var m = motes[q];
+      var y = ((m.y + t*0.0000075*m.z) % 1);
+      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
+      var px = x*W, py = y*H;
+      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
+      if (a2 <= 0) continue;
+      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
+    }
+
+    // vignette to seat the copy
+    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
+    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
+  }
+
+  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener('resize', function(){ size(); draw(); });
+  if (!reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
+  }
+  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
+  if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
 </body>

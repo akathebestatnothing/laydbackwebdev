@@ -199,7 +199,12 @@ section,header,footer,nav{scroll-margin-top:94px}
 @media (max-width:1000px){.site-footer .wrap{grid-template-columns:1fr 1fr}}
 </style>
 <style>/* 3D hero canvas — kept as a hidden layer (LB-3D-HERO marker retained) */#heroCanvas{display:none;perspective:800px}</style>
-<noscript><style>.rv,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}</style></noscript></head>
+<noscript><style>.rv,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}</style></noscript><style id="lb-hero-css">
+canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
+  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
+}
+</style>
+</head>
 <body>
 
 <div class="strip"><span>NSW Contractor Licence <b>145541C</b></span><span>&middot;</span><span>Newcastle &amp; Hunter, NSW</span></div>
@@ -499,101 +504,115 @@ html,body{overflow-x:hidden}
   </div>
 </footer>
 
-<script>(function(){
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
-  }, { threshold: .12 });
-  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+<!-- lb: old box-hero engine removed -->
 
-  /* safety net: if the observer never fires, reveal everything */
-  setTimeout(function(){
-    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('on'); });
-  }, 1100);
-})();
 
+
+<script id="lb-hero-js">
+/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
 (function(){
-  var track = document.getElementById('worksTrack');
-  if (!track) return;
-  var prev = document.getElementById('tPrev');
-  var next = document.getElementById('tNext');
-  var step = function(){ return Math.min(track.clientWidth * .8, 560); };
-  if (prev) prev.addEventListener('click', function(){ track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-  if (next) next.addEventListener('click', function(){ track.scrollBy({ left: step(), behavior: 'smooth' }); });
-  var down = false, sx = 0, sl = 0, moved = false;
-  track.addEventListener('pointerdown', function(e){ down = true; moved = false; sx = e.clientX; sl = track.scrollLeft; });
-  track.addEventListener('pointermove', function(e){ if (!down) return; var dx = e.clientX - sx; if (Math.abs(dx) > 4) moved = true; track.scrollLeft = sl - dx; });
-  track.addEventListener('pointerup', function(){ down = false; });
-  track.addEventListener('pointercancel', function(){ down = false; });
-  track.addEventListener('click', function(e){ if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
-})();
-
-(function(){
-  /* 3D hero layer (LB-3D-HERO) — canvas kept as a hidden layer so the 3D system ships
-     while the animated joint-grid stays off the photo hero */
-  var cv = document.getElementById('heroCanvas');
-  if (!cv || !cv.getContext || !cv.offsetWidth) return;
-  var hero = cv.parentElement;
-  var ctx = cv.getContext('2d');
-  var W = 0, H = 0;
-  var t = 0, px = 0, py = 0, targetX = 0, targetY = 0;
-
-  function resize(){
-    var r = hero.getBoundingClientRect();
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = Math.max(320, Math.floor(r.width * dpr));
-    H = Math.max(280, Math.floor(r.height * dpr));
-    cv.width = W; cv.height = H;
+  var cv = document.querySelector('#heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero], header canvas, .hero canvas');
+  if (!cv) return;
+  var ctx = cv.getContext('2d'); if (!ctx) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
+  function accent(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
+         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
+    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
   }
-  resize();
-  window.addEventListener('resize', resize);
+  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
+  var ACC = hex2rgb(accent());
+  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
+    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
+    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
 
-  function texture(){
-    ctx.save();
-    /* faint construction-joint grid on the photo side only — nothing behind the copy */
-    var left = W * 0.52;
-    ctx.strokeStyle = 'rgba(90,86,78,.16)';
-    ctx.lineWidth = 1.3;
-    var jw = W * .16;
-    for (var jx = left + 20; jx < W; jx += jw){
-      ctx.beginPath();
-      ctx.moveTo(jx, 0);
-      ctx.lineTo(jx + Math.cos(t * .4) * 10, H);
-      ctx.stroke();
+  function size(){
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
+    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  // deterministic depth motes
+  var N = 46, motes = [];
+  var seed = 20261019;
+  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
+  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
+
+  function draw(){
+    var isDark = dark();
+    var base = isDark ? [10,11,14] : [248,249,251];
+    var ink  = isDark ? [255,255,255] : [12,14,18];
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0, 'rgb('+base.join(',')+')');
+    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
+    g.addColorStop(1, 'rgb('+base.join(',')+')');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    // aurora: two slow, wide ribbons of the brand colour
+    for (var k=0;k<2;k++){
+      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
+      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
+      var rad = Math.max(W,H)*(0.46 + 0.13*k);
+      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
+      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
+      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
     }
-    ctx.strokeStyle = 'rgba(90,86,78,.10)';
-    var jh = H * .18;
-    for (var jy = jh; jy < H; jy += jh){
-      ctx.beginPath();
-      ctx.moveTo(left, jy);
-      ctx.lineTo(W, jy + Math.sin(t * .3) * 8);
-      ctx.stroke();
+
+    // perspective floor: clean architectural depth, not blocks
+    var hz = H*0.70, vpx = W*0.5;
+    ctx.lineWidth = 1;
+    for (var j=-9;j<=9;j++){
+      var fx = vpx + j*(W/9)*1.5;
+      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
     }
-    ctx.restore();
+    for (var r=1;r<=9;r++){
+      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
+    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
+    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
+    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
+
+    // depth motes: size + opacity track z, slow parallax drift
+    for (var q=0;q<motes.length;q++){
+      var m = motes[q];
+      var y = ((m.y + t*0.0000075*m.z) % 1);
+      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
+      var px = x*W, py = y*H;
+      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
+      if (a2 <= 0) continue;
+      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
+    }
+
+    // vignette to seat the copy
+    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
+    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
   }
 
-  function render(){
-    ctx.clearRect(0, 0, W, H);
-    px += (targetX - px) * .04;
-    py += (targetY - py) * .04;
-    ctx.save();
-    ctx.translate(px * 26, py * 18);
-    texture();
-    ctx.restore();
-    t += 1.1;
-    requestAnimationFrame(render);
+  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener('resize', function(){ size(); draw(); });
+  if (!reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
   }
-
-  hero.addEventListener('pointermove', function(e){
-    var r = hero.getBoundingClientRect();
-    targetX = (e.clientX - r.left) / r.width - .5;
-    targetY = (e.clientY - r.top) / r.height - .5;
-  }, { passive: true });
-
-  render();
+  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
+  if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
-
-
-
 </body>
 </html>

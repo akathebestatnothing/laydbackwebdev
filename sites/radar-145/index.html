@@ -367,6 +367,11 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
 }
 </style>
+<style id="lb-hero-css">
+canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
+  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
+}
+</style>
 </head>
 <body>
 
@@ -693,109 +698,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 setTimeout(function(){ document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); }); }, 1100);
 </script>
 
-<script>
-/* 3D hero — treatment haze field: warm barrier glow, sweeping barrier edge and base hazard bands */
-(function(){
-  var c=document.getElementById('heroCanvas');
-  if(!c||!c.getContext) return;
-  var ctx=c.getContext('2d');
-  var DPR=Math.min(window.devicePixelRatio||1,2);
-  var W=0,H=0;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var px=0,py=0;
-  window.addEventListener('pointermove',function(e){
-    if(!window.innerWidth||!window.innerHeight) return;
-    px=(e.clientX/window.innerWidth-0.5);
-    py=(e.clientY/window.innerHeight-0.5);
-  },{passive:true});
-  function resize(){
-    W=c.clientWidth||c.offsetWidth;
-    H=c.clientHeight||c.offsetHeight;
-    if(!W||!H||!isFinite(W)||!isFinite(H)) return;
-    c.width=Math.round(W*DPR); c.height=Math.round(H*DPR);
-    ctx.setTransform(DPR,0,0,DPR,0,0);
-  }
-  function frame(t){
-    if(!W||!H) return;
-    var time=t*0.001;
-    if(!isFinite(time)) time=0;
-    ctx.clearRect(0,0,W,H);
-    var g=ctx.createLinearGradient(0,0,W,H);
-    g.addColorStop(0,'#1A1C20'); g.addColorStop(.55,'#121316'); g.addColorStop(1,'#0B0C0E');
-    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
-
-    var cx=W*0.70+px*30, cy=H*0.5+py*22;
-    var r0=Math.min(W,H)*0.30;
-    if(!isFinite(cx)||!isFinite(cy)||!isFinite(r0)) return;
-
-    var rg=ctx.createRadialGradient(cx,cy,r0*0.05,cx,cy,r0*1.9);
-    rg.addColorStop(0,'rgba(245,130,31,'+(0.20+0.04*Math.sin(time*0.7)).toFixed(3)+')');
-    rg.addColorStop(1,'rgba(245,130,31,0)');
-    ctx.fillStyle=rg; ctx.fillRect(0,0,W,H);
-
-    /* expanding treated-perimeter pulse */
-    var pulse=(time*0.30)%1;
-    ctx.strokeStyle='rgba(255,178,90,'+(0.30*(1-pulse)).toFixed(3)+')';
-    ctx.lineWidth=2.2;
-    ctx.beginPath(); ctx.arc(cx,cy,r0*(0.5+pulse*1.05),0,Math.PI*2); ctx.stroke();
-
-    /* fixed concentric perimeter rings */
-    var facs=[0.5,0.72,0.94,1.16], i;
-    for(i=0;i<facs.length;i++){
-      var r=r0*facs[i];
-      if(!isFinite(r)||r<=0) continue;
-      ctx.setLineDash([4,10]);
-      ctx.lineDashOffset=-(time*(14+i*7));
-      ctx.strokeStyle='rgba(245,130,31,'+(0.15+0.05*(3-i)).toFixed(3)+')';
-      ctx.lineWidth=1.3;
-      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.stroke();
-    }
-    ctx.setLineDash([]);
-
-    /* inspection sweep */
-    var a=(time*0.55)%(Math.PI*2), rr=r0*1.18, s;
-    for(s=0;s<26;s++){
-      var aa=a-s*0.03;
-      ctx.strokeStyle='rgba(255,178,90,'+(0.18*(1-s/26)).toFixed(3)+')';
-      ctx.lineWidth=2.4-s*0.07;
-      ctx.beginPath(); ctx.moveTo(cx,cy); ctx.lineTo(cx+Math.cos(aa)*rr,cy+Math.sin(aa)*rr); ctx.stroke();
-    }
-
-    /* pests kept outside the perimeter */
-    for(var k=0;k<16;k++){
-      var ka=k*0.349+0.25;
-      var kr=r0*(1.3+((k%4)*0.13));
-      var kx=cx+Math.cos(ka)*kr, ky=cy+Math.sin(ka)*kr;
-      if(!isFinite(kx)||!isFinite(ky)) continue;
-      var diff=((a-ka)%(Math.PI*2)+Math.PI*2)%(Math.PI*2);
-      var al=Math.max(0.05,0.4*(1-diff/2.2));
-      ctx.strokeStyle='rgba(255,178,90,'+al.toFixed(3)+')';
-      ctx.lineWidth=1.6;
-      ctx.beginPath();
-      ctx.moveTo(kx-3,ky-3); ctx.lineTo(kx+3,ky+3);
-      ctx.moveTo(kx+3,ky-3); ctx.lineTo(kx-3,ky+3);
-      ctx.stroke();
-    }
-
-    var bh=Math.max(18,H*0.035);
-    var y0=H-bh;
-    ctx.save();
-    ctx.globalAlpha=0.14;
-    ctx.fillStyle='#F5821F';
-    var off=(time*24)%64;
-    for(var x=-128+off;x<W+64;x+=64){
-      ctx.beginPath();
-      ctx.moveTo(x,y0); ctx.lineTo(x+32,y0); ctx.lineTo(x+32-bh,y0+bh); ctx.lineTo(x-bh,y0+bh);
-      ctx.closePath(); ctx.fill();
-    }
-    ctx.restore();
-  }
-  function animate(t){ frame(t||0); if(!reduce) requestAnimationFrame(animate); }
-  resize();
-  window.addEventListener('resize',function(){ resize(); if(reduce) requestAnimationFrame(animate); });
-  requestAnimationFrame(animate);
-})();
-</script>
+<!-- lb: old box-hero engine removed -->
 <script id="lb-motion-js">
 /* LB MOTION PACK v1 */
 (function(){
@@ -840,6 +743,112 @@ setTimeout(function(){ document.querySelectorAll('.drop').forEach(function(el){ 
       { threshold: 0.25 }).observe(rb);
   } else { play(); }
   go(0);
+})();
+</script>
+<script id="lb-hero-js">
+/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
+(function(){
+  var cv = document.querySelector('#heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero], header canvas, .hero canvas');
+  if (!cv) return;
+  var ctx = cv.getContext('2d'); if (!ctx) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
+  function accent(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
+         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
+    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
+  }
+  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
+  var ACC = hex2rgb(accent());
+  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
+    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
+    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
+
+  function size(){
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
+    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  // deterministic depth motes
+  var N = 46, motes = [];
+  var seed = 20261019;
+  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
+  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
+
+  function draw(){
+    var isDark = dark();
+    var base = isDark ? [10,11,14] : [248,249,251];
+    var ink  = isDark ? [255,255,255] : [12,14,18];
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0, 'rgb('+base.join(',')+')');
+    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
+    g.addColorStop(1, 'rgb('+base.join(',')+')');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    // aurora: two slow, wide ribbons of the brand colour
+    for (var k=0;k<2;k++){
+      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
+      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
+      var rad = Math.max(W,H)*(0.46 + 0.13*k);
+      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
+      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
+      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+    }
+
+    // perspective floor: clean architectural depth, not blocks
+    var hz = H*0.70, vpx = W*0.5;
+    ctx.lineWidth = 1;
+    for (var j=-9;j<=9;j++){
+      var fx = vpx + j*(W/9)*1.5;
+      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
+    }
+    for (var r=1;r<=9;r++){
+      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
+    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
+    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
+    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
+
+    // depth motes: size + opacity track z, slow parallax drift
+    for (var q=0;q<motes.length;q++){
+      var m = motes[q];
+      var y = ((m.y + t*0.0000075*m.z) % 1);
+      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
+      var px = x*W, py = y*H;
+      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
+      if (a2 <= 0) continue;
+      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
+    }
+
+    // vignette to seat the copy
+    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
+    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
+  }
+
+  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener('resize', function(){ size(); draw(); });
+  if (!reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
+  }
+  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
+  if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
 </body>

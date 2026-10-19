@@ -331,6 +331,11 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
 }
 </style>
+<style id="lb-hero-css">
+canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
+  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
+}
+</style>
 </head>
 <body>
 <nav class="nav" aria-label="Main">
@@ -673,227 +678,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 </section>
 </footer>
 
-<script>
-(function(){
-  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
-  if (b && n){
-    b.addEventListener('click', function(){
-      var open = n.classList.toggle('open');
-      b.classList.toggle('open', open);
-      b.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    n.addEventListener('click', function(e){
-      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
-    });
-  }
-})();
-
-(function(){
-  var els = document.querySelectorAll('.drop');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
-    els.forEach(function(el){ io.observe(el); });
-  } else {
-    els.forEach(function(el){ el.classList.add('in'); });
-  }
-})();
-
-setTimeout(function(){
-  document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
-}, 1100);
-
-
-(function(){
-  var c = document.getElementById('heroCanvas');
-  if (!c || !c.getContext) return;
-  var ctx = c.getContext('2d');
-  var DPR = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var px = 0, py = 0;
-  window.addEventListener('pointermove', function(e){
-    px = (e.clientX / window.innerWidth - 0.5) * 12;
-    py = (e.clientY / window.innerHeight - 0.5) * 7;
-  }, {passive: true});
-  function resize(){
-    W = c.clientWidth || c.offsetWidth;
-    H = c.clientHeight || c.offsetHeight;
-    if (!W || !H) return;
-    c.width = Math.round(W * DPR);
-    c.height = Math.round(H * DPR);
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  }
-
-  /* --- the animated plumbing manifold: copper pipe run with a flow of water
-     travelling through, a pressure gauge whose needle breathes, and a tap
-     dripping into a bucket. Slow ambient loop. --- */
-  var drops = [];
-  var lastT = 0;
-  function loop(t){
-    if (!W || !H) resize();
-    if (W && H) frame(t || 0);
-    if (!reduce) requestAnimationFrame(loop);
-  }
-  function frame(t){
-    var dt = Math.min(0.05, (t-lastT)/1000 || 0.016); lastT = t;
-    var time = t*0.001;
-    ctx.clearRect(0,0,W,H);
-
-    /* deep navy backdrop */
-    var g = ctx.createLinearGradient(0,0,W*0.4,H);
-    g.addColorStop(0,'#0E2E55'); g.addColorStop(.6,'#0A2344'); g.addColorStop(1,'#061831');
-    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
-    var rg = ctx.createRadialGradient(W*0.8,H*0.22,10,W*0.8,H*0.22,430);
-    rg.addColorStop(0,'rgba(80,150,230,0.14)'); rg.addColorStop(1,'rgba(80,150,230,0)');
-    ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
-
-    var sx = px*0.5, sy = py*0.4;
-
-    /* ---- main copper pipe run: horizontal at 46% height ---- */
-    var pipeY = H*0.46 + sy;
-    var pipeH = Math.max(16, H*0.045);
-    var x0 = W*0.06 + sx, x1 = W*0.94 + sx;
-
-    /* pipe body */
-    var cg = ctx.createLinearGradient(0, pipeY, 0, pipeY+pipeH);
-    cg.addColorStop(0,'#B5793F'); cg.addColorStop(.45,'#8A5A2B'); cg.addColorStop(1,'#5E3B1A');
-    ctx.fillStyle = cg;
-    ctx.fillRect(x0, pipeY, x1-x0, pipeH);
-    /* pipe top highlight */
-    ctx.fillStyle = 'rgba(240,200,150,0.35)';
-    ctx.fillRect(x0, pipeY+2, x1-x0, 2.5);
-    /* end flanges */
-    ctx.fillStyle = '#4A2E14';
-    ctx.fillRect(x0, pipeY-5, 12, pipeH+10);
-    ctx.fillRect(x1-12, pipeY-5, 12, pipeH+10);
-
-    /* ---- water flow inside: light pulses travelling left->right ---- */
-    var flowT = reduce ? 0.5 : (time*0.14) % 1;
-    var nSeg = 7;
-    for (var s=0;s<nSeg;s++){
-      var u = ((s/nSeg) + flowT) % 1;
-      var fx = x0 + u*(x1-x0);
-      var al = 0.25 + 0.2*Math.sin(time*2.2 + s*1.7);
-      var fg = ctx.createRadialGradient(fx, pipeY+pipeH/2, 1, fx, pipeY+pipeH/2, 42);
-      fg.addColorStop(0,'rgba(140,200,255,'+al+')');
-      fg.addColorStop(1,'rgba(140,200,255,0)');
-      ctx.fillStyle = fg;
-      ctx.fillRect(fx-42, pipeY, 84, pipeH);
-    }
-
-    /* ---- vertical riser pipe on the left ---- */
-    var vx = W*0.18 + sx;
-    var vw = pipeH;
-    var vy0 = pipeY - H*0.26, vy1 = pipeY + pipeH;
-    var vg = ctx.createLinearGradient(vx, 0, vx+vw, 0);
-    vg.addColorStop(0,'#B5793F'); vg.addColorStop(.5,'#8A5A2B'); vg.addColorStop(1,'#5E3B1A');
-    ctx.fillStyle = vg;
-    ctx.fillRect(vx, vy0, vw, vy1-vy0);
-    /* elbow joint */
-    ctx.fillStyle = '#9A6733';
-    ctx.beginPath(); ctx.arc(vx+vw/2, vy0+vw/2, vw*0.72, 0, Math.PI*2); ctx.fill();
-    ctx.fillStyle = 'rgba(20,35,60,0.5)';
-    ctx.beginPath(); ctx.arc(vx+vw/2, vy0+vw/2, vw*0.30, 0, Math.PI*2); ctx.fill();
-
-    /* valve wheel on the riser */
-    var valveY = vy0 + H*0.10;
-    ctx.strokeStyle = '#C8D4E6';
-    ctx.lineWidth = 3;
-    ctx.beginPath(); ctx.arc(vx+vw/2, valveY, vw*0.85, 0, Math.PI*2); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(vx+vw/2 - vw*0.85, valveY); ctx.lineTo(vx+vw/2 + vw*0.85, valveY); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(vx+vw/2, valveY - vw*0.85); ctx.lineTo(vx+vw/2, valveY + vw*0.85); ctx.stroke();
-    /* valve turns slowly */
-    var turn = reduce ? 0 : Math.sin(time*0.5)*0.35;
-    ctx.save();
-    ctx.translate(vx+vw/2, valveY);
-    ctx.rotate(turn);
-    ctx.strokeStyle = 'rgba(140,200,255,0.55)';
-    ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.arc(0, 0, vw*1.05, 0, Math.PI*2); ctx.stroke();
-    ctx.restore();
-
-    /* ---- pressure gauge on the right ---- */
-    var gx = W*0.76 + sx, gy = pipeY - H*0.16;
-    var gr = Math.max(34, H*0.085);
-    ctx.fillStyle = '#0B1E3A';
-    ctx.beginPath(); ctx.arc(gx, gy, gr, 0, Math.PI*2); ctx.fill();
-    ctx.strokeStyle = '#C8D4E6';
-    ctx.lineWidth = 3;
-    ctx.beginPath(); ctx.arc(gx, gy, gr, 0, Math.PI*2); ctx.stroke();
-    /* tick marks */
-    for (var k=0;k<9;k++){
-      var a = Math.PI*0.75 + (k/8)*Math.PI*1.5;
-      ctx.strokeStyle = 'rgba(200,212,230,0.7)';
-      ctx.lineWidth = 1.6;
-      ctx.beginPath();
-      ctx.moveTo(gx + Math.cos(a)*(gr-7), gy + Math.sin(a)*(gr-7));
-      ctx.lineTo(gx + Math.cos(a)*(gr-13), gy + Math.sin(a)*(gr-13));
-      ctx.stroke();
-    }
-    /* needle breathes */
-    var pressure = 0.62 + 0.10*Math.sin(time*1.1) + 0.04*Math.sin(time*3.7);
-    var na = Math.PI*0.75 + pressure*Math.PI*1.5;
-    ctx.strokeStyle = '#FF7A59';
-    ctx.lineWidth = 2.6;
-    ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(gx + Math.cos(na)*(gr-10), gy + Math.sin(na)*(gr-10)); ctx.stroke();
-    ctx.fillStyle = '#C8D4E6';
-    ctx.beginPath(); ctx.arc(gx, gy, 4, 0, Math.PI*2); ctx.fill();
-    /* stem from gauge to pipe */
-    ctx.strokeStyle = '#9A6733';
-    ctx.lineWidth = 5;
-    ctx.beginPath(); ctx.moveTo(gx, gy+gr); ctx.lineTo(gx, pipeY); ctx.stroke();
-
-    /* ---- tap on the left of the pipe, dripping into a bucket ---- */
-    var tx = W*0.38 + sx, ty = pipeY + pipeH;
-    ctx.strokeStyle = '#C8D4E6';
-    ctx.lineWidth = 6;
-    ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx, ty + H*0.09); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(tx-14, ty + H*0.09); ctx.lineTo(tx+14, ty + H*0.09); ctx.stroke();
-    /* bucket */
-    var bx = tx, by = H*0.90 + sy;
-    ctx.strokeStyle = 'rgba(200,212,230,0.8)';
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.moveTo(bx - H*0.055, by - H*0.10);
-    ctx.lineTo(bx - H*0.045, by);
-    ctx.lineTo(bx + H*0.045, by);
-    ctx.lineTo(bx + H*0.055, by - H*0.10);
-    ctx.stroke();
-    /* water in bucket rises and resets */
-    var lvl = reduce ? 0.5 : (time*0.35) % 1;
-    ctx.fillStyle = 'rgba(90,160,240,0.55)';
-    ctx.fillRect(bx - H*0.045, by - H*0.085*lvl, H*0.09, H*0.085*lvl);
-
-    /* dripping */
-    if (!reduce && Math.random() < 0.06) drops.push({x: tx + (Math.random()-.5)*3, y: ty + H*0.10, v: 0});
-    for (var d=drops.length-1; d>=0; d--){
-      var dr = drops[d];
-      dr.v += 900*dt;
-      dr.y += dr.v*dt;
-      if (dr.y > by - H*0.10){ drops.splice(d,1); continue; }
-      ctx.fillStyle = 'rgba(140,200,255,0.85)';
-      ctx.beginPath(); ctx.ellipse(dr.x, dr.y, 2.2, 3.4, 0, 0, Math.PI*2); ctx.fill();
-    }
-
-    /* ambient bubbles in the backdrop */
-    for (var s2=0;s2<30;s2++){
-      var dx2 = ((s2*167 + 23) % W) + Math.sin(time*0.5+s2*1.6)*12 + px*0.35;
-      var dy2 = ((s2*97 + 13) % Math.max(1, H)) + Math.cos(time*0.4+s2*0.8)*10 + py*0.35;
-      var al2 = 0.05 + ((s2*7)%9)*0.016;
-      ctx.fillStyle = 'rgba(120,180,255,'+al2+')';
-      ctx.beginPath(); ctx.arc(dx2, dy2, 0.8 + (s2%3)*0.5, 0, Math.PI*2); ctx.fill();
-    }
-  }
-  resize();
-  window.addEventListener('resize', resize);
-  requestAnimationFrame(loop);
-})();
-
-</script>
+<!-- lb: old box-hero engine removed -->
 <script id="lb-motion-js">
 /* LB MOTION PACK v1 */
 (function(){
@@ -938,6 +723,112 @@ setTimeout(function(){
       { threshold: 0.25 }).observe(rb);
   } else { play(); }
   go(0);
+})();
+</script>
+<script id="lb-hero-js">
+/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
+(function(){
+  var cv = document.querySelector('#heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero], header canvas, .hero canvas');
+  if (!cv) return;
+  var ctx = cv.getContext('2d'); if (!ctx) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
+  function accent(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
+         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
+    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
+  }
+  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
+  var ACC = hex2rgb(accent());
+  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
+    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
+    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
+
+  function size(){
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
+    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  // deterministic depth motes
+  var N = 46, motes = [];
+  var seed = 20261019;
+  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
+  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
+
+  function draw(){
+    var isDark = dark();
+    var base = isDark ? [10,11,14] : [248,249,251];
+    var ink  = isDark ? [255,255,255] : [12,14,18];
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0, 'rgb('+base.join(',')+')');
+    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
+    g.addColorStop(1, 'rgb('+base.join(',')+')');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    // aurora: two slow, wide ribbons of the brand colour
+    for (var k=0;k<2;k++){
+      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
+      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
+      var rad = Math.max(W,H)*(0.46 + 0.13*k);
+      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
+      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
+      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+    }
+
+    // perspective floor: clean architectural depth, not blocks
+    var hz = H*0.70, vpx = W*0.5;
+    ctx.lineWidth = 1;
+    for (var j=-9;j<=9;j++){
+      var fx = vpx + j*(W/9)*1.5;
+      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
+    }
+    for (var r=1;r<=9;r++){
+      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
+    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
+    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
+    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
+
+    // depth motes: size + opacity track z, slow parallax drift
+    for (var q=0;q<motes.length;q++){
+      var m = motes[q];
+      var y = ((m.y + t*0.0000075*m.z) % 1);
+      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
+      var px = x*W, py = y*H;
+      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
+      if (a2 <= 0) continue;
+      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
+    }
+
+    // vignette to seat the copy
+    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
+    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
+  }
+
+  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener('resize', function(){ size(); draw(); });
+  if (!reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
+  }
+  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
+  if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
 </body>
