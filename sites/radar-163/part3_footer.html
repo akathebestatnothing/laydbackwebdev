@@ -1,0 +1,187 @@
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/logo.png" alt="Gorilla Fencing logo" height="52">
+          <span>
+            <span class="foot-brand-name">GORILLA FENCING</span><br>
+            <span class="foot-brand-sub">Built Tough</span>
+          </span>
+        </div>
+        <p>Gorilla Fencing — timber paling, Colorbond and aluminium fencing, gates, pool fencing and retaining walls across Cairns. The Fencing Bro's — built tough.</p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p>
+          <a href="tel:+61402779811">0402 779 811</a><br>
+          <a href="mailto:gorillafencingcairns@gmail.com">gorillafencingcairns@gmail.com</a><br>Cairns & surrounds · QBCC 15556235<br>Timber · Colorbond · Gates · Pool fencing
+        </p>
+      </div>
+      <div>
+        <h4>Follow the work</h4>
+        <p class="soc-row">
+          <a class="soc-link" href="https://www.instagram.com/gorillafencingcairns/" target="_blank" rel="noopener">Instagram — @gorillafencingcairns</a>
+          <a class="soc-link" href="https://www.facebook.com/profile.php?id=61560331810906" target="_blank" rel="noopener">Facebook — Gorilla Fencing</a>
+        </p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Gorilla Fencing</span>
+      <span>Built tough · Cairns QLD</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
+  if (b && n){
+    b.addEventListener('click', function(){
+      var open = n.classList.toggle('open');
+      b.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    n.addEventListener('click', function(e){
+      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+    });
+  }
+})();
+
+(function(){
+  var els = document.querySelectorAll('.drop');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+
+setTimeout(function(){
+  document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
+}, 1100);
+
+
+(function(){
+  var c = document.getElementById('heroCanvas');
+  if (!c || !c.getContext) return;
+  var ctx = c.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var px = 0, py = 0;
+  window.addEventListener('pointermove', function(e){
+    px = (e.clientX / window.innerWidth - 0.5) * 16;
+    py = (e.clientY / window.innerHeight - 0.5) * 9;
+  }, {passive: true});
+  function resize(){
+    W = c.clientWidth || c.offsetWidth;
+    H = c.clientHeight || c.offsetHeight;
+    if (!W || !H) return;
+    c.width = Math.round(W * DPR);
+    c.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  function ease(u){ return u<0.5 ? 2*u*u : 1-Math.pow(-2*u+2,2)/2; }
+  function loop(t){
+    if (!W || !H) resize();
+    if (W && H) frame(t || 0);
+    if (!reduce) requestAnimationFrame(loop);
+  }
+  function frame(t){
+    var time = t * 0.001;
+    ctx.clearRect(0,0,W,H);
+
+    /* near-black backdrop with gold warmth */
+    var g = ctx.createLinearGradient(0,0,W*0.5,H);
+    g.addColorStop(0,'#0D0B07'); g.addColorStop(.55,'#0A0906'); g.addColorStop(1,'#060504');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+    var rg = ctx.createRadialGradient(W*0.80,H*0.26,10,W*0.80,H*0.26,340);
+    rg.addColorStop(0,'rgba(245,189,66,0.11)'); rg.addColorStop(1,'rgba(245,189,66,0)');
+    ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+    var rg2 = ctx.createRadialGradient(W*0.12,H*0.82,10,W*0.12,H*0.82,300);
+    rg2.addColorStop(0,'rgba(255,240,200,0.05)'); rg2.addColorStop(1,'rgba(255,240,200,0)');
+    ctx.fillStyle = rg2; ctx.fillRect(0,0,W,H);
+
+    /* the fence line builds itself: posts, rails, palings, hold, repeat */
+    var cycle = 10.0;
+    var ph = (time % cycle)/cycle;
+    var postP = Math.min(1, ph/0.26);
+    var railP = Math.max(0, Math.min(1, (ph-0.26)/0.22));
+    var palP  = Math.max(0, Math.min(1, (ph-0.48)/0.30));
+    var fade  = ph > 0.92 ? 1-(ph-0.92)/0.08 : 1;
+
+    var ground = H*0.74 + py*0.4;
+    var n = 8;
+    var x0 = W*0.07 + px*0.5, x1 = W*0.93 + px*0.5;
+    var postH = H*0.40;
+    var topY = ground - postH;
+
+    /* posts drop + grow in */
+    for (var i=0;i<n;i++){
+      var u = i/(n-1);
+      var x = x0 + (x1-x0)*u;
+      var pp = Math.min(1, Math.max(0, (postP - i*0.05)/0.5));
+      var pe = ease(pp);
+      if (pe > 0.02){
+        var ph2 = postH*pe;
+        ctx.fillStyle = 'rgba(222,206,168,'+(0.72*fade)+')';
+        ctx.fillRect(x-4.5, ground-ph2, 9, ph2);
+        ctx.fillStyle = 'rgba(255,246,214,'+(0.30*fade)+')';
+        ctx.fillRect(x-4.5, ground-ph2, 2.4, ph2);
+      }
+      /* rails between posts */
+      if (railP > 0 && i < n-1){
+        var rp = Math.min(1, Math.max(0, (railP - i*0.04)/0.5));
+        if (rp > 0.02){
+          var x2 = x0 + (x1-x0)*((i+1)/(n-1));
+          var re = ease(rp);
+          var y1 = topY + postH*0.30, y2 = topY + postH*0.72;
+          ctx.strokeStyle = 'rgba(206,190,152,'+(0.62*fade)+')';
+          ctx.lineWidth = 6;
+          ctx.beginPath(); ctx.moveTo(x, y1); ctx.lineTo(x + (x2-x)*re, y1); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(x, y2); ctx.lineTo(x + (x2-x)*re, y2); ctx.stroke();
+        }
+      }
+    }
+    /* palings rise up between posts */
+    if (palP > 0){
+      var m = 26;
+      for (var p=0;p<m;p++){
+        var uu = p/(m-1);
+        var xp = x0 + (x1-x0)*uu;
+        var pp2 = Math.min(1, Math.max(0, (palP - p*0.022)/0.55));
+        var pe2 = ease(pp2);
+        if (pe2 > 0.02){
+          var hgt = (postH*0.88)*pe2;
+          var wdt = (x1-x0)/m*0.62;
+          ctx.fillStyle = 'rgba(228,213,176,'+(0.80*fade)+')';
+          ctx.fillRect(xp-wdt/2, ground-hgt, wdt, hgt);
+          ctx.fillStyle = 'rgba(255,250,226,'+(0.22*fade)+')';
+          ctx.fillRect(xp-wdt/2, ground-hgt, Math.max(1, wdt*0.22), hgt);
+        }
+      }
+    }
+
+    /* gold dust drifting off the build */
+    for (var s=0;s<46;s++){
+      var mx = ((s*173 + 29) % W) + Math.sin(time*0.5+s*1.7)*14 + px*0.4;
+      var my = ((s*103 + 19) % H) + Math.cos(time*0.42+s*0.9)*12 + py*0.4;
+      var al = (0.05 + ((s*7)%9)*0.022)*fade;
+      ctx.fillStyle = 'rgba(245,189,66,'+al+')';
+      ctx.beginPath(); ctx.arc(mx, my, 0.7 + (s%3)*0.55, 0, Math.PI*2); ctx.fill();
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(loop);
+})();
+
+</script>
+</body>
+</html>

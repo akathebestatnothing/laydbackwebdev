@@ -36,7 +36,7 @@ html.js .rv { opacity: 0; transform: translateY(26px); transition: opacity .45s 
 html.js .rv.in, html.js .rv.on { opacity: 1; transform: none; }
 html.js .rv.d1 { transition-delay: .08s; } html.js .rv.d2 { transition-delay: .16s; } html.js .rv.d3 { transition-delay: .22s; } html.js .rv.d4 { transition-delay: .30s; }
 @media (prefers-reduced-motion: reduce) { html.js .rv { opacity: 1; transform: none; transition: none; } * { animation-duration: .001s !important; transition-duration: .001s !important; } }
-.nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 60; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav-in { display: flex; align-items: center; gap: 1.4rem; height: 80px; max-width: 1360px; margin: 0 auto; padding: 0 40px; }
 .brand { display: flex; align-items: center; gap: .9rem; color: var(--ink); text-decoration: none; }
 .brand img{height:52px;width:auto;object-fit:contain;border-radius:6px}
@@ -266,11 +266,172 @@ footer a:hover { color: var(--acc); }
 .ba-cap span{color:var(--ink2);font-size:.88rem;line-height:1.45}
 @media (max-width:900px){.ba-grid{grid-template-columns:1fr}.ba-imgs img{height:240px}}
 </style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
-<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
+<style id="lb-brand-css">
+/* ==== LB BRAND (logo-true spanning wordmark) ==== */
+.lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
+ color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
+.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
+.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
+.lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
+.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+ font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
+ color:var(--lb-name,currentColor)}
+.lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
+.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+ font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
+ color:var(--lb-subc,currentColor);opacity:.86}
+.lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
+ background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+@media (max-width:640px){
+ .lb-brand__mark{height:clamp(30px,8vw,40px)}
+ .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
+ .lb-brand__sub{letter-spacing:.2em;font-size:7px}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style id="lb-motion-css">
+/* ==== LB MOTION PACK ==== */
+.lb-rb{position:relative;width:100%;overflow:hidden;background:#0c0d10}
+.lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
+.lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
+.lb-rb__slide.is-on{opacity:1}
+.lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
+.lb-rb__slide.is-on img{transform:scale(1.10)}
+.lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
+ background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
+ font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ font-size:clamp(9px,1vw,13px);z-index:2}
+.lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
+ display:flex;flex-direction:column;gap:9px;z-index:3}
+.lb-rb__dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
+ background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s}
+.lb-rb__dots button.is-on{background:#fff;transform:scale(1.35)}
+.lb-rb__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;
+ border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(8,9,12,.35);color:#fff;
+ cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1;backdrop-filter:blur(6px);
+ transition:background .25s,transform .25s}
+.lb-rb__nav:hover{background:rgba(8,9,12,.7)}
+.lb-rb__nav--prev{left:clamp(10px,1.6vw,22px)}
+.lb-rb__nav--next{right:clamp(10px,1.6vw,22px)}
+.lb-rb__nav:active{transform:translateY(-50%) scale(.92)}
+@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3}.lb-rb__nav{width:36px;height:36px}}
+
+a.btn,.btn,button.btn,.nav-cta a,.wp-block-button__link{position:relative;overflow:hidden;
+ transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,filter .22s}
+a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2px);
+ box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
+a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
+a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
+ left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
+a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
+
+.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.lb-rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+ .lb-rv{opacity:1!important;transform:none!important;transition:none!important}
+ .lb-rb__slide img{transform:none!important;transition:none!important}
+ a.btn::after,.btn::after,.nav-cta a::after{display:none}
+}
+
+/* marquee band (professional, reference-derived) */
+.lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
+ border-bottom:1px solid rgba(255,255,255,.10)}
+.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq:hover .lb-mq__in{animation-play-state:paused}
+.lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
+ font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+.lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
+@keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
+</style>
+<style id="lb-depth-css">
+/* ==== LB DEPTH PACK — layered shadow + gradient surfaces ==== */
+:root{
+  --lb-acc: var(--acc, var(--accent, #e51924));
+  --lb-ink: var(--ink, #14161a);
+  --lb-paper: var(--paper, #ffffff);
+  --lb-e1: 0 1px 2px rgba(8,10,14,.06), 0 2px 6px rgba(8,10,14,.05);
+  --lb-e2: 0 2px 4px rgba(8,10,14,.07), 0 8px 18px -6px rgba(8,10,14,.14);
+  --lb-e3: 0 4px 10px rgba(8,10,14,.09), 0 18px 40px -12px rgba(8,10,14,.22);
+  --lb-hair: rgba(8,10,14,.10);
+}
+body{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+
+/* sections: soft accent-keyed gradient wash for depth, never a flat slab */
+section{ position:relative; }
+section::before{
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(120% 70% at 12% 0%, color-mix(in srgb, var(--lb-acc) 7%, transparent) 0%, transparent 58%),
+    radial-gradient(90% 60% at 100% 100%, color-mix(in srgb, var(--lb-acc) 5%, transparent) 0%, transparent 60%);
+}
+section > *{ position:relative; z-index:1; }
+
+/* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
+.card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
+  background:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 100%, transparent) 0%,
+                                    color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  border:1px solid var(--lb-hair);
+  border-radius:14px;
+  box-shadow:var(--lb-e1);
+  transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s, border-color .28s;
+}
+.card:hover,.cards > *:hover,.panel:hover,.tile:hover,.service:hover,.grid > article:hover,
+.grid > div:hover,figure:hover,.gal figure:hover,.gallery figure:hover{
+  transform:translateY(-4px); box-shadow:var(--lb-e3); border-color:color-mix(in srgb, var(--lb-acc) 34%, var(--lb-hair));
+}
+
+/* photographs: rounded, layered shadow, slight scrim so text over them stays legible */
+section img, figure img, .gal img, .gallery img, .card img{
+  border-radius:10px; box-shadow:var(--lb-e2); display:block;
+}
+figure, .gal figure, .gallery figure{ overflow:hidden; }
+figure img, .gal img{ transform:scale(1.001); transition:transform .5s cubic-bezier(.2,.7,.3,1); }
+figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:scale(1.035); }
+
+/* buttons: gradient fill, inset highlight, layered shadow */
+a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
+  background-image:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 55%);
+  box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
+  border-radius:10px;
+}
+a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
+  box-shadow:var(--lb-e3), inset 0 1px 0 rgba(255,255,255,.26);
+}
+.btn-ghost{ box-shadow:var(--lb-e1); }
+
+/* nav: subtle vertical gradient + hairline for separation from the page */
+.nav,nav,.site-header,header.nav{
+  background-image:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 96%, transparent) 0%,
+                                         color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
+}
+
+/* section heads get a hairline rule for structure (no risky text clipping) */
+.sec-head{ border-bottom:1px solid var(--lb-hair); padding-bottom:.7rem; }
+h1,h2,h3{ text-wrap:balance; }
+
+/* footer: depth anchor */
+footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5); }
+
+/* dark surfaces get stronger, softer shadows */
+@media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
+@supports not (background: color-mix(in srgb, red 5%, blue)){
+  section::before{ background:radial-gradient(120% 70% at 12% 0%, rgba(229,25,36,.06) 0%, transparent 58%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
+}
+</style>
+</head>
+<body>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav dark"><div class="nav-in">
-  <a class="brand" href="#top"><img src="assets/logo.png" alt="MWD Carpentry logo"><span class="b-txt"><span class="brand-name">MWD Carpentry</span><br><span class="brand-sub">Decks · Pergolas · Timber Carpentry</span></span></a>
+  <a class="lb-brand" href="#top" aria-label="MWD CARPENTRY - Home" style="--lb-disp:Montserrat;--lb-sub:Inter;--lb-acc:#249ccc;"><span class="lb-brand__word"><span class="lb-brand__name">MWD <span class="lb-acc">CARPENTRY</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="mono nav-p">0403 481 281</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -361,7 +522,7 @@ footer a:hover { color: var(--acc); }
       <div><b>Area</b><span>Corlette & Port Stephens, NSW</span></div>
     </div>
   </div>
-  <form id="lbq-form" novalidate data-site="radar-160" data-biz="MWD Carpentry">
+  <form id="lbq-form" novalidate data-site="mwd-carpentry" data-biz="MWD Carpentry">
     <div class="lbq-f">
       <div class="lbq-g">
         <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
@@ -451,7 +612,7 @@ footer a:hover { color: var(--acc); }
 </script>
 </section>
 
-<footer><div class="wrap">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="site/assets/work.jpg" alt="MWD Carpentry" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="site/assets/ba_2b.jpg" alt="MWD Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="site/assets/ba_5b.jpg" alt="MWD Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="site/assets/ba_3a.jpg" alt="MWD Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="site/assets/gal_4.jpg" alt="MWD Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="site/assets/ba_3b.jpg" alt="MWD Carpentry" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button></div><div class="lb-rb__cap">MWD Carpentry &mdash; recent work</div></div></section><footer><div class="wrap">
   <div>
     <div class="fbrand"><img src="assets/logo.png" alt="MWD Carpentry logo"><span class="b-txt"><span class="brand-name" style="font-size:1rem;">MWD Carpentry</span><br><span class="brand-sub">Decks · Pergolas · Timber Carpentry</span></span></div>
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Hardwood decks &middot; Pergolas &middot; Timber framing — Corlette & Port Stephens.<br></p>
@@ -491,13 +652,64 @@ footer a:hover { color: var(--acc); }
   }
 })();
 setTimeout(function(){ document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); }); }, 1100);
-/* 3D hero — floorboards sliding into place (flooring) */
+/* 3D hero — deck boards being laid into place (carpentry) */
 (function(){var c=document.getElementById('heroCanvas');if(!c||!c.getContext)return;var ctx=c.getContext('2d');var DPR=Math.min(window.devicePixelRatio||1,2);var W=0,H=0,reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var px=0,py=0;window.addEventListener('pointermove',function(e){px=(e.clientX/innerWidth-.5)*18;py=(e.clientY/innerHeight-.5)*12;},{passive:true});
 function resize(){W=c.clientWidth||c.offsetWidth;H=c.clientHeight||c.offsetHeight;if(!W||!H)return;c.width=Math.round(W*DPR);c.height=Math.round(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0);}
 function loop(t){if(!W||!H){resize();return;}frame(t||0);if(!reduce)requestAnimationFrame(loop);}
 function frame(t){var time=t*.001;ctx.clearRect(0,0,W,H);var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#ffffff');g.addColorStop(1,'#cfecf9');
-var n=12;var bw=W*.42;var cy=H*.5+py*0.3;for(var i=0;i<n;i++){var d=time*0.7+i*0.16;var p=(d%2.2);if(p>1.1)p=2.2-p;if(p<0)continue;var e=p/1.1;e=e<0.5?2*e*e:1-Math.pow(-2*e+2,2)/2;var x=W + (i%2? -1:1)*bw*(1-e) - (i%2?0:bw*0.5);var y=cy+(i-n/2)*H*0.075;var grad=ctx.createLinearGradient(x,0,x+bw,0);grad.addColorStop(0,'rgba(0,159,227,0.34)');grad.addColorStop(1,'rgba(56,180,233,0.16)');ctx.fillStyle=grad;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+bw,y);ctx.lineTo(x+bw*0.96,y+H*0.055);ctx.lineTo(x-bw*0.04,y+H*0.055);ctx.closePath();ctx.fill();ctx.strokeStyle='rgba(0,159,227,0.35)';ctx.lineWidth=1.2;ctx.stroke();}
-var rg=ctx.createRadialGradient(W*.16,H*.8,10,W*.16,H*.8,W*.5);rg.addColorStop(0,'rgba(0,159,227,0.13)');rg.addColorStop(1,'rgba(0,159,227,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);}
+/* timber deck boards sliding into place */
+var n=9; var bw=W*.52; var cy=H*.55+py*0.3;
+for(var i=0;i<n;i++){
+  var d=time*0.55+i*0.14;
+  var p=(d%2.0);
+  if(p>1.0)p=2.0-p;
+  if(p<0)continue;
+  var e=p/1.0;
+  e=e<0.5?2*e*e:1-Math.pow(-2*e+2,2)/2;
+  var x=W + (i%2? -1:1)*bw*(1-e) - (i%2?0:bw*0.6);
+  var y=cy+(i-n/2)*H*0.085;
+  var grad=ctx.createLinearGradient(x,0,x+bw,0);
+  grad.addColorStop(0,'rgba(120,90,60,0.38)');
+  grad.addColorStop(0.5,'rgba(180,145,100,0.22)');
+  grad.addColorStop(1,'rgba(120,90,60,0.18)');
+  ctx.fillStyle=grad;
+  ctx.beginPath();
+  ctx.moveTo(x,y);
+  ctx.lineTo(x+bw,y);
+  ctx.lineTo(x+bw*0.98,y+H*0.07);
+  ctx.lineTo(x-bw*0.02,y+H*0.07);
+  ctx.closePath();
+  ctx.fill();
+  /* board edge highlight */
+  ctx.strokeStyle='rgba(180,145,100,0.25)';
+  ctx.lineWidth=1;
+  ctx.beginPath();
+  ctx.moveTo(x,y);
+  ctx.lineTo(x+bw,y);
+  ctx.stroke();
+  /* screw marks */
+  ctx.fillStyle='rgba(60,45,30,0.22)';
+  for(var s=0;s<4;s++){
+    var sx=x+bw*(0.15+s*0.22);
+    ctx.beginPath();ctx.arc(sx,y+H*0.035,1.5,0,Math.PI*2);ctx.fill();
+  }
+}
+/* joist lines underneath */
+ctx.strokeStyle='rgba(100,75,50,0.12)';
+ctx.lineWidth=2;
+for(var j=0;j<5;j++){
+  var jy=cy+H*0.12+j*H*0.06;
+  ctx.beginPath();
+  ctx.moveTo(W*0.15,jy);
+  ctx.lineTo(W*0.85,jy);
+  ctx.stroke();
+}
+/* ambient glow */
+var rg=ctx.createRadialGradient(W*.2,H*.85,10,W*.2,H*.85,W*.55);
+rg.addColorStop(0,'rgba(120,90,60,0.10)');
+rg.addColorStop(1,'rgba(120,90,60,0)');
+ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);
+}
 resize();window.addEventListener('resize',resize);requestAnimationFrame(loop);})();
 var hg = document.querySelector('.hgal');
 if (hg) {
@@ -507,6 +719,52 @@ if (hg) {
   if (prev) prev.addEventListener('click', function(){ hg.scrollBy({ left: -step(), behavior: 'smooth' }); });
   if (next) next.addEventListener('click', function(){ hg.scrollBy({ left: step(), behavior: 'smooth' }); });
 }
+</script>
+<script id="lb-motion-js">
+/* LB MOTION PACK v1 */
+(function(){
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel = 'section > *, main > *, .sec-head, .cards > *, .grid > *, .faq details, .gal figure, .gallery figure';
+  var els = [].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if (e.closest && e.closest('.lb-rb')) return false;
+    if (e.tagName === 'SCRIPT' || e.tagName === 'STYLE') return false;
+    var r = e.getBoundingClientRect();
+    return r.width > 40 && r.height > 20;
+  });
+  els.forEach(function(e, i){ e.classList.add('lb-rv'); e.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
+  if (rm || !('IntersectionObserver' in window)) {
+    els.forEach(function(e){ e.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
+  }
+  var rb = document.querySelector('.lb-rb');
+  if (!rb) return;
+  var slides = [].slice.call(rb.querySelectorAll('.lb-rb__slide'));
+  if (slides.length < 2) return;
+  var dots = [].slice.call(rb.querySelectorAll('.lb-rb__dots button'));
+  var i = 0, timer = null, DUR = 5600;
+  function go(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
+    dots.forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
+  }
+  function play(){ if (rm) return; stop(); timer = setInterval(function(){ go(i + 1); }, DUR); }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); play(); }); });
+  var pv = rb.querySelector('.lb-rb__nav--prev'), nx = rb.querySelector('.lb-rb__nav--next');
+  if (pv) pv.addEventListener('click', function(){ go(i - 1); play(); });
+  if (nx) nx.addEventListener('click', function(){ go(i + 1); play(); });
+  rb.addEventListener('mouseenter', stop); rb.addEventListener('mouseleave', play);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){ en.forEach(function(x){ x.isIntersecting ? play() : stop(); }); },
+      { threshold: 0.25 }).observe(rb);
+  } else { play(); }
+  go(0);
+})();
 </script>
 </body>
 </html>

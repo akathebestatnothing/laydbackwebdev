@@ -1,0 +1,352 @@
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/logo.png" alt="Dynamic Carpentry &amp; Renovations logo" height="52">
+          <span>
+            <span class="foot-brand-name">DYNAMIC</span><br>
+            <span class="foot-brand-sub">Carpentry &amp; Renovations</span>
+          </span>
+        </div>
+        <p>Dynamic Carpentry &amp; Renovations — precision finish carpentry across Sydney. Wainscoting and wall panelling, doors and frames, skirtings and mouldings, ceiling battens, fireplace framing and full fixout packages.</p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p>
+          <a href="tel:0499776991">0499 776 991</a><br>
+          Sydney · NSW<br>Residential &amp; commercial<br>ABN 19 650 036 132
+        </p>
+      </div>
+      <div>
+        <h4>Follow the work</h4>
+        <p class="soc-row">
+          <a class="soc-link" href="https://www.instagram.com/dynamiccarpentryandrenovations/" target="_blank" rel="noopener">Instagram — @dynamiccarpentryandrenovations</a>
+        </p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Dynamic Carpentry &amp; Renovations</span>
+      <span>Precision carpentry · Immaculate finishes</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
+  if (b && n){
+    b.addEventListener('click', function(){
+      var open = n.classList.toggle('open');
+      b.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    n.addEventListener('click', function(e){
+      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+    });
+  }
+})();
+
+(function(){
+  var els = document.querySelectorAll('.drop');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+
+setTimeout(function(){
+  document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
+}, 1100);
+
+
+(function(){
+  var c = document.getElementById('heroCanvas');
+  if (!c || !c.getContext) return;
+  var ctx = c.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var px = 0, py = 0;
+  window.addEventListener('pointermove', function(e){
+    px = (e.clientX / window.innerWidth - 0.5) * 12;
+    py = (e.clientY / window.innerHeight - 0.5) * 7;
+  }, {passive: true});
+  function resize(){
+    W = c.clientWidth || c.offsetWidth;
+    H = c.clientHeight || c.offsetHeight;
+    if (!W || !H) return;
+    c.width = Math.round(W * DPR);
+    c.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+
+  /* --- the joint: two dressed timber boards with a dovetail seam breathe
+     together on the bench; a marking-gauge line runs across the setout;
+     a plank edge grounds the scene. Slow ambient loop. --- */
+  var dust = [];
+  var lastT = 0;
+
+  function tri(y, yT, p){
+    var f = ((y - yT) / p) % 1; if (f < 0) f += 1;
+    return 1 - Math.abs(1 - 2 * f);   /* 0 at band edges, 1 at mid */
+  }
+
+  function plankRow(y, ph, drift, seed){
+    ctx.fillStyle = '#19181B';
+    ctx.fillRect(0, y, W, ph + 2);
+    var x = -((drift + seed * 97) % 1100) - 300;
+    var lens = [340, 210, 280, 380, 240, 320, 190, 360];
+    var i = seed;
+    while (x < W + 300){
+      var L = lens[i % lens.length];
+      ctx.fillStyle = (i % 2 === 0) ? '#332F2B' : '#3B3733';
+      ctx.fillRect(x, y + 1.5, L - 3, ph - 3);
+      ctx.strokeStyle = 'rgba(255,236,206,0.06)';
+      ctx.lineWidth = 1;
+      for (var g = 0; g < 3; g++){
+        var gy = y + 8 + g * (ph - 14) / 3;
+        ctx.beginPath();
+        ctx.moveTo(x + 6, gy);
+        ctx.quadraticCurveTo(x + L / 2, gy + 2, x + L - 6, gy);
+        ctx.stroke();
+      }
+      ctx.strokeStyle = 'rgba(0,0,0,0.45)';
+      ctx.beginPath(); ctx.moveTo(x + L - 1.5, y + 2); ctx.lineTo(x + L - 1.5, y + ph - 2); ctx.stroke();
+      x += L;
+      i++;
+    }
+    ctx.strokeStyle = 'rgba(248,238,220,0.2)';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(0, y + 0.6); ctx.lineTo(W, y + 0.6); ctx.stroke();
+    ctx.strokeStyle = 'rgba(244,238,226,0.05)';
+    ctx.beginPath(); ctx.moveTo(0, y + 5); ctx.lineTo(W, y + 5); ctx.stroke();
+    ctx.strokeStyle = 'rgba(0,0,0,0.52)';
+    ctx.beginPath(); ctx.moveTo(0, y + ph - 0.6); ctx.lineTo(W, y + ph - 0.6); ctx.stroke();
+  }
+
+  function offcut(ox, oy, w0, h0, t1, t2){
+    ctx.fillStyle = 'rgba(4,4,6,0.5)';
+    ctx.beginPath(); ctx.ellipse(ox + w0 / 2, oy + h0 + 4, w0 * 0.62, 7, 0, 0, Math.PI * 2); ctx.fill();
+    var og = ctx.createLinearGradient(0, oy, 0, oy + h0);
+    og.addColorStop(0, t1); og.addColorStop(1, t2);
+    ctx.fillStyle = og;
+    ctx.fillRect(ox, oy, w0, h0);
+    ctx.strokeStyle = 'rgba(248,238,220,0.30)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(ox, oy + 0.5); ctx.lineTo(ox + w0, oy + 0.5); ctx.stroke();
+    ctx.strokeStyle = 'rgba(0,0,0,0.4)';
+    ctx.beginPath(); ctx.moveTo(ox, oy + h0 - 0.5); ctx.lineTo(ox + w0, oy + h0 - 0.5); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,236,206,0.10)';
+    ctx.fillRect(ox + w0 - 2.5, oy + 1, 2.5, h0 - 2);
+  }
+
+  function loop(t){
+    if (!W || !H) resize();
+    if (W && H) frame(t || 0);
+    if (!reduce) requestAnimationFrame(loop);
+  }
+
+  function frame(t){
+    var dt = Math.min(0.05, (t - lastT) / 1000 || 0.016); lastT = t;
+    var time = t * 0.001;
+    ctx.clearRect(0, 0, W, H);
+
+    /* deep charcoal backdrop */
+    var g = ctx.createLinearGradient(0, 0, W * 0.35, H);
+    g.addColorStop(0, '#19191C'); g.addColorStop(.55, '#131315'); g.addColorStop(1, '#0B0B0D');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    var rg = ctx.createRadialGradient(W * 0.76, H * 0.34, 10, W * 0.76, H * 0.34, 520);
+    rg.addColorStop(0, 'rgba(216,210,198,0.075)'); rg.addColorStop(1, 'rgba(216,210,198,0)');
+    ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
+
+    var sx = px * 0.5, sy = py * 0.4;
+
+    /* ---- plank floor edge (bottom band) ---- */
+    var y0 = H * 0.845 + sy * 0.5;
+    var rowH = (H * 0.985 - y0) / 2;
+    if (rowH > 8){
+      plankRow(y0, rowH, time * 4, 0);
+      plankRow(y0 + rowH, rowH * 0.92, time * 4, 3);
+    }
+
+    /* ---- the dovetail joint ---- */
+    var bl = Math.max(150, W * 0.23);
+    var bt = Math.min(114, Math.max(66, H * 0.125));
+    var bx = px * 0.5, by = sy * 0.6;
+    var seamX = W * 0.795 + bx;
+    var yT = H * 0.44 - bt / 2 + by;
+    var yB = yT + bt;
+    var xL0 = seamX - bl;
+    var xR1 = seamX + bl;
+    var gap = reduce ? 0 : (1 - Math.cos(time * 0.55)) * 7.5;
+    var p = bt / 3;
+    var tw = Math.min(34, bt * 0.38);
+
+    var ys = [];
+    for (var yy = yT; yy <= yB + 0.01; yy += p / 8) ys.push(Math.min(yy, yB));
+
+    /* dark crevice behind the seam */
+    ctx.fillStyle = '#08080A';
+    ctx.fillRect(seamX - tw - 4, yT - 5, tw * 2 + gap + 8, bt + 10);
+
+    /* bench plane, cast shadow, offcuts */
+    var benchTop = yB + 6;
+    var benchG = ctx.createLinearGradient(0, benchTop, 0, benchTop + 104);
+    benchG.addColorStop(0, 'rgba(58,54,48,0.5)');
+    benchG.addColorStop(0.4, 'rgba(34,32,29,0.32)');
+    benchG.addColorStop(1, 'rgba(16,16,18,0)');
+    ctx.fillStyle = benchG;
+    ctx.fillRect(xL0 - 130, benchTop, (xR1 - xL0) + 260, 104);
+    ctx.strokeStyle = 'rgba(248,238,220,0.07)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(xL0 - 130, benchTop + 0.5); ctx.lineTo(xR1 + 130, benchTop + 0.5); ctx.stroke();
+    ctx.fillStyle = 'rgba(4,4,6,0.62)';
+    ctx.beginPath();
+    ctx.ellipse(seamX + gap / 2, yB + 15, bl * 1.12, 16, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(4,4,6,0.4)';
+    ctx.beginPath();
+    ctx.ellipse(seamX + gap / 2, yB + 27, bl * 0.95, 9, 0, 0, Math.PI * 2);
+    ctx.fill();
+    offcut(seamX - 320, yB + 54, 165, 21, '#493E30', '#372F23');
+    offcut(seamX - 120, yB + 80, 118, 16, '#42382B', '#322A20');
+
+    /* LEFT board (with zigzag right edge) */
+    ctx.beginPath();
+    ctx.moveTo(xL0, yT);
+    for (var i1 = 0; i1 < ys.length; i1++){
+      ctx.lineTo(seamX + tw * tri(ys[i1], yT, p), ys[i1]);
+    }
+    ctx.lineTo(xL0, yB);
+    ctx.closePath();
+    var lg = ctx.createLinearGradient(0, yT, 0, yB);
+    lg.addColorStop(0, '#453C31'); lg.addColorStop(1, '#342D24');
+    ctx.fillStyle = lg;
+    ctx.fill();
+
+    /* RIGHT board (shifted by gap) */
+    ctx.beginPath();
+    for (var i2 = 0; i2 < ys.length; i2++){
+      var xx = seamX + tw * tri(ys[i2], yT, p) + gap;
+      if (i2 === 0) ctx.moveTo(xx, ys[i2]); else ctx.lineTo(xx, ys[i2]);
+    }
+    ctx.lineTo(xR1 + gap, yB);
+    ctx.lineTo(xR1 + gap, yT);
+    ctx.closePath();
+    var rgd = ctx.createLinearGradient(0, yT, 0, yB);
+    rgd.addColorStop(0, '#4E4335'); rgd.addColorStop(1, '#3B332A');
+    ctx.fillStyle = rgd;
+    ctx.fill();
+
+    /* grain (clipped per board) */
+    function grain(x0, x1){
+      ctx.save();
+      ctx.beginPath(); ctx.rect(x0, yT, x1 - x0, bt); ctx.clip();
+      for (var k = 0; k < 10; k++){
+        var gy2 = yT + (k + 0.5) * bt / 10;
+        ctx.strokeStyle = (k % 3 === 0) ? 'rgba(255,236,206,0.07)' : 'rgba(16,10,5,0.30)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x0 - 20, gy2 + Math.sin(k * 2.1) * 1.6);
+        ctx.quadraticCurveTo((x0 + x1) / 2, gy2 + Math.sin(k * 1.3) * 3.0, x1 + 20, gy2 + Math.sin(k * 2.7) * 1.6);
+        ctx.stroke();
+      }
+      var sh = ctx.createLinearGradient(0, yT, 0, yB);
+      sh.addColorStop(0.15, 'rgba(255,236,208,0)');
+      sh.addColorStop(0.5, 'rgba(255,236,208,0.06)');
+      sh.addColorStop(0.85, 'rgba(255,236,208,0)');
+      ctx.fillStyle = sh; ctx.fillRect(x0, yT, x1 - x0, bt);
+      ctx.restore();
+    }
+    grain(xL0, seamX + tw);
+    grain(seamX + gap, xR1 + gap);
+
+    /* interlock contact: dark edge on left board, light edge on right board */
+    ctx.beginPath();
+    ctx.moveTo(seamX + tw * tri(ys[0], yT, p), ys[0]);
+    for (var i3 = 1; i3 < ys.length; i3++){
+      ctx.lineTo(seamX + tw * tri(ys[i3], yT, p), ys[i3]);
+    }
+    ctx.strokeStyle = (gap < 1.6) ? 'rgba(6,6,8,0.62)' : 'rgba(0,0,0,0.55)';
+    ctx.lineWidth = (gap < 1.6) ? 2.6 : 2.1;
+    ctx.stroke();
+    ctx.beginPath();
+    for (var i4 = 0; i4 < ys.length; i4++){
+      var xr = seamX + tw * tri(ys[i4], yT, p) + gap;
+      if (i4 === 0) ctx.moveTo(xr, ys[i4]); else ctx.lineTo(xr, ys[i4]);
+    }
+    ctx.strokeStyle = 'rgba(248,236,214,0.42)';
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+
+    /* top edges + board top surfaces */
+    ctx.strokeStyle = 'rgba(248,238,220,0.55)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(xL0, yT); ctx.lineTo(seamX, yT); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(seamX + gap, yT); ctx.lineTo(xR1 + gap, yT); ctx.stroke();
+    ctx.fillStyle = 'rgba(248,238,220,0.10)';
+    ctx.beginPath();
+    ctx.moveTo(xL0, yT); ctx.lineTo(seamX, yT); ctx.lineTo(seamX + 10, yT - 9); ctx.lineTo(xL0 + 10, yT - 9); ctx.closePath(); ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(seamX + gap, yT); ctx.lineTo(xR1 + gap, yT); ctx.lineTo(xR1 + gap + 10, yT - 9); ctx.lineTo(seamX + gap + 10, yT - 9); ctx.closePath(); ctx.fill();
+    /* bottom shadow lines */
+    ctx.strokeStyle = 'rgba(0,0,0,0.55)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(xL0, yB); ctx.lineTo(seamX, yB); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(seamX + gap, yB); ctx.lineTo(xR1 + gap, yB); ctx.stroke();
+
+    /* ---- marking-gauge line ---- */
+    var my = yT - 30 + sy * 0.8;
+    ctx.save();
+    ctx.setLineDash([12, 9]);
+    ctx.lineDashOffset = reduce ? 0 : -(time * 14 % 21);
+    ctx.strokeStyle = 'rgba(238,234,224,0.3)';
+    ctx.lineWidth = 1.3;
+    ctx.beginPath(); ctx.moveTo(W * 0.06, my); ctx.lineTo(W * 0.985, my); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(W * 0.06, my - 6); ctx.lineTo(W * 0.06, my + 6); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(W * 0.985, my - 6); ctx.lineTo(W * 0.985, my + 6); ctx.stroke();
+    ctx.restore();
+
+    /* ---- light sweep ---- */
+    var sw = reduce ? 0.62 : (time * 0.025) % 1;
+    var sg = ctx.createLinearGradient(W * (sw - 0.3), 0, W * (sw + 0.3), H * 0.35);
+    sg.addColorStop(0, 'rgba(240,236,226,0)');
+    sg.addColorStop(0.5, 'rgba(240,236,226,0.045)');
+    sg.addColorStop(1, 'rgba(240,236,226,0)');
+    ctx.fillStyle = sg; ctx.fillRect(0, 0, W, H);
+
+    /* ---- dust motes ---- */
+    if (!reduce && Math.random() < 0.10) dust.push({x: seamX - bl + Math.random() * bl * 2, y: yT + Math.random() * bt, v: 0.4 + Math.random() * 0.8, r: 0.7 + Math.random() * 1.1, life: 1});
+    for (var d = dust.length - 1; d >= 0; d--){
+      var pt = dust[d];
+      pt.y -= pt.v * dt * 22;
+      pt.x += Math.sin(time * 2 + pt.r * 9) * 0.3;
+      pt.life -= dt * 0.18;
+      if (pt.life <= 0){ dust.splice(d, 1); continue; }
+      ctx.fillStyle = 'rgba(224,220,210,' + (0.28 * pt.life).toFixed(3) + ')';
+      ctx.beginPath(); ctx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2); ctx.fill();
+    }
+    for (var s2 = 0; s2 < 26; s2++){
+      var dx2 = ((s2 * 167 + 23) % W) + Math.sin(time * 0.5 + s2 * 1.6) * 12 + px * 0.35;
+      var dy2 = ((s2 * 97 + 13) % Math.max(1, H)) + Math.cos(time * 0.4 + s2 * 0.8) * 10 + py * 0.35;
+      var al2 = 0.04 + ((s2 * 7) % 9) * 0.012;
+      ctx.fillStyle = 'rgba(220,216,206,' + al2.toFixed(3) + ')';
+      ctx.beginPath(); ctx.arc(dx2, dy2, 0.8 + (s2 % 3) * 0.5, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(loop);
+})();
+
+</script>
+</body>
+</html>

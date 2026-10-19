@@ -1,0 +1,140 @@
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/logo.png" alt="A.D Lawns and Landscapes logo" height="52">
+          <span>
+            <span class="foot-brand-name">A.D Lawns and Landscapes</span><br>
+            <span class="foot-brand-sub">Lawn Care & Landscaping</span>
+          </span>
+        </div>
+        <p>A.D Lawns and Landscapes — mowing, hedging, garden maintenance, landscaping and green waste removal with a five-star finish.</p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p>
+          <a href="tel:+61406840056">0406 840 056</a><br>
+          <a href="mailto:a.dlawnsandlandscapes@gmail.com">a.dlawnsandlandscapes@gmail.com</a><br>Free quotes · Regular or one-off visits
+        </p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 A.D Lawns and Landscapes</span>
+      <span>Lawn care & landscaping</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
+  if (b && n){
+    b.addEventListener('click', function(){
+      var open = n.classList.toggle('open');
+      b.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    n.addEventListener('click', function(e){
+      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+    });
+  }
+})();
+
+(function(){
+  var els = document.querySelectorAll('.drop');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+
+setTimeout(function(){
+  document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
+}, 1100);
+
+
+(function(){
+  var c = document.getElementById('heroCanvas');
+  if (!c || !c.getContext) return;
+  var ctx = c.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var px = 0, py = 0;
+  window.addEventListener('pointermove', function(e){
+    px = (e.clientX / window.innerWidth - 0.5) * 16;
+    py = (e.clientY / window.innerHeight - 0.5) * 9;
+  }, {passive: true});
+  function resize(){
+    W = c.clientWidth || c.offsetWidth;
+    H = c.clientHeight || c.offsetHeight;
+    if (!W || !H) return;
+    c.width = Math.round(W * DPR);
+    c.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  function loop(t){
+    if (!W || !H){ resize(); return; }
+    frame(t || 0);
+    if (!reduce) requestAnimationFrame(loop);
+  }
+  function frame(t){
+
+    var time = t * 0.001;
+    ctx.clearRect(0,0,W,H);
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,'#173A14'); g.addColorStop(.5,'#1F4C1A'); g.addColorStop(1,'#142E10');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    var vpx = W*0.5 + px*0.3, vpy = H*0.16 + py*0.2;
+    /* mow stripes in perspective */
+    for (var i=-6;i<=6;i++){
+      var xNear = vpx + i*W*0.14;
+      ctx.fillStyle = (Math.abs(i)%2===0) ? 'rgba(120,200,90,0.10)' : 'rgba(16,52,16,0.18)';
+      ctx.beginPath();
+      ctx.moveTo(vpx + i*W*0.024, vpy);
+      ctx.lineTo(vpx + (i+1)*W*0.024, vpy);
+      ctx.lineTo(xNear + W*0.14, H);
+      ctx.lineTo(xNear, H);
+      ctx.closePath(); ctx.fill();
+    }
+    /* travelling cut line */
+    var cut = Math.sin(time*0.4)*0.5+0.5;
+    var cy = H*0.22 + cut*(H*0.62);
+    var cw = W*0.06 + (cy-H*0.22)/(H*0.62)*W*0.5;
+    ctx.fillStyle = 'rgba(210,255,170,0.10)';
+    ctx.fillRect(vpx-cw/2, cy-2, cw, 4);
+    ctx.fillStyle = 'rgba(230,255,200,0.30)';
+    ctx.fillRect(vpx-cw/2, cy, cw, 1.6);
+
+    /* drifting grass blades */
+    for (var k=0;k<24;k++){
+      var bx = (k*157 + time*20*(0.4+(k%4)*0.15)) % (W+60) - 30;
+      var by = H*0.24 + ((k*91 + time*13*(0.3+(k%3)*0.25)) % (H*0.66));
+      var sw = Math.sin(time*0.9 + k*0.8)*0.5;
+      ctx.save(); ctx.translate(bx,by); ctx.rotate(sw*0.5 + 0.4);
+      ctx.strokeStyle = 'rgba(150,220,110,' + (0.15 + (k%3)*0.06) + ')';
+      ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(0,0); ctx.quadraticCurveTo(7,-6,12,-12); ctx.stroke();
+      ctx.restore();
+    }
+    /* sun haze upper left */
+    var sg3 = ctx.createRadialGradient(W*0.16,H*0.12,4,W*0.16,H*0.12,W*0.5);
+    sg3.addColorStop(0,'rgba(255,244,180,0.14)'); sg3.addColorStop(1,'rgba(255,244,180,0)');
+    ctx.fillStyle = sg3; ctx.fillRect(0,0,W,H);
+
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
