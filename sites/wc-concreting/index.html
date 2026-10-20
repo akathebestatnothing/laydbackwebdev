@@ -355,13 +355,14 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
 }
 </style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="WC Concreting - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#005890;--lb-subc:#005890;--lb-acc:#005890;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">WC Concreting</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="WC Concreting - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#005890;--lb-subc:#005890;--lb-acc:#005890;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">WC Concreting</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#finishes">Finishes</a></li>
@@ -771,6 +772,33 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
 #sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
+
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,.lb-pulse{display:none !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
+</style>
+<style>/* ==== LB HEADER TRUTH ==== */
+.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
+  align-items:center !important;flex-wrap:nowrap !important}
+.lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
+  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
+.lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
+  max-width:100% !important;object-fit:contain !important}
+.lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;
+  min-width:0 !important;overflow:visible !important}
+@media(max-width:700px){
+  .lb-brand__mark{height:32px !important;max-width:40vw !important}
+  .lb-brand__word{font-size:.92em !important}
+}
 </style>
 </body>
 </html>

@@ -11,7 +11,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Archivo',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%}
-/* NAV — brand lockup: monogram tile + name + area line, phone right. No pill, no capsule. */
+/* NAV, brand lockup: monogram tile + name + area line, phone right. No pill, no capsule. */
 .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 6vw;border-bottom:2px solid var(--ink);background:var(--bg)}
 .nav .brand{display:flex;align-items:center;gap:14px;min-width:0}
 .nav .brand-mark{height:48px;width:auto;object-fit:contain}
@@ -21,7 +21,7 @@ img{max-width:100%}
 .nav .brand-sub{font:600 11px/1.5 'Archivo',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 .nav .tel{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(15px,1.5vw,19px);border-bottom:3px solid var(--accent);padding:6px 2px;white-space:nowrap}
 .nav .tel:hover{color:var(--accent)}
-/* HERO — real work photo, full bleed, dark scrim, light copy */
+/* HERO, real work photo, full bleed, dark scrim, light copy */
 .hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;min-height:min(80vh,800px);background:#1B1009;padding:clamp(64px,11vh,132px) 6vw clamp(46px,8vh,86px)}
 .lbhf{position:absolute;inset:0;z-index:0;overflow:hidden}
 .lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;filter:brightness(.62) saturate(.94)}
@@ -36,7 +36,7 @@ img{max-width:100%}
 .hero .pull{border-left:3px solid var(--clay);padding-left:22px;color:rgba(240,229,213,.92);font-size:15px;line-height:1.7;margin-top:24px;max-width:54ch}
 .hero .pull b{display:block;font:600 11px/1.6 'Archivo',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#FBF6EE;margin-bottom:8px}
 .hero .pull span{display:block}
-/* 3D hero layer — floating geometric depth (LB-3D-HERO, decorative) */
+/* 3D hero layer, floating geometric depth (LB-3D-HERO, decorative) */
 .lb3d-stage{position:absolute;inset:0;overflow:hidden;pointer-events:none;perspective:1200px;z-index:2;--acc:var(--clay)}
 .lb3d-stage .lb3d-shape{position:absolute;border-radius:0;animation:lb3dFloat 12s ease-in-out infinite;transform-style:preserve-3d;backface-visibility:hidden}
 .lb3d-shape.s1{width:60px;height:60px;background:var(--acc);opacity:.08;top:12%;left:8%;animation:lb3dFloat1 14s ease-in-out infinite;transform:rotateY(15deg) translateZ(40px)}
@@ -50,10 +50,10 @@ img{max-width:100%}
 @keyframes lb3dFloat4{0%,100%{transform:translateX(0) translateZ(60px) rotateY(20deg)}50%{transform:translateX(-40px) translateZ(100px) rotateY(-20deg)}}
 @keyframes lb3dFloat5{0%,100%{transform:rotate(45deg) translateZ(100px) translateY(0)}50%{transform:rotate(225deg) translateZ(60px) translateY(-20px)}}
 @media (prefers-reduced-motion:reduce){.lb3d-stage{display:none}}
-/* MORTAR RULE — full-width terracotta bar dividing hero from wall */
+/* MORTAR RULE, full-width terracotta bar dividing hero from wall */
 .mortar{height:14px;background:var(--accent);margin:0 6vw}
 .mortar.thin{height:3px;background:var(--ink);opacity:.25}
-/* BRICK-LAY — full-width courses, staggered joints, mortar gaps. NOT cards. */
+/* BRICK-LAY, full-width courses, staggered joints, mortar gaps. NOT cards. */
 .wall{padding:clamp(40px,6vh,72px) 6vw clamp(20px,3vh,36px)}
 .course{display:grid;gap:10px;margin-bottom:10px}
 .course.even{grid-template-columns:1.35fr 1fr}
@@ -71,11 +71,11 @@ img{max-width:100%}
 .course.even .cell:first-child .num{color:var(--accent-deep)}
 .cell h2{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(22px,2.4vw,32px);line-height:1.12;letter-spacing:-.01em}
 .cell p{margin-top:12px;font-size:15px;line-height:1.65;max-width:52ch;color:var(--muted)}
-/* AREAS — stamped chips, square (no pills) */
+/* AREAS, stamped chips, square (no pills) */
 .areas{padding:clamp(24px,4vh,44px) 6vw clamp(50px,8vh,90px)}
 .areas .k{font:600 11px/1.6 'Archivo',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
 .areas span{display:inline-block;font-weight:600;font-size:13.5px;background:transparent;border:2px solid var(--ink);padding:10px 18px;margin:0 10px 10px 0}
-/* CTA — dark clay slab, oversized serif line, phone as underlined display type */
+/* CTA, dark clay slab, oversized serif line, phone as underlined display type */
 .cta{margin:0 6vw clamp(60px,9vh,110px);background:var(--deep);color:var(--bg);padding:clamp(56px,9vh,110px) clamp(28px,5vw,80px);display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center}
 .cta h3{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(30px,4.4vw,60px);line-height:1.05;max-width:14ch;letter-spacing:-.015em}
 .cta h3 em{font-style:italic;font-weight:500;color:var(--clay)}
@@ -217,7 +217,7 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
 </style>
 <style id="lb-depth-css">
-/* ==== LB DEPTH PACK — layered shadow + gradient surfaces ==== */
+/* ==== LB DEPTH PACK, layered shadow + gradient surfaces ==== */
 :root{
   --lb-acc: var(--acc, var(--accent, #e51924));
   --lb-ink: var(--ink, #14161a);
@@ -300,6 +300,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
 }
 </style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <div class="nav" id="top">
   <a class="lb-brand" href="#top" aria-label="OakStone Property Care - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#A84A24;--lb-subc:#A84A24;--lb-acc:#A84A24;"><span class="lb-brand__word"><span class="lb-brand__name">OakStone Property Care</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
@@ -399,7 +400,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#8C2F14';
@@ -617,5 +618,32 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
 #sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
+
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,.lb-pulse,tiny numbered label "02" beside h2 "Hedge Trimming" (6 on page),tiny numbered label "03" beside h2 "Pressure Washing" (6 on page),tiny numbered label "05" beside h2 "Backyard Maintenance" (6 on page),tiny numbered label "06" beside h2 "Free Quotes" (6 on page){display:none !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
+</style>
+<style>/* ==== LB HEADER TRUTH ==== */
+.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
+  align-items:center !important;flex-wrap:nowrap !important}
+.lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
+  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
+.lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
+  max-width:100% !important;object-fit:contain !important}
+.lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;
+  min-width:0 !important;overflow:visible !important}
+@media(max-width:700px){
+  .lb-brand__mark{height:32px !important;max-width:40vw !important}
+  .lb-brand__word{font-size:.92em !important}
+}
 </style>
 </body></html>
