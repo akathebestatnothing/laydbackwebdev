@@ -292,7 +292,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="lb-brand" href="#top" aria-label="Baker Concrete Co - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#393f65;--lb-name:#393f65;--lb-subc:#393f65;"><span class="lb-brand__word"><span class="lb-brand__name">Baker Concrete Co</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Baker Concrete Co - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#393f65;--lb-subc:#393f65;--lb-acc:#393f65;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_baker-concrete.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Baker Concrete Co</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#approach">Approach</a></li>
     <li><a href="#services">What we pour</a></li>
@@ -688,5 +688,15 @@ html,body{overflow-x:hidden}
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

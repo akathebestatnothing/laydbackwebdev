@@ -328,7 +328,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#services">Skip to content</a>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="A1 Sydney Build - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#3a5a7a;--lb-name:#3a5a7a;--lb-subc:#3a5a7a;"><span class="lb-brand__word"><span class="lb-brand__name">A1 Sydney Build</span><span class="lb-brand__sub"><span class="lb-acc">Tiling</span> · Renovations · Waterproofing</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="A1 Sydney Build - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#3a5a7a;--lb-subc:#3a5a7a;--lb-acc:#3a5a7a;"><span class="lb-brand__word"><span class="lb-brand__name">A1 Sydney Build</span><span class="lb-brand__sub"><span class="lb-acc">Tiling</span> · Renovations · Waterproofing</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#renovations">Renovations</a><a href="#rooms">Room by Room</a><a href="#sydney">Sydney</a><a href="#lbq">Quote</a></div>
   <div class="nav-cta"><a href="#lbq" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -737,5 +737,15 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

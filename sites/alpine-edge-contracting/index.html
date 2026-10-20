@@ -1,10 +1,10 @@
 <html lang="en-AU" class="no-js" data-sig="links:grow,buttons:arrow,tilt:1"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Alpine Edge Contracting - Rural labour & machinery services</title>
 <style>
     :root{
-      --bg:#0a121a;--ink:#f0f4f8;--muted:#8a9bb3;--accent:#b47a26;--accent-2:#8c9e26;--card:#111b26;--line:#1f2e3e;--focus:#ffb877;
+      --bg:#0a121a;--ink:#f0f4f8;--muted:#8a9bb3;--accent:#383868;--accent-2:#8c9e26;--card:#111b26;--line:#1f2e3e;--focus:#ffb877;
       --shadow:rgba(0,0,0,.55);--haze:#1a3550;--sun-glow:#ffb877;
     }
-    @media (prefers-color-scheme:light){:root{--bg:#f7fafc;--ink:#0b1622;--muted:#0b1622;--accent:#6a4818;--accent-2:#5a6a18;--card:#ffffff;--line:#b0c0d0}}
+    @media (prefers-color-scheme:light){:root{--bg:#f7fafc;--ink:#0b1622;--muted:#0b1622;--accent:#383868;--accent-2:#5a6a18;--card:#ffffff;--line:#b0c0d0}}
         *, *::before, *::after{box-sizing:border-box}
         html{scroll-behavior:smooth}
         @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*, *::before, *::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
@@ -264,7 +264,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 </head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header>
   <nav class="nav" role="navigation" aria-label="Main navigation">
-    <a class="lb-brand" href="#top" aria-label="Alpine Edge Contracting - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#b47a26;--lb-name:#b47a26;--lb-subc:#b47a26;"><span class="lb-brand__word"><span class="lb-brand__name">Alpine Edge Contracting</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Alpine Edge Contracting - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#383868;--lb-subc:#383868;--lb-acc:#383868;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_alpine-edge-contracting.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Alpine Edge Contracting</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <nav class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
@@ -721,4 +721,14 @@ html,body{overflow-x:hidden}
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body></html>

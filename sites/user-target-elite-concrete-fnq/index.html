@@ -7,7 +7,7 @@
 <meta name="description" content="Elite Concrete FNQ delivers premium concrete solutions across Far North Queensland — from commercial slabs and residential driveways to decorative con">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;600&display=swap');
-:root{--bg:#EFE7DA;--ink:#2A211A;--accent:#D9A566;--muted:#655745}
+:root{--bg:#EFE7DA;--ink:#2A211A;--accent:#402000;--muted:#655745}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -227,7 +227,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 </head>
 <body>
 <nav>
-  <a class="lb-brand" href="#top" aria-label="Elite Concrete FNQ - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#D9A566;--lb-name:#14161a;--lb-subc:#14161a;"><span class="lb-brand__word"><span class="lb-brand__name">Elite Concrete FNQ</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Elite Concrete FNQ - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#402000;--lb-subc:#402000;--lb-acc:#402000;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/lb-mark_user-target-elite-concrete-fnq.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Elite Concrete FNQ</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   
 </nav>
 <header class="hero" id="top"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
@@ -426,5 +426,15 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

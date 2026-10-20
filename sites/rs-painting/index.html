@@ -21,7 +21,7 @@
   --panel-2: #1a223a;
   --ink: #f0eef5;
   --mut: #9aa3b8;
-  --acc: #c8a842;
+  --acc:#384068;
   --acc-2: #e8c85a;
   --acc-hi: #f0d47a;
   --purple: #c9a227;
@@ -324,7 +324,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="RS Painting Hunter Valley - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#c8a842;--lb-name:#c8a842;--lb-subc:#c8a842;"><span class="lb-brand__word"><span class="lb-brand__name">RS Painting Hunter Valley</span><span class="lb-brand__sub"><span class="lb-acc">Residential</span> · Commercial · Heritage</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+<a class="lb-brand lb-brand--logoonly" href="#top" aria-label="RS Painting Hunter Valley - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#c8a842;--lb-subc:#c8a842;--lb-acc:#384068;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">RS Painting Hunter Valley</span><span class="lb-brand__sub"><span class="lb-acc">Residential</span> · Commercial · Heritage</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <a class="nav__brand" href="#top" aria-label="RS Painting Hunter Valley - Home">
     <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager">
     <span>RS Painting Hunter Valley</span>
@@ -1673,5 +1673,21 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

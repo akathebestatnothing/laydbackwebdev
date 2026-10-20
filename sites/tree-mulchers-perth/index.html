@@ -19,7 +19,7 @@
   --bg-2: #e8ebe3;
   --ink: #1a1c18;
   --ink-2: #4a4f45;
-  --acc: #1b5e20;
+  --acc:#f8d800;
   --acc-2: #2e7d32;
   --acc-hi: #2e7d32;
   --bark: #5d4037;
@@ -350,7 +350,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <body>
 <script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Tree Mulchers Perth - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#1b5e20;--lb-name:#1b5e20;--lb-subc:#1b5e20;"><span class="lb-brand__word"><span class="lb-brand__name">Tree Mulchers Perth</span><span class="lb-brand__sub"><span class="lb-acc">T.M.P.</span> - Tree Removal · Mulching · Stump Grinding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="Tree Mulchers Perth - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#1b5e20;--lb-subc:#1b5e20;--lb-acc:#f8d800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Tree Mulchers Perth</span><span class="lb-brand__sub"><span class="lb-acc">T.M.P.</span> - Tree Removal · Mulching · Stump Grinding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#lbq">Quote</a></div>
   <div class="nav-cta"><a href="#lbq" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -693,5 +693,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
 </body>
 </html>

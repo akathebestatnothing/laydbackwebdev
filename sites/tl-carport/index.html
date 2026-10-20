@@ -14,7 +14,7 @@
   --bg: #28323b;
   --ink: #f5f5f0;
   --ink-muted: #b8bcc0;
-  --accent: #c9a876;
+  --accent:#203038;
   --accent-strong: #d4b88c;
   --card: #2f3a44;
   --line: #3d4a56;
@@ -34,7 +34,7 @@
     --bg: #f5f5f0;
     --ink: #1a1f23;
     --ink-muted: #4a5258;
-    --accent: #8a6a42;
+    --accent:#203038;
     --accent-strong: #6b4f2f;
     --card: #ffffff;
     --line: #d8dbde;
@@ -415,7 +415,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 </head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header class="site-header" role="banner">
   <div class="header-inner">
-    <a class="lb-brand" href="#top" aria-label="TL Carport - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#c9a876;--lb-name:#c9a876;--lb-subc:#c9a876;"><span class="lb-brand__word"><span class="lb-brand__name">TL Carport</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="TL Carport - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#c9a876;--lb-subc:#c9a876;--lb-acc:#203038;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">TL Carport</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <a href="#services">Services</a>
       <a href="#process">Our Process</a>
@@ -834,5 +834,21 @@ html,body{overflow-x:hidden}
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

@@ -382,7 +382,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 
 <header class="site-head">
   <div class="head-row">
-    <a class="lb-brand" href="#top" aria-label="Newcastle Concrete Soulutions - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#963F1F;--lb-name:#14161a;--lb-subc:#14161a;"><span class="lb-brand__word"><span class="lb-brand__name">Newcastle Concrete Soulutions</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Newcastle Concrete Soulutions - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#963F1F;--lb-subc:#963F1F;--lb-acc:#963F1F;"><span class="lb-brand__word"><span class="lb-brand__name">Newcastle Concrete Soulutions</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <nav class="head-links" aria-label="Primary">
       <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a>
     </nav>
@@ -825,5 +825,15 @@ html,body{overflow-x:hidden}
   go(0);
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

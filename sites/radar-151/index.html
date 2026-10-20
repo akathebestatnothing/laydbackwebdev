@@ -14,7 +14,7 @@
 <style>
 :root{
   --bg:#f4f6f8; --bg2:#ffffff; --ink:#131a26; --ink2:#5c6675;
-  --acc:#274980; --acc2:#3a5f9e; --blue:#2f5da8; --blue2:#9db8e8;
+  --acc:#204078; --acc2:#3a5f9e; --blue:#2f5da8; --blue2:#9db8e8;
   --line:rgba(19,26,38,.12); --sky1:#dfe9f4; --sky2:#f3f6f8;
   --nav-h:74px;
   --disp:'Barlow Condensed','Arial Narrow',sans-serif; --body-font:'Encode Sans',sans-serif;
@@ -238,7 +238,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" aria-label="Main">
-  <a class="lb-brand" href="#top" aria-label="Done Right Roof & Restoration - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#274980;--lb-name:#274980;--lb-subc:#274980;"><span class="lb-brand__word"><span class="lb-brand__name">Done Right Roof & Restoration</span><span class="lb-brand__sub"><span class="lb-acc">Repairs</span> · Restoration · Gutters</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Done Right Roof & Restoration - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#204078;--lb-subc:#204078;--lb-acc:#204078;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_radar-151.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Done Right Roof & Restoration</span><span class="lb-brand__sub"><span class="lb-acc">Repairs</span> · Restoration · Gutters</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#process">Process</a></li>
@@ -644,5 +644,15 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

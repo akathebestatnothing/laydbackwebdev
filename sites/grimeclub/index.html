@@ -15,7 +15,7 @@
 <style>
 :root{
   --bg:#FAF6F3; --paper:#FFFFFF; --ink:#171114; --ink2:#6B5A61; --line:rgba(23,17,20,.14);
-  --acc:#C9457A; --acc-deep:#A93264; --blush:#F5DCE5; --shine:#FFFFFF; --gut:clamp(18px,4.6vw,64px);
+  --acc:#384070; --acc-deep:#A93264; --blush:#F5DCE5; --shine:#FFFFFF; --gut:clamp(18px,4.6vw,64px);
   --disp:'Fraunces',Georgia,serif; --body:'Outfit',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -213,7 +213,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav" id="nav">
   <div class="nav-in">
-    <a class="lb-brand" href="#top" aria-label="Grime Club - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#C9457A;--lb-name:#14161a;--lb-subc:#14161a;"><span class="lb-brand__word"><span class="lb-brand__name">Grime Club</span><span class="lb-brand__sub"><span class="lb-acc">Cleaning</span> Service</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Grime Club - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#384070;--lb-subc:#384070;--lb-acc:#384070;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Grime Club</span><span class="lb-brand__sub"><span class="lb-acc">Cleaning</span> Service</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <div class="nav-links" id="navlinks">
       <a href="#services">Services</a><a href="#more">Details</a><a href="#areas">Areas</a><a href="#book">Book</a>
     </div>
@@ -638,5 +638,15 @@ footer b{color:#fff!important}
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

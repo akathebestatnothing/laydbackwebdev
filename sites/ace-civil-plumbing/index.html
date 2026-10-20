@@ -17,7 +17,7 @@
 :root {
   --bg:#0a0f14; --bg-2:#0d141c; --panel:#111a22; --panel-2:#15202b;
   --ink:#e8ecf0; --mut:#8b9ab0;
-  --acc:#ff6b00; --acc-mid:#e85d00; --acc-deep:#cc4400; --acc-hi:#ff9440;
+  --acc:#f86800; --acc-mid:#e85d00; --acc-deep:#cc4400; --acc-hi:#ff9440;
   --acc-on:#0a0f14;
   --navy:#1b2a3a; --navy-light:#2d3d4f; --navy-muted:#172230;
   --yellow:#ffb800; --yellow-dim:#cc9200;
@@ -365,7 +365,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="lb-brand" href="#top" aria-label="Ace Civil Plumbing & Drainage  - Council Infrastructure, Drainage & Earthworks - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#ff6b00;--lb-name:#ff6b00;--lb-subc:#ff6b00;"><span class="lb-brand__word"><span class="lb-brand__name">Ace Civil Plumbing & Drainage  - Council Infrastructure, Drainage & Earthworks</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Ace Civil Plumbing & Drainage  - Council Infrastructure, Drainage & Earthworks - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#f86800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_ace-civil-plumbing.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Ace Civil Plumbing & Drainage  - Council Infrastructure, Drainage & Earthworks</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <button class="nav__toggle" id="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
     <span class="nav__bar"></span>
     <span class="nav__bar"></span>
@@ -763,5 +763,15 @@ var b=document.getElementById('nav__toggle'),n=document.getElementById('navMenu'
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

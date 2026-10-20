@@ -19,7 +19,7 @@
   --paper2: #f0ede9;
   --ink: #211b19;
   --ink2: #6b6663;
-  --acc: #6b5233;
+  --acc:#081840;
   --acc2: #a79278;
   --line: rgba(33,27,25,.16);
   --chip: #f0ede9;
@@ -228,7 +228,7 @@ footer a:hover { color: var(--acc); }
 .hero-sub p{color:#dad5d1}
 .hero .btn-ghost{border-color:rgba(246,244,242,.55);color:#f6f4f2}
 .hero .btn-ghost:hover{background:#f6f4f2;color:var(--ink)}
-.hero .lb3d-stage{--acc:#e2c592}
+.hero .lb3d-stage{--acc:#081840}
 @media (max-width:640px){.hero .wrap{padding:86px 20px 66px}}
 
 /* hidden 3D hero canvas — LB-3D-HERO retained as a hidden layer (2026-10-14) */
@@ -436,7 +436,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <nav class="nav">
   <div class="wrap">
-    <a class="lb-brand" href="#top" aria-label="Sydney Pro Construction - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#6b5233;--lb-name:#6b5233;--lb-subc:#6b5233;"><span class="lb-brand__word"><span class="lb-brand__name">Sydney Pro Construction</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Sydney Pro Construction - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#6b5233;--lb-subc:#6b5233;--lb-acc:#081840;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_spc.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Sydney Pro Construction</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#builders">Builders</a>
@@ -935,5 +935,15 @@ setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

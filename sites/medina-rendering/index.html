@@ -14,7 +14,7 @@
     :root{
       --ink:#0f0e10; --ink-soft:#3a3839; --muted:#6b6869;
       --paper:#faf9f7; --paper-alt:#f2efe9;
-      --brand:#00cecd; --brand-ink:#00706f; --teal:#00cecd; --gold:#d4a843; --rust:#c45d2e; --slate:#3b3e50;
+      --brand:#383860; --brand-ink:#00706f; --teal:#00cecd; --gold:#d4a843; --rust:#c45d2e; --slate:#3b3e50;
       --line:rgba(15,14,16,.08); --line-strong:rgba(15,14,16,.16);
       --shadow:0 4px 24px rgba(15,14,16,.06),0 1px 3px rgba(15,14,16,.04);
       --shadow-lg:0 12px 48px rgba(15,14,16,.1),0 4px 12px rgba(15,14,16,.06);
@@ -359,7 +359,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <body>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-in">
-      <a class="lb-brand" href="#top" aria-label="Medina Rendering - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;"><span class="lb-brand__word"><span class="lb-brand__name">Medina Rendering</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+      <a class="lb-brand" href="#top" aria-label="Medina Rendering - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#383860;--lb-subc:#383860;--lb-acc:#383860;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_medina-rendering.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Medina Rendering</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
       <ul class="nav__links">
         <li><a href="#services">Services</a></li>
         <li><a href="#process">Process</a></li>
@@ -756,5 +756,15 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

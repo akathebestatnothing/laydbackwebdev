@@ -268,7 +268,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <body><a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="Craig Walker Excavator Hire - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#f5c000;--lb-name:#f5c000;--lb-subc:#f5c000;"><span class="lb-brand__word"><span class="lb-brand__name">Craig Walker Excavator Hire</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+<a class="lb-brand" href="#top" aria-label="Craig Walker Excavator Hire - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#f5c000;"><span class="lb-brand__word"><span class="lb-brand__name">Craig Walker Excavator Hire</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <a class="nav__b" href="#top" aria-label="Craig Walker Excavator Hire - Home">
     <svg viewBox="0 0 96 46" fill="none" aria-hidden="true"><rect x="2" y="18" width="92" height="26" rx="3" fill="var(--acc)"/><path d="M10 18V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v10" stroke="var(--acc)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="36" r="6" fill="var(--ink)"/><circle cx="74" cy="36" r="6" fill="var(--ink)"/></svg>
     <span>Craig Walker Excavator Hire</span>
@@ -600,5 +600,15 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

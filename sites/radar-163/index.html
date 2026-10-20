@@ -16,7 +16,7 @@
 <style>
 :root {
   --paper: #ffffff; --paper2: #fff2db; --ink: #060607; --ink2: #575757;
-  --acc: #ffbc40; --acc2: #ffca6a; --line: rgba(6,6,7,.16); --chip: #fff2db;
+  --acc:#402808; --acc2: #ffca6a; --line: rgba(6,6,7,.16); --chip: #fff2db;
   --deep: #000000; --light: #ffffff;
   --acc-text: #0c0e12;
   --fluid: clamp(44px, 9vw, 118px);
@@ -268,7 +268,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Gorilla Fencing - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#ffbc40;--lb-name:#14161a;--lb-subc:#14161a;"><span class="lb-brand__word"><span class="lb-brand__name">Gorilla Fencing</span><span class="lb-brand__sub"><span class="lb-acc">Fencing</span> · Gates · Cairns</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Gorilla Fencing - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#402808;--lb-subc:#402808;--lb-acc:#402808;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_radar-163.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Gorilla Fencing</span><span class="lb-brand__sub"><span class="lb-acc">Fencing</span> · Gates · Cairns</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a><a class="nav-tel mono" href="tel:+61402779811">Call 0402 779 811</a></div>
   <div class="nav-cta"><span class="mono nav-p">0402 779 811</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -653,5 +653,15 @@ html,body{overflow-x:hidden}
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

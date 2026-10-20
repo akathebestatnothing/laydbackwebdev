@@ -16,7 +16,7 @@
 <style>
 :root {
   --paper: #0a0a0a; --paper2: #111111; --ink: #f3f4f6; --ink2: #a2a7ad;
-  --acc: #c4fb24; --acc2: #7a1717; --line: rgba(255,255,255,.14); --chip: #1b1d22;
+  --acc:#580810; --acc2: #7a1717; --line: rgba(255,255,255,.14); --chip: #1b1d22;
   --deep: #000000; --light: #ffffff;
   --acc-text: #ffffff;
   --fluid: clamp(44px, 9vw, 118px);
@@ -366,7 +366,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <body>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Allards Auto Detailing - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#c4fb24;--lb-name:#c4fb24;--lb-subc:#c4fb24;"><span class="lb-brand__word"><span class="lb-brand__name">Allards Auto Detailing</span><span class="lb-brand__sub"><span class="lb-acc">AUTO</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="Allards Auto Detailing - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#c4fb24;--lb-subc:#c4fb24;--lb-acc:#580810;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Allards Auto Detailing</span><span class="lb-brand__sub"><span class="lb-acc">AUTO</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Packages</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#work">Work</a><a href="#quote">Book</a></div>
   <div class="nav-cta"><span class="mono nav-p">0405 733 769</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -985,5 +985,21 @@ if (hg) {
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

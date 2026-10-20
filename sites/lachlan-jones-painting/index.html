@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/logo-mark_lachlan-jones-painting.png">
 <style>
-:root{--bg:#F0F0F0;--ink:#303030;--acc:#50B0B0;--acc-dark:#409080;--mid:#B0B0B0;--mid-dark:#C0C0C0;--card:#FFFFFF;--line:#D0D0D0;--shadow:rgba(48,48,48,.08);--shadow-strong:rgba(48,48,48,.14)}
+:root{--bg:#F0F0F0;--ink:#303030;--acc:#50b8b0;--acc-dark:#409080;--mid:#B0B0B0;--mid-dark:#C0C0C0;--card:#FFFFFF;--line:#D0D0D0;--shadow:rgba(48,48,48,.08);--shadow-strong:rgba(48,48,48,.14)}
 html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*, *::before, *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
@@ -238,7 +238,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 }
 </style>
 </head><body><a class="skip" href="#main">Skip to content</a>
-<nav><a class="lb-brand" href="#top" aria-label="Lachlan Jones painting & decorating - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#50B0B0;--lb-name:#14161a;--lb-subc:#14161a;"><span class="lb-brand__word"><span class="lb-brand__name">Lachlan Jones painting & decorating</span><span class="lb-brand__sub"><span class="lb-acc">Painting</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a><div class="nav-cta"><a class="btn btn-ghost" href="#quote">Get a quote</a><a class="btn btn-primary magnetic" data-ux="magnetic" href="tel:+61403333497">Call 0403 333 497</a></div></nav>
+<nav><a class="lb-brand" href="#top" aria-label="Lachlan Jones painting & decorating - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#50b8b0;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_lachlan-jones-painting.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Lachlan Jones painting & decorating</span><span class="lb-brand__sub"><span class="lb-acc">Painting</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a><div class="nav-cta"><a class="btn btn-ghost" href="#quote">Get a quote</a><a class="btn btn-primary magnetic" data-ux="magnetic" href="tel:+61403333497">Call 0403 333 497</a></div></nav>
 <header class="hero" style="position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:var(--bg)"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
   <div class="rv" style="margin-bottom:1.5rem"><span style="font:600 .8rem/1 Montserrat,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);background:rgba(80,176,176,.1);padding:.4rem 1rem;border-radius:999px">Central Coast · Lake Mac · Hunter</span></div>
   <h1 class="rv" data-ux="words" style="font:800 clamp(36px,6vw,72px)/1.05 Montserrat,sans-serif;margin:0 0 1rem;max-width:900px;color:var(--ink);text-shadow:none">House painting done right - from prep to final reveal</h1>
@@ -486,4 +486,14 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body></html>

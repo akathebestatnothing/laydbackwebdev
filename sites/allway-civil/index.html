@@ -21,7 +21,7 @@
   --panel-2: #1f1f1f;
   --ink: #ffffff;
   --mut: #a0a0a0;
-  --acc: #ff0000;
+  --acc:#485878;
   --acc-2: #cc0000;
   --acc-hi: #ff3333;
   --line: rgba(255,255,255,.08);
@@ -228,7 +228,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <nav class="nav" role="navigation" aria-label="Primary">
   <a class="nav__b" href="#top" aria-label="Allway Civil Pty Ltd — Home">
     <img class="brand-mark" src="assets/logo.jpg" alt="Allway Civil Pty Ltd" width="80" height="80">
-    <a class="lb-brand" href="#top" aria-label="Allway Civil - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#ff0000;--lb-name:#ff0000;--lb-subc:#ff0000;"><span class="lb-brand__word"><span class="lb-brand__name">Allway Civil</span><span class="lb-brand__sub"><span class="lb-acc">Central</span> Coast · Newcastle · Sydney</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="Allway Civil - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#ff0000;--lb-subc:#ff0000;--lb-acc:#485878;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Allway Civil</span><span class="lb-brand__sub"><span class="lb-acc">Central</span> Coast · Newcastle · Sydney</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   </a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
@@ -1333,5 +1333,21 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

@@ -21,7 +21,7 @@
   --ink:#E8F4F8;
   --muted:#9FB6C0;
   --line:rgba(127,227,245,.14);
-  --accent:#22B8D4;
+  --accent:#00c8e8;
   --accent2:#7FE3F5;
   --dark:#0A100D;
   --dark2:#0A100D;
@@ -339,7 +339,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height: 100vh; height: 100svh;height:100svh;pointer-events:none;z-index:0;display:block"></canvas>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top" aria-label="AAO Cleaning - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#22B8D4;--lb-name:#22B8D4;--lb-subc:#22B8D4;"><span class="lb-brand__word"><span class="lb-brand__name">AAO Cleaning</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="AAO Cleaning - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#22B8D4;--lb-subc:#22B8D4;--lb-acc:#00c8e8;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">AAO Cleaning</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
     </button>
@@ -1401,5 +1401,21 @@ html,body{overflow-x:hidden}
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

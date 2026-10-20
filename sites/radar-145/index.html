@@ -22,7 +22,7 @@
   --paper2:#F2E9DC;
   --ink:#1A140F;
   --ink2:#6B5E4F;
-  --acc:#F5821F;
+  --acc:#f88800;
   --acc2:#FFB25A;
   --acc-ink:#A24E00;
   --acc-text:#160F07;
@@ -314,7 +314,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top" aria-label="Pest Invaders Sydney - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#F5821F;--lb-name:#F5821F;--lb-subc:#F5821F;"><span class="lb-brand__word"><span class="lb-brand__name">Pest Invaders Sydney</span><span class="lb-brand__sub"><span class="lb-acc">Pest</span> Control · Sydney</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="Pest Invaders Sydney - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#F5821F;--lb-subc:#F5821F;--lb-acc:#f88800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Pest Invaders Sydney</span><span class="lb-brand__sub"><span class="lb-acc">Pest</span> Control · Sydney</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
     </button>
@@ -793,5 +793,21 @@ setTimeout(function(){ document.querySelectorAll('.drop').forEach(function(el){ 
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>

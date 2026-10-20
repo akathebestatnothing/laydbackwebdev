@@ -24,7 +24,7 @@
   --panel-2:#1f1f1f;
   --ink:#e8e6e3;
   --mut:#9a9690;
-  --acc:#e6b800;
+  --acc:#383868;
   --acc-2:#cc9900;
   --acc-hi:#ffd11a;
   --line:rgba(232,230,227,.1);
@@ -336,7 +336,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="Elite Chase & Core - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#e6b800;--lb-name:#e6b800;--lb-subc:#e6b800;"><span class="lb-brand__word"><span class="lb-brand__name">Elite Chase & Core</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+<a class="lb-brand lb-brand--logoonly" href="#top" aria-label="Elite Chase & Core - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#e6b800;--lb-subc:#e6b800;--lb-acc:#383868;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Elite Chase & Core</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <a class="nav__b" href="#top" aria-label="Elite Chase & Core — Home">
     <span class="brandplate"><img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager"></span>
     <span>Elite Chase & Core</span>
@@ -654,5 +654,11 @@ var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear(
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
 </body>
 </html>

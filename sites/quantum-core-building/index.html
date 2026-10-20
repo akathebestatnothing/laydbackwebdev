@@ -16,7 +16,7 @@
   --panel-2:#5f5d5a;
   --ink:#ffffff;
   --mut:#c0c0c0;
-  --acc:#ff7f00;
+  --acc:#380800;
   --acc-2:#cc4c00;
   --acc-hi:#ff7f00;
   --line:rgba(255,255,255,.08);
@@ -288,7 +288,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="lb-brand" href="#top" aria-label="Quantum Core Building - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#ff7f00;--lb-name:#ff7f00;--lb-subc:#ff7f00;"><span class="lb-brand__word"><span class="lb-brand__name">Quantum Core Building</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Quantum Core Building - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#380800;--lb-subc:#380800;--lb-acc:#380800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_quantum-core-building.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Quantum Core Building</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#approach">Approach</a></li>
@@ -625,5 +625,15 @@ document.documentElement.classList.add('js');
   if (!reduce) raf = requestAnimationFrame(loop); 
 })();
 </script>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
 </body>
 </html>
