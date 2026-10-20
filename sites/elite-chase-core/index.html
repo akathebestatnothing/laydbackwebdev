@@ -15,6 +15,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
+  --slate:#36394F;
+  --slate-2:#4E5058;
+  --slate-deep:#22253a;
   --bg:#0d0d0d;
   --bg-2:#141414;
   --panel:#1a1a1a;
@@ -33,6 +36,8 @@
   --fluid: clamp(2.2rem, 5.5vw, 4.8rem);
   --fluid-sm: clamp(1.6rem, 3.2vw, 2.4rem);
 }
+/* brand plate: renders the mark on its own slate (BRAND-PALETTE LAW) */
+.brandplate{background:linear-gradient(140deg,#22253a,var(--slate));border:1px solid #4E5058;border-radius:9px;padding:.35rem .55rem;display:inline-flex;align-items:center;line-height:0;max-height:52px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 section[id],footer[id]{scroll-margin-top:calc(var(--nav-h) + 16px)}
@@ -171,6 +176,7 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
+<noscript><style>.lb-rb__slide{opacity:1!important}</style></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
@@ -330,9 +336,9 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="ELITE CHASE & CORE - Home" style="--lb-disp:Roboto Slab;--lb-sub:Inter;--lb-acc:#243c54;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;"><span class="lb-brand__word"><span class="lb-brand__name">ELITE CHASE & CORE</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+<a class="lb-brand" href="#top" aria-label="Elite Chase & Core - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#e6b800;--lb-name:#e6b800;--lb-subc:#e6b800;"><span class="lb-brand__word"><span class="lb-brand__name">Elite Chase & Core</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <a class="nav__b" href="#top" aria-label="Elite Chase & Core — Home">
-    <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager">
+    <span class="brandplate"><img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager"></span>
     <span>Elite Chase & Core</span>
   </a>
   <ul class="nav__links">
@@ -471,7 +477,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
       <p class="lbq-s">Tell us about the job — scope, access, timing. We'll respond with a firm price.</p></div>
-      <div><form id="lbq-form" novalidate data-site="elite-chase-core" data-biz="Elite Chase & Core"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-svc">Service</label>
+      <div><form id="lbq-form" novalidate data-site="elite-chase-core" data-biz="Elite Chase & Core" action="/functions/v1/quote-request" method="POST"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-svc">Service</label>
           <select id="lbq-svc" name="service"><option>Diamond core drilling</option><option>Wall chasing</option><option>Concrete cutting & sawing</option><option>Controlled demolition</option><option>Other</option></select>
         </div><div class="lbq-full"><label for="lbq-m">Job details</label><textarea id="lbq-m" name="message" placeholder="Location, access width, hole sizes, depths, timing…" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
   </div>

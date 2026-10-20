@@ -77,7 +77,7 @@ html.js .rv.d3{transition-delay:.24s}
 
 /* === HERO === */
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-start;background:var(--dark) url('images/hero.jpg') right center/cover no-repeat;overflow:hidden;padding-top:96px;perspective:1400px}
-.hero canvas{display:none}
+.hero canvas{}
 .hero-in{position:relative;z-index:3;padding-block:9vh 4rem;transform:translateZ(0)}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,2,23,.94) 0%,rgba(5,2,23,.84) 40%,rgba(5,2,23,.32) 100%);pointer-events:none;z-index:2}
 @media (max-width:760px){.hero{background-position:center 62%}.hero-shade{background:linear-gradient(180deg,rgba(5,2,23,.9) 0%,rgba(5,2,23,.72) 55%,rgba(5,2,23,.42) 100%)}.hero-in{padding-block:5vh 3rem}}
@@ -150,14 +150,109 @@ footer a{color:#93A7C8;text-decoration:none;display:block;padding:4px 0;transiti
 footer a:hover{color:var(--acc2)}
 .footer-bar{border-top:1px solid rgba(147,167,200,.16);margin-top:2.6rem;padding-top:1.2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:#5F7AA6}
 </style>
+<style id="lb-motion-css">
+/* ==== LB MOTION PACK ==== */
+.lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
+/* A header must never be hidden by a scroll-reveal state: the nav/brand is chrome, not
+   content. Unrevealed .rv wrappers left whole headers at opacity:0 (invisible logo). */
+header, .site-header, .page-header, nav.nav, .nav .rv, nav.rv, .header-inner, .nav-inner,
+header .rv, .site-header .rv, .nav-inner .rv{
+  opacity:1 !important; visibility:visible !important; transform:none !important;
+}
+.lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
+.lb-mq{max-width:100%;overflow:hidden}
+.lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
+.lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
+.lb-rb__slide.is-on{opacity:1}
+.lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
+.lb-rb__slide.is-on img{transform:scale(1.10)}
+.lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
+ background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
+ font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ font-size:clamp(9px,1vw,13px);z-index:2}
+.lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
+ display:flex;flex-direction:column;gap:9px;z-index:3}
+.lb-rb__dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
+ background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s}
+.lb-rb__dots button.is-on{background:#fff;transform:scale(1.35)}
+.lb-rb__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;
+ border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(8,9,12,.35);color:#fff;
+ cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1;backdrop-filter:blur(6px);
+ transition:background .25s,transform .25s}
+.lb-rb__nav:hover{background:rgba(8,9,12,.7)}
+.lb-rb__nav--prev{left:clamp(10px,1.6vw,22px)}
+.lb-rb__nav--next{right:clamp(10px,1.6vw,22px)}
+.lb-rb__nav:active{transform:translateY(-50%) scale(.92)}
+@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3}.lb-rb__nav{width:36px;height:36px}}
+
+a.btn,.btn,button.btn,.nav-cta a,.wp-block-button__link{position:relative;overflow:hidden;
+ transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,filter .22s}
+a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2px);
+ box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
+a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
+a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
+ left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
+a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
+
+.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.lb-rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+ .lb-rv{opacity:1!important;transform:none!important;transition:none!important}
+ .lb-rb__slide img{transform:none!important;transition:none!important}
+ a.btn::after,.btn::after,.nav-cta a::after{display:none}
+}
+
+/* marquee band (professional, reference-derived) */
+.lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
+ border-bottom:1px solid rgba(255,255,255,.10)}
+.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq:hover .lb-mq__in{animation-play-state:paused}
+.lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
+ font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+.lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
+@keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
+</style>
+<style id="lb-hero-css">
+canvas.lb-hero-canvas{position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0; pointer-events:none}
+canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
+  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
+}
+</style>
+<style id="lb-brand-css">
+/* ==== LB BRAND (logo-true spanning wordmark) ==== */
+.lb-brandwrap{display:block;padding:14px 18px;background:inherit}
+.lb-brandwrap .lb-brand{display:inline-flex}
+.lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
+ color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
+.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
+.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
+.lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
+.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+ font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
+ color:var(--lb-name,currentColor)}
+.lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
+.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+ font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
+ color:var(--lb-subc,currentColor);opacity:.86}
+.lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
+ background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+@media (max-width:640px){
+ .lb-brand__mark{height:clamp(30px,8vw,40px)}
+ .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
+ .lb-brand__sub{letter-spacing:.2em;font-size:7px}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a href="#top" class="brand" aria-label="CM Plumbing - Home">
-      <img class="brand-mark" src="images/logo.jpg" alt="" aria-hidden="true" loading="eager">
-      <span class="brand-txt b-txt"><b class="brand-name comp-name">CM Plumbing</b><i class="brand-sub comp-sub"><em>All</em> Things Plumbing</i></span>
-    </a>
+    <a class="lb-brand" href="#top" aria-label="CM Plumbing - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#1A4395;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;"><span class="lb-brand__word"><span class="lb-brand__name">CM Plumbing</span><span class="lb-brand__sub"><span class="lb-acc">All</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <ul class="nav-links" id="navlinks">
       <li><a href="#services">Services</a></li>
       <li><a href="#process">How it works</a></li>
@@ -274,7 +369,7 @@ footer a:hover{color:var(--acc2)}
 </section>
 </main>
 
-<footer>
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/hero.jpg" alt="CM Plumbing" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#1A4395 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">CM Plumbing</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#1A4395 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">All</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">CM Plumbing &mdash; recent work</div></div></section><footer>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
@@ -411,197 +506,161 @@ html,body{overflow-x:hidden}
 </script>
 </section>
 
-<script>(function(){
-  var els = document.querySelectorAll('.rv');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
-    els.forEach(function(el){ io.observe(el); });
-  } else {
-    els.forEach(function(el){ el.classList.add('in'); });
-  }
-})();
-/* safety net — reveals never stick hidden */
-setTimeout(function(){
-  document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
-}, 420);
+<!-- lb: old box-hero engine removed -->
 
-// === 3D PIPE RISER HERO (CM Plumbing) ===
-/* Unique motion DNA: a vertical copper pipe riser on the right with flowing water,
-   pressure gauge needle breathing, rotating diffuse glow. Distinct from H2O's
-   horizontal manifold and mana's slab cross-section. */
+
+
+<script id="lb-motion-js">
+/* LB MOTION PACK v1 */
 (function(){
-  var c = document.getElementById('heroCanvas');
-  if (!c || c.hidden || !c.getContext) return;
-  var ctx = c.getContext('2d');
-  var DPR = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var px = 0, py = 0;
-  window.addEventListener('pointermove', function(e){
-    px = (e.clientX / window.innerWidth - 0.5) * 14;
-    py = (e.clientY / window.innerHeight - 0.5) * 9;
-  }, {passive: true});
-  function resize(){
-    W = c.clientWidth || c.offsetWidth;
-    H = c.clientHeight || c.offsetHeight;
-    if (!W || !H) return;
-    c.width = Math.round(W * DPR);
-    c.height = Math.round(H * DPR);
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel = 'section > *, main > *, .sec-head, .cards > *, .grid > *, .faq details, .gal figure, .gallery figure';
+  var els = [].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if (e.closest && e.closest('.lb-rb')) return false;
+    if (e.tagName === 'SCRIPT' || e.tagName === 'STYLE') return false;
+    var r = e.getBoundingClientRect();
+    return r.width > 40 && r.height > 20;
+  });
+  els.forEach(function(e, i){ e.classList.add('lb-rv'); e.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
+  if (rm || !('IntersectionObserver' in window)) {
+    els.forEach(function(e){ e.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
   }
-  function loop(t){
-    if (!W || !H){ resize(); return; }
-    frame(t || 0);
-    if (!reduce) requestAnimationFrame(loop);
+  var rb = document.querySelector('.lb-rb');
+  if (!rb) return;
+  var slides = [].slice.call(rb.querySelectorAll('.lb-rb__slide'));
+  if (slides.length < 2) return;
+  var dots = [].slice.call(rb.querySelectorAll('.lb-rb__dots button'));
+  var i = 0, timer = null, DUR = 5600;
+  function go(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
+    dots.forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
   }
-  function frame(t){
-    var time = t * 0.001;
-    var cx = W * 0.78 + px, cy = H * 0.5 + py;
-    ctx.clearRect(0, 0, W, H);
-
-    /* deep navy gradient bg */
-    var g = ctx.createLinearGradient(0, 0, W, H);
-    g.addColorStop(0, '#0A1530'); g.addColorStop(.55, '#050217'); g.addColorStop(1, '#0A1530');
-    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-
-    /* brand radial glow near the pipe */
-    var rg = ctx.createRadialGradient(cx, cy, 20, cx, cy, W*0.5);
-    rg.addColorStop(0, 'rgba(35,168,225,0.20)'); rg.addColorStop(1, 'rgba(35,168,225,0)');
-    ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
-
-    /* floor reflection grid (subtle) */
-    ctx.strokeStyle = 'rgba(120,160,210,0.10)';
-    ctx.lineWidth = 1;
-    for (var r = 0; r < 12; r++){
-      var yy = H - (r*r) * (H*0.045);
-      ctx.beginPath(); ctx.moveTo(0, yy); ctx.lineTo(W, yy); ctx.stroke();
-    }
-    for (var k = 0; k < 9; k++){
-      var xx = W*0.5 + (k-4) * W*0.14;
-      ctx.beginPath(); ctx.moveTo(xx, H*0.3); ctx.lineTo(xx + (W*0.5-xx)*0.2, H); ctx.stroke();
-    }
-
-    /* === THE PIPE RISER === */
-    var pw = 46;
-    var pTop = H*0.12, pBot = H*0.88;
-    var pxl = cx - pw/2, pxr = cx + pw/2;
-
-    /* pipe barrel (copper) with vertical gradient */
-    var pg = ctx.createLinearGradient(pxl, 0, pxr, 0);
-    pg.addColorStop(0, 'rgba(200,150,90,0.25)');
-    pg.addColorStop(.35, 'rgba(230,190,130,0.95)');
-    pg.addColorStop(.5, 'rgba(250,220,170,0.98)');
-    pg.addColorStop(.65, 'rgba(210,160,100,0.9)');
-    pg.addColorStop(1, 'rgba(150,105,60,0.3)');
-    ctx.fillStyle = pg;
-    ctx.fillRect(pxl, pTop, pw, pBot - pTop);
-
-    /* pipe caps at top + bottom */
-    ctx.fillStyle = 'rgba(160,115,70,0.9)';
-    ctx.fillRect(pxl - 5, pTop - 6, pw + 10, 10);
-    ctx.fillRect(pxl - 5, pBot - 4, pw + 10, 8);
-
-    /* pipe outline */
-    ctx.strokeStyle = 'rgba(255,235,200,0.5)';
-    ctx.lineWidth = 1.4;
-    ctx.strokeRect(pxl, pTop, pw, pBot - pTop);
-
-    /* water flowing DOWN inside the pipe — moving highlight bands */
-    for (var wI = 0; wI < 7; wI++){
-      var wy = pTop + ((time * 120 + wI * 90) % (pBot - pTop - 40));
-      ctx.fillStyle = 'rgba(35,168,225,' + (0.65 - wI*0.05) + ')';
-      ctx.fillRect(pxl + 8, wy, pw - 16, 22);
-      ctx.fillStyle = 'rgba(200,240,255,0.8)';
-      ctx.fillRect(pxl + 8, wy, pw - 16, 3);
-    }
-
-    /* pressure gauge hanging on the pipe */
-    var gt = H * 0.38, gx = cx + pw/2 + 14, gy = gt;
-    ctx.beginPath();
-    ctx.arc(gx, gy, 26, 0, Math.PI*2);
-    ctx.fillStyle = 'rgba(10,20,45,0.92)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(220,240,255,0.7)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    /* gauge ticks */
-    for (var tI = 0; tI < 12; tI++){
-      var a = Math.PI*0.75 + tI * (Math.PI*1.5/11);
-      var r1 = 17, r2 = tI % 2 ? 20 : 21;
-      ctx.strokeStyle = 'rgba(160,210,240,0.8)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(gx + Math.cos(a)*r1, gy + Math.sin(a)*r1);
-      ctx.lineTo(gx + Math.cos(a)*r2, gy + Math.sin(a)*r2);
-      ctx.stroke();
-    }
-    /* breathing needle */
-    var na = Math.PI*0.75 + (Math.sin(time*0.7)*0.5 + 0.5) * Math.PI*1.5;
-    ctx.strokeStyle = '#23A8E1';
-    ctx.lineWidth = 2.4;
-    ctx.beginPath();
-    ctx.moveTo(gx, gy);
-    ctx.lineTo(gx + Math.cos(na)*18, gy + Math.sin(na)*18);
-    ctx.stroke();
-    ctx.beginPath(); ctx.arc(gx, gy, 3, 0, Math.PI*2); ctx.fillStyle = '#23A8E1'; ctx.fill();
-    /* gauge stem to pipe */
-    ctx.strokeStyle = 'rgba(200,180,140,0.6)';
-    ctx.lineWidth = 3;
-    ctx.beginPath(); ctx.moveTo(gx - 26, gy); ctx.lineTo(pxr, gy); ctx.stroke();
-
-    /* valve wheel on the pipe */
-    var vx = cx, vy = H*0.62;
-    ctx.strokeStyle = 'rgba(220,240,255,0.75)';
-    ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(vx, vy - 26); ctx.lineTo(vx, vy + 26); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(vx - 26, vy); ctx.lineTo(vx + 26, vy); ctx.stroke();
-    ctx.beginPath(); ctx.arc(vx, vy, 24, 0, Math.PI*2); ctx.stroke();
-    ctx.fillStyle = 'rgba(35,168,225,0.9)';
-    ctx.beginPath(); ctx.arc(vx, vy, 5, 0, Math.PI*2); ctx.fill();
-
-    /* floating drops + bubbles emerging around the pipe */
-    for (var bI = 0; bI < 14; bI++){
-      var bx = cx + Math.sin(bI*7 + time*2) * (pw*0.8 + bI*6);
-      var by = pBot - ((time*40 + bI*37) % (pBot - pTop));
-      var br = 1.5 + (bI % 3);
-      ctx.fillStyle = 'rgba(35,168,225,' + (0.5 - bI*0.02) + ')';
-      ctx.beginPath(); ctx.arc(bx, by, br, 0, Math.PI*2); ctx.fill();
-    }
-
-    /* water stream arcing out of the pipe bottom */
-    ctx.strokeStyle = 'rgba(35,168,225,0.75)';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(cx, pBot - 2);
-    ctx.quadraticCurveTo(cx - 8, pBot + 26 + Math.sin(time*3)*4, cx - 20, pBot + 52);
-    ctx.stroke();
-    /* drip + ripple at the floor */
-    var dripY = pBot + 52;
-    for (var rI = 0; rI < 4; rI++){
-      var rr = rI * 7 + ((time * 30) % 28);
-      ctx.strokeStyle = 'rgba(35,168,225,' + (0.4 - rI*0.08) + ')';
-      ctx.lineWidth = 1.2;
-      ctx.beginPath(); ctx.arc(cx - 20, dripY, rr, 0, Math.PI*2); ctx.stroke();
-    }
-
-    /* cool rim light on the far side */
-    ctx.strokeStyle = 'rgba(140,220,255,0.35)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(pxr - 4, pTop); ctx.lineTo(pxr - 4, pBot);
-    ctx.stroke();
-  }
-  resize();
-  window.addEventListener('resize', resize);
-  requestAnimationFrame(loop);
+  function play(){ if (rm) return; stop(); timer = setInterval(function(){ go(i + 1); }, DUR); }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); play(); }); });
+  var pv = rb.querySelector('.lb-rb__nav--prev'), nx = rb.querySelector('.lb-rb__nav--next');
+  if (pv) pv.addEventListener('click', function(){ go(i - 1); play(); });
+  if (nx) nx.addEventListener('click', function(){ go(i + 1); play(); });
+  rb.addEventListener('mouseenter', stop); rb.addEventListener('mouseleave', play);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){ en.forEach(function(x){ x.isIntersecting ? play() : stop(); }); },
+      { threshold: 0.25 }).observe(rb);
+  } else { play(); }
+  go(0);
 })();
 </script>
+<script id="lb-hero-js">
+/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
+(function(){
+  var cv = document.querySelector('.lb-hero-canvas, #heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero]');
+  if (!cv) return;
+  var ctx = cv.getContext('2d'); if (!ctx) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
+  function accent(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
+         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
+    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
+  }
+  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
+  var ACC = hex2rgb(accent());
+  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
+    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
+    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
 
+  function size(){
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
+    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
 
+  // deterministic depth motes
+  var N = 46, motes = [];
+  var seed = 20261019;
+  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
+  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
 
+  function draw(){
+    var isDark = dark();
+    var base = isDark ? [10,11,14] : [248,249,251];
+    var ink  = isDark ? [255,255,255] : [12,14,18];
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0, 'rgb('+base.join(',')+')');
+    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
+    g.addColorStop(1, 'rgb('+base.join(',')+')');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    // aurora: two slow, wide ribbons of the brand colour
+    for (var k=0;k<2;k++){
+      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
+      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
+      var rad = Math.max(W,H)*(0.46 + 0.13*k);
+      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
+      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
+      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+    }
+
+    // perspective floor: clean architectural depth, not blocks
+    var hz = H*0.70, vpx = W*0.5;
+    ctx.lineWidth = 1;
+    for (var j=-9;j<=9;j++){
+      var fx = vpx + j*(W/9)*1.5;
+      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
+    }
+    for (var r=1;r<=9;r++){
+      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
+    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
+    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
+    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
+
+    // depth motes: size + opacity track z, slow parallax drift
+    for (var q=0;q<motes.length;q++){
+      var m = motes[q];
+      var y = ((m.y + t*0.0000075*m.z) % 1);
+      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
+      var px = x*W, py = y*H;
+      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
+      if (a2 <= 0) continue;
+      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
+    }
+
+    // vignette to seat the copy
+    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
+    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
+  }
+
+  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener('resize', function(){ size(); draw(); });
+  if (!reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
+  }
+  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
+  if (!reduce) raf = requestAnimationFrame(loop); 
+})();
+</script>
 </body>
 </html>

@@ -72,7 +72,7 @@ html.js .drop.in{opacity:1;transform:none}
 
 /* hero */
 .hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,#08090B 0%,#0F1114 55%,#0A0B0D 100%);overflow:hidden;padding-top:66px;perspective:1200px}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:none}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,.52) 0%,rgba(8,9,11,.30) 42%,rgba(8,9,11,.92) 100%);pointer-events:none}
 .hero-in{position:relative;z-index:2;padding-block:4.6rem 3.4rem}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:var(--red-bright);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;margin-bottom:1rem}
@@ -161,17 +161,109 @@ footer{background:#08090B;border-top:1px solid var(--line);color:var(--steel);pa
 /* quote-form band tuned to this palette */
 section#lbq{--lbq-bg:#0C0D0F;--lbq-ink:#EDEFF1;--lbq-muted:#9AA1A8;--lbq-panel:rgba(255,255,255,.05);--lbq-line:rgba(200,37,27,.32);--lbq-accent:#FF5348;scroll-margin-top:86px}
 </style>
+<style id="lb-motion-css">
+/* ==== LB MOTION PACK ==== */
+.lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
+/* A header must never be hidden by a scroll-reveal state: the nav/brand is chrome, not
+   content. Unrevealed .rv wrappers left whole headers at opacity:0 (invisible logo). */
+header, .site-header, .page-header, nav.nav, .nav .rv, nav.rv, .header-inner, .nav-inner,
+header .rv, .site-header .rv, .nav-inner .rv{
+  opacity:1 !important; visibility:visible !important; transform:none !important;
+}
+.lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
+.lb-mq{max-width:100%;overflow:hidden}
+.lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
+.lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
+.lb-rb__slide.is-on{opacity:1}
+.lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
+.lb-rb__slide.is-on img{transform:scale(1.10)}
+.lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
+ background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
+ font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ font-size:clamp(9px,1vw,13px);z-index:2}
+.lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
+ display:flex;flex-direction:column;gap:9px;z-index:3}
+.lb-rb__dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
+ background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s}
+.lb-rb__dots button.is-on{background:#fff;transform:scale(1.35)}
+.lb-rb__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;
+ border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(8,9,12,.35);color:#fff;
+ cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1;backdrop-filter:blur(6px);
+ transition:background .25s,transform .25s}
+.lb-rb__nav:hover{background:rgba(8,9,12,.7)}
+.lb-rb__nav--prev{left:clamp(10px,1.6vw,22px)}
+.lb-rb__nav--next{right:clamp(10px,1.6vw,22px)}
+.lb-rb__nav:active{transform:translateY(-50%) scale(.92)}
+@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3}.lb-rb__nav{width:36px;height:36px}}
+
+a.btn,.btn,button.btn,.nav-cta a,.wp-block-button__link{position:relative;overflow:hidden;
+ transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,filter .22s}
+a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2px);
+ box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
+a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
+a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
+ left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
+a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
+
+.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.lb-rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+ .lb-rv{opacity:1!important;transform:none!important;transition:none!important}
+ .lb-rb__slide img{transform:none!important;transition:none!important}
+ a.btn::after,.btn::after,.nav-cta a::after{display:none}
+}
+
+/* marquee band (professional, reference-derived) */
+.lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
+ border-bottom:1px solid rgba(255,255,255,.10)}
+.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq:hover .lb-mq__in{animation-play-state:paused}
+.lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
+ font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+.lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
+@keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
+</style>
+<style id="lb-hero-css">
+canvas.lb-hero-canvas{position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0; pointer-events:none}
+canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
+  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
+}
+</style>
+<style id="lb-brand-css">
+/* ==== LB BRAND (logo-true spanning wordmark) ==== */
+.lb-brandwrap{display:block;padding:14px 18px;background:inherit}
+.lb-brandwrap .lb-brand{display:inline-flex}
+.lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
+ color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
+.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
+.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
+.lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
+.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+ font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
+ color:var(--lb-name,currentColor)}
+.lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
+.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+ font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
+ color:var(--lb-subc,currentColor);opacity:.86}
+.lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
+ background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+@media (max-width:640px){
+ .lb-brand__mark{height:clamp(30px,8vw,40px)}
+ .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
+ .lb-brand__sub{letter-spacing:.2em;font-size:7px}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="Dc concrete and excavation home">
-      <img src="assets/mark_dc-concrete.png" alt="Dc concrete &amp; excavation logo" width="42" height="42">
-      <span>
-        <span class="brand-name">DC CONCRETE &amp; EXCAVATION</span><br>
-        <span class="brand-sub">Maitland NSW</span>
-      </span>
-    </a>
+    <a class="lb-brand" href="#top" aria-label="Dc concrete & excavation - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-acc:#FF5348;--lb-name:#FF5348;--lb-subc:#FF5348;"><span class="lb-brand__word"><span class="lb-brand__name">Dc concrete & excavation</span><span class="lb-brand__sub"><span class="lb-acc">Maitland</span> NSW</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
     </button>
@@ -462,7 +554,7 @@ html,body{overflow-x:hidden}
 </script>
 </section>
 
-<footer class="foot">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/hero-work.jpg" alt="Dc concrete &amp; excavation" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#FF5348 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Dc concrete &amp; excavation</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#FF5348 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Maitland NSW</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Dc concrete &amp; excavation &mdash; recent work</div></div></section><footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
       <div>
@@ -500,134 +592,161 @@ html,body{overflow-x:hidden}
 
 </footer>
 
-<script>(function(){
-  var els = document.querySelectorAll('.drop');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
-    els.forEach(function(el){ io.observe(el); });
-  } else {
-    els.forEach(function(el){ el.classList.add('in'); });
-  }
-})();
+<!-- lb: old box-hero engine removed -->
 
-/* safety net — reveals never stick hidden */
-setTimeout(function(){
-  document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
-}, 1100);
 
-/* hero: perspective wire-grid terrain (concrete slab plane) + red survey sweep */
+
+<script id="lb-motion-js">
+/* LB MOTION PACK v1 */
 (function(){
-  var c = document.getElementById('heroCanvas');
-  if (!c || !c.getContext) return;
-  var ctx = c.getContext('2d');
-  var DPR = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var px = 0, py = 0;  /* pointer parallax */
-
-  function resize(){
-    W = c.clientWidth || c.offsetWidth;
-    H = c.clientHeight || c.offsetHeight;
-    if (!W || !H) return;
-    c.width = Math.round(W * DPR);
-    c.height = Math.round(H * DPR);
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel = 'section > *, main > *, .sec-head, .cards > *, .grid > *, .faq details, .gal figure, .gallery figure';
+  var els = [].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if (e.closest && e.closest('.lb-rb')) return false;
+    if (e.tagName === 'SCRIPT' || e.tagName === 'STYLE') return false;
+    var r = e.getBoundingClientRect();
+    return r.width > 40 && r.height > 20;
+  });
+  els.forEach(function(e, i){ e.classList.add('lb-rv'); e.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
+  if (rm || !('IntersectionObserver' in window)) {
+    els.forEach(function(e){ e.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
   }
-
-  window.addEventListener('pointermove', function(e){
-    px = (e.clientX / window.innerWidth - 0.5) * 30;
-    py = (e.clientY / window.innerHeight - 0.5) * 18;
-  }, {passive: true});
-
-  /* horizon at 38% height; grid converges to a vanishing point */
-  function project(x, z, vx, vy){
-    /* x in [-1,1] across the plane, z in [0,1] depth (0=near) */
-    var depth = 0.18 + z * 0.82;           /* 1 near, ~0.18 far */
-    var scale = 1 / depth;
-    var sx = vx + x * (W * 0.62) * scale;
-    var sy = vy + (z * H * 0.52) * (1 + 0.22 * scale);
-    return [sx, sy, scale];
+  var rb = document.querySelector('.lb-rb');
+  if (!rb) return;
+  var slides = [].slice.call(rb.querySelectorAll('.lb-rb__slide'));
+  if (slides.length < 2) return;
+  var dots = [].slice.call(rb.querySelectorAll('.lb-rb__dots button'));
+  var i = 0, timer = null, DUR = 5600;
+  function go(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
+    dots.forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
   }
-
-  var ROWS = 13, COLS = 16;
-  function frame(t){
-    if (!W || !H){ resize(); return; }
-    var time = (t || 0) * 0.00035;
-    var vx = W * 0.5 + px, vy = H * 0.40 + py;
-    ctx.clearRect(0, 0, W, H);
-
-    /* faint far glow */
-    var g = ctx.createRadialGradient(vx, vy, 10, vx, vy, W * 0.55);
-    g.addColorStop(0, 'rgba(200,37,27,0.10)');
-    g.addColorStop(1, 'rgba(200,37,27,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, W, H);
-
-    /* horizontal rows (receding) */
-    for (var r = 0; r < ROWS; r++){
-      var z = r / (ROWS - 1);
-      ctx.beginPath();
-      for (var cI = 0; cI <= COLS; cI++){
-        var x = (cI / COLS) * 2 - 1;
-        var wave = Math.sin(cI * 0.55 + time * 2.2 + r * 0.4) * 0.018 * (1 - z);
-        var p = project(x + wave, z, vx, vy);
-        if (cI === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]);
-      }
-      var alpha = 0.24 * (1 - z * 0.75);
-      ctx.strokeStyle = 'rgba(154,161,168,' + alpha.toFixed(3) + ')';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    }
-    /* vertical columns */
-    for (var cI2 = 0; cI2 <= COLS; cI2 += 2){
-      var x2 = (cI2 / COLS) * 2 - 1;
-      ctx.beginPath();
-      for (var r2 = 0; r2 < ROWS; r2++){
-        var z2 = r2 / (ROWS - 1);
-        var wave2 = Math.sin(cI2 * 0.55 + time * 2.2 + r2 * 0.4) * 0.018 * (1 - z2);
-        var p2 = project(x2 + wave2, z2, vx, vy);
-        if (r2 === 0) ctx.moveTo(p2[0], p2[1]); else ctx.lineTo(p2[0], p2[1]);
-      }
-      ctx.strokeStyle = 'rgba(154,161,168,0.13)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-    }
-    /* red survey sweep line travelling down the plane */
-    var sweepZ = 0.5 + 0.45 * Math.sin(time * 0.9);
-    ctx.beginPath();
-    for (var cI3 = 0; cI3 <= COLS; cI3++){
-      var x3 = (cI3 / COLS) * 2 - 1;
-      var wave3 = Math.sin(cI3 * 0.55 + time * 2.2 + sweepZ * 5) * 0.018 * (1 - sweepZ);
-      var p3 = project(x3 + wave3, sweepZ, vx, vy);
-      if (cI3 === 0) ctx.moveTo(p3[0], p3[1]); else ctx.lineTo(p3[0], p3[1]);
-    }
-    ctx.strokeStyle = 'rgba(224,51,39,0.75)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    /* sweep glow */
-    var sp = project(0, sweepZ, vx, vy);
-    var sg = ctx.createRadialGradient(sp[0], sp[1], 2, sp[0], sp[1], 150);
-    sg.addColorStop(0, 'rgba(224,51,39,0.30)');
-    sg.addColorStop(1, 'rgba(224,51,39,0)');
-    ctx.fillStyle = sg;
-    ctx.fillRect(sp[0] - 160, sp[1] - 80, 320, 160);
-  }
-
-  function loop(t){
-    frame(t || 0);
-    if (!reduce) requestAnimationFrame(loop);
-  }
-  resize();
-  window.addEventListener('resize', resize);
-  loop(0);
+  function play(){ if (rm) return; stop(); timer = setInterval(function(){ go(i + 1); }, DUR); }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); play(); }); });
+  var pv = rb.querySelector('.lb-rb__nav--prev'), nx = rb.querySelector('.lb-rb__nav--next');
+  if (pv) pv.addEventListener('click', function(){ go(i - 1); play(); });
+  if (nx) nx.addEventListener('click', function(){ go(i + 1); play(); });
+  rb.addEventListener('mouseenter', stop); rb.addEventListener('mouseleave', play);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){ en.forEach(function(x){ x.isIntersecting ? play() : stop(); }); },
+      { threshold: 0.25 }).observe(rb);
+  } else { play(); }
+  go(0);
 })();
 </script>
+<script id="lb-hero-js">
+/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
+(function(){
+  var cv = document.querySelector('.lb-hero-canvas, #heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero]');
+  if (!cv) return;
+  var ctx = cv.getContext('2d'); if (!ctx) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
+  function accent(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
+         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
+    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
+  }
+  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
+  var ACC = hex2rgb(accent());
+  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
+    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
+    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
 
+  function size(){
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
+    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
 
+  // deterministic depth motes
+  var N = 46, motes = [];
+  var seed = 20261019;
+  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
+  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
 
+  function draw(){
+    var isDark = dark();
+    var base = isDark ? [10,11,14] : [248,249,251];
+    var ink  = isDark ? [255,255,255] : [12,14,18];
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0, 'rgb('+base.join(',')+')');
+    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
+    g.addColorStop(1, 'rgb('+base.join(',')+')');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    // aurora: two slow, wide ribbons of the brand colour
+    for (var k=0;k<2;k++){
+      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
+      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
+      var rad = Math.max(W,H)*(0.46 + 0.13*k);
+      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
+      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
+      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+    }
+
+    // perspective floor: clean architectural depth, not blocks
+    var hz = H*0.70, vpx = W*0.5;
+    ctx.lineWidth = 1;
+    for (var j=-9;j<=9;j++){
+      var fx = vpx + j*(W/9)*1.5;
+      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
+    }
+    for (var r=1;r<=9;r++){
+      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
+    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
+    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
+    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
+
+    // depth motes: size + opacity track z, slow parallax drift
+    for (var q=0;q<motes.length;q++){
+      var m = motes[q];
+      var y = ((m.y + t*0.0000075*m.z) % 1);
+      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
+      var px = x*W, py = y*H;
+      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
+      if (a2 <= 0) continue;
+      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
+    }
+
+    // vignette to seat the copy
+    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
+    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
+  }
+
+  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener('resize', function(){ size(); draw(); });
+  if (!reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
+  }
+  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
+  if (!reduce) raf = requestAnimationFrame(loop); 
+})();
+</script>
 </body>
 </html>
