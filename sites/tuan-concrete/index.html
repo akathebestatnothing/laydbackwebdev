@@ -340,7 +340,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top" aria-label="Tuan Concrete - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#c02828;--lb-subc:#c02828;--lb-acc:#c02828;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Tuan Concrete Concrete</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Tuan Concrete - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#c02828;--lb-subc:#c02828;--lb-acc:#c02828;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Tuan Concrete</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
     </button>
@@ -1388,6 +1388,19 @@ section,header,footer,.wrap,.container,.inner,[class*="section"]{
   .lb-brand__mark{height:32px !important;max-width:40vw !important}
   .lb-brand__word{font-size:.92em !important}
 }
+</style>
+
+<style>/* ==== LB HEADER POLISH 2 ==== */
+header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
+.site-header nav a:not(.btn):not([class*="btn"]),
+.header-inner nav a:not(.btn):not([class*="btn"]),
+nav.nav a:not(.btn):not([class*="btn"]),
+.nav-inner a:not(.btn):not([class*="btn"]),
+header a[href^="tel"],.site-header a[href^="tel"]{
+  color:var(--lb-name,currentColor) !important;
+  opacity:1 !important;
+}
+.lb-brand__sub:empty{display:none !important}
 </style>
 </body>
 </html>

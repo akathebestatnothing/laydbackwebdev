@@ -768,5 +768,18 @@ section,header,footer,.wrap,.container,.inner,[class*="section"]{
 /* A header must never be hidden by a reveal state */
 header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{opacity:1 !important;visibility:visible !important}
 </style>
+
+<style>/* ==== LB HEADER POLISH 2 ==== */
+header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
+.site-header nav a:not(.btn):not([class*="btn"]),
+.header-inner nav a:not(.btn):not([class*="btn"]),
+nav.nav a:not(.btn):not([class*="btn"]),
+.nav-inner a:not(.btn):not([class*="btn"]),
+header a[href^="tel"],.site-header a[href^="tel"]{
+  color:var(--lb-name,currentColor) !important;
+  opacity:1 !important;
+}
+.lb-brand__sub:empty{display:none !important}
+</style>
 </body>
 </html>
