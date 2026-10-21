@@ -9,9 +9,6 @@
 <meta property="og:description" content="Licensed concreting — driveways, exposed aggregate, pathways &amp; repairs. Newcastle &amp; Hunter, NSW.">
 <meta property="og:image" content="images/newcastle-concrete-cover-1.jpg">
 <link rel="icon" href="images/logo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <script>
 document.documentElement.classList.remove('no-js');
 document.documentElement.classList.add('js');
@@ -21,7 +18,7 @@ document.documentElement.classList.add('js');
   --paper:#F3EFE8; --paper2:#EAE3D7; --ink:#221E19; --muted:#57503F;
   --acc:#963F1F; --acc-deep:#7E3418; --amber:#C08A3E; --amber-ink:#85561C; --line:rgba(34,30,25,.16);
   --slab:#2A2621; --slab-ink:#F3EFE8; --accent:#963F1F; --clay:#D9A566;
-  --disp:'Archivo Black','Arial Black',sans-serif; --body:'Inter',sans-serif;
+  --disp:'Archivo Black','Arial Black',sans-serif; --body:system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -48,11 +45,11 @@ section,header,footer,nav{scroll-margin-top:94px}
 .brand img{height:58px;width:auto;object-fit:contain;border-radius:6px}
 .brand-name{font-family:var(--disp);font-weight:900;font-size:19px;letter-spacing:.03em;line-height:1.05}
 .brand-tag{font-size:10.5px;letter-spacing:.2em;color:var(--acc);text-transform:uppercase;font-weight:800;margin-top:3px}
-.head-links{display:flex;gap:24px;margin-left:auto;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.head-links{display:flex;gap:24px;margin-left:auto;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:none;color:var(--muted)}
 .head-links a{transition:color .15s}
 .head-links a:hover{color:var(--acc)}
 .head-cta{display:flex;align-items:center;gap:10px}
-.btn{display:inline-block;padding:13px 24px;font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:2px;cursor:pointer;transition:background .15s,color .15s,transform .12s}
+.btn{display:inline-block;padding:13px 24px;font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:none;border:1.5px solid var(--ink);border-radius:2px;cursor:pointer;transition:background .15s,color .15s,transform .12s}
 .btn-acc{background:var(--acc);color:var(--paper);border-color:var(--acc)}
 .btn-acc:hover{background:var(--acc-deep);transform:translateY(-1px)}
 .btn-ghost{background:transparent;color:var(--ink)}
@@ -78,13 +75,13 @@ section,header,footer,nav{scroll-margin-top:94px}
 
 /* ---- hero: real project photo, darkened, with scrim ---- */
 .hero{position:relative;overflow:hidden;background:#1B150F}
-.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
-.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(24,18,13,.95) 0%,rgba(24,18,13,.88) 30%,rgba(24,18,13,.62) 60%,rgba(24,18,13,.34) 100%)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:rgba(10,11,12,.95)}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:rgba(24,18,13,.95)}
 .hero-3d{display:none;perspective:900px}
 .hero-inner{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:92px 40px 104px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
 .hero-copy{position:relative;z-index:2}
-.kick{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);border-bottom:2px solid var(--amber);padding-bottom:5px}
-.hero-title{font-size:clamp(42px,6.8vw,88px);line-height:.98;font-weight:900;letter-spacing:-.022em;text-transform:uppercase;margin-top:26px;color:var(--paper)}
+.kick{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:none;color:var(--clay);border-bottom:2px solid var(--amber);padding-bottom:5px}
+.hero-title{font-size:clamp(42px,6.8vw,88px);line-height:.98;font-weight:900;letter-spacing:-.022em;text-transform:none;margin-top:26px;color:var(--paper)}
 .hero-title em{color:var(--clay);font-style:normal}
 .hero-title .un{display:block}
 .hero-sub{margin-top:24px;font-size:17px;font-weight:500;color:#EBE2D4;max-width:560px}
@@ -92,20 +89,20 @@ section,header,footer,nav{scroll-margin-top:94px}
 .hero-ctas .btn-ghost{border-color:rgba(243,239,232,.55);color:var(--paper)}
 .hero-ctas .btn-ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
 .hero-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px}
-.chip{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border:1px solid rgba(34,30,25,.28);background:rgba(243,239,232,.94);padding:9px 14px;border-radius:3px}
+.chip{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:none;color:var(--ink);border:1px solid rgba(34,30,25,.28);background:rgba(243,239,232,.94);padding:9px 14px;border-radius:3px}
 .chip b{color:var(--amber-ink)}
 /* hero photo stage, clean industrial frame on the dark hero */
 .shot-stage{position:relative;z-index:2}
 .shot{background:var(--paper);border:2.5px solid var(--ink);box-shadow:0 18px 44px rgba(12,8,5,.5)}
 .shot img{width:100%;height:520px;display:block;object-fit:cover;object-position:50% 42%}
-.shot-cap{position:static;margin-top:-1px;background:var(--slab);color:var(--slab-ink);padding:13px 16px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.shot-cap{position:static;margin-top:-1px;background:var(--slab);color:var(--slab-ink);padding:13px 16px;font-size:12px;letter-spacing:.1em;text-transform:none;font-weight:800}
 .shot-cap span{color:var(--amber)}
 @media (max-width:1000px){
   .hero-inner{grid-template-columns:1fr;padding:36px 20px 56px;gap:0}
   .hero-title{font-size:clamp(36px,9vw,56px)}
   .hero-sub{font-size:15.5px}
   .shot-stage{display:none}
-  .hero-scrim{background:linear-gradient(170deg,rgba(24,18,13,.93) 0%,rgba(24,18,13,.84) 55%,rgba(24,18,13,.7) 100%)}
+  .hero-scrim{background:rgba(24,18,13,.93)}
   .hero-bg img{object-position:center 55%}
 }
 
@@ -173,14 +170,14 @@ section,header,footer,nav{scroll-margin-top:94px}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{content:"+";color:var(--acc);font-weight:900;font-size:19px;margin-left:auto}
 .faq-item[open] summary::after{content:"\2212";color:var(--acc-deep)}
-.faq-item .a{padding:16px 26px;border-left:3px solid var(--amber);color:var(--ink);font-size:15px;line-height:1.65}
+.faq-item .a{padding:16px 26px;border:1px solid var(--amber);color:var(--ink);font-size:15px;line-height:1.65}
 .faq-item .a a{color:var(--acc);font-weight:800;text-decoration:underline}
 @media (max-width:900px){.faq{padding:72px 0 64px}.faq-item summary{padding:16px 20px;font-size:16px}}
 
 /* ---- CTA panel ---- */
 .cta-panel{background:var(--slab);color:var(--slab-ink)}
 .cta-panel .wrap{display:flex;align-items:center;justify-content:space-between;gap:34px;flex-wrap:wrap;padding:88px 40px}
-.cta-panel h2{font-size:clamp(30px,4vw,54px);font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+.cta-panel h2{font-size:clamp(30px,4vw,54px);font-weight:900;letter-spacing:-.02em;text-transform:none}
 .cta-panel h2 em{color:var(--amber);font-style:normal}
 .cta-btns{display:flex;gap:14px;flex-wrap:wrap}
 .cta-panel .btn-acc{background:var(--acc);color:var(--slab-ink);border-color:var(--acc)}
@@ -191,7 +188,7 @@ section,header,footer,nav{scroll-margin-top:94px}
 /* ---- footer ---- */
 .site-footer{background:var(--paper);border-top:1px solid var(--line)}
 .site-footer .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:44px;padding:74px 40px 46px}
-.site-footer h4{font-size:11.5px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:16px}
+.site-footer h4{font-size:11.5px;font-weight:900;letter-spacing:.2em;text-transform:none;color:var(--acc);margin-bottom:16px}
 .site-footer a{display:block;font-size:14.5px;color:var(--muted);padding:5px 0;transition:color .15s}
 .site-footer a:hover{color:var(--acc)}
 .f-bot{max-width:1280px;margin:0 auto;padding:20px 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
@@ -213,24 +210,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-motion-css">
 /* ==== LB MOTION PACK ==== */
 .lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
@@ -248,8 +242,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -272,7 +266,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -290,8 +284,8 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 .lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -314,15 +308,14 @@ section{ position:relative; }
 section::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
   background:
-    radial-gradient(120% 70% at 12% 0%, color-mix(in srgb, var(--lb-acc) 7%, transparent) 0%, transparent 58%),
-    radial-gradient(90% 60% at 100% 100%, color-mix(in srgb, var(--lb-acc) 5%, transparent) 0%, transparent 60%);
+    transparent,
+    transparent;
 }
 section > *{ position:relative; z-index:1; }
 
 /* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
 .card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 100%, transparent) 0%,
-                                    color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background:transparent;
   border:1px solid var(--lb-hair);
   border-radius:14px;
   box-shadow:var(--lb-e1);
@@ -343,7 +336,7 @@ figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:sc
 
 /* buttons: gradient fill, inset highlight, layered shadow */
 a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 55%);
+  background-image:rgba(255,255,255,.16);
   box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
   border-radius:10px;
 }
@@ -354,8 +347,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
 
 /* nav: subtle vertical gradient + hairline for separation from the page */
 .nav,nav,.site-header,header.nav{
-  background-image:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 96%, transparent) 0%,
-                                         color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background-image:transparent;
   box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
 }
 
@@ -369,7 +361,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 /* dark surfaces get stronger, softer shadows */
 @media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
 @supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:radial-gradient(120% 70% at 12% 0%, rgba(229,25,36,.06) 0%, transparent 58%); }
+  section::before{ background:rgba(229,25,36,.06); }
 }
 @media (prefers-reduced-motion: reduce){
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
@@ -383,14 +375,14 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
 <style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-</head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
 <body>
 
 <div class="strip"><span>NSW Contractor Licence <b>145541C</b></span><span>&middot;</span><span>Newcastle &amp; Hunter, NSW</span></div>
 
 <header class="site-head">
   <div class="head-row">
-    <a class="lb-brand" href="#top" aria-label="Newcastle Concrete Soulutions - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#963F1F;--lb-subc:#963F1F;--lb-acc:#963F1F;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="lb-brand__word"><span class="lb-brand__name">Newcastle Concrete Soulutions</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Newcastle Concrete Soulutions - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#963F1F;--lb-subc:#963F1F;--lb-acc:#963F1F;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="lb-brand__word"><span class="lb-brand__name">Newcastle Concrete Soulutions</span><span class="lb-brand__rule" aria-hidden="true"></span></span><span class="lb-brand__name">Newcastle Concrete Soulutions Pty Ltd</span></a>
     <nav class="head-links" aria-label="Primary">
       <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a>
     </nav>
@@ -534,14 +526,14 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#963F1F))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 section#lbq{--lbq-bg:#0f1115;--lbq-ink:#F3EFE8;--lbq-muted:#C9BFAE;--lbq-panel:rgba(243,239,232,.06);--lbq-line:rgba(243,239,232,.18);--lbq-accent:#C08A3E}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -565,7 +557,7 @@ section#lbq{--lbq-bg:#0f1115;--lbq-ink:#F3EFE8;--lbq-muted:#C9BFAE;--lbq-panel:r
 /* v3 split */
 #lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
 #lbq.v3 .lbq-g{display:grid;gap:12px}
-#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
+#lbq.v3 .lbq-hp2{border:1px solid var(--lbq-accent);padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
 /* v4 minimal */
 #lbq.v4 .lbq-w{max-width:620px}
@@ -675,7 +667,7 @@ html,body{overflow-x:hidden}
     <span>&copy; 2026 Newcastle Concrete Soulutions Pty Ltd &middot; NSW Contractor Licence <b>145541C</b></span>
     <span>Newcastle &amp; Hunter, NSW</span>
   </div>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <!-- lb: old box-hero engine removed -->
 
@@ -851,7 +843,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{

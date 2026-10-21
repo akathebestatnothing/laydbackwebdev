@@ -10,10 +10,7 @@
 <meta property="og:description" content="Blocked drains, hot water systems, leaks and repairs. Reliable local plumbing, done right. Get a free quote.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
+<noscript></noscript>
 <style>
 :root{
   --bg:#F4F7FB;
@@ -30,7 +27,7 @@
   --dink:#EAF2FB;
   --dmut:#9FB4D6;
   --font-display:'Archivo',ui-sans-serif,system-ui,sans-serif;
-  --font-sans:'Inter',ui-sans-serif,system-ui,sans-serif;
+  --font-sans:system-ui,ui-sans-serif,system-ui,sans-serif;
   --fluid:clamp(44px,9vw,118px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -39,7 +36,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-siz
 img{max-width:100%;display:block}
 a{color:inherit}
 .wrap{width:min(1180px,92vw);margin-inline:auto}
-.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.mono{font-family:ui-monospace, SFMono-Regular, Menlo, monospace}
 
 html.js .rv{opacity:0;transform:translateY(22px);transition: opacity .45s ease-out,transform .7s ease-out}
 html.js .rv.in,html.js .rv.on{opacity:1;transform:none}
@@ -57,7 +54,7 @@ html.js .rv.d3{transition-delay:.24s}
 .brand{display:flex;align-items:center;gap:.7rem;color:inherit;text-decoration:none;min-width:0}
 .brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt,.brand .b-txt{display:flex;flex-direction:column;line-height:1;min-width:0}
-.brand-name,.brand .comp-name{font-family:'Montserrat',sans-serif;font-size:1.18rem;line-height:1;font-weight:800;letter-spacing:.04em;color:#F4F8FD;white-space:nowrap}
+.brand-name,.brand .comp-name{font-family:system-ui, sans-serif;font-size:1.18rem;line-height:1;font-weight:800;letter-spacing:.04em;color:#F4F8FD;white-space:nowrap}
 .brand-sub,.brand .comp-sub{display:block;margin-top:4px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;font-style:normal;color:#AFC0DE;white-space:nowrap}
 .brand-sub em,.brand .comp-sub em{font-style:normal;opacity:1;color:var(--acc2)}
 @media(max-width:680px){.nav-in{height:56px}.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name,.brand .comp-name{font-size:1.02rem}.brand-sub,.brand .comp-sub{display:none}}
@@ -79,12 +76,12 @@ html.js .rv.d3{transition-delay:.24s}
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-start;background:var(--dark) url('images/hero.jpg') right center/cover no-repeat;overflow:hidden;padding-top:96px;perspective:1400px}
 .hero canvas{}
 .hero-in{position:relative;z-index:3;padding-block:9vh 4rem;transform:translateZ(0)}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,2,23,.94) 0%,rgba(5,2,23,.84) 40%,rgba(5,2,23,.32) 100%);pointer-events:none;z-index:2}
-@media (max-width:760px){.hero{background-position:center 62%}.hero-shade{background:linear-gradient(180deg,rgba(5,2,23,.9) 0%,rgba(5,2,23,.72) 55%,rgba(5,2,23,.42) 100%)}.hero-in{padding-block:5vh 3rem}}
-.kick{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc2);font-weight:700;background:rgba(35,168,225,.12);border:1px solid rgba(35,168,225,.35);padding:7px 14px;border-radius:999px}
+.hero-shade{position:absolute;inset:0;background:rgba(5,2,23,.94);pointer-events:none;z-index:2}
+@media (max-width:760px){.hero{background-position:center 62%}.hero-shade{background:rgba(5,2,23,.9)}.hero-in{padding-block:5vh 3rem}}
+.kick{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.22em;text-transform:none;color:var(--acc2);font-weight:700;background:rgba(35,168,225,.12);border:1px solid rgba(35,168,225,.35);padding:7px 14px;border-radius:999px}
 h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.04;color:#F6FAFF;font-weight:900;letter-spacing:-.02em;max-width:20ch;margin-top:1.4rem}
 h1 .acc{color:var(--acc2)}
-h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;line-height:1.65;color:#9FB4D6;margin-top:1rem;text-transform:uppercase}
+h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;line-height:1.65;color:#9FB4D6;margin-top:1rem;text-transform:none}
 .hero-sub{max-width:52ch;margin-top:1.8rem}
 .hero-sub p{color:#CBD9EE;font-size:1.02rem}
 .hero-ctas{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
@@ -101,7 +98,7 @@ h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;line
 /* === SECTIONS === */
 .section{padding:88px 0}
 .section-alt{background:var(--paper)}
-.kick-sec{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-weight:800}
+.kick-sec{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.22em;text-transform:none;color:var(--acc);font-weight:800}
 .sec-head h2{font-family:var(--font-display);font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.12;color:var(--ink);font-weight:800;letter-spacing:-.01em;margin-top:.6rem;max-width:22ch}
 .sec-head p{color:var(--ink2);max-width:56ch;margin-top:.8rem}
 .grid{display:grid;gap:1.2rem}
@@ -113,7 +110,7 @@ h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;line
 
 .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:transform .18s,box-shadow .18s}
 .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(26,67,149,.10)}
-.card .ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#1A4395,#23A8E1);display:flex;align-items:center;justify-content:center;color:#04122E;font-weight:800;font-size:1.1rem;font-family:var(--font-display)}
+.card .ic{width:44px;height:44px;border-radius:12px;background:#1A4395;display:flex;align-items:center;justify-content:center;color:#04122E;font-weight:800;font-size:1.1rem;font-family:var(--font-display)}
 .card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-top:.9rem}
 .card p{color:var(--ink2);font-size:.92rem;margin-top:.45rem}
 
@@ -133,7 +130,7 @@ h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;line
 
 /* === CTA band === */
 .pitch-band{background:var(--dark);color:#EAF2FB;position:relative;overflow:hidden}
-.pitch-band::before{content:'';position:absolute;top:-60%;right:-10%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(35,168,225,.25),transparent 65%);pointer-events:none}
+.pitch-band::before{content:'';position:absolute;top:-60%;right:-10%;width:520px;height:520px;border-radius:50%;background:rgba(35,168,225,.25);pointer-events:none}
 .pitch-band h2{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,3rem);color:#fff;font-weight:900;max-width:18ch;line-height:1.08}
 .pitch-band p{color:var(--dmut);max-width:52ch;margin-top:.8rem}
 .pitch-band .btn{margin-top:1.8rem}
@@ -145,7 +142,7 @@ footer{background:#050B1C;color:#93A7C8;padding:64px 0 24px;font-size:.92rem}
 .foot-brand img{width:32px;height:32px;object-fit:contain;border-radius:8px}
 .foot-brand .comp-name{font-family:var(--font-display);font-weight:800;color:#E7EEF9;font-size:1.05rem;display:block;margin-top:.7rem}
 .foot-brand p{font-size:.85rem;margin-top:.5rem}
-footer h4{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#5F7AA6;font-weight:800;margin-bottom:1rem}
+footer h4{font-size:.72rem;letter-spacing:.2em;text-transform:none;color:#5F7AA6;font-weight:800;margin-bottom:1rem}
 footer a{color:#93A7C8;text-decoration:none;display:block;padding:4px 0;transition:color .15s}
 footer a:hover{color:var(--acc2)}
 .footer-bar{border-top:1px solid rgba(147,167,200,.16);margin-top:2.6rem;padding-top:1.2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:#5F7AA6}
@@ -167,8 +164,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -191,7 +188,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -209,8 +206,8 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 .lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -230,24 +227,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -256,11 +250,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
 <style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-</head>
+<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
 <body>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top" aria-label="CM Plumbing - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#1A4395;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="lb-brand__word"><span class="lb-brand__name">CM Plumbing</span><span class="lb-brand__sub"><span class="lb-acc">All</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="CM Plumbing - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#1A4395;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="lb-brand__word"><span class="lb-brand__name">CM Plumbing</span><span class="lb-brand__sub"><span class="lb-acc">All</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <ul class="nav-links" id="navlinks">
       <li><a href="#services">Services</a></li>
       <li><a href="#process">How it works</a></li>
@@ -270,7 +264,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     <div class="nav-cta"><a href="#quote">Free quote</a></div>
     <button id="burger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
   </div>
-</nav>
+<a class="lb-tel" href="tel:+61433801926" style="white-space:nowrap;align-self:center;text-decoration:none">0433801926</a></nav>
 <script>(function(){var b=document.getElementById('burger'),n=document.getElementById('navlinks');if(!b||!n)return;b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu');});})();</script>
 
 <header class="hero" id="top">
@@ -377,7 +371,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 </section>
 </main>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/hero.jpg" alt="CM Plumbing" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#1A4395 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">CM Plumbing</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#1A4395 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">All</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">CM Plumbing &mdash; recent work</div></div></section><footer>
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/hero.jpg" alt="CM Plumbing" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">CM Plumbing</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">All</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">CM Plumbing &mdash; recent work</div></div></section><footer>
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
@@ -409,7 +403,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <span>Local plumbing &middot; Reliable &middot; Professional</span>
     </div>
   </div>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <!-- LBQ quote form -->
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
@@ -420,7 +414,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 #lbq h2{font-family:var(--font-display);font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:#fff;color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -688,7 +682,7 @@ Colored box-shadow glow (#04122e) on dark page{box-shadow:none !important;text-s
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{

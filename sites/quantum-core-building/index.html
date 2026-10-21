@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quantum Core Building Pty Ltd - Built on Precision. Delivered on Quality.</title>
 <meta name="description" content="Quantum Core Building Pty Ltd - Residential building, extensions, structural work, project management, renovations. Built on precision. Delivered on quality. ABN 24 700 287 878.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#100f10;
@@ -46,7 +43,7 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .brand{display:flex;align-items:center;gap:.8rem;color:var(--ink);text-decoration:none}
 .brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;line-height:1}
-.brand-name{font-family:'Montserrat',sans-serif;font-size:1.15rem;line-height:1;font-weight:800;letter-spacing:-.012em}
+.brand-name{font-family:system-ui, sans-serif;font-size:1.15rem;line-height:1;font-weight:800;letter-spacing:-.012em}
 .brand-sub{display:block;margin-top:4px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;font-style:normal;opacity:.85}
 .brand-sub em{font-style:normal;opacity:1;color:var(--acc)}
 @media (max-width:680px){.brand-mark{height:48px;width:auto;object-fit:contain}.brand-name{font-size:1.02rem}.brand-sub{display:none} .nav{height:72px}}
@@ -64,8 +61,8 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .hero{position:relative;min-height:min(92vh,860px);display:flex;align-items:center;overflow:hidden;padding:calc(var(--nav-h) + 3rem) 0 3.4rem;border-bottom:1px solid var(--line)}
 .hero-media{position:absolute;inset:-4%;z-index:0}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;filter:brightness(.5) saturate(.85) blur(9px);transform:scale(1.05)}
-.hero-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.15));mask-image:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.15))}
-.hero-scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(120% 90% at 16% 26%,rgba(255,127,0,.14) 0%,rgba(255,127,0,0) 52%),linear-gradient(180deg,rgba(16,15,16,.82) 0%,rgba(16,15,16,.5) 45%,rgba(16,15,16,.92) 100%)}
+.hero-grid{position:absolute;inset:0;z-index:1;background-image:rgba(255,255,255,.05),rgba(255,255,255,.05);background-size:64px 64px;-webkit-mask-image:rgba(0,0,0,.85);mask-image:rgba(0,0,0,.85)}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:rgba(255,127,0,.14),rgba(16,15,16,.82)}
 .hero-copy{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;padding:0 clamp(1rem,4vw,2.6rem);pointer-events:none}
 .hero-copy a,.hero-copy .btn{pointer-events:auto}
 .hero-copy .k{margin:0 0 .7rem;font-family:var(--font-m);font-size:.78rem;letter-spacing:.24em;color:var(--acc-hi)}
@@ -115,24 +112,21 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:700;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:700;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&display=swap" rel="stylesheet">
 <style id="lb-motion-css">
 /* ==== LB MOTION PACK ==== */
 .lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
@@ -150,8 +144,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -174,7 +168,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -192,8 +186,8 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 .lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -216,15 +210,14 @@ section{ position:relative; }
 section::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
   background:
-    radial-gradient(120% 70% at 12% 0%, color-mix(in srgb, var(--lb-acc) 7%, transparent) 0%, transparent 58%),
-    radial-gradient(90% 60% at 100% 100%, color-mix(in srgb, var(--lb-acc) 5%, transparent) 0%, transparent 60%);
+    transparent,
+    transparent;
 }
 section > *{ position:relative; z-index:1; }
 
 /* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
 .card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 100%, transparent) 0%,
-                                    color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background:transparent;
   border:1px solid var(--lb-hair);
   border-radius:14px;
   box-shadow:var(--lb-e1);
@@ -245,7 +238,7 @@ figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:sc
 
 /* buttons: gradient fill, inset highlight, layered shadow */
 a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 55%);
+  background-image:rgba(255,255,255,.16);
   box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
   border-radius:10px;
 }
@@ -256,8 +249,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
 
 /* nav: subtle vertical gradient + hairline for separation from the page */
 .nav,nav,.site-header,header.nav{
-  background-image:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 96%, transparent) 0%,
-                                         color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background-image:transparent;
   box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
 }
 
@@ -271,7 +263,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 /* dark surfaces get stronger, softer shadows */
 @media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
 @supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:radial-gradient(120% 70% at 12% 0%, rgba(229,25,36,.06) 0%, transparent 58%); }
+  section::before{ background:rgba(229,25,36,.06); }
 }
 @media (prefers-reduced-motion: reduce){
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
@@ -282,7 +274,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
 }
 </style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -290,20 +281,20 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-</head>
+<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
 <body>
 
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="lb-brand" href="#top" aria-label="Quantum Core Building - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#380800;--lb-subc:#380800;--lb-acc:#380800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_quantum-core-building.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Quantum Core Building</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Quantum Core Building - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#380800;--lb-subc:#380800;--lb-acc:#380800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_quantum-core-building.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Quantum Core Building</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#approach">Approach</a></li>
     <li><a href="#capabilities">Capabilities</a></li>
     <li><a href="#lbq">Contact</a></li>
   </ul>
-</nav>
+<a class="lb-tel" href="tel:61403582865" style="white-space:nowrap;align-self:center;text-decoration:none">+61403582865</a></nav>
 
 <header id="top">
 <div class="hero">
@@ -373,7 +364,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     <p>Residential building, extensions, structural work, project management, renovations.<br>ABN 24 700 287 878</p>
   </div>
   <p aria-hidden="true">&copy; <span id="year"></span> Quantum Core Building Pty Ltd. All rights reserved.</p>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
@@ -383,7 +374,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -652,7 +643,7 @@ letter-spacing: 0.24em on body text{letter-spacing:normal !important}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{

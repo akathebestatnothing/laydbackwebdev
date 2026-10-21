@@ -6,11 +6,7 @@
 <title>Done Right Roof &amp; Restoration | Roof Repairs, Restoration & Gutters, Central Coast NSW</title>
 <meta name="description" content="Roof repairs, full restorations, gutters and leak detection across the Central Coast and Newcastle. Licensed roof tiler, Lic 465538C. Call 0402 369 358.">
 <link rel="icon" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Encode+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Encode+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<noscript></noscript>
 <style>
 :root{
   --bg:#f4f6f8; --bg2:#ffffff; --ink:#131a26; --ink2:#5c6675;
@@ -40,14 +36,14 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:.005em;text-tran
 .brand{display:flex;align-items:center;gap:.7rem;color:var(--ink);text-decoration:none;min-width:0}
 .brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt{display:flex;flex-direction:column;gap:3px;line-height:1;min-width:0}
-.brand-name{font-family:'Montserrat','Encode Sans',sans-serif;font-size:clamp(1.02rem,3.2vw,1.26rem);line-height:1;font-weight:700;letter-spacing:.01em;white-space:nowrap}
+.brand-name{font-family:system-ui, 'Encode Sans', sans-serif;font-size:clamp(1.02rem,3.2vw,1.26rem);line-height:1;font-weight:700;letter-spacing:.01em;white-space:nowrap}
 .brand-sub{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nav__links{display:flex;gap:1.4rem;list-style:none}
 .nav__links a{font-size:.9rem;font-weight:600;color:var(--ink2)}
 .nav__links a:hover{color:var(--ink)}
 .nav__cta{display:flex;align-items:center;gap:.9rem}
 .nav__p{font-size:.82rem;font-weight:700}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.5rem;font-size:.84rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border:0;border-radius:4px;cursor:pointer;transition:transform .15s,background .15s,color .15s,border-color .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.5rem;font-size:.84rem;font-weight:700;text-transform:none;letter-spacing:.05em;border:0;border-radius:4px;cursor:pointer;transition:transform .15s,background .15s,color .15s,border-color .15s}
 .btn--p{background:var(--acc);color:#fff}
 .btn--p:hover{background:var(--acc2);transform:translateY(-1px)}
 .btn--o{border:1.5px solid var(--acc);color:var(--acc);background:transparent}
@@ -59,12 +55,12 @@ h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:.005em;text-tran
 /* ============ hero: real photo (>=1080) + dark scrim ============ */
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#0b111c;perspective:1200px}
 #heroCanvas{}
-.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
-.hero-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 22% 40%,rgba(8,12,20,.66) 0%,rgba(8,12,20,.34) 55%,rgba(8,12,20,.14) 100%),linear-gradient(180deg,rgba(8,12,20,.86) 0%,rgba(8,12,20,.48) 44%,rgba(8,12,20,.9) 100%)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:rgba(10,11,12,.95)}
+.hero-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(8,12,20,.66),rgba(8,12,20,.86)}
 .hero-copy{position:relative;z-index:2;max-width:660px;padding:calc(var(--nav-h) + 8vh) clamp(1.2rem,4.5vw,4rem) 5rem;pointer-events:auto}
-.hero-copy .k{display:inline-flex;align-items:center;gap:.6rem;margin:0 0 .9rem;font-family:var(--font-m);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:#a9c4ee}
+.hero-copy .k{display:inline-flex;align-items:center;gap:.6rem;margin:0 0 .9rem;font-family:var(--font-m);font-size:.74rem;letter-spacing:.2em;text-transform:none;color:#a9c4ee}
 .hero-copy .k i{display:block;width:26px;height:3px;background:#a9c4ee}
-.hero-copy h1{font-size:clamp(2.4rem,6vw,4.3rem);line-height:1.0;color:#fff;text-transform:uppercase;font-weight:700;text-shadow:0 2px 26px rgba(0,0,0,.45)}
+.hero-copy h1{font-size:clamp(2.4rem,6vw,4.3rem);line-height:1.0;color:#fff;text-transform:none;font-weight:700;text-shadow:0 2px 26px rgba(0,0,0,.45)}
 .hero-copy h1 em{font-style:normal;color:#9db8e8}
 .hero-copy .d{margin:1.1rem 0 1.5rem;font-size:clamp(.96rem,1.4vw,1.1rem);color:#dbe4f2;max-width:48ch}
 .cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.6rem}
@@ -110,7 +106,7 @@ details.faq[open] summary:after{content:'–'}
 details.faq .a{padding:0 .3rem 1.1rem;color:var(--ink2);max-width:70ch}
 .band{display:flex;gap:2.4rem;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:2rem clamp(1.2rem,4vw,2.5rem);max-width:1220px;margin:0 auto;background:var(--acc);border-radius:10px}.band b,.band .b-i b{color:#fff}.band .b-i span{color:#cfe0f5}
 .band .b-i{display:flex;gap:.7rem;align-items:baseline}
-.band .b-i b{font-family:var(--disp);font-size:1.35rem;color:#fff;text-transform:uppercase}
+.band .b-i b{font-family:var(--disp);font-size:1.35rem;color:#fff;text-transform:none}
 .band .b-i span{font-size:.85rem;color:#cfe0f5}
 .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .gal figure{margin:0}
@@ -120,13 +116,13 @@ details.faq .a{padding:0 .3rem 1.1rem;color:var(--ink2);max-width:70ch}
 @media (max-width:560px){.gal{grid-template-columns:1fr}}
 footer{border-top:1px solid var(--line);background:#1e3a66;color:#f2f6fb;padding:62px 0 0;margin-top:3rem}
 footer .fw{max-width:1220px;margin:0 auto;padding:0 clamp(1.2rem,4vw,2.5rem);display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-footer h4{font-family:var(--font-m);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#9db8e8;margin-bottom:1rem}
+footer h4{font-family:var(--font-m);font-size:.7rem;letter-spacing:.18em;text-transform:none;color:#9db8e8;margin-bottom:1rem}
 footer a{display:block;color:#d5e1f2;font-size:.94rem;padding:5px 0}
 footer a:hover{color:#fff}
 .fbrand{display:flex;align-items:center;gap:.9rem}
 .fbrand img{height:52px;border-radius:6px}
-.fbrand .fb-n{font-family:var(--disp);font-size:1.15rem;font-weight:700;color:#fff;text-transform:uppercase}
-.fbrand .fb-s{font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#a8c4ea}
+.fbrand .fb-n{font-family:var(--disp);font-size:1.15rem;font-weight:700;color:#fff;text-transform:none}
+.fbrand .fb-s{font-family:var(--font-m);font-size:.66rem;letter-spacing:.14em;text-transform:none;color:#a8c4ea}
 .footer-bar{max-width:1220px;margin:42px auto 0;padding:18px clamp(1.2rem,4vw,2.5rem);border-top:1px solid rgba(255,255,255,.13);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.82rem;color:#c6d0dd}
 @media (max-width:900px){footer .fw{grid-template-columns:1fr 1fr}}
 /* LB pulse + reduced-motion respect (2026-10-14) */
@@ -151,8 +147,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -175,7 +171,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -193,8 +189,8 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 .lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -214,25 +210,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -240,13 +232,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-</head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" aria-label="Main">
-  <a class="lb-brand" href="#top" aria-label="Done Right Roof & Restoration - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#204078;--lb-subc:#204078;--lb-acc:#204078;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_radar-151.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Done Right Roof & Restoration</span><span class="lb-brand__sub"><span class="lb-acc">Repairs</span> · Restoration · Gutters</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Done Right Roof & Restoration - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#204078;--lb-subc:#204078;--lb-acc:#204078;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_radar-151.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Done Right Roof & Restoration</span><span class="lb-brand__sub"><span class="lb-acc">Repairs</span> · Restoration · Gutters</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#process">Process</a></li>
@@ -343,10 +335,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 #lbq p.lbq-s{margin:0 0 22px;color:var(--lbq-muted);max-width:52ch}
 #lbq .lbq-info{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--lbq-line);padding-top:22px}
 #lbq .lbq-info div{display:flex;gap:10px;align-items:baseline}
-#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lbq-accent);min-width:64px}
+#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:none;color:var(--lbq-accent);min-width:64px}
 #lbq .lbq-info a{font-weight:800;text-decoration:none}
 #lbq .lbq-f{display:grid;gap:12px;background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
-#lbq label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:#fff;color:var(--ink);font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -485,7 +477,7 @@ html,body{overflow-x:hidden}
     <span>© <span id="year"></span> DONE RIGHT ROOF &amp; RESTORATION · LIC 465538C</span>
     <span><a href="tel:+61402369358">0402 369 358</a><a href="mailto:donerightcodie@gmail.com">donerightcodie@gmail.com</a></span>
   </div>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 <script>(function(){
   var obs=new IntersectionObserver(function(es){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
@@ -669,7 +661,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{

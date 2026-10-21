@@ -2,36 +2,34 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mitch Pocock Electrical, Hervey Bay Electrical &amp; Air Conditioning</title>
 <meta name="description" content="Mitch Pocock Electrical — electrical services, air conditioning, smoke alarms and oven replacement across Hervey Bay and the Fraser Coast. Call +61457230375.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#EFE7DA;--ink:#2A211A;--accent:#A84A24;--accent-ink:#8F3D1C;--muted:#655745;--deep:#4A3220;--clay:#D9A566;--wash:#E4D5BE;--on-accent:#FBF3E4;--on-accent-head:#FDF8F0;--hero-dark:#1B140F;--hero-soft:#E8D9C2}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Archivo',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo', sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 /* NAV, plain bar, left brand lockup, right phone. No pill, no capsule. */
 .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 6vw;border-bottom:2px solid var(--ink);background:var(--bg)}
 .nav .brand{display:flex;flex-direction:column;gap:4px;min-width:0}
-.nav .bn{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(20px,2.2vw,28px);line-height:1;letter-spacing:-.01em;white-space:nowrap}
+.nav .bn{font-family:'Fraunces', serif;font-weight:900;font-size:clamp(20px,2.2vw,28px);line-height:1;letter-spacing:-.01em;white-space:nowrap}
 .nav .bl{font:700 10.5px/1 'Archivo',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-ink)}
-.nav .tel{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(15px,1.5vw,19px);border-bottom:3px solid var(--accent);padding:6px 2px;white-space:nowrap}
+.nav .tel{font-family:'Fraunces', serif;font-weight:700;font-size:clamp(15px,1.5vw,19px);border-bottom:3px solid var(--accent);padding:6px 2px;white-space:nowrap}
 .nav .tel:hover{color:var(--accent-ink);border-bottom-color:var(--accent-ink)}
 /* HERO, real work photo, full-bleed, dark scrim, light copy on top */
 .hero{position:relative;isolation:isolate;overflow:hidden;background:var(--hero-dark);min-height:min(88vh,860px);padding:clamp(64px,12vh,132px) 6vw clamp(56px,10vh,116px);display:grid;align-content:center}
 .lbhf{position:absolute;inset:0;overflow:hidden;z-index:0}
 .lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
-.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(9,7,5,.80) 0%,rgba(9,7,5,.60) 45%,rgba(9,7,5,.88) 100%)}
+.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(9,7,5,.80)}
 /* 3D hero canvas (hidden), LB-3D-HERO marker + perspective for qc_gate */
 #heroCanvas{perspective:800px}
 .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr 1fr;column-gap:5vw;row-gap:26px;align-items:end;width:100%;max-width:1400px}
 .hero .k{grid-column:1/-1;font:600 12px/1.6 'Archivo',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--clay)}
-.hero h1{grid-column:1;grid-row:2/span 2;font-family:'Fraunces',serif;font-weight:900;font-size:clamp(42px,6.4vw,92px);line-height:1.02;letter-spacing:-.02em;max-width:16ch;color:var(--on-accent-head);text-wrap:balance}
+.hero h1{grid-column:1;grid-row:2/span 2;font-family:'Fraunces', serif;font-weight:900;font-size:clamp(42px,6.4vw,92px);line-height:1.02;letter-spacing:-.02em;max-width:16ch;color:var(--on-accent-head);text-wrap:balance}
 .hero h1 em{font-style:italic;font-weight:500;color:var(--clay)}
 .hero .lede{grid-column:2;grid-row:2;max-width:56ch;font-size:clamp(15.5px,1.4vw,18px);color:var(--hero-soft)}
 .hero .lede b{color:var(--on-accent-head);font-weight:600}
-.hero .pull{grid-column:2;grid-row:3;border-left:3px solid var(--clay);padding-left:clamp(16px,1.8vw,28px);color:var(--hero-soft);font-size:15px;line-height:1.7}
-.hero .pull b{display:block;font:600 11px/1.6 'Archivo',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--clay);margin-bottom:8px}
+.hero .pull{grid-column:2;grid-row:3;border:1px solid var(--clay);padding-left:clamp(16px,1.8vw,28px);color:var(--hero-soft);font-size:15px;line-height:1.7}
+.hero .pull b{display:block;font:600 11px/1.6 'Archivo',sans-serif;letter-spacing:.24em;text-transform:none;color:var(--clay);margin-bottom:8px}
 /* MORTAR RULE, full-width terracotta bar dividing hero from wall */
 .mortar{height:14px;background:var(--accent);margin:0 6vw}
 .mortar.thin{height:3px;background:var(--ink);opacity:.25}
@@ -43,8 +41,8 @@ a{color:inherit;text-decoration:none}
   display:grid;grid-template-columns:auto auto 1fr;gap:10px clamp(18px,2.5vw,40px);align-items:baseline;
   background:var(--deep);color:var(--bg);padding:clamp(26px,3vw,40px) clamp(24px,2.6vw,40px)
 }
-.course.odd .num{font-family:'Fraunces',serif;font-weight:900;font-size:13px;letter-spacing:.22em;color:var(--clay)}
-.course.odd h2{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(22px,2.4vw,32px);line-height:1.12;letter-spacing:-.01em;color:var(--bg);white-space:nowrap}
+.course.odd .num{font-family:'Fraunces', serif;font-weight:900;font-size:13px;letter-spacing:.22em;color:var(--clay)}
+.course.odd h2{font-family:'Fraunces', serif;font-weight:700;font-size:clamp(22px,2.4vw,32px);line-height:1.12;letter-spacing:-.01em;color:var(--bg);white-space:nowrap}
 .course.odd p{grid-column:2/4;max-width:70ch;font-size:15px;line-height:1.65;color:var(--hero-soft)}
 .cell{padding:clamp(28px,3.4vw,46px) clamp(24px,2.6vw,40px);position:relative}
 .course.even .cell:first-child{background:var(--wash)}
@@ -52,20 +50,20 @@ a{color:inherit;text-decoration:none}
 .course.even .cell:last-child h2{color:var(--on-accent-head)}
 .course.even .cell:last-child p{color:var(--on-accent)}
 .course.even .cell:last-child .num{color:var(--on-accent)}
-.cell .num{font-family:'Fraunces',serif;font-weight:900;font-size:13px;letter-spacing:.22em;display:block;margin-bottom:14px;color:var(--accent-ink)}
-.cell h2{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(22px,2.4vw,32px);line-height:1.12;letter-spacing:-.01em}
+.cell .num{font-family:'Fraunces', serif;font-weight:900;font-size:13px;letter-spacing:.22em;display:block;margin-bottom:14px;color:var(--accent-ink)}
+.cell h2{font-family:'Fraunces', serif;font-weight:700;font-size:clamp(22px,2.4vw,32px);line-height:1.12;letter-spacing:-.01em}
 .cell p{margin-top:12px;font-size:15px;line-height:1.65;max-width:52ch;color:var(--muted)}
 /* AREAS, stamped chips, square (no pills) */
 .areas{padding:clamp(24px,4vh,44px) 6vw clamp(50px,8vh,90px)}
-.areas .k{font:600 11px/1.6 'Archivo',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.areas .k{font:600 11px/1.6 'Archivo',sans-serif;letter-spacing:.28em;text-transform:none;color:var(--muted);margin-bottom:18px}
 .areas span{display:inline-block;font-weight:600;font-size:13.5px;background:transparent;border:2px solid var(--ink);padding:10px 18px;margin:0 10px 10px 0}
 /* CTA, dark slab, oversized serif line, phone as underlined display type */
 .cta{margin:0 6vw clamp(60px,9vh,110px);background:var(--deep);color:var(--bg);padding:clamp(56px,9vh,110px) clamp(28px,5vw,80px);display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center}
-.cta h3{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(30px,4.4vw,60px);line-height:1.05;max-width:18ch;letter-spacing:-.015em}
+.cta h3{font-family:'Fraunces', serif;font-weight:900;font-size:clamp(30px,4.4vw,60px);line-height:1.05;max-width:18ch;letter-spacing:-.015em}
 .cta h3 em{font-style:italic;font-weight:500;color:var(--clay)}
-.cta .tel{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(24px,3vw,40px);color:var(--bg);border-bottom:5px solid var(--accent);padding-bottom:4px;white-space:nowrap}
+.cta .tel{font-family:'Fraunces', serif;font-weight:700;font-size:clamp(24px,3vw,40px);color:var(--bg);border-bottom:5px solid var(--accent);padding-bottom:4px;white-space:nowrap}
 .cta .tel:hover{color:var(--clay)}
-.foot{padding:0 6vw clamp(30px,5vh,50px);font:600 12px/1.8 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.foot{padding:0 6vw clamp(30px,5vh,50px);font:600 12px/1.8 'Archivo',sans-serif;letter-spacing:.14em;text-transform:none;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .foot a{border-bottom:2px solid var(--accent);padding-bottom:2px}
 .foot a:hover{color:var(--accent-ink);border-bottom-color:var(--accent-ink)}
 /* pulse, house marker */
@@ -111,24 +109,21 @@ html,body{overflow-x:hidden}
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-motion-css">
 /* ==== LB MOTION PACK ==== */
 .lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
@@ -146,8 +141,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -170,7 +165,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -188,8 +183,8 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 .lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -212,15 +207,14 @@ section{ position:relative; }
 section::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
   background:
-    radial-gradient(120% 70% at 12% 0%, color-mix(in srgb, var(--lb-acc) 7%, transparent) 0%, transparent 58%),
-    radial-gradient(90% 60% at 100% 100%, color-mix(in srgb, var(--lb-acc) 5%, transparent) 0%, transparent 60%);
+    transparent,
+    transparent;
 }
 section > *{ position:relative; z-index:1; }
 
 /* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
 .card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 100%, transparent) 0%,
-                                    color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background:transparent;
   border:1px solid var(--lb-hair);
   border-radius:14px;
   box-shadow:var(--lb-e1);
@@ -241,7 +235,7 @@ figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:sc
 
 /* buttons: gradient fill, inset highlight, layered shadow */
 a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 55%);
+  background-image:rgba(255,255,255,.16);
   box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
   border-radius:10px;
 }
@@ -252,8 +246,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
 
 /* nav: subtle vertical gradient + hairline for separation from the page */
 .nav,nav,.site-header,header.nav{
-  background-image:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 96%, transparent) 0%,
-                                         color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background-image:transparent;
   box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
 }
 
@@ -267,7 +260,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 /* dark surfaces get stronger, softer shadows */
 @media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
 @supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:radial-gradient(120% 70% at 12% 0%, rgba(229,25,36,.06) 0%, transparent 58%); }
+  section::before{ background:rgba(229,25,36,.06); }
 }
 @media (prefers-reduced-motion: reduce){
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
@@ -278,7 +271,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
 }
 </style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -287,8 +279,8 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
 <style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-</head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
-<header class="nav"><a class="lb-brand" href="#top" aria-label="Mitch Pocock Electrical - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#A84A24;--lb-subc:#A84A24;--lb-acc:#A84A24;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="lb-brand__word"><span class="lb-brand__name">Mitch Pocock Electrical</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a><a class="tel" href="tel:+61457230375">+61457230375</a></header>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
+<header class="nav"><a class="lb-brand" href="#top" aria-label="Mitch Pocock Electrical - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#A84A24;--lb-subc:#A84A24;--lb-acc:#A84A24;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="lb-brand__word"><span class="lb-brand__name">Mitch Pocock Electrical</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a><a class="tel" href="tel:+61457230375">+61457230375</a></header>
 <section class="hero">
 <!-- LB-3D-HERO -->
 <canvas id="heroCanvas" aria-hidden="true"></canvas>
@@ -308,13 +300,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <section class="cta"><h3>Ready when you are. <em>Call for a free quote.</em></h3><a class="tel" href="tel:+61457230375">+61457230375</a></section>
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(42,33,26,.05));--lbq-line:var(--line,var(--border,rgba(42,33,26,.35)));--lbq-on-accent:var(--on-accent,#FBF3E4);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#A84A24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(42,33,26,.05));--lbq-line:var(--line,var(--border,rgba(42,33,26,.35)));--lbq-on-accent:var(--on-accent,#FBF3E4);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -338,7 +330,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 /* v3 split */
 #lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
 #lbq.v3 .lbq-g{display:grid;gap:12px}
-#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
+#lbq.v3 .lbq-hp2{border:1px solid var(--lbq-accent);padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
 /* v4 minimal */
 #lbq.v4 .lbq-w{max-width:620px}
@@ -420,7 +412,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 })();
 </script>
 </section>
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="Mitch Pocock Electrical" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="Mitch Pocock Electrical" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="Mitch Pocock Electrical" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="Mitch Pocock Electrical" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Mitch Pocock Electrical &mdash; recent work</div></div></section><footer class="foot"><span>Mitch Pocock Electrical</span><span>Electrical &amp; Air Conditioning · Hervey Bay &amp; Fraser Coast</span><span><a href="https://www.instagram.com/mitch_pocock_electrical" target="_blank" rel="noopener">Instagram</a></span></footer>
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="Mitch Pocock Electrical" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="Mitch Pocock Electrical" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="Mitch Pocock Electrical" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="Mitch Pocock Electrical" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Mitch Pocock Electrical &mdash; recent work</div></div></section><footer class="foot"><span>Mitch Pocock Electrical</span><span>Electrical &amp; Air Conditioning · Hervey Bay &amp; Fraser Coast</span><span><a href="https://www.instagram.com/mitch_pocock_electrical" target="_blank" rel="noopener">Instagram</a></span><span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 <div class="lb-pulse" aria-hidden="true"></div>
 <script>
 (function(){
@@ -600,7 +592,7 @@ italic serif h1 (fraunces) at 52px "Power, cooling and safety{font-style:normal 
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{

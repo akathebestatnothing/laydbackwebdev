@@ -6,10 +6,6 @@
 <title>Absolute Render Gold Coast | Rendering, Venetian Plaster & Microcement</title>
 <meta name="description" content="Gold Coast rendering specialists. 23 years experience in render, Venetian plaster, microcement & texture finishes. Licensed & insured. Free quotes."/>
 <meta name="theme-color" content="#0f1115"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap"/>
 <style>
 :root{
   --bg:#0f1115;--ink:#f5f0e8;--muted:#b8a890;--accent:#c9b896;--accent-dim:#b8a080;
@@ -18,7 +14,7 @@
   --render-white:#f5f0e8;--venetian-gold:#c9b896;--microcement-grey:#8a8d93;
   --radius:14px;--radius-sm:8px;--maxw:1200px;--header-h:72px;
   --shadow-1:0 2px 8px rgba(0,0,0,.35);--shadow-2:0 8px 32px rgba(0,0,0,.45);
-  --disp:'Montserrat','Saira Condensed','Arial Narrow',sans-serif;--body-font:'IBM Plex Sans',system-ui,sans-serif;
+  --disp:system-ui,'Saira Condensed','Arial Narrow',sans-serif;--body-font:'IBM Plex Sans',system-ui,sans-serif;
 }
 *, *::before, *::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -45,7 +41,7 @@ p{margin:0 0 1rem}
 .rv-instant{opacity:1!important;transform:none!important}
 
 /* Header - Allards reference standard brand lockup */
-.header{position:fixed;top:0;left:0;right:0;height:var(--header-h);z-index:100;background:linear-gradient(180deg,rgba(15,17,21,.95) 60%,transparent);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
+.header{position:fixed;top:0;left:0;right:0;height:var(--header-h);z-index:100;background:rgba(15,17,21,.95);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
 .brand{display:flex;align-items:center;gap:.7rem;color:var(--ink);text-decoration:none}
 .brand-mark{height:48px;width:auto;object-fit:contain}
@@ -82,9 +78,9 @@ p{margin:0 0 1rem}
 .cap{position:absolute;bottom:1.5rem;right:1.5rem;text-align:right;font-family:var(--disp);color:var(--ink);z-index:2}
 .cap div{font-size:clamp(1.1rem,2.5vw,1.75rem);font-weight:900;letter-spacing:-0.02em;line-height:1.1}
 .cap div span{font-weight:400;color:var(--muted);display:block;font-size:clamp(.8rem,1.5vw,1rem);margin-top:.25rem}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,17,21,.25) 0%,rgba(15,17,21,.7) 50%,rgba(15,17,21,.95) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(15,17,21,.25)}
 .hero-content{position:relative;z-index:2;text-align:center;padding:calc(var(--header-h) + 2rem) 1.5rem 4rem;max-width:var(--maxw);margin:0 auto}
-.hero-eyebrow{display:inline-block;padding:.35rem .9rem;background:rgba(255,255,255,.1);border:1px solid var(--line);border-radius:100px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--venetian-gold);margin-bottom:1.25rem}
+.hero-eyebrow{display:inline-block;padding:.35rem .9rem;background:rgba(255,255,255,.1);border:1px solid var(--line);border-radius:100px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:none;color:var(--venetian-gold);margin-bottom:1.25rem}
 .hero h1{font-size:clamp(2.25rem,5.5vw,4.25rem);font-weight:800;letter-spacing:-0.02em;line-height:1.05;margin-bottom:1rem}
 .hero h1 .accent{color:var(--accent)}
 .hero-lead{font-size:clamp(1.05rem,2.2vw,1.25rem);color:var(--muted);max-width:65ch;margin:0 auto 2rem;line-height:1.7}
@@ -98,7 +94,7 @@ p{margin:0 0 1rem}
 /* Sections */
 .section{padding:5rem 1.5rem}
 .section-header{text-align:center;margin-bottom:3.5rem}
-.section-header .eyebrow{display:inline-block;padding:.25rem .75rem;background:rgba(201,184,150,.12);border:1px solid rgba(201,184,150,.3);border-radius:100px;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.section-header .eyebrow{display:inline-block;padding:.25rem .75rem;background:rgba(201,184,150,.12);border:1px solid rgba(201,184,150,.3);border-radius:100px;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:none;color:var(--accent);margin-bottom:1rem}
 .section-header h2{margin-bottom:.75rem}
 .section-header .lead{color:var(--muted);max-width:60ch;margin:0 auto;font-size:1.05rem}
 
@@ -109,10 +105,10 @@ p{margin:0 0 1rem}
 .service-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:2rem;transition:border-color .2s,box-shadow .2s,transform .2s;display:flex;flex-direction:column}
 .service-card:hover{border-color:rgba(201,184,150,.4);box-shadow:var(--shadow-2);transform:translateY(-4px)}
 .service-icon{width:48px;height:48px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:1.5rem}
-.service-card:nth-child(1) .service-icon{background:linear-gradient(135deg,var(--coastal-sand),var(--coastal-sand-dark))}
-.service-card:nth-child(2) .service-icon{background:linear-gradient(135deg,var(--venetian-gold),#b8a080)}
-.service-card:nth-child(3) .service-icon{background:linear-gradient(135deg,var(--microcement-grey),#6d7075)}
-.service-card:nth-child(4) .service-icon{background:linear-gradient(135deg,var(--render-white),#e0d8c8)}
+.service-card:nth-child(1) .service-icon{background:transparent}
+.service-card:nth-child(2) .service-icon{background:#b8a080}
+.service-card:nth-child(3) .service-icon{background:#6d7075}
+.service-card:nth-child(4) .service-icon{background:#e0d8c8}
 .service-card h3{margin-bottom:.5rem}
 .service-card p{color:var(--muted);font-size:.95rem;flex:1}
 
@@ -132,12 +128,12 @@ p{margin:0 0 1rem}
 .gallery-item{position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--card)}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .gallery-item:hover img{transform:scale(1.05)}
-.gallery-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(15,17,21,.9));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.5rem}
+.gallery-overlay{position:absolute;inset:0;background:rgba(15,17,21,.9);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:1.5rem}
 .gallery-item:hover .gallery-overlay{opacity:1}
 .gallery-overlay span{font-family:var(--disp);font-weight:600;color:var(--ink)}
 
 /* Quote Form */
-#lbq{background:linear-gradient(180deg,var(--charcoal) 0%,var(--bg) 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+#lbq{background:transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .quote-inner{display:grid;grid-template-columns:1fr;gap:3rem;align-items:start}
 @media (min-width:900px){.quote-inner{grid-template-columns:1fr 1.2fr}}
 .quote-info h2{margin-bottom:1rem}
@@ -159,7 +155,7 @@ textarea{min-height:120px;resize:vertical}
 .submit-btn:hover{background:var(--accent-dim);transform:translateY(-1px)}
 .submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
 .form-status{margin-top:1rem;padding:1rem;border-radius:var(--radius-sm);font-size:.9rem;display:none}
-.form-status.success{display:block;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);color:#86efac}
+.form-status.success{display:block;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.4);color:#a3aebf}
 .form-status.error{display:block;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);color:#fca5a5}
 
 /* Footer */
@@ -195,24 +191,21 @@ textarea{min-height:120px;resize:vertical}
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-motion-css">
 /* ==== LB MOTION PACK ==== */
 .lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
@@ -230,8 +223,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -254,7 +247,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -272,8 +265,8 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 .lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -296,15 +289,14 @@ section{ position:relative; }
 section::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
   background:
-    radial-gradient(120% 70% at 12% 0%, color-mix(in srgb, var(--lb-acc) 7%, transparent) 0%, transparent 58%),
-    radial-gradient(90% 60% at 100% 100%, color-mix(in srgb, var(--lb-acc) 5%, transparent) 0%, transparent 60%);
+    transparent,
+    transparent;
 }
 section > *{ position:relative; z-index:1; }
 
 /* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
 .card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 100%, transparent) 0%,
-                                    color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background:transparent;
   border:1px solid var(--lb-hair);
   border-radius:14px;
   box-shadow:var(--lb-e1);
@@ -325,7 +317,7 @@ figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:sc
 
 /* buttons: gradient fill, inset highlight, layered shadow */
 a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 55%);
+  background-image:rgba(255,255,255,.16);
   box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
   border-radius:10px;
 }
@@ -336,8 +328,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
 
 /* nav: subtle vertical gradient + hairline for separation from the page */
 .nav,nav,.site-header,header.nav{
-  background-image:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 96%, transparent) 0%,
-                                         color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background-image:transparent;
   box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
 }
 
@@ -351,7 +342,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 /* dark surfaces get stronger, softer shadows */
 @media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
 @supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:radial-gradient(120% 70% at 12% 0%, rgba(229,25,36,.06) 0%, transparent 58%); }
+  section::before{ background:rgba(229,25,36,.06); }
 }
 @media (prefers-reduced-motion: reduce){
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
@@ -362,7 +353,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
 }
 </style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -371,14 +361,14 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
 <style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-</head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
 <body class="no-js">
 <!-- LB-3D-HERO -->
 
 
 <header class="header" role="banner"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
   <div class="header-inner">
-    <a class="lb-brand" href="#top" aria-label="Absolute Render Gold Coast - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#c9b896;--lb-subc:#c9b896;--lb-acc:#c9b896;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="lb-brand__word"><span class="lb-brand__name">Absolute Render Gold Coast</span><span class="lb-brand__sub"><span class="lb-acc">Gold</span> Coast QLD</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Absolute Render Gold Coast - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#c9b896;--lb-subc:#c9b896;--lb-acc:#c9b896;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="lb-brand__word"><span class="lb-brand__name">Absolute Render Gold Coast</span><span class="lb-brand__sub"><span class="lb-acc">Gold</span> Coast QLD</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <nav class="nav" aria-label="Primary navigation">
       <ul>
         <li><a href="#services">Services</a></li>
@@ -639,7 +629,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     <p>&copy; 2026 Absolute Render Gold Coast. All rights reserved.</p>
     <p><a href="#lbq">Request a Quote</a> · <a href="tel:+61406930004">Call Now</a></p>
   </div>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <div class="lb-pulse" aria-hidden="true"></div>
 
@@ -1165,7 +1155,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
