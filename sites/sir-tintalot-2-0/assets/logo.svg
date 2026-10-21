@@ -1,0 +1,19 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <title>Sir Tintalot 2.0 logo</title>
+  <!-- Glass substrate -->
+  <rect x="24" y="84" width="208" height="24" rx="3" fill="#001860"/>
+  <!-- Film layer - main accent -->
+  <rect x="24" y="60" width="208" height="24" rx="3" fill="#0078f0"/>
+  <!-- Squeegee blade - simple geometric shape -->
+  <path d="M180 48 L180 112 L192 112 L192 48 Z" fill="#0a0f16"/>
+  <!-- Squeegee handle -->
+  <rect x="183" y="32" width="6" height="16" rx="1" fill="#001860"/>
+  <!-- Light transmission curve - simplified as three connected arcs -->
+  <path d="M24 136 Q64 116 104 136 T184 136 T232 136" stroke="#eaf2fb" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Curve indicator dots -->
+  <circle cx="64" cy="116" r="3" fill="#eaf2fb"/>
+  <circle cx="144" cy="136" r="3" fill="#eaf2fb"/>
+  <circle cx="216" cy="136" r="3" fill="#eaf2fb"/>
+  <!-- Reflection highlight on glass (as filled shape, not opacity) -->
+  <rect x="28" y="86" width="200" height="4" rx="1" fill="#eaf2fb"/>
+</svg>

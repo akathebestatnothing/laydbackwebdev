@@ -1,0 +1,25 @@
+<svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Burkes Concreting logo</title>
+  <defs>
+    <linearGradient id="slabGrad" x1="0" y1="0" x2="0" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <pattern id="broomStrokes" patternUnits="userSpaceOnUse" width="8" height="256">
+      <line x1="0" y1="0" x2="0" y2="256" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+      <line x1="4" y1="0" x2="4" y2="256" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <!-- Concrete slab in perspective - trapezoid shape -->
+  <path fill="url(#slabGrad)" d="M32 56 L224 56 L240 200 L16 200 Z"/>
+  <!-- Broom finish texture overlay -->
+  <path fill="url(#broomStrokes)" d="M32 56 L224 56 L240 200 L16 200 Z" opacity="0.6"/>
+  <!-- Screed rail at wet edge (top edge) -->
+  <rect x="24" y="48" width="208" height="6" fill="#ffffff" rx="1"/>
+  <!-- Saw-cut line (diagonal from top-right area) -->
+  <path fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" d="M180 72 L216 108"/>
+  <!-- Form-work edge with arris (left edge highlight) -->
+  <path fill="#ffffff" d="M32 56 L38 50 L38 206 L32 200 Z" opacity="0.8"/>
+  <!-- Right edge arris -->
+  <path fill="#ffffff" d="M224 56 L218 50 L218 206 L240 200 Z" opacity="0.5"/>
+</svg>

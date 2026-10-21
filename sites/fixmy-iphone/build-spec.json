@@ -1,0 +1,13 @@
+{
+  "lead_id": "fixmy-iphone",
+  "company_name": "FixMy iPhone",
+  "wave": "hotfix-20261020",
+  "built_at": "2026-10-20T11:19:39",
+  "palette": {
+    "accent": "#c07818",
+    "dark": "#604848",
+    "ink": "#141010"
+  },
+  "fonts": ["Rubik:400,500,700", "Chivo Mono:400,700"],
+  "logo": "assets/logo.svg"
+}

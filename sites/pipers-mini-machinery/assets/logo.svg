@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Pipers Mini Machinery logo</title>
+  <!-- Track path: horizontal band of rubber-track chevrons curving slightly -->
+  <g fill="#f07800" id="track">
+    <!-- Simplified chevron pairs forming a continuous track band, slight curve upward in middle -->
+    <!-- Each pair: two overlapping V-shapes forming a track link -->
+    <path d="M 24 128 L 36 116 L 48 128 L 36 140 Z M 36 116 L 48 128 L 36 140 L 24 128 Z"/>
+    <path d="M 56 126 L 68 114 L 80 126 L 68 138 Z M 68 114 L 80 126 L 68 138 L 56 126 Z"/>
+    <path d="M 88 124 L 100 112 L 112 124 L 100 136 Z M 100 112 L 112 124 L 100 136 L 88 124 Z"/>
+    <path d="M 120 123 L 132 111 L 144 123 L 132 135 Z M 132 111 L 144 123 L 132 135 L 120 123 Z"/>
+    <path d="M 152 124 L 164 112 L 176 124 L 164 136 Z M 164 112 L 176 124 L 164 136 L 152 124 Z"/>
+    <path d="M 184 126 L 196 114 L 208 126 L 196 138 Z M 196 114 L 208 126 L 196 138 L 184 126 Z"/>
+    <path d="M 216 128 L 228 116 L 240 128 L 228 140 Z M 228 116 L 240 128 L 228 140 L 216 128 Z"/>
+    <!-- Track center line as filled thin rectangle path instead of stroke -->
+    <path d="M 22 127 Q 128 117 234 127 Q 234 129 128 139 Q 22 129 22 127 Z"/>
+  </g>
+  
+  <!-- Compact excavator silhouette on track (positioned at ~40% along track) -->
+  <g fill="#f07800" id="excavator" transform="translate(100, 60)">
+    <!-- Cab: rounded rectangle -->
+    <path d="
+      M 0 0
+      H 36
+      Q 42 0 42 6
+      V 24
+      Q 42 30 36 30
+      H 0
+      Q -6 30 -6 24
+      V 6
+      Q -6 0 0 0 Z
+    "/>
+    <!-- Boom: angled triangular shape from cab rear -->
+    <path d="
+      M 6 6
+      L -18 -18
+      L -22 -22
+      L -18 -26
+      L 6 6 Z
+    "/>
+    <!-- Bucket at end of boom -->
+    <path d="
+      M -24 -30
+      L -14 -20
+      L -10 -26
+      L -20 -36 Z
+    "/>
+    <!-- Track base under cab (mini excavator rubber tracks) -->
+    <path d="
+      M -4 30
+      L 40 30
+      L 40 38
+      L -4 38 Z
+    "/>
+    <!-- Track chevrons on track base -->
+    <path d="
+      M 0 30 L 8 38 L 16 30 L 8 22 Z
+      M 16 30 L 8 38 L 0 30 L 8 22 Z
+      M 24 30 L 32 38 L 40 30 L 32 22 Z
+      M 40 30 L 32 38 L 24 30 L 32 22 Z
+    "/>
+  </g>
+  
+  <!-- Spoil mound at start (left end) -->
+  <g fill="#f07800" id="spoil-start" transform="translate(20, 140)">
+    <path d="
+      M 0 0 L -8 16 L 8 16 Z
+      M 0 4 L -5 12 L 5 12 Z
+    "/>
+  </g>
+  
+  <!-- Spoil mound at end (right end) -->
+  <g fill="#f07800" id="spoil-end" transform="translate(236, 140)">
+    <path d="
+      M 0 0 L -8 16 L 8 16 Z
+      M 0 4 L -5 12 L 5 12 Z
+    "/>
+  </g>
+  
+  <!-- Gate pinch point (two posts) at ~60% along track -->
+  <g fill="#f07800" id="gate" transform="translate(150, 110)">
+    <!-- Left post -->
+    <rect x="-4" y="-20" width="3" height="30" rx="1"/>
+    <!-- Right post -->
+    <rect x="1" y="-20" width="3" height="30" rx="1"/>
+    <!-- Top beam -->
+    <rect x="-6" y="-22" width="12" height="3" rx="1"/>
+  </g>
+</svg>

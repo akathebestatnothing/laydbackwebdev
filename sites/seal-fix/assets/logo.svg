@@ -1,0 +1,34 @@
+<svg id="logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <title>Seal Fix logo</title>
+  <!-- Membrane lap corner: floor-wall junction with rolled waterproof membrane -->
+  <!-- All paths are filled shapes (no strokes) for predictable scaling -->
+  <!-- Centered and scaled to fill canvas better -->
+  
+  <!-- Floor slab -->
+  <path d="M32 180 L224 180 L224 192 L32 192 Z" fill="#6b6f96"/>
+  
+  <!-- Wall -->
+  <path d="M32 32 L44 32 L44 180 L32 180 Z" fill="#6b6f96"/>
+  
+  <!-- Membrane on floor (horizontal band) -->
+  <path d="M32 148 L224 148 L224 164 L32 164 Z" fill="#6b6f96"/>
+  
+  <!-- Membrane up wall (vertical lap) -->
+  <path d="M32 60 L44 60 L44 148 L32 148 Z" fill="#6b6f96"/>
+  
+  <!-- Bond breaker fillet at corner (rounded inside corner) -->
+  <path d="M44 148 Q44 112 80 112 L80 100 Q44 100 44 148 Z" fill="#6b6f96"/>
+  
+  <!-- Taped seam lines on membrane (thin filled rectangles) -->
+  <path d="M68 148 L76 148 L76 164 L68 164 Z" fill="#303030"/>
+  <path d="M108 148 L116 148 L116 164 L108 164 Z" fill="#303030"/>
+  <path d="M148 148 L156 148 L156 164 L148 164 Z" fill="#303030"/>
+  <path d="M188 148 L196 148 L196 164 L188 164 Z" fill="#303030"/>
+  
+  <!-- Trowel/roller suggestion - filled shapes (no strokes) -->
+  <!-- Trowel body: ellipse approximated as path -->
+  <path d="M190 130 Q190 126 194 126 L206 126 Q210 126 210 130 L210 142 Q210 146 206 146 L194 146 Q190 146 190 142 Z" fill="#6b6f96"/>
+  <!-- Trowel handle/roller line -->
+  <path d="M188 136 L194 136 L194 140 L188 140 Z" fill="#6b6f96"/>
+  <path d="M206 136 L212 136 L212 140 L206 140 Z" fill="#6b6f96"/>
+</svg>

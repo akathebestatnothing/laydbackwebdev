@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <title>Altaycon logo</title>
+  <!-- Pour Ribbon Mark for Altaycon - geometric concrete ribbon in perspective -->
+  <!-- Single continuous ribbon band forming an abstract A, with screed bar and formwork edges -->
+  <!-- Flat mono-colour build for production readiness -->
+  
+  <defs>
+    <!-- Formwork edges as filled shapes -->
+    <path id="formworkLeft" d="M58 192 L58 56 C58 50.5 62.5 46 68 46 L72 46 C77.5 46 82 50.5 82 56 L82 192 C82 197.5 77.5 202 72 202 L68 202 C62.5 202 58 197.5 58 192 Z"/>
+    <path id="formworkRight" d="M174 192 L174 56 C174 50.5 178.5 46 184 46 L188 46 C193.5 46 198 50.5 198 56 L198 192 C198 197.5 193.5 202 188 202 L184 202 C178.5 202 174 197.5 174 192 Z"/>
+    
+    <!-- Ribbon band as filled shape (wet to cured tonal gradient simulated with flat tones) -->
+    <path id="ribbonBottom" d="M56 140 C88 140 104 124 128 124 C152 124 168 140 200 140 L200 164 C168 164 152 148 128 148 C104 148 88 164 56 164 Z"/>
+    <path id="ribbonLeft" d="M56 140 C72 108 88 92 128 92 L128 116 C88 116 72 132 56 164 Z"/>
+    <path id="ribbonRight" d="M128 92 C168 92 184 108 200 140 L200 164 C184 132 168 116 128 116 Z"/>
+    
+    <!-- Screed bar -->
+    <path id="screedBar" d="M112 88 L144 88 C144 82 148.5 78 154 78 L154 74 C148.5 74 144 70 144 64 L112 64 C106.5 70 102 74 102 78 L102 78 C96.5 78 92 82 92 88 L112 88 Z"/>
+    
+    <!-- Saw-cut tick -->
+    <path id="sawCut" d="M124 116 L124 140 C124 142.2 125.8 144 128 144 C130.2 144 132 142.2 132 140 L132 116 C132 113.8 130.2 112 128 112 C125.8 112 124 113.8 124 116 Z"/>
+    
+    <!-- Wet highlight -->
+    <path id="wetHighlight" d="M112 82 L144 82 C144 79 146 77 148 77 L148 75 C146 75 144 73 144 70 L112 70 C106.5 73 104 75 104 77 L104 77 C102 77 100 79 100 82 L112 82 Z"/>
+  </defs>
+  
+  <!-- Render as flat black forms -->
+  <use href="#formworkLeft" fill="#000000"/>
+  <use href="#formworkRight" fill="#000000"/>
+  <use href="#ribbonBottom" fill="#0a0a0a"/>
+  <use href="#ribbonLeft" fill="#050505"/>
+  <use href="#ribbonRight" fill="#050505"/>
+  <use href="#screedBar" fill="#000000"/>
+  <use href="#sawCut" fill="#000000"/>
+  <use href="#wetHighlight" fill="#1a1a1a" opacity="0.5"/>
+</svg>

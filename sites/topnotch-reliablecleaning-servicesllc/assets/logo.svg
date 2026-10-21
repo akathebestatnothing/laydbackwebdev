@@ -1,0 +1,79 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" id="logo">
+  <!-- TopNotch Reliable Cleaning Services - Grid Tidy Mark -->
+  <!-- Brand palette: INK #12140f, ground #f7f8f4, hairline #dfe3d8, accent #609078, secondary #484848 -->
+  
+  <defs>
+    <!-- Isometric grid pattern -->
+    <pattern id="grid" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0 16 L16 0 M-8 8 L8 -8 M8 24 L24 8" stroke="#dfe3d8" stroke-width="1" fill="none"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background grid (subtle) -->
+  <rect x="16" y="16" width="224" height="224" fill="url(#grid)"/>
+  
+  <!-- Grid cells: scuffed (left) to clean (right) diagonal sweep -->
+  <!-- 4x4 isometric grid cells -->
+  <g fill="none">
+    <!-- Row 1 (top) -->
+    <rect x="24" y="24" width="48" height="48" rx="4" fill="#484848" opacity="0.3"/>  <!-- scuffed -->
+    <rect x="76" y="24" width="48" height="48" rx="4" fill="#609078" opacity="0.4"/>
+    <rect x="128" y="24" width="48" height="48" rx="4" fill="#609078" opacity="0.6"/>
+    <rect x="180" y="24" width="48" height="48" rx="4" fill="#609078" opacity="0.8"/>
+    
+    <!-- Row 2 -->
+    <rect x="24" y="76" width="48" height="48" rx="4" fill="#484848" opacity="0.3"/>
+    <rect x="76" y="76" width="48" height="48" rx="4" fill="#609078" opacity="0.5"/>
+    <rect x="128" y="76" width="48" height="48" rx="4" fill="#609078" opacity="0.7"/>
+    <rect x="180" y="76" width="48" height="48" rx="4" fill="#609078" opacity="0.9"/>
+    
+    <!-- Row 3 -->
+    <rect x="24" y="128" width="48" height="48" rx="4" fill="#484848" opacity="0.2"/>
+    <rect x="76" y="128" width="48" height="48" rx="4" fill="#609078" opacity="0.6"/>
+    <rect x="128" y="128" width="48" height="48" rx="4" fill="#609078" opacity="0.8"/>
+    <rect x="180" y="128" width="48" height="48" rx="4" fill="#609078"/>
+    
+    <!-- Row 4 (bottom) -->
+    <rect x="24" y="180" width="48" height="48" rx="4" fill="#484848" opacity="0.1"/>
+    <rect x="76" y="180" width="48" height="48" rx="4" fill="#609078" opacity="0.7"/>
+    <rect x="128" y="180" width="48" height="48" rx="4" fill="#609078" opacity="0.9"/>
+    <rect x="180" y="180" width="48" height="48" rx="4" fill="#609078"/>
+  </g>
+  
+  <!-- Diagonal sweep highlight (clean direction) -->
+  <path d="M24 180 L180 24" stroke="#609078" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6"/>
+  
+  <!-- Spray glyph (top-left of sweep) -->
+  <g transform="translate(32, 172)" fill="#609078">
+    <!-- Spray bottle body -->
+    <path d="M8 0 L12 0 L14 12 L6 12 Z" fill="#12140f"/>
+    <path d="M8 0 L12 0 L11 8 L9 8 Z" fill="#609078"/>
+    <!-- Spray trigger -->
+    <path d="M10 8 L16 12 L14 12 L8 8 Z" fill="#609078"/>
+    <!-- Spray droplets -->
+    <circle cx="4" cy="4" r="1.5" fill="#609078" opacity="0.8"/>
+    <circle cx="1" cy="7" r="1" fill="#609078" opacity="0.6"/>
+    <circle cx="6" cy="6" r="1" fill="#609078" opacity="0.6"/>
+  </g>
+  
+  <!-- Microfibre cloth glyph (near spray) -->
+  <g transform="translate(48, 156)" fill="#12140f">
+    <rect x="0" y="0" width="16" height="12" rx="2" fill="#484848" opacity="0.5"/>
+    <path d="M2 3 L14 3 M2 6 L14 6 M2 9 L14 9" stroke="#609078" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  
+  <!-- Ticked checklist strip (right side) -->
+  <g transform="translate(212, 24)" fill="none" stroke="#609078" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="20" height="20" rx="3" fill="#f7f8f4" stroke="#dfe3d8" stroke-width="1.5"/>
+    <path d="M4 10 L8 14 L16 6" fill="none"/>
+    <rect x="0" y="26" width="20" height="20" rx="3" fill="#f7f8f4" stroke="#dfe3d8" stroke-width="1.5"/>
+    <path d="M4 36 L8 40 L16 32" fill="none"/>
+    <rect x="0" y="52" width="20" height="20" rx="3" fill="#f7f8f4" stroke="#dfe3d8" stroke-width="1.5"/>
+    <path d="M4 62 L8 66 L16 58" fill="none"/>
+    <rect x="0" y="78" width="20" height="20" rx="3" fill="#f7f8f4" stroke="#dfe3d8" stroke-width="1.5"/>
+    <path d="M4 88 L8 92 L16 84" fill="none"/>
+  </g>
+  
+  <!-- Outer frame -->
+  <rect x="16" y="16" width="224" height="224" rx="12" fill="none" stroke="#12140f" stroke-width="2"/>
+</svg>

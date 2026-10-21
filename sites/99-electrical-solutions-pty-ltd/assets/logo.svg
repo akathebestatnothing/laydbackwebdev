@@ -1,0 +1,57 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circuit trace mark for 99 Electrical Solutions -->
+  <!-- Single continuous line: distribution board -> breakers -> light fitting -->
+  <!-- Hairline stroke (1.5px at 256), terminal glows at junctions -->
+  
+  <defs>
+    <!-- Terminal glow filter -->
+    <filter id="terminalGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main circuit trace - single continuous path -->
+  <path 
+    d="M48 128 
+       H104 
+       V72 
+       H152 
+       V128 
+       H208"
+    stroke="#c09048"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="miter"
+    fill="none"
+  />
+  
+  <!-- Distribution board rectangle -->
+  <rect x="40" y="120" width="16" height="16" 
+        stroke="#c09048" stroke-width="1.5" fill="none" rx="1"/>
+  
+  <!-- Two breaker ticks (small horizontal lines inside distribution board) -->
+  <line x1="43" y1="125" x2="53" y2="125" stroke="#c09048" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="43" y1="131" x2="53" y2="131" stroke="#c09048" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- 90-degree corner junctions with terminal glows -->
+  <!-- Junction 1: at (104, 128) - horizontal to vertical down -->
+  <circle cx="104" cy="128" r="3" fill="#c09048" filter="url(#terminalGlow)"/>
+  <!-- Junction 2: at (104, 72) - vertical down to horizontal right -->
+  <circle cx="104" cy="72" r="3" fill="#c09048" filter="url(#terminalGlow)"/>
+  <!-- Junction 3: at (152, 72) - horizontal right to vertical down -->
+  <circle cx="152" cy="72" r="3" fill="#c09048" filter="url(#terminalGlow)"/>
+  <!-- Junction 4: at (152, 128) - vertical down to horizontal right -->
+  <circle cx="152" cy="128" r="3" fill="#c09048" filter="url(#terminalGlow)"/>
+  <!-- Junction 5: at (208, 128) - end terminal -->
+  <circle cx="208" cy="128" r="3" fill="#c09048" filter="url(#terminalGlow)"/>
+  
+  <!-- Light fitting loop at the end -->
+  <ellipse cx="208" cy="112" rx="8" ry="6" 
+           stroke="#c09048" stroke-width="1.5" fill="none"/>
+  <!-- Light bulb filament suggestion -->
+  <line x1="208" y1="108" x2="208" y2="116" stroke="#c09048" stroke-width="1" stroke-linecap="round"/>
+</svg>

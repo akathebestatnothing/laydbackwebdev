@@ -1,0 +1,47 @@
+{
+  "lead_id": "fixmy-iphone",
+  "wave": "hotfix-20261020",
+  "tested_at": "2026-10-20T15:18:00",
+  "qc_gate": {
+    "command": "python3 /home/ogheesus/personal-autogtm/website-builder/qc_gate.py /home/ogheesus/personal-autogtm/pipeline/builds/fixmy-iphone/site --require-3d-hero",
+    "exit_code": 0,
+    "result": "PASS",
+    "failures": [],
+    "warnings": [
+      "IMPECCABLE: 6 WCAG low-contrast findings (e.g. 3.2:1 vs 4.5:1 required) - text #c07818 on #f7f2ee",
+      "IMPECCABLE: cramped-padding x5, cream-palette x1 (design-tell warnings)"
+    ]
+  },
+  "phone_fill": {
+    "command": "python3 /home/ogheesus/personal-autogtm/pipeline/scripts_adhoc/hotfix20261020/fill_phone.py fixmy-iphone /home/ogheesus/personal-autogtm/pipeline/builds/fixmy-iphone/site/index.html",
+    "exit_code": 0,
+    "result": "OK",
+    "tel_hrefs": 0,
+    "note": "No-phone lead - correctly zero tel links"
+  },
+  "html_validation": {
+    "brace_balance": "PASS",
+    "tag_balance": "PASS",
+    "em_dash_replacement": "PASS - all em dashes replaced with &ndash; in titles/meta"
+  },
+  "asset_check": {
+    "logo_svg": "EXISTS - site/assets/logo.svg (2219 bytes, svg_audit.py passed)",
+    "logo_png_512": "EXISTS - site/assets/logo.png (12435 bytes, 512x512)",
+    "favicon_png_128": "EXISTS - site/assets/favicon.png (2827 bytes, 128x128)",
+    "logo_referenced": "YES - 3 references in index.html (header, footer, og:image)"
+  },
+  "quote_form": {
+    "injected": true,
+    "variant": "v2",
+    "endpoint": "/functions/v1/quote-request",
+    "data_site": "fixmy-iphone",
+    "form_count": 1
+  },
+  "content_checks": {
+    "business_specific_copy": "PASS - phone/tablet repair services listed",
+    "no_banned_phrases": "PASS - no '100% guaranteed', 'money-back guarantee', etc.",
+    "no_emoji": "PASS",
+    "no_banned_fingerprints": "PASS - no f-brand, b-name, Oswald, FIG."
+  },
+  "overall": "PASS - ready for parent deploy"
+}

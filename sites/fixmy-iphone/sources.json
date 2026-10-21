@@ -1,0 +1,33 @@
+{
+  "lead_id": "fixmy-iphone",
+  "wave": "hotfix-20261020",
+  "brief_file": "/home/ogheesus/personal-autogtm/pipeline/orders/brief_fixmy-iphone.md",
+  "kit_file": "/home/ogheesus/personal-autogtm/pipeline/orders/KIT_hotfix-20261020.md",
+  "logo_library_search": {
+    "tool": "search_library.py",
+    "queries": [
+      "--industry repair",
+      "--subject phone",
+      "--subject mobile",
+      "--subject electronics",
+      "--subject device",
+      "--industry hardware-devices"
+    ],
+    "results": "0 logos match (of 1432) for all repair/phone/electronics queries — custom design required"
+  },
+  "brand_reference": "/home/ogheesus/.hermes/skills/logo-design/references/laydback-client-sites.md",
+  "font_source": "Google Fonts (Rubik, Chivo Mono)",
+  "colour_source": "Laydback brand palette from brief",
+  "scripts_used": [
+    "svg_audit.py",
+    "render_png.py",
+    "fill_phone.py",
+    "inject_quote_form.py",
+    "qc_gate.py"
+  ],
+  "assets_generated": [
+    "site/assets/logo.svg",
+    "site/assets/logo.png",
+    "site/assets/favicon.png"
+  ]
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Vic Welding mark">
+  <rect x="30" y="30" width="196" height="196" fill="none" stroke="#e8ecef" stroke-width="13"/>
+  <rect x="119" y="-14" width="18" height="284" fill="#4a5560" transform="rotate(45 128 128)"/>
+  <g fill="#f07800">
+    <circle cx="58" cy="198" r="22"/>
+    <circle cx="86" cy="170" r="18"/>
+    <circle cx="114" cy="142" r="22"/>
+    <circle cx="142" cy="114" r="18"/>
+    <circle cx="170" cy="86" r="22"/>
+    <circle cx="198" cy="58" r="18"/>
+  </g>
+  <g fill="#8a3f00">
+    <circle cx="86" cy="170" r="4.5"/>
+    <circle cx="142" cy="114" r="4.5"/>
+    <circle cx="198" cy="58" r="4.5"/>
+  </g>
+</svg>
