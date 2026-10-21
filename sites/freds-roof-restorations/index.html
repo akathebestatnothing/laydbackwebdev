@@ -10,10 +10,7 @@
 <meta property="og:description" content="Local family operated. Roofs &amp; driveways washed, sealed, repainted. Residential &amp; commercial — Newcastle NSW.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+<noscript></noscript>
 <style>
 :root{
   --ink:#101820;
@@ -27,7 +24,7 @@
   --brand-sky:#7FB2DC;
   --accent:#2E86C8;
   --font-display:'Marcellus',Georgia,serif;
-  --font-sans:'Sora',ui-sans-serif,system-ui,sans-serif;
+  --font-sans:system-ui,ui-sans-serif,system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -70,9 +67,9 @@ html.js .drop.in{opacity:1;transform:none}
 }
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,#0B2138 0%,var(--brand-deep) 60%,#0B2138 100%);overflow:hidden;padding-top:64px}
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;background:#0B2138;overflow:hidden;padding-top:64px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,33,56,.42) 0%,rgba(11,33,56,.22) 45%,rgba(11,33,56,.86) 100%);pointer-events:none}
+.hero-shade{position:absolute;inset:0;background:rgba(11,33,56,.42);pointer-events:none}
 .hero-in{position:relative;z-index:2;padding-block:4.5rem 3.2rem;width:100%}
 .hero-kicker{display:inline-flex;align-items:center;gap:.6rem;color:var(--brand-sky);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;margin-bottom:1.1rem}
 .hero-kicker::before{content:"";width:34px;height:2px;background:var(--brand-sky)}
@@ -85,14 +82,14 @@ html.js .drop.in{opacity:1;transform:none}
 .btn-primary{background:var(--brand);color:#fff}
 .btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:#fff}
 .hero-strip{margin-top:2.6rem;display:flex;gap:2.2rem;flex-wrap:wrap;border-top:1px solid rgba(127,178,220,.28);padding-top:1.2rem}
-.hero-strip p{color:#AFC5D8;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.hero-strip p{color:#AFC5D8;font-size:.78rem;letter-spacing:.06em;text-transform:none}
 .hero-strip strong{display:block;color:#fff;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.01em;margin-top:.2rem;text-transform:none}
 
 /* ---------- sections ---------- */
 section{padding-block:5rem}
 .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.4rem}
 .sec-head::before{content:"";width:38px;height:2px;background:var(--accent);flex:none;align-self:center}
-.sec-kicker{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--brand);font-weight:600}
+.sec-kicker{font-size:.7rem;letter-spacing:.3em;text-transform:none;color:var(--brand);font-weight:600}
 .sec-title{font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,2.35rem);font-weight:400;line-height:1.15;margin-top:.35rem;max-width:24ch}
 .sec-sub{color:var(--muted);max-width:58ch;margin-top:.8rem}
 
@@ -100,9 +97,9 @@ section{padding-block:5rem}
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem}
 .svc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.6rem 1.5rem;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
 .svc:hover{border-color:var(--brand-sky);transform:translateY(-3px)}
-.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--accent),var(--brand-sky));opacity:0;transition:opacity .25s ease}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:transparent;opacity:0;transition:opacity .25s ease}
 .svc:hover::before{opacity:1}
-.svc-ico{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--brand-deep),var(--brand));display:grid;place-items:center;margin-bottom:1rem}
+.svc-ico{width:42px;height:42px;border-radius:10px;background:transparent;display:grid;place-items:center;margin-bottom:1rem}
 .svc-ico svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .svc h3{font-family:var(--font-display);font-weight:400;font-size:1.18rem;margin-bottom:.45rem}
 .svc p{color:var(--muted);font-size:.9rem;line-height:1.62}
@@ -122,7 +119,7 @@ section{padding-block:5rem}
 .work{position:relative;border-radius:14px;overflow:hidden;background:#DDE3E7}
 .work img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .work:hover img{transform:scale(1.045)}
-.work-cap{position:absolute;inset:auto 0 0 0;padding:1.6rem .9rem .7rem;background:linear-gradient(180deg,transparent,rgba(11,33,56,.82));color:#fff;font-size:.78rem;letter-spacing:.05em;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.work-cap{position:absolute;inset:auto 0 0 0;padding:1.6rem .9rem .7rem;background:rgba(11,33,56,.82);color:#fff;font-size:.78rem;letter-spacing:.05em;text-shadow:0 1px 8px rgba(0,0,0,.45)}
 .work.wide{grid-column:span 2}
 @media(max-width:860px){.work-grid{grid-template-columns:repeat(2,1fr)}.work.wide{grid-column:span 1}}
 @media(max-width:560px){.work-grid{grid-template-columns:1fr}}
@@ -152,16 +149,16 @@ footer{background:var(--brand-deep);color:#C9D9E8;padding-block:4rem 2rem}
 .foot-brand{display:flex;gap:.8rem;align-items:center;margin-bottom:1rem}
 .foot-brand img{width:32px;height:32px;object-fit:contain;border-radius:8px}
 .foot-brand-name{font-family:var(--font-display);color:#fff;font-size:1.15rem}
-.foot-brand-sub{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brand-sky)}
+.foot-brand-sub{font-size:.62rem;letter-spacing:.22em;text-transform:none;color:var(--brand-sky)}
 .foot h4{font-family:var(--font-display);font-weight:400;color:#fff;font-size:1.02rem;margin-bottom:.8rem}
 .foot p,.foot a{font-size:.88rem;line-height:1.75;color:#AFC5D8;text-decoration:none}
 .foot a:hover{color:#fff}
-.foot-bottom{border-top:1px solid rgba(127,178,220,.2);padding-top:1.4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:#8FA9C2}
+.foot-bottom{border-top:1px solid rgba(127,178,220,.2);padding-top:1.4rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.76rem;color:#a3aebf}
 /* quote-form band (injected section) tuned to this palette */
 section#lbq{--lbq-bg:#0E2A4A;--lbq-ink:#EAF2F8;--lbq-muted:#A9BFD4;--lbq-panel:rgba(255,255,255,.055);--lbq-line:rgba(127,178,220,.30);--lbq-accent:#7FB2DC}
 </style>
 <style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-</head>
+<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style></head>
 <body>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
@@ -182,7 +179,7 @@ section#lbq{--lbq-bg:#0E2A4A;--lbq-ink:#EAF2F8;--lbq-muted:#A9BFD4;--lbq-panel:r
       <a class="nav-cta" href="#quote">Get a free quote</a>
     </div>
   </div>
-</nav>
+<a class="lb-tel" href="tel:+61402802940" style="text-decoration:none;white-space:nowrap;align-self:center">0402 802 940</a></nav>
 
 <header class="hero" id="top">
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
@@ -364,13 +361,13 @@ section#lbq{--lbq-bg:#0E2A4A;--lbq-ink:#EAF2F8;--lbq-muted:#A9BFD4;--lbq-panel:r
   </div>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#2E86C8))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -394,7 +391,7 @@ section#lbq{--lbq-bg:#0E2A4A;--lbq-ink:#EAF2F8;--lbq-muted:#A9BFD4;--lbq-panel:r
 /* v3 split */
 #lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
 #lbq.v3 .lbq-g{display:grid;gap:12px}
-#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
+#lbq.v3 .lbq-hp2{border:1px solid var(--lbq-accent);padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
 /* v4 minimal */
 #lbq.v4 .lbq-w{max-width:620px}
@@ -476,7 +473,7 @@ section#lbq{--lbq-bg:#0E2A4A;--lbq-ink:#EAF2F8;--lbq-muted:#A9BFD4;--lbq-panel:r
 })();
 </script>
 </section>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <script>
 (function(){
