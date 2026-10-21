@@ -375,6 +375,13 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
 }
 </style>
+<style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
+   Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
+   and does NOT hide the hero canvas (that is the intended 3D hero). */
+.site-header,.header{z-index:50}
+.container.nav,.nav,.nav-in{z-index:5}
+.lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
+</style>
 </head>
 <body>
 

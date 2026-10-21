@@ -317,6 +317,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 }
 </style>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
+   Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
+   and does NOT hide the hero canvas (that is the intended 3D hero). */
+.site-header,.header{z-index:50}
+.container.nav,.nav,.nav-in{z-index:5}
+.lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
+</style>
 </head>
 <body>
 

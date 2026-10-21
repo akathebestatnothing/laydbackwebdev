@@ -227,7 +227,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style id="lb-hdr-stack">/* the header canvas is inset:0 and paints over the nav + brand (blank top-left, half-visible links). Lift the nav into its own layer and keep the client brand permanently visible. */.site-header{position:sticky;top:0}.site-header>.container.nav,.site-header .container.nav{position:relative;z-index:5}.site-header .nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important;display:flex;align-items:center;gap:.6rem;color:inherit}.site-header .nav__brand .nav__logo{display:block;width:40px;height:40px;object-fit:contain}.site-header .nav__brand span{opacity:1 !important;visibility:visible !important}.site-header .nav__cta{white-space:nowrap}</style>
+<style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
+   Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
+   and does NOT hide the hero canvas (that is the intended 3D hero). */
+.site-header,.header{z-index:50}
+.container.nav,.nav,.nav-in{z-index:5}
+.lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
+</style>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
