@@ -53,11 +53,13 @@ img { max-width: 100%; height: auto; display: block; }
 @media(max-width:460px){.steps{grid-template-columns:1fr !important}}
 </style>
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+<style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
+<style id="lb-navmark">.lb-navmark{display:block;height:clamp(32px,3.2vw,40px);width:auto;border-radius:8px}</style>
 </head>
 <body>
 <nav class="rv" role="navigation" aria-label="Main navigation">
 <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:72px;position:relative;">
-<div style="display:flex;align-items:center;gap:10px;">
+<div style="display:flex;align-items:center;gap:10px;"><img src="assets/logo.svg" alt="" aria-hidden="true" class="lb-navmark">
 <div style="display:flex;gap:3px;" aria-hidden="true">
 <div style="width:10px;height:10px;background:var(--tile);border-radius:var(--tile-radius);"></div>
 <div style="width:10px;height:10px;background:var(--tile);border-radius:var(--tile-radius);"></div>
