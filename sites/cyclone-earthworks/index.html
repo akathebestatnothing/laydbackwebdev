@@ -10,9 +10,6 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/logo.png">
 <link rel="icon" href="assets/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #131715;
@@ -31,7 +28,7 @@
   --focus: #e8a838;
   --fluid: clamp(36px, 8vw, 100px);
   --disp: 'Syne', 'Arial Narrow', sans-serif;
-  --body-font: 'DM Sans', sans-serif;
+  --body-font: system-ui, sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -87,7 +84,7 @@ section { padding: 6rem 0; }
 .cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
 .cap { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem 1.75rem; position: relative; overflow: hidden; transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
 .cap:hover { border-color: var(--acc); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-.cap::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--acc), var(--acc-dim)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.cap::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: transparent; transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
 .cap:hover::before { transform: scaleX(1); }
 .cap__num { font-size: 0.7rem; font-weight: 700; color: var(--acc); letter-spacing: 0.12em; margin-bottom: 0.75rem; }
 .cap h3 { font-family: var(--disp); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
@@ -97,7 +94,7 @@ section { padding: 6rem 0; }
 .take-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
 .take { background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: 1.5rem 1.25rem; display: flex; align-items: center; gap: 1rem; transition: border-color 0.2s, background 0.2s; }
 .take:hover { border-color: var(--acc); background: var(--ground-lighter); }
-.take__icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--ground), var(--ground-lighter)); border: 1px solid var(--acc); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--acc); }
+.take__icon { width: 44px; height: 44px; border-radius: 10px; background: transparent; border: 1px solid var(--acc); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--acc); }
 .take__text { font-size: 0.95rem; font-weight: 500; }
 
 /* ===== Service Area ===== */
@@ -150,7 +147,7 @@ footer a:hover { color: var(--acc); }
 /* lbhf 2026-10-14: full-bleed photo hero layer + scrim (moved OUT of noscript, must apply with JS on) */
 .lbhf{position:absolute;inset:0;overflow:hidden;z-index:0}
 .lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block;filter:brightness(.68) saturate(.92) contrast(1.04)}
-.lbhf-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,7,9,.55) 0%,rgba(6,7,9,.30) 46%,rgba(6,7,9,.84) 100%)}
+.lbhf-scrim{position:absolute;inset:0;z-index:1;background:rgba(6,7,9,.55)}
 .hero{position:relative;min-height:clamp(560px,86vh,940px);display:flex;align-items:center;overflow:hidden}
 .hero>.hero-in,.hero .hero-in,.hero .hero-copy,.hero .wrap{position:relative;z-index:2}
 .hero__inner{position:relative;z-index:2;display:block;max-width:1400px;margin:0 auto;padding:calc(72px + 6vh) clamp(1.5rem,4vw,3rem) 4.5rem}
@@ -201,8 +198,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -225,7 +222,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -243,8 +240,8 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 .lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -264,25 +261,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -290,7 +283,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-</head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <!-- LB-3D-HERO (retained, hidden 2026-10-14): 3D hero system kept as hidden marker; visible scroll-canvas removed -->
 <canvas id="heroCanvas" class="LB-3D-HERO" aria-hidden="true" tabindex="-1" width="1440" height="760"></canvas>
@@ -298,11 +291,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="Cyclone Earthworks - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#0080e8;--lb-subc:#0080e8;--lb-acc:#9e5c3c;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cyclone Earthworks</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
-  <a class="nav__brand" href="#top" aria-label="Cyclone Earthworks — Home">
-    <img src="assets/logo.png" alt="" width="46" height="32" loading="eager">
-    <span>Cyclone Earthworks</span>
-  </a>
+<a class="lb-brand" href="#top" aria-label="Cyclone Earthworks - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#0080e8;--lb-subc:#0080e8;--lb-acc:#9e5c3c;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cyclone Earthworks</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#waste">Quarry Products</a></li>
@@ -311,7 +300,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   <div class="nav__cta">
     <a class="btn btn--primary" href="#lbq" data-ux="magnetic">Get a Quote</a>
   </div>
-</nav>
+<a class="lb-tel" href="tel:+61466888855" style="text-decoration:none;white-space:nowrap;align-self:center">0466 888 855</a></nav>
 
 <header class="hero" id="top">
 <div class="lbhf" aria-hidden="true"><img src="assets/hero-work.jpg" alt="" loading="eager" fetchpriority="high"></div>
@@ -503,7 +492,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 </script>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero-work.jpg" alt="Cyclone Earthworks" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e8a838 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Cyclone Earthworks</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e8a838 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Cyclone Earthworks &mdash; recent work</div></div></section><footer><div class="wrap">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero-work.jpg" alt="Cyclone Earthworks" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Cyclone Earthworks</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Cyclone Earthworks &mdash; recent work</div></div></section><footer><div class="wrap">
   <div>
     <div class="footer__brand">
       <img src="assets/logo.png" alt="Cyclone Earthworks logo" loading="lazy" width="48" height="48" style="display:none;">
@@ -520,7 +509,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   <span>&copy; 2026 Cyclone Earthworks &middot; Sydney NSW</span>
   <a href="#lbq" data-ux="magnetic">Get a Quote</a>
   <a href="mailto:cyclone.earthworks@outlook.com">Email Us</a>
-</div></footer>
+</div><span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 <script>
 /* ---- page glue (reveal observer + quote form) preserved through the scene retrofit ---- */
 // Reveal observer + safety net
@@ -791,7 +780,7 @@ letter-spacing: 0.08em on body text{letter-spacing:normal !important}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
