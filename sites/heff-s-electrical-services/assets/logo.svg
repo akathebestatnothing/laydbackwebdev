@@ -1,0 +1,70 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Heff's Electrical Services</title>
+  <!-- DIN Rail (horizontal bar) -->
+  <rect x="24" y="118" width="208" height="8" rx="2" fill="#e8c33c"/>
+  
+  <!-- DIN rail mounting lip (top) -->
+  <rect x="24" y="114" width="208" height="4" rx="1" fill="#e8c33c"/>
+  
+  <!-- DIN rail mounting lip (bottom) -->
+  <rect x="24" y="126" width="208" height="4" rx="1" fill="#e8c33c"/>
+  
+  <!-- Breaker modules (5 modules representing circuits) -->
+  <!-- Module 1 - Main switch (wider, 2-pole) -->
+  <rect x="32" y="66" width="40" height="52" rx="2" fill="#0d0f12"/>
+  <rect x="38" y="76" width="28" height="10" rx="1" fill="#e8c33c"/>
+  <rect x="38" y="90" width="28" height="6" rx="1" fill="#16191d"/>
+  
+  <!-- Module 2 - Single pole -->
+  <rect x="80" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
+  <rect x="85" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
+  <rect x="85" y="90" width="14" height="6" rx="1" fill="#16191d"/>
+  
+  <!-- Module 3 - Single pole -->
+  <rect x="112" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
+  <rect x="117" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
+  <rect x="117" y="90" width="14" height="6" rx="1" fill="#16191d"/>
+  
+  <!-- Module 4 - Single pole -->
+  <rect x="144" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
+  <rect x="149" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
+  <rect x="149" y="90" width="14" height="6" rx="1" fill="#16191d"/>
+  
+  <!-- Module 5 - RCBO (wider, 2-pole) -->
+  <rect x="176" y="66" width="40" height="52" rx="2" fill="#0d0f12"/>
+  <rect x="182" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
+  <rect x="196" y="76" width="14" height="10" rx="1" fill="#16191d"/>
+  <rect x="182" y="90" width="28" height="6" rx="1" fill="#16191d"/>
+  
+  <!-- Cable entry gland detail (bottom left) -->
+  <ellipse cx="56" cy="184" rx="16" ry="10" fill="#0d0f12"/>
+  <ellipse cx="56" cy="184" rx="10" ry="6" fill="#16191d"/>
+  <ellipse cx="56" cy="184" rx="5" ry="3" fill="#23272d"/>
+  <!-- Cable entering -->
+  <rect x="52" y="194" width="8" height="28" fill="#0d0f12"/>
+  <rect x="54" y="194" width="4" height="28" fill="#16191d"/>
+  
+  <!-- Load bar chart (right side) - only brand colours -->
+  <!-- Bar 1 -->
+  <rect x="176" y="156" width="16" height="44" rx="1" fill="#e8c33c"/>
+  <!-- Bar 2 -->
+  <rect x="196" y="172" width="16" height="28" rx="1" fill="#e8c33c"/>
+  <!-- Bar 3 -->
+  <rect x="216" y="188" width="16" height="12" rx="1" fill="#e8c33c"/>
+  <!-- Bar 4 -->
+  <rect x="176" y="196" width="16" height="20" rx="1" fill="#e8c33c"/>
+  <!-- Bar 5 -->
+  <rect x="196" y="204" width="16" height="12" rx="1" fill="#e8c33c"/>
+  <!-- Bar 6 -->
+  <rect x="216" y="212" width="16" height="8" rx="1" fill="#e8c33c"/>
+  
+  <!-- Circuit label ticks on DIN rail (small marks) -->
+  <rect x="40" y="116" width="2" height="12" fill="#0d0f12"/>
+  <rect x="64" y="116" width="2" height="12" fill="#0d0f12"/>
+  <rect x="88" y="116" width="2" height="12" fill="#0d0f12"/>
+  <rect x="112" y="116" width="2" height="12" fill="#0d0f12"/>
+  <rect x="136" y="116" width="2" height="12" fill="#0d0f12"/>
+  <rect x="160" y="116" width="2" height="12" fill="#0d0f12"/>
+  <rect x="184" y="116" width="2" height="12" fill="#0d0f12"/>
+  <rect x="208" y="116" width="2" height="12" fill="#0d0f12"/>
+</svg>
