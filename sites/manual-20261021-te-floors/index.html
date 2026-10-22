@@ -175,13 +175,28 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08;margin:0
 }
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<style id="lb-trade-pass">
+.hero__media{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px;max-width:660px}
+.hm__it{margin:0;position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#0b0906}
+.hm__it img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.hm__it figcaption{position:absolute;inset:auto 0 0 0;padding:6px 9px;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#f6f1ea;background:linear-gradient(180deg,transparent,rgba(14,10,7,.9))}
+.sand-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(16px,2.4vw,32px);align-items:start}
+.sand-shot{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.sand-shot img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+.sand-shot figcaption{padding:14px 16px 16px;font-size:.9rem;line-height:1.5;color:var(--muted)}
+.sand-steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.sand-steps li{border-left:3px solid var(--accent);padding:6px 0 6px 14px}
+.sand-steps b{display:block;font-family:var(--disp);letter-spacing:.02em}
+.sand-steps span{color:var(--muted);font-size:.92rem;line-height:1.5}
+@media(max-width:820px){.hero__media{grid-template-columns:1fr 1fr}.sand-split{grid-template-columns:1fr}}
+</style>
 </head>
 <body id="top">
 <a class="skip" href="#lbq">Skip to quote form</a>
 <header class="bar">
   <div class="bar__in">
     <a class="brand" href="#top" aria-label="TE Floors home"><img class="brand__mark" src="assets/logo.png" alt="TE Floors logo" width="32" height="32"><span class="brand__word"><span class="brand__name">TE Floors</span><span class="brand__sub">Timber, laminate &amp; vinyl</span></span></a>
-    <nav class="nav" aria-label="Main"><a href="#services">Services</a><a href="#gallery">Floors</a><a href="#process">Process</a><a href="#faq">FAQ</a><a class="btn" href="#quote">Request a quote</a></nav>
+    <nav class="nav" aria-label="Main"><a href="#services">Services</a><a href="#gallery">Floors</a><a href="#process">Process</a><a href="#sanding">Sanding</a><a href="#faq">FAQ</a><a class="btn" href="#quote">Request a quote</a></nav>
   </div>
 </header>
 
@@ -200,6 +215,11 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08;margin:0
     </div>
     <ul class="hero__chips"><li>Timber &amp; engineered</li><li>Laminate</li><li>Hybrid &amp; vinyl</li><li>Sanding &amp; polishing</li></ul>
     <p class="hero__note">Wetherill Park and Western Sydney · free measure and quote</p>
+    <div class="hero__media">
+      <figure class="hm__it"><img src="assets/gal_1.jpg" alt="Timber plank joins laid straight and tight across a room" loading="eager" decoding="async"><figcaption>Plank joins, straight &amp; tight</figcaption></figure>
+      <figure class="hm__it"><img src="assets/work-install.jpg" alt="Finished herringbone timber floor laid through a hallway" loading="eager" decoding="async"><figcaption>Herringbone, laid &amp; finished</figcaption></figure>
+      <figure class="hm__it"><img src="assets/work-sanding.jpg" alt="Floor sanding machine stripping a timber floor back to bare boards" loading="eager" decoding="async"><figcaption>Sanding back to bare boards</figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -207,8 +227,8 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08;margin:0
 
 <section class="sec" id="services" aria-labelledby="svc-h">
   <div class="wrap">
-    <div class="sec__hd"><h2 id="svc-h">Flooring installation, sanding and finishing</h2><p>Whether it is a new floor or reviving what is already down, the job comes down to subfloor prep, clean cuts and a finish you can live on.</p></div>
-    <div class="grid g3"><article class="card rv rv-d0"><h3>Timber &amp; engineered timber</h3><p>Solid and engineered boards measured, cut and laid straight and tight, with expansion gaps where they belong.</p></article><article class="card rv rv-d1"><h3>Laminate flooring</h3><p>Click-lock laminate laid over a level subfloor with the right underlay and room for movement.</p></article><article class="card rv rv-d2"><h3>Hybrid &amp; vinyl plank</h3><p>Water-resistant hybrid and vinyl plank for kitchens, laundries, apartments and anywhere a timber look needs to handle moisture.</p></article><article class="card rv rv-d0"><h3>Floor sanding</h3><p>Belt sanding and edging to strip old coatings, scratches and stains back to bare timber.</p></article><article class="card rv rv-d1"><h3>Polishing &amp; recoating</h3><p>Stain, seal and top coats applied evenly to give the timber depth, protection and an even sheen.</p></article><article class="card rv rv-d2"><h3>Subfloor prep &amp; levelling</h3><p>Grinding, patching and levelling so the boards sit flat with no hollow spots, squeaks or lippy joins.</p></article></div>
+    <div class="sec__hd"><h2 id="svc-h">What TE Floors does — Wetherill Park &amp; Western Sydney</h2><p>Free measure and quote, subfloor levelling, installation, floor sanding and polishing, and board repairs. One crew for the whole job, whether it is a new floor or reviving the one already down.</p></div>
+    <div class="grid g3"><article class="card rv rv-d0"><h3>Timber &amp; engineered timber</h3><p>Solid and engineered boards measured, cut and laid straight and tight, with expansion gaps where they belong.</p></article><article class="card rv rv-d1"><h3>Laminate flooring</h3><p>Click-lock laminate laid over a level subfloor with the right underlay and room for movement.</p></article><article class="card rv rv-d2"><h3>Hybrid &amp; vinyl plank</h3><p>Water-resistant hybrid and vinyl plank for kitchens, laundries, apartments and anywhere a timber look needs to handle moisture.</p></article><article class="card rv rv-d0"><h3>Floor sanding</h3><p>Belt sanding and edging to strip old coatings, scratches and stains back to bare timber.</p></article><article class="card rv rv-d1"><h3>Polishing &amp; recoating</h3><p>Stain, seal and top coats applied evenly to give the timber depth, protection and an even sheen.</p></article><article class="card rv rv-d2"><h3>Subfloor prep &amp; levelling</h3><p>Grinding, patching and levelling so the boards sit flat with no hollow spots, squeaks or lippy joins.</p></article><article class="card rv rv-d0"><h3>Free measure &amp; quote</h3><p>Rooms measured, board type and direction confirmed, and a written quote with quantities before anything is ordered.</p></article><article class="card rv rv-d1"><h3>Repairs &amp; board replacement</h3><p>Boards swapped out where water, pets or damage has got in, and matched back into the surrounding floor.</p></article></div>
   </div>
 </section>
 
@@ -217,6 +237,23 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08;margin:0
     <div class="sec__hd"><h2 id="gal-h">Floors we have laid and finished</h2><p>Installation, sanding and finishing — the three parts of a floor job done end to end.</p></div>
     <div class="gal"><figure class="shot rv rv-d0"><img src="assets/work-sanding.jpg" alt="Floor sanding machine on a timber floor" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>Belt sanding a timber floor back to bare boards before recoating.</figcaption></figure><figure class="shot rv rv-d1"><img src="assets/work-install.jpg" alt="Timber floorboards installed in a living area" width="900" height="1600" loading="lazy" decoding="async"><figcaption>Boards laid and joined through a living area — straight lines, tight joins.</figcaption></figure><figure class="shot rv rv-d2"><img src="assets/work-polished.jpg" alt="Polished timber floor under a covered patio" width="900" height="1200" loading="lazy" decoding="async"><figcaption>A finished, evenly coated timber floor once the polishing is done.</figcaption></figure></div>
     <p class="img-note">Reference imagery: the photos above show the type of flooring work involved and are not all from jobs completed by TE Floors.</p>
+  </div>
+</section>
+
+<section class="sec" id="sanding" aria-labelledby="sand-h">
+  <div class="wrap">
+    <div class="sec__hd"><h2 id="sand-h">Floor sanding &amp; polishing</h2><p>An existing floor that looks tired usually does not need replacing &mdash; it needs sanding back and recoating. Dust-controlled belt and edge sanding, then stain, seal and top coats to bring the timber back.</p></div>
+    <div class="sand-split">
+      <figure class="sand-shot rv rv-d0"><img src="assets/work-sanding.jpg" alt="Belt sanding machine stripping old coating off a timber floor" width="1080" height="1080" loading="lazy" decoding="async"><figcaption>Belt sanding under way &mdash; old coating, scratches and stains stripped back to bare timber before anything goes back on.</figcaption></figure>
+      <ol class="sand-steps">
+        <li class="rv rv-d0"><b>Check the boards</b><span>Board thickness, previous coatings and any drum-sander damage checked before a machine goes near it.</span></li>
+        <li class="rv rv-d1"><b>Belt sand</b><span>Progressive grits across the field of the floor so the old surface comes back evenly, not in patches.</span></li>
+        <li class="rv rv-d2"><b>Edge sand</b><span>Edges, corners and doorways done with an edger so the whole floor finishes the same colour.</span></li>
+        <li class="rv rv-d0"><b>Fill &amp; gap</b><span>Nail holes and gaps filled colour-matched, then the floor is cleaned down before coating.</span></li>
+        <li class="rv rv-d1"><b>Stain, seal &amp; coats</b><span>Stain if you want a tone change, then sealer and top coats for depth and wear protection.</span></li>
+        <li class="rv rv-d2"><b>Polish &amp; handover</b><span>Final buff, furniture-safe cure time in writing, and care instructions for washing the floor.</span></li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -376,7 +413,7 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08;margin:0
     </div>
     <div>
       <h4>Services</h4>
-      <ul><li><a href="#services">Timber flooring</a></li><li><a href="#services">Laminate</a></li><li><a href="#services">Hybrid &amp; vinyl</a></li><li><a href="#services">Sanding &amp; polishing</a></li></ul>
+      <ul><li><a href="#services">Free measure &amp; quote</a></li><li><a href="#services">Timber, laminate &amp; hybrid installation</a></li><li><a href="#services">Subfloor prep &amp; levelling</a></li><li><a href="#sanding">Sanding &amp; polishing</a></li><li><a href="#services">Repairs &amp; board replacement</a></li></ul>
     </div>
     <div>
       <h4>More</h4>

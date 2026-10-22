@@ -173,13 +173,38 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08;margin:0
 }
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<style id="lb-trade-pass">
+.brand__name{text-transform:uppercase;letter-spacing:.06em;font-weight:800}
+.brand__sub{text-transform:uppercase;letter-spacing:.14em;font-size:.68rem}
+.brand__sub i{color:var(--acc-ink);font-style:normal}
+.hero__media{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px;max-width:560px}
+.hm__it{margin:0;position:relative;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#0b0d0f}
+.hm__it img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.hm__it figcaption{position:absolute;inset:auto 0 0 0;padding:6px 9px;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#eaf3f8;background:linear-gradient(180deg,transparent,rgba(8,10,12,.92))}
+.hm__it--ac{border-color:rgba(30,122,151,.55)}
+.acgrid{aspect-ratio:4/3;background:radial-gradient(120% 100% at 20% 0%,#123040,#0a1216 70%);display:flex;align-items:center;justify-content:center}
+.acgrid__vent{width:82%;display:grid;gap:9px}
+.acgrid__vent i{display:block;height:7px;border-radius:4px;background:linear-gradient(90deg,rgba(153,195,208,.25),rgba(30,122,151,.85) 35%,rgba(153,195,208,.35));box-shadow:0 0 14px rgba(30,122,151,.45)}
+.acsec{position:relative;background:linear-gradient(180deg,#101214,#0b1519 60%,#101214);overflow:hidden}
+.acsec__glyph{position:absolute;inset:0;display:grid;gap:26px;padding:34px 0;opacity:.16;pointer-events:none}
+.acsec__glyph i{display:block;height:10px;background:linear-gradient(90deg,transparent,rgba(30,122,151,.9) 18%,rgba(153,195,208,.75) 50%,rgba(30,122,151,.9) 82%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+.acsec .wrap{position:relative;z-index:1}
+.ac-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:26px}
+.ac-card{border:1px solid rgba(30,122,151,.38);border-left:3px solid var(--acc);border-radius:12px;padding:16px 18px;background:linear-gradient(180deg,rgba(30,122,151,.10),rgba(255,255,255,.02))}
+.ac-card h3{margin:0 0 8px;font-size:1.02rem}
+.ac-card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.55}
+.ac-tools{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:24px 0 0;padding:0}
+.ac-tools li{border-left:3px solid var(--acc-ink);padding:6px 0 6px 14px;font-size:.9rem;line-height:1.5;color:var(--muted)}
+.ac-tools li b{display:block;color:var(--ink);margin-bottom:3px}
+@media(max-width:820px){.hero__media{grid-template-columns:1fr}}
+</style>
 </head>
 <body id="top">
 <a class="skip" href="#lbq">Skip to quote form</a>
 <header class="bar">
   <div class="bar__in">
-    <a class="brand" href="#top" aria-label="The Pitt Stop Mechanical &amp; Air Conditioning Pty Ltd home"><img class="brand__mark" src="assets/logo.png" alt="The Pitt Stop Mechanical &amp; Air Conditioning Pty Ltd logo" width="32" height="32"><span class="brand__word"><span class="brand__name">The Pitt Stop Mechanical &amp; Air Conditioning Pty Ltd</span><span class="brand__sub">Mechanical &amp; air conditioning</span></span></a>
-    <nav class="nav" aria-label="Main"><a href="#services">Services</a><a href="#process">Booking</a><a href="#gallery">Workshop</a><a href="#faq">FAQ</a><a class="btn" href="#quote">Request a quote</a></nav>
+    <a class="brand" href="#top" aria-label="The Pitt Stop Mechanical &amp; Air Conditioning Pty Ltd home"><img class="brand__mark" src="assets/logo.png" alt="The Pitt Stop Mechanical &amp; Air Conditioning Pty Ltd logo" width="32" height="32"><span class="brand__word"><span class="brand__name">The Pitt Stop</span><span class="brand__sub">Mechanical <i>&amp;</i> Air Conditioning</span></span></a>
+    <nav class="nav" aria-label="Main"><a href="#services">Services</a><a href="#aircon">Air&nbsp;con</a><a href="#process">Booking</a><a href="#gallery">Workshop</a><a href="#faq">FAQ</a><a class="btn" href="#quote">Request a quote</a></nav>
   </div>
 </header>
 
@@ -198,6 +223,13 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08;margin:0
     </div>
     <ul class="hero__chips"><li>Logbook servicing</li><li>AC regas &amp; leak testing</li><li>General mechanical</li><li>Brakes &amp; suspension</li></ul>
     <p class="hero__note">Logbook servicing · air-conditioning · general mechanical repairs</p>
+    <div class="hero__media">
+      <figure class="hm__it"><img src="assets/work-engine.jpg" alt="Technician working on an engine in the workshop" loading="eager" decoding="async"><figcaption>Mechanical &mdash; servicing &amp; repairs</figcaption></figure>
+      <figure class="hm__it hm__it--ac">
+        <div class="acgrid" aria-hidden="true"><div class="acgrid__vent"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <figcaption>Air conditioning &mdash; regas, leak test, compressor</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -205,8 +237,29 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.08;margin:0
 
 <section class="sec" id="services" aria-labelledby="svc-h">
   <div class="wrap">
-    <div class="sec__hd"><h2 id="svc-h">Mechanical and air-conditioning work</h2><p>One workshop for the service book and the cold air — so you are not chasing two different shops for one car.</p></div>
+    <div class="sec__hd"><h2 id="svc-h">Mechanical work</h2><p>Logbook servicing, general repairs, brakes and suspension &mdash; and the air-conditioning side of the business sits in its own bay alongside it, so one workshop handles the whole car.</p></div>
     <div class="grid g3"><article class="card rv rv-d0"><h3>Logbook servicing</h3><p>Scheduled servicing carried out to the manufacturer’s schedule, with the logbook stamped so the service history stays intact.</p></article><article class="card rv rv-d1"><h3>Air-conditioning regas</h3><p>System pressure-tested and regassed so the air actually comes out cold again.</p></article><article class="card rv rv-d2"><h3>Leak testing &amp; AC repairs</h3><p>Where is the gas going? We leak-test the system, find it and repair it rather than just topping it up.</p></article><article class="card rv rv-d0"><h3>AC diagnostics &amp; component repair</h3><p>Compressors, condensers, blower fans, sensors and controls tested and repaired.</p></article><article class="card rv rv-d1"><h3>General mechanical repairs</h3><p>Warning lights, noises, vibrations, cooling, steering and driveline faults investigated and fixed.</p></article><article class="card rv rv-d2"><h3>Brakes &amp; suspension</h3><p>Pads, rotors, shocks and bushes inspected, quoted and replaced before they become a bigger bill.</p></article></div>
+  </div>
+</section>
+
+<section class="sec acsec" id="aircon" aria-labelledby="ac-h">
+  <div class="acsec__glyph" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="sec__hd"><h2 id="ac-h">Air conditioning &mdash; the other half of the workshop</h2><p>Cold air is not a side job here. The AC side gets the same diagnostic gear and the same test-first approach as the mechanical side: find out why it is not cold before anyone touches the gas.</p></div>
+    <div class="ac-cards">
+      <article class="ac-card rv rv-d0"><h3>Diagnostic scan</h3><p>System scanned for fault codes, vent temperature and pressures measured, so the diagnosis is what the car is telling us &mdash; not a guess.</p></article>
+      <article class="ac-card rv rv-d1"><h3>Regas</h3><p>System evacuated and recharged to the charge weight on the underbonnet label, with the oil topped up as required.</p></article>
+      <article class="ac-card rv rv-d2"><h3>Compressor &amp; condenser</h3><p>Compressor, condenser, TX valve and lines inspected, replaced where they have failed and pressure-tested after the repair.</p></article>
+      <article class="ac-card rv rv-d0"><h3>Cabin filter &amp; blower</h3><p>Filter, blower fan and airflow checked and replaced &mdash; the reason a system can blow hard and still feel weak.</p></article>
+      <article class="ac-card rv rv-d1"><h3>Leak test</h3><p>UV dye and pressure testing to find where the refrigerant is going, because topping up a leaking system just pays for the same gas twice.</p></article>
+      <article class="ac-card rv rv-d2"><h3>Controls &amp; electrical</h3><p>Sensors, relays, fans and climate control faults traced and repaired so the temperature you dial up is the temperature you get.</p></article>
+    </div>
+    <ul class="ac-tools">
+      <li><b>Manifold gauge set</b><span>high and low side pressures read before anything is charged</span></li>
+      <li><b>Recovery &amp; recharge station</b><span>evacuate, weigh and recharge to spec</span></li>
+      <li><b>UV dye + leak light</b><span>traces a slow leak that pressure alone will not show</span></li>
+      <li><b>Vent thermometer</b><span>proves the fix at the vent, not just on the gauge</span></li>
+    </ul>
   </div>
 </section>
 
