@@ -5408,7 +5408,7 @@
 
     /* pendant lamp over the table */
     var LX = GX, LY = 2.18, LZ = GZ + 0.1;
-    box(LX, 2.62, LZ, 0.03, 0.36, 0.03, TONE.steelDk, 0.7);
+    box(LX, LY, LZ, 0.03, 1.5, 0.03, TONE.steelDk, 0.7);
     (function () {
       var ring = [];
       for (i = 0; i < 14; i++) {
@@ -5424,12 +5424,12 @@
     })();
 
     /* shampoo bottle and spray bottle on the floor, foreground left */
-    drum(-1.05, 0.02, 2.3, 0.1, 0.26, 12, TONE.bottle, 1.0);
-    drum(-1.05, 0.28, 2.3, 0.045, 0.07, 8, TONE.cap, 1.02);
-    face([[-1.13, 0.11, 2.3], [-0.97, 0.11, 2.3], [-0.97, 0.22, 2.3], [-1.13, 0.22, 2.3]], TONE.label, [0, 0, 1], 1.04);
-    drum(-0.62, 0.02, 1.45, 0.075, 0.2, 10, '#dfe6ea', 1.06);
-    drum(-0.62, 0.22, 1.45, 0.028, 0.09, 8, TONE.cap, 1.08);
-    box(-0.55, 0.3, 1.45, 0.1, 0.03, 0.03, TONE.cap, 1.1);
+    drum(-1.05, 0.02, 2.95, 0.1, 0.26, 12, TONE.bottle, 1.0);
+    drum(-1.05, 0.28, 2.95, 0.045, 0.07, 8, TONE.cap, 1.02);
+    face([[-1.13, 0.11, 2.95], [-0.97, 0.11, 2.95], [-0.97, 0.22, 2.95], [-1.13, 0.22, 2.95]], TONE.label, [0, 0, 1], 1.04);
+    drum(-0.62, 0.02, 2.55, 0.075, 0.2, 10, '#dfe6ea', 1.06);
+    drum(-0.62, 0.22, 2.55, 0.028, 0.09, 8, TONE.cap, 1.08);
+    box(-0.55, 0.3, 2.55, 0.1, 0.03, 0.03, TONE.cap, 1.1);
 
     /* hoses and cords, drawn as runs */
     var HOSE = [[TX + 0.05, 0.82, TZ + 0.5], [TX - 0.4, 0.7, TZ + 0.2], [TX - 0.55, 0.3, TZ - 0.4],
@@ -5442,7 +5442,10 @@
       render: function (t, ts) {
         var time = ts == null ? t : ts;
         if (Projection.reduced()) { t = 4; time = 0; }
-        S.camX = -1.02;
+        /* narrow viewports frame the table itself; wide ones hold it right of the copy */
+        var narrow = S.W < 720;
+        S.focal = S.H * (narrow ? 0.98 : 1.10);
+        S.camX = narrow ? GX : -0.35;
         S.yaw = Projection.reduced() ? 0 : 0.012 + Math.sin(time * 0.08) * 0.024;
 
         var sky = S.ctx.createLinearGradient(0, 0, 0, S.H);

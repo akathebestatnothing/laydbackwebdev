@@ -26,7 +26,7 @@
   --line:#e3d8d0;
   --max:1040px;
   --gut:clamp(18px,4vw,40px);
-  --t-h1:clamp(34px,5.1vw,58px);
+  --t-h1:clamp(32px,4.4vw,50px);
   --t-h2:clamp(23px,2.9vw,32px);
   --t-h3:17.5px;
   --t-body:17px;
@@ -82,10 +82,10 @@ header{position:sticky;top:0;z-index:60;background:var(--ground);border-bottom:1
 }
 
 /* ---------- hero ---------- */
-.hero{padding:var(--s5) 0 var(--s6)}
+.hero{padding:var(--s5) 0 var(--s5)}
 .hero-in{display:grid;grid-template-columns:1fr;gap:var(--s4);align-items:start;max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
 .hero-where{font-size:var(--t-sm);font-weight:600;color:var(--accent-dk);margin-bottom:var(--s2)}
-.hero h1{max-width:17ch;margin-bottom:var(--s3)}
+.hero h1{max-widthbrand:0;max-width:none;margin-bottom:var(--s3);text-wrap:balance}
 .hero .lede{margin-bottom:var(--s4)}
 .cta{
   display:inline-flex;align-items:center;gap:12px;
@@ -99,11 +99,13 @@ header{position:sticky;top:0;z-index:60;background:var(--ground);border-bottom:1
   position:relative;z-index:0;margin:0;overflow:hidden;
   aspect-ratio:4/3;background:#120e0c;border:1px solid var(--ink);border-radius:2px;
 }
-#heroCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-1}
+.bench svg{position:absolute;inset:0;width:100%;height:100%;display:block}
 .bench figcaption{
   position:absolute;left:0;right:0;bottom:0;z-index:2;
-  padding:14px 16px;font-size:12.5px;font-weight:500;
-  color:rgba(255,247,240,0.78);
+  padding:26px 16px 14px;font-size:12.5px;font-weight:500;
+  color:rgba(255,247,240,0.82);
+  backgroundlinear:linear-gradient(to top,rgba(16,12,11,.92) 30%,rgba(16,12,11,0));
+  background:linear-gradient(to top,rgba(16,12,11,.92) 30%,rgba(16,12,11,0));
 }
 @media (min-width:860px){
   .hero{padding:var(--s6) 0}
@@ -237,7 +239,132 @@ footer{background:var(--ink);color:rgba(247,242,238,0.72);padding:var(--s5) 0 va
         </a>
       </div>
       <figure class="bench">
-        <canvas id="heroCanvas" aria-hidden="true"></canvas>
+        <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Overhead view of an opened phone on a repair mat, its cracked glass panel set aside beside a tray of four tiny screws">
+          <defs>
+            <pattern id="matGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0H0v40" fill="none" stroke="rgba(255,247,240,.055)" stroke-width="1"/>
+            </pattern>
+            <radialGradient id="lamp" cx="46%" cy="34%" r="72%">
+              <stop offset="0" stop-color="#3a2c26"/>
+              <stop offset=".55" stop-color="#1a1310"/>
+              <stop offset="1" stop-color="#0d0a09"/>
+            </radialGradient>
+            <linearGradient id="glassSheen" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fffaf6" stop-opacity=".22"/>
+              <stop offset=".45" stop-color="#fffaf6" stop-opacity=".07"/>
+              <stop offset="1" stop-color="#fffaf6" stop-opacity=".15"/>
+            </linearGradient>
+            <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b9bcc0"/>
+              <stop offset=".5" stop-color="#8d9095"/>
+              <stop offset="1" stop-color="#6d7075"/>
+            </linearGradient>
+          </defs>
+
+          <rect width="600" height="600" fill="url(#lamp)"/>
+          <rect width="600" height="600" fill="url(#matGrid)"/>
+
+          <!-- mat edge rail -->
+          <rect x="26" y="26" width="548" height="548" rx="6" fill="none" stroke="rgba(255,247,240,.12)" stroke-width="1.5"/>
+
+          <!-- contact shadow under chassis -->
+          <rect x="96" y="104" width="212" height="396" rx="28" fill="#0a0807" opacity=".75"/>
+
+          <!-- chassis, glass removed -->
+          <rect x="86" y="90" width="212" height="396" rx="28" fill="#543f3c" stroke="#2a1e1d" stroke-width="1.5"/>
+          <rect x="86" y="90" width="212" height="396" rx="28" fill="none" stroke="#6d5250" stroke-width="1"/>
+
+          <!-- open cavity -->
+          <rect x="102" y="106" width="180" height="364" rx="18" fill="#16100f" stroke="#3b2a28"/>
+          <rect x="102" y="106" width="180" height="364" rx="18" fill="none" stroke="#0e0a09" stroke-width="3"/>
+
+          <!-- battery sitting in the well -->
+          <rect x="118" y="158" width="148" height="182" rx="4" fill="#2a201f"/>
+          <path d="M118 166a8 8 0 0 1 8-8h132a8 8 0 0 1 8 8v10H118z" fill="#3a2c2a"/>
+          <rect x="132" y="180" width="118" height="7" rx="1" fill="#4f3d3b"/>
+          <rect x="132" y="193" width="86" height="6" rx="1" fill="#4f3d3b"/>
+          <rect x="132" y="205" width="60" height="6" rx="1" fill="#4f3d3b"/>
+          <!-- pull tabs under the battery -->
+          <path d="M126 340h22v14h-22zM172 340h22v14h-22zM218 340h22v14h-22z" fill="#c07818" opacity=".75"/>
+          <!-- battery connector with pins -->
+          <rect x="196" y="150" width="30" height="16" rx="2" fill="#3f3130"/>
+          <path d="M200 152v12M205 152v12M210 152v12M215 152v12M220 152v12" stroke="#a58f8a" stroke-width="1"/>
+
+          <!-- flex cables and shield cans below the well -->
+          <rect x="118" y="358" width="148" height="46" rx="4" fill="#100c0b"/>
+          <rect x="128" y="362" width="52" height="38" rx="3" fill="#4a4442"/>
+          <rect x="194" y="362" width="60" height="38" rx="3" fill="#4a4442"/>
+          <g fill="#231d1c">
+            <circle cx="137" cy="371" r="2"/><circle cx="147" cy="371" r="2"/><circle cx="157" cy="371" r="2"/><circle cx="167" cy="371" r="2"/>
+            <circle cx="137" cy="391" r="2"/><circle cx="147" cy="391" r="2"/><circle cx="157" cy="391" r="2"/><circle cx="167" cy="391" r="2"/>
+            <circle cx="203" cy="371" r="2"/><circle cx="213" cy="371" r="2"/><circle cx="223" cy="371" r="2"/><circle cx="233" cy="371" r="2"/><circle cx="243" cy="371" r="2"/>
+            <circle cx="203" cy="391" r="2"/><circle cx="213" cy="391" r="2"/><circle cx="223" cy="391" r="2"/><circle cx="233" cy="391" r="2"/><circle cx="243" cy="391" r="2"/>
+          </g>
+          <path d="M126 408c12 10 24 12 38 6s26-4 36 6" fill="none" stroke="#3e302e" stroke-width="4" stroke-linecap="round"/>
+          <path d="M112 418c30 14 72 14 110 2" fill="none" stroke="#3e302e" stroke-width="4" stroke-linecap="round"/>
+          <rect x="186" y="404" width="26" height="14" rx="2" fill="#302624"/>
+
+          <!-- empty screw sockets -->
+          <circle cx="113" cy="120" r="6" fill="#0a0807" stroke="#7a5b59"/>
+          <circle cx="113" cy="120" r="6" fill="none" stroke="#0a0807" stroke-width="1.5"/>
+          <circle cx="271" cy="120" r="6" fill="#0a0807" stroke="#7a5b59"/>
+          <circle cx="113" cy="452" r="6" fill="#0a0807" stroke="#7a5b59"/>
+          <circle cx="271" cy="452" r="6" fill="#0a0807" stroke="#7a5b59"/>
+
+          <!-- speaker grille and home button footprint -->
+          <circle cx="192" cy="432" r="14" fill="none" stroke="#7a5b59" stroke-width="2"/>
+          <g fill="#7a5b59" opacity=".8">
+            <circle cx="176" cy="460" r="1.6"/><circle cx="181" cy="460" r="1.6"/><circle cx="186" cy="460" r="1.6"/>
+            <circle cx="191" cy="460" r="1.6"/><circle cx="196" cy="460" r="1.6"/><circle cx="201" cy="460" r="1.6"/><circle cx="206" cy="460" r="1.6"/>
+          </g>
+          <rect x="150" y="112" width="84" height="9" rx="3" fill="#0d0908"/>
+
+          <!-- the glass panel, set aside and cracked -->
+          <g transform="rotate(-8 454 262)">
+            <rect x="336" y="100" width="236" height="332" rx="26" fill="#0a0807" opacity=".6"/>
+            <rect x="332" y="96" width="236" height="332" rx="26" fill="url(#glassSheen)" stroke="rgba(255,250,246,.6)" stroke-width="2"/>
+            <rect x="346" y="110" width="208" height="304" rx="18" fill="rgba(255,250,246,.06)" stroke="rgba(255,250,246,.22)"/>
+            <path d="M356 118 402 176 386 232M402 176l46 22M424 244l-30 44 18 40M394 288l-52 16M430 268l42-8M466 240l30 26-14 44M496 310l-24,52"
+                  fill="none" stroke="rgba(255,250,246,.72)" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M470 330 442 372 452 400 424 430" fill="none" stroke="rgba(255,250,246,.4)" stroke-width="1.2"/>
+            <path d="M520 132 548 96" stroke="rgba(255,250,246,.45)" stroke-width="2"/>
+            <ellipse cx="470" cy="150" rx="52" ry="26" fill="rgba(255,250,246,.1)" transform="rotate(-14 470 150)"/>
+            <!-- suction cup ghost -->
+            <circle cx="410" cy="256" r="34" fill="none" stroke="rgba(255,250,246,.2)" stroke-width="1.5"/>
+          </g>
+
+          <!-- parts tray with screws -->
+          <rect x="330" y="452" width="238" height="94" rx="12" fill="#e9ded4"/>
+          <rect x="330" y="452" width="238" height="94" rx="12" fill="none" stroke="#c9b7a9" stroke-width="1.5"/>
+          <rect x="340" y="462" width="218" height="74" rx="8" fill="#f7efe8" stroke="#d8c8bb"/>
+          <g>
+            <g transform="translate(372,499)">
+              <circle r="10" fill="url(#metal)" stroke="#5e6165"/>
+              <path d="M-6 0h12" stroke="#3b3e42" stroke-width="2.2" stroke-linecap="round"/>
+              <circle r="10" fill="none" stroke="rgba(20,16,16,.35)"/>
+            </g>
+            <g transform="translate(410,499)">
+              <circle r="10" fill="url(#metal)" stroke="#5e6165"/>
+              <path d="M0 -6v12" stroke="#3b3e42" stroke-width="2.2" stroke-linecap="round"/>
+              <circle r="10" fill="none" stroke="rgba(20,16,16,.35)"/>
+            </g>
+            <g transform="translate(448,499)">
+              <circle r="8.5" fill="url(#metal)" stroke="#5e6165"/>
+              <path d="M-5 0h10" stroke="#3b3e42" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(486,499)">
+              <circle r="8.5" fill="url(#metal)" stroke="#5e6165"/>
+              <path d="M-5 0h10" stroke="#3b3e42" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(522,499)">
+              <circle r="6" fill="url(#metal)" stroke="#5e6165"/>
+              <path d="M-3 0h6" stroke="#3b3e42" stroke-width="1.6" stroke-linecap="round"/>
+            </g>
+          </g>
+          <!-- driver resting in the tray corner -->
+          <path d="M498 468 556 528" stroke="#c8cbcf" stroke-width="7" stroke-linecap="round"/>
+          <path d="M498 468 512 480" stroke="#8e5510" stroke-width="7" stroke-linecap="round"/>
+        </svg>
         <figcaption>Bench 04: glass off, screws in the tray</figcaption>
       </figure>
     </div>
@@ -383,18 +510,6 @@ footer{background:var(--ink);color:rgba(247,242,238,0.72);padding:var(--s5) 0 va
   </div>
 </footer>
 
-<script src="assets/heroCanvas.js"></script>
-<script>
-/* hero: a phone in the jig, glass standing off it, tools in the near field */
-(function(){
-  var cv = document.getElementById('heroCanvas');
-  if(!cv || !window.Projection) return;
-  var S = Projection.create(cv, {focal:1.72, horizon:0.43, camY:1.18, fogNear:5.6, fogFar:16, fogCol:'#120e0c'});
-  var scene = Projection.scenePhoneRepair(S, {fogCol:'#120e0c'});
-  S.frame(function(t){ scene.render(t); });
-  window.addEventListener('resize', S.resize);
-})();
-</script>
 <script>
 /* quote form -> shim */
 (function(){

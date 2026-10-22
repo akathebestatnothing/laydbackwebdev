@@ -197,45 +197,61 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <li><a href="#approach">Approach</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    <a class="lb-tel" href="tel:0431731882" style="text-decoration:none;white-space:nowrap;align-self:center">0431 731 882</a></nav>
+      <a class="lb-tel" href="tel:0431731882"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 3h4l2 5-3 2a13 13 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 2 5a2 2 0 0 1 2-2z"/></svg><span>0431 731 882</span></a>
+    </nav>
     <a href="#contact" class="btn btn-primary">Get a Quote</a>
   </div>
 </header>
-<main><section class="rv" aria-labelledby="hero-title" style="background:transparent;padding-top:6rem;padding-bottom:6rem">
-    <div class="container">
-      <div style="max-width:48rem">
-        <p class="rv" style="font-family:'Chivo Mono', monospace;font-size:.875rem;letter-spacing:.15em;text-transform:none;color:var(--muted);margin-bottom:1rem;transition-delay:.05s">Roofing Contractor</p>
-        <h1 id="hero-title" class="rv" style="transition-delay:.1s">Newcastle Roofing Specialists</h1>
-        <p class="rv" style="font-size:1.25rem;color:var(--muted);margin-top:1.5rem;max-width:38rem;transition-delay:.15s">Ridge capping, roof repairs, restoration and metal roofing across Newcastle, Central Coast & Sydney.</p>
-        <div class="rv" style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.5rem;transition-delay:.2s">
-          <a href="#quote" class="btn btn-primary">Get a Quote</a>
+<main><section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Roofing Contractor <span class="eyebrow__dot"></span> Newcastle NSW</p>
+        <h1 id="hero-title" class="hero-title">Ridge capping and roof repairs that hold.</h1>
+        <p class="hero-lede">Re-bedding, storm repairs, full restoration and metal roofing across Newcastle, the Central Coast and Sydney. Quoted honestly, worked to standard.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Get a Quote</a>
           <a href="#services" class="btn btn-outline">View Services</a>
         </div>
+        <p class="hero-meta">Licensed &amp; insured <span class="eyebrow__dot"></span> AS 2050 compliant <span class="eyebrow__dot"></span> Free quotes</p>
       </div>
+      <aside class="hero-card" aria-label="Brand and core services">
+        <span states=""></span>
+        <div class="hero-card__mark"><img src="assets/logo.svg" alt="Newcastle Roofing Specialists mark" loading="eager" decoding="async"></div>
+        <ul class="hero-card__list">
+          <li><span>01</span>Ridge capping &amp; flexible pointing</li>
+          <li><span>02</span>Storm damage &amp; leak repairs</li>
+          <li><span>03</span>Colorbond &amp; Zincalume roofing</li>
+        </ul>
+        <p class="hero-card__foot">Newcastle <span class="eyebrow__dot"></span> Central Coast <span class="eyebrow__dot"></span> Sydney</p>
+      </aside>
     </div>
   </section>
 
   <!-- Detail canvas section - ridge cap close-up view -->
-  <section class="rv" aria-labelledby="detail-title" style="padding:5rem 0;background:var(--canvas-bg)">
-    <div class="container" style="max-width:48rem">
-      <header style="text-align:center;margin-bottom:2rem">
-        <p class="rv" style="font-family:'Chivo Mono', monospace;font-size:.875rem;letter-spacing:.15em;text-transform:none;color:var(--muted);margin-bottom:.5rem;transition-delay:.05s">Detail</p>
-        <h2 id="detail-title" class="rv" style="transition-delay:.1s">Ridge Cap Section</h2>
+  <section class="detail" aria-labelledby="detail-title">
+    <div class="container detail-inner">
+      <header class="sec-head">
+        <p class="eyebrow">Detail</p>
+        <h2 id="detail-title">Ridge Cap Section</h2>
+        <span class="seam" aria-hidden="true"></span>
       </header>
-      <div class="rv" style="aspect-ratio:4/3;max-width:48rem;margin:0 auto;background:var(--mist);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition-delay:.15s" id="detail-canvas-wrapper">
-        <canvas id="detail-canvas" aria-label="Technical illustration of a roof ridge cap showing metal capping, batten, tile courses and screw fixings"></canvas>
-      </div>
-      <p class="rv" style="font-size:.875rem;color:var(--muted);text-align:center;margin-top:1.5rem;transition-delay:.2s">Three-quarter view: metal ridge capping bedded over apex, batten line, tile courses, gable flashing folds and screw-fix pattern.</p>
+      <figure class="detail-figure">
+        <div class="detail-canvas-wrap">
+          <canvas id="detail-canvas" aria-label="Technical illustration of a roof ridge cap showing metal capping, batten, tile courses and screw fixings"></canvas>
+        </div>
+        <figcaption>Three-quarter view: metal ridge capping bedded over the apex, batten line, tile courses, gable flashing folds and the screw-fix pattern.</figcaption>
+      </figure>
     </div>
   </section>
 
   <section id="services" aria-labelledby="services-title">
     <div class="container">
-      <header class="rv" style="text-align:center;margin-bottom:3.5rem;transition-delay:.05s">
-        <p class="rv" style="font-family:'Chivo Mono', monospace;font-size:.875rem;letter-spacing:.15em;text-transform:none;color:var(--muted);margin-bottom:.5rem;transition-delay:.1s">What We Do</p>
-        <h2 id="services-title" class="rv" style="transition-delay:.15s">Roofing Services</h2>
+      <header class="sec-head">
+        <p class="eyebrow">What We Do</p>
+        <h2 id="services-title">Roofing Services</h2>
+        <span class="seam" aria-hidden="true"></span>
       </header>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem">
+      <div class="cards cards--4">
         <article class="rv" style="background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:2.5rem;transition:transform .2s ease,border-color .2s ease;transition-delay:.1s" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='var(--accent)'" onmouseout="this.style.transform='';this.style.borderColor=''">
           <div style="width:48px;height:48px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 L2 7 L12 12 L22 7 L12 2 Z"/><path d="M2 7 L12 12 L22 7"/><path d="M12 12 L12 22"/></svg>
@@ -268,13 +284,14 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     </div>
   </section>
 
-  <section id="approach" aria-labelledby="approach-title" style="background:var(--ground);color:var(--mist)">
+  <section id="approach" aria-labelledby="approach-title" class="dark">
     <div class="container">
-      <header class="rv" style="text-align:center;margin-bottom:3.5rem;transition-delay:.05s">
-        <p class="rv" style="font-family:'Chivo Mono', monospace;font-size:.875rem;letter-spacing:.15em;text-transform:none;color:var(--accent);margin-bottom:.5rem;transition-delay:.1s">How We Work</p>
-        <h2 id="approach-title" class="rv" style="color:var(--mist);transition-delay:.15s">Our Approach</h2>
+      <header class="sec-head">
+        <p class="eyebrow">How We Work</p>
+        <h2 id="approach-title">Our Approach</h2>
+        <span class="seam" aria-hidden="true"></span>
       </header>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem">
+      <div class="steps">
         <div class="rv" style="padding:2rem;border:1px solid var(--accent);transition-delay:.1s">
           <h3 class="rv" style="color:var(--accent);font-size:1.125rem;margin-bottom:.75rem">1. Inspect & Report</h3>
           <p class="rv" style="color:var(--muted);transition-delay:.15s">Every job starts with a thorough roof inspection. We document findings with photos and provide a clear written report - no jargon, just facts.</p>
@@ -297,27 +314,34 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
   <section id="contact" aria-labelledby="contact-title">
     <div class="container">
-      <header class="rv" style="text-align:center;margin-bottom:3.5rem;transition-delay:.05s">
-        <p class="rv" style="font-family:'Chivo Mono', monospace;font-size:.875rem;letter-spacing:.15em;text-transform:none;color:var(--muted);margin-bottom:.5rem;transition-delay:.1s">Get In Touch</p>
-        <h2 id="contact-title" class="rv" style="transition-delay:.15s">Newcastle NSW</h2>
+      <header class="sec-head">
+        <p class="eyebrow">Get In Touch</p>
+        <h2 id="contact-title">Newcastle NSW</h2>
+        <span class="seam" aria-hidden="true"></span>
       </header>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
-        <div class="rv" style="transition-delay:.1s">
-          <h3 class="rv" style="margin-bottom:1.5rem">Newcastle Roofing Specialists</h3>
-          <address style="font-style:normal;color:var(--muted);line-height:1.8">
-            <p class="rv">Newcastle NSW</p>
-            <p class="rv" style="margin-top:.75rem"><a href="https://www.instagram.com/newcastleroofingspecialists/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
-            <p class="rv" style="margin-top:.75rem"><a href="https://newcastleroofingspecialists.com.au" target="_blank" rel="noopener noreferrer">newcastleroofingspecialists.com.au</a></p>
+      <div classreified="" class="contact-grid">
+        <div class="contact-info">
+          <h3>Newcastle Roofing Specialists</h3>
+          <address>
+            <p>Servicing Newcastle, the Central Coast and Sydney.</p>
+            <p class="contact-line"><a href="tel:0431731882">0431 731 882</a></p>
+            <p class="contact-line"><a href="https://www.instagram.com/newcastleroofingspecialists/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+            <p class="contact-line"><a href="https://newcastleroofingspecialists.com.au" target="_blank" rel="noopener noreferrer">newcastleroofingspecialists.com.au</a></p>
           </address>
         </div>
-        <div class="rv" style="background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:2.5rem;transition-delay:.15s" id="quote">
-          <h3 class="rv" style="margin-bottom:1.5rem">Request a Quote</h3>
-          <p class="rv" style="color:var(--muted);margin-bottom:1.5rem">Fill in the form below and we will be in touch within one business day.</p>
-          <p class="rv" style="color:var(--muted);margin-bottom:1.5rem">The form at the bottom of this page goes straight to our inbox.</p>
+        <div class="contact-next">
+          <h3>What happens next</h3>
+          <ol>
+            <li><span>01</span><div><strong>We call you back</strong><p>Within one business day, to understand the job and book a look.</p></div></li>
+            <li><span>02</span><div><strong>On-site inspection</strong><p>Photos, findings and a clear written scope &mdash; no jargon.</p></div></li>
+            <li><span>03</span><div><strong>Itemised quote</strong><p>A fixed price with no hidden extras, agreed before any work starts.</p></div></li>
+          </ol>
         </div>
       </div>
     </div>
   </section>
+
+  <section id="quote" class="quote-band" aria-labelledbyng="quote-h">
 </main>
 
 <section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Newcastle Roofing Specialists</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Newcastle Roofing Specialists &mdash; recent work</div></div></section><footer style="background:var(--ground);color:var(--mist);padding:4rem 0 2rem;border-top:1px solid var(--hairline)">

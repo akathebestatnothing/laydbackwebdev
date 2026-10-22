@@ -4412,17 +4412,20 @@
       box(rx + 1.32, 0, 8.9, 0.09, 2.6, 0.3, TONE.rack, 0.26);
     })();
 
-    /* ---- the bench ---- */
-    box(0, BENCH_Y - 0.07, 6.3, 3.6, 0.07, 9.6, TONE.bench, 0.06);
-    face([[-1.8, BENCH_Y, 1.5], [1.8, BENCH_Y, 1.5], [1.8, BENCH_Y, 11.1], [-1.8, BENCH_Y, 11.1]], TONE.benchHi, [0, 1, 0], 0.06);
-    face([[-1.8, BENCH_Y - 0.02, 1.5], [1.8, BENCH_Y - 0.02, 1.5], [1.8, BENCH_Y, 1.5], [-1.8, BENCH_Y, 1.5]], TONE.benchEdge, [0, 0, -1], 0.06);
+    /* ---- the bench: near end carried under the camera so its front
+       edge is off-frame and the surface runs out of the bottom of the
+       picture instead of cutting the hero with a hard line ---- */
+    box(0, BENCH_Y - 0.07, 5.7, 3.6, 0.07, 10.9, TONE.bench, 0.06);
+    face([[-1.8, BENCH_Y, 0.25], [1.8, BENCH_Y, 0.25], [1.8, BENCH_Y, 11.15], [-1.8, BENCH_Y, 11.15]], TONE.benchHi, [0, 1, 0], 0.06);
+    face([[-1.8, BENCH_Y - 0.02, 0.25], [1.8, BENCH_Y - 0.02, 0.25], [1.8, BENCH_Y, 0.25], [-1.8, BENCH_Y, 0.25]], TONE.benchEdge, [0, 0, -1], 0.06);
     [[-1.66, 2.3], [1.66, 2.3], [-1.66, 9.7], [1.66, 9.7]].forEach(function (l) {
       box(l[0], 0, l[1], 0.12, BENCH_Y - 0.07, 0.12, TONE.leg, 0.1);
     });
     box(0, 0.24, 2.3, 3.3, 0.08, 0.1, TONE.leg, 0.14);
 
-    /* ---- lapped plate joint on the bench ---- */
-    face([[-0.98, BENCH_Y + 0.002, 2.28], [0.98, BENCH_Y + 0.002, 2.28], [0.98, BENCH_Y + 0.002, 7.9], [-0.98, BENCH_Y + 0.002, 7.9]], TONE.plate, [0, 1, 0], 0.22);
+    /* ---- lapped plate joint on the bench, near end carried into the
+       foreground so the surface has weight at the bottom of frame ---- */
+    face([[-0.98, BENCH_Y + 0.002, 1.15], [0.98, BENCH_Y + 0.002, 1.15], [0.98, BENCH_Y + 0.002, 7.9], [-0.98, BENCH_Y + 0.002, 7.9]], TONE.plate, [0, 1, 0], 0.22);
     face([[-0.98, BENCH_Y + 0.002, SEAM_Z + 0.01], [0.98, BENCH_Y + 0.002, SEAM_Z + 0.01], [0.98, BENCH_Y + 0.002, 8.4], [-0.98, BENCH_Y + 0.002, 8.4]], TONE.plateHi, [0, 1, 0], 0.3);
     /* the lap edge standing proud, so the joint reads as two plates */
     face([[-0.98, BENCH_Y + 0.002, SEAM_Z + 0.012], [0.98, BENCH_Y + 0.002, SEAM_Z + 0.012],
@@ -4436,7 +4439,7 @@
       var seed = 5171;
       function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
       for (var q = 0; q < 26; q++) {
-        var px = -0.9 + rnd() * 1.8, pz = 2.4 + rnd() * 4.9, pr = 0.03 + rnd() * 0.09;
+        var px = -0.9 + rnd() * 1.8, pz = 1.3 + rnd() * 6.0, pr = 0.03 + rnd() * 0.09;
         face([[px - pr, BENCH_Y + 0.004, pz], [px + pr, BENCH_Y + 0.004, pz], [px + pr, BENCH_Y + 0.004, pz + pr * 0.7], [px - pr, BENCH_Y + 0.004, pz + pr * 0.7]],
           rnd() > 0.6 ? TONE.plateRust : TONE.plateDark, [0, 1, 0], 0.4, 0.6);
       }
@@ -4527,9 +4530,10 @@
       box(1.34, BENCH_Y + 0.284, 6.9, 0.42, 0.03, 0.28, '#6d777f', 1.66);
     })();
 
-    /* ---- cable from the torch, over the bench edge, onto the floor ---- */
-    var CABLE = [[1.28, 1.0, 4.86], [1.5, 0.99, 5.4], [1.72, 0.96, 6.1], [1.9, 0.6, 6.7],
-                 [2.1, 0.12, 6.1], [2.4, 0.03, 5.2], [2.2, 0.03, 4.1], [1.6, 0.03, 3.3]];
+    /* ---- cable out of the torch: over the right edge of the bench and
+       away to the wall in one line, not wandering the floor ---- */
+    var CABLE = [[1.22, 1.0, 4.86], [1.42, 1.02, 5.02], [1.66, 1.0, 5.18], [1.9, 0.95, 5.34],
+                 [2.06, 0.66, 5.66], [2.24, 0.3, 6.05], [2.5, 0.05, 6.55], [2.9, 0.04, 7.2], [3.4, 0.04, 8.1]];
 
     /* arc light floor bounce, drawn from the arc */
     var SP = [], seed2 = 4111;
@@ -4543,7 +4547,9 @@
       render: function (t, ts) {
         var time = ts == null ? t : ts;
         var reduced = Projection.reduced();
-        S.yaw = reduced ? 0 : Math.sin(time * 0.08) * 0.02;
+        S.yaw = reduced ? 0 : Math.sin(time * 0.08) * 0.018;
+        /* stand left of centre so the joint and arc sit right of the copy */
+        S.camX = -0.82;
 
         var sky = S.ctx.createLinearGradient(0, 0, 0, S.H);
         sky.addColorStop(0, '#0b0d10');
@@ -4603,7 +4609,7 @@
         if (ap && t > 0.75) {
           var flick = reduced ? 1 : 0.85 + 0.15 * Math.sin(time * 27) * Math.sin(time * 7.7);
           var fade = Math.min(1, (t - 0.75) / 0.5);
-          var rad = S.focal / ap[2] * 0.95;
+          var rad = S.focal / ap[2] * 0.58;
           var g = S.ctx.createRadialGradient(ap[0], ap[1], 0, ap[0], ap[1], rad);
           g.addColorStop(0, 'rgba(255,244,224,' + (0.95 * flick * fade).toFixed(3) + ')');
           g.addColorStop(0.16, 'rgba(255,196,113,' + (0.55 * flick * fade).toFixed(3) + ')');
@@ -4642,22 +4648,32 @@
           }
         }
 
-        /* haze over the far bay so the background sits back */
+        /* soft band at the horizon so the wall/floor junction never reads
+           as a ruled line, then a wider haze behind the far bay */
+        var hb = S.ctx.createLinearGradient(0, S.horizon - 44, 0, S.horizon + 58);
+        hb.addColorStop(0, 'rgba(18,23,29,0)');
+        hb.addColorStop(0.42, 'rgba(18,23,29,0.30)');
+        hb.addColorStop(0.62, 'rgba(18,23,29,0.34)');
+        hb.addColorStop(1, 'rgba(18,23,29,0)');
+        S.ctx.fillStyle = hb; S.ctx.fillRect(0, S.horizon - 44, S.W, 102);
         var hz = S.ctx.createLinearGradient(0, S.horizon - S.H * 0.3, 0, S.horizon + S.H * 0.24);
         hz.addColorStop(0, 'rgba(18,23,29,0)');
         hz.addColorStop(0.6, 'rgba(18,23,29,0.4)');
         hz.addColorStop(1, 'rgba(16,21,26,0)');
         S.ctx.fillStyle = hz; S.ctx.fillRect(0, S.horizon - S.H * 0.3, S.W, S.H * 0.54);
 
-        /* seat the copy: left scrim, floor and top falloff */
-        var sg = S.ctx.createLinearGradient(0, 0, S.W * 0.70, 0);
-        sg.addColorStop(0, 'rgba(9,11,14,0.90)');
-        sg.addColorStop(0.44, 'rgba(9,11,14,0.50)');
-        sg.addColorStop(1, 'rgba(9,11,14,0)');
+        /* seat the copy: a real dark column down the left, plus bottom and
+           top falloff, so the paragraph never rides a bright patch */
+        var sg = S.ctx.createLinearGradient(0, 0, S.W * 0.62, 0);
+        sg.addColorStop(0, 'rgba(8,10,13,0.96)');
+        sg.addColorStop(0.36, 'rgba(8,10,13,0.86)');
+        sg.addColorStop(0.60, 'rgba(8,10,13,0.52)');
+        sg.addColorStop(1, 'rgba(8,10,13,0)');
         S.ctx.fillStyle = sg; S.ctx.fillRect(0, 0, S.W, S.H);
-        var fl = S.ctx.createLinearGradient(0, S.H - 150, 0, S.H);
-        fl.addColorStop(0, 'rgba(9,11,14,0)'); fl.addColorStop(1, 'rgba(9,11,14,0.9)');
-        S.ctx.fillStyle = fl; S.ctx.fillRect(0, S.H - 150, S.W, 150);
+        var fl = S.ctx.createLinearGradient(0, S.H - 250, 0, S.H);
+        fl.addColorStop(0, 'rgba(9,11,14,0)'); fl.addColorStop(0.55, 'rgba(9,11,14,0.55)');
+        fl.addColorStop(1, 'rgba(9,11,14,0.94)');
+        S.ctx.fillStyle = fl; S.ctx.fillRect(0, S.H - 250, S.W, 250);
         var tp = S.ctx.createLinearGradient(0, 0, 0, 130);
         tp.addColorStop(0, 'rgba(9,11,14,0.82)'); tp.addColorStop(1, 'rgba(9,11,14,0)');
         S.ctx.fillStyle = tp; S.ctx.fillRect(0, 0, S.W, 130);

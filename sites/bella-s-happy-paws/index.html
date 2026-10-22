@@ -60,8 +60,8 @@ ul{margin:0;padding:0;list-style:none}
 .hdr{position:sticky;top:0;z-index:60;height:var(--hdr);background:var(--ground);border-bottom:1px solid var(--hairline);color:var(--ink)}
 header.hdr{background:var(--ground);color:var(--ink)}
 .hdr .wrap{display:flex;align-items:center;gap:var(--s3);height:100%;flex-wrap:nowrap}
-.brand{display:flex;align-items:center;gap:.7rem;flex:0 0 auto;min-width:0;color:var(--ink)}
-.brand img{width:34px;height:34px;flex:0 0 auto}
+.brand{display:flex;align-items:center;gap:.62rem;flex:0 0 auto;min-width:0;color:var(--ink)}
+.brand img{height:34px;width:auto;flex:0 0 auto}
 .brand-n{font-family:var(--serif);font-size:1.16rem;font-weight:700;letter-spacing:-.015em;color:var(--ink);white-space:nowrap}
 .nav{display:flex;align-items:center;gap:1.6rem;margin-left:auto}
 .nav a{font-size:var(--t-small);font-weight:500;color:var(--ink-soft);white-space:nowrap;padding:.35rem 0;border-bottom:1px solid transparent}
@@ -173,7 +173,7 @@ header.hdr{background:var(--ground);color:var(--ink)}
   .nav a:hover{border-bottom-color:var(--hairline)}
   .burger{display:flex}
   .hdr .call{display:none}
-  .brand img{width:30px;height:30px}
+  .brand img{height:30px;width:auto}
   .brand-n{font-size:1.02rem}
   .hero .wrap{padding-top:calc(var(--s5) + 2rem)}
   .hero p{max-width:28ch}
@@ -192,7 +192,7 @@ header.hdr{background:var(--ground);color:var(--ink)}
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Bella's Happy Paws, home">
-      <img src="assets/logo.svg" alt="Bella's Happy Paws paw trail logo" width="34" height="34"/>
+      <img src="assets/logo-mark.svg" alt="Bella's Happy Paws paw trail logo" width="49" height="34"/>
       <span class="brand-n">Bella's Happy Paws</span>
     </a>
     <nav class="nav" id="nav" aria-label="Main">
@@ -331,7 +331,7 @@ header.hdr{background:var(--ground);color:var(--ink)}
   <div class="wrap">
     <div class="top">
       <a class="brand" href="#top">
-        <img src="assets/logo.svg" alt="" width="34" height="34"/>
+        <img src="assets/logo-mark.svg" alt="" width="49" height="34"/>
         <span class="brand-n">Bella's Happy Paws</span>
       </a>
       <p class="ft-contact">Alkimos WA 6038<br/><a href="tel:+61457165150">0457 165 150</a></p>
@@ -378,7 +378,7 @@ header.hdr{background:var(--ground);color:var(--ink)}
     this.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   if (cv && window.Projection) {
-    var S = Projection.create(cv, { focal: 1.42, horizon: .53, camY: 1.28, fogNear: 10, fogFar: 34, fogCol: '#12314a' });
+    var S = Projection.create(cv, { focal: 1.10, horizon: .56, camY: 1.2, fogNear: 10, fogFar: 34, fogCol: '#12314a' });
     var scene = Projection.scenePetGrooming(S, {});
     S.frame(function (t, ts) { scene.render(t, ts); });
     var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ S.resize(); }, 120); });
