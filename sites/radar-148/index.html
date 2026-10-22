@@ -483,9 +483,9 @@ html,body{overflow-x:hidden}
 </div>
 <div class="footer-bar mono">
   <span>&copy; 2026 GOLD COAST WASH DRONES &middot; </span>
-  <a href="tel:0448594096">0448 594 096</a><a href="mailto:info@goldcoastwashdrones.com.au">info@goldcoastwashdrones.com.au</a>
+  <a href="tel:0448594096">0448 594 096</a><a href="mailto:info@goldcoastwashdrones.com.au">info@goldcoastwashdrones.com.au</a><span class="lb-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></span>
 </div>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+</footer>
 
 <!-- lb: old box-hero engine removed -->
 <script>
@@ -1204,6 +1204,64 @@ section,header,footer,.wrap,.container,.inner,[class*="section"]{
   .lb-brand__mark{height:32px !important;max-width:40vw !important}
   .lb-brand__word{font-size:.92em !important}
 }
+</style>
+
+<style id="hero-repair">
+/* ==== HERO REPAIR: the blanket [class*=hero] rule made every hero part a flex row (tag 522px tall, copy in one line) ==== */
+header.hero{display:block!important;min-height:min(790px,88vh)!important;max-height:none!important;
+  padding:104px 0 clamp(2.6rem,4vw,4.2rem)!important;overflow:hidden;
+  background:linear-gradient(180deg,#fcfbf9 0%,#f5f2ec 58%,#eeeae2 100%)}
+header.hero::before{background:none!important}                       /* kills the 38% black scrim that greyed the hero */
+.hero .hero-shade{position:absolute!important;inset:0!important;z-index:1!important;width:auto!important;height:auto!important;
+  min-height:0!important;max-height:none!important;background:
+  linear-gradient(102deg,rgba(255,255,255,.90) 0%,rgba(255,255,255,.66) 44%,rgba(255,255,255,.20) 64%,rgba(255,255,255,0) 100%)}
+.hero .hero-in{display:grid!important;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)!important;
+  gap:clamp(2rem,4.4vw,4.8rem)!important;align-items:center!important;
+  min-height:0!important;max-height:none!important;width:100%;max-width:1360px;margin-inline:auto;padding:0 40px!important}
+.hero .hero-copy{display:block!important;width:100%!important;max-width:none!important;
+  min-height:0!important;max-height:none!important;align-self:center!important}
+.hero .hero-kicker{display:inline-flex!important;height:auto!important;min-height:0!important;max-height:none!important;
+  align-items:center!important;margin:0 0 1.05rem!important;color:#8a5320}
+.hero h1{font-size:clamp(2.15rem,4.5vw,3.85rem)!important;line-height:1.04!important;letter-spacing:-.015em!important;
+  max-width:16ch!important;margin:0!important}
+.hero h1 .thin{font-size:clamp(1.02rem,1.5vw,1.28rem)!important;margin-top:.9rem!important;color:#474c53!important}
+.hero .hero-sub{display:block!important;margin:1.15rem 0 0!important;max-width:44ch!important;
+  min-height:0!important;max-height:none!important;
+  color:#41464d!important;font-size:clamp(.98rem,1.35vw,1.06rem)!important;line-height:1.62!important}
+.hero .hero-cta{display:flex!important;gap:.8rem!important;margin-top:1.75rem!important;flex-wrap:wrap!important;
+  height:auto!important;min-height:0!important}
+.hero .hero-strip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:1.5rem!important;margin-top:2.1rem!important;padding-top:1.2rem!important;height:auto!important;min-height:0!important;
+  border-top:1px solid rgba(6,6,7,.15)!important}
+.hero .hero-strip p{min-height:0!important;max-height:none!important;color:#4b5057!important;
+  font-size:.68rem!important;letter-spacing:.12em!important}
+.hero .hero-strip strong{color:var(--ink)!important;font-size:1rem!important}
+.hero .hero-visual{display:block!important;width:100%!important;min-height:0!important;max-height:none!important;align-self:center!important}
+.hero .hero-visual figure{height:clamp(340px,58vh,540px)!important;min-height:0!important;max-height:none!important;
+  margin:0!important;box-shadow:0 26px 60px rgba(46,35,20,.20)!important;border:1px solid rgba(6,6,7,.10)!important}
+.hero .hero-visual img{height:100%!important;width:100%!important;object-fit:cover!important;object-position:center 42%!important}
+.hero .hero-tag{display:inline-flex!important;align-items:center!important;height:auto!important;
+  min-height:0!important;max-height:none!important;font-size:11px!important;padding:7px 15px!important}
+@media(max-width:1040px){
+  .hero .hero-in{grid-template-columns:minmax(0,1fr)!important;gap:1.7rem!important}
+  .hero .hero-visual{order:-1!important}
+  .hero .hero-visual figure{height:min(36vh,290px)!important}
+  .hero h1{max-width:20ch!important}
+}
+@media(max-width:700px){
+  header.hero{padding:96px 0 2.2rem!important;min-height:0!important}
+  .hero .hero-in{padding:0 20px!important}
+  .hero h1{font-size:clamp(1.85rem,7.8vw,2.5rem)!important;max-width:none!important}
+  .hero .hero-strip{grid-template-columns:1fr!important;gap:.7rem!important}
+  .hero .hero-visual figure{height:min(30vh,230px)!important}
+}
+/* footer legal links belonged to the footer bar, not a stray line under it */
+footer .footer-bar .lb-legal{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+footer .footer-bar .lb-legal a{padding:0;font-size:12.5px}
+/* quote form: the short fields pair up, the long ones span */
+#lbq .lbq-g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){#lbq .lbq-g{grid-template-columns:1fr}}
+#lbq .lbq-full{grid-column:1/-1}
 </style>
 
 <style>/* ==== LB HEADER POLISH 2 ==== */

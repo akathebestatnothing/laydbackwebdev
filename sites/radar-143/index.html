@@ -44,15 +44,15 @@ html.js .drop.in{opacity:1;transform:none}
 }
 
 .nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(16,28,12,.97);-webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);border-bottom:2px solid var(--accent)}
-.nav-in{display:flex;align-items:center;gap:1.2rem;height:80px}
+.nav-in{display:flex;align-items:center;gap:1.2rem;height:84px}
 .brand{display:flex;align-items:center;gap:.75rem;color:#fff;text-decoration:none;min-width:0}
-.brand img{height:40px;width:auto;border-radius:6px;background:#fff;padding:3px}
+.brand img{height:52px;width:auto;border-radius:6px;background:#fff;padding:3px}
 .brand .b-txt{display:flex;flex-direction:column;gap:4px;min-width:0}
 .brand-name{font-family:var(--font-display);font-size:clamp(1.05rem,2.6vw,1.3rem);line-height:1;color:#fff;font-weight:700;letter-spacing:.03em;white-space:nowrap}
 .brand-sub{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#CFEDB8;font-weight:700;line-height:1;white-space:nowrap}
 .nav-links{display:flex;gap:1.35rem;margin-left:auto;align-items:center}
-.nav-links a{color:#D6E8C6;text-decoration:none;font-size:.92rem;font-weight:500}
-.nav-links a:hover{color:#fff}
+.nav-links a{color:#F0F7E6;text-decoration:none;font-size:.94rem;font-weight:600}
+.nav-links a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
 .nav-cta{background:var(--accent-dk);color:#FFFFFF !important;padding:.55rem 1.2rem;border-radius:6px;font-weight:700}
 .nav-cta:hover{filter:brightness(1.08)}
 .burger{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:.4rem .6rem;cursor:pointer}
@@ -72,14 +72,14 @@ html.js .drop.in{opacity:1;transform:none}
   .burger{display:block}
 }
 
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:#0C1A0C;overflow:hidden;padding-top:80px;perspective:1200px}
-#heroCanvas{}
-.hero-bg{position:absolute;inset:0;z-index:0;background:rgba(10,11,12,.95)}
-.hero-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(6,16,5,.90),rgba(6,16,5,.68)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:#0C1A0C;overflow:hidden;padding-top:84px;perspective:1200px}
+#heroCanvas{display:block}
+.hero-bg{position:absolute;inset:0;z-index:0;background:#0C1A0C url("assets/hero.jpg") center 42%/cover no-repeat}
+.hero-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(100deg,rgba(8,20,7,.95) 0%,rgba(8,20,7,.88) 42%,rgba(8,20,7,.55) 78%,rgba(8,20,7,.42) 100%)}
 .hero-in{position:relative;z-index:2;display:block;padding-block:11vh 6rem;width:min(1180px,92vw);margin-inline:auto}
 @media(max-width:860px){.hero-in{padding-block:9vh 3.2rem}.hero h1{font-size:2.05rem}.hero .btn-ghost{background:#fff;color:#16300E;border-color:rgba(22,48,14,.22)}
-  .hero-bg img{object-position:center 34%;filter:brightness(.78) saturate(1.06)}
-  .hero-shade{background:rgba(6,16,5,.40)}}
+  .hero-bg{background-position:center 34%;filter:brightness(.82) saturate(1.06)}
+  .hero-shade{background:linear-gradient(180deg,rgba(8,20,7,.72),rgba(8,20,7,.86))}}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#B7E79A;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
 .hero-kicker::before{content:"";width:36px;height:2px;background:#7CC955}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.3rem,5.8vw,4.5rem);line-height:1.06;color:#FFFFFF;font-weight:700;max-width:22ch;letter-spacing:-.01em;text-shadow:0 2px 18px rgba(0,0,0,.45)}
@@ -315,7 +315,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <header class="hero" id="top">
   <!-- LB-3D-HERO -->
-  <canvas id="heroCanvas" hidden aria-hidden="true"></canvas>
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="hero-bg"></div>
   <div class="hero-shade"></div>
   <div class="wrap hero-in">
@@ -495,6 +495,8 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <span>Lawn care & landscaping</span>
     </div>
   </div>
+</footer>
+
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#00b058))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -630,9 +632,11 @@ html,body{overflow-x:hidden}
 })();
 </script>
 </section>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+<footer class="foot foot-legal">
+  <div class="wrap"><span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></div>
+</footer>
 
-<div class="lb-pulse" aria-hidden="true"></div>
+<div class="lb-pulse"><span class="lb-pulse__dot" aria-hidden="true"></span><a href="#lbq">Free quote in 24h</a></div>
 
 <!-- lb: old box-hero engine removed -->
 
@@ -718,6 +722,10 @@ html,body{overflow-x:hidden}
   function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
   for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
 
+  var hasPhoto = false;
+  function syncPhoto(){ var b = document.querySelector('.hero-bg');
+    hasPhoto = !!(b && /url\(/.test(getComputedStyle(b).backgroundImage || '')); }
+
   function draw(){
     var isDark = dark();
     var base = isDark ? [10,11,14] : [248,249,251];
@@ -726,7 +734,10 @@ html,body{overflow-x:hidden}
     g.addColorStop(0, 'rgb('+base.join(',')+')');
     g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
     g.addColorStop(1, 'rgb('+base.join(',')+')');
+    ctx.save();
+    ctx.globalAlpha = hasPhoto ? 0.5 : 1;   // let the yard photo read under the depth field
     ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+    ctx.restore();
 
     // aurora: two slow, wide ribbons of the brand colour
     for (var k=0;k<2;k++){
@@ -780,8 +791,8 @@ html,body{overflow-x:hidden}
   }
 
   function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
-  size(); draw();
-  window.addEventListener('resize', function(){ size(); draw(); });
+  syncPhoto(); size(); draw();
+  window.addEventListener('resize', function(){ syncPhoto(); size(); draw(); });
   if (!reduce && 'IntersectionObserver' in window){
     new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
   }
@@ -836,10 +847,64 @@ header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
 nav.nav a:not(.btn):not([class*="btn"]),
 .nav-inner a:not(.btn):not([class*="btn"]),
 header a[href^="tel"],.site-header a[href^="tel"]{
-  color:var(--lb-name,currentColor) !important;
+  color:#F0F7E6 !important;
   opacity:1 !important;
 }
+nav.nav a.nav-cta{color:#fff !important;background:var(--accent-dk) !important}
 .lb-brand__sub:empty{display:none !important}
+</style>
+
+<style id="repair-143">
+/* --- hero layer order: photo (bottom) -> depth canvas -> shade -> copy --- */
+.hero .hero-bg{z-index:-2 !important}
+.hero canvas, #heroCanvas{z-index:-1 !important;display:block !important}
+.hero .hero-shade{z-index:1 !important}
+.hero .hero-in{z-index:2 !important}
+[class*=hero]:has(canvas):before{background:rgba(0,0,0,.16) !important}
+
+/* --- reveal must never leave content invisible in a full-page shot --- */
+html.js .drop,.lb-rv{animation:lbDropIn .5s ease-out both}
+@keyframes lbDropIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+html.js .drop.in,.lb-rv.is-in{animation:none;opacity:1;transform:none}
+
+/* --- header brand: logo at a usable size, wordmark capped --- */
+.lb-brand__mark{height:52px !important;max-width:64px !important}
+.lb-brand__mark img{height:52px !important;width:52px !important;object-fit:contain !important}
+.lb-brand__name{font-size:clamp(17px,1.55vw,22px) !important;letter-spacing:.01em !important}
+.lb-brand__sub{font-size:11px !important;letter-spacing:.16em !important;margin-top:.42em !important}
+@media(max-width:920px){
+  .lb-brand__mark,.lb-brand__mark img{height:44px !important}
+  .lb-brand__mark img{width:44px !important}
+}
+
+/* --- quote form gets breathing room now that it sits on its own --- */
+#lbq{padding:clamp(3.2rem,7vw,5.5rem) 20px !important;border-top:1px solid var(--line)}
+#lbq .lbq-hp2{padding-block:.1rem}
+#lbq h2{font-family:var(--font-display);font-weight:700}
+#lbq button{background:var(--accent-dk) !important;color:#fff !important;font-weight:700}
+#lbq input,#lbq textarea{background:#fff !important}
+
+/* --- legal bar --- */
+.foot-legal{padding-block:1.6rem !important;border-top:1px solid rgba(255,255,255,.12)}
+.foot-legal .lb-legal{display:flex;gap:1.4rem;justify-content:center;font-size:.82rem}
+.foot-legal .lb-legal a{color:#B2C69E;text-decoration:none}
+.foot-legal .lb-legal a:hover{color:#fff;text-decoration:underline}
+
+/* --- status pill (was a bare 10px dot) --- */
+.lb-pulse{width:auto !important;height:auto !important;display:inline-flex;align-items:center;gap:.55rem;
+  bottom:1.4rem !important;right:1.4rem !important;padding:.6rem 1rem .6rem .85rem !important;
+  background:#101D0B !important;border:1px solid rgba(255,255,255,.24);border-radius:999px;
+  box-shadow:0 12px 28px rgba(0,0,0,.30);opacity:1 !important;animation:none !important;
+  font-family:var(--font-sans);font-size:.82rem;font-weight:700;line-height:1;z-index:999}
+.lb-pulse a{color:#EAF7DC !important;text-decoration:none}
+.lb-pulse:hover{border-color:var(--accent)}
+.lb-pulse__dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;animation:lbPulse 2s ease-in-out infinite}
+@media(max-width:640px){.lb-pulse{font-size:.76rem;padding:.5rem .85rem .5rem .7rem;bottom:1rem;right:1rem}}
+
+/* --- gallery: keep the pair on one grid line, no orphan gap --- */
+.gal-grid{align-items:stretch}
+.gal{min-height:0}
+.gal-note{margin-top:1.2rem}
 </style>
 </body>
 </html>
