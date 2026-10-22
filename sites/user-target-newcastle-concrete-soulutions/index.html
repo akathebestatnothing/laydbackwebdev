@@ -281,7 +281,7 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
  padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
@@ -375,7 +375,8 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
 <style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><style id="lb-ink-repair">.lb-brand__name,.brand-name{color:#ffffff}</style></head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><style id="lb-ink-repair">.lb-brand__name,.brand-name{color:#666666}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
 <body>
 
 <div class="strip"><span>NSW Contractor Licence <b>145541C</b></span><span>&middot;</span><span>Newcastle &amp; Hunter, NSW</span></div>
@@ -836,20 +837,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,tiny numbered label "01" beside h2 "Recent pours, no stock photos." (9 on page),tiny numbered label "01" beside h3 "Driveways" (9 on page),tiny numbered label "02" beside h2 "The crew builders book." (9 on page),tiny numbered label "02" beside h3 "Exposed aggregate driveways" (9 on page),tiny numbered label "03" beside h2 "What we pour." (9 on page),tiny numbered label "04" beside h2 "How a pour runs." (9 on page),tiny numbered label "05" beside h2 "Common questions." (9 on page){display:none !important}
-10.5px functional text "145541C" (below 11px floor){font-size:max(1em,15px) !important}
-10px functional text "0412 705 429" (below 11px floor){font-size:max(1em,15px) !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -876,6 +864,25 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,tiny numbered label "01" beside h2 "Recent pours, no stock photos." (9 on page),tiny numbered label "01" beside h3 "Driveways" (9 on page),tiny numbered label "02" beside h2 "The crew builders book." (9 on page),tiny numbered label "02" beside h3 "Exposed aggregate driveways" (9 on page),tiny numbered label "03" beside h2 "What we pour." (9 on page),tiny numbered label "04" beside h2 "How a pour runs." (9 on page),tiny numbered label "05" beside h2 "Common questions." (9 on page){display:none !important}
+letter-spacing: 0.06em on body text{letter-spacing:normal !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.10em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+letter-spacing: 0.22em on body text{letter-spacing:normal !important}
+10.5px functional text "145541C" (below 11px floor){font-size:max(15px,1em)}
+10px functional text "0412 705 429" (below 11px floor){font-size:max(1em,15px) !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>

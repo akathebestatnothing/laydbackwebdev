@@ -28,7 +28,7 @@ h1, h2, h3 { font-family: 'Archivo Black', 'Arial Black', sans-serif; }
 h1 { text-transform: uppercase; }
 .mono { font-family: system-ui, ui-monospace, Menlo, monospace; }
 a { color: inherit; }
-::selection { background: var(--acc); color: #0c0e12; }
+::selection { background: var(--acc); color: #d8d8d9; }
 html:not(.js) .rv { opacity: 1 !important; transform: none !important; }
 .js .rv { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
 .js .rv.on { opacity: 1; transform: none; }
@@ -75,7 +75,7 @@ html:not(.js) .rv { opacity: 1 !important; transform: none !important; }
 .hero .btn-ghost:hover { background: rgba(255,255,255,.14); border-color: #ffffff; }
 .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.55rem; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: .95rem; transition: transform .15s ease, filter .15s ease; }
 .btn:hover { transform: translateY(-1px); filter: brightness(1.06); }
-.btn-primary { background: var(--acc); color: #0c0e12; }
+.btn-primary { background: var(--acc); color: #d8d8d9; }
 .btn-ghost { border: 1.5px solid var(--ink); color: var(--ink); background: transparent; }
 .hero-strip { margin-top: 2.4rem; display: flex; gap: 2.4rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.22); padding-top: 1.2rem; }
 .hero-strip p { color: #c9c9c9; font-size: .7rem; letter-spacing: .13em; text-transform:none; font-weight: 700; }
@@ -119,7 +119,7 @@ details.faq .a { color: var(--ink2); padding: 14px 0 4px; max-width: 700px; }
 .tst-a span { display: block; font-size: 12px; color: var(--ink2); letter-spacing: .08em; text-transform:none; margin-top: 2px; }
 .band { background: var(--paper2); border-block: 1px solid var(--line); }
 .trust-strip .tr-i { display: flex; gap: 14px; align-items: flex-start; }
-.tr-t { width: 32px; height: 32px; border-radius: 50%; background: var(--acc); color: #0c0e12; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+.tr-t { width: 32px; height: 32px; border-radius: 50%; background: var(--acc); color: #d8d8d9; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
 .tr-i b { font-size: 15px; display: block; }
 .tr-i span { font-size: 13px; color: var(--ink2); }
 .stat-band .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
@@ -135,7 +135,7 @@ details.faq .a { color: var(--ink2); padding: 14px 0 4px; max-width: 700px; }
 .hg-item figcaption { display: flex; justify-content: space-between; padding: 12px 2px; font-size: 13px; color: var(--ink2); }
 .hgal-nav { display: flex; gap: 12px; justify-content: flex-end; padding: 0 44px; margin-top: 18px; }
 .hgal-btn { width: 52px; height: 52px; border: 1.5px solid var(--ink); background: transparent; font-size: 20px; cursor: pointer; color: var(--ink); transition: background .15s, color .15s; }
-.hgal-btn:hover { background: var(--acc); border-color: var(--acc); color: #0c0e12; }
+.hgal-btn:hover { background: var(--acc); border-color: var(--acc); color: #d8d8d9; }
 footer { border-top: 1px solid var(--line); padding: 70px 0 0; background: var(--paper); }
 footer .wrap { max-width: 1360px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr 1fr; gap: 32px; }
 footer h4 { font-size: 12px; letter-spacing: .18em; text-transform:none; color: var(--acc); margin-bottom: 16px; }
@@ -214,7 +214,7 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
  padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
@@ -260,7 +260,8 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
@@ -660,19 +661,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,.lb-pulse,tiny numbered label "01" beside h2 "What we do." (9 on page),tiny numbered label "02" beside h2 "How a job runs." (9 on page),tiny numbered label "03" beside h2 "Asked on every job." (9 on page),tiny numbered label "04" beside h2 "Why locals call MH first." (9 on page),tiny numbered label "05" beside h2 "Recent work." (9 on page){display:none !important}
-7px functional text "Roof" (below 11px floor){font-size:max(1em,15px) !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -699,6 +688,26 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,.lb-pulse,tiny numbered label "01" beside h2 "What we do." (9 on page),tiny numbered label "02" beside h2 "How a job runs." (9 on page),tiny numbered label "03" beside h2 "Asked on every job." (9 on page),tiny numbered label "04" beside h2 "Why locals call MH first." (9 on page),tiny numbered label "05" beside h2 "Recent work." (9 on page){display:none !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.09em on body text{letter-spacing:normal !important}
+letter-spacing: 0.13em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+letter-spacing: 0.20em on body text{letter-spacing:normal !important}
+letter-spacing: 0.22em on body text{letter-spacing:normal !important}
+11.2px body text{font-size:max(15px,1em)}
+7px functional text "Roof" (below 11px floor){font-size:max(1em,15px) !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>

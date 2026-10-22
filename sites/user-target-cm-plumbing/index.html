@@ -61,7 +61,7 @@ html.js .rv.d3{transition-delay:.24s}
 .nav-links{display:flex;gap:1.5rem;list-style:none;margin-left:auto;align-items:center}
 .nav-links a{color:#C6D4EA;font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:color .15s}
 .nav-links a:hover{color:#fff}
-.nav-cta a{display:inline-flex;align-items:center;gap:.5rem;padding:9px 16px;border-radius:999px;background:var(--acc2);color:#04122E;font-weight:800;font-size:.82rem;text-decoration:none;letter-spacing:.02em;transition:transform .15s,box-shadow .15s}
+.nav-cta a{display:inline-flex;align-items:center;gap:.5rem;padding:9px 16px;border-radius:999px;background:var(--acc2);color:#ffffff;font-weight:800;font-size:.82rem;text-decoration:none;letter-spacing:.02em;transition:transform .15s,box-shadow .15s}
 .nav-cta a:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(4,18,46,.5)}
 @media(max-width:680px){.nav-cta a{font-size:.72rem;padding:.5rem .8rem}}
 #burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:6px}
@@ -86,7 +86,7 @@ h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;line
 .hero-sub p{color:#CBD9EE;font-size:1.02rem}
 .hero-ctas{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:13px 22px;border-radius:999px;font-weight:800;font-size:.92rem;text-decoration:none;transition:transform .15s,box-shadow .15s}
-.btn-acc{background:var(--acc2);color:#04122E}
+.btn-acc{background:var(--acc2);color:#ffffff}
 .btn-acc:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(4,18,46,.45)}
 .btn-ghost{border:1.5px solid rgba(159,180,214,.5);color:#D9E4F5;background:transparent}
 .btn-ghost:hover{border-color:var(--acc2);color:#fff}
@@ -110,7 +110,7 @@ h1 .thin{display:block;font-size:.32em;font-weight:600;letter-spacing:.04em;line
 
 .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:transform .18s,box-shadow .18s}
 .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(26,67,149,.10)}
-.card .ic{width:44px;height:44px;border-radius:12px;background:#1A4395;display:flex;align-items:center;justify-content:center;color:#04122E;font-weight:800;font-size:1.1rem;font-family:var(--font-display)}
+.card .ic{width:44px;height:44px;border-radius:12px;background:#1A4395;display:flex;align-items:center;justify-content:center;color:#ffffff;font-weight:800;font-size:1.1rem;font-family:var(--font-display)}
 .card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-top:.9rem}
 .card p{color:var(--ink2);font-size:.92rem;margin-top:.45rem}
 
@@ -203,7 +203,7 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
  padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
@@ -250,7 +250,8 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
 <style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
+<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
 <body>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
@@ -418,7 +419,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:#fff;color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:999px;background:var(--lbq-accent);color:#04122E;font:inherit;font-weight:800;font-size:.95rem;cursor:pointer}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:999px;background:var(--lbq-accent);color:#ffffff;font:inherit;font-weight:800;font-size:.95rem;cursor:pointer}
 #lbq button:disabled{opacity:.6;cursor:wait}
 #lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted)}
@@ -675,20 +676,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in{display:none !important}
-Colored box-shadow glow (#04122e) on dark page{box-shadow:none !important;text-shadow:none !important}
-7px functional text "All" (below 11px floor){font-size:max(1em,15px) !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -715,6 +703,23 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in{display:none !important}
+Colored box-shadow glow (#04122e) on dark page{box-shadow:none !important;text-shadow:none !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+5.12px body text{font-size:max(15px,1em)}
+7px functional text "All" (below 11px floor){font-size:max(1em,15px) !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>

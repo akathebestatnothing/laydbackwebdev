@@ -129,7 +129,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-shade { position: absolute; inset: 0; z-index: 1; background: rgba(18,23,28,.58); }
 .hero-copy { position: relative; z-index: 2; text-align: center; max-width: min(760px, 92vw); margin: 0 auto; padding: 0; pointer-events: auto; }
 .hero-kicker { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-strong); margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-.hero-copy h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 700; line-height: 1.05; margin-bottom: 1rem; color: #ffffff; text-shadow: 0 4px 24px var(--shadow-strong); text-wrap: balance; }
+.hero-copy h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 700; line-height: 1.05; margin-bottom: 1rem; color: #9d9d9d; text-shadow: 0 4px 24px var(--shadow-strong); text-wrap: balance; }
 .hero-copy p { font-size: clamp(1rem, 2.2vw, 1.2rem); color: rgba(245,245,240,0.94); max-width: 560px; margin: 0 auto; text-shadow: 0 2px 12px var(--shadow); }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; margin-top: 2rem; }
 .hero .btn-outline { color: #f5f5f0; border-color: rgba(245,245,240,0.55); background: rgba(18,23,28,0.35); }
@@ -312,7 +312,7 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
  padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
@@ -410,7 +410,8 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><style id="lb-ink-repair">.lb-brand__name,.brand-name{color:#ffffff}</style></head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><style id="lb-ink-repair">.lb-brand__name,.brand-name{color:#9d9d9d}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header class="site-header" role="banner">
   <div class="header-inner">
     <a class="lb-brand" href="#top" aria-label="TL Carport - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#ffffff;--lb-subc:#203038;--lb-acc:#203038;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">TL Carport</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
@@ -849,20 +850,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,.lb-pulse{display:none !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-9.6px functional text "dream it, we build" (below 11px floor){font-size:max(1em,15px) !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -889,6 +877,21 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,.lb-pulse{display:none !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+9.6px functional text "dream it, we build" (below 11px floor){font-size:max(1em,15px) !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>
