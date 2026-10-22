@@ -35,7 +35,7 @@
   --fs-label:.75rem;
   --gut:clamp(1.15rem,4vw,2.5rem);
   --sec:clamp(3.75rem,7vw,6.25rem);
-  --nav-h:74px;
+  --nav-h:96px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -48,15 +48,15 @@ img{display:block;max-width:100%}
 a{color:inherit}
 h1,h2,h3,h4{line-height:1.1;font-weight:700;letter-spacing:-.01em}
 .wrap{width:min(1200px,100% - var(--gut) * 2);margin-inline:auto}
-.eyebrow{font-size:var(--fs-label);font-weight:700;color:var(--gold-dk);text-transform:uppercase}
+.kicker{font-size:var(--fs-label);font-weight:700;color:var(--gold-dk);letter-spacing:.01em}
 .lede{color:var(--muted);max-width:56ch;margin-top:.9rem}
 
 /* header */
 .nav{position:fixed;inset:0 0 auto 0;z-index:80;background:var(--ink);border-bottom:1px solid var(--line-dark)}
 .nav-in{display:flex;align-items:center;gap:var(--gut);height:var(--nav-h)}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:#F8F6F2;min-width:0;flex:0 1 auto}
-.brand img{height:38px;width:auto;flex:none}
-.brand span{font-size:clamp(.95rem,1.5vw,1.125rem);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand{display:flex;align-items:center;gap:.85rem;text-decoration:none;color:#F8F6F2;min-width:0;flex:0 1 auto}
+.brand img{height:70px;width:auto;flex:none}
+.brand span{font-size:clamp(1.12rem,1.7vw,1.35rem);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nav-links{margin-left:auto;display:flex;align-items:center;gap:clamp(1rem,2vw,1.9rem);flex:0 0 auto}
 .nav-links a{color:#CFCBC2;text-decoration:none;font-size:var(--fs-small);font-weight:500}
 .nav-links a:hover{color:#fff}
@@ -88,8 +88,8 @@ h1,h2,h3,h4{line-height:1.1;font-weight:700;letter-spacing:-.01em}
 .tel-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .hero-rail{margin-top:auto;padding-top:3.4rem;display:flex;gap:clamp(1.4rem,4vw,3rem);flex-wrap:wrap}
 .hero-rail div{border-top:1px solid var(--line-dark);padding-top:.7rem;min-width:8rem}
-.hero-rail b{display:block;font-size:.9375rem;color:#F8F6F2}
-.hero-rail span{font-size:var(--fs-small);color:#9A958B}
+.hero-rail b{display,block;display:block;font-size:1rem;color:#F8F6F2;letter-spacing:-.01em}
+.hero-rail span{font-size:var(--fs-small);color:#B7B2A6}
 
 /* sections */
 section{padding-block:var(--sec)}
@@ -111,14 +111,14 @@ section{padding-block:var(--sec)}
 .svc-row h3{font-size:var(--fs-h3);font-weight:700;letter-spacing:0;transition:color .2s}
 .svc-row p{color:var(--muted);font-size:var(--fs-small);margin-top:.3rem;max-width:52ch}
 .svc-note{font-size:var(--fs-small);color:var(--gold-dk);font-weight:600;white-space:nowrap}
-.svc-feature{background:var(--paper-2);border-bottom:1px solid var(--line);padding:clamp(1.6rem,3vw,2.4rem) clamp(1.2rem,3vw,2.2rem);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem;align-items:end}
+.svc-feature{background:var(--paper-2);border-bottom:1px solid var(--line);padding:clamp(1.6rem,3vw,2.4rem) clamp(1.2rem,3vw,2.2rem);display:grid;grid-template-columns:3rem minmax(0,1fr) auto;gap:1.2rem;align-items:baseline}
 .svc-feature h3{font-size:clamp(1.35rem,2.2vw,1.75rem);max-width:22ch}
 .svc-feature p{color:var(--muted);margin-top:.55rem;max-width:52ch;font-size:var(--fs-small)}
 .svc-feature .svc-note{color:var(--ink)}
 @media(max-width:700px){
   .svc-row{grid-template-columns:2.2rem minmax(0,1fr);gap:.9rem}
   .svc-note{display:none}
-  .svc-feature{grid-template-columns:1fr}
+  .svc-feature{grid-template-columns:2.2rem minmax(0,1fr);gap:.9rem}
 }
 
 /* process */
@@ -135,15 +135,18 @@ section{padding-block:var(--sec)}
 @media(max-width:520px){.steps{grid-template-columns:1fr}}
 
 /* why */
-.why-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(1.8rem,5vw,3.6rem);align-items:start}
+.why-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(1.8rem,5vw,3.6rem);align-items:stretch}
 @media(max-width:880px){.why-grid{grid-template-columns:1fr}}
 .why-list{display:grid;gap:1.35rem;margin-top:1.9rem}
 .why-item{border-top:1px solid var(--line);padding-top:.85rem}
 .why-item h3{font-size:var(--fs-h3);font-weight:700}
 .why-item p{color:var(--muted);font-size:var(--fs-small);margin-top:.25rem;max-width:46ch}
-.logo-tile{background:var(--ink);padding:clamp(1.6rem,3vw,2.4rem);display:grid;place-items:center;gap:1rem;border-radius:4px}
-.logo-tile img{width:min(280px,100%)}
-.logo-tile p{color:#9A958B;font-size:var(--fs-small);text-align:center}
+.logo-tile{background:var(--ink);padding:clamp(1.6rem,3vw,2.4rem);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.15rem;border-radius:4px;min-height:min(380px,100%)}
+.tile-mark{width:min(215px,64%);height:auto;flex:none}
+.tile-lock{display:grid;justify-items:center;gap:.3rem;text-align:center}
+.tile-lock b{color:#F8F6F2;font-size:1.3rem;letter-spacing:.17em;text-transform:uppercase;font-weight:800;line-height:1.15}
+.tile-lock i{font-style:normal;color:var(--gold-lt);font-size:.8125rem;letter-spacing:.02em;font-weight:600}
+.logo-tile p{color:#9A958B;font-size:var(--fs-small);text-align:center;line-height:1.5;max-width:28ch}
 
 /* areas */
 .areas{background:var(--paper-2);border-block:1px solid var(--line)}
@@ -181,14 +184,14 @@ section{padding-block:var(--sec)}
 .foot-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:2.5rem}
 @media(max-width:820px){.foot-grid{grid-template-columns:1fr;gap:1.8rem}}
 .foot-brand{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
-.foot-brand img{height:40px;width:auto}
+.foot-brand img{height:54px;width:auto}
 .foot-brand span{color:#F8F6F2;font-weight:700;font-size:1.0625rem}
 .foot p{font-size:var(--fs-small);max-width:42ch}
 .foot h4{color:#F8F6F2;font-size:var(--fs-h3);margin-bottom:.7rem}
 .foot a{text-decoration:none;font-size:var(--fs-small)}
 .foot a:hover{color:var(--gold-lt)}
 .foot-list{display:grid;gap:.45rem}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:2.6rem;padding-top:1.2rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-size:.8125rem;color:#7E7A72}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:2.6rem;padding-top:1.2rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-size:.8125rem;color:#9C978D}
 .foot-bottom div{display:flex;gap:1.2rem}
 
 @media (prefers-reduced-motion:reduce){
@@ -196,24 +199,51 @@ section{padding-block:var(--sec)}
 }
 </style>
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<!--LB-HERO--><style id="lb-hero">
+/* one stacking order, one geometry for the hero */
+.hero{
+  display:flex;flex-direction:column;align-items:stretch;
+  min-height:clamp(548px,72vh,680px);max-height:none;
+  background:#0B0B0B;
+}
+.hero canvas{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  z-index:0!important;pointer-events:none;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(98deg,rgba(10,10,10,.94) 0%,rgba(10,10,10,.8) 34%,rgba(10,10,10,.42) 62%,rgba(10,10,10,.1) 100%);
+}
+.hero-in{
+  position:relative;z-index:2;flex:1;
+  justify-content:center;align-items:flex-start;
+  padding-block:clamp(2rem,4.5vh,3.2rem) clamp(1.5rem,3vh,2rem);
+}
+.hero h1{
+  max-width:21ch!important;width:auto!important;
+  font-size:clamp(2.7rem,5.1vw,4.35rem)!important;line-height:1.04!important;
+  margin-top:.75rem!important;
+}
+.hero p.hero-tag{margin-top:0;color:var(--gold-lt);font-size:.8125rem;letter-spacing:.08em}
+.hero p{max-width:44ch}
+.hero .nw{white-space:nowrap}
+@media(max-width:520px){.hero .nw{white-space:normal}}
+.hero-rail{margin-top:clamp(1.8rem,4.5vh,2.9rem);padding-top:0;gap:clamp(1.2rem,3.4vw,2.6rem)}
+.hero-rail div{min-width:0;padding-top:.75rem}
+@media(max-width:600px){
+  .hero{min-height:min(92vh,640px)}
+  .hero::before{background:linear-gradient(180deg,rgba(10,10,10,.94) 0%,rgba(10,10,10,.8) 58%,rgba(10,10,10,.5) 100%)}
+  .hero-in{justify-content:flex-end}
+  .hero-rail div{min-width:6.5rem}
+}
+</style><!--/LB-HERO-->
 </head>
 <body id="top">
 
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Apex Concrete Polishing, home">
-      <img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async">
+      <img src="assets/mark.png" width="96" height="46" alt="" class="lb-logo" loading="eager" decoding="async">
       <span>Apex Concrete Polishing</span>
     </a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><i></i><i></i><i></i></button>
@@ -230,7 +260,7 @@ section{padding-block:var(--sec)}
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="wrap hero-in">
     <p class="hero-tag">Melbourne, residential and commercial</p>
-    <h1>Polished concrete, cut to a <em>mirror</em>.</h1>
+    <h1>Polished concrete, <span class="nw">cut to a <em>mirror</em>.</span></h1>
     <p>Grinding, polishing and sealing of concrete floors with diamond tooling and dust control. Homes, garages, shops and warehouses across Melbourne.</p>
     <div class="hero-cta">
       <a class="tel-btn" href="tel:0403383616">
@@ -267,7 +297,9 @@ section{padding-block:var(--sec)}
     </div>
 
     <div class="svc">
+      <divtoob=None>
       <div class="svc-feature">
+        <span class="svc-n">01</span>
         <div>
           <h3>Polished concrete</h3>
           <p>Multi stage diamond polishing to the sheen you pick, from a flat satin through to a near mirror gloss. The main event, and the reason people call us.</p>
@@ -313,8 +345,9 @@ section{padding-block:var(--sec)}
       </div>
     </div>
     <div class="logo-tile">
-      <img src="assets/logo.jpg" alt="Apex Concrete Polishing logo" width="280" height="236">
-      <p>Apex Concrete Polishing, Melbourne, Victoria</p>
+      <img class="tile-mark" src="assets/mark.png" alt="Apex Concrete Polishing logo" width="480" height="230">
+      <div class="tile-lock"><b>Apex</b><i>Concrete Polishing</i></div>
+      <p>Smooth &bull; Strong &bull; Lasting<br>Melbourne, Victoria</p>
     </div>
   </div>
 </section>
@@ -362,7 +395,7 @@ section{padding-block:var(--sec)}
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <img src="assets/logo.jpg" alt="Apex Concrete Polishing logo" width="56" height="47">
+          <img src="assets/mark.png" alt="Apex Concrete Polishing logo" width="92" height="44">
           <span>Apex Concrete Polishing</span>
         </div>
         <p>Concrete grinding, polishing and sealing for residential and commercial floors across Melbourne, Victoria.</p>

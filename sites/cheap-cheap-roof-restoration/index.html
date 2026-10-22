@@ -207,11 +207,38 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<style id="cc-hero">/* Cheap Cheap — hero rebuilt: text column + real roof photo. Beats the [class*=hero]
+   polish block, which forced display:flex + min-height on every hero child. */
+.hero{padding:clamp(2rem,5vw,4rem) 0;max-height:none!important;display:block!important}
+.hero__inner,.hero__copy,.hero__badge,.hero__lead,.hero__actions,.hero__cta,.hero__media{
+  min-height:0!important;max-height:none;width:auto}
+.hero__inner{display:grid!important;grid-template-columns:minmax(0,1fr);gap:clamp(1.75rem,4vw,3rem);align-items:stretch;align-content:center}
+@media(min-width:880px){
+  .hero__inner{grid-template-columns:minmax(0,1.06fr) minmax(0,0.94fr);gap:clamp(2rem,4vw,3.5rem)}
+}
+.hero__copy{display:grid!important;gap:clamp(0.9rem,1.8vw,1.3rem);align-content:center;max-width:none;padding:0.75rem 0}
+.hero__badge{margin-bottom:0}
+.hero h1{max-width:none!important;font-size:clamp(2.05rem,3.85vw,3.3rem)!important;line-height:1.05!important;letter-spacing:-0.025em;text-wrap:balance}
+.hero__lead{max-width:54ch;margin:0;font-size:clamp(1rem,1.4vw,1.125rem);line-height:1.62;opacity:0.82;text-wrap:pretty}
+.hero__actions{display:flex!important;flex-wrap:wrap;align-items:center;gap:0.85rem 1.25rem;margin-top:0.35rem}
+.hero__cta{display:inline-flex;justify-content:center;align-items:center;gap:0.6rem;padding:1rem 1.9rem;white-space:nowrap;font-size:0.95rem;font-weight:700;letter-spacing:0.03em;line-height:1.2;background:var(--accent);border-color:var(--accent);color:#fff}
+.hero__cta:hover{background:#a03c26;border-color:#a03c26;color:#fff}
+.hero__call{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.95rem;color:var(--mist);opacity:0.9;white-space:nowrap;border-bottom:1px solid rgba(228,231,234,0.28);padding-bottom:2px}
+.hero__call:hover{color:var(--mist);opacity:1;border-color:var(--mist)}
+.hero__cta span{transition:transform 200ms ease}
+.hero__cta:hover span{transform:translateX(4px)}
+.hero__media{margin:0;position:relative;aspect-ratio:16/10;overflow:hidden;border:1px solid var(--hairline);background:var(--canvas-bg);min-height:100%}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 52%}
+.hero__media::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(228,231,234,0.08);pointer-events:none}
+@media(min-width:880px){.hero__media{aspect-ratio:4/5}}
+@media(max-width:879px){.hero__media{aspect-ratio:16/9}.hero__copy{max-width:none}}
+</style>
 </head>
 <body>
-<header class="header" role="banner">
+<header class="header" id="top" role="banner">
   <div class="container header__inner">
-    <a class="lb-brand" href="#top" aria-label="Cheap Cheap Roof Restoration - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#b84830;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cheap Roof Restoration</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Cheap Cheap Roof Restoration - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#b84830;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cheap Cheap Roof Restoration</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
@@ -223,13 +250,15 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <main id="main" role="main">
   <section class="hero" aria-labelledby="hero-title">
     <div class="container hero__inner">
-      <span class="hero__badge rv">Roof Restoration · Perth WA</span>
-      <h1 id="hero-title" class="rv">Cheap Cheap Roof Restoration</h1>
-      <p class="hero__lead rv">Tiled roof repairs, re-bedding, re-pointing, ridge capping, and roof painting across the Perth metro area.</p>
-      <a href="#contact" class="hero__cta rv">Request a Quote</a>
-      <div class="hero__canvas-wrap rv" aria-hidden="true">
-        <canvas class="hero__canvas" id="heroCanvas"></canvas>
+      <div class="hero__copy">
+        <span class="hero__badge rv">Perth WA &middot; Tiled Roof Restoration</span>
+        <h1 id="hero-title" class="rv">Roof restoration, priced like a local.</h1>
+        <p class="hero__lead rv">Re-bedding, re-pointing, ridge capping, tile repairs and roof painting for tiled roofs across the Perth metro area.</p>
+        <div class="hero__actions rv"><a href="#contact" class="hero__cta">Request a free quote <span aria-hidden="true">&#8594;</span></a><a class="hero__call" href="tel:0405235790">Or call 0405 235 790</a></div>
       </div>
+      <figure class="hero__media rv">
+        <img src="assets/roof-hero.jpg" alt="Worker applying repair material along a tiled roof edge" width="1400" height="817" loading="eager" decoding="async">
+      </figure>
     </div>
   </section>
 
