@@ -1,429 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<title>Demolition Removal Group | Demolition & Asbestos Removal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Demolition Removal Group — Demolition & Asbestos Removal</title>
-<meta name="description" content="Demolition Removal Group — Residential & commercial demolition, asbestos removal, rubbish removal, land clearing, pavement & floor removal, strip-out. Sydney NSW / Melbourne VIC / Brisbane QLD. Mon–Sat 7am–6pm.">
+<meta name="description" content="Demolition Removal Group — residential and commercial demolition, asbestos removal, strip-outs, rubbish removal, land clearing and pavement removal. Mon-Sat 7am-6pm.">
+<meta name="theme-color" content="#E65100">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;700&family=Karla:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;700&family=Karla:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;700&family=Karla:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;900&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ===== CSS CUSTOM PROPERTIES ===== */
-:root {
-  /* Brand palette from supplied mark */
-  --brand-orange: #E65100;
-  --brand-orange-tint: #ff6a1f;
-  --mark-ink: #212121;
-  --mark-plate: #F5F5F5;
-  
-  /* Site dark theme */
-  --ink: #101210;
-  --ground: #181b18;
-  --mist: #eef0ea;
-  --hairline: #2b2f29;
-  --accent: #E65100;
-  --accent-hover: #cc4400;
-  
-  /* LBQ contrast contract */
-  --bg: #181b18;
-  --line: #2b2f29;
-  --ink: #101210;
-  
-  /* Typography */
-  --font-display: 'Saira Condensed', sans-serif;
-  --font-body: 'Karla', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  
-  /* Spacing */
-  --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
-  --space-sm: clamp(0.5rem, 1vw, 1rem);
-  --space-md: clamp(1rem, 2vw, 1.5rem);
-  --space-lg: clamp(1.5rem, 3vw, 2.5rem);
-  --space-xl: clamp(2rem, 4vw, 4rem);
-  --space-2xl: clamp(3rem, 6vw, 6rem);
-  
-  /* Container */
-  --container-max: 72rem;
-  --container-pad: clamp(1rem, 3vw, 2rem);
-  
-  /* Reveal */
-  --reveal-duration: 600ms;
-  --reveal-delay: 100ms;
+:root{
+  --bg:#0E1013;
+  --panel:#14171C;
+  --card:#171B21;
+  --ink:#f3f5f8;
+  --muted:#B7BFC9;
+  --line:#262C34;
+  --lb-acc:#E65100;
+  --acc:#E65100;
+  --accent:#E65100;
+  --brand:#212121;
+  --primary:#E65100;
+  --acc-ink:#FF8A3D;
+  --acc-hi:#FF6A1F;
+  --on-acc:#0D0A08;
+  --font-display:'Saira Condensed','Archivo Narrow',system-ui,sans-serif;
+  --font-body:'Karla',system-ui,-apple-system,'Segoe UI',sans-serif;
+  perspective:1200px;
 }
 
-/* ===== RESET & BASE ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-.js .rv { opacity: 0; transform: translateY(1.5rem); }
-.js .rv.on { opacity: 1; transform: none; transition: opacity var(--reveal-duration) ease-out, transform var(--reveal-duration) ease-out; }
-@media (prefers-reduced-motion: reduce) {
-  .js .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--font-display);line-height:1.03;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(11,13,16,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr-in{max-width:1160px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:24px;justify-content:space-between;min-height:76px}
+.brand{display:flex;align-items:center;gap:.7rem;flex:0 1 auto;min-width:0}
+.brand-mark{height:46px;width:auto;max-width:34vw;object-fit:contain;flex:none}
+.brand-txt{display:flex;flex-direction:column;line-height:1;min-width:0;max-width:100%}
+.brand-name{font-family:var(--font-display);font-weight:900;font-size:1.12rem;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{display:block;margin-top:5px;font-family:var(--font-body);font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav{display:flex;align-items:center;gap:26px;margin-left:auto}
+.nav a{font-size:.92rem;font-weight:600;color:var(--muted)}
+.nav a:hover{color:var(--acc-ink)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:800;font-size:.94rem;letter-spacing:.01em;padding:13px 22px;border-radius:8px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.btn-acc{background:var(--acc);color:var(--on-acc);border-color:var(--acc)}
+.btn-acc:hover{background:var(--acc-hi);color:var(--on-acc)}
+.btn-ghost{background:rgba(255,255,255,.06);color:var(--ink);border-color:rgba(255,255,255,.28)}
+.btn-ghost:hover{background:rgba(255,255,255,.14);color:#fff}
+.hdr .btn{padding:11px 18px;font-size:.88rem}
+@media (max-width:900px){
+ .hdr-in{min-height:66px;padding:10px 16px;gap:12px}
+ .brand-mark{height:38px;max-width:22vw}
+ .brand-name{font-size:1rem;max-width:none}
+ .brand-sub{font-size:11px;letter-spacing:.02em;line-height:1.25;white-space:normal;overflow:visible;text-overflow:clip}
+ .hdr .btn{padding:10px 13px;font-size:.82rem}
+ .brand{gap:.5rem}
+ .nav{display:none}
+}
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(92vh,860px);display:flex;align-items:center;background:#08090b}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(6,7,9,.95) 0%,rgba(6,7,9,.84) 38%,rgba(6,7,9,.5) 72%,rgba(6,7,9,.32) 100%)}
+.hero-canvas{display:none}
+.hero-in{position:relative;z-index:2;width:100%;max-width:1160px;margin:0 auto;padding:104px 24px 96px}
+.hero h1{font-size:clamp(2.35rem,5.6vw,4.35rem);font-weight:900;letter-spacing:-.02em;color:#fff;max-width:19ch;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+.hero h1 .acc{color:var(--acc-ink)}
+.hero-lede{margin-top:20px;font-size:clamp(1.02rem,1.5vw,1.2rem);color:#eef1f5;max-width:52ch;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin:38px 0 0;padding:20px 0 0;list-style:none;border-top:1px solid rgba(255,255,255,.2)}
+.hero-facts li{font-size:.96rem;font-weight:700;color:#fff;position:relative;padding-left:18px;text-shadow:0 1px 3px rgba(0,0,0,.55)}
+.hero-facts li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:3px;background:var(--acc)}
+@media (max-width:900px){
+ .hero{min-height:min(88vh,720px)}
+ .hero-in{padding:76px 18px 68px}
+ .hero h1{max-width:100%}
+ .hero-lede{font-size:1rem}
+ .hero-cta .btn{flex:1 1 100%}
+ .hero-facts{gap:8px 18px;margin-top:28px;padding-top:16px}
+ .hero-facts li{font-size:.86rem}
+}
+/* ---------- sections ---------- */
+.sec{padding:92px 0}
+.sec-alt{background:var(--panel)}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.7rem,3.3vw,2.5rem);font-weight:900;letter-spacing:-.015em}
+.sec-head p{margin-top:16px;color:var(--muted)}
+.kicker{display:block;font-family:var(--font-body);font-weight:800;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--acc-ink);margin-bottom:12px}
+.cards{display:grid;gap:22px;grid-template-columns:repeat(3,1fr)}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 24px 24px}
+.card::before{content:"";position:absolute;left:24px;top:0;width:44px;height:3px;background:var(--acc)}
+.card h3{font-size:1.12rem;font-weight:800;margin-top:14px}
+.card p{margin-top:10px;color:var(--muted);font-size:.97rem}
+.gal{display:grid;gap:20px;grid-template-columns:repeat(3,1fr)}
+.gal figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.gal img{width:100%;height:250px;object-fit:cover}
+.gal figcaption{padding:14px 18px;font-size:.92rem;color:var(--muted);border-top:1px solid var(--line)}
+.gal figcaption strong{display:block;color:var(--ink);font-size:.98rem;font-weight:800;margin-bottom:3px}
+.note{margin-top:20px;font-size:.86rem;color:var(--muted)}
+.split{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+.split-copy h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:900;letter-spacing:-.015em}
+.split-copy p{margin-top:18px;color:var(--muted)}
+.checks{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:12px}
+.checks li{position:relative;padding-left:26px;font-weight:600;font-size:.98rem}
+.checks li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:3px;background:var(--acc)}
+.split-fig{margin:0}
+.split-fig img{width:100%;border-radius:12px;border:1px solid var(--line)}
+.split-fig figcaption{margin-top:12px;font-size:.86rem;color:var(--muted)}
+.faq{display:grid;gap:12px;max-width:900px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px}
+.faq summary{cursor:pointer;font-family:var(--font-display);font-weight:800;font-size:1.03rem;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--acc-ink);font-size:1.3rem;line-height:1;font-weight:700}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{margin-top:12px;color:var(--muted);font-size:.97rem}
+/* ---------- footer ---------- */
+.ftr{background:#08090b;border-top:1px solid var(--line);padding:64px 0 26px}
+.ftr-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.ftr h3{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--acc-ink);font-family:var(--font-body);font-weight:800}
+.ftr p{margin-top:14px;color:var(--muted);font-size:.95rem}
+.ftr ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:9px}
+.ftr li,.ftr a{color:var(--muted);font-size:.95rem}
+.ftr a:hover{color:var(--acc-ink)}
+.ftr-brand{display:flex;align-items:center;gap:.7rem;margin-bottom:6px}
+.ftr-brand img{height:44px;width:auto;object-fit:contain}
+.ftr-brand .n{font-family:var(--font-display);font-weight:900;font-size:1.05rem;text-transform:uppercase;color:var(--ink)}
+.ftr-logo{height:58px;width:auto;background:#f5f5f5;border-radius:8px;padding:7px 11px;margin-bottom:14px}
+.ftr-bot{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;color:var(--muted);font-size:.84rem}
+.ftr-bot a{font-size:.84rem}
+@media (max-width:900px){
+ .sec{padding:66px 0}
+ .wrap{padding:0 18px}
+ .cards,.gal{grid-template-columns:1fr}
+ .gal img{height:220px}
+ .split{grid-template-columns:1fr;gap:30px}
+ .ftr-grid{grid-template-columns:1fr;gap:30px}
+ .ftr-bot{margin-top:32px}
 }
 
-body {
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  line-height: 1.65;
-  color: var(--mist);
-  background: var(--ground);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-/* ===== TYPOGRAPHY ===== */
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; color: var(--mist); }
-h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); letter-spacing: -0.01em; }
-h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
-h4 { font-size: clamp(1.125rem, 2vw, 1.375rem); }
-p { max-width: 65ch; }
-a { color: inherit; text-decoration: none; }
-a:hover { color: var(--accent); }
-strong { font-weight: 700; }
-.mono { font-family: var(--font-mono); font-size: 0.875em; }
-
-/* ===== LAYOUT ===== */
-.container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-pad); }
-.section { padding: var(--space-xl) 0; }
-.section--tight { padding: var(--space-lg) 0; }
-.section--first { padding-top: var(--space-2xl); }
-.section--last { padding-bottom: var(--space-2xl); }
-
-/* ===== HEADER / NAV ===== */
-.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(24,27,24,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--hairline); }
-.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.nav-brand { display: flex; align-items: center; gap: var(--space-sm); text-decoration: none; }
-.nav-brand__plate { background: var(--mark-plate); padding: 6px 10px; border-radius: 4px; display: flex; align-items: center; }
-.nav-brand__logo { width: 120px; height: auto; display: block; }
-.nav-brand__text { display: none; }
-.nav-links { display: flex; gap: var(--space-md); }
-.nav-link { font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; color: var(--mist); padding: var(--space-xs) 0; position: relative; }
-.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.2s ease; }
-.nav-link:hover::after, .nav-link:focus::after { width: 100%; }
-.nav-cta { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.5rem 1rem; background: var(--accent); color: #fff; font-family: var(--font-body); font-weight: 700; font-size: 0.875rem; border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s, transform 0.1s; }
-.nav-cta:hover { background: var(--accent-hover); }
-.nav-cta:active { transform: scale(0.98); }
-.nav-cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-@media (min-width: 640px) {
-  .nav-brand__text { display: block; }
-  .nav-brand__text strong { font-family: var(--font-display); font-size: 1rem; color: var(--ink); letter-spacing: -0.01em; }
-  .nav-brand__text span { font-family: var(--font-body); font-size: 0.625rem; color: var(--mark-ink); letter-spacing: 0.08em; text-transform: uppercase; }
-}
-
-/* ===== HERO ===== */
-.hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding-top: 64px; overflow: hidden; }
-.hero-inner { position: relative; z-index: 1; width: 100%; }
-.hero-copy { max-width: 48rem; }
-.hero__badge { display: inline-block; font-family: var(--font-mono); font-size: clamp(0.7rem, 1.2vw, 0.8rem); color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: var(--space-md); }
-.hero__title { margin-bottom: var(--space-md); }
-.hero__tagline { font-size: clamp(1.125rem, 2vw, 1.375rem); color: var(--mist); opacity: 0.85; margin-bottom: var(--space-xl); max-width: 42ch; }
-.hero__cta-row { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-bottom: var(--space-xl); }
-.hero__cta-primary { display: inline-flex; align-items: center; gap: var(--space-sm); padding: 0.875rem 1.5rem; background: var(--accent); color: #fff; font-family: var(--font-body); font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.125rem); border-radius: 4px; border: none; cursor: pointer; transition: background 0.2s, transform 0.1s; }
-.hero__cta-primary:hover { background: var(--accent-hover); }
-.hero__cta-primary:active { transform: scale(0.98); }
-.hero__cta-secondary { display: inline-flex; align-items: center; gap: var(--space-sm); padding: 0.875rem 1.5rem; background: transparent; color: var(--mist); font-family: var(--font-body); font-weight: 500; font-size: clamp(1rem, 1.5vw, 1.125rem); border: 1px solid var(--hairline); border-radius: 4px; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
-.hero__cta-secondary:hover { border-color: var(--accent); color: var(--accent); }
-.hero__cta-secondary:focus-visible, .hero__cta-primary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.hero__hours { font-family: var(--font-mono); font-size: clamp(0.8rem, 1.2vw, 0.875rem); color: var(--mist); opacity: 0.6; }
-
-/* ===== SERVICE ROWS ===== */
-.services { }
-.services-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
-@media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
-.service-card { background: var(--ground); border: 1px solid var(--hairline); border-radius: 8px; padding: var(--space-lg); transition: border-color 0.2s, transform 0.2s; }
-.service-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-.service-card__icon { width: 40px; height: 40px; margin-bottom: var(--space-sm); opacity: 0.8; }
-.service-card__title { font-family: var(--font-display); font-size: 1.125rem; margin-bottom: var(--space-xs); }
-.service-card__desc { font-size: 0.9375rem; opacity: 0.8; line-height: 1.55; }
-
-/* ===== PROCESS / APPROACH BAND ===== */
-.approach { background: var(--ground); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-.approach-head { text-align: center; max-width: 48rem; margin: 0 auto var(--space-xl); }
-.approach-head__title { margin-bottom: var(--space-sm); }
-.approach-head__desc { opacity: 0.8; }
-.approach-steps { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
-@media (min-width: 768px) { .approach-steps { grid-template-columns: repeat(3, 1fr); } }
-.step { text-align: center; padding: var(--space-md); }
-.step__num { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; color: var(--accent); opacity: 0.15; line-height: 1; margin-bottom: var(--space-sm); }
-.step__title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: var(--space-xs); }
-.step__desc { opacity: 0.8; font-size: 0.9375rem; }
-
-/* ===== SERVICE AREAS ===== */
-.areas { }
-.areas-head { text-align: center; max-width: 48rem; margin: 0 auto var(--space-xl); }
-.areas-head__title { margin-bottom: var(--space-sm); }
-.areas-head__desc { opacity: 0.8; }
-.areas-list { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm); }
-.area-chip { display: inline-flex; align-items: center; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); background: rgba(255,255,255,0.02); border: 1px solid var(--hairline); border-radius: 999px; font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500; transition: border-color 0.2s, background 0.2s; }
-.area-chip:hover { border-color: var(--accent); background: rgba(255,106,31,0.08); }
-.area-chip .mono { color: var(--accent); }
-
-/* ===== FOOTER ===== */
-.footer { background: var(--ink); border-top: 1px solid var(--hairline); padding: var(--space-xl) 0 var(--space-lg); }
-.footer-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-xl); }
-@media (min-width: 768px) { .footer-grid { grid-template-columns: 1fr auto 1fr; align-items: start; } }
-.footer-brand { }
-.footer-brand__plate { background: var(--mark-plate); padding: 12px 16px; border-radius: 6px; display: inline-block; margin-bottom: var(--space-md); }
-.footer-brand__logo { width: 160px; height: auto; display: block; }
-.footer-brand__name { font-family: var(--font-display); font-size: 1.125rem; margin-bottom: var(--space-xs); }
-.footer-brand__trade { font-size: 0.875rem; opacity: 0.7; margin-bottom: var(--space-md); }
-.footer-brand__phone { display: inline-flex; align-items: center; gap: var(--space-xs); font-family: var(--font-mono); font-size: 1rem; }
-.footer-brand__phone:hover { color: var(--accent); }
-.footer-nav { display: flex; flex-direction: column; gap: var(--space-sm); }
-.footer-nav__title { font-family: var(--font-display); font-size: 1rem; margin-bottom: var(--space-sm); }
-.footer-nav__link { font-size: 0.9375rem; opacity: 0.8; transition: opacity 0.2s, color 0.2s; }
-.footer-nav__link:hover { opacity: 1; color: var(--accent); }
-.footer-areas { text-align: right; }
-.footer-areas__title { font-family: var(--font-display); font-size: 1rem; margin-bottom: var(--space-sm); }
-.footer-areas__list { display: flex; flex-direction: column; gap: var(--space-xs); align-items: flex-end; }
-.footer-areas__item { font-size: 0.9375rem; opacity: 0.7; }
-.footer-bottom { margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 1px solid var(--hairline); display: flex; flex-direction: column; gap: var(--space-xs); text-align: center; font-size: 0.8125rem; opacity: 0.5; }
-@media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
-
-/* ===== LEGAL SECTIONS ===== */
-.legal { padding: var(--space-xl) 0 var(--space-2xl); }
-.legal-section { max-width: 48rem; margin: 0 auto var(--space-xl); }
-.legal-section__title { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: var(--space-md); }
-.legal-section__text { opacity: 0.8; font-size: 0.9375rem; line-height: 1.7; }
-.legal-section__text a { text-decoration: underline; text-underline-offset: 2px; }
-
-/* ===== DETAIL CANVAS ===== */
-.canvas-wrap { position: relative; width: 100%; aspect-ratio: 4 / 3; background: var(--ink); border: 1px solid var(--hairline); border-radius: 8px; overflow: hidden; }
-.canvas-wrap canvas { display: block; width: 100%; height: 100%; }
-.canvas-legend { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); margin-top: var(--space-md); font-family: var(--font-mono); font-size: 0.75rem; color: var(--mist); opacity: 0.7; }
-.canvas-legend__item { display: flex; align-items: center; gap: var(--space-xs); }
-.canvas-legend__swatch { width: 14px; height: 14px; border-radius: 2px; flex-shrink: 0; }
-
-/* ===== UTILITY ===== */
-.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-.skip-link { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: var(--space-sm) var(--space-md); border-radius: 4px; z-index: 1000; font-weight: 700; }
-.skip-link:focus { top: var(--space-md); }
-
-/* ===== FORM (injected) ===== */
-#lbq-form { margin-top: var(--space-xl); }
-#lbq-form .form-row { display: grid; grid-template-columns: 1fr; gap: var(--space-md); margin-bottom: var(--space-md); }
-@media (min-width: 640px) { #lbq-form .form-row { grid-template-columns: repeat(2, 1fr); } }
-#lbq-form label { display: block; font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; margin-bottom: var(--space-xs); color: var(--mist); }
-#lbq-form input, #lbq-form select, #lbq-form textarea { width: 100%; padding: 0.75rem 1rem; background: var(--ink); border: 1px solid var(--line); border-radius: 4px; font-family: var(--font-body); font-size: 1rem; color: var(--mist); transition: border-color 0.2s, box-shadow 0.2s; }
-#lbq-form input:focus, #lbq-form select:focus, #lbq-form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,106,31,0.15); }
-#lbq-form input::placeholder, #lbq-form textarea::placeholder { color: var(--mist); opacity: 0.4; }
-#lbq-form button[type="submit"] { width: 100%; padding: 0.875rem 1.5rem; background: var(--accent); color: #fff; font-family: var(--font-body); font-weight: 700; font-size: 1rem; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s, transform 0.1s; }
-#lbq-form button[type="submit"]:hover { background: var(--accent-hover); }
-#lbq-form button[type="submit"]:active { transform: scale(0.98); }
-#lbq-form button[type="submit"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-#lbq-form .form-status { margin-top: var(--space-md); padding: var(--space-md); border-radius: 4px; font-size: 0.9375rem; display: none; }
-#lbq-form .form-status--success { display: block; background: rgba(34,197,94,0.15); border: 1px solid #22c55e; color: #4ade80; }
-#lbq-form .form-status--error { display: block; background: rgba(239,68,68,0.15); border: 1px solid #ef4444; color: #f87171; }</style>
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
-
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+</style>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
-
-<header class="header" role="banner">
-  <div class="container header-inner">
-    <a href="/" class="nav-brand" aria-label="Demolition Removal Group — Home">
-      <div class="nav-brand__plate">
-        <img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async">
-      </div>
-      <span class="nav-brand__text">
-        <strong>Demolition Removal Group</strong>
-        <span>Demolition & Asbestos Removal</span>
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="#top">
+      <img class="brand-mark" src="assets/logomark.svg" alt="Demolition Removal Group logo" width="96" height="96">
+      <span class="brand-txt">
+        <span class="brand-name">Demolition Removal Group</span>
+        <span class="brand-sub">Sydney &middot; Melbourne &middot; Brisbane</span>
       </span>
     </a>
-    <nav class="nav-links" aria-label="Primary navigation">
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#approach" class="nav-link">Our Approach</a>
-      <a href="#areas" class="nav-link">Service Areas</a>
-    </nav>
-    <a href="#lbq" class="nav-cta">Get a Quote</a>
+    <nav class="nav" aria-label="Main"><a href="#services">Services</a><a href="#work">Recent work</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
+    <a class="btn btn-acc" href="tel:+61495044285">Call 0495 044 285</a>
   </div>
 </header>
 
-<main id="main" role="main">
-  <!-- HERO -->
-  <section class="hero section--first" aria-labelledby="hero-title">
-    <div class="container hero-inner">
-      <div class="hero-copy rv">
-        <p class="hero__badge">Est. 2020 · Sydney · Melbourne · Brisbane</p>
-        <h1 id="hero-title" class="hero__title">Demolition & Asbestos Removal Done Right</h1>
-        <p class="hero__tagline">Residential and commercial demolition, asbestos removal, rubbish removal, land clearing, pavement & floor removal, and strip-out services across three states.</p>
-        <div class="hero__cta-row">
-          <a href="#lbq" class="hero__cta-primary">Request a Quote</a>
-          <a href="tel:0495044285" class="hero__cta-secondary">Call <span class="mono">0495 044 285</span></a>
-        </div>
-        <p class="hero__hours mono">Mon–Sat 7am–6pm</p>
-      </div>
-    </div>
-  </section>
+<main id="top">
+<section class="hero">
+  <div class="hero-bg"><img src="assets/hero.jpg" alt="Interior stripped out during a demolition job" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
+  <div class="hero-scrim"></div>
+  <canvas id="heroCanvas" class="hero-canvas" width="1600" height="900" aria-hidden="true"></canvas>
+  <!-- LB-3D-HERO -->
+  <div class="hero-in">
+    <h1>Demolition &amp; asbestos removal, <span class="acc">start to finish</span></h1>
+    <p class="hero-lede">Residential and commercial demolition, asbestos removal, strip-outs and rubbish removal across Sydney, Melbourne and Brisbane.</p>
+    <div class="hero-cta"><a class="btn btn-acc" href="tel:+61495044285">Call 0495 044 285</a><a class="btn btn-ghost" href="#quote">Request a quote</a></div>
+    <ul class="hero-facts"><li>Residential &amp; commercial</li><li>Asbestos removal</li><li>Rubbish removal</li><li>Mon&ndash;Sat 7am&ndash;6pm</li></ul>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section id="services" class="services section" aria-labelledby="services-title">
-    <div class="container">
-      <header class="rv" style="text-align:center; max-width:48rem; margin:0 auto var(--space-xl);">
-        <h2 id="services-title">What We Do</h2>
-        <p style="opacity:0.8;">Six core services - one team, proper gear, safe outcomes.</p>
-      </header>
-      <div class="services-grid">
-        <article class="service-card rv">
-          <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <h3 class="service-card__title">Residential Demolition</h3>
-          <p class="service-card__desc">Complete house demolition, partial removal, and site preparation for rebuilds. Council coordination included.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <h3 class="service-card__title">Commercial Demolition</h3>
-          <p class="service-card__desc">Office strips, warehouse teardowns, retail fit-out removal. Structural and non-structural works.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22v-12"/><path d="M9 10h6"/><path d="M17 18a2 2 0 0 0 0-4H7a2 2 0 0 0 0 4h10"/><path d="M7 14h10"/></svg>
-          <h3 class="service-card__title">Asbestos Removal</h3>
-          <p class="service-card__desc">Licensed Class A & B removal. Friable and non-friable. Air monitoring, clearance certs, lawful disposal.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <h3 class="service-card__title">Rubbish Removal</h3>
-          <p class="service-card__desc">Construction waste, green waste, household junk. Skip bins supplied. Recycling-first disposal.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/><path d="M12 3v18"/></svg>
-          <h3 class="service-card__title">Land Clearing</h3>
-          <p class="service-card__desc">Vegetation clearing, tree removal, stump grinding, site leveling. Prep for construction or subdivision.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16"/><path d="M4 8h16"/><path d="M4 16h16"/></svg>
-          <h3 class="service-card__title">Pavement & Floor Removal</h3>
-          <p class="service-card__desc">Concrete, asphalt, tile, screed removal. Diamond sawing, jackhammering, surface prep for new finishes.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 6L12 18"/><path d="M12 18L4 6"/><path d="M8 12h8"/></svg>
-          <h3 class="service-card__title">Strip-Out</h3>
-          <p class="service-card__desc">Internal soft strip - partitions, ceilings, services, joinery. Clean shell handover for fit-out.</p>
-        </article>
-      </div>
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">What we do</span>
+      <h2>Seven things we do properly</h2>
+      <p>Everything on a demolition job, from the first strip-out to the last bin off site — one crew, one scope.</p>
     </div>
-  </section>
+    <div class="cards"><article class="card rv"><h3>Residential demolition</h3><p>Houses, duplexes, garages and outbuildings brought down and cleared, including slabs and driveways.</p></article><article class="card rv"><h3>Commercial demolition</h3><p>Shopfronts, warehouses and office interiors stripped back to shell for the next fit-out.</p></article><article class="card rv"><h3>Asbestos removal</h3><p>Asbestos sheeting, fencing, lagging and offcuts removed and bagged as part of the job.</p></article><article class="card rv"><h3>Rubbish removal</h3><p>Demolition spoil, green waste and general rubbish loaded out and disposed of.</p></article><article class="card rv"><h3>Land clearing</h3><p>Trees, scrub and old fencing cleared so the block is ready to work on.</p></article><article class="card rv"><h3>Pavement &amp; floor removal</h3><p>Concrete, asphalt, paving and tiled floors broken out and carted away.</p></article><article class="card rv"><h3>Strip-out</h3><p>Interiors taken back to frame and slab, services made safe and everything loose removed.</p></article></div>
+  </div>
+</section>
 
-  <!-- APPROACH / PROCESS -->
-  <section id="approach" class="approach section" aria-labelledby="approach-title">
-    <div class="container">
-      <header class="approach-head rv">
-        <h2 id="approach-title">How We Work</h2>
-        <p class="approach-head__desc">Plan. Permit. Execute. Certify. No shortcuts, no surprises.</p>
-      </header>
-      <div class="approach-steps">
-        <article class="step rv">
-          <div class="step__num">01</div>
-          <h3 class="step__title">Site Assessment & Quote</h3>
-          <p class="step__desc">Walk-through, scope confirmation, hazard ID (asbestos, services), fixed-price proposal.</p>
-        </article>
-        <article class="step rv">
-          <div class="step__num">02</div>
-          <h3 class="step__title">Permits & Notifications</h3>
-          <p class="step__desc">Council demo permits, WorkSafe asbestos notifications, utility disconnections, neighbour notices.</p>
-        </article>
-        <article class="step rv">
-          <div class="step__num">03</div>
-          <h3 class="step__title">Controlled Demolition / Removal</h3>
-          <p class="step__desc">Dust suppression, noise control, traffic management, progressive waste segregation, daily site logs.</p>
-        </article>
-        <article class="step rv">
-          <div class="step__num">04</div>
-          <h3 class="step__title">Asbestos Clearance & Certs</h3>
-          <p class="step__desc">Independent hygienist clearance, air monitoring reports, disposal dockets, site clearance certificate.</p>
-        </article>
-        <article class="step rv">
-          <div class="step__num">05</div>
-          <h3 class="step__title">Site Handover</h3>
-          <p class="step__desc">Level clean pad, compaction cert if required, all paperwork bundled, single point of contact.</p>
-        </article>
-      </div>
+<section class="sec sec-alt" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">On the tools</span>
+      <h2>Strip it out. Load it out. Level it.</h2>
+      <p>A demolition site is only finished when the material is gone and the block is clear to work on.</p>
     </div>
-  </section>
+    <div class="gal"><figure class="rv"><img src="assets/work-demolition.jpg" alt="Structure being demolished with concrete saws on site" loading="lazy" decoding="async"><figcaption><strong>Structure demolition</strong>Concrete broken out and stacked, saws and generator on site.</figcaption></figure><figure class="rv"><img src="assets/work-bin.jpg" alt="Skip bin being loaded by a hook truck" loading="lazy" decoding="async"><figcaption><strong>Rubbish removal</strong>Bins on site and loaded out as the demolition progresses.</figcaption></figure><figure class="rv"><img src="assets/work-stripout.jpg" alt="Interior stripped back during demolition" loading="lazy" decoding="async"><figcaption><strong>Strip-out</strong>Framing exposed and the interior taken back to structure.</figcaption></figure></div>
+    <p class="note">Photos are representative of the type of work Demolition Removal Group carries out.</p>
+  </div>
+</section>
 
-  <!-- SERVICE AREAS -->
-  <section id="areas" class="areas section" aria-labelledby="areas-title">
-    <div class="container">
-      <header class="areas-head rv">
-        <h2 id="areas-title">Where We Operate</h2>
-        <p class="areas-head__desc">Three metro regions. One standard of work.</p>
-      </header>
-      <div class="areas-list">
-        <span class="area-chip rv"><span class="mono">01</span> Sydney NSW</span>
-        <span class="area-chip rv"><span class="mono">02</span> Melbourne VIC</span>
-        <span class="area-chip rv"><span class="mono">03</span> Brisbane QLD</span>
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="split">
+      <div class="split-copy rv">
+        <span class="kicker">About us</span>
+        <h2>One crew for the whole demolition job</h2>
+        <p>Demolition Removal Group handles residential and commercial demolition, asbestos removal and strip-outs across Sydney, Melbourne and Brisbane. The scope covers the strip-out, the material coming out and the site being left clear.</p>
+        <p>We work Monday to Saturday, 7am to 6pm, and price the job as a whole — so there is one number for the demolition and the removal, not two contractors to chase.</p>
+        <ul class="checks"><li>Residential and commercial demolition</li><li>Asbestos removal and strip-outs</li><li>Rubbish removal and land clearing</li><li>Sydney, Melbourne and Brisbane</li></ul>
       </div>
-    </div>
-  </section>
-
-  <!-- DETAIL CANVAS - CLEARANCE PLAN -->
-  <section class="section section--tight" aria-labelledby="canvas-title">
-    <div class="container">
-      <h3 id="canvas-title" class="rv" style="font-family:var(--font-display); font-size:clamp(1.25rem,2.5vw,1.75rem); margin-bottom:var(--space-md); text-align:center;">Site Clearance Plan</h3>
-      <div class="canvas-wrap rv" role="img" aria-label="Plan-view lot drawing showing hatched demolition footprint, dashed truck route to street, skip-bin rectangle, asbestos-hold polygon with keeper hatch, chainage ticks, kerb line, and legend.">
-        <canvas id="clearance-canvas" aria-hidden="true"></canvas>
-      </div>
-      <div class="canvas-legend" id="canvas-legend" aria-hidden="true"></div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-brand__plate">
-          <img src="assets/logo.svg" alt="" class="footer-brand__logo" aria-hidden="true" width="160" height="90">
-        </div>
-        <p class="footer-brand__name">Demolition Removal Group</p>
-        <p class="footer-brand__trade">Demolition & Asbestos Removal</p>
-        <a href="tel:0495044285" class="footer-brand__phone mono">0495 044 285</a>
-      </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <p class="footer-nav__title">Quick Links</p>
-        <a href="#services" class="footer-nav__link">Services</a>
-        <a href="#approach" class="footer-nav__link">Our Approach</a>
-        <a href="#areas" class="footer-nav__link">Service Areas</a>
-        <a href="#lbq" class="footer-nav__link">Get a Quote</a>
-      </nav>
-      <div class="footer-areas">
-        <p class="footer-areas__title">Service Areas</p>
-        <div class="footer-areas__list">
-          <span class="footer-areas__item">Sydney NSW</span>
-          <span class="footer-areas__item">Melbourne VIC</span>
-          <span class="footer-areas__item">Brisbane QLD</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; <span id="year"></span> Demolition Removal Group. All rights reserved.</p>
-      <p><a href="#privacy" class="footer-nav__link">Privacy Policy</a> · <a href="#terms" class="footer-nav__link">Terms of Service</a></p>
+      <figure class="split-fig rv">
+        <img src="assets/work-cutting.jpg" alt="Concrete being cut out during demolition" loading="lazy" decoding="async" width="1600" height="1200">
+        <figcaption>Cutting out concrete and hardstand.</figcaption>
+      </figure>
     </div>
   </div>
+</section>
+
+<section class="sec sec-alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Common questions</span>
+      <h2>Questions we get asked</h2>
+    </div>
+    <div class="faq rv"><details><summary>Which areas do you cover?</summary><p>Sydney, Melbourne and Brisbane, with work further out depending on the job. Send the address and we will confirm.</p></details><details><summary>What are your hours?</summary><p>Monday to Saturday, 7am to 6pm.</p></details><details><summary>Do you handle the asbestos as well as the demolition?</summary><p>Yes. Asbestos removal is one of our services and comes out as part of the demolition scope.</p></details><details><summary>How do I get a price?</summary><p>Call 0495 044 285 or send the details through the quote form and we will come back to you.</p></details></div>
+  </div>
+</section>
+</main>
+
+<span id="quote" style="position:absolute;top:-90px"></span>
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,var(--text-muted,#5b6b7a));--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--mist,#e9eef4);--lbq-muted:#b9c0b1;--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:rgba(255,255,255,.055);--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
@@ -432,6 +245,7 @@ strong { font-weight: 700; }
 #lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
+#lbq h2,#lbq h3{color:var(--lbq-ink)}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
 #lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
 #lbq button:disabled{opacity:.6;cursor:wait}
@@ -535,385 +349,49 @@ strong { font-weight: 700; }
 })();
 </script>
 </section>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <img class="ftr-logo" src="assets/logo.png" alt="Demolition Removal Group logo" loading="lazy">
+        <div class="ftr-brand">
+          <img src="assets/logomark.svg" alt="" width="96" height="96">
+          <span class="n">Demolition Removal Group</span>
+        </div>
+        <p>Demolition, asbestos removal and rubbish removal across Sydney, Melbourne and Brisbane.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+61495044285">0495 044 285</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul><li><a href="#services">Residential demolition</a></li><li><a href="#services">Commercial demolition</a></li><li><a href="#services">Asbestos removal</a></li><li><a href="#services">Rubbish removal</a></li></ul>
+      </div>
+    </div>
+    <div class="ftr-bot">
+      <span>&copy; 2026 Demolition Removal Group. All rights reserved.</span>
+      <span></span>
+    </div>
+  </div>
 </footer>
 
-<section id="lbq" class="section section--last" aria-labelledby="lbq-title" style="display:none;">
-  <div class="container">
-    <header style="text-align:center; max-width:48rem; margin:0 auto var(--space-xl);">
-      <h2 id="lbq-title" class="rv">Get a Quote</h2>
-      <p class="rv" style="opacity:0.8;">Tell us the job. We will call you within one business day.</p>
-    </header>
-    <!-- Injected form lands here -->
-  </div>
-</section>
-
-<!-- LEGAL SECTIONS -->
-<section id="privacy" class="legal" aria-labelledby="privacy-title">
-  <div class="container">
-    <article class="legal-section rv">
-      <h2 id="privacy-title" class="legal-section__title">Privacy Policy</h2>
-      <div class="legal-section__text">
-        <p>We collect only the information you provide when you request a quote or contact us: name, phone, email, site address, and job details. This data is used solely to respond to your enquiry and prepare a quotation. We do not sell, rent, or share your personal information with third parties for marketing purposes. Data is retained only as long as necessary for business operations and legal compliance. You may request access, correction, or deletion of your data at any time by contacting us.</p>
-        <p>Our website uses no analytics cookies, no tracking pixels, and no third-party scripts that collect personal data. Server logs (IP, timestamp, requested resource) are kept for security and debugging for a maximum of 30 days.</p>
-        <p>Contact: <a href="tel:0495044285">0495 044 285</a></p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="terms" class="legal" aria-labelledby="terms-title">
-  <div class="container">
-    <article class="legal-section rv">
-      <h2 id="terms-title" class="legal-section__title">Terms of Service</h2>
-      <div class="legal-section__text">
-        <p>Use of this website constitutes acceptance of these terms. Information presented is for general guidance only and does not constitute professional advice. Quotations provided are estimates subject to site inspection and final scope agreement. All demolition and asbestos work is performed in accordance with applicable state legislation, codes of practice, and WorkSafe requirements. We hold current licences and insurances required for the works we undertake. Liability is limited to the extent permitted by law. These terms are governed by the laws of the state or territory in which the work is performed.</p>
-        <p>Contact: <a href="tel:0495044285">0495 044 285</a></p>
-      </div>
-    </article>
-  </div>
-</section>
-
 <script>
-// ===== REVEAL SYSTEM =====
-(function() {
-  'use strict';
-  
-  // Add .js class to html (NO-JS safety)
-  document.documentElement.classList.add('js');
-  
-  // Reveal initialization - MUST run after .rv elements exist
-  function initReveal() {
-    const ro = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('on');
-          ro.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-    
-    document.querySelectorAll('.rv').forEach(el => ro.observe(el));
-  }
-  
-  // 1100ms safety net - inline styles so content never stays hidden
-  function safetyNet() {
-    document.querySelectorAll('.rv:not(.on)').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      el.style.transition = 'none';
-      el.classList.add('on');
-    });
-  }
-  
-  // Reduced-motion block
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) {
-    document.querySelectorAll('.rv').forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      el.style.transition = 'none';
-      el.classList.add('on');
-    });
-  } else {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initReveal);
-    } else {
-      initReveal();
-    }
-    setTimeout(safetyNet, 1100);
-  }
-  
-  // Current year
-  document.getElementById('year').textContent = new Date().getFullYear();
-  
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href').slice(1);
-      const target = document.getElementById(targetId);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        target.focus({ preventScroll: true });
-      }
-    });
-  });
-})();
-
-// ===== DETAIL CANVAS - CLEARANCE PLAN =====
-(function() {
-  'use strict';
-  
-  const canvas = document.getElementById('clearance-canvas');
-  const legendWrap = document.getElementById('canvas-legend');
-  if (!canvas || !canvas.getContext) return;
-  
-  const ctx = canvas.getContext('2d');
-  let dpr = 1;
-  
-  function isFiniteNum(n) { return typeof n === 'number' && isFinite(n); }
-  
-  function resize() {
-    const parent = canvas.parentElement;
-    if (!parent) return;
-    const rect = parent.getBoundingClientRect();
-    if (!isFiniteNum(rect.width) || !isFiniteNum(rect.height) || rect.width <= 0 || rect.height <= 0) return;
-    
-    dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.floor(rect.width * dpr);
-    canvas.height = Math.floor(rect.height * dpr);
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    
-    draw(rect.width, rect.height);
-    buildLegend();
-  }
-  
-  function draw(w, h) {
-    // Clear
-    ctx.fillStyle = '#101210';
-    ctx.fillRect(0, 0, w, h);
-    
-    const pad = Math.max(24, Math.min(w, h) * 0.08);
-    const lotW = w - pad * 2;
-    const lotH = h - pad * 2;
-    const lotX = pad;
-    const lotY = pad;
-    
-    // Kerb line (street edge at bottom)
-    const kerbY = lotY + lotH;
-    ctx.strokeStyle = '#2b2f29';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(lotX - 10, kerbY);
-    ctx.lineTo(lotX + lotW + 10, kerbY);
-    ctx.stroke();
-    
-    // Kerb hatching (street side)
-    ctx.strokeStyle = '#2b2f29';
-    ctx.lineWidth = 1;
-    for (let x = lotX; x < lotX + lotW; x += 12) {
-      ctx.beginPath();
-      ctx.moveTo(x, kerbY);
-      ctx.lineTo(x + 8, kerbY + 10);
-      ctx.stroke();
-    }
-    
-    // Lot boundary
-    ctx.strokeStyle = '#eef0ea';
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([]);
-    ctx.strokeRect(lotX, lotY, lotW, lotH);
-    
-    // Chainage ticks (top and left)
-    ctx.strokeStyle = '#eef0ea';
-    ctx.lineWidth = 1;
-    ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#eef0ea';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'bottom';
-    const chainStep = Math.max(40, lotW / 10);
-    for (let x = lotX; x <= lotX + lotW; x += chainStep) {
-      ctx.beginPath();
-      ctx.moveTo(x, lotY - 6);
-      ctx.lineTo(x, lotY);
-      ctx.stroke();
-      if (x > lotX && x < lotX + lotW) {
-        const chainVal = Math.round((x - lotX) / chainStep) * 10;
-        ctx.fillText(chainVal + 'm', x, lotY - 8);
-      }
-    }
-    ctx.textAlign = 'right';
-    ctx.textBaseline = 'middle';
-    for (let y = lotY; y <= lotY + lotH; y += chainStep) {
-      ctx.beginPath();
-      ctx.moveTo(lotX - 6, y);
-      ctx.lineTo(lotX, y);
-      ctx.stroke();
-      if (y > lotY && y < lotY + lotH) {
-        const chainVal = Math.round((y - lotY) / chainStep) * 10;
-        ctx.fillText(chainVal + 'm', lotX - 8, y);
-      }
-    }
-    
-    // Demolition footprint (hatched rectangle, offset from boundaries)
-    const footW = lotW * 0.55;
-    const footH = lotH * 0.5;
-    const footX = lotX + (lotW - footW) * 0.55;
-    const footY = lotY + (lotH - footH) * 0.35;
-    
-    // Hatch pattern
-    ctx.strokeStyle = '#ff6a1f';
-    ctx.lineWidth = 1;
-    ctx.globalAlpha = 0.6;
-    const hatchSpacing = 10;
-    for (let i = -footH; i < footW + footH; i += hatchSpacing) {
-      ctx.beginPath();
-      ctx.moveTo(footX + i, footY);
-      ctx.lineTo(footX + i - footH, footY + footH);
-      ctx.stroke();
-    }
-    ctx.globalAlpha = 1;
-    
-    // Footprint outline
-    ctx.strokeStyle = '#ff6a1f';
-    ctx.lineWidth = 2;
-    ctx.setLineDash([]);
-    ctx.strokeRect(footX, footY, footW, footH);
-    
-    // Footprint label
-    ctx.font = '11px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#ff6a1f';
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'top';
-    ctx.fillText('DEMO FOOTPRINT', footX + 6, footY + 6);
-    
-    // Truck route (dashed line from footprint to kerb)
-    const truckStartX = footX + footW / 2;
-    const truckStartY = footY + footH;
-    const truckEndX = truckStartX;
-    const truckEndY = kerbY - 8;
-    
-    ctx.strokeStyle = '#eef0ea';
-    ctx.lineWidth = 2;
-    ctx.setLineDash([12, 8]);
-    ctx.beginPath();
-    ctx.moveTo(truckStartX, truckStartY);
-    ctx.lineTo(truckEndX, truckEndY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    
-    // Truck arrow at kerb
-    ctx.fillStyle = '#eef0ea';
-    ctx.beginPath();
-    ctx.moveTo(truckEndX, truckEndY);
-    ctx.lineTo(truckEndX - 6, truckEndY + 10);
-    ctx.lineTo(truckEndX + 6, truckEndY + 10);
-    ctx.closePath();
-    ctx.fill();
-    
-    // Truck label
-    ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#eef0ea';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('TRUCK ROUTE', truckEndX, truckEndY - 14);
-    
-    // Skip bin (rectangle near truck route)
-    const skipW = Math.min(60, lotW * 0.15);
-    const skipH = Math.min(40, lotH * 0.1);
-    const skipX = lotX + lotW - skipW - 20;
-    const skipY = kerbY - skipH - 20;
-    
-    ctx.strokeStyle = '#2b2f29';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(skipX, skipY, skipW, skipH);
-    
-    // Skip cross-hatch
-    ctx.strokeStyle = '#2b2f29';
-    ctx.lineWidth = 1;
-    ctx.globalAlpha = 0.4;
-    for (let x = skipX; x < skipX + skipW; x += 8) {
-      ctx.beginPath();
-      ctx.moveTo(x, skipY);
-      ctx.lineTo(x, skipY + skipH);
-      ctx.stroke();
-    }
-    for (let y = skipY; y < skipY + skipH; y += 8) {
-      ctx.beginPath();
-      ctx.moveTo(skipX, y);
-      ctx.lineTo(skipX + skipW, y);
-      ctx.stroke();
-    }
-    ctx.globalAlpha = 1;
-    
-    ctx.font = '9px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#eef0ea';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('SKIP BIN', skipX + skipW / 2, skipY + skipH / 2);
-    
-    // Asbestos hold polygon (irregular polygon with keeper hatch)
-    const holdCx = footX - 40;
-    const holdCy = footY + footH * 0.6;
-    const holdPts = [
-      { x: holdCx - 35, y: holdCy - 20 },
-      { x: holdCx + 10, y: holdCy - 25 },
-      { x: holdCx + 30, y: holdCy + 5 },
-      { x: holdCx + 5, y: holdCy + 25 },
-      { x: holdCx - 30, y: holdCy + 10 }
-    ];
-    
-    ctx.strokeStyle = '#E65100';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(holdPts[0].x, holdPts[0].y);
-    for (let i = 1; i < holdPts.length; i++) {
-      ctx.lineTo(holdPts[i].x, holdPts[i].y);
-    }
-    ctx.closePath();
-    ctx.stroke();
-    
-    // Keeper hatch (small rectangle on polygon edge)
-    const hatchX = holdPts[1].x - 5;
-    const hatchY = holdPts[1].y - 18;
-    const hatchW = 18;
-    const hatchH = 12;
-    
-    ctx.fillStyle = '#E65100';
-    ctx.globalAlpha = 0.3;
-    ctx.fillRect(hatchX, hatchY, hatchW, hatchH);
-    ctx.globalAlpha = 1;
-    ctx.strokeStyle = '#E65100';
-    ctx.lineWidth = 1.5;
-    ctx.strokeRect(hatchX, hatchY, hatchW, hatchH);
-    
-    // Asbestos label
-    ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#E65100';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'bottom';
-    ctx.fillText('ASBESTOS HOLD', holdCx, holdPts[0].y - 6);
-    
-    // Ink verification - ensure >=2% painted pixels
-    // The drawing above guarantees painted content across the canvas
-  }
-  
-  function buildLegend() {
-    if (!legendWrap) return;
-    legendWrap.innerHTML = '';
-    
-    const items = [
-      { color: '#eef0ea', label: 'Lot boundary' },
-      { color: '#ff6a1f', label: 'Demolition footprint (hatched)' },
-      { color: '#eef0ea', label: 'Truck route (dashed)' },
-      { color: '#2b2f29', label: 'Skip bin' },
-      { color: '#E65100', label: 'Asbestos hold + keeper hatch' },
-      { color: '#2b2f29', label: 'Kerb line' },
-      { color: '#eef0ea', label: 'Chainage ticks (10m)' }
-    ];
-    
-    items.forEach(item => {
-      const el = document.createElement('span');
-      el.className = 'canvas-legend__item';
-      el.innerHTML = '<span class="canvas-legend__swatch" style="background:' + item.color + '"></span>' + item.label;
-      legendWrap.appendChild(el);
-    });
-  }
-  
-  // Initial draw and resize handling
-  let resizeTimer;
-  function scheduleResize() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(resize, 50);
-  }
-  
-  window.addEventListener('resize', scheduleResize);
-  window.addEventListener('load', resize);
-  
-  // Force initial draw after a tick
-  setTimeout(resize, 0);
+(function(){
+  document.documentElement.className += ' js';
+  var els = document.querySelectorAll('.rv');
+  function allOn(){ for (var i=0;i<els.length;i++) els[i].classList.add('on'); }
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(en){
+      for (var i=0;i<en.length;i++){ if (en[i].isIntersecting){ en[i].target.classList.add('on'); io.unobserve(en[i].target); } }
+    }, {rootMargin:'0px 0px -8% 0px', threshold:.06});
+    for (var i=0;i<els.length;i++) io.observe(els[i]);
+  } else { allOn(); }
+  setTimeout(allOn, 1400);
 })();
 </script>
 </body>
