@@ -71,7 +71,7 @@ p{max-width:62ch}
   display:flex;align-items:center;gap:11px;min-width:0;
   color:var(--ink);white-space:nowrap;flex:0 1 auto;
 }
-.brand__mark{width:38px;height:38px;flex:0 0 auto;display:block}
+.brand__mark{width:34px;height:34px;flex:0 0 auto;display:block;object-fit:contain}
 .brand__name{
   font-size:15px;font-weight:600;letter-spacing:-.005em;line-height:1;
   overflow:hidden;text-overflow:ellipsis;
@@ -91,30 +91,30 @@ p{max-width:62ch}
 .hero{position:relative;background:var(--field);border-bottom:1px solid var(--line-soft);overflow:hidden}
 .hero-in{
   display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
-  align-items:center;gap:clamp(20px,4vw,48px);
+  align-items:center;gap:clamp(16px,3vw,36px);
   min-height:min(74vh,640px);padding-top:clamp(40px,5vw,68px);padding-bottom:clamp(40px,5vw,68px);
 }
 .hero-copy{position:relative;z-index:2;padding-block:8px}
-.hero-copy .eyebrow{margin-bottom:18px;display:block}
-.hero-copy h1{max-width:15ch;margin-bottom:20px}
+.hero-copy .eyebrow{margin-bottom:28px;display:block}
+.hero-copy h1{max-width:15ch;margin-bottom:22px}
 .hero-copy .lead{max-width:44ch;margin-bottom:30px}
 .hero-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  background:var(--ink);color:var(--field-deep);
+  background:var(--ink);color:var(--field-deep);white-space:nowrap;
   font-size:15px;font-weight:600;padding:14px 26px;border-radius:2px;
   transition:background .18s,color .18s;
 }
 .btn:hover{background:var(--brass);color:var(--field-deep)}
-.hero-note{font-size:13px;color:var(--muted);max-width:20ch;line-height:1.4}
+.hero-note{font-size:14px;color:#c6d5cb;max-width:22ch;line-height:1.45}
 .hero-scene{
-  position:relative;align-self:stretch;min-height:420px;
+  position:relative;z-index:1;isolation:isolate;align-self:center;width:100%;aspect-ratio:5/4;
   margin-right:calc(var(--gut) * -1);
 }
-.hero-scene canvas{display:block;width:100%;height:100%;min-height:360px}
+.hero-scene canvas{display:block;width:100%;height:100%;z-index:0}
 .hero-scene::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(90deg,var(--field) 0%,rgba(29,58,51,0) 26%);
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(90deg,var(--field) 0%,rgba(29,58,51,.55) 18%,rgba(29,58,51,0) 40%);
 }
 
 /* ---------- services ---------- */
@@ -208,8 +208,8 @@ p{max-width:62ch}
 @media (max-width:980px){
   .nav{display:none}
   .hero-in{grid-template-columns:1fr;min-height:0;gap:24px}
-  .hero-scene{min-height:320px;margin-right:0;margin-left:calc(var(--gut) * -1)}
-  .hero-scene canvas{min-height:320px;height:320px}
+  .hero-scene{aspect-ratio:4/3;margin-right:0;margin-left:calc(var(--gut) * -1)}
+  .hero-scene canvas{height:100%}
   .hero-scene::after{background:linear-gradient(180deg,var(--field) 0%,rgba(29,58,51,0) 30%)}
   .quote-in{grid-template-columns:1fr;gap:28px}
   .statement .wrap{grid-template-columns:1fr;align-items:start}
@@ -217,7 +217,7 @@ p{max-width:62ch}
 }
 @media (max-width:640px){
   .brand__name{font-size:13px}
-  .brand__mark{width:34px;height:34px}
+  .brand__mark{width:30px;height:30px}
   .hero-copy h1{max-width:18ch}
   .svc a{grid-template-columns:34px 1fr;gap:6px 14px;padding:22px 4px}
   .svc .num{grid-row:1;align-self:start;padding-top:4px}
@@ -230,19 +230,19 @@ p{max-width:62ch}
 </style>
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">.hero{display:flex;align-items:center}.hero>.wrap{flex:1 1 auto;position:relative;z-index:2}.hero:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.24)}.hero-scene canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
-<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
+<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:6!important}[class*=hero] canvas{pointer-events:none!important}</style><!--/LB-HEROCOPY-->
 
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
+<!--LB-HEROCOPY2--><style id="lb-herocopy2">.hero canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}.hero-copy,.hero__copy{position:relative!important;z-index:3!important;width:100%!important;max-width:none!important;flex:1 1 auto!important}.hero-copy h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
 
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+<!--LB-CANVASZ--><style id="lb-canvasz">.hero canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
 
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+<!--LB-H1W--><style id="lb-h1w">.hero h1,.hero-copy h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4vw,3.1rem)!important;line-height:1.1!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}.hero-copy h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
@@ -252,7 +252,7 @@ p{max-width:62ch}
 <header class="site-header">
   <div class="wrap header-in">
     <a class="brand" href="./" aria-label="T J Nielsen Building Pty Ltd — home">
-      <img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async">
+      <img src="assets/logo.svg" alt="" class="brand__mark lb-logo" loading="eager" decoding="async">
       <span class="brand__name">T J Nielsen Building Pty Ltd</span>
     </a>
     <nav class="nav" aria-label="Main">
@@ -272,7 +272,7 @@ p{max-width:62ch}
       <h1>Renovations and bathrooms, set out and built properly.</h1>
       <p class="lead">Bathrooms, full home renovations and interior updates — framed, waterproofed and finished by the builder who quoted it.</p>
       <div class="hero-cta">
-        <a class="btn" href="tel:0423588424">Call 0423 588 424</a>
+        <a class="btn" href="tel:0423588424">Call&nbsp;0423&nbsp;588&nbsp;424</a>
         <span class="hero-note">Free walk-through, straight talk on scope.</span>
       </div>
     </div>
@@ -387,7 +387,7 @@ p{max-width:62ch}
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <img src="assets/logomark.svg" alt="" width="32" height="32">
+        <img src="assets/logo.svg" alt="" width="32" height="32">
         <span>T J Nielsen Building Pty Ltd</span>
       </div>
       <div class="foot-meta">

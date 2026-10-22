@@ -12,7 +12,8 @@
   --bg:#f4f6f8; --bg2:#ffffff; --ink:#131a26; --ink2:#5c6675;
   --acc:#204078; --acc2:#3a5f9e; --blue:#2f5da8; --blue2:#9db8e8;
   --line:rgba(19,26,38,.12); --sky1:#dfe9f4; --sky2:#f3f6f8;
-  --nav-h:74px;
+  --nav-h:98px;
+  --nav-h-height:86px;
   --disp:'Barlow Condensed','Arial Narrow',sans-serif; --body-font:'Encode Sans',sans-serif;
   --font-m:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
@@ -281,7 +282,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="hero-copy" id="heroCopy">
     <p class="k"><i></i>Licensed roof tiler · Central Coast NSW</p>
-    <h1>Roofing done <em>right</em>, the first time.</h1>
+    <h1>Roofing done <em>right</em>,<br class="brk"> the first time.</h1>
     <p class="d">Roof repairs, full restorations, gutters, fascia, downpipes and leak detection across the Central Coast and surrounds. Tiled roofs, done properly, by someone who has worked on them his whole career.</p>
     <div class="cta">
       <a class="btn btn--p" href="#quote">Get a free quote</a>
@@ -497,9 +498,9 @@ html,body{overflow-x:hidden}
   </div>
   <div class="footer-bar mono">
     <span>© <span id="year"></span> DONE RIGHT ROOF &amp; RESTORATION · LIC 465538C</span>
-    <span><a href="tel:0402369358">0402 369 358</a><a href="mailto:donerightcodie@gmail.com">donerightcodie@gmail.com</a></span>
+    <span class="lb-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></span>
   </div>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+</footer>
 <script>(function(){
   var obs=new IntersectionObserver(function(es){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
@@ -703,6 +704,46 @@ section,header,footer,.wrap,.container,.inner,[class*="section"]{
   .lb-brand__mark{height:32px !important;max-width:40vw !important}
   .lb-brand__word{font-size:.92em !important}
 }
+</style>
+
+<style id="radar151-repair">
+/* ---- 1. hero copy must stack as a column ----------------------------------
+   The global `[class*=hero]` rule in lb-heroh also matched `.hero-copy` and
+   turned it into a centred flex ROW: the h1 was squeezed to 397px (four lines)
+   and `.cta` was pushed hard against the credentials strip (0px gap). */
+.hero{display:flex;align-items:center;min-height:0;max-height:none;height:auto}
+.hero .hero-copy{
+  display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  flex:0 1 auto!important;margin-right:auto!important;max-height:none!important;
+  width:min(700px,92vw)!important;max-width:min(700px,92vw)!important;
+  padding:calc(var(--nav-h) + 3.4vh) clamp(1.2rem,4.5vw,4rem) 3.2rem}
+.hero-copy h1{font-size:clamp(2.05rem,3.7vw,3.15rem)!important;line-height:1.06!important;max-width:none!important;width:100%!important;text-wrap:balance}
+.hero-copy .d{margin:1.15rem 0 0;max-width:50ch!important}
+.hero-copy .cta{margin-top:1.7rem;gap:.9rem}
+.hero-copy .strip{margin-top:1.7rem;gap:1.9rem 1.6rem;padding-top:1.3rem}
+@media (max-width:560px){.hero-copy h1 .brk{display:none}}
+
+/* ---- 2. logo: it was a 59px-wide mark losing against a 26px wordmark ------ */
+.nav{height:var(--nav-h)}
+.nav .lb-brand__mark{height:84px!important;max-width:none!important}
+.nav .lb-brand__mark img{height:84px!important;width:auto!important;image-rendering:-webkit-optimize-contrast}
+.nav .lb-brand__name{font-size:clamp(18px,1.95vw,25px)!important}
+@media (max-width:900px){.nav .lb-brand__mark,.nav .lb-brand__mark img{height:62px!important}}
+@media (max-width:640px){.nav .lb-brand__mark,.nav .lb-brand__mark img{height:50px!important}}
+
+/* ---- 3. carousel: sat full-bleed at 630px tall, off the page grid --------- */
+.lb-rb{max-width:1220px;margin:clamp(2.4rem,5vh,4rem) auto;border-radius:10px}
+.lb-rb__track{aspect-ratio:2.5/1}
+.lb-rb__cap{right:auto;left:18px;bottom:18px;padding:9px 15px;border-radius:5px;
+  font-size:12px;letter-spacing:.1em}
+@media (max-width:700px){.lb-rb{border-radius:0}.lb-rb__track{aspect-ratio:4/3}.lb-rb__cap{left:12px;bottom:12px}}
+
+/* ---- 4. footer legal links were off-grid full-bleed and contact repeated -- */
+.footer-bar{align-items:center}
+.footer-bar .lb-legal{display:flex;gap:20px;margin:0}
+.footer-bar .lb-legal a{padding:0;text-decoration:none;color:#c6d0dd}
+.footer-bar .lb-legal a:hover{color:#fff;text-decoration:underline}
+footer{padding-bottom:30px}
 </style>
 
 <style>/* ==== LB HEADER POLISH 2 ==== */
