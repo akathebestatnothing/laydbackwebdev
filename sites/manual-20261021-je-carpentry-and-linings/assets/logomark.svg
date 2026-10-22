@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" role="img" aria-label="JE Carpentry and Linings monogram">
+  <defs>
+    <linearGradient id="jePlate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#414a80"/>
+      <stop offset="1" stop-color="#2b3159"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.5" y="1.5" width="93" height="93" rx="15" fill="url(#jePlate)" stroke="#6b76b4" stroke-width="1.5"/>
+  <rect x="1.5" y="1.5" width="93" height="93" rx="15" fill="none" stroke="#f5f5f0" stroke-opacity=".16" stroke-width="1.5"/>
+  <g fill="none" stroke="#f5f5f0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M31 31v20.5c0 5.4-4.1 9.5-9.5 9.5S12 56.9 12 51.5"/>
+    <path d="M46 31h21"/>
+    <path d="M46 46.5h16"/>
+    <path d="M46 62h21"/>
+    <path d="M46 31v31"/>
+  </g>
+  <rect x="24" y="74" width="48" height="4" rx="2" fill="#f5f5f0" fill-opacity=".55"/>
+</svg>
