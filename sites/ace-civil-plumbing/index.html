@@ -15,6 +15,7 @@
   --ink:#eef2f5; --ink-2:#c8d2da; --mut:#9aa8b4;
   --bg:#0b1016; --bg-2:#0f161d; --panel:#121a22;
   --acc:#0c3c6c; --acc-hi:#ff8f3d; --acc-ink:#0b1016;
+  --acc-txt:#7db4e6; --acc-on:#ffffff;
   --line:rgba(238,242,245,.14); --line-2:rgba(238,242,245,.08);
   --lb-name:#eef2f5;
   --gut:clamp(20px,4vw,44px);
@@ -30,23 +31,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 h1,h2,h3{margin:0;font-weight:800;line-height:1.08;text-wrap:balance}
 p{margin:0}
 .wrap{max-width:1140px;margin:0 auto;padding:0 var(--gut)}
-.skip{position:absolute;left:-9999px;top:0;background:var(--acc);color:var(--acc-ink);padding:10px 16px;z-index:200;font-weight:700}
+.skip{position:absolute;left:-9999px;top:0;background:var(--acc);color:var(--acc-on);padding:10px 16px;z-index:200;font-weight:700}
 .skip:focus{left:12px;top:12px}
 
 /* ---------- header: mark + name on one line, links right ---------- */
 header.site-head{position:sticky;top:0;z-index:60;background:#0c1117;border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:14px;min-height:var(--hdr);max-width:1320px;margin:0 auto;padding:0 var(--gut)}
 .brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 0 auto}
-.brand-mark{flex:0 0 auto;width:38px;height:38px;background:#f5f3ef;border-radius:8px;padding:5px;display:block}
-.brand-mark img{width:100%;height:100%;object-fit:contain}
+.brand-mark{flex:0 0 auto;width:50px;height:50px;background:#fff;border-radius:10px;padding:4px;display:block;overflow:hidden}
+.brand-mark img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
 .brand-name{font-size:clamp(13px,1.28vw,17px);font-weight:800;white-space:nowrap;line-height:1.1}
-.nav{display:flex;align-items:center;gap:26px;margin-left:auto}
+.nav{display:flex;align-items:center;gap:24px;margin-left:auto}
 .nav a{font-size:15px;font-weight:600;color:var(--ink-2);padding:6px 0;border-bottom:1px solid transparent}
-.nav a:hover{color:var(--ink);border-color:var(--acc)}
-.call{display:inline-flex;align-items:center;gap:6px;background:var(--acc);color:var(--acc-ink) !important;
-  font-weight:800;font-size:15px;padding:11px 16px;border-radius:8px;white-space:nowrap;flex:0 0 auto;border:0 !important}
-.call:hover{background:var(--acc-hi)}
-.call span{font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
+.nav a:hover{color:var(--ink);border-color:var(--acc-txt)}
+.nav a.call{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--acc);color:var(--acc-on) !important;
+  font-weight:800;font-size:15px;padding:12px 22px;border-radius:8px;white-space:nowrap;flex:0 0 auto;border:0;letter-spacing:.01em;line-height:1.25}
+.nav a.call:hover{background:var(--acc-hi);color:var(--acc-ink) !important;border-color:transparent}
+.call span{font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.07em;opacity:.9}
 .burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:8px;background:none;
   flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;flex:0 0 auto}
 .burger i{display:block;width:18px;height:2px;background:var(--ink)}
@@ -58,28 +59,31 @@ header.site-head{position:sticky;top:0;z-index:60;background:#0c1117;border-bott
   .nav a:hover{border-color:var(--line-2)}
   .burger{display:flex;margin-left:auto}
   .call span{display:none}
-  .call{padding:12px 14px}
+  .nav a.call{padding:13px 20px;margin-top:6px}
 }
-@media (max-width:520px){.brand-mark{width:34px;height:34px}}
+@media (max-width:520px){.brand-mark{width:44px;height:44px}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;display:flex;align-items:center;
   min-height:clamp(560px,80svh,740px);padding:56px 0 64px;background:#0a0f14;isolation:isolate}
 #heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(10,15,20,.94) 0%,rgba(10,15,20,.72) 42%,rgba(10,15,20,.18) 68%,rgba(10,15,20,0) 86%)}
 .hero .wrap{position:relative;z-index:2}
 .hero-copy{max-width:640px}
-.kicker{font-size:14px;font-weight:700;color:var(--acc-hi);margin-bottom:18px}
-h1{font-size:clamp(2.35rem,5.1vw,3.9rem);line-height:1.02;letter-spacing:-.02em;margin-bottom:22px}
-h1 em{font-style:normal;color:var(--acc)}
+.kicker{font-size:14px;font-weight:700;color:var(--acc-hi);margin-bottom:18px;letter-spacing:.02em}
+h1{font-size:clamp(2.35rem,5.1vw,3.9rem);line-height:1.02;letter-spacing:-.02em;margin-bottom:22px;
+  text-shadow:0 1px 20px rgba(8,12,17,.55)}
+h1 em{font-style:normal;color:var(--acc-txt)}
 .hero p{font-size:clamp(1rem,1.35vw,1.16rem);color:var(--ink-2);max-width:46ch;margin-bottom:30px}
-.btn{display:inline-flex;align-items:center;gap:12px;background:var(--acc);color:var(--acc-ink);
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--acc);color:var(--acc-on);
   font-weight:800;font-size:18px;padding:15px 24px;border-radius:8px;border:0;cursor:pointer;
   transition:background .2s,transform .2s}
-.btn:hover{background:var(--acc-hi);transform:translateY(-1px)}
-.btn small{font-weight:600;font-size:13px;opacity:.75;display:block;line-height:1.2}
+.btn:hover{background:var(--acc-hi);color:var(--acc-ink);transform:translateY(-1px)}
+.btn small{font-weight:600;font-size:13px;opacity:.85;display:block;line-height:1.2}
 .facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;font-size:14px;color:var(--mut)}
 .facts span{display:flex;align-items:center;gap:8px}
-.facts span::before{content:"";width:6px;height:6px;background:var(--acc);border-radius:50%;flex:0 0 auto}
+.facts span::before{content:"";width:6px;height:6px;background:var(--acc-txt);border-radius:50%;flex:0 0 auto}
 @media (max-width:620px){
   .hero{min-height:clamp(520px,86svh,680px);align-items:flex-end;padding-bottom:44px}
   .btn{width:100%;justify-content:center}
@@ -93,7 +97,7 @@ section{position:relative}
 .head{max-width:620px;margin-bottom:clamp(36px,5vw,56px)}
 .head h2{font-size:clamp(1.6rem,3.4vw,2.4rem);letter-spacing:-.015em;margin-bottom:14px}
 .head p{color:var(--mut);font-size:16px}
-.idx{font-size:13px;font-weight:700;color:var(--acc);margin-bottom:10px}
+.idx{font-size:13px;font-weight:700;color:var(--acc-txt);margin-bottom:10px}
 
 /* services: two led, four listed */
 .svc-lead{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
@@ -112,7 +116,7 @@ section{position:relative}
 
 /* process: four columns under a rule */
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
-.steps li{border-top:2px solid var(--acc);padding-top:18px}
+.steps li{border-top:2px solid var(--acc-txt);padding-top:18px}
 .steps h3{font-size:17px;margin-bottom:8px}
 .steps p{color:var(--mut);font-size:14.5px}
 .steps .idx{margin-bottom:12px}
@@ -191,7 +195,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;font-size:14px;color
 <header class="site-head">
   <div class="bar">
     <a class="brand" href="#top" aria-label="Ace Civil Plumbing &amp; Drainage, home">
-      <span class="brand-mark"><img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async"></span>
+      <span class="brand-mark"><img src="assets/lb-mark_ace-civil-plumbing.png" width="50" height="50" alt="" class="lb-logo" loading="eager" decoding="async"></span>
       <span class="brand-name">Ace Civil Plumbing & Drainage</span>
     </a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
@@ -350,7 +354,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 34px;font-size:14px;color
         <div>
           <p class="idx">Quote</p>
           <h2 id="quote-h">Tell us about the job</h2>
-          <p>Scope, location and timing is enough to start. We come back with a firm price and no obligation.</p>
+          <p>Scope, location and timing are enough to start. We come back with a firm price and no obligation.</p>
           <dl class="contact">
             <div><dt>Phone</dt><dd><a href="tel:0422569989">0422 569 989</a></dd></div>
             <div><dt>Region</dt><dd>South East Queensland</dd></div>

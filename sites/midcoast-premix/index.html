@@ -46,7 +46,7 @@ section{padding:clamp(58px,8vw,104px) 0}
 .nav{position:sticky;top:0;z-index:60;background:var(--night);border-bottom:1px solid var(--line-dark)}
 .nav-in{display:flex;align-items:center;gap:clamp(10px,1.6vw,26px);height:74px;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0;flex:0 1 auto;--lb-name:#ffffff;}
-.brand__mark{width:40px;height:40px;flex:0 0 auto;border-radius:7px;display:block}
+.brand__mark,.brand img{width:40px;height:40px;flex:0 0 auto;border-radius:7px;display:block;object-fit:contain}
 .brand__name{font-size:clamp(15px,1.45vw,19px);font-weight:800;line-height:1;letter-spacing:-.012em;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand__name b{font-weight:800;color:var(--acc)}
 .nav__links{display:flex;align-items:center;gap:clamp(14px,1.9vw,30px);margin-left:auto}
@@ -62,10 +62,15 @@ section{padding:clamp(58px,8vw,104px) 0}
 
 /* ---- hero ------------------------------------------------------------ */
 header{background:var(--night)}
-.hero{position:relative;background:var(--night);color:#fff;padding:0;overflow:hidden;display:flex;align-items:center;min-height:clamp(540px,80vh,760px)}
+.hero{position:relative;background:var(--night);color:#fff;padding:0;overflow:hidden;display:flex;align-items:center;min-height:clamp(500px,70vh,620px)}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
-.hero-in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:clamp(52px,8vh,96px) var(--pad) clamp(34px,6vh,58px)}
-.hero__top{display:flex;align-items:center;gap:12px;font-size:var(--fs-12);font-weight:700;color:#e3d5df;margin-bottom:22px}
+.hero-in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);column-gap:clamp(30px,4.5vw,64px);align-items:center;padding:clamp(40px,6vh,64px) var(--pad) clamp(34px,5vh,52px)}
+.hero__copy{grid-column:1;min-width:0}
+.hero__media{grid-column:2;margin:0;position:relative;min-width:0}
+.hero__media img{width:100%;height:clamp(280px,40vh,384px);object-fit:cover;object-position:center 62%;border-radius:6px;border:1px solid var(--line-dark)}
+.hero__media figcaption{position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:8px;background:rgba(12,11,16,.82);backdrop-filter:blur(4px);border:1px solid var(--line-dark);border-radius:4px;padding:7px 11px;font-size:var(--fs-12);font-weight:700;color:#fff}
+.hero__media figcaption::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);flex:0 0 auto}
+.hero__top{display:flex;align-items:center;gap:12px;font-size:var(--fs-12);font-weight:700;color:#e3d5df;margin-bottom:20px}
 .hero__top::before{content:"";width:26px;height:2px;background:var(--acc);flex:0 0 auto}
 .hero h1{max-width:19ch}
 .hero h1 em{font-style:normal;color:var(--acc)}
@@ -121,9 +126,18 @@ header{background:var(--night)}
 .stage p{font-size:var(--fs-14);color:var(--ink-2);line-height:1.55}
 
 /* ---- work strip ------------------------------------------------------ */
-.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 14px;scrollbar-color:var(--acc) var(--paper-2)}
+.strip-outer{position:relative;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.strip{display:flex;gap:16px;overflow-xauto;overflow-x:auto;scroll-snap-type:x mandatory;paddingmn:0;padding:0 0 14px;scrollbar-color:var(--acc) var(--paper-2)}
+.strip__bar{display:flex;align-items:center;justify-content:flex-end;gapmn:0;gapmn:14px;gap:10px;margin-bottommn:0;margin-bottommn:16px;margin-bottom:16px}
+.strip__hint{font-sizemn:0;font-size:var(--fs-12);font-weight:700;color:var(--ink-3);margin-rightmn:0;margin-right:auto;letter-spacing:.02em;text-transform:uppercase}
+.strip__btn{widthmn:0;width:38px;heightmn:0;height:38px;display:grid;place-itemsmn:0;place-items:center;background:#fff;border:1px solid var(--line);border-radiusmn:0;border-radius:50%;cursorbn:0;cursor:pointer;colorbn:0;color:var(--ink);transitionbn:0;transition:border-color .18s ease,background .18s ease}
+.strip__btn:hover{border-color:var(--ink);backgroundbn:0;backgroundbn2:0;background:var(--paper-2)}
+.strip__btn:disabled{opacitybn:0;opacity:.35;cursor:default}
 .strip figure{flex:0 0 auto;width:min(400px,74vw);margin:0;scroll-snap-align:start}
 .strip img{width:100%;height:270px;object-fit:cover;border-radius:6px}
+.process{padding-bottombn:0;padding-bottom:clamp(40px,5vw,64px)}
+.work .shead{margin-bottom:18px}
+.work{padding-top:clamp(36px,4.5vw,58px);padding-bottom:clamp(46px,5vw,72px)}
 .strip figcaption{font-size:var(--fs-12);color:var(--ink-3);margin-top:8px;font-weight:600}
 
 /* ---- quote ----------------------------------------------------------- */
@@ -168,6 +182,9 @@ footer .legal a{display:inline;padding:0}
 /* ---- responsive ------------------------------------------------------ */
 @media (max-width:900px){
   .supply,.quote__in{grid-template-columns:1fr}
+  .hero-in{grid-template-columns:1fr;row-gap:28px}
+  .hero__copy,.hero__media{grid-column:1}
+  .hero__media img{height:260px;object-position:center 58%}
   .supply__aside{position:static;order:-1}
   .supply__aside img{height:230px}
   .batch .wrap{grid-template-columns:1fr 1fr}
@@ -183,6 +200,9 @@ footer .legal a{display:inline;padding:0}
   .nav__call{margin-left:auto;padding:10px 13px}
   .burger{display:grid}
   .hero{min-height:auto}
+  .hero-in{grid-template-columns:1fr;row-gapmn:0;row-gap:26px}
+  .hero__copy,.hero__media{grid-column:1}
+  .hero__media img{heightbm:0;heightb:0;height:230px}
   .hero h1{font-size:clamp(34px,9.6vw,52px)}
   .hero__facts{grid-template-columns:1fr;gap:12px}
   .fields{grid-template-columns:1fr}
@@ -225,6 +245,7 @@ footer .legal a{display:inline;padding:0}
 <header class="hero" id="top">
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="hero-in">
+    <div class="hero__copy">
     <p class="hero__top">Ready-mix concrete · Forster &amp; the Great Lakes</p>
     <h1>Concrete batched fresh, <em>on your pour window.</em></h1>
     <p class="sub">Slabs, driveways, footings and commercial supply for Forster, Tuncurry and the lower Lakes, mixed to the strength the job calls for.</p>
@@ -240,6 +261,11 @@ footer .legal a{display:inline;padding:0}
       <div><dt>Base</dt><dd>Forster NSW</dd></div>
       <div><dt>Delivery</dt><dd>Booked windows</dd></div>
     </dl>
+    </div>
+    <figure class="hero__media">
+      <img src="images/work_01.jpg" alt="MidCoast Pre-Mix agitator on a residential pour in Forster" width="1080" height="810" loading="eager" decoding="async">
+      <figcaption>Pour day, Forster</figcaption>
+    </figure>
   </div>
 </header>
 
@@ -306,7 +332,7 @@ footer .legal a{display:inline;padding:0}
   </div>
 </section>
 
-<section id="process" class="rule">
+<section id="process" class="rule process">
   <div class="wrap">
     <div class="shead">
       <h2>From the phone call to the pour.</h2>
@@ -333,14 +359,20 @@ footer .legal a{display:inline;padding:0}
   </div>
 </section>
 
-<section id="work">
+<section id="work" class="work">
   <div class="wrap">
     <div class="shead">
       <h2>On site.</h2>
       <p>Trucks, pours and finished work from MidCoast Pre-Mix jobs.</p>
     </div>
   </div>
-  <div class="strip">
+  <div class="strip-outer">
+  <div class="strip__bar">
+    <span class="strip__hint">Scroll for more</span>
+    <button class="strip__btn" id="workPrev" aria-label="Previous photos" aria-controls="workStrip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="strip__btn" id="workNext" aria-label="Next photos" aria-controls="workStrip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="strip" id="workStrip">
     <figure><img src="images/work_01.jpg" alt="Concrete pour on a MidCoast Pre-Mix job" width="1080" height="810" loading="lazy"><figcaption>Pour day</figcaption></figure>
     <figure><img src="images/work_02.jpg" alt="Concrete delivery from the MidCoast Pre-Mix fleet" width="1080" height="810" loading="lazy"><figcaption>On the truck</figcaption></figure>
     <figure><img src="images/work_03.jpg" alt="Fresh concrete placed and being worked" width="1080" height="810" loading="lazy"><figcaption>Placed and screeded</figcaption></figure>
@@ -348,6 +380,7 @@ footer .legal a{display:inline;padding:0}
     <figure><img src="images/work_05.jpg" alt="Concrete work in the Great Lakes region" width="1080" height="810" loading="lazy"><figcaption>On the Coast</figcaption></figure>
     <figure><img src="images/work_06.jpg" alt="MidCoast Pre-Mix concrete on a residential job" width="1080" height="810" loading="lazy"><figcaption>Residential supply</figcaption></figure>
     <figure><img src="images/work_07.jpg" alt="Finished concrete work" width="1080" height="810" loading="lazy"><figcaption>Finished work</figcaption></figure>
+  </div>
   </div>
 </section>
 
@@ -431,6 +464,28 @@ footer .legal a{display:inline;padding:0}
     l.toggleAttribute('data-open', !open);
   });
   l.addEventListener('click', function(e){ if (e.target.tagName === 'A'){ l.removeAttribute('data-open'); b.setAttribute('aria-expanded','false'); } });
+})();
+</script>
+<script>
+/* work strip controls */
+(function(){
+  var st = document.getElementById('workStrip');
+  var prev = document.getElementById('workPrev');
+  var next = document.getElementById('workNext');
+  if (!st || !prev || !next) return;
+  function step(){
+    var f = st.querySelector('figure');
+    return f ? f.getBoundingClientRect().width + 16 : 320;
+  }
+  function sync(){
+    prev.disabled = st.scrollLeft <= 4;
+    next.disabled = st.scrollLeft >= st.scrollWidth - st.clientWidth - 4;
+  }
+  prev.addEventListener('click', function(){ st.scrollBy({left:-step(), behavior:'smooth'}); });
+  next.addEventListener('click', function(){ st.scrollBy({left: step(), behavior:'smooth'}); });
+  st.addEventListener('scroll', sync, {passive:true});
+  window.addEventListener('resize', sync);
+  sync();
 })();
 </script>
 <script>

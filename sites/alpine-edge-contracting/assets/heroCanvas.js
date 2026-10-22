@@ -1462,6 +1462,9 @@
       return [l[0] / m, l[1] / m, l[2] / m];
     })();
     var FOG = o.fogCol || '#131a22';
+    var SOFT = o.bandSoft == null ? 0 : o.bandSoft;
+    var FOGK = o.fogK == null ? 0.7 : o.fogK;
+    function soft(tone, base) { return SOFT ? Projection.mix(tone, base, SOFT) : tone; }
     var faces = [];
     var seed = 40231;
     function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
@@ -1507,7 +1510,7 @@
     for (z = 0.95; z < TZ0; z += 0.34) {
       var bn = Math.round((z - 0.95) / 0.34);
       q([[-XR, 0, z], [XR, 0, z], [XR, 0, z + 0.34], [-XR, 0, z + 0.34]],
-        bn % 2 ? TONE.soil : TONE.soil2, [0, 1, 0], 0);
+        soft(bn % 2 ? TONE.soil : TONE.soil2, TONE.soil), [0, 1, 0], 0);
     }
     /* ruts running to the lip */
     var RUTS = [-1.35, -0.55, 0.35, 1.15, 1.9];

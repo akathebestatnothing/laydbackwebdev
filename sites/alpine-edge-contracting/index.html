@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Alpine Edge Contracting | Rural labour &amp; machinery</title>
 <meta name="description" content="Dig-outs, site preparation, spreading, grading and concrete prep assistance across rural blocks. Skilled operator, machine matched to the ground. Call 0404 982 193.">
-<link rel="icon" href="assets/logo-mark_alpine-edge-contracting.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
   --muted:#b3b8c2;
   --dim:#8f949f;
   --brand:#fcb40c;
-  --brand-lt:#8a90c9;
+  --brand-lt:#d8c9a8;
 
   --wrap:1180px;
   --gut:clamp(20px,4vw,56px);
@@ -67,8 +67,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 .brand{display:flex;align-items:center;gap:12px;color:#f6f6f2;min-width:0;flex:0 1 auto}
 .brand img{
-  width:38px;height:38px;object-fit:contain;flex:0 0 auto;
-  border:1px solid var(--line-2);background:#000;
+  width:40px;height:40px;object-fit:contain;flex:0 0 auto;
 }
 .brand-name{
   font-family:var(--head);font-weight:700;font-size:clamp(16px,1.6vw,21px);
@@ -99,24 +98,51 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- hero ---------- */
 .hero{
   position:relative;isolation:isolate;overflow:hidden;
-  min-height:min(88vh,760px);display:flex;align-items:flex-end;
+  min-height:min(92vh,800px);
   background:var(--ink);
 }
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .hero::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,rgba(11,12,14,.94) 0%,rgba(11,12,14,.72) 38%,rgba(11,12,14,0) 72%),
-             linear-gradient(0deg,rgba(11,12,14,.9) 0%,rgba(11,12,14,0) 46%);
+  background:linear-gradient(90deg,rgba(11,12,14,.88) 0%,rgba(11,12,14,.6) 34%,rgba(11,12,14,.1) 62%,rgba(11,12,14,0) 80%),
+             linear-gradient(0deg,rgba(11,12,14,.82) 0%,rgba(11,12,14,0) 40%);
 }
-.hero-in{position:relative;z-index:2;width:100%;padding-bottom:var(--sp-5);padding-top:var(--sp-6)}
-.kicker{font-family:var(--font);font-weight:500;font-size:var(--t-sm);color:var(--brand-lt);margin-bottom:var(--sp-2)}
-.hero h1{font-size:var(--t-h1);max-width:15ch}
-.hero p{margin-top:var(--sp-3);max-width:46ch;color:var(--muted);font-size:var(--t-lg)}
+.hero-in{
+  position:relative;z-index:2;width:100%;min-height:inherit;
+  display:flex;flex-direction:column;
+  padding-top:34px;padding-bottom:var(--sp-5);
+}
+.hero-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:var(--sp-4);border-bottom:1px solid rgba(255,255,255,.14);padding-bottom Assistant;
+}
+.kicker{font-family:var(--font);font-weight:500;font-size:var(--t-sm);color:var(--brand-lt);margin:0}
+.hero-meta{
+  text-align:right;font-size:var(--t-xs);color:#cfd4dc;
+  letter-spacing:.06em;text-transform:uppercase;line-height:1.7;
+}
+.hero-body{margin-top:auto;padding-top:var(--sp-6)}
+.hero h1{font-size:var(--t-h1);max-width:13ch}
+.hero p{margin-top:var(--sp-3);max-width:44ch;color:var(--muted);font-size:var(--t-lg)}
 .hero .call{margin-top:var(--sp-4);padding:16px 26px;font-size:var(--t-md)}
+.hero-specs{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-4);
+  margin-top:var(--sp-5);border-top:1px solid rgba(255,255,255,.16);padding-top:var(--sp-3);
+  max-width:640px;
+}
+.hero-specs li{font-size:var(--t-sm);color:#b8bec8}
+.hero-specs b{display:block;font-family:var(--head);font-weight:600;font-size:var(--t-lg);color:#f2f3f5;letter-spacing:.01em}
+@media (max-width:860px){
+  .hero-in{padding-top:24px}
+  .hero-meta{font-size:.68rem}
+}
 @media (max-width:700px){
-  .hero{min-height:82vh}
+  .hero{min-height:auto}
   .hero h1{max-width:11ch}
   .hero p{font-size:var(--t-md)}
+  .hero-meta{display:none}
+  .hero-specs{grid-template-columns:1fr 1fr;gap:var(--sp-2) var(--sp-3)}
+  .hero-specs li:last-child{grid-column:1/-1}
 }
 
 /* ---------- spec strip ---------- */
@@ -245,7 +271,7 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
 <header class="site-head">
   <div class="wrap bar">
     <a class="brand" href="#top" aria-label="Alpine Edge Contracting home">
-      <img src="assets/logo-mark_alpine-edge-contracting.png" alt="Alpine Edge Contracting logo" width="38" height="38" decoding="async">
+      <img src="assets/logo-mark_alpine-edge-contracting.png" alt="" width="40" height="40" decoding="async">
       <span class="brand-name">Alpine Edge Contracting</span>
     </a>
     <nav class="nav" aria-label="Main">
@@ -262,10 +288,20 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
   <div class="hero" id="top">
     <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
-      <p class="kicker">Rural labour and machinery</p>
-      <h1>Dig-outs and site prep, done right</h1>
-      <p>Excavation, spreading and concrete prep on rural blocks. One operator, machine matched to the ground, work finished to the level the next trade needs.</p>
-      <a class="call" href="tel:0404982193"><span class="dot" aria-hidden="true"></span>Call 0404 982 193</a>
+      <div class="hero-top">
+        <p class="kicker">Rural labour and machinery</p>
+        <p class="hero-meta" aria-hidden="true">Newcastle &amp; the Hunter Valley<br>5.5t excavator · laser level</p>
+      </div>
+      <div class="hero-body">
+        <h1>Dig-outs and site prep, done right</h1>
+        <p>Excavation, spreading and concrete prep on rural blocks. One operator, machine matched to the ground, work finished to the level the next trade needs.</p>
+        <a class="call" href="tel:0404982193"><span class="dot" aria-hidden="true"></span>Call 0404 982 193</a>
+      </div>
+      <ul class="hero-specs">
+        <li><b>5.5t excavator</b>Machine matched to the ground</li>
+        <li><b>Laser level</b>True finish on tracks and pads</li>
+        <li><b>Day rate</b>Or project scoped and priced</li>
+      </ul>
     </div>
   </div>
 
@@ -391,7 +427,7 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
   <div class="wrap foot">
     <div>
       <a class="brand" href="#top">
-        <img src="assets/logo-mark_alpine-edge-contracting.png" alt="" width="32" height="32" loading="eager" decoding="async">
+        <img src="assets/logo-mark_alpine-edge-contracting.png" alt="" width="34" height="34" loading="eager" decoding="async">
         <span class="brand-name">Alpine Edge Contracting</span>
       </a>
       <p>Rural labour and machinery: dig-outs, site prep, spreading, concrete prep.</p>
@@ -429,12 +465,12 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
 (function(){
   var cv = document.getElementById('heroCanvas');
   if (!cv || !window.Projection) return;
-  var S = Projection.create(cv, {focal:1.45, horizon:0.52, camY:1.65, fogNear:11, fogFar:52, fogCol:'#12151b'});
-  var scene = Projection.sceneExcavation(S, {fogCol:'#12151b', tone:{
-    soil:'#2a2620', soil2:'#322d25', clay:'#4a3f30', clay2:'#584a37',
-    sand:'#6b5b42', gravel:'#4b4740', rock:'#3b3a36', lip:'#8b7d64',
-    steel:'#3a4149', steel2:'#596570', steelHi:'#9aa6b1', dark:'#20262c',
-    wear:'#aeb8c1', bush:'#1a231d', rut:'#1e1a14'
+  var S = Projection.create(cv, {focal:1.45, horizon:0.52, camY:1.65, fogNear:16, fogFar:64, fogCol:'#1d2530'});
+  var scene = Projection.sceneExcavation(S, {fogCol:'#1d2530', bandSoft:0.62, fogK:0.5, tone:{
+    soil:'#332a1e', soil2:'#3b3124', clay:'#54432f', clay2:'#5f4d36',
+    sand:'#79633f', gravel:'#585349', rock:'#494740', lip:'#a08a68',
+    steel:'#4c5760', steel2:'#6f7d88', steelHi:'#c6cfd7', dark:'#2b3238',
+    wear:'#c2cbd3', bush:'#232f26', rut:'#241e14'
   }});
   var vis = true;
   if ('IntersectionObserver' in window){

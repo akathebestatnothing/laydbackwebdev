@@ -94,9 +94,42 @@ header{
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero-veil{
   position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,#101114 0%,rgba(16,17,20,.9) 30%,rgba(16,17,20,.4) 54%,rgba(16,17,20,0) 72%);
+  background:linear-gradient(90deg,#101114 0%,rgba(16,17,20,.95) 28%,rgba(16,17,20,.68) 46%,rgba(16,17,20,.36) 66%,rgba(16,17,20,.2) 100%);
 }
 .hero-copy{position:relative;z-index:2;max-width:600px;padding-block:clamp(3.75rem,8vw,6rem)}
+
+/* ---------- hero right panel ---------- */
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.8fr);
+  gap:clamp(2rem,5vw,4.5rem);align-items:center;
+}
+.hero-panel{
+  justify-self:end;width:100%;max-width:390px;
+  background:rgba(16,17,20,.5);border:1px solid rgba(248,246,242,.18);
+  border-radius:3px;padding:1.5rem 1.6rem 1.4rem;
+}
+.hero-panel__t{
+  font-family:var(--disp);font-weight:600;font-size:.75rem;
+  letter-spacing:.12em;text-transform:uppercase;color:#a9a49b;
+  padding-bottom:.9rem;border-bottom:1px solid rgba(248,246,242,.18);
+}
+.hero-panel dl{margin:0}
+.hero-panel .row{
+  display:grid;grid-template-columns:1.9rem minmax(0,1fr);gap:.7rem;
+  padding-block:.85rem;border-bottom:1px solid rgba(248,246,242,.1);
+}
+.hero-panel .row:last-of-type{border-bottom:0;padding-bottom:.2rem}
+.hero-panel .row b{
+  font-family:var(--disp);font-weight:600;font-size:.75rem;
+  color:#8d887f;font-variant-numeric:tabular-nums;letter-spacing:.04em;
+  padding-top:.2rem;
+}
+.hero-panel .row span{font-size:.9375rem;line-height:1.45;color:#ddd8ce}
+.hero-panel__f{
+  font-size:.8125rem;color:#a9a49b;
+  padding-top:.9rem;border-top:1px solid rgba(248,246,242,.18);margin-top:.6rem;
+}
 .hero-kicker{
   font-family:var(--disp);font-weight:600;font-size:.9375rem;
   color:#b9b4ab;margin-bottom:1.1rem;
@@ -115,7 +148,9 @@ header{
 @media (max-width:860px){
   .hero{min-height:0;padding-block:clamp(3rem,9vw,4.5rem)}
   .hero-veil{background:linear-gradient(180deg,rgba(16,17,20,.9) 0%,rgba(16,17,20,.62) 55%,rgba(16,17,20,.92) 100%)}
-  .hero-copy{padding-block:0}
+  .hero-copy{padding-block:0;max-width:none}
+  .hero-grid{grid-template-columns:1fr;gap:2.25rem}
+  .hero-panel{justify-self:stretch;max-width:none}
 }
 
 /* ---------- bands ---------- */
@@ -161,13 +196,97 @@ header{
   border-bottom:2px solid rgba(248,246,242,.35);padding-bottom:.15rem;
   transition:border-color .18s ease;
 }
-.contact-tel:0452658485"skip" href="#main">Skip to content</a>
+.contact-tel:hover{border-bottom-color:rgba(248,246,242,.9)}
+.contact-grid{align-items:flex-end}
+
+/* ---------- quote form ---------- */
+.form-wrap{max-width:780px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+.field{display:grid;gap:.4rem;margin-bottom:1.15rem}
+.field label{
+  font-family:var(--disp);font-weight:600;font-size:.8125rem;
+  letter-spacing:.01em;color:var(--muted-2);
+}
+.field input,.field textarea{
+  width:100%;padding:.8rem .9rem;font-family:var(--text);font-size:1rem;line-height:1.5;
+  color:var(--ink);background:var(--paper);border:1px solid var(--hairline);border-radius:3px;
+  transition:border-color .16s ease,background .16s ease;
+}
+.field input:focus,.field textarea:focus{outline:0;border-color:var(--ink);background:#fff}
+.field textarea{min-height:132px;resize:vertical}
+.consent{
+  display:flex;align-items:flex-start;gap:.55rem;font-size:.875rem;
+  line-height:1.45;color:var(--muted);margin:.15rem 0 1.35rem;
+}
+.consent input{
+  width:1rem;height:1rem;flex:0 0 auto;margin:.15rem 0 0;
+  accent-color:var(--ink);
+}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq-form button[type=submit]{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--ink);color:#fff;font-family:var(--text);font-weight:600;font-size:1rem;
+  padding:.95rem 1.6rem;border:0;border-radius:3px;cursor:pointer;
+  transition:background .18s ease;
+}
+#lbq-form button[type=submit]:hover{background:var(--ink-2)}
+#lbq-form button[type=submit][disabled]{opacity:.62;cursor:default}
+.form-st{min-height:1.3rem;margin-top:.9rem;font-size:.9375rem}
+@media (max-width:560px){.two{grid-template-columns:1fr;gap:0}}
+
+/* ---------- legal ---------- */
+.legal{padding-block:clamp(2.5rem,4vw,3.4rem);border-top:1px solid var(--hairline)}
+.legal#privacy{border-top:1px solid var(--ink)}
+.legal .wrap > *{max-width:74ch}
+.legal h2{font-size:clamp(1.2rem,1.9vw,1.45rem);margin-bottom:.55rem}
+.legal h3{font-size:.9375rem}
+.legal p{color:var(--muted);margin-bottom:.55rem}
+.legal p + h3{margin-top:1.4rem}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#b5b0a7;padding-block:clamp(2.75rem,5vw,4rem) 0}
+.foot-grid{
+  display:grid;grid-template-columns:1.7fr .8fr 1fr;
+  gap:clamp(1.75rem,4vw,3.25rem);align-items:start;
+  padding-bottom:.5rem;
+}
+.foot-brand .lb-brand{display:inline-flex;margin-bottom:.9rem}
+.foot-brand .lb-brand__name{color:#f8f6f2}
+.foot-brand .lb-brand__mark{
+  background:var(--paper);border-radius:3px;padding:.28rem;height:32px;
+}
+.foot-brand .lb-brand__mark img{height:100%;width:auto}
+.foot-brand p{max-width:32ch;font-size:.9375rem}
+.foot-col h3{
+  font-size:.8125rem;letter-spacing:.09em;font-weight:600;text-transform:uppercase;
+  color:#8d887f;margin-bottom:.9rem;
+}
+.foot-col a,.foot-col p{display:block;font-size:.9375rem;margin-bottom:.5rem;color:#cbc6bd}
+.foot-col a{transition:color .18s ease;width:fit-content}
+.foot-col a:hover{color:#f8f6f2}
+.foot-bottom{
+  display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;
+  border-top:1px solid rgba(248,246,242,.16);
+  margin-top:clamp(2rem,3.5vw,2.75rem);padding-block:1.35rem;
+  font-size:.8125rem;color:#8d887f;
+}
+.foot-bottom > span:nth-child(2){margin-left:auto}
+.foot-social{display:flex;align-items:center;gap:.7rem}
+.foot-social a{color:#cbc6bd;transition:color .18s ease}
+.foot-social a:hover{color:#f8f6f2}
+.foot-social svg{width:17px;height:17px}
+@media (max-width:760px){
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1 / -1}
+  .foot-bottom > span:nth-child(2){margin-left:0}
+}
 
 </style>
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header>
   <div class="header-inner">
     <a class="lb-brand" href="#top" aria-label="Altaycon home" style="--lb-name:#101114">
@@ -191,17 +310,28 @@ header{
     <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="hero-copy">
-        <p class="hero-kicker">Concreting and construction, Greenvale VIC</p>
-        <h1>Concrete set out, poured and finished to spec.</h1>
-        <p class="hero-sub">Concrete contracting, surfacing, structural concreting and site excavation. Residential and commercial work across Greenvale and Melbourne's north.</p>
-        <div class="hero-cta">
-          <a class="btn" href="tel:0452658485">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-            Call 0452 658 485
-          </a>
-          <p class="hero-note">Free quote, no obligation.</p>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">Concreting and construction, Greenvale VIC</p>
+          <h1>Concrete set out, poured and finished to spec.</h1>
+          <p class="hero-sub">Concrete contracting, surfacing, structural concreting and site excavation. Residential and commercial work across Greenvale and Melbourne's north.</p>
+          <div class="hero-cta">
+            <a class="btn" href="tel:0452658485">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+              Call 0452 658 485
+            </a>
+            <p class="hero-note">Free quote, no obligation.</p>
+          </div>
         </div>
+        <aside class="hero-panel" aria-label="How a job is run">
+          <p class="hero-panel__t">On site</p>
+          <dl>
+            <div class="row"><b>01</b><span>Set out to line and level, formed and steeled to spec.</span></div>
+            <div class="row"><b>02</b><span>Poured, screeded and finished to the surface you want.</span></div>
+            <div class="row"><b>03</b><span>Domestic driveways, paths and slabs, and commercial work.</span></div>
+          </dl>
+          <p class="hero-panel__f">Greenvale &middot; Craigieburn &middot; Epping &middot; Roxburgh Park</p>
+        </aside>
       </div>
     </div>
   </section>
@@ -542,9 +672,12 @@ header{
     var ctx = S.ctx;
     var sky = ctx.createLinearGradient(0,0,0,S.H);
     sky.addColorStop(0,'#1B1D21');
-    sky.addColorStop(.34,'#33342F');
-    sky.addColorStop(.431,'#55544A');
-    sky.addColorStop(1,'#3A3A34');
+    sky.addColorStop(.2,'#2A2B28');
+    sky.addColorStop(.33,'#3B3B35');
+    sky.addColorStop(.4,'#4C4A42');
+    sky.addColorStop(.46,'#5A574C');
+    sky.addColorStop(.56,'#4F4D45');
+    sky.addColorStop(1,'#393932');
     ctx.fillStyle = sky; ctx.fillRect(0,0,S.W,S.H);
 
     var glow = ctx.createRadialGradient(S.W*.74, S.horizon*.66, 10, S.W*.74, S.horizon*.66, S.W*.6);
@@ -562,6 +695,17 @@ header{
       ctx.closePath(); ctx.fill();
     }
     ctx.globalAlpha = 1;
+
+    /* haze band straddling the horizon so the sky and the far hardstand read as
+       one graded background rather than two butted planes */
+    var hz = S.horizon;
+    var haze = ctx.createLinearGradient(0, hz - S.H*.13, 0, hz + S.H*.16);
+    haze.addColorStop(0,'rgba(126,122,114,0)');
+    haze.addColorStop(.42,'rgba(126,122,114,.34)');
+    haze.addColorStop(.5,'rgba(126,122,114,.46)');
+    haze.addColorStop(1,'rgba(126,122,114,0)');
+    ctx.fillStyle = haze;
+    ctx.fillRect(0, hz - S.H*.13, S.W, S.H*.29);
 
     var vg = ctx.createRadialGradient(S.W*.52, S.H*.6, Math.min(S.W,S.H)*.4, S.W*.52, S.H*.6, Math.max(S.W,S.H)*.92);
     vg.addColorStop(0,'rgba(10,11,13,0)');
