@@ -77,7 +77,7 @@ a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
 
 /* ===== HERO: two-column grid with real photo ===== */
 .hero{position:relative;min-height:100vh;display:grid;grid-template-rows:var(--nav-h) 1fr;background:var(--bg)}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(0,102,204,.06) 0%,transparent 70%),radial-gradient(ellipse at 20% 80%,rgba(11,26,43,.04) 0%,transparent 60%);pointer-events:none;z-index:1}
+.hero::before{content:"";position:absolute;inset:0;background:rgba(0,102,204,.06),rgba(11,26,43,.04);pointer-events:none;z-index:1}
 .hero-in{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch;padding:calc(var(--nav-h) + 3vh) clamp(1.5rem,4vw,3rem) clamp(3rem,6vh,4rem);gap:clamp(1.5rem,3vw,3rem);min-height:calc(100vh - var(--nav-h))}
 .hero-copy{position:relative;z-index:3;display:flex;flex-direction:column;justify:center;padding-right:1rem}
 .hero-copy .k{margin:0 0 .7rem;font-family:var(--font-d);font-size:.78rem;text-transform:uppercase;letter-spacing:.24em;color:var(--acc);font-weight:700}
@@ -150,7 +150,7 @@ html{perspective:1000px}
 #lbq p.lbq-s{margin:0 0 22px;color:var(--lbq-muted);max-width:52ch}
 #lbq .lbq-info{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--lbq-line);padding-top:22px}
 #lbq .lbq-info div{display:flex;gap:10px;align-items:baseline}
-#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lbq-accent);min-width:64px}
+#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:none;color:var(--lbq-accent);min-width:64px}
 </style>
 <noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript><style id="lb-brand-css">
 /* ==== LB BRAND (logo-true spanning wordmark) ==== */
@@ -159,24 +159,21 @@ html{perspective:1000px}
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:700;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:700;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-motion-css">
 /* ==== LB MOTION PACK ==== */
 .lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
@@ -194,8 +191,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -218,7 +215,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -233,11 +230,11 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -260,15 +257,14 @@ section{ position:relative; }
 section::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
   background:
-    radial-gradient(120% 70% at 12% 0%, color-mix(in srgb, var(--lb-acc) 7%, transparent) 0%, transparent 58%),
-    radial-gradient(90% 60% at 100% 100%, color-mix(in srgb, var(--lb-acc) 5%, transparent) 0%, transparent 60%);
+    transparent,
+    transparent;
 }
 section > *{ position:relative; z-index:1; }
 
 /* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
 .card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 100%, transparent) 0%,
-                                    color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background:transparent;
   border:1px solid var(--lb-hair);
   border-radius:14px;
   box-shadow:var(--lb-e1);
@@ -289,7 +285,7 @@ figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:sc
 
 /* buttons: gradient fill, inset highlight, layered shadow */
 a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 55%);
+  background-image:rgba(255,255,255,.16);
   box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
   border-radius:10px;
 }
@@ -300,8 +296,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
 
 /* nav: subtle vertical gradient + hairline for separation from the page */
 .nav,nav,.site-header,header.nav{
-  background-image:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 96%, transparent) 0%,
-                                         color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background-image:transparent;
   box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
 }
 
@@ -315,7 +310,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 /* dark surfaces get stronger, softer shadows */
 @media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
 @supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:radial-gradient(120% 70% at 12% 0%, rgba(229,25,36,.06) 0%, transparent 58%); }
+  section::before{ background:rgba(229,25,36,.06); }
 }
 @media (prefers-reduced-motion: reduce){
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
@@ -326,7 +321,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
 }
 </style>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -334,15 +328,30 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
+<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+
+<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
+
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+
+<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
+
+<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script><a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="Cardi Plumbing - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#383868;--lb-subc:#383868;--lb-acc:#383868;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cardi Plumbing</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
-  <a class="nav__b" href="#top" aria-label="Cardi Plumbing - Home">
-    <span class="nav__logo-wrap"><img src="assets/logo.jpg" alt="" aria-hidden="true" loading="eager"></span>
-    <span>Cardi Plumbing</span>
-  </a>
+<a class="lb-brand" href="#top" aria-label="Cardi Plumbing - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#383868;--lb-subc:#383868;--lb-acc:#383868;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cardi Plumbing</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <button class="nav__toggle" id="nav__toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
     <span class="nav__bar"></span>
     <span class="nav__bar"></span>
@@ -355,7 +364,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <li><a class="btn btn--p" href="#lbq" data-ux="magnetic">Emergency Service</a></li>
     </ul>
   </div>
-</nav>
+<a class="lb-tel" href="tel:0404160878" style="text-decoration:none;white-space:nowrap;align-self:center">0404 160 878</a></nav>
 
 <header class="hero" id="top">
   <!-- LB-3D-HERO -->
@@ -413,7 +422,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     </article>
   </div>
 </section>
-<div data-ux="marquee" class="ux-strip" style="overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:15px 0;background:#0b0d10"><div style="display:flex;gap:2.4rem;font-weight:700;letter-spacing:1px;font-size:13.5px;color:#99a1ae;white-space:nowrap"><span>Blocked drains</span><span class="uxdot" style="color:#c4fb24">·</span><span>Leaking taps & repairs</span><span class="uxdot" style="color:#c4fb24">·</span><span>Hot water systems</span><span class="uxdot" style="color:#c4fb24">·</span><span>Bathroom & kitchen plumbing</span><span class="uxdot" style="color:#c4fb24">·</span><span>New installations</span><span class="uxdot" style="color:#c4fb24">·</span></div></div>
+<div data-ux="marquee" class="ux-strip" style="overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:15px 0;background:#0b0d10"><div style="display:flex;gap:2.4rem;font-weight:700;letter-spacing:1px;font-size:13.5px;color:#99a1ae;white-space:nowrap"><span>Blocked drains</span><span class="uxdot" style="color:#cfcfda">·</span><span>Leaking taps & repairs</span><span class="uxdot" style="color:#cfcfda">·</span><span>Hot water systems</span><span class="uxdot" style="color:#cfcfda">·</span><span>Bathroom & kitchen plumbing</span><span class="uxdot" style="color:#cfcfda">·</span><span>New installations</span><span class="uxdot" style="color:#cfcfda">·</span></div></div>
 
 
 <section class="sec" id="services" aria-labelledby="s-t">
@@ -461,7 +470,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     <p>Plumbing services, Melbourne VIC.<br>ABN 41 583 835 708</p>
   </div>
   <p aria-hidden="true">&copy; <span id="year"></span> Cardi Plumbing. All rights reserved.</p>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
@@ -813,7 +822,7 @@ html,body{overflow-x:hidden}
   UX.progressBar = function (colour) {
     if (document.documentElement.getAttribute('data-ux-nobar') !== null) return;
     var bar = document.createElement('div');
-    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:' + (colour || '#c4fb24') + ';transition:width .1s linear';
+    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:' + (colour || '#383868') + ';transition:width .1s linear';
     document.body.appendChild(bar);
     var update = function () {
       var h = document.documentElement;
@@ -873,7 +882,7 @@ html,body{overflow-x:hidden}
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var acc = function () {
     var v = getComputedStyle(root).getPropertyValue('--acc') || getComputedStyle(root).getPropertyValue('--accent');
-    return (v || '#c4fb24').trim();
+    return (v || '#383868').trim();
   };
 
   /* ---------- SIG-1 · splash / loader variants ---------- */
@@ -925,12 +934,12 @@ html,body{overflow-x:hidden}
     css.textContent = '#sigSplash{animation:sigSplashAutoOut .45s ease 2.0s forwards}@keyframes sigSplashAutoOut{to{opacity:0;visibility:hidden;pointer-events:none}} #sigSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0e1014;color:#f4f5f7;pointer-events:none}' +
       '#sigSplash .sp-c{position:relative;z-index:2;text-align:center}' +
       '#sigSplash .sp-logo{display:block;margin:0 auto 16px;max-height:72px;max-width:180px;width:auto;object-fit:contain}' +
-      '#sigSplash .sp-w{display:block;font-family:var(--disp,var(--font-display,inherit));font-weight:900;letter-spacing:.1em;text-transform:uppercase;font-size:clamp(22px,5vw,38px);opacity:0;transition:opacity .5s ease}' +
+      '#sigSplash .sp-w{display:block;font-family:var(--disp, var(--font-display, inherit));font-weight:900;letter-spacing:.1em;text-transform:none;font-size:clamp(22px,5vw,38px);opacity:0;transition:opacity .5s ease}' +
       '#sigSplash.on .sp-w{opacity:1}' +
-      '#sigSplash .sp-ring{position:absolute;left:50%;top:50%;width:150px;height:150px;transform:translate(-50%,-54%);fill:none;stroke:var(--acc,var(--accent,#c4fb24));stroke-width:2;stroke-dasharray:340;stroke-dashoffset:340;transition:stroke-dashoffset 1.1s ease}' +
+      '#sigSplash .sp-ring{position:absolute;left:50%;top:50%;width:150px;height:150px;transform:translate(-50%,-54%);fill:none;stroke:var(--acc,var(--accent,#383868));stroke-width:2;stroke-dasharray:340;stroke-dashoffset:340;transition:stroke-dashoffset 1.1s ease}' +
       '#sigSplash.on .sp-ring{stroke-dashoffset:0}' +
       '#sigSplash .sp-bar{width:190px;height:2px;background:rgba(128,128,128,.3);margin:16px auto 0;overflow:hidden}' +
-      '#sigSplash .sp-bar i{display:block;height:100%;width:0;background:var(--acc,var(--accent,#c4fb24));animation:spBar 1.15s ease forwards}' +
+      '#sigSplash .sp-bar i{display:block;height:100%;width:0;background:var(--acc,var(--accent,#383868));animation:spBar 1.15s ease forwards}' +
       '@keyframes spBar{to{width:100%}}' +
       '#sigSplash .sp-panel{position:absolute;background:#0e1014;z-index:1}' +
       '#sigSplash .sp-l{inset:0 50% 0 0}#sigSplash .sp-r{inset:0 0 0 50%}' +
@@ -961,13 +970,13 @@ html,body{overflow-x:hidden}
     var css = document.createElement('style');
     if (linkVar === 'sweep') {
       css.textContent += '.nav-links a,footer a,a:not(.btn):not(.pb-btn):not(.brand){position:relative}' +
-        '.nav-links a::after,footer a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:var(--acc,var(--accent,#c4fb24));transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.5,0,.2,1)}' +
+        '.nav-links a::after,footer a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:var(--acc,var(--accent,#383868));transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.5,0,.2,1)}' +
         '.nav-links a:hover::after,footer a:hover::after{transform:scaleX(1)}';
     } else if (linkVar === 'grow') {
       css.textContent += '.nav-links a,footer a{transition:color .2s ease,letter-spacing .3s ease}' +
-        '.nav-links a:hover,footer a:hover{color:var(--acc,var(--accent,#c4fb24));letter-spacing:.06em}';
+        '.nav-links a:hover,footer a:hover{color:var(--acc,var(--accent,#383868));letter-spacing:.06em}';
     } else if (linkVar === 'bg') {
-      css.textContent += '.nav-links a,footer a{background-image:linear-gradient(transparent 62%,color-mix(in srgb,var(--acc,var(--accent,#c4fb24)) 32%,transparent) 62%);background-size:0% 100%;background-repeat:no-repeat;transition:background-size .32s ease}' +
+      css.textContent += '.nav-links a,footer a{background-image:#383868;background-size:0% 100%;background-repeat:no-repeat;transition:background-size .32s ease}' +
         '.nav-links a:hover,footer a:hover{background-size:100% 100%}';
     }
     if (btnVar === 'lift') {
@@ -975,7 +984,7 @@ html,body{overflow-x:hidden}
         '.btn:hover,.pb-btn:hover,.nav-cta a:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.55)}';
     } else if (btnVar === 'fill') {
       css.textContent += '.btn,.pb-btn,.nav-cta a{position:relative;overflow:hidden;z-index:0}' +
-        '.btn::before,.pb-btn::before,.nav-cta a::before{content:"";position:absolute;inset:0;background:var(--acc,var(--accent,#c4fb24));transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.6,0,.2,1);z-index:-1;opacity:.18}' +
+        '.btn::before,.pb-btn::before,.nav-cta a::before{content:"";position:absolute;inset:0;background:var(--acc,var(--accent,#383868));transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.6,0,.2,1);z-index:-1;opacity:.18}' +
         '.btn:hover::before,.pb-btn:hover::before,.nav-cta a:hover::before{transform:scaleX(1)}';
     } else if (btnVar === 'arrow') {
       css.textContent += '.btn .ar,.pb-btn .ar{display:inline-block;transform:translateX(0);transition:transform .25s ease}' +
@@ -1062,8 +1071,8 @@ html,body{overflow-x:hidden}
       '.sigBA img{display:block;width:100%;height:auto}' +
       '.sigBA .sigBA-top{position:absolute;inset:0;width:55%;overflow:hidden}' +
       '.sigBA .sigBA-top img{width:calc(100% / .55)}' +
-      '.sigBA input{position:absolute;left:0;right:0;bottom:12px;width:86%;margin:0 auto;display:block;accent-color:var(--acc,var(--accent,#c4fb24))}' +
-      '.sigBA-lab{position:absolute;top:10px;font:700 10px/1 ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.5);padding:5px 8px}' +
+      '.sigBA input{position:absolute;left:0;right:0;bottom:12px;width:86%;margin:0 auto;display:block;accent-color:var(--acc,var(--accent,#383868))}' +
+      '.sigBA-lab{position:absolute;top:10px;font:700 10px/1 ui-monospace,monospace;letter-spacing:.2em;text-transform:none;color:#fff;background:rgba(0,0,0,.5);padding:5px 8px}' +
       '.sigBA-l1{left:10px}.sigBA-l2{right:10px}';
     document.head.appendChild(css);
     wrap.appendChild(el);
@@ -1252,23 +1261,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,48x48px icon tile above h3 "Blocked Drains,48x48px icon tile above h3 "Hot Water,48x48px icon tile above h3 "New Installs{display:none !important}
-Zero-offset box-shadow glow (#0066cc){box-shadow:none !important;text-shadow:none !important}
-letter-spacing: 0.06em on body text{letter-spacing:normal !important}
-letter-spacing: 0.07em on body text{letter-spacing:normal !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-11.52px body text{font-size:max(1em,14px) !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -1295,6 +1288,24 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,48x48px icon tile above h3 "Blocked Drains,48x48px icon tile above h3 "Hot Water,48x48px icon tile above h3 "New Installs{display:none !important}
+Zero-offset box-shadow glow (#0066cc){box-shadow:none !important;text-shadow:none !important}
+letter-spacing: 0.06em on body text{letter-spacing:normal !important}
+letter-spacing: 0.07em on body text{letter-spacing:normal !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+11.52px body text{font-size:max(15px,1em)}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>

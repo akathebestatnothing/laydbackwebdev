@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Heff's Electrical Services | Melbourne South-East</title>
 <meta name="description" content="Heff's Electrical Services — Residential, Commercial, Batteries, Switchboards, General Electrical. Melbourne South-East VIC.">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/antonio-600.woff2">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/manrope-500.woff2">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jetbrains-mono-400.woff2">
@@ -28,11 +27,11 @@
 }
 @font-face{font-family:"Antonio";src:url("assets/fonts/antonio-600.woff2") format("woff2");font-weight:600;font-display:swap}
 @font-face{font-family:"Antonio";src:url("assets/fonts/antonio-400.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Manrope";src:url("assets/fonts/manrope-500.woff2") format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Manrope";src:url("assets/fonts/manrope-400.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Manrope";src:url("assets/fonts/manrope-700.woff2") format("woff2");font-weight:700;font-display:swap}
-@font-face{font-family:"JetBrains Mono";src:url("assets/fonts/jetbrains-mono-400.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"JetBrains Mono";src:url("assets/fonts/jetbrains-mono-500.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:system-ui;src:url("assets/fonts/manrope-500.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:system-ui;src:url("assets/fonts/manrope-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:system-ui;src:url("assets/fonts/manrope-700.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:system-ui;src:url("assets/fonts/jetbrains-mono-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:system-ui;src:url("assets/fonts/jetbrains-mono-500.woff2") format("woff2");font-weight:500;font-display:swap}
 *,*:before,*:after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 .js .rv{opacity:0;transform:translateY(24px);display:block!important}
@@ -41,18 +40,18 @@ html{scroll-behavior:smooth}
   .js .rv.on{transition:none}
   html{scroll-behavior:auto}
 }
-body{margin:0;font-family:"Manrope",system-ui,sans-serif;font-size:clamp(1rem,1.2vw,1.125rem);line-height:1.65;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:system-ui, system-ui, sans-serif;font-size:clamp(1rem,1.2vw,1.125rem);line-height:1.65;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 a:hover{color:var(--accent)}
-h1,h2,h3{font-family:"Antonio",system-ui,sans-serif;line-height:1.15;margin:0;font-weight:600}
+h1,h2,h3{font-family:"Antonio", system-ui, sans-serif;line-height:1.15;margin:0;font-weight:600}
 h1{font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-0.02em}
 h2{font-size:clamp(1.75rem,4vw,2.5rem);letter-spacing:-0.01em}
 h3{font-size:clamp(1.125rem,2vw,1.375rem)}
 p{margin:0 0 1em}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--space-sm)}
 .rv{will-change:opacity,transform}
-.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.875rem 1.5rem;border:2px solid var(--ink);border-radius:999px;font-family:"Manrope",system-ui,sans-serif;font-weight:500;font-size:0.9375rem;background:transparent;color:var(--ink);cursor:pointer;transition:border-color 150ms,color 150ms,background 150ms}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.875rem 1.5rem;border:2px solid var(--ink);border-radius:999px;font-family:system-ui, system-ui, sans-serif;font-weight:500;font-size:0.9375rem;background:transparent;color:var(--ink);cursor:pointer;transition:border-color 150ms,color 150ms,background 150ms}
 .btn:hover{border-color:var(--accent);color:var(--accent)}
 .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .btn--accent{background:var(--ink);border-color:var(--ink);color:var(--bg)}
@@ -72,7 +71,7 @@ p{margin:0 0 1em}
 .card{background:var(--bg);border:1px solid var(--hairline);border-radius:12px;padding:var(--space-sm);transition:border-color 150ms}
 .card:hover{border-color:var(--accent)}
 .card__icon{width:48px;height:48px;margin-bottom:0.75rem;color:var(--accent)}
-.card__title{font-family:"Antonio",system-ui,sans-serif;font-size:1.125rem;margin-bottom:0.375rem}
+.card__title{font-family:"Antonio", system-ui, sans-serif;font-size:1.125rem;margin-bottom:0.375rem}
 .card__text{font-size:0.9375rem;color:var(--ink);opacity:0.8}
 .band{background:var(--ground);color:var(--mist);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
 .band__inner{max-width:var(--max);margin:0 auto;padding:calc(var(--space)*1.5) var(--space-sm)}
@@ -81,7 +80,7 @@ p{margin:0 0 1em}
 .header__inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:1rem var(--space-sm);gap:1rem}
 .header__logo{display:flex;align-items:center;gap:0.75rem;flex-shrink:0}
 .header__logo svg{width:40px;height:40px;flex-shrink:0}
-.header__name{font-family:"Antonio",system-ui,sans-serif;font-size:1.25rem;font-weight:600;letter-spacing:-0.01em;white-space:nowrap}
+.header__name{font-family:"Antonio", system-ui, sans-serif;font-size:1.25rem;font-weight:600;letter-spacing:-0.01em;white-space:nowrap}
 .header__nav{display:flex;align-items:center;gap:1.5rem}
 .header__nav a{font-size:0.875rem;font-weight:500;color:var(--ink);opacity:0.7;transition:opacity 150ms,color 150ms}
 .header__nav a:hover{opacity:1;color:var(--accent)}
@@ -89,7 +88,7 @@ p{margin:0 0 1em}
 .hero{position:relative;overflow:hidden;padding:calc(var(--space)*2) 0 calc(var(--space)*1.5)}
 .hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--space)*1.5);align-items:center;max-width:var(--max);margin:0 auto;padding:0 var(--space-sm)}
 .hero__copy{position:relative;z-index:1}
-.hero__badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.375rem 0.75rem;background:var(--accent);color:var(--ink);font-family:"JetBrains Mono",monospace;font-size:0.75rem;font-weight:500;border-radius:999px;margin-bottom:1.5rem;width:fit-content}
+.hero__badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.375rem 0.75rem;background:var(--accent);color:var(--ink);font-family:system-ui, monospace;font-size:0.75rem;font-weight:500;border-radius:999px;margin-bottom:1.5rem;width:fit-content}
 .hero__badge::before{content:"";width:6px;height:6px;background:var(--ink);border-radius:50%}
 .hero h1{margin-bottom:1rem}
 .hero__tagline{font-size:clamp(1.125rem,2vw,1.375rem);color:var(--ink);opacity:0.8;margin-bottom:2rem;max-width:90%}
@@ -113,8 +112,8 @@ p{margin:0 0 1em}
 }
 .service-card{background:var(--bg);border:1px solid var(--hairline);border-radius:12px;padding:var(--space-sm);transition:border-color 150ms,transform 150ms}
 .service-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.service-card__num{font-family:"JetBrains Mono",monospace;font-size:0.75rem;font-weight:500;color:var(--accent);margin-bottom:0.5rem}
-.service-card__title{font-family:"Antonio",system-ui,sans-serif;font-size:1.125rem;margin-bottom:0.5rem}
+.service-card__num{font-family:system-ui, monospace;font-size:0.75rem;font-weight:500;color:var(--accent);margin-bottom:0.5rem}
+.service-card__title{font-family:"Antonio", system-ui, sans-serif;font-size:1.125rem;margin-bottom:0.5rem}
 .service-card__desc{font-size:0.9375rem;color:var(--ink);opacity:0.75;line-height:1.6}.process{background:var(--ground);color:var(--mist);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
 .process__inner{max-width:var(--max);margin:0 auto;padding:calc(var(--space)*1.5) var(--space-sm)}
 .process__head{text-align:center;margin-bottom:calc(var(--space)*1.5)}
@@ -128,17 +127,17 @@ p{margin:0 0 1em}
   .process__steps{grid-template-columns:1fr}
 }
 .process-step{position:relative;padding-left:calc(var(--space-sm)*2)}
-.process-step::before{content:counter(step);counter-increment:step;position:absolute;left:0;top:0;width:32px;height:32px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;font-size:0.875rem;font-weight:500;color:var(--accent);background:var(--ground)}
+.process-step::before{content:counter(step);counter-increment:step;position:absolute;left:0;top:0;width:32px;height:32px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:system-ui, monospace;font-size:0.875rem;font-weight:500;color:var(--accent);background:var(--ground)}
 .process__steps{counter-reset:step}
-.process-step__title{font-family:"Antonio",system-ui,sans-serif;font-size:1.125rem;margin-bottom:0.375rem;color:var(--mist)}
+.process-step__title{font-family:"Antonio", system-ui, sans-serif;font-size:1.125rem;margin-bottom:0.375rem;color:var(--mist)}
 .process-step__text{font-size:0.9375rem;color:var(--mist);opacity:0.75;line-height:1.6}.locality{background:var(--mist);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
 .locality__inner{max-width:var(--max);margin:0 auto;padding:calc(var(--space)*1.5) var(--space-sm);display:grid;grid-template-columns:1fr auto;gap:var(--space);align-items:center}
 @media (max-width:600px){
   .locality__inner{grid-template-columns:1fr;text-align:center}
 }
 .locality__text{font-size:clamp(1rem,1.5vw,1.125rem);color:var(--ink)}
-.locality__text strong{font-family:"Antonio",system-ui,sans-serif;color:var(--ink)}
-.locality__map{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.25rem;border:2px solid var(--hairline);border-radius:999px;font-family:"Manrope",system-ui,sans-serif;font-weight:500;font-size:0.9375rem;color:var(--ink);background:var(--bg);transition:border-color 150ms,color 150ms}
+.locality__text strong{font-family:"Antonio", system-ui, sans-serif;color:var(--ink)}
+.locality__map{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.25rem;border:2px solid var(--hairline);border-radius:999px;font-family:system-ui, system-ui, sans-serif;font-weight:500;font-size:0.9375rem;color:var(--ink);background:var(--bg);transition:border-color 150ms,color 150ms}
 .locality__map:hover{border-color:var(--accent);color:var(--accent)}
 .locality__map:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.footer{background:var(--ink);color:var(--mist);padding:calc(var(--space)*2) 0 var(--space)}
 .footer__inner{max-width:var(--max);margin:0 auto;padding:0 var(--space-sm);display:grid;grid-template-columns:1fr auto;gap:calc(var(--space)*1.5);align-items:start}
@@ -148,7 +147,7 @@ p{margin:0 0 1em}
 .footer__brand{display:flex;flex-direction:column;gap:1rem}
 .footer__logo{display:flex;align-items:center;gap:0.75rem}
 .footer__logo svg{width:40px;height:40px;flex-shrink:0}
-.footer__name{font-family:"Antonio",system-ui,sans-serif;font-size:1.25rem;font-weight:600;letter-spacing:-0.01em}
+.footer__name{font-family:"Antonio", system-ui, sans-serif;font-size:1.25rem;font-weight:600;letter-spacing:-0.01em}
 .footer__contact{display:flex;flex-direction:column;gap:0.5rem;font-size:0.9375rem;opacity:0.8}
 .footer__contact a:hover{color:var(--accent)}
 .footer__social{display:flex;gap:0.75rem}
@@ -176,8 +175,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -200,7 +199,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -215,10 +214,10 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
  font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -239,25 +238,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -266,6 +261,23 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
 <style id="lb-hdrcanvas">/* the 3D hero canvas was injected inside the NAV header, so the scene (a big dark orb) painted into the nav bar. Keep the nav clean; the 3D stays in the page body. */.header>.lb-hero-canvas,.header .lb-hero-canvas{display:none}</style>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><style id="lb-ink-repair">.lb-brand__name,.brand-name{color:#111111}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+
+<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
+
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body>
 <header class="header" role="banner"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
@@ -315,13 +327,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <span class="header__name">Heff's Electrical Services</span>
     </a>
     <nav class="header__nav" aria-label="Main navigation">
-<a class="lb-brand" href="#top" aria-label="Heff's Electrical Services - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#e8c038;--lb-subc:#e8c038;--lb-acc:#e8c038;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Heff's Electrical Services</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+<a class="lb-brand" href="#top" aria-label="Heff's Electrical Services - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#111111;--lb-subc:#e8c038;--lb-acc:#e8c038;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Heff's Electrical Services</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
       <a href="#services">Services</a>
       <a href="#process">Our Process</a>
       <a href="#locality">Locality</a>
     </nav>
     <div class="header__cta">
-      <a href="tel:+61421352086" class="btn btn--accent">Get a Quote</a>
+      <a href="tel:0421352086" class="btn btn--accent">Get a Quote</a>
     </div>
   </div>
 </header>
@@ -334,7 +346,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <h1 id="hero-title" class="rv">Heff's Electrical Services</h1>
         <p class="hero__tagline rv">Residential, Commercial, Batteries, Switchboards, General Electrical</p>
         <div class="hero__cta-group rv">
-          <a href="tel:+61421352086" class="btn btn--accent">Call <span style="font-family:'JetBrains Mono',monospace">0421 352 086</span></a>
+          <a href="tel:0421352086" class="btn btn--accent">Call <span style="font-family:system-ui, monospace">0421 352 086</span></a>
           <a href="#lbq" class="btn">Request Quote</a>
         </div>
       </div>
@@ -413,7 +425,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </section>
 </main>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Heff's Electrical Services</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Heff's Electrical Services &mdash; recent work</div></div></section><footer class="footer" role="contentinfo">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Heff's Electrical Services</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Heff's Electrical Services &mdash; recent work</div></div></section><footer class="footer" role="contentinfo">
   <div class="footer__inner">
     <div class="footer__brand">
       <a href="/" class="footer__logo" aria-label="Heff's Electrical Services home">
@@ -461,7 +473,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <span class="footer__name">Heff's Electrical Services</span>
       </a>
       <div class="footer__contact">
-        <a href="tel:+61421352086">0421 352 086</a>
+        <a href="tel:0421352086">0421 352 086</a>
         <a href="mailto:info@heffselectrical.com.au">info@heffselectrical.com.au</a>
         <span>Melbourne South-East VIC</span>
       </div>
@@ -479,13 +491,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#e8c038))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -509,7 +521,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 /* v3 split */
 #lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
 #lbq.v3 .lbq-g{display:grid;gap:12px}
-#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
+#lbq.v3 .lbq-hp2{border:1px solid var(--lbq-accent);padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
 /* v4 minimal */
 #lbq.v4 .lbq-w{max-width:620px}
@@ -591,7 +603,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 })();
 </script>
 </section>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <script>
 (function(){
@@ -792,18 +804,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in{display:none !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -830,6 +831,19 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in{display:none !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>

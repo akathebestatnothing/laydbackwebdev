@@ -10,9 +10,6 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/logo.jpg">
 <link rel="icon" href="assets/logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton:wght@400;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f4f6f2;
@@ -30,7 +27,7 @@
   --card: #ffffff;
   --fluid: clamp(40px, 8vw, 100px);
   --disp: 'Anton', sans-serif;
-  --body-font: 'Space Grotesk', sans-serif;
+  --body-font: system-ui, sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -40,7 +37,7 @@ h1, h2, h3 { font-family: var(--disp); }
 h1 { text-transform: uppercase; }
 .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 a { color: inherit; text-decoration: none; }
-::selection { background: var(--acc); color: #ffffff; }
+::selection { background: var(--acc); color: #5b5b5b; }
 html.js .drop { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
 html.js .drop.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
@@ -71,9 +68,9 @@ html.js .drop.in { opacity: 1; transform: none; }
 }
 .hero { position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; padding-top: 72px; }
 .hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.hero-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.04) 0%, rgba(0,0,0,.08) 40%, var(--bg) 100%); pointer-events: none; }
+.hero-shade { position: absolute; inset: 0; background: rgba(0,0,0,.04); pointer-events: none; }
 .hero-in { position: relative; z-index: 2; padding: 8vh clamp(1rem, 3vw, 2.5rem) 3rem; width: 100%; max-width: 1360px; margin: 0 auto; }
-.hero-kicker { display: inline-flex; align-items: center; gap: .6rem; color: var(--acc); font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; font-weight: 700; margin-bottom: 1rem; }
+.hero-kicker { display: inline-flex; align-items: center; gap: .6rem; color: var(--acc); font-size: .7rem; letter-spacing: .24em; text-transform:none; font-weight: 700; margin-bottom: 1rem; }
 .hero-kicker::before { content: ""; width: 32px; height: 2px; background: var(--acc); }
 .hero h1 { font-family: var(--disp); font-size: clamp(2.1rem, 5.2vw, 4.2rem); line-height: 1.02; color: var(--ink); font-weight: 900; max-width: 22ch; letter-spacing: -.01em; }
 .hero h1 .acc { color: var(--acc); }
@@ -82,17 +79,17 @@ html.js .drop.in { opacity: 1; transform: none; }
 .hero-cta { display: flex; gap: .8rem; margin-top: 1.6rem; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.45rem; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: .9rem; transition: transform .15s ease, filter .15s ease; }
 .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
-.btn-primary { background: var(--acc); color: #ffffff; }
+.btn-primary { background: var(--acc); color: #5b5b5b; }
 .btn-ghost { border: 1.5px solid var(--ink); color: var(--ink); background: transparent; }
 .hero-strip { margin-top: 2.2rem; display: flex; gap: 2.2rem; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 1.1rem; }
-.hero-strip p { color: var(--ink-2); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+.hero-strip p { color: var(--ink-2); font-size: .68rem; letter-spacing: .12em; text-transform:none; font-weight: 700; }
 .hero-strip strong { display: block; color: var(--ink); font-family: var(--disp); font-size: .95rem; margin-top: .15rem; font-weight: 800; }
 section { padding: 5rem 0; }
 .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2.5rem); }
 .sec-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.4rem; }
 .sec-head::before { content: ""; width: 36px; height: 3px; background: var(--acc); flex: none; align-self: center; }
-.sec-idx { font-size: .75rem; letter-spacing: .22em; text-transform: uppercase; color: var(--acc); font-weight: 800; margin-bottom: .9rem; }
-.sec-kicker { font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: var(--acc); font-weight: 800; }
+.sec-idx { font-size: .75rem; letter-spacing: .22em; text-transform:none; color: var(--acc); font-weight: 800; margin-bottom: .9rem; }
+.sec-kicker { font-size: .68rem; letter-spacing: .28em; text-transform:none; color: var(--acc); font-weight: 800; }
 .sec-title { font-family: var(--disp); font-size: clamp(1.7rem, 3.4vw, 2.7rem); font-weight: 900; line-height: 1.1; margin-top: .2rem; max-width: 28ch; letter-spacing: -.01em; }
 .lead { color: var(--ink-2); max-width: 60ch; margin-top: .8rem; }
 .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.1rem; }
@@ -124,16 +121,16 @@ details.faq .a { color: var(--ink-2); padding: 12px 0 4px; max-width: 680px; }
 .gallery-item figcaption { display: flex; justify-content: space-between; padding: 10px 2px; font-size: 12px; color: var(--ink-2); }
 .gallery-nav { display: flex; gap: 10px; justify-content: flex-end; padding: 0 clamp(1rem, 3vw, 2.5rem); margin-top: 16px; }
 .gallery-btn { width: 48px; height: 48px; border: 1.5px solid var(--ink); background: transparent; font-size: 18px; cursor: pointer; color: var(--ink); transition: background .15s, color .15s; border-radius: 6px; }
-.gallery-btn:hover { background: var(--acc); border-color: var(--acc); color: #ffffff; }
+.gallery-btn:hover { background: var(--acc); border-color: var(--acc); color: #5b5b5b; }
 .stat-band { background: var(--bg-2); border-block: 1px solid var(--line); }
 .stat-band .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .stat { border-top: 3px solid var(--acc); padding-top: 16px; }
 .stat b { font-family: var(--disp); font-size: clamp(32px, 4.2vw, 54px); font-weight: 900; letter-spacing: -.03em; display: block; line-height: 1; color: var(--acc); }
-.stat span { font-size: 12px; color: var(--ink-2); letter-spacing: .06em; text-transform: uppercase; font-weight: 700; margin-top: 5px; display: block; }
+.stat span { font-size: 12px; color: var(--ink-2); letter-spacing: .06em; text-transform:none; font-weight: 700; margin-top: 5px; display: block; }
 @media (max-width: 900px) { .stat-band .wrap { grid-template-columns: repeat(2, 1fr); } }
 footer { border-top: 1px solid var(--line); padding: 64px 0 0; background: var(--bg); }
 footer .wrap { max-width: 1360px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2.5rem); display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; }
-footer h4 { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--acc); margin-bottom: 14px; }
+footer h4 { font-size: 11px; letter-spacing: .16em; text-transform:none; color: var(--acc); margin-bottom: 14px; }
 footer a { display: block; text-decoration: none; color: var(--ink-2); font-size: 14px; padding: 4px 0; }
 footer a:hover { color: var(--acc); }
 .fbrand { display: flex; align-items: center; gap: 12px; }
@@ -156,14 +153,14 @@ footer h4, .nav-links a:hover, footer a:hover { color: var(--acc-2); }
 #lbq p.lbq-s { margin: 0 0 20px; color: var(--lbq-muted); max-width: 52ch; }
 #lbq .lbq-info { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--lbq-line); padding-top: 20px; }
 #lbq .lbq-info div { display: flex; gap: 10px; align-items: baseline; }
-#lbq .lbq-info b { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--lbq-accent); min-width: 60px; }
+#lbq .lbq-info b { font-size: .75rem; letter-spacing: .12em; text-transform:none; color: var(--lbq-accent); min-width: 60px; }
 #lbq .lbq-info a { font-weight: 800; text-decoration: none; }
 #lbq .lbq-f { display: grid; gap: 11px; background: var(--lbq-panel); border: 1px solid var(--lbq-line); border-radius: 12px; padding: 24px; }
-#lbq label { display: block; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--lbq-muted); margin-bottom: 4px; }
+#lbq label { display: block; font-size: .75rem; letter-spacing: .08em; text-transform:none; color: var(--lbq-muted); margin-bottom: 4px; }
 #lbq input, #lbq textarea, #lbq select { width: 100%; padding: 11px 13px; border: 1px solid var(--lbq-line); border-radius: 8px; background: var(--bg); color: var(--ink); font: inherit; font-size: .92rem; }
 #lbq textarea { min-height: 92px; resize: vertical; }
 #lbq input:focus, #lbq textarea:focus, #lbq select:focus { outline: 2px solid var(--lbq-accent); outline-offset: 1px; border-color: transparent; }
-#lbq button { margin-top: 4px; padding: 12px 20px; border: 0; border-radius: 8px; background: var(--lbq-accent); color: #ffffff; font: inherit; font-weight: 800; font-size: .92rem; cursor: pointer; letter-spacing: .02em; }
+#lbq button { margin-top: 4px; padding: 12px 20px; border: 0; border-radius: 8px; background: var(--lbq-accent); color: #5b5b5b; font: inherit; font-weight: 800; font-size: .92rem; cursor: pointer; letter-spacing: .02em; }
 #lbq button:disabled { opacity: .6; cursor: wait; }
 #lbq .lbq-st { margin: 8px 0 0; font-size: .88rem; color: var(--lbq-muted); min-height: 1.2em; }
 #lbq .lbq-cons { display: flex; gap: 8px; align-items: center; margin-top: 10px; font-size: .8rem; color: var(--lbq-muted); text-transform: none; letter-spacing: 0; }
@@ -178,24 +175,21 @@ footer h4, .nav-links a:hover, footer a:hover { color: var(--acc-2); }
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-motion-css">
 /* ==== LB MOTION PACK ==== */
 .lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
@@ -213,8 +207,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -237,7 +231,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -252,11 +246,11 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -279,15 +273,14 @@ section{ position:relative; }
 section::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
   background:
-    radial-gradient(120% 70% at 12% 0%, color-mix(in srgb, var(--lb-acc) 7%, transparent) 0%, transparent 58%),
-    radial-gradient(90% 60% at 100% 100%, color-mix(in srgb, var(--lb-acc) 5%, transparent) 0%, transparent 60%);
+    transparent,
+    transparent;
 }
 section > *{ position:relative; z-index:1; }
 
 /* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
 .card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 100%, transparent) 0%,
-                                    color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background:transparent;
   border:1px solid var(--lb-hair);
   border-radius:14px;
   box-shadow:var(--lb-e1);
@@ -308,7 +301,7 @@ figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:sc
 
 /* buttons: gradient fill, inset highlight, layered shadow */
 a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 55%);
+  background-image:rgba(255,255,255,.16);
   box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
   border-radius:10px;
 }
@@ -319,8 +312,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
 
 /* nav: subtle vertical gradient + hairline for separation from the page */
 .nav,nav,.site-header,header.nav{
-  background-image:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 96%, transparent) 0%,
-                                         color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background-image:transparent;
   box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
 }
 
@@ -334,7 +326,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 /* dark surfaces get stronger, softer shadows */
 @media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
 @supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:radial-gradient(120% 70% at 12% 0%, rgba(229,25,36,.06) 0%, transparent 58%); }
+  section::before{ background:rgba(229,25,36,.06); }
 }
 @media (prefers-reduced-motion: reduce){
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
@@ -346,16 +338,32 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 }
 </style>
 <noscript><style>.lb-rb__slide{opacity:1}</style></noscript>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+
+<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
+
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body>
 <script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Tree Mulchers Perth - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#1b5e20;--lb-subc:#1b5e20;--lb-acc:#f8d800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Tree Mulchers Perth</span><span class="lb-brand__sub"><span class="lb-acc">T.M.P.</span> - Tree Removal · Mulching · Stump Grinding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Tree Mulchers Perth - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#1b5e20;--lb-subc:#1b5e20;--lb-acc:#f8d800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Tree Mulchers Perth</span><span class="lb-brand__sub"><span class="lb-acc">T.M.P.</span> - Tree Removal · Mulching · Stump Grinding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#lbq">Quote</a></div>
   <div class="nav-cta"><a href="#lbq" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</div></nav>
+</div><a class="lb-tel" href="tel:0410886132" style="text-decoration:none;white-space:nowrap;align-self:center">0410 886 132</a></nav>
 
 <header class="hero" id="top">
 <!-- LB-3D-HERO -->
@@ -526,7 +534,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 </script>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:linear-gradient(120deg,#0b0c10 0%,#1b5e20 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Tree Mulchers Perth</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#1b5e20 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">T.M.P. - Tree Removal &middot; Mulching &middot; Stump Grinding</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#1b5e20 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Tree Mulchers Perth &mdash; recent work</div></div></section><footer><div class="wrap">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Tree Mulchers Perth</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">T.M.P. - Tree Removal &middot; Mulching &middot; Stump Grinding</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Tree Mulchers Perth &mdash; recent work</div></div></section><footer><div class="wrap">
   <div>
     <div class="fbrand"><img src="assets/logo.jpg" alt="Tree Mulchers Perth logo"><span class="b-txt"><span class="brand-name" style="font-size:.95rem;">Tree Mulchers Perth</span><br><span class="brand-sub">T.M.P. - Tree Removal &middot; Mulching &middot; Stump Grinding</span></span></div>
     <p style="margin-top:14px;font-size:13px;max-width:280px;color:var(--ink-2);">Tree removal, mulching, vegetation clearing & stump grinding - Perth metro.<br></p>
@@ -539,7 +547,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   <span>&copy; 2026 TREE MULCHERS PERTH &middot; </span>
   <a href="#lbq">Get a quote</a>
 </div>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <!-- lb: old box-hero engine removed -->
 <script id="lb-motion-js">
@@ -700,17 +708,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
 .lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
 </style>
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -737,6 +735,28 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,eyebrow chip (accent-bold) "Perth metro,tiny numbered label "01" beside h2 "What we do." (8 on page),tiny numbered label "01" beside h3 "Tree mulching" (8 on page),tiny numbered label "02" beside h2 "How a job runs." (8 on page),tiny numbered label "02" beside h3 "Tree removal" (8 on page),tiny numbered label "03" beside h2 "Asked on every job." (8 on page),tiny numbered label "03" beside h3 "Vegetation clearing" (8 on page),tiny numbered label "04" beside h2 "Recent work." (8 on page),tiny numbered label "04" beside h3 "Stump grinding" (8 on page){display:none !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.12em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+letter-spacing: 0.20em on body text{letter-spacing:normal !important}
+letter-spacing: 0.24em on body text{letter-spacing:normal !important}
+10.88px body text{font-size:max(15px,1em)}
+10.88px functional text "Local response" (below 11px floor){font-size:max(15px,1em)}
+11.2px body text{font-size:max(15px,1em)}
+7px functional text "T.M.P." (below 11px floor){font-size:max(15px,1em)}
+8.8px functional text "T.M.P.{font-size:max(1em,15px) !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>

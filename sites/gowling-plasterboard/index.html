@@ -10,9 +10,6 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/logo.jpg">
 <link rel="icon" href="assets/logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton:wght@400;700;800;900&family=Barlow:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #F0F8F2;
@@ -75,8 +72,8 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .brand { display: flex; align-items: center; gap: .8rem; color: var(--ink); text-decoration: none; }
 .brand-mark{height:48px;width:auto;object-fit:contain}
 .brand-txt { display: flex; flex-direction: column; line-height: 1; }
-.brand-name { font-family: 'Manrope', var(--font-m), sans-serif; font-size: 1.16rem; line-height: 1; font-weight: 700; letter-spacing: .01em; color: var(--ink); }
-.brand-sub { display: block; margin-top: 3px; font-family: 'Manrope', var(--font-m), sans-serif; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; font-style: normal; }
+.brand-name { font-family: system-ui, var(--font-m), sans-serif; font-size: 1.16rem; line-height: 1; font-weight: 700; letter-spacing: .01em; color: var(--ink); }
+.brand-sub { display: block; margin-top: 3px; font-family: system-ui, var(--font-m), sans-serif; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; font-style: normal; }
 .brand-sub em { font-style: normal; color: var(--acc); }
 .nav__links {
   display: flex; gap: clamp(1rem, 2.4vw, 2rem);
@@ -112,7 +109,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 #heroCanvas {  perspective: 800px; }
 .lbhf { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
 .lbhf img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; filter: brightness(.74) saturate(.95) contrast(1.05); }
-.lbhf-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(100deg, rgba(6,16,10,.86) 0%, rgba(6,16,10,.52) 48%, rgba(6,16,10,.26) 100%), linear-gradient(180deg, rgba(6,16,10,.72) 0%, rgba(8,22,13,.40) 44%, rgba(5,14,9,.90) 100%); }
+.lbhf-scrim { position: absolute; inset: 0; z-index: 1; background: rgba(6,16,10,.86), rgba(6,16,10,.72); }
 .hero-copy {
   position: relative; z-index: 3;
   max-width: 64ch;
@@ -213,8 +210,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -237,7 +234,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -252,11 +249,11 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -276,25 +273,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-provmark">.lb-brand__mark{background:#0d0f12;padding:.3rem .6rem;border-radius:.45rem;display:inline-flex;align-items:center;box-sizing:border-box}.lb-brand__mark img{display:block;height:clamp(34px,3.6vw,46px);width:auto;object-fit:contain}</style>
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
@@ -303,19 +296,40 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+
+<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
+
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+
+<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
+
+<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head><body><script>document.documentElement.classList.add('js');</script>
 
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="lb-brand" href="#top" aria-label="Gowling Plasterboard Linings - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#388848;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Gowling Plasterboard Linings</span><span class="lb-brand__sub"><span class="lb-acc">Plasterboard</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Gowling Plasterboard Linings - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#388848;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Gowling Plasterboard Linings</span><span class="lb-brand__sub"><span class="lb-acc">Plasterboard</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">What We Do</a></li>
     <li><a href="#finish">How We Finish</a></li>
     <li><a href="#areas">Service Area</a></li>
     <li><a href="#lbq">Quote</a></li>
   </ul>
-  <div class="nav__cta"><a href="tel:+61407013770" aria-label="Call 0407 013 770">Call 0407 013 770</a></div>
+  <div class="nav__cta"><a href="tel:0407013770" aria-label="Call 0407 013 770">Call 0407 013 770</a></div>
 </nav>
 
 <header id="top">
@@ -332,7 +346,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <p class="d">20 years' experience in plasterboard installation, hand-tool flushing and finishing. New builds, renovations, patch-ups and repairs, ceilings. Servicing South Australia, Mallee & Riverland including VIC/NSW border regions.</p>
       <div class="cta">
         <a class="btn btn--p" href="#lbq">Get a free quote</a>
-        <a class="btn btn--o" href="tel:+61407013770" aria-label="Call 0407 013 770">Call 0407 013 770</a>
+        <a class="btn btn--o" href="tel:0407013770" aria-label="Call 0407 013 770">Call 0407 013 770</a>
       </div>
     </div>
   </div>
@@ -388,10 +402,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work-2.jpg" alt="Gowling Plasterboard Linings" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-1.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/hero-plasterboard.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-3.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Gowling Plasterboard Linings &mdash; recent work</div></div></section><footer class="foot">
   <div>
     <h3>Gowling Plasterboard Linings</h3>
-    <p>Plasterboard installation & finishing - South Australia, Mallee & Riverland.<br>Phone <a href="tel:+61407013770">0407 013 770</a></p>
+    <p>Plasterboard installation & finishing - South Australia, Mallee & Riverland.<br>Phone <a href="tel:0407013770">0407 013 770</a></p>
   </div>
   <p aria-hidden="true">&copy; <span id="year"></span> Gowling Plasterboard Linings. All rights reserved.</p>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
@@ -664,22 +678,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,.lb-pulse{display:none !important}
-letter-spacing: 0.05em on body text{letter-spacing:normal !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-letter-spacing: 0.16em on body text{letter-spacing:normal !important}
-7px functional text "Plasterboard" (below 11px floor){font-size:max(1em,15px) !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -706,6 +705,22 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,.lb-pulse{display:none !important}
+letter-spacing: 0.05em on body text{letter-spacing:normal !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+7px functional text "Plasterboard" (below 11px floor){font-size:max(1em,15px) !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>

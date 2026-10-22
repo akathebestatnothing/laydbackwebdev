@@ -3,707 +3,829 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Newcastle Ceramic Coating</title>
-<meta name="description" content="Ceramic coating & paint protection — Newcastle NSW. Vehicle, aircraft and boat ceramic coating specialist."/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Manrope:wght@400;500;600&family=Chivo+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Manrope:wght@400;500;600&family=Chivo+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<title>Newcastle Ceramic Coating — ceramic coating &amp; paint protection, Newcastle NSW</title>
+<meta name="description" content="Ceramic coating and paint protection in Newcastle NSW. Paint correction, automotive, aircraft and marine coating, interior protection. Call 0499 242 599."/>
+<meta name="theme-color" content="#0a1013"/>
 <link rel="icon" href="assets/favicon.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0a1013;
-  --ground:#101a1e;
-  --mist:#e8f6f7;
-  --hairline:#1e2c31;
-  --accent:#38a0a0;
-  --teal:#144449;
-  --bg:#0a1013;
+  --panel:#101a1e;
+  --panel-2:#0d1518;
   --line:#1e2c31;
-  --fg:#e8f6f7;
-  --muted:#6b8a8d;
-  --font-display:"Antonio",system-ui,sans-serif;
-  --font-body:"Manrope",system-ui,sans-serif;
-  --font-mono:"Chivo Mono",ui-monospace,monospace;
-  --space:clamp(1rem,2.5vw,1.5rem);
-  --space-lg:clamp(2rem,5vw,3rem);
-  --space-xl:clamp(3rem,8vw,5rem);
-  --maxw:72ch;
-  --radius:8px;
+  --line-soft:#172427;
+  --fg:#e9f4f5;
+  --name:#eef7f8;
+  --mut:#93aeb1;
+  --mut-2:#7d979a;
+  --acc:#48d8d8;
+  --acc-deep:#144449;
+  --lb-name:var(--name);
+
+  --t1:.8125rem;
+  --t2:.9375rem;
+  --t3:1.0625rem;
+  --t4:clamp(1.125rem,1.4vw,1.3125rem);
+  --t5:clamp(1.75rem,3.2vw,2.625rem);
+  --t6:clamp(2.35rem,5vw,4.15rem);
+
+  --s1:.5rem; --s2:.875rem; --s3:1.375rem; --s4:2rem;
+  --s5:clamp(2.5rem,5vw,4rem); --s6:clamp(3.5rem,7vw,6rem);
+  --max:1160px;
+  --bar:76px;
+  --ease:cubic-bezier(.2,.7,.3,1);
 }
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--fg);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--t3);line-height:1.62;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-*, *::before, *::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:clamp(1rem,0.95rem+0.25vw,1.125rem);line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline}
-h1,h2,h3{margin:0;font-family:var(--font-display);font-weight:700;line-height:1.15;color:var(--mist)}
-h1{font-size:clamp(2.5rem,5vw,4rem);letter-spacing:-0.02em}
-h2{font-size:clamp(1.75rem,3.5vw,2.5rem);letter-spacing:-0.01em}
-h3{font-size:clamp(1.25rem,2vw,1.5rem)}
-p{margin:0 0 var(--space)}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--space)}
-.rv{opacity:1;transform:none;transition:opacity 700ms ease,transform 700ms ease}
-.js .rv{opacity:0;transform:translateY(24px)}
-.js .rv.on{opacity:1;transform:none}
-.skip-link{position:absolute;top:-100%;left:var(--space);background:var(--accent);color:var(--ink);padding:0.5rem 1rem;border-radius:var(--radius);font-weight:600;z-index:100}
-.skip-link:focus{top:var(--space)}/* Header / Nav */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(10,16,19,0.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav__brand{display:flex;align-items:center;gap:0.75rem;font-family:var(--font-display);font-weight:700;font-size:clamp(1.125rem,1rem+0.5vw,1.375rem);color:var(--mist);text-decoration:none}
-.nav__brand:hover{text-decoration:none}
-.nav__logo{width:40px;height:40px}
-.nav__list{display:flex;gap:clamp(1rem,2vw,2rem);list-style:none;margin:0;padding:0}
-.nav__link{font-family:var(--font-body);font-weight:500;font-size:0.875rem;color:var(--muted);text-decoration:none;transition:color 200ms ease}
-.nav__link:hover{color:var(--accent);text-decoration:none}
-.nav__cta{display:none}
-@media(min-width:768px){
-  .nav__cta{display:inline-flex;align-items:center;gap:0.5rem;padding:0.625rem 1.25rem;background:var(--accent);color:var(--ink);font-family:var(--font-body);font-weight:600;font-size:0.875rem;border-radius:var(--radius);text-decoration:none;transition:background 200ms ease,transform 150ms ease}
-  .nav__cta:hover{background:#5ae0e0;transform:translateY(-1px);text-decoration:none}
+h1,h2,h3,h4{margin:0;color:var(--fg);font-weight:800;line-height:1.04;letter-spacing:-.02em}
+h1{font-size:var(--t6)}
+h2{font-size:var(--t5)}
+h3{font-size:1.1875rem;line-height:1.24;letter-spacing:-.01em;font-weight:700}
+p{margin:0}
+::selection{background:var(--acc);color:var(--ink)}
+
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:0;z-index:200;background:var(--acc);color:var(--ink);padding:.6rem 1rem;font-weight:700}
+.skip:focus{left:12px;top:12px}
+
+/* ---------- header: one line, nothing clipped ---------- */
+.bar{
+  position:sticky;top:0;z-index:100;background:var(--ink);
+  border-bottom:1px solid var(--line);
+}
+.bar__in{
+  display:flex;align-items:center;gap:clamp(14px,2vw,30px);
+  min-height:var(--bar);height:var(--bar);
+}
+.brand{display:flex;align-items:center;gap:11px;min-width:0;flex:0 0 auto}
+.brand img{width:34px;height:34px;flex:0 0 auto;border-radius:6px}
+.brand span{
+  display:block;white-space:nowrap;font-weight:800;letter-spacing:-.015em;
+  font-size:clamp(14.5px,1.45vw,18px);line-height:1.1;color:var(--name);
+}
+.nav{display:flex;align-items:center;gap:clamp(16px,2.1vw,30px);margin-left:auto;flex:0 1 auto}
+.nav a{
+  font-size:var(--t2);font-weight:500;color:var(--mut);white-space:nowrap;
+  padding:.35rem 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;
+}
+.nav a:hover{color:var(--fg);border-bottom-color:var(--acc)}
+.tel{
+  display:inline-flex;align-items:center;gap:.5rem;flex:0 0 auto;white-space:nowrap;
+  background:var(--acc);color:var(--ink);font-weight:800;font-size:var(--t2);
+  padding:.62rem 1.05rem;border-radius:3px;letter-spacing:0;
+  transition:filter .2s,transform .2s;
+}
+.tel:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.tel svg{width:15px;height:15px;flex:0 0 auto}
+@media(max-width:900px){
+  .nav{display:none}
+  .tel{margin-left:auto}
+}
+@media(max-width:400px){
+  .brand span{font-size:13.5px}
+  .tel{padding:.55rem .8rem;font-size:var(--t1)}
 }
 
-/* Hero */
-.hero{position:relative;padding:var(--space-xl) 0;overflow:hidden}
-.hero__canvas{position:absolute;inset:0;z-index:0;opacity:0.15;pointer-events:none}
-.hero__content{position:relative;z-index:1;display:grid;gap:var(--space);text-align:center}
-.hero__title{margin:0}
-.hero__tagline{font-size:clamp(1.125rem,1rem+0.5vw,1.375rem);color:var(--muted);max-width:50ch;margin:0 auto}
-.hero__cta-group{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-top:var(--space)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.875rem 1.5rem;font-family:var(--font-body);font-weight:600;font-size:0.9375rem;border-radius:var(--radius);text-decoration:none;transition:background 200ms ease,transform 150ms ease,border-color 200ms ease;border:1px solid transparent;cursor:pointer}
-.btn--primary{background:var(--accent);color:var(--ink);border-color:var(--accent)}
-.btn--primary:hover{background:#5ae0e0;transform:translateY(-1px);text-decoration:none}
-.btn--ghost{background:transparent;color:var(--mist);border-color:var(--hairline)}
-.btn--ghost:hover{background:rgba(72,216,216,0.1);border-color:var(--accent);text-decoration:none}
-
-/* Services */
-.services{padding:var(--space-xl) 0;border-top:1px solid var(--hairline)}
-.services__header{text-align:center;margin-bottom:var(--space-lg)}
-.services__grid{display:grid;grid-template-columns:1fr;gap:var(--space)}
-@media(min-width:640px){.services__grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:960px){.services__grid{grid-template-columns:repeat(3,1fr)}}
-.service-card{background:var(--ground);border:1px solid var(--hairline);border-radius:var(--radius);padding:var(--space-lg);transition:border-color 200ms ease,transform 200ms ease}
-.service-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.service-card__icon{width:48px;height:48px;margin-bottom:var(--space);color:var(--accent)}
-.service-card__title{font-size:1.125rem;margin-bottom:0.5rem}
-.service-card__desc{color:var(--muted);font-size:0.9375rem;line-height:1.6}
-
-/* Process */
-.process{padding:var(--space-xl) 0}
-.process__header{text-align:center;margin-bottom:var(--space-lg)}
-.process__steps{display:grid;grid-template-columns:1fr;gap:var(--space)}
-@media(min-width:768px){.process__steps{grid-template-columns:repeat(4,1fr)}}
-.process-step{position:relative;padding-left:3rem}
-.process-step::before{content:counter(step);counter-increment:step;position:absolute;left:0;top:0;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;background:var(--accent);color:var(--ink);font-family:var(--font-display);font-weight:700;font-size:1rem;border-radius:50%}
-.process-step__title{font-size:1rem;margin-bottom:0.375rem}
-.process-step__desc{color:var(--muted);font-size:0.875rem;line-height:1.5}
-
-/* Locality */
-.locality{padding:var(--space-xl) 0;background:var(--ground);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
-.locality__content{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space)}
-.locality__text{font-family:var(--font-display);font-weight:400;font-size:clamp(1.25rem,2vw,1.75rem);color:var(--mist)}
-.locality__socials{display:flex;gap:0.75rem}
-.social-link{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--hairline);border-radius:50%;color:var(--muted);transition:color 200ms ease,border-color 200ms ease,background 200ms ease}
-.social-link:hover{color:var(--accent);border-color:var(--accent);background:rgba(72,216,216,0.1);text-decoration:none}
-.social-link svg{width:20px;height:20px}
-
-/* Footer */
-.site-footer{padding:var(--space-xl) 0;background:var(--ink);border-top:1px solid var(--hairline)}
-.footer__grid{display:grid;grid-template-columns:1fr;gap:var(--space-lg);text-align:center}
-@media(min-width:768px){.footer__grid{grid-template-columns:1fr auto 1fr;text-align:left}}
-.footer__brand{display:flex;flex-direction:column;align-items:center;gap:var(--space)}
-@media(min-width:768px){.footer__brand{align-items:flex-start}}
-.footer__logo{width:48px;height:48px}
-.footer__name{font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:var(--mist)}
-.footer__tagline{font-size:0.875rem;color:var(--muted)}
-.footer__meta{display:flex;flex-direction:column;gap:0.5rem;font-size:0.875rem;color:var(--muted)}
-.footer__meta a:hover{color:var(--accent)}
-.footer__legal{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--muted)}
-@media(min-width:768px){.footer__legal{justify-content:flex-end}}
-.footer__legal a:hover{color:var(--accent)}
-
-/* Reveal safety net */
-</style>
-<style id="lb-motion-css">
-/* ==== LB MOTION PACK ==== */
-.lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
-/* A header must never be hidden by a scroll-reveal state: the nav/brand is chrome, not
-   content. Unrevealed .rv wrappers left whole headers at opacity:0 (invisible logo). */
-header, .site-header, .page-header, nav.nav, .nav .rv, nav.rv, .header-inner, .nav-inner,
-header .rv, .site-header .rv, .nav-inner .rv{
-  opacity:1 !important; visibility:visible !important; transform:none !important;
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-1}
+.hero__in{
+  position:relative;z-index:2;display:grid;align-content:center;
+  min-height:min(78vh,660px);padding:clamp(52px,8vh,96px) 0 clamp(56px,9vh,104px);
+  max-width:min(680px,62%);
 }
-.lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
-.lb-mq{max-width:100%;overflow:hidden}
-.lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
-.lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
-.lb-rb__slide.is-on{opacity:1}
-.lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
-.lb-rb__slide.is-on img{transform:scale(1.10)}
-.lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
- font-size:clamp(9px,1vw,13px);z-index:2}
-.lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
- display:flex;flex-direction:column;gap:9px;z-index:3}
-.lb-rb__dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
- background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s}
-.lb-rb__dots button.is-on{background:#fff;transform:scale(1.35)}
-.lb-rb__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;
- border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(8,9,12,.35);color:#fff;
- cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1;backdrop-filter:blur(6px);
- transition:background .25s,transform .25s}
-.lb-rb__nav:hover{background:rgba(8,9,12,.7)}
-.lb-rb__nav--prev{left:clamp(10px,1.6vw,22px)}
-.lb-rb__nav--next{right:clamp(10px,1.6vw,22px)}
-.lb-rb__nav:active{transform:translateY(-50%) scale(.92)}
-@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3}.lb-rb__nav{width:36px;height:36px}}
-
-a.btn,.btn,button.btn,.nav-cta a,.wp-block-button__link{position:relative;overflow:hidden;
- transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,filter .22s}
-a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2px);
- box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
-a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
-a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
- transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
-a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
-
-.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
-.lb-rv.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){
- .lb-rv{opacity:1!important;transform:none!important;transition:none!important}
- .lb-rb__slide img{transform:none!important;transition:none!important}
- a.btn::after,.btn::after,.nav-cta a::after{display:none}
+.eyebrow{
+  display:flex;align-items:center;gap:.6rem;font-size:var(--t1);font-weight:600;
+  color:var(--acc);margin-bottom:var(--s3);
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--acc);flex:0 0 auto}
+.hero h1{max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--acc);display:block}
+.hero__lede{margin-top:var(--s3);max-width:44ch;color:#cfe0e1;font-size:var(--t4);line-height:1.5}
+.hero__act{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s4)}
+.ctl{
+  display:inline-flex;align-items:center;gap:.55rem;background:var(--acc);color:var(--ink);
+  font-weight:800;font-size:var(--t3);padding:.82rem 1.4rem;border-radius:3px;
+  transition:filter .2s,transform .2s;
+}
+.ctl:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.ctl svg{width:17px;height:17px}
+.alt{font-size:var(--t2);color:#d7e6e7;border-bottom:1px solid #4a6669;padding-bottom:2px;transition:border-color .2s,color .2s}
+.alt:hover{border-color:var(--acc);color:#fff}
+@media(max-width:860px){
+  .hero__in{max-width:none;min-height:0;padding:clamp(40px,7vh,60px) 0 clamp(44px,8vh,64px)}
+  #heroCanvas{opacity:.72}
+  .hero h1{max-width:18ch}
 }
 
-/* marquee band (professional, reference-derived) */
-.lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
- border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
-.lb-mq:hover .lb-mq__in{animation-play-state:paused}
-.lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
-.lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
-@keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
-</style>
-<style id="lb-hero-css">
-canvas.lb-hero-canvas{position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0; pointer-events:none}
-canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
-  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
+/* ---------- spec strip ---------- */
+.strip{border-bottom:1px solid var(--line);background:var(--panel-2)}
+.strip__in{display:flex;flex-wrap:wrap;gap:0}
+.strip p{
+  flex:1 1 220px;padding:1.05rem clamp(18px,3vw,30px);font-size:var(--t2);color:var(--mut);
+  border-left:1px solid var(--line-soft);
+}
+.strip p:first-child{border-left:0;padding-left:0}
+.strip strong{color:var(--fg);font-weight:700}
+@media(max-width:700px){.strip p{flex-basis:100%;border-left:0;padding-left:0;border-top:1px solid var(--line-soft)}.strip p:first-child{border-top:0}}
+
+/* ---------- sections ---------- */
+section{scroll-margin-top:calc(var(--bar) + 8px)}
+.sec{padding:var(--s6) 0;border-bottom:1px solid var(--line)}
+.sec__head{display:grid;grid-template-columns:1.05fr 1fr;gap:var(--s5);align-items:end;margin-bottom:var(--s5)}
+.sec__head h2{max-width:19ch}
+.sec__head p{color:var(--mut);max-width:40ch;justify-self:end}
+@media(max-width:800px){.sec__head{grid-template-columns:1fr;gap:var(--s2)}.sec__head p{justify-self:start}}
+
+/* services: editorial rows, not equal cards */
+.svc{display:grid;grid-template-columns:.72fr 1.6fr;gap:clamp(28px,5vw,72px)}
+.svc__aside{position:sticky;top:calc(var(--bar) + 28px);align-self:start}
+.svc__aside h2{max-width:9ch}
+.svc__aside p{color:var(--mut);margin-top:var(--s2);font-size:var(--t2);max-width:26ch}
+.svc__aside .tel2{display:inline-block;margin-top:var(--s3);font-weight:700;font-size:var(--t3);border-bottom:1px solid var(--acc);padding-bottom:2px}
+.svc__row{
+  display:grid;grid-template-columns:52px 1fr;gap:var(--s3);
+  padding:var(--s3) 0;border-top:1px solid var(--line);align-items:start;
+}
+.svc__row:last-child{border-bottom:1px solid var(--line)}
+.svc__k{font-size:var(--t1);font-weight:700;color:var(--acc);padding-top:.32rem;font-variant-numeric:tabular-nums}
+.svc__row p{color:var(--mut);font-size:var(--t2);line-height:1.55;margin-top:.4rem;max-width:52ch}
+.svc__row:first-of-type .svc__t{font-size:1.375rem}
+@media(max-width:860px){.svc{grid-template-columns:1fr}.svc__aside{position:static}.svc__aside h2{max-width:none}}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,34px)}
+.proc__step{border-top:2px solid var(--acc-deep);padding-top:var(--s3)}
+.proc__step em{display:block;font-style:normal;font-size:var(--t1);font-weight:700;color:var(--acc);margin-bottom:var(--s1)}
+.proc__step p{color:var(--mut);font-size:var(--t2);line-height:1.55;margin-top:.45rem}
+@media(max-width:860px){.proc{grid-template-columns:1fr 1fr;row-gap:var(--s4)}}
+@media(max-width:520px){.proc{grid-template-columns:1fr}}
+
+/* quote */
+.quote{background:var(--panel);border-bottom:1px solid var(--line)}
+.qgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,64px)}
+.qgrid h2{max-width:13ch}
+.qgrid .call{margin-top:var(--s3);display:flex;flex-direction:column;gap:.5rem;font-size:var(--t2);color:var(--mut)}
+.qgrid .call a{color:var(--fg);font-weight:700;border-bottom:1px solid var(--line);padding-bottom:2px;align-self:flex-start}
+.qgrid .call a:hover{border-color:var(--acc);color:var(--acc)}
+@media(max-width:860px){.qgrid{grid-template-columns:1fr}}
+form{display:grid;gap:var(--s2)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+@media(max-width:560px){.f2{grid-template-columns:1fr}}
+label{display:block;font-size:var(--t1);font-weight:600;color:var(--mut);margin-bottom:.35rem}
+input,textarea{
+  width:100%;padding:.72rem .85rem;background:#0b1215;border:1px solid var(--line);
+  border-radius:3px;color:var(--fg);font:inherit;font-size:var(--t2);
+}
+textarea{min-height:104px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 2px rgba(72,216,216,.16)}
+button{
+  justify-self:start;margin-top:var(--s1);background:var(--acc);color:var(--ink);border:0;
+  border-radius:3px;padding:.8rem 1.5rem;font:inherit;font-weight:800;font-size:var(--t2);cursor:pointer;
+  transition:filter .2s;
+}
+button:hover{filter:brightness(1.08)}
+button:disabled{opacity:.6;cursor:wait}
+.cons{display:flex;align-items:center;gap:.55rem;font-size:var(--t1);color:var(--mut);margin-top:var(--s1)}
+.cons input{width:15px;height:15px;accent-color:var(--acc)}
+.msg{font-size:var(--t2);color:var(--mut);min-height:1.3em;margin-top:.5rem}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* locality */
+.local{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;width:100%}
+.local h2{font-size:clamp(1.5rem,2.6vw,2.125rem)}
+.local p{color:var(--mut);font-size:var(--t2);margin-top:.4rem}
+.socials{display:flex;gap:.6rem}
+.socials a{
+  display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--line);
+  border-radius:50%;color:var(--mut);transition:color .2s,border-color .2s;
+}
+.socials a:hover{color:var(--acc);border-color:var(--acc)}
+.socials svg{width:18px;height:18px}
+
+/* legal + footer */
+.legal{padding:var(--s5) 0;border-bottom:1px solid var(--line)}
+.legal__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px)}
+.legal h2{font-size:1.0625rem;letter-spacing:0}
+.legal p{color:var(--mut);font-size:var(--t1);line-height:1.65;margin-top:.5rem}
+@media(max-width:720px){.legal__grid{grid-template-columns:1fr}}
+footer{padding:var(--s5) 0 var(--s4)}
+.foot{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;align-items:flex-start}
+.foot__b{display:flex;align-items:center;gap:10px}
+.foot__b img{width:30px;height:30px;border-radius:5px}
+.foot__b span{font-weight:800;letter-spacing:-.015em;font-size:var(--t3)}
+.foot__m{display:flex;gap:var(--s3);flex-wrap:wrap;font-size:var(--t2);color:var(--mut)}
+.foot__m a:hover,.foot__l a:hover{color:var(--acc)}
+.foot__l{display:flex;gap:var(--s3);font-size:var(--t1);color:var(--mut-2)}
+.foot__base{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line-soft);font-size:var(--t1);color:var(--mut-2)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
 }
 </style>
-<style id="lb-brand-css">
-/* ==== LB BRAND (logo-true spanning wordmark) ==== */
-.lb-brandwrap{display:block;padding:14px 18px;background:inherit}
-.lb-brandwrap .lb-brand{display:inline-flex}
-.lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
- color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
-.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
-.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
-.lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
- font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
- color:var(--lb-name,currentColor)}
-.lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
- font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
- color:var(--lb-subc,currentColor);opacity:.86}
-.lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
-@media (max-width:640px){
- .lb-brand__mark{height:clamp(30px,8vw,40px)}
- .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
- .lb-brand__sub{letter-spacing:.2em;font-size:7px}
-}
-</style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
-   Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
-   and does NOT hide the hero canvas (that is the intended 3D hero). */
-.site-header,.header{z-index:50}
-.container.nav,.nav,.nav-in{z-index:5}
-.lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
-</style>
-<style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to main content</a>
-<header class="site-header" role="banner"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
-  <div class="container nav">
-    <a href="/" class="nav__brand" aria-label="Newcastle Ceramic Coating home">
-      <img src="assets/logo.svg" alt="" class="nav__logo" aria-hidden="true">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <a class="brand" href="/" aria-label="Newcastle Ceramic Coating — home">
+      <img src="assets/logo.svg" alt="" width="34" height="34" decoding="async">
       <span>Newcastle Ceramic Coating</span>
     </a>
-    <nav aria-label="Primary navigation">
-<ul class="nav__list">
-        <li><a href="#services" class="nav__link">Services</a></li>
-        <li><a href="#process" class="nav__link">Process</a></li>
-        <li><a href="#locality" class="nav__link">Newcastle NSW</a></li>
-      </ul>
+    <nav class="nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#area">Newcastle NSW</a>
     </nav>
-    <a href="tel:+61499242599" class="nav__cta btn">0499 242 599</a>
-    <a href="#lbq" class="nav__cta btn btn--primary">Get a Quote</a>
+    <a class="tel" href="tel:0499242599">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+      0499 242 599
+    </a>
   </div>
 </header>
+
 <main id="main">
-  <section class="hero" aria-labelledby="hero-title">
-    <canvas class="hero__canvas" aria-hidden="true"></canvas>
-    <div class="container hero__content">
-      <h1 id="hero-title" class="rv">Newcastle Ceramic Coating</h1>
-      <p class="hero__tagline rv">Vehicle, aircraft and boat ceramic coating specialist — protecting what moves you.</p>
-      <div class="hero__cta-group rv">
-        <a href="#lbq" class="btn btn--primary">Get a Quote</a>
-        <a href="#services" class="btn btn--ghost">Our Services</a>
-      </div>
-    </div>
-  </section><section id="services" class="services" aria-labelledby="services-title">
-    <div class="container">
-      <header class="services__header">
-        <h2 id="services-title" class="rv">What We Protect</h2>
-        <p class="rv" style="color:var(--muted);max-width:50ch;margin:0 auto">Specialist ceramic coating applications for vehicles, aircraft and marine craft.</p>
-      </header>
-      <div class="services__grid">
-        <article class="service-card rv">
-          <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-.1-2.5.5C12.2 10.1 11 10.9 11 10.9"/><path d="M15 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/><ellipse cx="12" cy="12" rx="2" ry="2"/><path d="M5 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C4.7 10.6 2 10 2 10s-1.3-.1-2.5.5C-0.8 10.1-2 10.9-2 10.9"/></svg>
-          <h3 class="service-card__title">Automotive Ceramic Coating</h3>
-          <p class="service-card__desc">Multi-layer ceramic protection for paintwork, wheels, glass and trim. Hydrophobic durability with enhanced gloss.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          <h3 class="service-card__title">Aircraft Coating</h3>
-          <p class="service-card__desc">High-altitude ceramic protection for exterior surfaces. Reduces drag contamination and UV degradation.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20"/><path d="M10 20v-8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8"/><path d="M6 20v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/><path d="M14 20v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/></svg>
-          <h3 class="service-card__title">Marine & Boat Coating</h3>
-          <p class="service-card__desc">Salt-water resistant ceramic layers for hulls, topsides and superstructure. Anti-fouling synergy with reduced maintenance.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <h3 class="service-card__title">Paint Correction & Prep</h3>
-          <p class="service-card__desc">Machine polishing and surface refinement before coating. Removes swirls, oxidation and defects for optimal bond.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
-          <h3 class="service-card__title>Maintenance Programs</h3>
-          <p class="service-card__desc">Scheduled top-up coats and inspection intervals. Extends coating life and preserves hydrophobic performance.</p>
-        </article>
-        <article class="service-card rv">
-          <svg class="service-card__icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          <h3 class="service-card__title">Interior Protection</h3>
-          <p class="service-card__desc">Ceramic and hydrophobic treatments for leather, fabric, plastics and carpets. Stain resistance with UV defence.</p>
-        </article>
+  <section class="hero" aria-labelledby="h1">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="wrap hero__in">
+      <p class="eyebrow">Ceramic coating &amp; paint protection — Newcastle NSW</p>
+      <h1 id="h1">The gloss is the <em>side effect.</em></h1>
+      <p class="hero__lede">Machine correction, decontamination and a properly cured ceramic layer — for cars, aircraft and boats. Measured, masked, applied indoors.</p>
+      <div class="hero__act">
+        <a class="ctl" href="tel:0499242599">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          Call 0499 242 599
+        </a>
+        <a class="alt" href="#quote">or send the job details</a>
       </div>
     </div>
   </section>
 
-  <section id="process" class="process" aria-labelledby="process-title">
-    <div class="container">
-      <header class="process__header">
-        <h2 id="process-title" class="rv">Our Approach</h2>
-        <p class="rv" style="color:var(--muted);max-width:50ch;margin:0 auto">Every coating begins with preparation. The result lives in the discipline.</p>
-      </header>
-      <ol class="process__steps" style="counter-reset:step">
-        <li class="process-step rv">
-          <h3 class="process-step__title">Assess & Measure</h3>
-          <p class="process-step__desc">Paint thickness readings, defect mapping and surface energy testing before any compound touches the panel.</p>
-        </li>
-        <li class="process-step rv">
-          <h3 class="process-step__title">Correct & Refine</h3>
-          <p class="process-step__desc">Multi-stage machine polishing tailored to the substrate. Removes defects without chasing gloss.</p>
-        </li>
-        <li class="process-step rv">
-          <h3 class="process-step__title">Decontaminate & Prime</h3>
-          <p class="process-step__desc">Iron fallout removal, clay decontamination and IPA wipe-down. Surface energy primed for chemical bond.</p>
-        </li>
-        <li class="process-step rv">
-          <h3 class="process-step__title">Coat & Cure</h3>
-          <p class="process-step__desc">Controlled environment application. Layered ceramic systems with infrared cure verification.</p>
-        </li>
-      </ol>
+  <div class="strip">
+    <div class="wrap strip__in">
+      <p><strong>Automotive, aircraft &amp; marine</strong> — coated surfaces</p>
+      <p><strong>Correction first</strong> — defects out before coating</p>
+      <p><strong>Newcastle NSW</strong> — indoors, controlled cure</p>
     </div>
-  </section><section id="locality" class="locality" aria-labelledby="locality-title">
-    <div class="container locality__content">
-      <p class="locality__text" id="locality-title">Newcastle NSW</p>
-      <div class="locality__socials">
-        <a href="https://instagram.com/newcastleceramiccoating" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://www.facebook.com/Newcastleceramiccoating/" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Newcastle Ceramic Coating</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Newcastle Ceramic Coating &mdash; recent work</div></div></section><footer class="site-footer" role="contentinfo">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <img src="assets/logo.svg" alt="" class="footer__logo" aria-hidden="true">
-        <p class="footer__name">Newcastle Ceramic Coating</p>
-        <p class="footer__tagline">Ceramic coating & paint protection specialist</p>
-      </div>
-      <div class="footer__meta">
-        <p>Newcastle NSW</p>
-        <p><a href="tel:+61499242599">0499 242 599</a></p>
-        <p><a href="mailto:info@newcastleceramiccoating.com">info@newcastleceramiccoating.com</a></p>
-        <p><a href="https://instagram.com/newcastleceramiccoating" target="_blank" rel="noopener">Instagram</a></p>
-        <p><a href="https://www.facebook.com/Newcastleceramiccoating/" target="_blank" rel="noopener">Facebook</a></p>
-      </div>
-      <div class="footer__legal">
-        <a href="#privacy">Privacy</a>
-        <a href="#terms">Terms</a>
-      </div>
-    </div>
-    <section id="lbq" class="v3" aria-labelledby="lbq-h">
-  <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
-#lbq *{box-sizing:border-box}
-#lbq .lbq-w{max-width:1060px;margin:0 auto}
-#lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
-#lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
-#lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
-#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
-#lbq textarea{min-height:96px;resize:vertical}
-#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
-#lbq button:disabled{opacity:.6;cursor:wait}
-#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
-#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
-#lbq .lbq-cons input{width:auto}
-#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-/* v1 card */
-#lbq.v1 .lbq-card{background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
-#lbq.v1 .lbq-g{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-#lbq.v1 .lbq-full{grid-column:1/-1}
-@media(max-width:640px){#lbq.v1 .lbq-g{grid-template-columns:1fr}}
-/* v2 band */
-#lbq.v2{background:var(--lbq-panel);border-top:1px solid var(--lbq-line);border-bottom:1px solid var(--lbq-line)}
-#lbq.v2 .lbq-g{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
-#lbq.v2 .lbq-full{grid-column:1/-1}
-#lbq.v2 .lbq-hd{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
-@media(max-width:760px){#lbq.v2 .lbq-g{grid-template-columns:1fr}#lbq.v2 .lbq-hd{display:block}}
-/* v3 split */
-#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
-#lbq.v3 .lbq-g{display:grid;gap:12px}
-#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
-@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
-/* v4 minimal */
-#lbq.v4 .lbq-w{max-width:620px}
-#lbq.v4 input,#lbq.v4 textarea{border:0;border-bottom:1px solid var(--lbq-line);border-radius:0;background:transparent;padding:11px 2px}
-#lbq.v4 .lbq-g{display:grid;gap:16px}
-</style>
-  <div class="lbq-w">
-      <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
-      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call <a href="tel:+61499242599">0499 242 599</a> or email <a href="mailto:info@newcastleceramiccoating.com">info@newcastleceramiccoating.com</a> &mdash; we reply fast.</p></div><div><form id="lbq-form" novalidate data-site="newcastle-ceramic-coating" data-biz="Newcastle Ceramic Coating"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
   </div>
-  <script>
-(function(){
-  var EP = null;
-  function base(cb){
-    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
-    var done = false;
-    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
-    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
-      .then(function(r){ return r.text(); })
-      .then(function(txt){
-        var b = (txt||'').trim().replace(/\/+$/, '');
-        if (done) return;
-        done = true; clearTimeout(t);
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
-      })
-      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
-  }
-  function init(){
-    var f = document.getElementById('lbq-form');
-    if (!f) return;
-    var st = document.getElementById('lbq-st');
-    var btn = f.querySelector('button[type=submit]');
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      var d = {};
-      new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
-      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
-        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
-        st.style.color = '#ff9d8a';
-        return;
-      }
-      btn.disabled = true;
-      st.textContent = 'Sending\u2026';
-      st.style.color = '';
-      base(function(B){
-        var url = (B === 'https://grocery-periodically-everyone-wine.trycloudflare.com' ? 'https://grocery-periodically-everyone-wine.trycloudflare.com' : B) + '/functions/v1/quote-request';
-        fetch(url, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({
-            site_id: f.dataset.site || '',
-            business_name: f.dataset.biz || '',
-            name: d.name, phone: d.phone, email: d.email,
-            service: d.service || '', message: d.message,
-            consent: !!d.consent
-          })
-        })
-        .then(function(r){ return r.json().catch(function(){ return {}; }); })
-        .then(function(x){
-          if (x && x.success) {
-            f.reset();
-            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
-            st.style.color = 'var(--lbq-accent)';
-          } else {
-            throw new Error((x && x.error) || 'Could not send');
-          }
-        })
-        .catch(function(err){
-          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
-          st.style.color = '#ff9d8a';
-        })
-        .finally(function(){ btn.disabled = false; });
-      });
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-})();
-</script>
-</section>
-    </footer>
 
-  <section id="privacy" style="padding:var(--space-xl) 0;border-top:1px solid var(--hairline)">
-    <div class="container" style="max-width:60ch">
-      <h2 style="margin-bottom:var(--space)">Privacy Policy</h2>
-      <p style="color:var(--muted);margin-bottom:var(--space)">We collect only the information you voluntarily provide through our quote form: name, contact details, and project description. This data is used solely to respond to your enquiry and is never sold or shared with third parties for marketing. Form submissions are transmitted via HTTPS and stored securely. You may request deletion of your data at any time by contacting us.</p>
+  <section class="sec" id="services" aria-labelledby="services-h">
+    <div class="wrap svc">
+      <div class="svc__aside rv">
+        <h2 id="services-h">What gets coated.</h2>
+        <p>Paint, glass, trim, leather and gelcoat. The prep and the masking change with the surface — the discipline does not.</p>
+        <a class="tel2" href="tel:0499242599">Ask about your vehicle</a>
+      </div>
+      <div>
+        <article class="svc__row rv">
+          <span class="svc__k">01</span>
+          <div>
+            <h3 class="svc__t">Automotive ceramic coating</h3>
+            <p>Multi-layer protection for paintwork, wheels, glass and trim. Hydrophobic, high-gloss, applied panel by panel with edges and trim masked.</p>
+          </div>
+        </article>
+        <article class="svc__row rv">
+          <span class="svc__k">02</span>
+          <div>
+            <h3 class="svc__t">Paint correction &amp; prep</h3>
+            <p>Machine polishing to remove swirls, oxidation and wash marring. A coating bonds to what is underneath it, so the defects come out first.</p>
+          </div>
+        </article>
+        <article class="svc__row rv">
+          <span class="svc__k">03</span>
+          <div>
+            <h3 class="svc__t">Aircraft coating</h3>
+            <p>Exterior ceramic protection for airframes. Reduces contaminant build-up on leading surfaces and slows UV degradation of the paint.</p>
+          </div>
+        </article>
+        <article class="svc__row rv">
+          <span class="svc__k">04</span>
+          <div>
+            <h3 class="svc__t">Marine &amp; boat coating</h3>
+            <p>Salt-resistant ceramic layers for hulls, topsides and superstructure. Sheds water and cuts the maintenance cycle between washes.</p>
+          </div>
+        </article>
+        <article class="svc__row rv">
+          <span class="svc__k">05</span>
+          <div>
+            <h3 class="svc__t">Interior protection</h3>
+            <p>Ceramic and hydrophobic treatments for leather, fabric, plastics and carpets. Stain resistance and UV defence where hands and sun land.</p>
+          </div>
+        </article>
+        <article class="svc__row rv">
+          <span class="svc__k">06</span>
+          <div>
+            <h3 class="svc__t">Maintenance programs</h3>
+            <p>Inspection and top-up intervals that keep the layer working. Coating life is a maintenance story, not a one-off bottle.</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section id="terms" style="padding:var(--space-xl) 0;border-top:1px solid var(--hairline)">
-    <div class="container" style="max-width:60ch">
-      <h2 style="margin-bottom:var(--space)">Terms of Service</h2>
-      <p style="color:var(--muted);margin-bottom:var(--space)">Quotes provided are estimates based on the information supplied. Final pricing is confirmed after physical inspection. Coating performance depends on substrate condition, maintenance, and environmental factors. No durability guarantees or warranties are implied by this website. All work is performed to current industry standards. These terms are governed by the laws of New South Wales, Australia.</p>
+  <section class="sec" id="process" aria-labelledby="process-h">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 id="process-h" class="rv">Four stages. Nothing skipped.</h2>
+        <p class="rv">A coating only performs as well as the surface beneath it. This order is the job.</p>
+      </div>
+      <div class="proc">
+        <div class="proc__step rv">
+          <em>01</em>
+          <h3>Assess &amp; measure</h3>
+          <p>Paint thickness readings, defect mapping and surface inspection before a compound touches the panel.</p>
+        </div>
+        <div class="proc__step rv">
+          <em>02</em>
+          <h3>Correct &amp; refine</h3>
+          <p>Multi-stage polishing matched to the substrate. Defects removed without chasing gloss over film thickness.</p>
+        </div>
+        <div class="proc__step rv">
+          <em>03</em>
+          <h3>Decontaminate &amp; prime</h3>
+          <p>Iron fallout and tar removal, clay decontamination, IPA wipe-down. The panel is left clean and ready to bond.</p>
+        </div>
+        <div class="proc__step rv">
+          <em>04</em>
+          <h3>Coat &amp; cure</h3>
+          <p>Layered ceramic application under controlled light, then an indoor cure before the vehicle is handed back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec quote" id="quote" aria-labelledby="quote-h">
+    <div class="wrap qgrid">
+      <div class="rv">
+        <h2 id="quote-h">Tell us the vehicle and the finish.</h2>
+        <div class="call">
+          <a href="tel:0499242599">0499 242 599</a>
+          <a href="mailto:info@newcastleceramiccoating.com">info@newcastleceramiccoating.com</a>
+          <span>Newcastle NSW — quotes over the phone or by email.</span>
+        </div>
+      </div>
+      <div class="rv">
+        <form id="lbq-form" novalidate data-site="newcastle-ceramic-coating" data-biz="Newcastle Ceramic Coating">
+          <div class="f2">
+            <div><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+            <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          </div>
+          <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+          <div><label for="f-msg">Vehicle, surface and time frame</label><textarea id="f-msg" name="message" required placeholder="Make, model, condition, and when you need it done."></textarea></div>
+          <label class="cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
+          <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit">Send quote request</button>
+          <p class="msg" id="f-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="area" aria-labelledby="area-h">
+    <div class="wrap local">
+      <div class="rv">
+        <h2 id="area-h">Newcastle NSW</h2>
+        <p>Automotive, aircraft and marine coating work, booked by phone.</p>
+      </div>
+      <div class="socials rv">
+        <a href="https://instagram.com/newcastleceramiccoating" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r=".9" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/Newcastleceramiccoating/" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal" id="privacy" aria-labelledby="privacy-h">
+    <div class="wrap legal__grid">
+      <div>
+        <h2 id="privacy-h">Privacy</h2>
+        <p>We collect only what you send through the quote form — name, contact details and a description of the job. It is used to answer your enquiry and is not sold or shared for marketing. Submissions travel over HTTPS; ask us to delete your details at any time.</p>
+      </div>
+      <div id="terms">
+        <h2>Terms</h2>
+        <p>Quotes are estimates based on what is described and are confirmed after the vehicle is inspected. Coating performance depends on substrate condition, maintenance and environment. Work is carried out to current industry practice; these terms are governed by NSW law.</p>
+      </div>
     </div>
   </section>
 </main>
 
-<!-- lb: old box-hero engine removed -->
-<script id="lb-motion-js">
-/* LB MOTION PACK v1 */
-(function(){
-  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sel = 'section > *, main > *, .sec-head, .cards > *, .grid > *, .faq details, .gal figure, .gallery figure';
-  var els = [].slice.call(document.querySelectorAll(sel)).filter(function(e){
-    if (e.closest && e.closest('.lb-rb')) return false;
-    if (e.tagName === 'SCRIPT' || e.tagName === 'STYLE') return false;
-    var r = e.getBoundingClientRect();
-    return r.width > 40 && r.height > 20;
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot__b">
+        <img src="assets/logo.svg" alt="" width="30" height="30" aria-hidden="true">
+        <span>Newcastle Ceramic Coating</span>
+      </div>
+      <div class="foot__m">
+        <a href="tel:0499242599">0499 242 599</a>
+        <a href="mailto:info@newcastleceramiccoating.com">info@newcastleceramiccoating.com</a>
+        <span>Newcastle NSW</span>
+      </div>
+      <div class="foot__l">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <p class="foot__base">Ceramic coating &amp; paint protection — Newcastle, NSW.</p>
+  </div>
+</footer>
+
+<script src="assets/heroCanvas.js"></script>
+<script>
+/* hero scene: a coating bay in depth — masked bonnet panel on trestles with water beading on it,
+   coating bottle, applicator block, DA polisher and folded cloths on the bench, wheel in the near edge. */
+window.__ceramic = function(S){
+  var TONE={
+    floor:'#151f22',floor2:'#1a272a',floorWet:'#27444a',wall:'#101a1d',wall2:'#0d1619',seam:'#0a1214',
+    steel:'#9fb0b3',steelDk:'#5d7076',steelHi:'#cfdde0',
+    paint:'#2a3d45',paintHi:'#7fb6bf',paintLow:'#15222a',
+    bottle:'#0f5f66',bottleHi:'#48d8d8',cap:'#c8dadd',
+    foam:'#e6efef',polish:'#1b2b30',polishHi:'#93a6aa',pad:'#22373d',
+    cloth:'#2a5a60',cloth2:'#1d444a',rubber:'#0d1517',
+    tape:'#d8e8ea',lampBody:'#162124',lamp:'#eaf7f8',acc:'#48d8d8',dark:'#080e10',
+    glass:'#16272e',glassHi:'#4f8f9b',chrome:'#c3d4d7'
+  };
+  var LIGHT=(function(){var l=[-0.55,0.78,-0.34],m=Math.hypot(l[0],l[1],l[2]);return [l[0]/m,l[1]/m,l[2]/m];})();
+  var FOG='#0a1013', faces=[];
+  function shade(t,lit){ return lit>=1?Projection.mix(t,'#eaffff',(lit-1)*0.85):Projection.mix(t,'#060f13',(1-lit)*0.52); }
+  function face(pts,tone,n,t0,a){faces.push({pts:pts,tone:tone,n:n||[0,1,0],t0:t0||0,a:a==null?1:a});}
+  function box(cx,cy,cz,w,h,d,tone,t0,al){
+    var hw=w/2,hd=d/2;
+    face([[cx-hw,cy,cz+hd],[cx+hw,cy,cz+hd],[cx+hw,cy+h,cz+hd],[cx-hw,cy+h,cz+hd]],shade(tone,0.99),[0,0,1],t0,al);
+    face([[cx-hw,cy,cz-hd],[cx+hw,cy,cz-hd],[cx+hw,cy+h,cz-hd],[cx-hw,cy+h,cz-hd]],shade(tone,0.55),[0,0,-1],t0,al);
+    face([[cx+hw,cy,cz-hd],[cx+hw,cy,cz+hd],[cx+hw,cy+h,cz+hd],[cx+hw,cy+h,cz-hd]],shade(tone,0.74),[1,0,0],t0,al);
+    face([[cx-hw,cy,cz-hd],[cx-hw,cy,cz+hd],[cx-hw,cy+h,cz+hd],[cx-hw,cy+h,cz-hd]],shade(tone,1.12),[-1,0,0],t0,al);
+    face([[cx-hw,cy+h,cz-hd],[cx+hw,cy+h,cz-hd],[cx+hw,cy+h,cz+hd],[cx-hw,cy+h,cz+hd]],shade(tone,1.22),[0,1,0],t0,al);
+  }
+  function beam(a,b,w,h,tone,t0,al){
+    var dx=b[0]-a[0],dy=b[1]-a[1],dz=b[2]-a[2],L=Math.hypot(dx,dy,dz)||1;dx/=L;dy/=L;dz/=L;
+    var px=-dz,pz=dx,pm=Math.hypot(px,pz)||1;px/=pm;pz/=pm;
+    var hw=w/2,hh=h/2;
+    function P(t2,p,q){return [a[0]+dx*L*t2+px*p,a[1]+dy*L*t2+q,a[2]+dz*L*t2+pz*p];}
+    face([P(0,-hw,-hh),P(0,hw,-hh),P(1,hw,-hh),P(1,-hw,-hh)],shade(tone,0.7),[px,0,pz],t0,al);
+    face([P(0,-hw,hh),P(0,hw,hh),P(1,hw,hh),P(1,-hw,hh)],shade(tone,1.14),[px,0,pz],t0,al);
+    face([P(0,-hw,hh),P(0,-hw,-hh),P(1,-hw,-hh),P(1,-hw,hh)],shade(tone,0.94),[dx,0,dz],t0,al);
+    face([P(0,hw,-hh),P(0,hw,hh),P(1,hw,hh),P(1,hw,-hh)],shade(tone,0.84),[-dx,0,-dz],t0,al);
+  }
+  function drum(cx,cy,cz,r,h,seg,tone,t0,cap){
+    for(var s=0;s<seg;s++){
+      var a0=(s/seg)*6.2832,a1=((s+1)/seg)*6.2832,mz=Math.cos((a0+a1)/2),mx=Math.sin((a0+a1)/2);
+      face([[cx+Math.cos(a0)*r,cy,cz+Math.sin(a0)*r],[cx+Math.cos(a1)*r,cy,cz+Math.sin(a1)*r],
+            [cx+Math.cos(a1)*r,cy+h,cz+Math.sin(a1)*r],[cx+Math.cos(a0)*r,cy+h,cz+Math.sin(a0)*r]],
+        shade(tone,0.7+0.5*Math.max(0,mz)),[mx,0,mz],t0);
+    }
+    var top=[],seg2=16;
+    for(var q=0;q<seg2;q++){var ang=(q/seg2)*6.2832;top.push([cx+Math.cos(ang)*r,cy+h,cz+Math.sin(ang)*r]);}
+    face(top,shade(cap||tone,1.18),[0,1,0],t0+0.04);
+  }
+  /* wheel: axle along x, tyre wall + dished alloy face, seen from the side */
+  function wheel(cx,cy,cz,r,wdt,t0){
+    var seg=16;
+    for(var s=0;s<seg;s++){
+      var a0=(s/seg)*6.2832,a1=((s+1)/seg)*6.2832;
+      face([[cx-wdt/2,cy+Math.sin(a0)*r,cz+Math.cos(a0)*r],[cx+wdt/2,cy+Math.sin(a0)*r,cz+Math.cos(a0)*r],
+            [cx+wdt/2,cy+Math.sin(a1)*r,cz+Math.cos(a1)*r],[cx-wdt/2,cy+Math.sin(a1)*r,cz+Math.cos(a1)*r]],
+        shade(TONE.rubber,0.62+0.7*Math.max(0,Math.cos((a0+a1)/2))),[0,Math.sin((a0+a1)/2),Math.cos((a0+a1)/2)],t0);
+    }
+    [cx-wdt/2,cx+wdt/2].forEach(function(xx,i){
+      for(var s2=0;s2<seg;s2++){
+        var b0=(s2/seg)*6.2832,b1=((s2+1)/seg)*6.2832;
+        face([[xx,cy,cz],[xx,cy+Math.sin(b0)*r*0.64,cz+Math.cos(b0)*r*0.64],
+              [xx,cy+Math.sin(b1)*r*0.64,cz+Math.cos(b1)*r*0.64]],shade(TONE.steelDk,i?1.3:0.55),[i?1:-1,0,0],t0);
+      }
+      var sp=[];
+      for(var k=0;k<5;k++){var an=(k/5)*6.2832;sp.push([xx,cy+Math.sin(an)*r*0.34,cz+Math.cos(an)*r*0.34]);}
+      face(sp,shade(TONE.steel,1.15),[i?1:-1,0,0],t0);
+      face([[xx,cy+r*0.1,cz],[xx,cy,cz-r*0.1],[xx,cy-r*0.1,cz],[xx,cy,cz+r*0.1]],shade(TONE.chrome,1.2),[i?1:-1,0,0],t0);
+    });
+  }
+
+  /* ---- the bay ---- */
+  face([[-18,0,0.5],[18,0,0.5],[18,0,22],[-18,0,22]],TONE.floor,[0,1,0],0);
+  for(var fz=21.4;fz>0.8;fz-=2.1){
+    var alt=Math.round((21.4-fz)/2.1)%2;
+    face([[-18,0.002,fz],[18,0.002,fz],[18,0.002,fz-2.1],[-18,0.002,fz-2.1]],alt?TONE.floor2:TONE.floor,[0,1,0],0);
+  }
+  face([[-18,0.004,4.2],[18,0.004,4.2],[18,0.004,6.6],[-18,0.004,6.6]],TONE.floorWet,[0,1,0],0.1);
+  var WZ=13.4;
+  for(var by=0;by<11;by++){
+    face([[-14,by*0.32,WZ],[14,by*0.32,WZ],[14,by*0.32+0.29,WZ],[-14,by*0.32+0.29,WZ]],by%2?TONE.wall:TONE.wall2,[0,0,-1],0.03+by*0.022);
+    face([[-14,by*0.32+0.29,WZ-0.002],[14,by*0.32+0.29,WZ-0.002],[14,by*0.32+0.32,WZ-0.002],[-14,by*0.32+0.32,WZ-0.002]],TONE.seam,[0,0,-1],0.03+by*0.022);
+  }
+  beam([-1.4,3.4,5.6],[6.6,3.4,5.6],0.16,0.06,TONE.lampBody,0.62);
+  face([[-1.3,3.37,5.63],[6.5,3.37,5.63],[6.5,3.37,5.71],[-1.3,3.37,5.71]],TONE.lamp,[0,-1,0],0.66,0.95);
+
+  /* ---- the car: nose forward, bonnet being coated ---- */
+  var CX=1.32, HW=1.02, ZF=1.9, ZB=4.75;
+  /* wheels first, the body sides sit over their tops */
+  wheel(CX-HW-0.06,0.33,2.02,0.335,0.24,0.12);
+  wheel(CX+HW+0.06,0.33,2.02,0.335,0.24,0.14);
+  /* flanks: front wing shape stepped in under the arch line */
+  [-1,1].forEach(function(sd,si){
+    var x=CX+sd*HW;
+    face([[x,0.1,ZF],[x,0.1,ZB],[x,1.0,ZB],[x,0.94,ZF]],shade(TONE.paint,si?0.72:1.06),[sd,0,0],0.06);
+    /* arch lip catch-light */
+    beam([x,0.62,2.42],[x+sd*0.01,0.66,2.02],0.02,0.02,'#6fa9b3',0.1);
   });
-  els.forEach(function(e, i){ e.classList.add('lb-rv'); e.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
-  if (rm || !('IntersectionObserver' in window)) {
-    els.forEach(function(e){ e.classList.add('is-in'); });
-  } else {
-    var io = new IntersectionObserver(function(en){
-      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
-    els.forEach(function(e){ io.observe(e); });
-    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
+  /* front face: bumper, grille, headlights */
+  face([[CX-HW,0.12,ZF],[CX+HW,0.12,ZF],[CX+HW,0.92,ZF],[CX-HW,0.92,ZF]],shade(TONE.paint,0.58),[0,0,-1],0.1);
+  box(CX,0.36,ZF-0.03,1.06,0.2,0.05,TONE.paintLow,0.16);
+  for(var gr=0;gr<5;gr++){
+    face([[CX-0.5,0.4+gr*0.035,ZF-0.06],[CX+0.5,0.4+gr*0.035,ZF-0.06],[CX+0.5,0.412+gr*0.035,ZF-0.06],[CX-0.5,0.412+gr*0.035,ZF-0.06]],shade(TONE.chrome,0.95),[0,0,-1],0.2+gr*0.01);
   }
-  var rb = document.querySelector('.lb-rb');
-  if (!rb) return;
-  var slides = [].slice.call(rb.querySelectorAll('.lb-rb__slide'));
-  if (slides.length < 2) return;
-  var dots = [].slice.call(rb.querySelectorAll('.lb-rb__dots button'));
-  var i = 0, timer = null, DUR = 5600;
-  function go(n){
-    i = (n + slides.length) % slides.length;
-    slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
-    dots.forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
+  [-1,1].forEach(function(sd,i){
+    var hx=CX+sd*0.66;
+    face([[hx-0.28,0.7,ZF-0.02],[hx+0.28,0.66,ZF-0.02],[hx+0.27,0.83,ZF-0.02],[hx-0.27,0.85,ZF-0.02]],shade(TONE.glassHi,1.5),[0,0,-1],0.24+i*0.01);
+    face([[hx-0.2,0.72,ZF-0.03],[hx+0.2,0.69,ZF-0.03],[hx+0.19,0.79,ZF-0.03],[hx-0.19,0.81,ZF-0.03]],'#e9feff',[0,0,-1],0.28+i*0.01);
+  });
+  box(CX,0.1,ZF+0.02,2.0,0.06,0.12,TONE.dark,0.08);
+
+  /* bonnet: u across, v back along the car, surface falls toward the nose */
+  var PX0=CX-HW+0.02, PX1=CX+HW-0.02, PZ0=ZF+0.06, PZ1=ZB-0.12, PB=0.93, PR=0.18;
+  function pp(u,v){return [PX0+u*(PX1-PX0),PB+v*PR,PZ0+v*(PZ1-PZ0)];}
+  var MU=0.16;
+  var GU=8,GV=7;
+  for(var gu=0;gu<GU;gu++){
+    for(var gv=0;gv<GV;gv++){
+      var u0=gu/GU,u1=(gu+1)/GU,v0=gv/GV,v1=(gv+1)/GV;
+      var masked=u1<=MU;
+      var streak=Math.max(0,1-Math.abs(u0-0.46)*3.0)+Math.max(0,1-Math.abs(u0-0.8)*4.2)*0.6;
+      var tone=masked?TONE.paintLow:(streak>0.6?TONE.paintHi:(u0>0.62&&v0<0.55?TONE.paint:TONE.paint));
+      face([pp(u0,v0),pp(u1,v0),pp(u1,v1),pp(u0,v1)],tone,[0.06,1,-0.18],0.22+gv*0.045+gu*0.014);
+    }
   }
-  function play(){ if (rm) return; stop(); timer = setInterval(function(){ go(i + 1); }, DUR); }
-  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
-  dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); play(); }); });
-  var pv = rb.querySelector('.lb-rb__nav--prev'), nx = rb.querySelector('.lb-rb__nav--next');
-  if (pv) pv.addEventListener('click', function(){ go(i - 1); play(); });
-  if (nx) nx.addEventListener('click', function(){ go(i + 1); play(); });
-  rb.addEventListener('mouseenter', stop); rb.addEventListener('mouseleave', play);
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function(en){ en.forEach(function(x){ x.isIntersecting ? play() : stop(); }); },
-      { threshold: 0.25 }).observe(rb);
-  } else { play(); }
-  go(0);
-})();
+  /* coating edge: wet, bright, running down the panel */
+  face([pp(MU,0.005),pp(MU+0.014,0.005),pp(MU+0.014,0.995),pp(MU,0.995)],'#b6f6f6',[0.06,1,-0.18],0.56,0.7);
+  /* masking tape: near edge, far edge and the lifted tab */
+  beam(pp(0.0,0.01),pp(0.0,0.99),0.038,0.012,TONE.tape,0.16);
+  beam(pp(0.02,0.99),pp(0.98,0.99),0.05,0.014,TONE.tape,0.18);
+  face([pp(0.98,0.985),pp(1.02,1.03),pp(1.02,1.005),pp(0.98,0.962)],TONE.tape,[0.1,1,-0.2],0.26,0.9);
+  /* panel gaps either side of the bonnet */
+  beam(pp(0.012,0.02),pp(0.012,0.98),0.012,0.01,'#050a0c',0.1);
+  beam(pp(0.988,0.02),pp(0.988,0.98),0.012,0.01,'#050a0c',0.1);
+
+  /* windscreen and roof line behind the bonnet */
+  (function(){
+    var bx=CX, z0=PZ1, z1=ZB+0.62;
+    face([[PX0,1.11,z0],[PX1,1.11,z0],[PX1+0.02,1.66,z1],[PX0-0.02,1.66,z1]],shade(TONE.glass,1.0),[0.1,0.4,-1],0.2);
+    face([[PX0+0.16,1.14,z0-0.02],[PX1-0.16,1.14,z0-0.02],[PX1-0.15,1.6,z1-0.02],[PX0+0.15,1.6,z1-0.02]],TONE.glassHi,[0.1,0.4,-1],0.24,0.42);
+    beam([PX0-0.01,1.11,z0],[PX0-0.02,1.66,z1],0.06,0.05,'#182a2f',0.24);
+    beam([PX1+0.01,1.11,z0],[PX1+0.02,1.66,z1],0.06,0.05,'#182a2f',0.26);
+  })();
+
+  /* ---- tools in use right here: on the near wing, and on the floor in front ---- */
+  var WY=PB+PR*0.82, WZP=2.35;
+  /* coating bottle standing on the wing, cap off, teal against the dark panel */
+  drum(CX+HW-0.3,WY,WZP,0.072,0.36,16,TONE.bottle,0.6,TONE.bottleHi);
+  drum(CX+HW-0.3,WY+0.19,WZP,0.0745,0.07,16,'#0a4d53',0.66,'#0a4d53');
+  box(CX+HW-0.3,WY+0.36,WZP,0.05,0.055,0.05,TONE.cap,0.68);
+  beam([CX+HW-0.3,WY+0.41,WZP],[CX+HW-0.34,WY+0.5,WZP-0.03],0.024,0.024,TONE.cap,0.72);
+  /* foam applicator block, edge-on, foam bright */
+  box(CX+HW-0.58,WY,WZP+0.16,0.19,0.1,0.14,TONE.foam,0.66);
+  box(CX+HW-0.58,WY+0.1,WZP+0.16,0.13,0.028,0.1,TONE.acc,0.7,0.85);
+  /* folded microfibres on the wing beside them */
+  box(CX+HW-0.16,WY,WZP+0.34,0.28,0.042,0.22,TONE.cloth,0.6);
+  box(CX+HW-0.14,WY+0.042,WZP+0.32,0.24,0.034,0.18,TONE.cloth2,0.64);
+  /* DA polisher on the floor in front, pad toward the car, cord away */
+  box(CX+0.42,0.075,1.28,0.42,0.14,0.2,TONE.polish,0.5);
+  box(CX+0.42,0.215,1.28,0.2,0.075,0.16,TONE.polishHi,0.56);
+  drum(CX+0.42,0.055,1.0,0.115,0.13,14,TONE.pad,0.58,TONE.pad);
+  drum(CX+0.42,0.055,1.0,0.058,0.135,12,'#2f4c53',0.62,'#3b5f67');
+  beam([CX+0.62,0.1,1.36],[CX+1.05,0.02,1.62],0.03,0.026,TONE.dark,0.64,0.9);
+
+  /* ---- beading on the coated side of the bonnet ---- */
+  var drops=[],seed=9137;
+  function rnd(){seed=(seed*1103515245+12345)%2147483648;return seed/2147483648;}
+  for(var d=0;d<70;d++){
+    drops.push({u:MU+0.02+rnd()*(0.97-MU),v:0.04+rnd()*0.92,s:1.3+rnd()*4.2,p:rnd()*6.283});
+  }
+  var trail=[];
+  for(var q2=0;q2<30;q2++) trail.push({u:0.03+rnd()*0.94,v:rnd(),l:0.04+rnd()*0.06});
+
+  return function(t,ts){
+    var time=ts==null?t:ts;
+    S.yaw=Projection.reduced()?0:Math.sin(time*0.055)*0.02;
+    var c=S.ctx;
+
+    var sky=c.createLinearGradient(0,0,0,S.H);
+    sky.addColorStop(0,'#070d0f');sky.addColorStop(.46,'#0b1518');sky.addColorStop(1,'#132529');
+    c.fillStyle=sky;c.fillRect(0,0,S.W,S.H);
+
+    var glow=c.createRadialGradient(S.W*0.6,S.horizon*0.55,0,S.W*0.6,S.horizon*0.55,S.W*0.9);
+    glow.addColorStop(0,'rgba(72,216,216,0.24)');
+    glow.addColorStop(.48,'rgba(38,138,146,0.1)');
+    glow.addColorStop(1,'rgba(18,72,78,0)');
+    c.fillStyle=glow;c.fillRect(0,0,S.W,S.H);
+
+    var list=[],i,p,pts,sum,mapped,miss;
+    for(i=0;i<faces.length;i++){
+      var f=faces[i];
+      if(t<f.t0) continue;
+      mapped=[];sum=0;miss=false;
+      for(var q=0;q<f.pts.length;q++){
+        p=S.project(f.pts[q][0],f.pts[q][1],f.pts[q][2]);
+        if(!p){miss=true;break;}
+        mapped.push(p);sum+=p[2];
+      }
+      if(miss||!mapped.length) continue;
+      var n=f.n,nm=Math.hypot(n[0],n[1],n[2])||1;
+      var dif=(n[0]/nm)*LIGHT[0]+(n[1]/nm)*LIGHT[1]+(n[2]/nm)*LIGHT[2];
+      var dz=sum/mapped.length;
+      list.push({pts:mapped,dz:dz,
+        fill:Projection.mix(shade(f.tone,0.88+0.86*Math.max(0,dif)),FOG,S.fog(dz)*0.5),
+        a:Math.min(1,(t-f.t0)/0.4)*f.a});
+    }
+    list.sort(function(a,b){return b.dz-a.dz;});
+    for(i=0;i<list.length;i++){
+      var it=list[i];pts=it.pts;
+      if(it.a<=0.02) continue;
+      c.globalAlpha=it.a;
+      c.beginPath();c.moveTo(pts[0][0],pts[0][1]);
+      for(var j=1;j<pts.length;j++) c.lineTo(pts[j][0],pts[j][1]);
+      c.closePath();c.fillStyle=it.fill;c.fill();
+    }
+    c.globalAlpha=1;
+
+    /* contact shadows */
+    [[3.8,1.95,1.5,.42],[CX-HW-0.06,2.02,.55,.5],[CX+HW+0.06,2.02,.55,.5],[CX,3.1,2.4,.34]].forEach(function(sh){
+      var sp=S.project(sh[0],0.006,sh[1]); if(!sp) return;
+      var rr=S.focal/sp[2]*sh[2];
+      var sg=c.createRadialGradient(sp[0],sp[1],0,sp[0],sp[1],rr);
+      sg.addColorStop(0,'rgba(4,8,10,'+sh[3]+')');sg.addColorStop(1,'rgba(4,8,10,0)');
+      c.save();c.translate(sp[0],sp[1]);c.scale(1,0.32);c.translate(-sp[0],-sp[1]);
+      c.fillStyle=sg;c.beginPath();c.arc(sp[0],sp[1],rr,0,6.2832);c.fill();c.restore();
+    });
+
+    /* specular sweep along the bonnet: the gloss the job is sold on */
+    if(t>0.5){
+      var k=Math.min(1,(t-0.5)/0.8);
+      [[0.34,0.05],[0.52,0.085],[0.72,0.045]].forEach(function(sp2){
+        var a1=S.project(PX0+sp2[0]*(PX1-PX0),PB,PZ0);
+        var a2=S.project(PX0+(sp2[0]+0.06)*(PX1-PX0),PB+PR,PZ1);
+        if(!a1||!a2) return;
+        var g2=c.createLinearGradient(a1[0],a1[1],a2[0],a2[1]);
+        g2.addColorStop(0,'rgba(198,246,248,'+(sp2[1]*k).toFixed(3)+')');
+        g2.addColorStop(.5,'rgba(226,253,253,'+(sp2[1]*1.9*k).toFixed(3)+')');
+        g2.addColorStop(1,'rgba(198,246,248,0)');
+        c.fillStyle=g2;c.beginPath();
+        c.moveTo(a1[0],a1[1]);c.lineTo(a2[0],a2[1]);c.lineTo(a2[0]+8,a2[1]);c.lineTo(a1[0]+12,a1[1]);
+        c.closePath();c.fill();
+      });
+    }
+
+    /* water beads */
+    if(t>0.7){
+      var ba=Math.min(1,(t-0.7)/0.5);
+      for(i=0;i<drops.length;i++){
+        var dr=drops[i];
+        var jig=Projection.reduced()?0:Math.sin(time*0.5+dr.p)*0.0022;
+        var dp=S.project(PX0+(dr.u+jig)*(PX1-PX0),PB+(dr.v+jig)*PR+0.006,PZ0+(dr.v+jig)*(PZ1-PZ0)-0.02);
+        if(!dp) continue;
+        var rr2=dr.s*(S.focal/dp[2])*0.0052;
+        if(rr2<0.45) continue;
+        var al=0.66*(1-S.fog(dp[2])*0.7)*ba;
+        var bg=c.createRadialGradient(dp[0]-rr2*0.32,dp[1]-rr2*0.38,0,dp[0],dp[1],rr2);
+        bg.addColorStop(0,'rgba(240,254,254,'+al.toFixed(3)+')');
+        bg.addColorStop(.5,'rgba(122,218,220,'+(al*0.55).toFixed(3)+')');
+        bg.addColorStop(1,'rgba(20,60,66,'+(al*0.3).toFixed(3)+')');
+        c.fillStyle=bg;c.beginPath();c.arc(dp[0],dp[1],rr2,0,6.2832);c.fill();
+      }
+    }
+    /* applicator drag trails */
+    if(t>0.8){
+      c.strokeStyle='rgba(168,238,240,0.11)';c.lineWidth=1;
+      for(i=0;i<trail.length;i++){
+        var tr=trail[i];
+        var t1=S.project(PX0+tr.u*(PX1-PX0),PB+tr.v*PR+0.003,PZ0+tr.v*(PZ1-PZ0)-0.02);
+        var t2=S.project(PX0+tr.u*(PX1-PX0),PB+(tr.v+tr.l)*PR+0.003,PZ0+(tr.v+tr.l)*(PZ1-PZ0)-0.02);
+        if(!t1||!t2) continue;
+        c.beginPath();c.moveTo(t1[0],t1[1]);c.lineTo(t2[0],t2[1]);c.stroke();
+      }
+    }
+
+    /* air haze in the tube light */
+    if(!Projection.reduced()){
+      for(i=0;i<14;i++){
+        var ph=((time*0.05+i*0.09)%1);
+        var mp=S.project(1.4+(i%6)*1.2+Math.sin(time*0.18+i)*0.4,0.3+ph*2.9,2.6+(i%4)*1.0);
+        if(!mp) continue;
+        c.fillStyle='rgba(198,242,244,'+((1-ph)*0.12).toFixed(3)+')';
+        c.beginPath();c.arc(mp[0],mp[1],1,0,6.2832);c.fill();
+      }
+    }
+
+    /* grade: hold the left for the copy, settle the floor and top */
+    var sc=c.createLinearGradient(0,0,S.W*0.64,S.H*0.1);
+    sc.addColorStop(0,'rgba(7,12,14,0.94)');
+    sc.addColorStop(.42,'rgba(7,12,14,0.62)');
+    sc.addColorStop(1,'rgba(7,12,14,0.02)');
+    c.fillStyle=sc;c.fillRect(0,0,S.W,S.H);
+    var bt=c.createLinearGradient(0,S.H*0.7,0,S.H);
+    bt.addColorStop(0,'rgba(7,12,14,0)');bt.addColorStop(1,'rgba(7,12,14,0.72)');
+    c.fillStyle=bt;c.fillRect(0,S.H*0.7,S.W,S.H*0.3);
+  };
+};
 </script>
-<script id="lb-hero-js">
-/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
+<script>
+/* hero: mount the scene */
 (function(){
-  var cv = document.querySelector('.lb-hero-canvas, #heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero]');
-  if (!cv) return;
-  var ctx = cv.getContext('2d'); if (!ctx) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
-  function accent(){
-    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
-         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
-    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
-  }
-  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
-    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
-  var ACC = hex2rgb(accent());
-  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
-    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
-    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
-
-  function size(){
-    var r = cv.getBoundingClientRect();
-    dpr = Math.min(2, window.devicePixelRatio || 1);
-    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
-    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
-    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-
-  // deterministic depth motes
-  var N = 46, motes = [];
-  var seed = 20261019;
-  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
-  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
-
-  function draw(){
-    var isDark = dark();
-    var base = isDark ? [10,11,14] : [248,249,251];
-    var ink  = isDark ? [255,255,255] : [12,14,18];
-    var g = ctx.createLinearGradient(0,0,0,H);
-    g.addColorStop(0, 'rgb('+base.join(',')+')');
-    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
-    g.addColorStop(1, 'rgb('+base.join(',')+')');
-    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
-
-    // aurora: two slow, wide ribbons of the brand colour
-    for (var k=0;k<2;k++){
-      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
-      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
-      var rad = Math.max(W,H)*(0.46 + 0.13*k);
-      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
-      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
-      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
-      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
-      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
-      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
-    }
-
-    // perspective floor: clean architectural depth, not blocks
-    var hz = H*0.70, vpx = W*0.5;
-    ctx.lineWidth = 1;
-    for (var j=-9;j<=9;j++){
-      var fx = vpx + j*(W/9)*1.5;
-      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
-      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
-      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
-    }
-    for (var r=1;r<=9;r++){
-      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
-      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
-      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
-    }
-    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
-    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
-    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
-    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
-    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
-
-    // depth motes: size + opacity track z, slow parallax drift
-    for (var q=0;q<motes.length;q++){
-      var m = motes[q];
-      var y = ((m.y + t*0.0000075*m.z) % 1);
-      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
-      var px = x*W, py = y*H;
-      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
-      if (a2 <= 0) continue;
-      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
-      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
-    }
-
-    // vignette to seat the copy
-    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
-    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
-    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
-  }
-
-  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
-  size(); draw();
-  window.addEventListener('resize', function(){ size(); draw(); });
-  if (!reduce && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
-  }
-  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
-  if (!reduce) raf = requestAnimationFrame(loop); 
+  var cv=document.getElementById('heroCanvas');
+  if(!cv||!window.Projection) return;
+  var S=Projection.create(cv,{focal:1.34,horizon:0.52,camY:1.06,fogNear:10,fogFar:34,fogCol:'#0a1013'});
+  S.camX=0.6;
+  // scene() is built by the previous script via window.__ceramic
+  var draw=window.__ceramic(S);
+  S.frame(function(t){ draw(t,t); });
+  window.addEventListener('resize',function(){ S.resize(); });
 })();
 </script>
-<style>
-/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
-.lb-brand--logoonly .lb-brand__word{display:none !important}
-.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
-.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
-</style>
-<style>
-/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
-header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
-.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
-  opacity:1 !important;visibility:visible !important}
-.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
-@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
-#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
-@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
-</style>
-
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in{display:none !important}
-
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
-<style>/* ==== LB HEADER TRUTH ==== */
-.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
-  align-items:center !important;flex-wrap:nowrap !important}
-.lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
-  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
-.lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
-  max-width:100% !important;object-fit:contain !important}
-.lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;
-  min-width:0 !important;overflow:visible !important}
-@media(max-width:700px){
-  .lb-brand__mark{height:32px !important;max-width:40vw !important}
-  .lb-brand__word{font-size:.92em !important}
-}
-</style>
-
-<style>/* ==== LB HEADER POLISH 2 ==== */
-header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
-.site-header nav a:not(.btn):not([class*="btn"]),
-.header-inner nav a:not(.btn):not([class*="btn"]),
-nav.nav a:not(.btn):not([class*="btn"]),
-.nav-inner a:not(.btn):not([class*="btn"]),
-header a[href^="tel"],.site-header a[href^="tel"]{
-  color:var(--lb-name,currentColor) !important;
-  opacity:1 !important;
-}
-.lb-brand__sub:empty{display:none !important}
-</style>
+<script>
+/* reveal */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rm||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('on');});return;}
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target);}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('on');});},2400);
+})();
+</script>
+<script>
+/* quote form -> shim */
+(function(){
+  var EP='https://grocery-periodically-everyone-wine.trycloudflare.com';
+  function base(cb){
+    if(window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done=false;
+    var t=setTimeout(function(){if(!done){done=true;cb(EP);}},2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_='+Date.now())
+      .then(function(r){return r.text();})
+      .then(function(txt){
+        var b=(txt||'').trim().replace(/\/+$/,'');
+        if(done) return;done=true;clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b)?b:EP);
+      })
+      .catch(function(){if(!done){done=true;clearTimeout(t);cb(EP);}});
+  }
+  function init(){
+    var f=document.getElementById('lbq-form'); if(!f) return;
+    var st=document.getElementById('f-status');
+    var btn=f.querySelector('button[type=submit]');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var d={};
+      new FormData(f).forEach(function(v,k){d[k]=v;});
+      if(d.website) return;
+      if(!d.name||(!d.phone&&!d.email)||!(d.message||'').trim()){
+        st.textContent='Please add your name, a phone or email, and a line about the vehicle.';
+        st.style.color='#ffa594';return;
+      }
+      btn.disabled=true;st.textContent='Sending…';st.style.color='';
+      base(function(B){
+        fetch(B.replace(/\/+$/,'')+'/functions/v1/quote-request',{
+          method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({site_id:f.dataset.site||'',business_name:f.dataset.biz||'',
+            name:d.name,phone:d.phone,email:d.email,message:d.message,consent:!!d.consent})
+        })
+        .then(function(r){return r.json().catch(function(){return {};});})
+        .then(function(x){
+          if(x&&x.success){f.reset();st.textContent='Thanks — your request is in. We will be in touch shortly.';st.style.color='var(--acc)';}
+          else throw new Error((x&&x.error)||'Could not send');
+        })
+        .catch(function(err){
+          st.textContent=(err&&err.message)?err.message:'Could not send — please try again or call.';
+          st.style.color='#ffa594';
+        })
+        .finally(function(){btn.disabled=false;});
+      });
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
 </body>
 </html>

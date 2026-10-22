@@ -10,9 +10,6 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/conn_photo_4.jpg">
 <link rel="icon" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400;700;800;900&family=Archivo:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
 <style>
 :root {
@@ -21,7 +18,7 @@
   --paper2: #F2F2F3;
   --ink: #1D1B1C;
   --ink2: #585758;
-  --acc: #9fa2a5;
+  --acc:#fc6ccc;
   --acc2: #c9cbcd;
   --acc-dark: #47484B;
   --acc-ink: #5F6266;
@@ -41,7 +38,7 @@ html { scroll-behavior: smooth; }
 html, body { overflow-x: hidden; }
 body { font-family: var(--body-font); background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 h1, h2, h3 { font-family: var(--disp); }
-.mono { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; }
+.mono { font-family: system-ui, ui-monospace, Menlo, monospace; }
 a { color: inherit; }
 ::selection { background: var(--acc); color: var(--paper); }
 @media (prefers-reduced-motion: reduce) { * { animation-duration: .001s !important; transition-duration: .001s !important; } }
@@ -81,18 +78,18 @@ a { color: inherit; }
 }
 
 .hero{position:relative;min-height:clamp(720px,100svh,1100px);display:flex;align-items:center;overflow:hidden;isolation:isolate;padding-top:96px}
-.hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,rgba(10,11,12,.95) 0%,rgba(10,11,12,.7) 50%,rgba(10,11,12,.3) 100%)}
-.hero-scrim{position:absolute;inset:0;z-index:-2;background:linear-gradient(to top,rgba(13,11,9,.98) 0%,rgba(13,11,9,.85) 10%,rgba(13,11,9,.55) 28%,rgba(13,11,9,.25) 50%,transparent 85%)}
+.hero-bg{position:absolute;inset:0;z-index:0;background:rgba(10,11,12,.95)}
+.hero-scrim{position:absolute;inset:0;z-index:-2;background:rgba(13,11,9,.98)}
 .hero-grain{position:absolute;inset:0;z-index:-1;opacity:.03;pointer-events:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" fill="%238b6b42"/></svg>');background-size:clamp(200px,15vw,360px)}
-.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.1;pointer-events:none;background-image:linear-gradient(to right,rgba(212,165,116,.12) 1px,transparent 1px),linear-gradient(to bottom,rgba(212,165,116,.08) 1px,transparent 1px);background-size:clamp(58px,7.6vw,128px) clamp(58px,7.6vw,128px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 45%,transparent 75%);mask-image:linear-gradient(to bottom,transparent 0,#000 15%,#000 45%,transparent 75%)}
+.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.1;pointer-events:none;background-image:rgba(212,165,116,.12),rgba(212,165,116,.08);background-size:clamp(58px,7.6vw,128px) clamp(58px,7.6vw,128px);-webkit-mask-image:#000;mask-image:#000}
 .hero-3d{display:none;perspective:900px}
 .hero-in{position:relative;z-index:3;padding-bottom:clamp(48px,6vh,80px);width:100%;max-width:min(1360px,94vw);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,4vw,60px);align-items:end;padding-left:var(--gut);padding-right:var(--gut)}
 .hero-copy{position:relative;z-index:3}
-.hero-copy::before{content:"";position:absolute;inset:-8% -6%;background:radial-gradient(112% 76% at 26% 46%,rgba(255,255,255,.04),rgba(255,255,255,0) 76%);z-index:-1;pointer-events:none}
+.hero-copy::before{content:"";position:absolute;inset:-8% -6%;background:rgba(255,255,255,.04);z-index:-1;pointer-events:none}
 .hero-visual{display:block}
 .hero-visual img{width:100%;height:min(64vh,620px);object-fit:cover;object-position:center 44%;border:1px solid rgba(255,255,255,.22);border-radius:8px;box-shadow:0 20px 48px rgba(30,33,36,.2)}
 .hero-visual figcaption{font-size:12px;color:rgba(255,255,255,.95);text-align:left;margin-top:10px;letter-spacing:.08em;text-transform:uppercase}
-.eyebrow{font-size:13px;color:#f5f0e8;text-transform:uppercase;letter-spacing:.14em;font-weight:600;text-shadow:0 1px 10px rgba(0,0,0,.7);white-space:normal;max-width:100%;margin-top:2.5rem}
+.eyebrow{font-size:13px;color:#f5f0e8;text-transform:none;letter-spacing:.14em;font-weight:600;text-shadow:0 1px 10px rgba(0,0,0,.7);white-space:normal;max-width:100%;margin-top:2.5rem}
 .hero-sub{color:#fefefe;text-shadow:0 2px 12px rgba(0,0,0,.6);margin-top:.8rem;line-height:1.65}
 .hero h1{color:#fefefe!important;line-height:1.06!important;max-width:18ch;font-size:var(--fluid);margin-top:.2rem}
 .hero h1 .acc{color:var(--acc)!important;text-shadow:0 2px 12px rgba(0,0,0,.6)}
@@ -132,8 +129,8 @@ section[id], header[id] { scroll-margin-top:84px; }
 .wrap { max-width: 1320px; margin: 0 auto; padding: 0 var(--gut); }
 .sec-head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.6rem; }
 .sec-head::before { content: ""; width: 40px; height: 3px; background: var(--acc); flex: none; align-self: center; }
-.sec-idx { font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; color: var(--acc-ink); font-weight: 800; margin-bottom: 1rem; }
-.sec-kicker { font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; color: var(--acc-ink); font-weight: 800; }
+.sec-idx { font-size: .78rem; letter-spacing: .24em; text-transform:none; color: var(--acc-ink); font-weight: 800; margin-bottom: 1rem; }
+.sec-kicker { font-size: .7rem; letter-spacing: .3em; text-transform:none; color: var(--acc-ink); font-weight: 800; }
 .sec-title { font-family: var(--disp); font-size: clamp(1.8rem, 3.6vw, 2.9rem); font-weight: 900; line-height: 1.1; margin-top: .3rem; max-width: 28ch; letter-spacing: -.01em; }
 .lead { color: var(--ink2); max-width: 60ch; margin-top: .9rem; }
 .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(292px, 1fr)); gap: 1.15rem; }
@@ -181,7 +178,7 @@ details.faq .a { color: var(--ink2); padding: 14px 0 4px; max-width: 700px; }
 .hg-item { position: relative; flex: none; width: min(420px, 78vw); }
 .hg-item img { width: 100%; height: 280px; object-fit: cover; display: block; border-radius: 8px; transition: transform .3s ease; }
 .hg-item:hover img { transform: scale(1.02); }
-.hg-item figcaption { display: flex; justify-content: space-between; align-items: center; padding: 12px 4px 0; font-size: 13.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.hg-item figcaption { display: flex; justify-content: space-between; align-items: center; padding: 12px 4px 0; font-size: 13.5px; font-weight: 700; letter-spacing: .04em; text-transform:none; }
 .hg-item figcaption .mono { color: var(--acc-ink); font-size: 11px; }
 
 /* reveal, continuous scroll */
@@ -200,9 +197,9 @@ footer { background: var(--bg); color: #fefefe; padding: 4.5rem 0 0; }
 footer .wrap { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 2.5rem; padding-bottom: 3rem; }
 .fbrand img { height: 64px; width: auto; border-radius: 4px; display: block; margin-bottom: .8rem; }
 .fbrand .brand-name { color: #fff; font-size: 1.1rem; }
-.fbrand .brand-sub { display: block; color: var(--acc2); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; margin-top: .2rem; }
+.fbrand .brand-sub { display: block; color: var(--acc2); font-size: .72rem; letter-spacing: .18em; text-transform:none; font-weight: 700; margin-top: .2rem; }
 footer p { color: rgba(255,255,255,.68); font-size: .88rem; max-width: 280px; margin-top: 1rem; }
-footer h4 { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--acc); margin-bottom: 1rem; font-weight: 800; }
+footer h4 { font-size: .7rem; letter-spacing: .2em; text-transform:none; color: var(--acc); margin-bottom: 1rem; font-weight: 800; }
 footer a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; display: block; padding: .3rem 0; transition: color .15s; }
 footer a:hover { color: var(--acc2); }
 .footer-bar { border-top: 1px solid rgba(255,255,255,.08); padding: 1.5rem var(--gut); max-width: 1360px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .76rem; color: rgba(255,255,255,.58); }
@@ -222,24 +219,21 @@ footer a:hover { color: var(--acc2); }
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+ background:transparent}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-motion-css">
 /* ==== LB MOTION PACK ==== */
 .lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
@@ -257,8 +251,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
- font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:rgba(6,7,10,.72);color:#fff;
+ font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -281,7 +275,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ left:-60%;background:rgba(255,255,255,.32);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -296,11 +290,11 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq__in{display:flex;width:max-content;animation:none}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
- font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
+ font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -323,15 +317,14 @@ section{ position:relative; }
 section::before{
   content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
   background:
-    radial-gradient(120% 70% at 12% 0%, color-mix(in srgb, var(--lb-acc) 7%, transparent) 0%, transparent 58%),
-    radial-gradient(90% 60% at 100% 100%, color-mix(in srgb, var(--lb-acc) 5%, transparent) 0%, transparent 60%);
+    transparent,
+    transparent;
 }
 section > *{ position:relative; z-index:1; }
 
 /* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
 .card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 100%, transparent) 0%,
-                                    color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background:transparent;
   border:1px solid var(--lb-hair);
   border-radius:14px;
   box-shadow:var(--lb-e1);
@@ -352,7 +345,7 @@ figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:sc
 
 /* buttons: gradient fill, inset highlight, layered shadow */
 a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 55%);
+  background-image:rgba(255,255,255,.16);
   box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
   border-radius:10px;
 }
@@ -363,8 +356,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
 
 /* nav: subtle vertical gradient + hairline for separation from the page */
 .nav,nav,.site-header,header.nav{
-  background-image:linear-gradient(180deg, color-mix(in srgb, var(--lb-paper) 96%, transparent) 0%,
-                                         color-mix(in srgb, var(--lb-ink) 3%, var(--lb-paper)) 100%);
+  background-image:transparent;
   box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
 }
 
@@ -378,7 +370,7 @@ footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5);
 /* dark surfaces get stronger, softer shadows */
 @media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
 @supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:radial-gradient(120% 70% at 12% 0%, rgba(229,25,36,.06) 0%, transparent 58%); }
+  section::before{ background:rgba(229,25,36,.06); }
 }
 @media (prefers-reduced-motion: reduce){
   .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
@@ -397,11 +389,34 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
+<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><style id="lb-ink-repair">.lb-brand__name,.brand-name{color:#ffffff}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+
+<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
+
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+
+<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
+
+<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
+
+<!--LB-HEROBG--><style id="lb-herobg">[class*=hero-bg],[class*=hero__bg],[class*=hero-bgimg]{z-index:-1!important;pointer-events:none!important}[class*=hero-scrim],[class*=hero__scrim]{z-index:1!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{z-index:3!important}</style><!--/LB-HEROBG-->
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body>
 <nav class="nav">
   <div class="nav-in">
-    <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="Conn Building - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#14161a;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Conn Building</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand lb-brand--logoonly" href="#top" aria-label="Conn Building - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#ffffff;--lb-subc:#14161a;--lb-acc:#fc6ccc;"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"><span class="lb-brand__mark" aria-hidden="true"></span><span class="lb-brand__word"><span class="lb-brand__name">Conn Building</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <div class="nav-links" id="nav-links">
       <a href="#services">Services</a>
       <a href="#work">Our Work</a>
@@ -413,7 +428,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     </div>
     <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
   </div>
-</nav>
+<a class="lb-tel" href="tel:0477427695" style="text-decoration:none;white-space:nowrap;align-self:center">0477 427 695</a></nav>
 
 <header class="hero" id="top"><!-- LB-3D-HERO -->
   <div class="hero-bg"></div>
@@ -492,10 +507,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 #lbq p.lbq-s{margin:0 0 22px;color:var(--lbq-muted);max-width:52ch}
 #lbq .lbq-info{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--lbq-line);padding-top:22px}
 #lbq .lbq-info div{display:flex;gap:10px;align-items:baseline}
-#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc-ink);min-width:64px}
+#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;text-transform:none;color:var(--acc-ink);min-width:64px}
 #lbq .lbq-info a{font-weight:800;text-decoration:none}
 #lbq .lbq-f{display:grid;gap:12px;background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
-#lbq label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--paper);color:var(--ink);font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -508,7 +523,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 #lbq .lbq-g{display:grid;gap:12px;grid-template-columns:1fr 1fr}
 #lbq .lbq-full{grid-column:1 / -1}
 @media (max-width:640px){#lbq .lbq-g{grid-template-columns:1fr}}
-#lbq input::placeholder,#lbq textarea::placeholder{color:#71747a}
+#lbq input::placeholder,#lbq textarea::placeholder{color:#686f7a}
 
 /* mobile overflow guard 2026-10-14 */
 html,body{overflow-x:hidden}
@@ -630,7 +645,7 @@ html,body{overflow-x:hidden}
       <span>&copy; 2026 Conn Building</span>
       <a href="mailto:connbuilding@outlook.com">connbuilding@outlook.com</a>
     </div>
-  </footer>
+  <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <!-- lb: old box-hero engine removed -->
 
@@ -805,18 +820,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,.lb-pulse,tiny numbered label "01" beside h2 "What we build." (7 on page),tiny numbered label "01" beside h3 "New home builds" (7 on page),tiny numbered label "02" beside h2 "How a build runs." (7 on page),tiny numbered label "03" beside h2 "Asked on every project." (7 on page),two-axis grid-line gradient background{display:none !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 
 
 <style>/* ==== LB HEADER POLISH 2 ==== */
@@ -844,6 +848,21 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   .lb-brand__mark{height:32px !important;max-width:40vw !important}
   .lb-brand__word{font-size:.92em !important}
 }
+</style>
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in,.lb-pulse,tiny numbered label "01" beside h2 "What we build." (7 on page),tiny numbered label "01" beside h3 "New home builds" (7 on page),tiny numbered label "02" beside h2 "How a build runs." (7 on page),tiny numbered label "03" beside h2 "Asked on every project." (7 on page){display:none !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+letter-spacing: 0.22em on body text{letter-spacing:normal !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
 </style>
 </body>
 </html>
