@@ -11,7 +11,7 @@
     :root{
       --ink:#0f0e10; --ink-soft:#3a3839; --muted:#6b6869;
       --paper:#faf9f7; --paper-alt:#f2efe9;
-      --brand:#24cce4; --brand-ink:#00706f; --teal:#00cecd; --gold:#d4a843; --rust:#c45d2e; --slate:#3b3e50;
+      --brand:#383860; --brand-ink:#00706f; --teal:#00cecd; --gold:#d4a843; --rust:#c45d2e; --slate:#3b3e50;
       --line:rgba(15,14,16,.08); --line-strong:rgba(15,14,16,.16);
       --shadow:0 4px 24px rgba(15,14,16,.06),0 1px 3px rgba(15,14,16,.04);
       --shadow-lg:0 12px 48px rgba(15,14,16,.1),0 4px 12px rgba(15,14,16,.06);
@@ -360,7 +360,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.12) 45%,rgba(0,0,0,.42))}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -374,14 +374,12 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.28))}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 </head>
 <body>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-in">
-      <a class="lb-brand" href="#top" aria-label="Medina Rendering - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#383860;--lb-subc:#383860;--lb-acc:#24cce4;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Medina Rendering</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+      <a class="lb-brand" href="#top" aria-label="Medina Rendering - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#383860;--lb-subc:#383860;--lb-acc:#383860;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_medina-rendering.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Medina Rendering</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
       <ul class="nav__links">
         <li><a href="#services">Services</a></li>
         <li><a href="#process">Process</a></li>
@@ -390,7 +388,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       </ul>
       <div class="nav__cta"><a class="btn btn--p" href="#lbq">Request a Quote</a></div>
     </div>
-  <a class="lb-tel" href="tel:0458811308" style="text-decoration:none;white-space:nowrap;align-self:center">+61458811308</a></nav>
+  <a class="lb-tel" href="tel:61458811308" style="text-decoration:none;white-space:nowrap;align-self:center">+61458811308</a></nav>
 
   <header class="hero" id="top" aria-label="Medina Rendering - Mix to Wall">
     <!-- LB-3D-HERO -->

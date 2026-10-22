@@ -40,7 +40,7 @@ a{color:inherit}
 ::selection{background:var(--acc);color:#fff}
 
 html.js .drop{opacity:0;transform:translateY(22px);transition:opacity .7s ease-out,transform .7s ease-out}
-html.js .drop.in,html.js .drop.is-in{opacity:1;transform:none}
+html.js .drop.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html.js .drop{opacity:1;transform:none;transition:none}
   *{animation-duration:.001s !important;transition-duration:.001s !important}
@@ -74,17 +74,16 @@ html.js .drop.in,html.js .drop.is-in{opacity:1;transform:none}
   .burger{display:block}
 }
 
-.hero{position:relative;min-height:min(88vh,820px);display:flex;align-items:center;overflow:hidden;padding-top:80px;background:var(--deep)}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding-top:80px;background:var(--deep);perspective:1000px}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;z-index:4;background:transparent}
-.hero>.lbhf,.hero>.lbhf-scrim,.hero>.hero-scrim,.hero>canvas{position:absolute!important;inset:0!important;width:100%;height:100%}
 .lbhf{position:absolute;inset:0;overflow:hidden;z-index:0}
-.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;filter:saturate(1.08) contrast(1.04)}
-.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(6,14,23,.9) 0%,rgba(6,14,23,.8) 42%,rgba(6,14,23,.44) 72%,rgba(6,14,23,.3) 100%)}
+.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(6,14,23,.94)}
 .lb3d-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 #heroCanvas{perspective:800px}
-.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(6,14,23,.5) 0%,rgba(6,14,23,0) 32%,rgba(6,14,23,.55) 100%)}
-.hero-in{position:relative;z-index:3;width:min(1320px,92vw);margin-inline:auto;padding:11vh 0 3.4rem;display:grid;grid-template-columns:1fr;gap:0;align-items:center}
-.hero-copy{min-width:0;max-width:min(720px,100%)}
+.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:rgba(6,14,23,.55)}
+.hero-in{position:relative;z-index:3;width:100%;width:min(1320px,92vw);margin-inline:auto;padding:10vh 0 4rem;display:grid;grid-template-columns:1.06fr .94fr;gap:3.2rem;align-items:center}
+.hero-copy{min-width:0}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#5CC2FF;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:800;margin-bottom:1.05rem}
 .hero-kicker::before{content:"";width:36px;height:2px;background:var(--acc2)}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.7rem,6.3vw,5.1rem);line-height:.97;color:#F3FAFF;font-weight:900;text-transform:none;letter-spacing:-.005em;max-width:15ch}
@@ -289,34 +288,12 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style>
-<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
-
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
-
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
-
-<!--LB-HEROBG--><style id="lb-herobg">[class*=hero-bg],[class*=hero__bg],[class*=hero-bgimg]{z-index:-1!important;pointer-events:none!important}[class*=hero-scrim],[class*=hero__scrim]{z-index:1!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{z-index:3!important}</style><!--/LB-HEROBG-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-</head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav" aria-label="Main">
   <div class="nav-in">
-    <a class="lb-brand" href="#top" aria-label="Smash Wash Cleaning Group - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#0A88CE;--lb-subc:#0A88CE;--lb-acc:#0A88CE;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Smash Wash Cleaning Group</span><span class="lb-brand__sub"><span class="lb-acc">Cleaning</span> Group · Newcastle & Gold Coast</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Smash Wash Cleaning Group - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#0A88CE;--lb-subc:#0A88CE;--lb-acc:#0A88CE;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Smash Wash Cleaning Group</span><span class="lb-brand__sub"><span class="lb-acc">Cleaning</span> Group · Newcastle & Gold Coast</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
     </button>
@@ -345,7 +322,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <h1>Grime does not stand a <span class="acc">chance.</span><span class="thin">Roofs · driveways · walls · solar</span></h1>
       <p class="hero-sub">High-pressure and soft-wash cleaning for roofs, driveways, walls and solar panels, brought back to bright across Newcastle and the Gold Coast.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="tel:0423060108">Call 0423 060 108</a>
+        <a class="btn btn-primary" href="tel:+61423060108">Call 0423 060 108</a>
         <a class="btn btn-ghost" href="#quote">Get a free quote</a>
       </div>
     </div>
@@ -538,7 +515,7 @@ html,body{overflow-x:hidden}
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:0423060108">0423 060 108</a></div>
+      <div><b>Call</b><a href="tel:+61423060108">0423 060 108</a></div>
       <div><b>Email</b><a href="mailto:smashwash@outlook.com">smashwash@outlook.com</a></div>
       <div><b>Area</b><span>Newcastle &amp; Gold Coast</span></div>
     </div>
@@ -648,7 +625,7 @@ html,body{overflow-x:hidden}
       <div>
         <h4>Get in touch</h4>
         <p>
-          <a href="tel:0423060108">0423 060 108</a><br>
+          <a href="tel:+61423060108">0423 060 108</a><br>
           <a href="mailto:smashwash@outlook.com">smashwash@outlook.com</a><br>
           <a href="https://www.facebook.com/thesmashwash/" rel="noopener" target="_blank">Facebook</a>
         </p>
@@ -688,7 +665,7 @@ html,body{overflow-x:hidden}
       en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
     els.forEach(function(e){ io.observe(e); });
-    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 600);
+    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
   }
   var rb = document.querySelector('.lb-rb');
   if (!rb) return;
@@ -833,10 +810,9 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 </style>
 
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-pulse{display:none !important}
-.svc:hover{box-shadow:none !important}
-.brand-sub,.foot-brand-sub,.lb-brand__sub{font-size:11px !important}
-.hero h1 .thin,.sec-title{text-wrap:balance}
+.lb-mq__in,.lb-pulse,44x44px icon tile above h3 "Commercial surfaces,44x44px icon tile above h3 "Solar panel cleaning,tiny numbered label "01,tiny numbered label "02,tiny numbered label "03,tiny numbered label "04,tiny numbered label "05{display:none !important}
+Colored box-shadow glow (#0a88ce) on dark page{box-shadow:none !important;text-shadow:none !important}
+7px functional text "Cleaning" (below 11px floor){font-size:max(1em,15px) !important}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
@@ -844,7 +820,7 @@ body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:90px}
+  scroll-margin-top:24px}
 
 </style>
 <style>/* ==== LB HEADER TRUTH ==== */

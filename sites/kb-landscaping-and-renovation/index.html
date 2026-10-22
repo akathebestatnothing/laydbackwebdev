@@ -205,13 +205,18 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container{max-width:var(--page);padding-inline:1.5rem}
 .section{padding-block:clamp(3.25rem,5vw,5rem)}
 .header-inner{max-width:var(--page);height:auto;min-height:82px;padding:0 1.5rem;gap:1.5rem}
-.lb-brand{flex:0 0 auto;overflow:visible;align-items:center}
-.lb-brand__name{font-size:clamp(16px,1.3vw,21px)!important;white-space:nowrap;overflow:visible;text-overflow:clip;line-height:1}
+.lb-brand{flex:0 0 auto!important;min-width:auto!important;overflow:visible!important;align-items:center}
+.lb-brand__name{font-size:clamp(16px,1.3vw,21px)!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;line-height:1}
 .lb-brand__mark{height:clamp(32px,2.7vw,42px)!important;max-width:none!important}
-.header-inner>nav{margin-left:auto;flex:0 1 auto}
-nav ul{gap:clamp(15px,1.9vw,30px);align-items:center}
+.header-inner>nav{margin-left:auto;flex:0 0 auto;min-width:0}
+nav ul{gap:clamp(15px,1.9vw,30px);align-items:center;flex-wrap:nowrap}
 nav a{white-space:nowrap;padding:.4rem 0}
-.header-inner>.cta-btn{flex:0 0 auto;margin-left:clamp(16px,2vw,30px)}
+.header-inner>.cta-btn{flex:0 0 auto;margin-left:0}
+@media (min-width:901px){
+  .header-inner{gap:clamp(16px,1.8vw,26px)}
+  .header-inner>nav{border-right:1px solid var(--line);padding-right:clamp(18px,2.2vw,30px)}
+  .header-inner>.cta-btn{margin-left:clamp(20px,2.4vw,32px)}
+}
 @media (max-width:1080px){nav ul{gap:15px}.lb-brand__name{font-size:15.5px!important}.lb-brand__mark{height:30px!important}}
 @media (max-width:900px){
   .header-inner{flex-wrap:wrap;gap:.55rem 1rem;padding-block:.7rem}
@@ -226,15 +231,15 @@ nav a{white-space:nowrap;padding:.4rem 0}
 }
 /* ============ HERO ============ */
 .hero{position:relative;isolation:isolate;display:block!important;align-items:stretch!important;
-  min-height:clamp(520px,64vh,660px)!important;max-height:none!important;
+  min-height:clamp(470px,58vh,600px)!important;max-height:none!important;
   background:#141310!important;color:var(--cream);
-  padding:clamp 0!important;
-  padding-top:clamp(3.25rem,6vw,6rem)!important;padding-bottom:clamp(2.75rem,4.5vw,4.25rem)!important;overflow:hidden}
+  padding:clamp(2.5rem,4.5vw,4.25rem) 0 clamp(2rem,3vw,2.75rem)!important;overflow:hidden}
 .hero__art{position:absolute;inset:0;z-index:0;display:block}
 .hero__art svg{width:100%;height:100%;display:block}
 .hero__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(96deg,rgba(15,14,11,.95) 0%,rgba(15,14,11,.9) 34%,rgba(15,14,11,.62) 56%,rgba(15,14,11,.22) 78%,rgba(15,14,11,.1) 100%)}
-.hero>.container{position:relative;z-index:2}
+  background:linear-gradient(100deg,rgba(15,14,11,.94) 0%,rgba(15,14,11,.86) 30%,rgba(15,14,11,.52) 52%,rgba(15,14,11,.16) 76%,rgba(15,14,11,.04) 100%)}
+.hero>.container{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(1.75rem,3vw,2.5rem);align-items:center}
+@media (min-width:900px){.hero>.container{grid-template-columns:minmax(0,1.1fr) minmax(280px,.78fr);gap:clamp(2rem,4vw,3.5rem)}}
 .hero__copy{max-width:37rem}
 .hero .eyebrow{font-family:"Chivo Mono",ui-monospace,monospace;font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;
   color:#e6b3a2;margin:0 0 1rem;font-weight:500;display:flex;align-items:center;gap:.7rem}
@@ -262,6 +267,8 @@ footer .container{row-gap:1rem;align-items:start}
 footer .logo{font-size:1rem}
 </style>
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
 
@@ -280,58 +287,71 @@ footer .logo{font-size:1rem}
   </div>
 </header>
 <main>
-  <sectionrot class="section hero" aria-labelledby="hero-title">
+  <section class="section hero" id="top" aria-labelledby="hero-title">
     <div class="hero__art" aria-hidden="true">
       <svg viewBox="0 0 1440 720" preserveAspectRatio="xMidYMax slice" role="presentation" focusable="false">
         <defs>
           <linearGradient id="kbSky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#141310"/><stop offset=".52" stop-color="#251c17"/><stop offset="1" stop-color="#40301f"/>
+            <stop offset="0" stop-color="#1d1a14"/><stop offset=".4" stop-color="#3a2b1e"/><stop offset=".72" stop-color="#6d4a2b"/><stop offset="1" stop-color="#8a6038"/>
           </linearGradient>
           <radialGradient id="kbSun" cx=".5" cy=".5" r=".5">
-            <stop offset="0" stop-color="#e0a06f" stop-opacity=".55"/><stop offset="1" stop-color="#e0a06f" stop-opacity="0"/>
+            <stop offset="0" stop-color="#ffd7a3" stop-opacity=".95"/><stop offset=".45" stop-color="#f0ab6d" stop-opacity=".45"/><stop offset="1" stop-color="#e0a06f" stop-opacity="0"/>
           </radialGradient>
-          <radialGradient id="kbVig" cx=".62" cy=".45" r=".85">
-            <stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/>
+          <radialGradient id="kbVig" cx=".6" cy=".42" r=".9">
+            <stop offset=".38" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".52"/>
           </radialGradient>
+          <linearGradient id="kbLeft" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#12100c" stop-opacity=".92"/><stop offset=".42" stop-color="#12100c" stop-opacity=".55"/><stop offset="1" stop-color="#12100c" stop-opacity="0"/>
+          </linearGradient>
         </defs>
         <rect width="1440" height="720" fill="url(#kbSky)"/>
-        <circle cx="1128" cy="196" r="210" fill="url(#kbSun)"/>
-        <circle cx="1128" cy="196" r="64" fill="#d99b6b" opacity=".22"/>
-        <path d="M0 402 C 210 356 400 392 622 372 C 848 352 1042 386 1440 352 L1440 720 L0 720 Z" fill="#33422c" opacity=".9"/>
-        <path d="M0 402 C 210 356 400 392 622 372 C 848 352 1042 386 1440 352" stroke="#96907c" stroke-width="6" fill="none" opacity=".38"/>
-        <path d="M0 476 C 236 440 486 470 742 448 C 992 426 1214 458 1440 430 L1440 720 L0 720 Z" fill="#2b3725"/>
-        <path d="M0 476 C 236 440 486 470 742 448 C 992 426 1214 458 1440 430" stroke="#8d8570" stroke-width="8" fill="none" opacity=".5"/>
-        <g fill="#6d6552" opacity=".55">
-          <rect x="742" y="452" width="58" height="26" rx="2"/><rect x="806" y="449" width="58" height="26" rx="2"/>
-          <rect x="870" y="446" width="58" height="26" rx="2"/><rect x="934" y="443" width="58" height="26" rx="2"/>
-          <rect x="998" y="440" width="58" height="26" rx="2"/><rect x="1062" y="437" width="58" height="26" rx="2"/>
+        <circle cx="1104" cy="214" r="280" fill="url(#kbSun)"/>
+        <circle cx="1104" cy="214" r="52" fill="#ffe0b8" opacity=".55"/>
+        <path d="M0 430 C 230 388 420 414 640 396 C 866 378 1058 404 1440 372 L1440 720 L0 720 Z" fill="#4a6039"/>
+        <g stroke="#a5b184" stroke-width="5" opacity=".55" fill="none">
+          <path d="M0 430 C 230 388 420 414 640 396 C 866 378 1058 404 1440 372"/>
         </g>
-        <path d="M0 560 C 260 528 520 556 788 534 C 1024 514 1236 542 1440 518 L1440 720 L0 720 Z" fill="#232c1e"/>
-        <path d="M0 560 C 260 528 520 556 788 534 C 1024 514 1236 542 1440 518" stroke="#877f6b" stroke-width="9" fill="none" opacity=".55"/>
-        <g fill="#8e8873" opacity=".62">
-          <rect x="1012" y="530" width="96" height="12" rx="2"/><rect x="1022" y="546" width="96" height="12" rx="2"/>
-          <rect x="1032" y="562" width="96" height="12" rx="2"/><rect x="1042" y="578" width="96" height="12" rx="2"/>
-          <rect x="1052" y="594" width="96" height="12" rx="2"/><rect x="1062" y="610" width="96" height="12" rx="2"/>
+        <path d="M0 470 C 240 436 480 462 736 442 C 992 422 1214 450 1440 426 L1440 720 L0 720 Z" fill="#3c4f2f"/>
+        <path d="M0 470 C 240 436 480 462 736 442 C 992 422 1214 450 1440 426" stroke="#b9b192" stroke-width="10" fill="none" opacity=".62"/>
+        <g fill="#9c9a8d" opacity=".5"></g>
+        <g fill="#8d866c" opacity=".85">
+          <rect x="736" y="472" width="62" height="30" rx="2"/><rect x="804" y="468" width="62" height="30" rx="2"/>
+          <rect x="872" y="464" width="62" height="30" rx="2"/><rect x="940" y="460" width="62" height="30" rx="2"/>
+          <rect x="1008" y="456" width="62" height="30" rx="2"/><rect x="1076" y="452" width="62" height="30" rx="2"/>
+          <rect x="1144" y="448" width="62" height="30" rx="2"/>
         </g>
-        <path d="M0 646 C 300 620 610 646 906 626 C 1120 612 1300 630 1440 614 L1440 720 L0 720 Z" fill="#1a2217"/>
-        <g fill="#4c6b3f">
-          <ellipse cx="1216" cy="596" rx="62" ry="30"/><ellipse cx="1300" cy="608" rx="48" ry="24"/>
-          <ellipse cx="1128" cy="606" rx="40" ry="22"/><ellipse cx="1400" cy="588" rx="56" ry="26"/>
+        <path d="M0 552 C 260 520 520 548 788 526 C 1024 506 1236 534 1440 510 L1440 720 L0 720 Z" fill="#314126"/>
+        <path d="M0 552 C 260 520 520 548 788 526 C 1024 506 1236 534 1440 510" stroke="#c0b898" stroke-width="12" fill="none" opacity=".7"/>
+        <g fill="#9a9280" opacity=".9">
+          <rect x="1000" y="524" width="104" height="13" rx="2"/><rect x="1012" y="541" width="104" height="13" rx="2"/>
+          <rect x="1024" y="558" width="104" height="13" rx="2"/><rect x="1036" y="575" width="104" height="13" rx="2"/>
+          <rect x="1048" y="592" width="104" height="13" rx="2"/><rect x="1060" y="609" width="104" height="13" rx="2"/>
         </g>
-        <g fill="#6d8b59">
-          <ellipse cx="1188" cy="580" rx="34" ry="19"/><ellipse cx="1258" cy="588" rx="30" ry="17"/>
-          <ellipse cx="1348" cy="576" rx="36" ry="18"/>
+        <path d="M0 642 C 300 616 610 642 906 622 C 1120 608 1300 626 1440 610 L1440 720 L0 720 Z" fill="#22301a"/>
+        <g fill="#4f7040">
+          <ellipse cx="1216" cy="592" rx="64" ry="31"/><ellipse cx="1300" cy="604" rx="50" ry="25"/>
+          <ellipse cx="1128" cy="602" rx="42" ry="23"/><ellipse cx="1400" cy="584" rx="58" ry="27"/>
         </g>
-        <g stroke="#8fa878" stroke-width="4" stroke-linecap="round" opacity=".8">
-          <path d="M1188 596 L1182 566"/><path d="M1216 600 L1216 562"/><path d="M1258 592 L1266 566"/><path d="M1348 582 L1356 556"/>
+        <g fill="#7ba362">
+          <ellipse cx="1188" cy="576" rx="35" ry="20"/><ellipse cx="1258" cy="584" rx="31" ry="18"/>
+          <ellipse cx="1348" cy="572" rx="37" ry="19"/>
         </g>
-        <g fill="#33422c" opacity=".85">
-          <ellipse cx="160" cy="640" rx="72" ry="26"/><ellipse cx="70" cy="652" rx="58" ry="20"/>
+        <g stroke="#a9c98c" stroke-width="4" stroke-linecap="round" opacity=".9">
+          <path d="M1188 592 L1182 560"/><path d="M1216 596 L1216 558"/><path d="M1258 588 L1266 560"/><path d="M1348 578 L1356 550"/>
         </g>
-        <g fill="#7f9a6c" opacity=".9">
-          <ellipse cx="180" cy="620" rx="30" ry="15"/><ellipse cx="96" cy="628" rx="24" ry="13"/>
+        <g stroke="#8c8264" stroke-width="6" stroke-linecap="round" opacity=".8">
+          <path d="M576 470 L576 372"/><path d="M628 466 L628 362"/><path d="M684 462 L684 354"/>
+        </g>
+        <g fill="#6f6a55" opacity=".9">
+          <ellipse cx="180" cy="648" rx="76" ry="27"/><ellipse cx="86" cy="660" rx="60" ry="21"/>
+          <ellipse cx="286" cy="656" rx="52" ry="19"/>
+        </g>
+        <g fill="#8aab72" opacity=".95">
+          <ellipse cx="204" cy="622" rx="32" ry="16"/><ellipse cx="112" cy="630" rx="26" ry="14"/>
+          <ellipse cx="292" cy="632" rx="24" ry="13"/>
         </g>
         <rect width="1440" height="720" fill="url(#kbVig)"/>
+        <rect width="1440" height="720" fill="url(#kbLeft)"/>
       </svg>
     </div>
     <div class="hero__scrim" aria-hidden="true"></div>

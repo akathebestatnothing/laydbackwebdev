@@ -54,10 +54,10 @@ html.js .drop.in { opacity: 1; transform: none; }
   .nav-cta { display: none; }
   .burger { display: block; }
 }
-.hero { position: relative; min-height: 92vh; display: flex; align-items: center; padding-top: 80px; overflow: hidden; background: linear-gradient(180deg, var(--paper) 0%, var(--paper2) 100%); }
-.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: .55; }
-.hero-shade { position: absolute; inset: 0; background: transparent; pointer-events: none; }
-.hero-in { position: relative; z-index: 2; padding: 4vh 40px 3.2rem; width: 100%; max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(2rem, 4vw, 3.6rem); align-items: center; }
+.hero { position: relative; min-height: 92vh; display: flex; align-items: center; overflow: hidden; padding-top: 80px; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: .72; }
+.hero-shade { position: absolute; inset: 0; background: rgba(0,0,0,.05); pointer-events: none; }
+.hero-in { position: relative; z-index: 2; padding: 11vh 40px 3.4rem; width: 100%; max-width: 1360px; margin: 0 auto; display: grid; grid-template-columns: 1.06fr .94fr; gap: 3.2rem; align-items: center; }
 .hero-copy { min-width: 0; }
 .hero-visual { position: relative; }
 .hero-visual figure { position: relative; margin: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,.26); border: 1px solid var(--line); background: var(--paper2); }
@@ -250,118 +250,41 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style>
-<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
-
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">header.hero{min-height:92vh!important;max-height:none;display:flex;align-items:center;background:linear-gradient(180deg,var(--paper) 0%,var(--paper2) 100%)}header.hero>*{position:relative;z-index:2}header.hero>.hero-shade{position:absolute!important;inset:0!important;z-index:1!important;background:none}.hero-kicker,.hero-sub,.hero-cta,.hero-strip,.hero-copy,.hero-visual,.hero-tag,.hero-in,.hero-photo{min-height:0!important;max-height:none!important;position:relative}
-.hero-in{display:grid!important;align-items:center}
-.hero-kicker{display:inline-flex!important;align-items:center}
-.hero-cta,.hero-strip{display:flex!important}
-.hero-tag{display:inline-block!important;position:absolute!important;height:auto!important;white-space:nowrap}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-HEROCOPY--><style id="lb-herocopy">.hero-copy{position:relative!important;z-index:6!important;max-width:none!important;width:auto!important}.hero h1{max-width:20ch!important}.hero canvas{pointer-events:none!important}.hero .hero-sub{max-width:46ch!important}</style><!--/LB-HEROCOPY-->
-
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">.hero canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}.hero-copy{position:relative!important;z-index:3!important;width:auto!important;max-width:none!important;flex:1 1 auto!important}.hero-copy h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">header.hero>canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}header.hero>canvas{display:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-<style id="r73-hero-repair">
-/* ---- 2026-10-22 repair: hero geometry, type measure, strip grid, canvas containment ---- */
-.hero>canvas#heroCanvas{display:block!important;z-index:0!important;opacity:.72!important}
-.hero-shade{background:none!important}
-.hero-in{padding:4vh 40px 3.4rem!important;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)!important;
-  gap clamp(2rem,3.4vw,3.2rem)!important;align-items:center!important}
-.hero-copy{display:flex!important;flex-direction:column!important;align-items:flex-start!important;
-  justify-content:center!important;max-width:none!important;min-width:0!important}
-/* eyebrow sits tight to the headline so the paragraph can never float above it */
-.hero-kicker{margin:0 0 .95rem!important;line-height:1!important;align-items:center!important;
-  letter-spacing:.22em!important;font-size:.7rem!important;color:var(--ink2)!important}
-.hero-kicker::before{width:26px!important;height:1px!important;flex:none!important;background:var(--acc)!important;opacity:.5!important}
-.hero h1{max-width:none!important;width:100%!important;font-size:clamp(2.3rem,4vw,3.45rem)!important;
-  line-height:1.06!important;letter-spacing:-.02em!important;text-wrap:balance;margin:0!important}
-.hero .hero-sub{max-width:44ch!important;width:100%!important;margin-top:1.35rem!important;
-  font-size:1.02rem!important;line-height:1.62!important;color:#575757!important;text-wrap:pretty}
-/* the stock list was an unstyled <p> sitting under the paragraph */
-.hero-thin{margin:1.15rem 0 0!important;font-size:.68rem!important;line-height:1.4!important;
-  letter-spacing:.17em!important;text-transform:uppercase!important;font-weight:700!important;color:var(--acc)!important}
-.hero-cta{margin-top:1.7rem!important;gap:.8rem!important}
-.hero-strip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
-  gap:.9rem 1.6rem!important;margin-top:2.1rem!important;width:100%!important;border-top:1px solid var(--line)!important;padding-top:1.15rem!important}
-.hero-strip p{line-height:1.4!important;letter-spacing:.1em!important;font-size:.64rem!important;color:var(--ink2)!important}
-.hero-strip strong{font-size:.86rem!important;line-height:1.3!important;letter-spacing:0!important;
-  white-space:normal;text-transform:none!important}
-/* the badge sat on top of the photo edge and clipped its own text */
-.hero-visual .hero-tag{top:auto!important;left:12px!important;bottom:12px!important;right:auto!important;
-  max-width:calc(100% - 24px)!important;font-size:10px!important;padding:6px 12px!important;letter-spacing:.13em!important}
-.hero-visual figure{border-color:rgba(6,6,7,.10)!important;box-shadow:0 24px 60px rgba(0,0,0,.18)!important}
-@media(max-width:1100px){.hero-strip{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
-@media(max-width:1000px){
-  .hero-in{grid-template-columns:minmax(0,1fr)!important;gap:1.5rem!important;padding:3vh 28px 2.4rem!important}
-  .hero-visual{order:-1!important}
-  .hero-visual img{height:min(38vh,320px)!important}
-  .hero-visual .hero-tag{font-size:9.5px!important;padding:5px 10px!important}
-  .hero h1{font-size:clamp(2.05rem,6.4vw,2.8rem)!important}
-  .hero .hero-sub{max-width:52ch!important}
-}
-@media(max-width:820px){.hero-in{padding:3vh 20px 2rem!important}}
-@media(max-width:640px){
-  .hero-in{padding:2.4vh 20px 1.8rem!important}
-  .hero h1{font-size:clamp(1.85rem,8vw,2.3rem)!important}
-  .hero .hero-sub{font-size:.98rem!important;margin-top:1.1rem!important}
-  .hero-strip{grid-template-columns:1fr!important;gap:.9rem!important}
-  .hero-strip strong{white-space:normal!important}
-  .hero-visual img{height:min(33vh,250px)!important}
-}
-/* nav brand: the empty .lb-brand__rule shoved the boutique tagline off its baseline */
-.lb-brand__rule{display:none!important}
-.lb-brand__word{justify-content:center!important;gap:4px!important}
-.lb-brand__sub{margin-top:0!important;line-height:1.2!important;letter-spacing:.2em!important;opacity:.92!important}
-/* enquiry submit label was black-on-black */
-#lbq button{color:#fff!important}
-/* footer legal links were flush to the page edge, off the footer grid */
-.lb-legal{display:block!important;max-width:1360px;margin:-4px auto 0;padding:0 40px 26px;font-size:12.5px;color:var(--ink2);line-height:1.6}.lb-legal a{display:inline-block;margin-right:18px;text-decoration:none;color:var(--ink2)}.lb-legal a:hover{color:var(--acc)}@media(max-width:820px){.lb-legal{padding:0 20px 24px}}
-</style>
-</head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Teddy & Fletch - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#14161a;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Teddy & Fletch</span><span class="lb-brand__sub">Women's Boutique &middot; Ballarat</span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Teddy & Fletch - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#14161a;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Teddy & Fletch</span><span class="lb-brand__sub">Women's Boutique · Ballarat</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">What&rsquo;s in store</a><a href="#process">Your visit</a><a href="#faq">Good to know</a><a href="#quote">Enquire</a></div>
   <div class="nav-cta"><span class="mono nav-p">0439 391 861</span><a href="#quote" class="btn btn-primary btn-sm">Enquire</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
 
 <header class="hero" id="top">
+<!-- LB-3D-HERO -->
+  <!-- LB-3D-HERO -->
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-shade"></div>
   <div class="hero-in">
     <div class="hero-copy">
     <p class="hero-kicker">A women&rsquo;s boutique &mdash; Golden Point, Ballarat</p>
-    <h1 data-ux="words">Racks chosen with<br><span class="acc">a good eye.</span></h1>
-    <p class="hero-sub">The racks here are curated, not crowded. New arrivals land weekly and we help you put an outfit together in store &mdash; so you leave with something that actually works.</p>
-    <p class="hero-thin">Dresses &middot; Everyday staples &middot; Accessories</p>
+    <h1 data-ux="words">Racks chosen with<br><span class="acc">a good eye.</span><br><span class="thin">Dresses &middot; Everyday staples &middot; Accessories</span></h1>
+    <p class="hero-sub">A women&rsquo;s boutique in Golden Point where the racks are curated, not crowded &mdash; new arrivals weekly and styling help in store so you leave with something that actually works.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#quote">Enquire with us</a>
-      <a class="btn btn-ghost" href="tel:0439391861">Call 0439 391 861</a>
+      <a class="btn btn-ghost" href="tel:+61439391861">Call 0439 391 861</a>
     </div>
     <div class="hero-strip">
-      <p><strong>New arrivals weekly</strong><span>Fresh stock through the door</span></p>
-      <p><strong>Open Wednesday to Saturday</strong><span>Golden Point, Ballarat</span></p>
-      <p><strong>Styling in store</strong><span>We help you put it together</span></p>
+      <p><strong><strong>New arrivals weekly</strong></strong>fresh stock through the door</p>
+      <p><strong><strong>Open Wednesday to Saturday</strong></strong>Golden Point, Ballarat</p>
+      <p><strong><strong>Styling in store</strong></strong>we help you put it together</p>
     </div>
     </div>
     <div class="hero-visual">
       <figure>
-        <img src="assets/gal_5.jpg" alt="In-store display at Teddy &amp; Fletch, Golden Point">
-        <figcaption class="hero-tag mono">In store &mdash; new arrivals</figcaption>
+        <span class="hero-tag mono">In store &mdash; new arrivals</span>
+        <img src="assets/gal_5.jpg" alt="Teddy &amp; Fletch — In store &mdash; new arrivals">
+        <span class="hv-motif" aria-hidden="true"></span>
       </figure>
     </div>
   </div>
@@ -437,7 +360,7 @@ html,body{overflow-x:hidden}
     <h2 id="lbq-h">Enquire with us</h2>
     <p class="lbq-s">Tell us what you&rsquo;re after and we&rsquo;ll get back to you &mdash; or just call the shop.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:0439391861">0439 391 861</a></div>
+      <div><b>Call</b><a href="tel:+61439391861">0439 391 861</a></div>
       
       <div><b>Area</b><span>Shop 1/225 Grant St, Golden Point, Ballarat &middot; VIC</span></div>
     </div>
@@ -451,7 +374,7 @@ html,body{overflow-x:hidden}
         <div class="lbq-full"><label for="lbq-svc">What is it about</label>
           <select id="lbq-svc" name="service"><option>New arrivals enquiry</option><option>Occasion wear</option><option>Hold an item</option><option>Styling help</option><option>Opening hours</option><option>Other</option></select>
         </div>
-        <div class="lbq-full"><label for="lbq-m">What you&rsquo;re after</label><textarea id="lbq-m" name="message" placeholder="What you are after, size, when you would like to pop in&hellip;" required></textarea></div>
+        <div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="What you are after, size, when you would like to pop in&hellip;" required></textarea></div>
       </div>
       <label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
       <div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
@@ -537,13 +460,13 @@ html,body{overflow-x:hidden}
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Women&rsquo;s boutique &middot; New arrivals weekly &middot; Golden Point, Ballarat.<br></p>
   </div>
   <div><h4>Shop</h4><a href="#services">Dresses</a><a href="#services">Everyday staples</a><a href="#services">Accessories</a><a href="#work">In store</a></div><div><h4>Visit</h4><a href="#process">Find the shop</a><a href="#faq">Opening hours</a><a href="#quote">Enquire</a></div>
-  <div><h4>Contact</h4><a href="tel:0439391861">0439 391 861</a><a href="#quote">Enquire</a></div>
+  <div><h4>Contact</h4><a href="tel:+61439391861">0439 391 861</a><a href="#quote">Enquire</a></div>
 </div>
 <div class="footer-bar mono">
-  <span>&copy; 2026 Teddy &amp; Fletch &middot; Golden Point, Ballarat</span>
-  <span class="fb-legal"><aReplay href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
-  <a href="tel:0439391861">0439 391 861</a>
-</div></footer>
+  <span>&copy; 2026 TEDDY &AMP; FLETCH &middot; </span>
+  <a href="tel:+61439391861">0439 391 861</a>
+</div>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <!-- lb: old box-hero engine removed -->
 <script>
@@ -1149,7 +1072,7 @@ html,body{overflow-x:hidden}
 
   function draw(){
     var isDark = dark();
-    var base = isDark ? [10,11,14] : [247,244,239];
+    var base = isDark ? [10,11,14] : [248,249,251];
     var ink  = isDark ? [255,255,255] : [12,14,18];
     var g = ctx.createLinearGradient(0,0,0,H);
     g.addColorStop(0, 'rgb('+base.join(',')+')');
@@ -1163,7 +1086,7 @@ html,body{overflow-x:hidden}
       var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
       var rad = Math.max(W,H)*(0.46 + 0.13*k);
       var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
-      var a = (isDark ? 0.20 : 0.055) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
       rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
       rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
       rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
@@ -1202,17 +1125,10 @@ html,body{overflow-x:hidden}
       ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
     }
 
-    // vignette + paper veil over the copy column: grid stays at the edges and never fights the type
+    // vignette to seat the copy
     var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
-    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.07)');
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
     ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
-    if (!isDark) {
-      var veil = ctx.createLinearGradient(0,0,W*0.80,0);
-      veil.addColorStop(0,'rgba(247,244,239,0.95)');
-      veil.addColorStop(0.52,'rgba(247,244,239,0.80)');
-      veil.addColorStop(1,'rgba(247,244,239,0)');
-      ctx.fillStyle = veil; ctx.fillRect(0,0,W,H);
-    }
   }
 
   function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }

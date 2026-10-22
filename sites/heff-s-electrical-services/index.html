@@ -10,7 +10,7 @@
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jetbrains-mono-400.woff2">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/logo.png">
-<img src="assets/logo.png" alt="" aria-hidden="true" style="display:none">
+<link rel="preload" as="image" type="image/svg+xml" href="assets/logo.svg">
 <style>
 :root{
   --ink:#0d0f12;
@@ -278,62 +278,23 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
-<body>
+<body id="top">
 <header class="header" role="banner"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
   <div class="header__inner">
-    <a href="/" class="header__logo" aria-label="Heff's Electrical Services home">
-      <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <title>Heff's Electrical Services</title>
-        <rect x="24" y="118" width="208" height="8" rx="2" fill="#e8c33c"/>
-        <rect x="24" y="114" width="208" height="4" rx="1" fill="#e8c33c"/>
-        <rect x="24" y="126" width="208" height="4" rx="1" fill="#e8c33c"/>
-        <rect x="32" y="66" width="40" height="52" rx="2" fill="#0d0f12"/>
-        <rect x="38" y="76" width="28" height="10" rx="1" fill="#e8c33c"/>
-        <rect x="38" y="90" width="28" height="6" rx="1" fill="#16191d"/>
-        <rect x="80" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
-        <rect x="85" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
-        <rect x="85" y="90" width="14" height="6" rx="1" fill="#16191d"/>
-        <rect x="112" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
-        <rect x="117" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
-        <rect x="117" y="90" width="14" height="6" rx="1" fill="#16191d"/>
-        <rect x="144" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
-        <rect x="149" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
-        <rect x="149" y="90" width="14" height="6" rx="1" fill="#16191d"/>
-        <rect x="176" y="66" width="40" height="52" rx="2" fill="#0d0f12"/>
-        <rect x="182" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
-        <rect x="196" y="76" width="14" height="10" rx="1" fill="#16191d"/>
-        <rect x="182" y="90" width="28" height="6" rx="1" fill="#16191d"/>
-        <ellipse cx="56" cy="184" rx="16" ry="10" fill="#0d0f12"/>
-        <ellipse cx="56" cy="184" rx="10" ry="6" fill="#16191d"/>
-        <ellipse cx="56" cy="184" rx="5" ry="3" fill="#23272d"/>
-        <rect x="52" y="194" width="8" height="28" fill="#0d0f12"/>
-        <rect x="54" y="194" width="4" height="28" fill="#16191d"/>
-        <rect x="176" y="156" width="16" height="44" rx="1" fill="#e8c33c"/>
-        <rect x="196" y="172" width="16" height="28" rx="1" fill="#e8c33c"/>
-        <rect x="216" y="188" width="16" height="12" rx="1" fill="#e8c33c"/>
-        <rect x="176" y="196" width="16" height="20" rx="1" fill="#e8c33c"/>
-        <rect x="196" y="204" width="16" height="12" rx="1" fill="#e8c33c"/>
-        <rect x="216" y="212" width="16" height="8" rx="1" fill="#e8c33c"/>
-        <rect x="40" y="116" width="2" height="12" fill="#0d0f12"/>
-        <rect x="64" y="116" width="2" height="12" fill="#0d0f12"/>
-        <rect x="88" y="116" width="2" height="12" fill="#0d0f12"/>
-        <rect x="112" y="116" width="2" height="12" fill="#0d0f12"/>
-        <rect x="136" y="116" width="2" height="12" fill="#0d0f12"/>
-        <rect x="160" y="116" width="2" height="12" fill="#0d0f12"/>
-        <rect x="184" y="116" width="2" height="12" fill="#0d0f12"/>
-        <rect x="208" y="116" width="2" height="12" fill="#0d0f12"/>
-      </svg>
+    <a href="#top" class="header__logo" aria-label="Heff's Electrical Services home">
+      <img src="assets/logo.svg" alt="" width="40" height="40" aria-hidden="true">
       <span class="header__name">Heff's Electrical Services</span>
     </a>
     <nav class="header__nav" aria-label="Main navigation">
-<a class="lb-brand" href="#top" aria-label="Heff's Electrical Services - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#111111;--lb-subc:#e8c038;--lb-acc:#e8c038;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Heff's Electrical Services</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
       <a href="#services">Services</a>
       <a href="#process">Our Process</a>
       <a href="#locality">Locality</a>
     </nav>
     <div class="header__cta">
-      <a href="tel:0421352086" class="btn btn--accent">Get a Quote</a>
+      <a href="#lbq" class="btn btn--accent">Get a Quote</a>
     </div>
   </div>
 </header>
@@ -342,17 +303,96 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero__inner">
       <div class="hero__copy">
-        <span class="hero__badge">Melbourne South-East VIC</span>
+        <span class="hero__area">Melbourne South-East VIC</span>
         <h1 id="hero-title" class="rv">Heff's Electrical Services</h1>
         <p class="hero__tagline rv">Residential, Commercial, Batteries, Switchboards, General Electrical</p>
         <div class="hero__cta-group rv">
-          <a href="tel:0421352086" class="btn btn--accent">Call <span style="font-family:system-ui, monospace">0421 352 086</span></a>
+          <a href="tel:0421352086" class="btn btn--accent">Call <span class="hero__tel">0421 352 086</span></a>
           <a href="#lbq" class="btn">Request Quote</a>
         </div>
       </div>
-      <div class="hero__canvas rv">
-        <canvas id="hero-canvas" aria-label="Load schedule diagram: DIN rail with breaker modules, cable gland, and load bars"></canvas>
-      </div>
+      <figure class="hero__canvas rv">
+        <svg class="hero__board" viewBox="0 0 500 460" role="img" aria-label="Load schedule diagram: DIN rail with breaker modules, cable gland, and load bars" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.5" y="0.5" width="499" height="459" rx="15" fill="#f4f5f7" stroke="#dfe3e8"/>
+          <g fill="none" stroke="#c9cfd6" stroke-width="1">
+            <path d="M28 60h444M28 388h444"/>
+          </g>
+          <text x="28" y="46" class="b-mono" fill="#5d646d">BOARD DB-01</text>
+          <text x="472" y="46" class="b-mono" fill="#5d646d" text-anchor="end">RCBO / 30mA</text>
+          <rect x="40" y="76" width="420" height="12" rx="3" fill="#0d0f12"/>
+          <g>
+            <rect x="48" y="96" width="34" height="118" rx="3" fill="#0d0f12"/>
+            <rect x="54" y="104" width="22" height="26" rx="2" fill="#e8c038"/>
+            <rect x="54" y="140" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="54" y="156" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="54" y="184" width="22" height="22" rx="2" fill="#23272d"/>
+          </g>
+          <g>
+            <rect x="94" y="96" width="34" height="118" rx="3" fill="#16191d"/>
+            <rect x="100" y="104" width="22" height="26" rx="2" fill="#e8c038"/>
+            <rect x="100" y="140" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="100" y="156" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="100" y="184" width="22" height="22" rx="2" fill="#23272d"/>
+          </g>
+          <g>
+            <rect x="140" y="96" width="34" height="118" rx="3" fill="#16191d"/>
+            <rect x="146" y="104" width="22" height="26" rx="2" fill="#e8c038"/>
+            <rect x="146" y="140" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="146" y="156" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="146" y="184" width="22" height="22" rx="2" fill="#23272d"/>
+          </g>
+          <g>
+            <rect x="186" y="96" width="34" height="118" rx="3" fill="#16191d"/>
+            <rect x="192" y="104" width="22" height="26" rx="2" fill="#e8c038"/>
+            <rect x="192" y="140" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="192" y="156" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="192" y="184" width="22" height="22" rx="2" fill="#23272d"/>
+          </g>
+          <g>
+            <rect x="232" y="96" width="34" height="118" rx="3" fill="#16191d"/>
+            <rect x="238" y="104" width="22" height="26" rx="2" fill="#e8c038"/>
+            <rect x="238" y="140" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="238" y="156" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="238" y="184" width="22" height="22" rx="2" fill="#23272d"/>
+          </g>
+          <g>
+            <rect x="278" y="96" width="34" height="118" rx="3" fill="#16191d"/>
+            <rect x="284" y="104" width="22" height="26" rx="2" fill="#e8c038"/>
+            <rect x="284" y="140" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="284" y="156" width="22" height="8" rx="2" fill="#3a4048"/>
+            <rect x="284" y="184" width="22" height="22" rx="2" fill="#23272d"/>
+          </g>
+          <g>
+            <rect x="324" y="152" width="60" height="62" rx="3" fill="#0d0f12"/>
+            <rect x="334" y="164" width="40" height="22" rx="2" fill="#e8c038"/>
+            <rect x="334" y="194" width="40" height="10" rx="2" fill="#3a4048"/>
+          </g>
+          <rect x="392" y="96" width="8" height="118" rx="2" fill="#e8c038"/>
+          <g fill="#0d0f12">
+            <rect x="60" y="214" width="10" height="150"/>
+            <rect x="106" y="214" width="10" height="112"/>
+            <rect x="152" y="214" width="10" height="150"/>
+            <rect x="198" y="214" width="10" height="86"/>
+            <rect x="244" y="214" width="10" height="126"/>
+            <rect x="290" y="214" width="10" height="150"/>
+          </g>
+          <g class="b-load" fill="#0d0f12" font-size="11">
+            <text x="75" y="330">L1 Lighting</text>
+            <text x="121" y="314">L2 GPO</text>
+            <text x="167" y="330">L3 HWS</text>
+            <text x="213" y="274">L4 Solar</text>
+            <text x="259" y="322">L5 Battery</text>
+            <text x="305" y="330">L6 EV</text>
+          </g>
+          <g fill="#5d646d">
+            <circle cx="63" cy="372" r="3"/><circle cx="109" cy="372" r="3"/><circle cx="155" cy="372" r="3"/>
+            <circle cx="201" cy="372" r="3"/><circle cx="247" cy="372" r="3"/><circle cx="293" cy="372" r="3"/>
+          </g>
+          <rect x="366" y="352" width="76" height="24" rx="12" fill="none" stroke="#c9cfd6"/>
+          <text x="404" y="368" class="b-mono" fill="#5d646d" text-anchor="middle">GLAND</text>
+        </svg>
+        <figcaption class="hero__cap"><span class="hero__cap-k">Load schedule</span><span class="hero__cap-v">Board DB-01 &middot; RCBO</span></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -386,6 +426,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <span class="service-card__num">05</span>
         <h3 class="service-card__title">General Electrical</h3>
         <p class="service-card__desc">Repairs, inspections, compliance certificates, and emergency call-outs.</p>
+      </article>
+      <article class="service-card rv">
+        <span class="service-card__num">06</span>
+        <h3 class="service-card__title">EV Charger Install</h3>
+        <p class="service-card__desc">Home and workplace EV charger supply, dedicated circuits, and load checks.</p>
       </article>
     </div>
   </section>
@@ -423,73 +468,35 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <a href="https://maps.google.com/?q=Melbourne+South-East+VIC" target="_blank" rel="noopener" class="locality__map rv">View on Map</a>
     </div>
   </section>
-</main>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Heff's Electrical Services</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Heff's Electrical Services &mdash; recent work</div></div></section><footer class="footer" role="contentinfo">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <a href="/" class="footer__logo" aria-label="Heff's Electrical Services home">
-        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <title>Heff's Electrical Services</title>
-          <rect x="24" y="118" width="208" height="8" rx="2" fill="#e8c33c"/>
-          <rect x="24" y="114" width="208" height="4" rx="1" fill="#e8c33c"/>
-          <rect x="24" y="126" width="208" height="4" rx="1" fill="#e8c33c"/>
-          <rect x="32" y="66" width="40" height="52" rx="2" fill="#0d0f12"/>
-          <rect x="38" y="76" width="28" height="10" rx="1" fill="#e8c33c"/>
-          <rect x="38" y="90" width="28" height="6" rx="1" fill="#16191d"/>
-          <rect x="80" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
-          <rect x="85" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
-          <rect x="85" y="90" width="14" height="6" rx="1" fill="#16191d"/>
-          <rect x="112" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
-          <rect x="117" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
-          <rect x="117" y="90" width="14" height="6" rx="1" fill="#16191d"/>
-          <rect x="144" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
-          <rect x="149" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
-          <rect x="149" y="90" width="14" height="6" rx="1" fill="#16191d"/>
-          <rect x="176" y="66" width="40" height="52" rx="2" fill="#0d0f12"/>
-          <rect x="182" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
-          <rect x="196" y="76" width="14" height="10" rx="1" fill="#16191d"/>
-          <rect x="182" y="90" width="28" height="6" rx="1" fill="#16191d"/>
-          <ellipse cx="56" cy="184" rx="16" ry="10" fill="#0d0f12"/>
-          <ellipse cx="56" cy="184" rx="10" ry="6" fill="#16191d"/>
-          <ellipse cx="56" cy="184" rx="5" ry="3" fill="#23272d"/>
-          <rect x="52" y="194" width="8" height="28" fill="#0d0f12"/>
-          <rect x="54" y="194" width="4" height="28" fill="#16191d"/>
-          <rect x="176" y="156" width="16" height="44" rx="1" fill="#e8c33c"/>
-          <rect x="196" y="172" width="16" height="28" rx="1" fill="#e8c33c"/>
-          <rect x="216" y="188" width="16" height="12" rx="1" fill="#e8c33c"/>
-          <rect x="176" y="196" width="16" height="20" rx="1" fill="#e8c33c"/>
-          <rect x="196" y="204" width="16" height="12" rx="1" fill="#e8c33c"/>
-          <rect x="216" y="212" width="16" height="8" rx="1" fill="#e8c33c"/>
-          <rect x="40" y="116" width="2" height="12" fill="#0d0f12"/>
-          <rect x="64" y="116" width="2" height="12" fill="#0d0f12"/>
-          <rect x="88" y="116" width="2" height="12" fill="#0d0f12"/>
-          <rect x="112" y="116" width="2" height="12" fill="#0d0f12"/>
-          <rect x="136" y="116" width="2" height="12" fill="#0d0f12"/>
-          <rect x="160" y="116" width="2" height="12" fill="#0d0f12"/>
-          <rect x="184" y="116" width="2" height="12" fill="#0d0f12"/>
-          <rect x="208" y="116" width="2" height="12" fill="#0d0f12"/>
-        </svg>
-        <span class="footer__name">Heff's Electrical Services</span>
-      </a>
-      <div class="footer__contact">
-        <a href="tel:0421352086">0421 352 086</a>
-        <a href="mailto:info@heffselectrical.com.au">info@heffselectrical.com.au</a>
-        <span>Melbourne South-East VIC</span>
-      </div>
-      <div class="footer__social">
-        <a href="https://www.instagram.com/heffselectrical/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
+<section class="lb-rb" aria-label="What we do">
+  <div class="lb-rb__track">
+    <div class="lb-rb__slide is-on">
+      <div class="lb-rb__body">
+        <span class="lb-rb__kick">Capability</span>
+        <p class="lb-rb__head">Switchboards, batteries and rewires, installed to standard.</p>
+        <p class="lb-rb__sub">Residential and commercial electrical across Melbourne&rsquo;s south-east.</p>
       </div>
     </div>
-    <nav class="footer__legal" aria-label="Legal">
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms of Service</a>
-    </nav>
-    <p class="footer__copy">&copy; 2025 Heff's Electrical Services. All rights reserved.</p>
+    <div class="lb-rb__slide">
+      <div class="lb-rb__body">
+        <span class="lb-rb__kick">Response</span>
+        <p class="lb-rb__head">Faults found, made safe, fixed.</p>
+        <p class="lb-rb__sub">Same-day call-outs for homes and businesses.</p>
+      </div>
+    </div>
+    <div class="lb-rb__slide">
+      <div class="lb-rb__body">
+        <span class="lb-rb__kick">Quoting</span>
+        <p class="lb-rb__head">Free, fixed-price quotes.</p>
+        <p class="lb-rb__sub">Clear inclusions in writing. No obligation.</p>
+      </div>
+    </div>
+    <button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button>
+    <button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button>
+    <div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" aria-label="Slide 2"></button><button type="button" aria-label="Slide 3"></button></div>
   </div>
-<section id="lbq" class="v3" aria-labelledby="lbq-h">
+</section><section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#e8c038))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
@@ -603,7 +610,80 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 })();
 </script>
 </section>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="#top" class="footer__logo" aria-label="Heff's Electrical Services home">
+        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <title>Heff's Electrical Services</title>
+          <rect x="24" y="118" width="208" height="8" rx="2" fill="#e8c33c"/>
+          <rect x="24" y="114" width="208" height="4" rx="1" fill="#e8c33c"/>
+          <rect x="24" y="126" width="208" height="4" rx="1" fill="#e8c33c"/>
+          <rect x="32" y="66" width="40" height="52" rx="2" fill="#0d0f12"/>
+          <rect x="38" y="76" width="28" height="10" rx="1" fill="#e8c33c"/>
+          <rect x="38" y="90" width="28" height="6" rx="1" fill="#16191d"/>
+          <rect x="80" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
+          <rect x="85" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
+          <rect x="85" y="90" width="14" height="6" rx="1" fill="#16191d"/>
+          <rect x="112" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
+          <rect x="117" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
+          <rect x="117" y="90" width="14" height="6" rx="1" fill="#16191d"/>
+          <rect x="144" y="66" width="24" height="52" rx="2" fill="#0d0f12"/>
+          <rect x="149" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
+          <rect x="149" y="90" width="14" height="6" rx="1" fill="#16191d"/>
+          <rect x="176" y="66" width="40" height="52" rx="2" fill="#0d0f12"/>
+          <rect x="182" y="76" width="14" height="10" rx="1" fill="#e8c33c"/>
+          <rect x="196" y="76" width="14" height="10" rx="1" fill="#16191d"/>
+          <rect x="182" y="90" width="28" height="6" rx="1" fill="#16191d"/>
+          <ellipse cx="56" cy="184" rx="16" ry="10" fill="#0d0f12"/>
+          <ellipse cx="56" cy="184" rx="10" ry="6" fill="#16191d"/>
+          <ellipse cx="56" cy="184" rx="5" ry="3" fill="#23272d"/>
+          <rect x="52" y="194" width="8" height="28" fill="#0d0f12"/>
+          <rect x="54" y="194" width="4" height="28" fill="#16191d"/>
+          <rect x="176" y="156" width="16" height="44" rx="1" fill="#e8c33c"/>
+          <rect x="196" y="172" width="16" height="28" rx="1" fill="#e8c33c"/>
+          <rect x="216" y="188" width="16" height="12" rx="1" fill="#e8c33c"/>
+          <rect x="176" y="196" width="16" height="20" rx="1" fill="#e8c33c"/>
+          <rect x="196" y="204" width="16" height="12" rx="1" fill="#e8c33c"/>
+          <rect x="216" y="212" width="16" height="8" rx="1" fill="#e8c33c"/>
+          <rect x="40" y="116" width="2" height="12" fill="#0d0f12"/>
+          <rect x="64" y="116" width="2" height="12" fill="#0d0f12"/>
+          <rect x="88" y="116" width="2" height="12" fill="#0d0f12"/>
+          <rect x="112" y="116" width="2" height="12" fill="#0d0f12"/>
+          <rect x="136" y="116" width="2" height="12" fill="#0d0f12"/>
+          <rect x="160" y="116" width="2" height="12" fill="#0d0f12"/>
+          <rect x="184" y="116" width="2" height="12" fill="#0d0f12"/>
+          <rect x="208" y="116" width="2" height="12" fill="#0d0f12"/>
+        </svg>
+        <span class="footer__name">Heff's Electrical Services</span>
+      </a>
+      <div class="footer__contact">
+        <a href="tel:0421352086">0421 352 086</a>
+        <a href="mailto:info@heffselectrical.com.au">info@heffselectrical.com.au</a>
+        <span>Melbourne South-East VIC</span>
+      </div>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/heffselectrical/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+      </div>
+    </div>
+    <nav class="footer__links" aria-label="Footer">
+      <h2 class="footer__links-title">Explore</h2>
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a href="#locality">Service area</a>
+      <a href="#lbq">Request a quote</a>
+    </nav>
+    <nav class="footer__legal" aria-label="Legal">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+    <p class="footer__copy">&copy; 2025 Heff's Electrical Services. All rights reserved.</p>
+  </div>
+</footer>
+</footer>
 
 <script>
 (function(){
@@ -684,7 +764,8 @@ document.addEventListener('DOMContentLoaded',function(){
 <script id="lb-hero-js">
 /* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
 (function(){
-  var cv = document.querySelector('.lb-hero-canvas, #heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero]');
+  var cv = [].slice.call(document.querySelectorAll('#hero-canvas, .hero__canvas canvas, .lb-hero-canvas, #heroCanvas, .hero-canvas, .lb3d-canvas, canvas[data-hero]'))
+             .filter(function(c){ var r = c.getBoundingClientRect(); return r.width > 40 && r.height > 40; })[0];
   if (!cv) return;
   var ctx = cv.getContext('2d'); if (!ctx) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -834,7 +915,7 @@ header a[href^="tel"],.site-header a[href^="tel"]{
 </style>
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
 .lb-mq__in{display:none !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+body{letter-spacing:normal}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
@@ -844,6 +925,78 @@ p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
+</style>
+<style id="lb-repair-heff">
+/* --- header: single brand lockup, logo from asset, label on the dark CTA --- */
+.hero__canvas{border-color:#dfe3e8}
+.header__logo img{width:46px;height:46px;flex-shrink:0;object-fit:contain}
+.header__logo{gap:.7rem;overflow:visible}
+.header__name{font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.2;letter-spacing:-.01em}
+/* the header tel/black button inherited an ink colour and read as an empty black pill */
+.header__cta .btn--accent,
+.header a.btn--accent,
+header a[href^="tel"].btn{color:#fff !important;background:var(--ink) !important;border-color:var(--ink) !important}
+.header__cta .btn--accent:hover,
+header a[href^="tel"].btn:hover{color:var(--ink) !important;background:var(--accent) !important;border-color:var(--accent) !important}
+.header__cta .btn{white-space:nowrap}
+/* --- hero: the flex height rule shrank .hero__inner to a narrow column --- */
+.hero{justify-content:center}
+.hero > .hero__inner{flex:1 1 100%;width:100%;max-width:var(--max);margin:0 auto}
+.hero__inner{display:grid !important;grid-template-columns:1fr 1fr;gap:calc(var(--space)*1.5);align-items:center}
+@media (max-width:900px){
+  .hero__inner{grid-template-columns:1fr}
+  .hero__canvas{order:-1;aspect-ratio:4/3}
+}
+/* [class*=hero] also hit every hero part, laying the copy out as a stretched row */
+.hero__copy{display:block !important;min-height:0 !important;max-height:none !important}
+.hero__badge{display:inline-flex !important;align-items:center !important;min-height:0 !important;max-height:none !important}
+.hero__tagline,.hero__cta-group{min-height:0 !important;max-height:none !important}
+.hero__canvas{display:block !important;min-height:0 !important;max-height:none !important}
+/* the global :has(canvas) scrim greyed out the whole light hero */
+.hero:has(canvas)::before{background:none !important}
+/* canvas sat at z-index:-1 behind its own dark panel background */
+.hero__canvas{isolation:isolate;z-index:0;background:#f4f5f7;box-shadow:0 24px 60px -40px rgba(13,15,18,.55)}
+.hero__canvas canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:1!important;display:block}
+/* copy rhythm: no run-together text, no wrapped phone numbers */
+.hero__tagline{max-width:46ch;margin-bottom:2.25rem}
+.hero__cta-group{display:flex!important;flex-wrap:wrap;gap:.875rem}
+.hero__cta-group .btn{white-space:nowrap}
+.hero__cta-group .btn span{white-space:nowrap}
+@media (max-width:560px){
+  .hero__cta-group .btn{white-space:normal}
+  .hero__cta-group .btn span{white-space:nowrap}
+}
+/* --- services: complete rows, equal heights --- */
+.services__grid{align-items:stretch}
+.service-card{display:flex;flex-direction:column;justify-content:flex-start}
+/* --- the dark band: give it a composition instead of a bare centred line --- */
+.lb-rb{margin-top:0}
+.lb-rb__track{aspect-ratio:auto;min-height:300px;display:flex;align-items:center}
+.lb-rb__slide{position:absolute;inset:0;display:flex;align-items:center;padding:0}
+.lb-rb__body{max-width:var(--max);width:100%;margin spokes 0 auto}
+.lb-rb__kick{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
+.lb-rb__head{margin spokes 0 .65rem;font-family:"Archivo",system-ui,sans-serif;font-weight:700;font-size:clamp(1.35rem,2.6vw,2.15rem);line-height:1.18mpress;color:#fff;max-width:24ch;letter-spacing:-.01em}
+.lb-rb__sub{margin:0;font-size:clamp(.95rem,1.15vw,1.0625rem);color:#b9c0c8;max-width:52ch;line-height:1.55}
+/* --- footer: balanced two-column, no orphaned rule --- */
+.footer__inner{grid-template-columns:1.5fr .7fr !important;gap:calc(var(--space)*1.2) !important;align-items:start}
+.footer__links{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;text-align:right}
+.footer__links-title{font-family:"Archivo",system-ui,sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+.footer__links a{font-size:.9375rem;opacity:.78;transition:opacity 150ms,color 150ms}
+.footer__links a:hover{opacity:1;color:var(--accent)}
+@media (max-width:700px){
+  .footer__inner{grid-template-columns:1fr !important}
+  .footer__links{align-items:center;text-align:center}
+}
+/* --- quote form: own light section between the band and the footer --- */
+#lbq{padding:calc(var(--space)*2) var(--space-sm) !important;border-top:1px solid var(--hairline)}
+#lbq .lbq-hp2{border:1px solid var(--hairline);border-left:4px solid var(--accent);border-radius:12px;padding:clamp(1.25rem,3vw,2rem);background:#f7f8f9;align-self:start}
+#lbq h2{font-family:"Archivo",system-ui,sans-serif;font-weight:700}
+#lbq p.lbq-s{color:#5d646d;max-width:44ch}
+#lbq input,#lbq textarea{border-color:#d8dce1;background:#fff}
+#lbq input:focus,#lbq textarea:focus{border-color:#d8dce1}
+#lbq button{background:var(--ink);color:#fff;border-radius:999px;padding:14px 26px}
+#lbq button:hover{background:var(--accent);color:var(--ink)}
+.lb-rb + .footer,.footer + #lbq{margin-top:0}
 </style>
 </body>
 </html>

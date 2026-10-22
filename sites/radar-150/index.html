@@ -267,7 +267,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.12) 45%,rgba(0,0,0,.42))}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -281,14 +281,12 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.28))}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Dale's Professional Tree Services - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#283808;--lb-subc:#283808;--lb-acc:#283808;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Dale's Professional Tree Services</span><span class="lb-brand__sub"><span class="lb-acc">Tree</span> Removal · Pruning · Stump Grinding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Dale's Professional Tree Services - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#283808;--lb-subc:#283808;--lb-acc:#283808;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_radar-150.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Dale's Professional Tree Services</span><span class="lb-brand__sub"><span class="lb-acc">Tree</span> Removal · Pruning · Stump Grinding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="mono nav-p">0491 173 125</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -306,7 +304,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     <p class="hero-sub">Tree removal, health pruning, deadwooding, canopy shaping and stump grinding across Newcastle, Maitland and the Hunter, plus 24/7 storm response. Safe rigging, a clear price and every site left raked clean.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#quote">Get a free quote</a>
-      <a class="btn btn-ghost" href="tel:0491173125">Call 0491 173 125</a>
+      <a class="btn btn-ghost" href="tel:+61491173125">Call 0491 173 125</a>
     </div>
     <div class="hero-strip">
       <p><strong>24/7 emergency</strong>when a tree comes down</p>
@@ -395,7 +393,7 @@ html,body{overflow-x:hidden}
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us what the job involves, and we will come back with a set price, nothing unexpected, no obligation to proceed.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:0491173125">0491 173 125</a></div>
+      <div><b>Call</b><a href="tel:+61491173125">0491 173 125</a></div>
       <div><b>Email</b><a href="mailto:dalegtr17@hotmail.com">dalegtr17@hotmail.com</a></div>
       <div><b>Area</b><span>Newcastle &amp; Maitland, Hunter NSW</span></div>
     </div>
@@ -495,11 +493,11 @@ html,body{overflow-x:hidden}
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Tree removal &middot; Pruning &middot; Stump grinding &middot; 24/7 emergency, Newcastle &amp; the Hunter.<br></p>
   </div>
   <div><h4>Services</h4><a href="#services">Tree removal</a><a href="#services">Pruning</a><a href="#services">Stump grinding</a><a href="#quote">Get a quote</a></div><div><h4>Company</h4><a href="#process">How we work</a><a href="#faq">FAQ</a><a href="#quote">Free quote</a></div>
-  <div><h4>Contact</h4><a href="tel:0491173125">0491 173 125</a><a href="mailto:dalegtr17@hotmail.com">dalegtr17@hotmail.com</a><a href="#quote">Free quote</a></div>
+  <div><h4>Contact</h4><a href="tel:+61491173125">0491 173 125</a><a href="mailto:dalegtr17@hotmail.com">dalegtr17@hotmail.com</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
   <span>&copy; 2026 DALE'S PROFESSIONAL TREE SERVICES &middot; </span>
-  <a href="tel:0491173125">0491 173 125</a><a href="mailto:dalegtr17@hotmail.com">dalegtr17@hotmail.com</a>
+  <a href="tel:+61491173125">0491 173 125</a><a href="mailto:dalegtr17@hotmail.com">dalegtr17@hotmail.com</a>
 </div>
 <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 

@@ -365,80 +365,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<style id="hero-grid-repair">
-/* hero repair 2026-10-22 — [class*=hero] rules were flexing/inheriting onto .hero-in,
-   .lbhf and .lbhf-scrim, so the background photo became a flex sibling and shoved the
-   copy into a 300px column under the fixed header. Rebuild the hero as one flow column
-   over a full-bleed photo. */
-.hero{
-  display:block!important;
-  position:relative;
-  overflow:hidden;
-  min-height:clamp(540px,74vh,720px)!important;
-  max-height:none!important;
-  align-items:initial;
-  padding:clamp(116px,15vh,152px) 24px clamp(64px,9vh,96px)!important;
-}
-.hero > .lbhf,
-.hero > .lbhf-scrim{
-  position:absolute!important;
-  inset:0!important;
-  z-index:0!important;
-  width:auto!important;
-  height:auto!important;
-}
-.lbhf img{width:100%!important;height:100%!important;object-fit:cover;object-position:center 45%}
-.hero > .lbhf-scrim{
-  z-index:1!important;
-  background:linear-gradient(90deg,rgba(6,7,9,.88) 0%,rgba(6,7,9,.72) 44%,rgba(6,7,9,.30) 100%),
-             linear-gradient(180deg,rgba(6,7,9,.55) 0%,rgba(6,7,9,0) 32%)!important;
-}
-.hero > .hero-in{
-  position:relative!important;
-  z-index:2!important;
-  display:block!important;
-  max-width:1120px!important;
-  width:100%!important;
-  margin:0 auto!important;
-  min-height:0!important;
-  max-height:none!important;
-}
-.hero-in > *{min-height:0!important;max-height:none!important;max-width:min(34rem,100%)}
-.hero .hero-kicker{
-  display:inline-flex!important;
-  align-items:center;
-  width:auto!important;
-  margin:0 0 .95rem!important;
-  font-size:.72rem;
-  letter-spacing:.2em;
-  line-height:1.4;
-  flex-wrap:wrap;
-}
-.hero .hero-in h1{
-  font-size:clamp(2rem,3.5vw,3.25rem)!important;
-  line-height:1.07!important;
-  max-width:min(20ch,100%)!important;
-  width:100%!important;
-  margin:0!important;
-}
-.hero .hero-sub{
-  max-width:min(46ch,100%)!important;
-  margin:1.05rem 0 0!important;
-  font-size:clamp(.98rem,1.05vw,1.08rem)!important;
-  line-height:1.62!important;
-  white-space:normal!important;
-}
-.hero .hero-cta{margin-top:1.85rem!important;gap:.75rem!important;max-width:min(34rem,100%)!important}
-@media (max-width:760px){
-  .hero{min-height:0!important;padding:104px 20px 64px!important}
-  .hero > .lbhf-scrim{background:linear-gradient(180deg,rgba(6,7,9,.82) 0%,rgba(6,7,9,.72) 60%,rgba(6,7,9,.55) 100%)!important}
-  .hero-in > *{max-width:100%}
-  .hero .hero-in h1{max-width:100%!important}
-  .hero .hero-cta{flex-direction:column;align-items:stretch;gap:.6rem}
-  .hero .hero-cta .btn{justify-content:center}
-}
-</style>
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 
@@ -537,7 +463,46 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <p style="text-align:center;margin:32px 0 0;color:var(--muted);font-size:.9rem">No phone published - quote form or email only.</p>
     </div>
   </section>
-  <section id="lbq" class="v2" aria-labelledby="lbq-h">
+  <section id="quote" class="rv" aria-labelledby="quote-heading">
+    <div class="container" style="max-width:720px;text-align:center">
+      <p style="font-size:.75rem;letter-spacing:.18em;color:var(--accent);margin:0 0 8px;font-weight:600">Get a quote</p>
+      <h2 id="quote-heading" style="font-family:system-ui, system-ui, sans-serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em">Tell us about the job</h2>
+      <p class="lead" style="color:var(--muted);margin:0 0 32px;max-width:56ch">Size, location, time frame - we'll reply with a free, no-obligation quote. Prefer to talk? Email <a href="mailto:Zb_rendering@outlook.com">Zb_rendering@outlook.com</a> or DM <a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener">@zb_rendering</a>.</p>
+      <!-- #lbq quote form will be injected here by inject_quote_form.py -->
+    </div>
+  </section>
+</main>
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">ZB Rendering &mdash; recent work</div></div></section><footer class="site-footer" role="contentinfo">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#top" aria-label="ZB Rendering home" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-bottom:16px">
+        <img src="logo.jpg" alt="" width="36" height="28" style="width:36px;height:28px;object-fit:contain;border-radius:4px">
+        <span style="font-family:system-ui, system-ui, sans-serif;font-weight:700;font-size:1.1rem">ZB Rendering</span>
+      </a>
+      <p style="margin:4px 0;color:var(--muted);font-size:.9rem">Adelaide SA - Render & texture coating, Venetian plaster, microcement, white set, feature walls.</p>
+    </div>
+    <div class="footer-contact">
+      <p class="label" style="font-size:.75rem;letter-spacing:.18em;text-transform:none;color:var(--accent);margin:0 0 8px;font-weight:600">Contact</p>
+      <p style="margin:4px 0;color:var(--muted);font-size:.9rem"><a href="mailto:Zb_rendering@outlook.com" style="color:var(--muted)">Zb_rendering@outlook.com</a></p>
+      <p style="margin:4px 0;color:var(--muted);font-size:.9rem"><a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener" style="color:var(--muted)">instagram.com/zb_rendering</a></p>
+      <p style="margin:16px 0 0;color:var(--muted);font-size:.9rem">No phone published</p>
+    </div>
+    <div class="footer-services">
+      <p class="label" style="font-size:.75rem;letter-spacing:.18em;text-transform:none;color:var(--accent);margin:0 0 8px;font-weight:600">Services</p>
+      <ul style="margin:0;padding:0;list-style:none;color:var(--muted);font-size:.9rem;line-height:2">
+        <li>Render & texture coating</li>
+        <li>Venetian plaster</li>
+        <li>Microcement</li>
+        <li>White set finishing</li>
+        <li>Feature walls</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright" style="border-top:1px solid var(--line);margin-top:32px;padding-top:24px;text-align:center;color:var(--muted);font-size:.8rem">
+    <p style="margin:0">© <span id="yr"></span> ZB Rendering. All rights reserved.</p>
+    <p style="margin:6px 0 0;font-size:.72rem;opacity:.75">Hero texture photo: Ildar Sagdejev (CC BY-SA 4.0, via Wikimedia Commons)</p>
+  </div>
+<section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#6fb1e0))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
@@ -585,9 +550,9 @@ html,body{overflow-x:hidden}
   h1,.h1{font-size:clamp(26px,10.5vw,54px)!important;line-height:1.05!important}
 }
 </style>
-  <div class="lbq-w" id="quote">
-      <div class="lbq-hd"><div><p class="lbq-k">Get a quote</p><h2 id="lbq-h">Tell us about the job</h2>
-      <p class="lbq-s">Size, location, time frame &mdash; we&#39;ll reply with a free, no-obligation quote. Prefer to talk? Email <a href="mailto:Zb_rendering@outlook.com">Zb_rendering@outlook.com</a>, call <a href="tel:0432791152">0432 791 152</a> or DM <a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener">@zb_rendering</a>.</p></div></div><form id="lbq-form" novalidate data-site="zb-rendering" data-biz="ZB Rendering"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form>
+  <div class="lbq-w">
+      <div class="lbq-hd"><div><h2 id="lbq-h">Request a quote</h2>
+      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p></div></div><form id="lbq-form" novalidate data-site="zb-rendering" data-biz="ZB Rendering"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form>
   </div>
   <script>
 (function(){
@@ -682,37 +647,6 @@ html,body{overflow-x:hidden}
 })();
 </script>
 </section>
-</main>
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="ZB Rendering - Render & Texture Coating, Venetian Plaster, Microcement" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">ZB Rendering &mdash; recent work</div></div></section><footer class="site-footer" role="contentinfo">
-  <div class="container footer-grid">
-    <div class="footer-brand">
-      <a href="#top" aria-label="ZB Rendering home" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-bottom:16px">
-        <img src="logo.jpg" alt="" width="36" height="28" style="width:36px;height:28px;object-fit:contain;border-radius:4px">
-        <span style="font-family:system-ui, system-ui, sans-serif;font-weight:700;font-size:1.1rem">ZB Rendering</span>
-      </a>
-      <p style="margin:4px 0;color:var(--muted);font-size:.9rem">Adelaide SA - Render & texture coating, Venetian plaster, microcement, white set, feature walls.</p>
-    </div>
-    <div class="footer-contact">
-      <p class="label" style="font-size:.75rem;letter-spacing:.18em;text-transform:none;color:var(--accent);margin:0 0 8px;font-weight:600">Contact</p>
-      <p style="margin:4px 0;color:var(--muted);font-size:.9rem"><a href="mailto:Zb_rendering@outlook.com" style="color:var(--muted)">Zb_rendering@outlook.com</a></p>
-      <p style="margin:4px 0;color:var(--muted);font-size:.9rem"><a href="https://instagram.com/zb_rendering" target="_blank" rel="noopener" style="color:var(--muted)">instagram.com/zb_rendering</a></p>
-      <p style="margin:16px 0 0;color:var(--muted);font-size:.9rem">No phone published</p>
-    </div>
-    <div class="footer-services">
-      <p class="label" style="font-size:.75rem;letter-spacing:.18em;text-transform:none;color:var(--accent);margin:0 0 8px;font-weight:600">Services</p>
-      <ul style="margin:0;padding:0;list-style:none;color:var(--muted);font-size:.9rem;line-height:2">
-        <li>Render & texture coating</li>
-        <li>Venetian plaster</li>
-        <li>Microcement</li>
-        <li>White set finishing</li>
-        <li>Feature walls</li>
-      </ul>
-    </div>
-  </div>
-  <div class="copyright" style="border-top:1px solid var(--line);margin-top:32px;padding-top:24px;text-align:center;color:var(--muted);font-size:.8rem">
-    <p style="margin:0">© <span id="yr"></span> ZB Rendering. All rights reserved.</p>
-    <p style="margin:6px 0 0;font-size:.72rem;opacity:.75">Hero texture photo: Ildar Sagdejev (CC BY-SA 4.0, via Wikimedia Commons)</p>
-  </div>
 <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 

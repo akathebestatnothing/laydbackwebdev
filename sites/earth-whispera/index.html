@@ -57,13 +57,11 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
-  min-height:clamp(540px,76svh,740px);display:flex;align-items:flex-end;padding:calc(var(--s6) * .5) 0 var(--s4)}
+  min-height:clamp(560px,86svh,820px);display:flex;align-items:flex-end;padding:calc(var(--s6) * .7) 0 var(--s4)}
 #heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:
-    radial-gradient(120% 58% at 14% 100%,rgba(10,12,15,.66),rgba(10,12,15,0) 62%),
-    linear-gradient(90deg,rgba(10,12,15,.95) 0%,rgba(10,12,15,.86) 32%,rgba(10,12,15,.34) 60%,rgba(10,12,15,.06) 100%),
-    linear-gradient(180deg,rgba(10,12,15,.34) 0%,rgba(10,12,15,0) 40%,rgba(10,12,15,.62) 100%)}
+  background:linear-gradient(90deg,rgba(10,12,15,.95) 0%,rgba(10,12,15,.86) 32%,rgba(10,12,15,.34) 60%,rgba(10,12,15,.06) 100%),
+             linear-gradient(180deg,rgba(10,12,15,.34) 0%,rgba(10,12,15,0) 40%,rgba(10,12,15,.5) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%}
 .hero h1{font-size:var(--t-hero);letter-spacing:-.03em;line-height:.99;max-width:17ch;margin-bottom:var(--s3)}
 .hero h1 em{font-style:normal;color:var(--gold)}
@@ -333,8 +331,7 @@ form button:disabled{opacity:.6;cursor:wait}
   var scene = Projection.sceneExcavation(S, {
     fogCol:'#22201c',
     tone:{soil:'#453a2b', soil2:'#4e4231', clay:'#6f5940', clay2:'#82694b', sand:'#9a7d52',
-      gravel:'#6a655a', rock:'#565751', lip:'#dcaa70', wear:'#efe0c9', bush:'#2b352c', rut:'#2b2318',
-      steel:'#4d565f', steel2:'#6f7a85', dark:'#2f353c'}
+      gravel:'#6a655a', rock:'#565751', lip:'#dcaa70', wear:'#efe0c9', bush:'#2b352c', rut:'#2b2318'}
   });
   S.frame(function(t){
     var still = Projection.reduced();

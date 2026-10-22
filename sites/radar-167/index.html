@@ -247,134 +247,35 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style>
-<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
-
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
-
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
-
-<!--LB-HEROBG--><style id="lb-herobg">[class*=hero-bg],[class*=hero__bg],[class*=hero-bgimg]{z-index:-1!important;pointer-events:none!important}[class*=hero-scrim],[class*=hero__scrim]{z-index:1!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{z-index:3!important}</style><!--/LB-HEROBG-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-<!--LB-HERO-V3-->
-<style id="hero-v3">
-/* hero rebuilt: photo panel + deep navy field. No canvas, no grid, no motes, no stacked scrims. */
-.hero{position:relative!important;top:auto!important;overflow:hidden!important;display:flex!important;align-items:center!important;
-  min-height:clamp(560px,74vh,690px)!important;max-height:none!important;
-  padding:112px 0 52px!important;background:#07121c!important;
-  background-image:radial-gradient(760px 480px at 86% 6%,rgba(8,136,232,.26),transparent 64%),linear-gradient(180deg,#08161f 0%,#050e16 78%)!important;
-  border-bottom:1px solid rgba(255,255,255,.10)}
-.hero::before,.hero::after{content:none!important;display:none!important}
-.hero .hero-in{position:relative!important;z-index:3!important;width:100%!important;max-width:1360px!important;
-  margin:0 auto!important;padding:0 44px!important}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(30px,4vw,60px);align-items:center}
-.hero-copy{position:relative!important;z-index:4!important;width:auto!important;max-width:660px!important;min-width:0!important}
-.hero{--lb-name:#ffffff}
-.hero-kicker{display:inline-block;margin:0 0 16px!important;font-size:.82rem!important;letter-spacing:.15em!important;
-  text-transform:uppercase!important;color:#cbe6fb!important;font-weight:800!important;line-height:1.4}
-.hero-kicker::before{content:none!important}
-.hero h1{font-size:clamp(2.45rem,4.7vw,4.1rem)!important;line-height:1.02!important;letter-spacing:-.022em!important;
-  color:#fff!important;max-width:none!important;width:100%!important;display:block!important;text-wrap:balance;text-shadow:none!important}
-.hero h1 .acc{color:#57b4f7!important;display:inline}
-.hero-svc{display:block;margin-top:15px;font-size:clamp(.98rem,1.25vw,1.12rem);font-weight:600;
-  color:rgba(255,255,255,.9);letter-spacing:.012em}
-.hero-sub{margin-top:14px;color:rgba(255,255,255,.8)!important;font-size:clamp(.99rem,1.3vw,1.1rem)!important;
-  line-height:1.6!important;max-width:54ch}
-.hero-cta{gap:.8rem 1rem!important;margin-top:26px!important}
-.hero .btn{padding:.92rem 1.6rem;font-size:.95rem}
-.hero .btn-primary{color:#fff!important}
-.hero .btn-ghost{color:#fff!important;border:1.5px solid rgba(255,255,255,.55)!important;background:rgba(255,255,255,.1)!important}
-.hero .btn-ghost:hover{background:rgba(255,255,255,.2)!important}
-.hero-strip{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem 1.8rem!important;
-  margin-top:34px!important;padding-top:18px!important;border-top:1px solid rgba(255,255,255,.2)!important;flex-wrap:nowrap!important}
-.hero-strip p{font-size:.78rem!important;line-height:1.45!important;letter-spacing:0!important;
-  text-transform:none!important;color:rgba(255,255,255,.6)!important;font-weight:600!important}
-.hero-strip strong{font-size:.95rem!important;margin:0 0 3px!important;color:#fff!important;font-weight:800!important;
-  letter-spacing:0!important;display:block}
-.hero-fig{position:relative!important;z-index:2!important;margin:0!important;width:100%!important;height:auto!important;align-self:center;
-  aspect-ratio:4/3.4;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.16)!important;
-  box-shadow:0 34px 80px -46px rgba(0,0,0,.95);background:#0a1a26}
-.hero-fig img{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover;display:block;
-  filter:saturate(1.03) contrast(1.04)}
-.hero-fig figcaption{position:absolute;inset:auto 0 0 0;padding:16px 18px 14px;font-size:.7rem;font-weight:700;
-  letter-spacing:.15em;text-transform:uppercase;color:#fff;line-height:1.3;
-  background:linear-gradient(transparent,rgba(3,9,15,.88))}
-@media(max-width:980px){
-  .hero-grid{grid-template-columns:1fr;gap:30px}
-  .hero .hero-in{padding:0 34px!important}
-  .hero h1{font-size:clamp(2.2rem,7.4vw,3.2rem)!important}
-  .hero-fig{aspect-ratio:16/10;margin-top:4px!important;order:2}
-  .hero-strip{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-  .hero{padding:96px 0 34px!important;min-height:0!important}
-  .hero .hero-in{padding:0 20px!important}
-  .hero-kicker{font-size:.74rem!important;letter-spacing:.12em!important;margin-bottom:12px!important}
-  .hero-svc{font-size:.95rem}
-  .hero .btn{width:100%;justify-content:center}
-  .hero-cta{display:grid!important;grid-template-columns:1fr;gap:.7rem!important}
-  .hero-strip{grid-template-columns:1fr;gap:.85rem!important;margin-top:26px!important}
-  .hero-strip p{display:grid;grid-template-columns:1fr;gap:0}
-}
-</style>
-<style id="lb-logo-plate">
-/* logo: bigger, on a crisp plate, never a tiny white square */
-.lb-brand__mark{height:60px!important;padding:6px!important;background:#fff;border:1px solid rgba(6,6,8,.14);
-  border-radius:10px;display:grid!important;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.09)}
-.lb-brand__mark img{height:100%!important;width:auto!important;max-width:none!important;border-radius:6px;
-  object-fit:contain;image-rendering:auto}
-.lb-brand{gap:.85rem!important}
-footer .fbrand img{height:64px!important;padding:6px;background:#fff;border:1px solid var(--line);border-radius:10px}
-@media(max-width:700px){
-  .lb-brand__mark{height:48px!important;padding:5px!important}
-  footer .fbrand img{height:54px!important}
-}
-</style>
-</head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="H2O Plumbing Sydney - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#0888e8;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">H2O Plumbing Sydney</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="H2O Plumbing Sydney - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#0888e8;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_radar-167.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">H2O Plumbing Sydney</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#work">Work</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="nav-p">0403 042 209</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
 
 <header class="hero" id="top">
+  <!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-in">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="hero-kicker">Licensed plumbers &middot; 24/7 emergency</p>
-        <h1>Plumbing <span class="acc">sorted properly.</span></h1>
-        <span class="hero-svc">Drains &middot; Hot water &middot; Pipe relining &middot; Gas</span>
-        <p class="hero-sub">Blocked drains, hot water systems, pipe relining, leaks and gas fitting across Sydney. Licensed, insured, and fixed right the first time &mdash; with an upfront price before we start.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#quote">Get a free quote</a>
-          <a class="btn btn-ghost" href="tel:0403042209">Call 0403 042 209</a>
-        </div>
-        <div class="hero-strip">
-          <p><strong>24/7 emergency</strong> blocked drains, burst pipes</p>
-          <p><strong>Upfront pricing</strong> price before we start</p>
-          <p><strong>Licensed &amp; insured</strong> homes and businesses</p>
-        </div>
-      </div>
-      <figure class="hero-fig">
-        <img src="assets/gal_1.jpg" alt="Pipework and valves on an H2O Plumbing Sydney job" loading="eager" decoding="async">
-        <figcaption>Pipework &amp; valves &mdash; Sydney</figcaption>
-      </figure>
+    <div class="hero-copy">
+    <p class="hero-kicker">Licensed plumbers &mdash; Sydney wide, 24/7</p>
+    <h1 data-ux="words">Plumbing sorted<br><span class="acc">properly.</span><br><span class="thin">Drains &middot; Hot water &middot; Relining &middot; Gas</span></h1>
+    <p class="hero-sub">Blocked drains, hot water systems, pipe relining, leaks, gas fitting and 24/7 emergency callouts across Sydney. Licensed, insured, and fixed right the first time &mdash; with an upfront price before we start.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#quote">Get a free quote</a>
+      <a class="btn btn-ghost" href="tel:+61403042209">Call 0403 042 209</a>
+    </div>
+    <div class="hero-strip">
+      <p><strong>24/7 emergency</strong> blocked drains and burst pipes</p>
+      <p><strong>Upfront pricing</strong> a price before we start</p>
+      <p><strong>Licensed &amp; insured</strong> Sydney wide, res &amp; commercial</p>
+    </div>
     </div>
   </div>
 </header>
@@ -458,7 +359,7 @@ html,body{overflow-x:hidden}
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:0403042209">0403 042 209</a></div>
+      <div><b>Call</b><a href="tel:+61403042209">0403 042 209</a></div>
       
       <div><b>Area</b><span>Sydney wide &middot; NSW</span></div>
     </div>
@@ -558,11 +459,11 @@ html,body{overflow-x:hidden}
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Blocked drains &middot; Hot water &middot; Relining &middot; Gas &mdash; Sydney wide, 24/7.<br></p>
   </div>
   <div><h4>Services</h4><a href="#services">Blocked drains</a><a href="#services">Hot water</a><a href="#services">Pipe relining</a><a href="#services">Gas fitting</a></div><div><h4>Company</h4><a href="#process">How we work</a><a href="#faq">FAQ</a><a href="#work">Our work</a><a href="#quote">Free quote</a></div>
-  <div><h4>Contact</h4><a href="tel:0403042209">0403 042 209</a><a href="#quote">Free quote</a></div>
+  <div><h4>Contact</h4><a href="tel:+61403042209">0403 042 209</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
   <span>&copy; 2026 H2O PLUMBING SYDNEY &middot; </span>
-  <a href="tel:0403042209">0403 042 209</a>
+  <a href="tel:+61403042209">0403 042 209</a>
 </div>
 <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 

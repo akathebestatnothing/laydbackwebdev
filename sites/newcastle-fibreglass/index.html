@@ -251,13 +251,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   <a href="#services">Services</a>
   <a href="#process">Process</a>
   <a href="#areas">Areas</a>
-  <a href="#lbq">Contact</a>
+  <a href="#quote">Contact</a>
 </nav>
 
 <header class="hero" id="top" role="banner">
   <!-- LB-3D-HERO -->
   <canvas class="hero__cv" id="heroCanvas" aria-hidden="true"></canvas>
-  <img class="hero__bg" src="assets/pool-hero-a-1664.jpg" srcset="assets/pool-hero-a-1200.jpg 1200w, assets/pool-hero-a-1664.jpg 1664w" sizes="100vw" width="1664" height="936" alt="Sunlit turquoise pool with steps, deck and garden — pool resurfacing and repairs by Newcastle Fibreglass Repairs" loading="eager" decoding="async" fetchpriority="high">
+  <img class="hero__bg" src="assets/pool-hero.jpg" alt="Sunlit turquoise pool water — pool resurfacing and repairs by Newcastle Fibreglass Repairs" loading="eager" decoding="async">
   <div class="hero__scrim" aria-hidden="true"></div>
 
   <div class="hero__in rv">
@@ -266,10 +266,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     <p class="hero__d">High-quality pool resurfacing and fibreglass repairs that bring tired pools back to life, smooth, durable, leak-tight.</p>
     <div class="hero__cta">
       <a class="btn btn--p ph" href="tel:0411784286" aria-label="Call 0411 784 286">Call 0411 784 286</a>
-      <a class="btn btn--o" href="#lbq" aria-label="Request a quote">Request a quote</a>
+      <a class="btn btn--o" href="#quote" aria-label="Request a quote">Request a quote</a>
     </div>
   </div>
 </header>
+<span id="quote" style="position:absolute;top:-90px"></span>
 
 <section class="sec sec--light" id="services" aria-labelledby="s-t">
   <p class="kick" aria-hidden="true" style="color:#1c4a94">What we do</p>
@@ -305,7 +306,15 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/pool-hero-a-1664.jpg" alt="Sunlit turquoise pool with steps and paved deck, recently resurfaced by Newcastle Fibreglass Repairs" loading="lazy" decoding="async"></div><div class="lb-rb__slide" style="background:linear-gradient(135deg,#0b0c10 0%,#123a78 100%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Pool resurfacing &amp; fibreglass repairs</span></div><div class="lb-rb__slide" style="background:linear-gradient(135deg,#0b0c10 0%,#123a78 100%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Charlestown &middot; Newcastle &amp; the Hunter</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Newcastle Fibreglass Repairs &mdash; resurfacing &amp; repairs across the Hunter</div></div></section><section id="lbq" class="v3" aria-labelledby="lbq-h">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/pool-hero.jpg" alt="Newcastle Fibreglass Repairs" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Newcastle Fibreglass Repairs</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Pool</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Newcastle Fibreglass Repairs &mdash; recent work</div></div></section><footer class="foot">
+  <div>
+    <h3>Newcastle Fibreglass Repairs</h3>
+    <p>Pool resurfacing &amp; fibreglass repairs, Charlestown NSW.<br>Phone <a href="tel:0411784286">0411 784 286</a></p>
+  </div>
+  <p aria-hidden="true">&copy; <span id="year"></span> Newcastle Fibreglass Repairs. All rights reserved.</p>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+
+<section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:#3cc8f0;--lbq-ink:#0e3a7e;--lbq-muted:#4a6a8a;--lbq-bg:#e8f2fb;--lbq-panel:#ffffff;--lbq-line:#bcd5ed;padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
@@ -317,7 +326,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:#1b8fc9;color:#fff;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#b9bbbe;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
 #lbq button:disabled{opacity:.6;cursor:wait}
 #lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
@@ -428,14 +437,6 @@ html,body{overflow-x:hidden}
 })();
 </script>
 </section>
-<footer class="foot">
-  <div>
-    <h3>Newcastle Fibreglass Repairs</h3>
-    <p>Pool resurfacing &amp; fibreglass repairs, Charlestown NSW.<br>Phone <a href="tel:0411784286">0411 784 286</a></p>
-  </div>
-  <p aria-hidden="true">&copy; <span id="year"></span> Newcastle Fibreglass Repairs. All rights reserved.</p>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
-
 
 <script>
 document.documentElement.classList.add('js');
@@ -643,35 +644,7 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 }
 </style>
 
-<style>/* ==== HERO LAYOUT TRUTH =====
-   The pack rule `[class*=hero]{min-height:clamp(440px,58vh,600px);display:flex}` matched every
-   hero__* child too, so the kicker/headline/body were each 58vh tall flex boxes and the copy
-   stacked out of the viewport. Scope the height to the section only, and the photo/scrim/copy
-   back to their layers. */
-.hero{display:flex;align-items:center;min-height:100svh!important;max-height:none!important}
-.hero__in,.hero__ttl,.hero__d,.hero__k{min-height:0!important;max-height:none!important;display:block}
-.hero__cta{min-height:0!important;max-height:none!important}
-.hero>.hero__bg,.hero>.hero__scrim{flex:0 0 auto;align-self:stretch}
-.hero>.hero__bg{position:absolute!important;inset:0!important;z-index:0!important;max-height:none!important;
-  width:100%!important;height:100%!important;max-width:none!important;object-fit:cover;
-  object-position:center 32%;filter:brightness(.99) saturate(1.05) contrast(1.05)}
-.hero>.hero__scrim{position:absolute!important;inset:0!important;z-index:1!important;max-height:none!important;
-  width:auto;height:auto;
-  background:linear-gradient(90deg,rgba(5,17,42,.93) 0%,rgba(5,17,42,.84) 34%,rgba(5,17,42,.52) 58%,rgba(5,17,42,.20) 78%,rgba(5,17,42,.10) 100%)}
-/* the pack stacks a second +(third) black veil on top of the scrim: kill the duplicates so the photo stays legible */
-.hero::before,.hero>*::before{background:none!important}
-.hero>.hero__in{display:block;flex:1 1 auto;position:relative;z-index:3;max-width:min(660px,100%)}
-.hero__k{margin-bottom:.9rem;display:inline-flex;align-items:center;gap:.55rem;
-  padding:.34rem .7rem .34rem .6rem;border-left:2px solid var(--acc-lite);max-width:100%;
-  background:rgba(5,17,42,.55);border-radius:0 4px 4px 0;backdrop-filter:blur(2px);
-  font-size:clamp(.72rem,1.05vw,.8rem);white-space:normal;letter-spacing:.06em}
-.hero__d{max-width:46ch}
-@media (max-width:820px){
-  .hero>.hero__scrim{background:linear-gradient(180deg,rgba(5,17,42,.55) 0%,rgba(5,17,42,.9) 62%,rgba(5,17,42,.96) 100%)}
-  .hero>.hero__in{padding-bottom:.4rem}
-  .hero__bg{object-position:center 42%!important}
-}
-/* ==== LB HEADER POLISH 2 ==== */
+<style>/* ==== LB HEADER POLISH 2 ==== */
 header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
 .site-header nav a:not(.btn):not([class*="btn"]),
 .header-inner nav a:not(.btn):not([class*="btn"]),
@@ -684,12 +657,12 @@ header a[href^="tel"],.site-header a[href^="tel"]{
 .lb-brand__sub:empty{display:none !important}
 </style>
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in{display:none !important}
-/* the pack shipped these as prose selectors; restore them */
-.step{border-left-width:1px !important;border-left-style:solid}
-p,li,.lead,.svc__p,.step p{letter-spacing:normal !important}
-.lb-brand__sub{font-size:max(.68em,11px) !important;letter-spacing:.18em !important}
-.lb-brand__rule{background:var(--acc-lite);opacity:.85}
+.lb-mq__in,tiny numbered label "02" beside h3 "Prepare" (4 on page),tiny numbered label "03" beside h3 "Resurface" (4 on page),tiny numbered label "04" beside h3 "Enjoy" (4 on page){display:none !important}
+border-top: 3px + border-radius: 10px{border-left-width:1px !important}
+letter-spacing: 0.08em on body text{letter-spacing:normal !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+letter-spacing: 0.18em on body text{letter-spacing:normal !important}
+7px functional text "Pool" (below 11px floor){font-size:max(1em,15px) !important}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
@@ -698,17 +671,6 @@ small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
-#lbq{scroll-margin-top:calc(var(--nav-h) + 12px)}
-
-/* ==== REPAIR PASS 2026-10-22 ==== */
-/* nav-band kickers were navy-on-navy: lift to the accent tint */
-.sec:not(.sec--light) .kick{color:var(--acc-lite);opacity:.95}
-/* hero kicker: sit flush with the headline's left edge, no extra indent */
-.hero__k{padding:.32rem .7rem .32rem .55rem;margin-left:0}
-/* gallery photo was glowing: calm it and keep it under the caption */
-.lb-rb__slide img{filter:brightness(.88) contrast(1.06) saturate(.98)}
-.lb-rb__cap{background:linear-gradient(180deg,rgba(6,10,20,0),rgba(6,10,20,.82))}
-.lb-rb__dots{right:clamp(12px,2vw,26px);flex-direction:column;align-items:center;gap:.5rem}
 
 </style>
 </body>

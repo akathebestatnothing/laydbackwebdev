@@ -291,7 +291,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     <div class="hero-copy">
       <p class="hero-kick">Branxton &middot; Hunter Valley &middot; NSW</p>
       <h1>Ground <em>works</em> done right.</h1>
-      <p class="hero-sub">RIJ Earthworks takes pride in all the work we do &mdash;&nbsp;from drainage and driveways to retaining walls, shed pads, trenches, tree clearing, cut fills and site clean-ups.</p>
+      <p class="hero-sub">RIJ Earthworks takes pride in all the work we do &mdash; from drainage and driveways to retaining walls, shed pads, trenches, tree clearing, cut fills and site clean-ups.</p>
       <div class="hero-cta">
         <a class="btn btn-gold" href="#contact">Get a quote</a>
         <a class="btn btn-line" href="#services">What we do</a>
@@ -738,52 +738,6 @@ p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
-</style>
-<style id="rij-repair-20261022">
-/* ==== RIJ REPAIR 2026-10-22: hero layout =================================
-   Bug: the LB height/copy packs use [class*=hero], which also matches the
-   hero's own children (.hero-in, .hero-copy, .hero-sub, .hero-cta,
-   .hero-strip). Each got display:flex + min-height:440-600px, so every text
-   element became a flex row of shrinking items: the description sat in a
-   ~124px column (that broken "do—" line) and both buttons were crushed to
-   ~98px and wrapped to three lines. Re-assert the real single-column grid,
-   scoped to the hero only. */
-.hero{display:flex!important;align-items:center!important;
-  min-height:0!important;max-height:none!important;
-  padding:clamp(104px,12.5vh,134px) 0 clamp(50px,6.5vh,74px)!important}
-.hero>.lbhf,.hero>.lbhf-scrim{position:absolute!important;inset:0!important;z-index:0!important}
-.hero-in{display:grid!important;grid-template-columns:minmax(0,1fr)!important;
-  width:100%!important;align-items:start!important;gap:0!important;
-  padding:0 var(--gut)!important;
-  min-height:0!important;max-height:none!important}
-.hero-copy{display:block!important;width:100%!important;max-width:760px!important;
-  min-height:0!important;max-height:none!important;flex:none!important}
-.hero-kick{display:inline-flex!important;min-height:0!important;max-height:none!important;
-  margin-bottom:18px}
-.hero h1,.hero-copy h1{max-width:16ch!important;font-size:clamp(2.5rem,5vw,4rem)!important;
-  line-height:1.02!important}
-.hero-sub{display:block!important;max-width:52ch!important;min-height:0!important;
-  max-height:none!important;margin-top:20px!important;line-height:1.62}
-.hero-cta{display:flex!important;flex-wrap:wrap!important;gap:.85rem!important;
-  margin-top:30px!important;min-height:0!important;max-height:none!important}
-.hero-cta .btn{flex:0 0 auto!important;white-space:nowrap!important;
-  padding:15px 30px!important;font-size:1.02rem!important}
-/* the lone hairline is now the top edge of one contained info bar, aligned to
-   the copy column, so it reads as connected to the details it sits over */
-.hero-strip{display:grid!important;grid-template-columns:repeat(3,minmax(0,auto))!important;
-  justify-content:start!important;gap:10px 42px!important;margin-top:38px!important;
-  padding:15px 22px!important;width:fit-content;max-width:100%;
-  background:rgba(15,17,19,.5);border:1px solid rgba(242,241,237,.16)!important;
-  border-top:2px solid var(--gold)!important;border-radius:0 0 4px 4px;
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-  min-height:0!important;max-height:none!important}
-.hero-strip p{line-height:1.32;font-size:.98rem}
-.hero-strip b{margin-bottom:3px}
-@media (max-width:760px){
-  .hero{padding:112px 0 46px!important}
-  .hero h1,.hero-copy h1{font-size:clamp(2.2rem,9vw,3rem)!important;max-width:none!important}
-  .hero-strip{grid-template-columns:1fr!important;width:100%;gap:12px!important}
-}
 </style>
 </body>
 </html>

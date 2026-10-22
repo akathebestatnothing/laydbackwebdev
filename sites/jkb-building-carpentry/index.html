@@ -287,91 +287,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<style id="jkb-repair">
-/* ===== JKB repair pass: hero grid, HUD stacking, legible logo, service rhythm ===== */
-
-/* nav brand: bigger mark, real wordmark, sub line (badge text no longer strained) */
-.nav{padding-inline:clamp(1rem,3vw,2.5rem)}
-.lb-brand__mark{height:52px!important;width:52px!important;max-width:52px!important;border-radius:50%;overflow:hidden}
-.lb-brand__mark img{height:52px!important;width:52px!important;max-width:52px!important;object-fit:cover!important;border-radius:50%}
-.lb-brand__name{font-size:19px!important;color:var(--ink)!important}
-.lb-brand__word{max-width:none!important;gap:.15rem}
-.lb-brand__rule{height:2px!important;background:var(--acc)!important;opacity:.6;margin-top:.42em!important}
-.lb-brand__sub{display:block!important;font-size:.62rem!important;letter-spacing:.22em!important;
-  text-transform:uppercase;color:var(--acc-hi)!important;font-family:var(--font-m)!important;
-  margin-top:.34em!important;line-height:1;order:3}
-
-/* headline: two real lines, period then space, no run-together */
-.hero-copy .h1 .h1__l{display:block}
-.hero-copy .h1 .h1__l + .h1__l{margin-top:.06em}
-.hero-copy .h1 em{margin-right:.02em}
-
-/* HUD: scroll hint sits above the stage counter, never on it */
-.stg{bottom:4.4vh}
-.stg b{color:rgba(242,235,221,.52);font-size:clamp(2.1rem,5vw,3.4rem)}
-.scroll-hint{bottom:calc(4.4vh + 104px)}
-.scroll-hint i{background:var(--acc);opacity:.55}
-
-/* hero right column: framed work photo so the right half carries weight */
-.hero-media{position:absolute;z-index:1;right:clamp(3.4rem,5.2vw,5.6rem);top:50%;transform:translateY(-50%);
-  width:clamp(258px,27vw,392px);margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  background:var(--panel);box-shadow:0 26px 60px -32px rgba(0,0,0,.85)}
-.hero-media img{width:100%;height:clamp(300px,44vh,470px);object-fit:cover;border-radius:0;box-shadow:none;
-  filter:saturate(1.02) contrast(1.02)}
-.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,10,8,0) 42%,rgba(11,10,8,.86) 100%)}
-.hero-media figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.1rem 1.15rem 1.2rem;
-  font-size:.8rem;line-height:1.4;color:var(--ink)}
-.hero-media figcaption span{display:block;font-family:var(--font-m);font-size:.62rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--acc-hi);margin-bottom:.4rem}
-
-/* services: three even columns on desktop so copy stops breaking into slivers */
-.svc{grid-template-columns:repeat(3,1fr);gap:1.3rem}
-.svc__p{text-wrap:pretty}
-.svc__it{display:flex;flex-direction:column}
-.svc__p{margin-top:auto;padding-top:.35rem}
-#services{padding-bottom:clamp(3rem,5.5vw,4.4rem)}
-@media (max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.svc{grid-template-columns:1fr}}
-
-/* shorter scrub so the page is not one long empty stage */
-#sceneWrap{height:400vh}
-@media (max-width:680px){#sceneWrap{height:330vh}}
-
-/* quote panel: breathing room so text no longer sits on the border */
-#lbq .lbq-hp2{border:1px solid var(--line)!important;border-left:3px solid var(--acc)!important;
-  border-radius:10px;padding:1.5rem 1.5rem 1.6rem!important;background:rgba(255,255,255,.02)}
-#lbq .lbq-hp2 h2{line-height:1.12}
-#lbq .lbq-hp2 .lbq-s{max-width:44ch}
-
-/* footer: proper bar inside the page grid, placed after the quote form */
-.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.4rem;
-  max-width:1180px;margin:0 auto;border-top:1px solid var(--line);padding-inline clamp(1rem,4vw,2.6rem)}
-.foot .lb-legal{display:flex;gap:1.2rem;font-size:.82rem;color:var(--mut)}
-.foot .lb-legal a{color:var(--acc-hi)}
-
-/* carousel: paint the first frame immediately, give it a surface */
-.lb-rb{background:var(--bg-2)}
-.lb-rb__track{background:var(--panel)}
-.lb-rb__cap{background:rgba(11,10,8,.78)}
-
-@media (max-width:1080px){.hero-media{display:none}}
-@media (max-width:640px){
-  .lb-brand__sub{font-size:.56rem!important}
-  .lb-brand__name{font-size:16px!important}
-  .lb-brand__mark,.lb-brand__mark img{height:40px!important;width:40px!important;max-width:40px!important}
-}
-</style>
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="JKB Building & Carpentry - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f2ebdd;--lb-subc:#f88818;--lb-acc:#f88818;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">JKB Building & Carpentry</span><span class="lb-brand__rule" aria-hidden="true"></span><span class="lb-brand__sub">Newcastle NSW</span></span></a>
+<a class="lb-brand" href="#top" aria-label="JKB Building & Carpentry - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f88818;--lb-subc:#f88818;--lb-acc:#f88818;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">JKB Building & Carpentry</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
@@ -388,7 +310,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
     <div class="hero-copy" id="heroCopy">
       <p class="k">Newcastle &amp; Surrounds</p>
-      <h1 class="h1"><span class="h1__l" data-ux="words">Timber <em>framed.</em></span><span class="h1__l" data-ux="words">Built properly.</span></h1>
+      <h1 class="h1" data-ux="words">Timber <em>framed.</em><br>Built properly.</h1>
       <p class="d">Bathrooms, flooring, decks and pergolas, extensions, kitchen installs, doors and windows, cladding and property maintenance, built square, level and true.</p>
       <div class="cta">
         <a class="btn btn--p" href="#lbq" data-ux="magnetic">Get a free quote</a>
@@ -396,24 +318,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       </div>
     </div>
 
-    <div class="hero-side">
-      <figure class="hero-media" aria-hidden="true">
-        <img src="assets/work_02.jpg" alt="" loading="eager" decoding="async">
-        <figcaption><span>On the tools</span>Frame, deck and fix-out work across Newcastle</figcaption>
-      </figure>
-      <ul class="hero-facts" aria-hidden="true">
-        <li>Owner-operator, on the tools</li>
-        <li>Free, no-obligation quotes</li>
-        <li>Newcastle &amp; surrounds</li>
-      </ul>
-    </div>
-
     <div class="hud" aria-hidden="true">
-      <div class="hud__bl">
-        <div class="scroll-hint" id="scrollHint"><i></i>Scroll, build the frame</div>
-        <divZWEI class="stg"><b id="stgNum">00</b><span id="stgName">Ground &amp; set-out</span></div>
-      </div>
+      <div class="stg"><b id="stgNum">00</b><span id="stgName">Ground &amp; set-out</span></div>
       <div class="rail"><i id="railFill"></i></div>
+      <div class="scroll-hint" id="scrollHint"><i></i>Scroll, build the frame</div>
     </div>
   </div>
 </div>
@@ -465,7 +373,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   </div>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="JKB Building & Carpentry" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">JKB Building & Carpentry &mdash; recent work</div></div></section>
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="JKB Building & Carpentry" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="JKB Building & Carpentry" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">JKB Building & Carpentry &mdash; recent work</div></div></section><footer class="foot">
+  <div>
+    <h3>JKB Building &amp; Carpentry</h3>
+    <p>Building &amp; carpentry, Newcastle NSW.<br>Phone <a href="tel:0422418382">0422 418 382</a></p>
+  </div>
+  <p aria-hidden="true">&copy; <span id="year"></span> JKB Building &amp; Carpentry. All rights reserved.</p>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
@@ -594,15 +508,6 @@ html,body{overflow-x:hidden}
 })();
 </script>
 </section>
-
-<footer class="foot">
-  <div>
-    <h3>JKB Building &amp; Carpentry</h3>
-    <p>Building &amp; carpentry, Newcastle NSW. Phone <a href="tel:0422418382">0422 418 382</a></p>
-  </div>
-  <p class="foot__c" aria-hidden="true">&copy; <span id="year"></span> JKB Building &amp; Carpentry. All rights reserved.</p>
-  <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
-</footer>
 <!-- lb: old box-hero engine removed -->
 <script>
 /* LAYDBACK UX KIT v1, our own; see pipeline/orders/ux_kit.js */

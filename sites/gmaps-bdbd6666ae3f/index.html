@@ -31,8 +31,8 @@
   --max:1180px;
   --pad:clamp(20px,5vw,56px);
   --gap-s:clamp(12px,1.4vw,20px);
-  --gap:clamp(24px,3vw,44px);
-  --gap-l:clamp(56px,8vw,120px);
+  --gap:clamp(24px,2.6vw,38px);
+  --gap-l:clamp(44px,5.4vw,84px);
 
   --t-hero:clamp(2.5rem,1.3rem + 4.4vw,5.2rem);
   --t-2:clamp(1.6rem,1.2rem + 1.6vw,2.7rem);
@@ -76,13 +76,13 @@ img{max-width:100%;display:block}
 .head-nav{display:flex;align-items:center;gap:clamp(16px,2vw,32px)}
 .head-nav a{font-size:var(--t-small);font-weight:500;color:var(--ink-2);padding:6px 0;border-bottom:1px solid transparent}
 .head-nav a:hover{border-bottom-color:var(--ink-2)}
-.head-nav a.tel-btn{color:#fff}
+.head-nav a.tel-btn{color:#fff;padding:0;border-bottom:0}
 .tel-btn{
-  display:inline-flex;align-items:center;gap:.55em;background:var(--ink);color:#fff;
-  font-size:var(--t-small);font-weight:600;padding:.62em 1em;border-radius:2px;
-  white-space:nowrap;transition:background .18s ease;
+  display:inline-flex;align-items:center;justify-content:center;gap:.55em;background:var(--ink);color:#fff;
+  font-size:var(--t-small);font-weight:600;min-height:40px;padding:.7em 1.15em;border-radius:2px;
+  white-space:nowrap;transition:background .18s ease,border-color .18s ease;border:1px solid var(--ink);
 }
-.tel-btn:hover,.head-nav a.tel-btn:hover{background:var(--ink-2);color:#fff}
+.tel-btn:hover,.head-nav a.tel-btn:hover{background:var(--ink-2);border-color:var(--ink-2);color:#fff}
 .tel-btn svg{width:13px;height:13px;flex:0 0 auto}
 @media (max-width:760px){
   .head-nav{display:none}
@@ -95,9 +95,10 @@ img{max-width:100%;display:block}
 #hero-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
 .hero-in{
   position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;
-  min-height:clamp(470px,72vh,660px);padding-top:clamp(40px,7vw,80px);padding-bottom:clamp(26px,3.4vw,44px);
+  min-height:clamp(430px,64vh,610px);padding-top:clamp(40px,7vw,90px);padding-bottom:clamp(22px,2.6vw,34px);
 }
-.hero h1{color:#fff;font-size:var(--t-hero);max-width:15ch;margin:0}
+.hero-copy{max-width:min(100%,34rem)}
+.hero h1{color:#fff;font-size:var(--t-hero);max-width:13ch;margin:0}
 .hero h1 em{font-style:normal;color:var(--steel)}
 .hero-sub{margin-top:clamp(16px,2vw,24px);max-width:46ch;color:#d9d7d2;font-size:var(--t-body)}
 .hero-act{margin-top:clamp(22px,2.6vw,34px);display:flex;align-items:center;gap:18px;flex-wrap:wrap}
@@ -113,6 +114,7 @@ img{max-width:100%;display:block}
   position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.16);
   display:flex;flex-wrap:wrap;gap:8px clamp(16px,3vw,40px);padding-block:14px;
   font-size:var(--t-micro);font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:#b6b4af;
+  background:rgba(10,11,13,.34);
 }
 .hero-meta span{display:flex;align-items:center;gap:8px}
 .hero-meta span::before{content:"";width:5px;height:5px;background:var(--steel);border-radius:50%;flex:0 0 auto}
@@ -241,10 +243,15 @@ footer{background:var(--deep);color:#b6b4af;padding:clamp(44px,5.5vw,72px) 0 22p
 }
 
 /* LB hero height (rule was detached from its selector) */
-[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}
-[class*=hero]>*{position:relative;z-index:2}
-[class*=hero]:has(canvas)::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}
-canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}
+.hero{display:block;min-height:0;max-height:none}
+.hero-in{min-height:clamp(430px,62vh,580px)}
+.hero-meta{min-height:0}
+.hero-in,.hero-meta{position:relative;z-index:2}
+.hero:has(canvas)::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(96deg,rgba(8,9,11,.95) 0%,rgba(8,9,11,.9) 30%,rgba(8,9,11,.55) 52%,rgba(8,9,11,.16) 74%,rgba(8,9,11,.42) 100%);
+}
+canvas.lb-hero-canvas,.hero canvas{height:100%!important}
 </style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
@@ -256,6 +263,8 @@ canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:14ch!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
 
@@ -283,14 +292,16 @@ canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}
   <section class="hero" aria-labelledby="h1">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
-      <h1 id="h1">Concrete cut <em>clean</em>, to the line.</h1>
-      <p class="hero-sub">Wall sawing, floor sawing, core drilling and wire sawing — controlled cuts in reinforced concrete for structural, renovation and infrastructure work.</p>
-      <div class="hero-act">
-        <a class="btn-call" href="tel:0249583798">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-          Call (02) 4958 3798
-        </a>
-        <span class="hero-note">Quotes over the phone or on site</span>
+      <div class="hero-copy">
+        <h1 id="h1">Concrete cut <em>clean</em>, to the line.</h1>
+        <p class="hero-sub">Wall sawing, floor sawing, core drilling and wire sawing — controlled cuts in reinforced concrete for structural, renovation and infrastructure work.</p>
+        <div class="hero-act">
+          <a class="btn-call" href="tel:0249583798">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            Call (02) 4958 3798
+          </a>
+          <span class="hero-note">Quotes over the phone or on site</span>
+        </div>
       </div>
     </div>
     <div class="wrap">

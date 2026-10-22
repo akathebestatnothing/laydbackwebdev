@@ -186,20 +186,23 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
-<header class="rv" style="transition-delay:.05s"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
+<header class="site-hdr">
   <div class="header-inner">
-    <a class="lb-brand" href="#top" aria-label="Newcastle Roofing Specialists - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#f07800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Newcastle Roofing Specialists</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
-    <nav aria-label="Primary">
+    <a class="lb-brand" href="#top" aria-label="Newcastle Roofing Specialists - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#100f0e;--lb-subc:#100f0e;--lb-acc:#f07800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__rule-v" aria-hidden="true"></span><span class="lb-brand__word"><span class="lb-brand__name">Newcastle Roofing Specialists</span></span></a>
+    <nav class="nav" aria-label="Primary">
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#approach">Approach</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <span class="nav-div" aria-hidden="true"></span>
       <a class="lb-tel" href="tel:0431731882"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 3h4l2 5-3 2a13 13 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 2 5a2 2 0 0 1 2-2z"/></svg><span>0431 731 882</span></a>
     </nav>
-    <a href="#contact" class="btn btn-primary">Get a Quote</a>
+    <a href="#contact" class="btn btn-primary nav-cta">Get a Quote</a>
   </div>
 </header>
 <main><section class="hero" id="top" aria-labelledby="hero-title">
@@ -215,7 +218,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <p class="hero-meta">Licensed &amp; insured <span class="eyebrow__dot"></span> AS 2050 compliant <span class="eyebrow__dot"></span> Free quotes</p>
       </div>
       <aside class="hero-card" aria-label="Brand and core services">
-        <span states=""></span>
         <div class="hero-card__mark"><img src="assets/logo.svg" alt="Newcastle Roofing Specialists mark" loading="eager" decoding="async"></div>
         <ul class="hero-card__list">
           <li><span>01</span>Ridge capping &amp; flexible pointing</li>
@@ -341,51 +343,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     </div>
   </section>
 
-  <section id="quote" class="quote-band" aria-labelledbyng="quote-h">
-</main>
-
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Newcastle Roofing Specialists</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Newcastle Roofing Specialists &mdash; recent work</div></div></section><footer style="background:var(--ground);color:var(--mist);padding:4rem 0 2rem;border-top:1px solid var(--hairline)">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem">
-      <div class="rv" style="transition-delay:.05s">
-        <a href="#" class="logo" style="margin-bottom:1.5rem;display:inline-flex" aria-label="Newcastle Roofing Specialists - Home">
-          <img src="assets/logo.svg" alt="" aria-hidden="true" style="width:2.25rem;height:2.25rem;display:block">
-          <svg aria-hidden="true" focusable="false" style="width:2.25rem;height:2.25rem"><use href="assets/logo.svg#logo"/></svg>
-          <span class="logo-text" style="color:var(--mist)">Newcastle Roofing Specialists</span>
-        </a>
-        <p style="color:var(--muted);max-width:24rem">Roofing contractor serving Newcastle, Central Coast & Sydney. Ridge capping, repairs, restoration and metal roofing.</p>
-      </div>
-      <div class="rv" style="transition-delay:.1s">
-        <h4 style="color:var(--accent);font-size:.875rem;letter-spacing:.1em;text-transform:none;margin-bottom:1rem">Services</h4>
-        <nav>
-          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.5rem">
-            <li><a href="#services" style="color:var(--muted);transition:color .2s">Ridge Capping & Bedding</a></li>
-            <li><a href="#services" style="color:var(--muted);transition:color .2s">Roof Repairs</a></li>
-            <li><a href="#services" style="color:var(--muted);transition:color .2s">Roof Restoration</a></li>
-            <li><a href="#services" style="color:var(--muted);transition:color .2s">Metal Roofing</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="rv" style="transition-delay:.15s">
-        <h4 style="color:var(--accent);font-size:.875rem;letter-spacing:.1em;text-transform:none;margin-bottom:1rem">Contact</h4>
-        <address style="font-style:normal;color:var(--muted);line-height:1.8">
-          <p>Newcastle NSW</p>
-          <p style="margin-top:.5rem"><a href="https://www.instagram.com/newcastleroofingspecialists/" target="_blank" rel="noopener noreferrer" style="color:var(--muted);transition:color .2s">Instagram</a></p>
-          <p style="margin-top:.5rem"><a href="https://newcastleroofingspecialists.com.au" target="_blank" rel="noopener noreferrer" style="color:var(--muted);transition:color .2s">Website</a></p>
-        </address>
-      </div>
-    </div>
-    <hr style="border:none;border-top:1px solid var(--hairline);margin-bottom:2rem">
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-size:.875rem;color:var(--muted)">
-      <p class="rv" style="margin:0;transition-delay:.05s">&copy; 2025 Newcastle Roofing Specialists. All rights reserved.</p>
-      <nav class="rv" style="transition-delay:.1s" aria-label="Legal">
-        <ul style="display:flex;gap:1.5rem;list-style:none;margin:0;padding:0">
-          <li><a href="#privacy" style="color:var(--muted);transition:color .2s">Privacy Policy</a></li>
-          <li><a href="#terms" style="color:var(--muted);transition:color .2s">Terms of Service</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#f07800))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -500,6 +457,50 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 })();
 </script>
 </section>
+</main>
+
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Newcastle Roofing Specialists</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Newcastle Roofing Specialists &mdash; recent work</div></div></section><footer style="background:var(--ground);color:var(--mist);padding:4rem 0 2rem;border-top:1px solid var(--hairline)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem">
+      <div class="rv" style="transition-delay:.05s">
+        <a href="#top" class="foot-brand" aria-label="Newcastle Roofing Specialists - Home">
+          <img src="assets/logo.svg" alt="" aria-hidden="true" class="foot-brand__mark">
+          <span class="foot-brand__name">Newcastle Roofing Specialists</span>
+        </a>
+        <p style="color:var(--muted);max-width:24rem">Roofing contractor serving Newcastle, Central Coast & Sydney. Ridge capping, repairs, restoration and metal roofing.</p>
+      </div>
+      <div class="rv" style="transition-delay:.1s">
+        <h4 style="color:var(--accent);font-size:.875rem;letter-spacing:.1em;text-transform:none;margin-bottom:1rem">Services</h4>
+        <nav>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.5rem">
+            <li><a href="#services" style="color:var(--muted);transition:color .2s">Ridge Capping & Bedding</a></li>
+            <li><a href="#services" style="color:var(--muted);transition:color .2s">Roof Repairs</a></li>
+            <li><a href="#services" style="color:var(--muted);transition:color .2s">Roof Restoration</a></li>
+            <li><a href="#services" style="color:var(--muted);transition:color .2s">Metal Roofing</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="rv" style="transition-delay:.15s">
+        <h4 style="color:var(--accent);font-size:.875rem;letter-spacing:.1em;text-transform:none;margin-bottom:1rem">Contact</h4>
+        <address style="font-style:normal;color:var(--muted);line-height:1.8">
+          <p>Newcastle NSW</p>
+          <p style="margin-top:.5rem"><a href="https://www.instagram.com/newcastleroofingspecialists/" target="_blank" rel="noopener noreferrer" style="color:var(--muted);transition:color .2s">Instagram</a></p>
+          <p style="margin-top:.5rem"><a href="https://newcastleroofingspecialists.com.au" target="_blank" rel="noopener noreferrer" style="color:var(--muted);transition:color .2s">Website</a></p>
+        </address>
+      </div>
+    </div>
+    <hr style="border:none;border-top:1px solid var(--hairline);margin-bottom:2rem">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;font-size:.875rem;color:var(--muted)">
+      <p class="rv" style="margin:0;transition-delay:.05s">&copy; 2025 Newcastle Roofing Specialists. All rights reserved.</p>
+      <nav class="rv" style="transition-delay:.1s" aria-label="Legal">
+        <ul style="display:flex;gap:1.5rem;list-style:none;margin:0;padding:0">
+          <li><a href="#privacy" style="color:var(--muted);transition:color .2s">Privacy Policy</a></li>
+          <li><a href="#terms" style="color:var(--muted);transition:color .2s">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
 <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <section id="privacy" style="padding:4rem 0;background:var(--bg)" aria-labelledby="privacy-title">

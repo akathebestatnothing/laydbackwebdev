@@ -355,21 +355,25 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
 <script>document.documentElement.className=document.documentElement.className.replace('no-js','js');</script>
 <nav class="nav"><div class="nav-in">
   <a class="lb-brand" href="#top" aria-label="Tree Mulchers Perth - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#1b5e20;--lb-subc:#1b5e20;--lb-acc:#f8d800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Tree Mulchers Perth</span><span class="lb-brand__sub"><span class="lb-acc">T.M.P.</span> - Tree Removal · Mulching · Stump Grinding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#lbq">Quote</a></div>
+  <a class="lb-tel" href="tel:0410886132"><span class="lb-tel-lab">Call</span>0410 886 132</a>
   <div class="nav-cta"><a href="#lbq" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</div><a class="lb-tel" href="tel:0410886132" style="text-decoration:none;white-space:nowrap;align-self:center">0410 886 132</a></nav>
+</div></nav>
 
 <header class="hero" id="top">
 <!-- LB-3D-HERO -->
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="hero-shade"></div>
   <div class="hero-in">
+   <div class="hero-copy">
     <p class="hero-kicker">Perth metro - tree removal, mulching & stump grinding</p>
     <h1>Trees down,<br>mulch<br><span class="acc">spread.</span><br><span class="thin">Removal · Mulching · Vegetation clearing · Stump grinding</span></h1>
     <p class="hero-sub">Tree Mulchers Perth (T.M.P.) - owner operated, fully insured. We remove the tree, chip it on site, and leave a clean bed of mulch. Perth metro, no job too big or small.</p>
@@ -381,6 +385,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <p><strong>Fully insured</strong>Public liability covered</p>
       <p><strong>Perth metro</strong>Local response</p>
     </div>
+   </div>
   </div>
 </header><section id="services"><div class="wrap">
   <div class="sec-head"><span class="sec-idx">01</span><div><h2 class="sec-title">What we do.</h2><p class="lead">Four services, one machine on site - the tree comes down, the mulch stays where you need it.</p></div></div>
@@ -757,6 +762,63 @@ p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
+</style>
+<style id="repair-20261023">
+/* ==== REPAIR PASS: grid alignment, header phone, hero stack, logo scale ==== */
+.btn{white-space:nowrap}
+/* header: one 72px row on the 1280 grid, phone at the far right */
+.nav{height:auto}
+.nav-in{max-width:1280px;height:72px;gap:1rem;flex-wrap:nowrap}
+.lb-brand{max-width:520px;min-width:0}
+.lb-brand__mark{height:58px !important;max-width:80px !important}
+.lb-brand__mark img{height:58px !important;width:auto !important;max-width:80px !important}
+.lb-brand__name{font-size:22px !important;line-height:.95 !important}
+.lb-brand__word{max-width:30vw !important}
+.lb-tel{display:inline-flex;align-items:center;gap:.45rem;flex:0 0 auto;white-space:nowrap;
+  font-weight:800;font-size:.95rem;line-height:1;color:var(--ink);text-decoration:none;
+  border:1px solid var(--line);border-radius:6px;padding:.6rem .85rem;letter-spacing:.01em}
+.lb-tel-lab{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-2);font-weight:800}
+.lb-tel:hover{border-color:var(--acc-2);color:var(--acc-2)}
+/* hero: content on the same left edge as every section, stacked in one column */
+.hero{padding-top:72px}
+.hero-in{display:block;max-width:1280px;margin:0 auto;
+  padding:clamp(2.2rem,6vh,4.5rem) clamp(1rem,3vw,2.5rem) clamp(2.5rem,5vh,4rem)}
+.hero-copy{display:block !important;min-height:0 !important;max-height:none !important;max-width:720px}
+.hero h1{font-size:clamp(2.1rem,4.5vw,3.6rem) !important;max-width:22ch !important;width:auto !important}
+.hero-kicker,.hero-sub,.hero-cta,.hero-strip{min-height:0 !important;max-height:none !important}
+.hero h1 .thin{max-width:36ch}
+.hero-sub{max-width:56ch}
+.hero-cta{margin-top:1.5rem;gap:.7rem}
+.hero-strip{margin-top:2rem;gap:1.1rem 2rem;flex-wrap:wrap}
+.hero-strip p{flex:1 1 150px;min-width:0}
+/* lbq info column: label column locked, values on one baseline */
+#lbq .lbq-info div{display:grid;grid-template-columns:78px 1fr;gap:.75rem;align-items:baseline}
+#lbq .lbq-info b{min-width:0;font-size:.68rem;letter-spacing:.14em;padding-top:.15em}
+#lbq .lbq-info a,#lbq .lbq-info span{font-size:.95rem;line-height:1.45}
+/* footer shares the page grid */
+footer .wrap{max-width:1280px}
+@media (max-width:1024px){
+  .lb-brand__name{font-size:19px !important}
+  .lb-brand__sub{font-size:9px !important;letter-spacing:.18em !important}
+  .lb-tel{font-size:.85rem;padding:.5rem .6rem}
+  .lb-tel-lab{display:none}
+}
+@media (max-width:880px){
+  .nav-in{gap:.7rem;height:68px}
+  .nav{padding-top:0}
+  .lb-brand__mark,.lb-brand__mark img{height:46px !important}
+  .lb-brand__name{font-size:17px !important}
+  .lb-brand{max-width:60vw}
+  .hero{padding-top:68px}
+  .hero-in{padding-top:2.2rem}
+  .nav-links{inset:68px 0 auto 0}
+}
+@media (max-width:600px){
+  .lb-brand__sub{display:none}
+  .lb-brand__word{max-width:none !important}
+  .lb-brand__mark,.lb-brand__mark img{height:42px !important}
+  .lb-tel{padding:.45rem .5rem}
+}
 </style>
 </body>
 </html>
