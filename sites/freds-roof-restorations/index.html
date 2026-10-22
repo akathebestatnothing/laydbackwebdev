@@ -59,7 +59,7 @@ header{background:var(--night)}
 .brand img{height:34px;width:34px;object-fit:contain;flex:0 0 auto}
 .brand-txt{display:flex;align-items:baseline;gap:.55rem;white-space:nowrap}
 .brand-name{font-weight:700;font-size:1.06rem;letter-spacing:-.015em;color:#fff;line-height:1}
-.brand-dot{font-size:.9rem;line-height:1;color:rgba(143,194,228,.62);align-self:center;flex:0 0 auto}
+
 .brand-sub{color:var(--sky-dim);font-size:.8rem;line-height:1}
 .burger{display:none;flex:0 0 auto;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;margin-left:auto;padding:0 9px;
   background:transparent;border:1px solid rgba(143,194,228,.34);border-radius:9px;cursor:pointer}
@@ -79,7 +79,7 @@ header{background:var(--night)}
   .nav-links a:last-child{border-bottom:0}
   .tel{margin-left:0}
 }
-@media(max-width:430px){.brand-sub,.brand-dot{display:none}}
+@media(max-width:430px){.brand-sub{display:none}}
 @media(max-width:700px){
   .nav-in{gap:.55rem}
   .brand img{height:28px;width:28px}
@@ -254,11 +254,39 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 
 <!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<style id="lb-frr-herofix">
+[class*=hero]:has(canvas)::before,[class*=hero]:has([class*=hero-scrim])::before{background:none!important}
+header.hero{min-height:clamp(520px,68vh,720px)!important;max-height:none!important}
+.hero .hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;filter:saturate(1.06) contrast(1.06) brightness(1.26)}
+.hero .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(94deg,rgba(4,13,24,.74) 0%,rgba(4,13,24,.48) 30%,rgba(4,13,24,.16) 62%,rgba(4,13,24,0) 100%),
+  linear-gradient(0deg,rgba(4,13,24,.30) 0%,rgba(4,13,24,0) 38%)!important}
+.hero-veil{height:110px!important}
+.hero .hero-in{position:relative}
+.hero .hero-in::before{content:"";position:absolute;inset:-1.5rem -3rem -1rem -2.4rem;z-index:-1;border-radius:22px;
+  background:radial-gradient(116% 92% at 15% 44%,rgba(3,11,21,.60),rgba(3,11,21,0) 74%)}
+.hero .hero-in{grid-template-columns:1fr!important}
+.hero-tags{grid-column:1!important;grid-row:auto!important;justify-self:start!important;align-self:start!important;
+  flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;margin-top:1.05rem!important;
+  padding:0!important;border:0!important;background:none!important;backdrop-filter:none!important;gap:.45rem!important}
+.hero-tags li{background:rgba(6,20,34,.46)!important;border-color:rgba(143,194,228,.30)!important;font-size:.76rem!important;padding:.3rem .7rem!important}
+.hero h1{font-size:clamp(2rem,4vw,3.2rem)!important}
+.hero h1 span{max-width:38ch}
+.hero h1{color:#fff;letter-spacing:-.03em}
+.hero h1 span{display:block;margin-top:.5rem;font-size:clamp(1rem,1.9vw,1.5rem);font-weight:600;
+  letter-spacing:-.005em;color:#BBD8EE;line-height:1.3}
+.hero-sub{color:#D6E6F2;max-width:56ch}
+.hero-tags li{background:rgba(6,20,34,.6)}
+/* roof trade detail: tile courses + ridge capping under the hero */
+.tile-band{position:relative;width:100%;height:clamp(46px,6vw,86px);overflow:hidden;background:#182432;margin:0}
+.tile-band svg{display:block;width:100%;height:100%}
+</style>
 </head>
 <body>
 <a class="sr" href="#services">Skip to content</a>
@@ -269,7 +297,6 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
       <img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async">
       <span class="brand-txt">
         <span class="brand-name">Fred's Restorations</span>
-        <span class="brand-dot" aria-hidden="true"></span>
         <span class="brand-sub">Newcastle NSW</span>
       </span>
     </a>
@@ -282,7 +309,7 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
       <a href="#work">Our work</a>
       <a href="#areas">Areas</a>
     </div>
-    <a class="tel" href="tel:0402802940">
+    <a class="tel" href="tel:+61402802940">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>
       <span>0402 802 940</span>
     </a>
@@ -290,13 +317,16 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
 </nav>
 
 <header class="hero" id="top">
-  <canvas id="roofScene" class="hero-canvas" aria-hidden="true"></canvas>
+<!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true" style="display:none"></canvas>
+  <div class="hero-photo" aria-hidden="true"><img src="assets/hero-roof.jpg" alt="" loading="eager" fetchpriority="high" width="1920" height="1442"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="wrap hero-in">
-    <h1>Roofs and driveways, <span>washed, sealed, repainted.</span></h1>
-    <p class="hero-sub">A local family crew restoring tile and metal roofs and concrete driveways across Newcastle — proper wash-down, proper sealer, top quality materials.</p>
+    <h1>Roof restoration &amp; driveway sealing<span>Tile and metal roofs washed, re-sealed and re-sprayed &mdash; Newcastle and surrounds.</span></h1>
+    <p class="hero-sub">A local family operated crew. Every roof starts with the wash-down, then a proper sealer and top quality coating go onto clean, sound tiles &mdash; and the driveway gets the same treatment. Residential and commercial.</p>
     <div class="hero-cta">
-      <a class="btn" href="tel:0402802940">
+      <a class="btn" href="tel:+61402802940">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>
         Call 0402 802 940
       </a>
@@ -311,6 +341,40 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
 </header>
 
 <main>
+<div class="tile-band" aria-hidden="true">
+  <svg viewBox="0 0 1200 96" preserveAspectRatio="none" focusable="false">
+    <defs>
+      <pattern id="lbTileCourse" width="72" height="52" patternUnits="userSpaceOnUse">
+        <rect width="72" height="52" fill="#22303f"/>
+        <rect y="26" width="72" height="26" fill="#1d2a38"/>
+        <path d="M0 25.5h72M0 51.5h72" stroke="#3d5270" stroke-width="2.4"/>
+        <path d="M0 0v26M36 0v26" stroke="#33445c" stroke-width="2"/>
+        <path d="M18 26v26M54 26v26" stroke="#2b3b50" stroke-width="2"/>
+      </pattern>
+      <linearGradient id="lbTileFade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0d1826" stop-opacity=".92"/>
+        <stop offset="1" stop-color="#0d1826" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="96" fill="url(#lbTileCourse)"/>
+    <g fill="#48607f">
+      <path d="M0 0h24a12 12 0 0 1 0 24H0z"/><path d="M48 0h24a12 12 0 0 1 0 24H48z"/>
+      <path d="M96 0h24a12 12 0 0 1 0 24H96z"/><path d="M144 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M192 0h24a12 12 0 0 1 0 24h-24z"/><path d="M240 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M288 0h24a12 12 0 0 1 0 24h-24z"/><path d="M336 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M384 0h24a12 12 0 0 1 0 24h-24z"/><path d="M432 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M480 0h24a12 12 0 0 1 0 24h-24z"/><path d="M528 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M576 0h24a12 12 0 0 1 0 24h-24z"/><path d="M624 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M672 0h24a12 12 0 0 1 0 24h-24z"/><path d="M720 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M768 0h24a12 12 0 0 1 0 24h-24z"/><path d="M816 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M864 0h24a12 12 0 0 1 0 24h-24z"/><path d="M912 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M960 0h24a12 12 0 0 1 0 24h-24z"/><path d="M1008 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M1056 0h24a12 12 0 0 1 0 24h-24z"/><path d="M1104 0h24a12 12 0 0 1 0 24h-24z"/>
+      <path d="M1152 0h24a12 12 0 0 1 0 24h-24z"/>
+    </g>
+    <rect width="1200" height="96" fill="url(#lbTileFade)"/>
+  </svg>
+</div>
 <section class="band band--paper" id="services">
   <div class="wrap svc">
     <div class="svc-head rv">
@@ -413,13 +477,14 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
   </div>
 </section>
 
-<section class="band" id="quote">
+<span id="quote" style="position:absolute;top:-90px" aria-hidden="true"></span>
+<section class="band" id="lbq">
   <div class="wrap qgrid">
     <div class="rv">
       <h2>Tell us about the roof or the driveway.</h2>
       <p class="q-lede">Send a few details and we'll come back with a free, no-obligation quote. Prefer to talk it through? Call us.</p>
       <div class="q-call">
-        <a class="btn" href="tel:0402802940">
+        <a class="btn" href="tel:+61402802940">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg>
           Call 0402 802 940
         </a>
@@ -437,6 +502,81 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
       <p id="lbq-st" role="status" aria-live="polite"></p>
     </form>
   </div>
+<script>
+/* quote form */
+(function(){
+  var f = document.getElementById('lbq-form'); if (!f) return;
+  var st = document.getElementById('lbq-st'), btn = f.querySelector('button[type=submit]');
+  var FALLBACK = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var tm = setTimeout(function(){ if (!done){ done = true; cb(FALLBACK); } }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        if (done) return; done = true; clearTimeout(tm);
+        var b = (txt || '').trim().replace(/\/+$/, '');
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : FALLBACK);
+      })
+      .catch(function(){ if (!done){ done = true; clearTimeout(tm); cb(FALLBACK); } });
+  }
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = {}; new FormData(f).forEach(function(v, k){ d[k] = v; });
+    if (d.website) return;
+    if (!d.name || (!d.phone && !d.email) || !(d.message || '').trim()){
+      st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+      st.style.color = '#FFB4A2'; return;
+    }
+    btn.disabled = true; st.style.color = ''; st.textContent = 'Sending…';
+    base(function(B){
+      fetch(B + '/functions/v1/quote-request', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
+          name: d.name, phone: d.phone, email: d.email, service: d.service || '',
+          message: d.message, consent: !!d.consent
+        })
+      })
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(x){
+        if (x && x.success){ f.reset(); st.textContent = 'Thanks — your request is in. We will be in touch shortly.'; st.style.color = '#8FC2E4'; }
+        else throw new Error((x && x.error) || 'Could not send');
+      })
+      .catch(function(err){
+        st.textContent = (err && err.message) || 'Could not send — please try again or call.';
+        st.style.color = '#FFB4A2';
+      })
+      .finally(function(){ btn.disabled = false; });
+    });
+  });
+})();
+
+/* nav + reveal */
+(function(){
+  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
+  if (b && n){
+    b.addEventListener('click', function(){
+      var open = n.classList.toggle('open');
+      b.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    n.addEventListener('click', function(e){
+      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+})();
+(function(){
+  var els = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('on'); }); return; }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ io.observe(el); });
+  setTimeout(function(){ els.forEach(function(e){ e.classList.add('on'); }); }, 1400);
+})();
+</script>
 </section>
 </main>
 
@@ -462,7 +602,7 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="tel:0402802940">0402 802 940</a></li>
+          <li><a href="tel:+61402802940">0402 802 940</a></li>
           <li><a href="https://www.facebook.com/p/Freds-Restorations-61567085704260" target="_blank" rel="noopener">Facebook</a></li>
           <li><a href="https://www.instagram.com/freds_roof_restorations/" target="_blank" rel="noopener">Instagram</a></li>
           <li>Newcastle, NSW</li>
@@ -476,13 +616,13 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
   </div>
 </footer>
 
-<script src="assets/heroCanvas.js"></script>
+<script src="js/heroCanvas.js"></script>
 <script>
 /* Roof scene: a real projected plane. Ridge at z=0 (y=1.55), eave at z=3.4 (y=0),
    camera above and past the eave looking down-slope. Tile courses foreshorten with
    depth; a wash line wipes down-slope, ladder on the left, wand and mist in front. */
 (function(){
-  var cv = document.getElementById('roofScene'); if (!cv || !cv.getContext) return;
+  var cv = document.getElementById('heroCanvas'); if (!cv || !cv.getContext) return;
   var ctx = cv.getContext('2d');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var W = 0, H = 0, f = 800, ox = 0.34, oy = 0.80;
@@ -668,81 +808,6 @@ header.hero canvas{position:absolute!important;inset:0!important;width:100%!impo
     if (document.hidden){ live = false; cancelAnimationFrame(raf); }
     else if (!live){ live = true; start = performance.now() - t; raf = requestAnimationFrame(loop); }
   });
-})();
-</script>
-<script>
-/* quote form */
-(function(){
-  var f = document.getElementById('lbq-form'); if (!f) return;
-  var st = document.getElementById('lbq-st'), btn = f.querySelector('button[type=submit]');
-  var FALLBACK = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
-  function base(cb){
-    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
-    var done = false;
-    var tm = setTimeout(function(){ if (!done){ done = true; cb(FALLBACK); } }, 2500);
-    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
-      .then(function(r){ return r.text(); })
-      .then(function(txt){
-        if (done) return; done = true; clearTimeout(tm);
-        var b = (txt || '').trim().replace(/\/+$/, '');
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : FALLBACK);
-      })
-      .catch(function(){ if (!done){ done = true; clearTimeout(tm); cb(FALLBACK); } });
-  }
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var d = {}; new FormData(f).forEach(function(v, k){ d[k] = v; });
-    if (d.website) return;
-    if (!d.name || (!d.phone && !d.email) || !(d.message || '').trim()){
-      st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
-      st.style.color = '#FFB4A2'; return;
-    }
-    btn.disabled = true; st.style.color = ''; st.textContent = 'Sending…';
-    base(function(B){
-      fetch(B + '/functions/v1/quote-request', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
-          name: d.name, phone: d.phone, email: d.email, service: d.service || '',
-          message: d.message, consent: !!d.consent
-        })
-      })
-      .then(function(r){ return r.json().catch(function(){ return {}; }); })
-      .then(function(x){
-        if (x && x.success){ f.reset(); st.textContent = 'Thanks — your request is in. We will be in touch shortly.'; st.style.color = '#8FC2E4'; }
-        else throw new Error((x && x.error) || 'Could not send');
-      })
-      .catch(function(err){
-        st.textContent = (err && err.message) || 'Could not send — please try again or call.';
-        st.style.color = '#FFB4A2';
-      })
-      .finally(function(){ btn.disabled = false; });
-    });
-  });
-})();
-
-/* nav + reveal */
-(function(){
-  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
-  if (b && n){
-    b.addEventListener('click', function(){
-      var open = n.classList.toggle('open');
-      b.classList.toggle('open', open);
-      b.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    n.addEventListener('click', function(e){
-      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
-    });
-  }
-})();
-(function(){
-  var els = Array.prototype.slice.call(document.querySelectorAll('.rv'));
-  if (!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('on'); }); return; }
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(function(el){ io.observe(el); });
-  setTimeout(function(){ els.forEach(function(e){ e.classList.add('on'); }); }, 1400);
 })();
 </script>
 </body>
