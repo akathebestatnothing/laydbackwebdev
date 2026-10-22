@@ -236,7 +236,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header class="header" role="banner">
   <div class="header-inner">
-    <a class="lb-brand" href="#top" aria-label="Ace Construction Services - home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#9aa7e0;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logomark.svg" alt="Ace Construction Services logo" width="44" height="44" class="lb-logomark"></span><span class="lb-brand__word"><span class="lb-brand__name">Ace Construction Services</span><span class="lb-brand__sub"><span class="lb-acc">Perth</span> WA</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Ace Construction Services - home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#9aa7e0;"><span class="lb-brand__mark"><img src="assets/logo.png" alt="Ace Construction Services logo" width="48" height="48" class="lb-logomark"></span><span class="lb-brand__word"><span class="lb-brand__name">Ace Construction Services</span><span class="lb-brand__sub"><span class="lb-acc">Perth</span> WA</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <a href="#services">Services</a>
       <a href="#projects">On Site</a>
@@ -249,22 +249,26 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <main id="main">
   <section class="hero" aria-label="Excavation and site preparation scene">
-    <div class="hero-bg" aria-hidden="true" style="background-image: url('assets/hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="lbwm" aria-hidden="true">EXCAVATION</div>
     <div id="sceneWrap">
       <div id="sceneSticky">
-        
         <div class="hero-copy rv rv-delay-1">
-          <h1 style="width:100% !important;grid-column:1/-1 !important;max-width:none !important">Ground opened up,<br>sites <em>made ready.</em></h1>
-          <p>Excavation and site preparation across Perth — bulk cut, clearing, trenching and pad prep.</p>
-          <a href="tel:0499887415" class="cta-btn" style="margin-top: 24px; display: inline-block; padding:14px 26px; font-size:.9rem;">Call 0499 887 415</a>
-        </div>
-        <div class="hud">
-          <b>EXCAVATION &amp; SITE PREP</b>Perth, WA
+          <p class="hero-eyebrow">Perth metro &middot; excavation &amp; site prep</p>
+          <h1>Ground opened up,<br>sites <em>made ready.</em></h1>
+          <p class="hero-lede">Bulk cut, clearing, trenching and pad preparation for builders, developers and homeowners.</p>
+          <a href="tel:0499887415" الزاويه class="cta-btn hero-cta">Call 0499 887 415</a>
+          <div class="hud">
+            <b>EXCAVATION &amp; SITE PREP</b>Perth, WA
+          </div>
         </div>
       </div>
     </div>
+    <figure class="hero-figure rv rv-delay-2">
+      <img src="assets/hero.jpg" alt="Excavator cutting and levelling a cleared residential block" width="1080" height="1035" fetchpriority="high" decoding="async">
+      <figcaption>Block cut to level &mdash; Perth metro</figcaption>
+    </figure>
   </section>
 
   <section id="services" class="section" aria-labelledby="services-heading">
