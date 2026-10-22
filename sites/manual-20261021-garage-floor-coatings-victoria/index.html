@@ -233,6 +233,53 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 <style>.hero-copy{display:block!important}.hero-copy h1{font-size:clamp(2.2rem,4vw,3.4rem)!important}</style><style>.lbwm{display:none!important}</style>
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<style id="lb-trade-css">
+/* ==== LB TRADE: garage floor coatings — finish swatches + epoxy sheen ==== */
+.hero{position:relative;isolation:isolate;min-height:clamp(460px,64vh,640px)}
+.hero::before,.hero::after{background:none!important;content:none!important}
+.hero .hero-bg{position:absolute!important;inset:0!important;z-index:0!important;
+  background-position:center 50%!important;background-size:cover!important;
+  filter:brightness(.98) saturate(1.08) contrast(1.03)!important}
+.hero .hero-scrim{position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(180deg,rgba(6,16,10,.36) 0%,rgba(6,16,10,.58) 58%,rgba(5,12,8,.88) 100%)!important}
+.hero canvas#heroCanvas{position:absolute!important;inset:0!important;z-index:0!important;opacity:.3!important}
+.hero #sceneWrap,.hero .hero-copy{position:relative!important;z-index:3!important}
+.hero-copy h1,.hero-copy p{text-shadow:0 2px 26px rgba(0,0,0,.74)}
+.finishband{background:
+  linear-gradient(180deg,rgba(37,174,89,.10),rgba(37,174,89,0) 74%);
+  border-top:1px solid rgba(37,174,89,.32);border-bottom:1px solid rgba(37,174,89,.32)}
+.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.swatches{grid-template-columns:1fr}}
+.swatch{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+.swatch img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.swatch figcaption{padding:14px 16px 18px;color:var(--muted);font-size:.92rem;line-height:1.6}
+.swatch figcaption b{display:block;color:var(--ink);font-family:var(--font-display);font-weight:900;
+  letter-spacing:.06em;text-transform:uppercase;font-size:.86rem;margin-bottom:6px}
+.swatch figcaption b span{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:baseline}
+.sw-flake span{background:#4f6b8a}.sw-metal span{background:#8b8f97}.sw-solid span{background:#25ae59}
+.faqgrid{display:grid;gap:14px}
+.faq{border:1px solid var(--line);border-radius:12px;padding:0 18px;background:var(--panel)}
+.faq summary{cursor:pointer;font-family:var(--font-display);font-weight:700;padding:16px 0;color:var(--ink);list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent);font-weight:900}
+.faq[open] summary::after{content:"\2013"}
+.faq p{margin:0 0 16px;color:var(--muted)}
+</style>
+
+<style id="lb-trade-lockup">/* header lockup: mark 32px desktop / 24px mobile */
+.lb-brand__mark{height:32px !important;max-width:34vw !important}
+.lb-brand__mark img{height:100% !important;width:auto !important}
+.lb-brand__name{font-weight:900 !important;letter-spacing:.01em}
+@media(max-width:700px){
+  .lb-brand__mark{height:24px !important}
+  .header-inner{flex-wrap:nowrap !important}
+  .nav{display:flex !important;gap:8px !important;align-items:center !important}
+  .nav a:not(.cta-btn){display:none !important}
+  .nav .cta-btn{white-space:nowrap !important;padding:8px 11px !important;font-size:.72rem !important}
+}
+.nav a.cta-btn,.header-inner a.cta-btn,.nav .cta-btn{color:var(--accent-ink,#ffffff) !important;background:var(--accent) !important;text-decoration:none !important;font-weight:800 !important}
+.nav a.cta-btn:hover,.header-inner a.cta-btn:hover,.nav .cta-btn:hover{color:var(--accent-ink,#ffffff) !important;text-decoration:none !important;filter:brightness(1.08)}
+</style>
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header class="header" role="banner">
@@ -243,7 +290,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <a href="#process">Process</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="tel:0478521424" class="cta-btn">Call 0478 521 424</a>
+      <a href="tel:+61478521424" class="cta-btn">Call 0478 521 424</a>
     </nav>
   </div>
 </header>
@@ -259,7 +306,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <div class="hero-copy rv rv-delay-1">
           <h1 style="width:100% !important;grid-column:1/-1 !important;max-width:none !important">Garage floors<br>coated to <em>last.</em></h1>
           <p>Epoxy and flake floor coatings for garages, sheds and workshops across Victoria. Grinding, repair and topcoat — one crew, bare slab to finished floor.</p>
-          <a href="tel:0478521424" class="cta-btn" style="margin-top: 24px; display: inline-block;">Call 0478 521 424</a>
+          <a href="tel:+61478521424" class="cta-btn" style="margin-top: 24px; display: inline-block;">Call 0478 521 424</a>
         </div>
         <div class="hud">
           <b>VIC</b>residential &amp; commercial slabs
@@ -337,7 +384,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <div class="rv rv-delay-2">
           <div class="card" style="height:100%">
             <h3>Talk to us</h3>
-            <p style="margin-bottom:16px"><strong>Phone</strong><br><a href="tel:0478521424">0478 521 424</a></p>
+            <p style="margin-bottom:16px"><strong>Phone</strong><br><a href="tel:+61478521424">0478 521 424</a></p>
             <p style="margin-bottom:16px"><strong>Service area</strong><br>Victoria</p>
             <p><a href="https://www.instagram.com/garagefloorcoatingsvic" target="_blank" rel="noopener">Instagram →</a></p>
           </div>
@@ -356,7 +403,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <div class="card rv rv-delay-1">
           <h3>Call or message</h3>
           <p style="margin:0 0 16px">Fastest way to get a price moving.</p>
-          <p><a href="tel:0478521424" style="font-size:1.5rem;font-weight:700;font-family:var(--font-display);color:var(--accent)">0478 521 424</a></p>
+          <p><a href="tel:+61478521424" style="font-size:1.5rem;font-weight:700;font-family:var(--font-display);color:var(--accent)">0478 521 424</a></p>
           <p style="margin-top:12px"><a href="https://www.instagram.com/garagefloorcoatingsvic" target="_blank" rel="noopener">Message on Instagram</a></p>
         </div>
         <div class="card rv rv-delay-2">
@@ -369,7 +416,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </section>
 </main>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/gal_1.jpg" alt="Garage Floor Coatings Victoria" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_3.jpg" alt="Garage Floor Coatings Victoria" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_2.jpg" alt="Garage Floor Coatings Victoria" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/hero.jpg" alt="Garage Floor Coatings Victoria" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Garage Floor Coatings Victoria &mdash; recent work</div></div></section><footer class="footer" role="contentinfo">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/gal_1.jpg" alt="Colour flake epoxy finish on a garage floor" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_3.jpg" alt="Solid colour epoxy floor finish sample" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_2.jpg" alt="Metallic epoxy floor finish sample" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/hero.jpg" alt="A finished epoxy coated garage floor" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Garage Floor Coatings Victoria &mdash; recent work</div></div></section><footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-brand rv rv-delay-1">
       <a href="./" class="logo" aria-label="Garage Floor Coatings Victoria home">BR <span>CIVIL</span></a>
@@ -388,7 +435,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     <nav class="footer-col rv rv-delay-3" aria-label="Contact">
       <h4>Contact</h4>
       <ul>
-        <li><a href="tel:0427370805">0427 370 805</a></li>
+        
         <li><a href="mailto:Blayne@brcivil.com.au">Blayne@brcivil.com.au</a></li>
         <li>Bendigo VIC</li>
         <li><a href="https://facebook.com/people/BR-CIVIL/61572172632475" target="_blank" rel="noopener">Facebook</a></li>
@@ -406,6 +453,58 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     <p>&copy; 2026 Garage Floor Coatings Victoria. All rights reserved.</p>
     <p><a href="#lbq">Request a quote</a></p>
   </div>
+<span id="quote" aria-hidden="true"></span>
+
+  <section id="finishes" class="section finishband" aria-labelledby="finishes-heading">
+    <div class="section-inner">
+      <header class="section-head rv rv-delay-1">
+        <h2 id="finishes-heading">Finish swatches</h2>
+        <p>Three system looks for a garage, shed or workshop floor &mdash; pick the one that suits the space and how hard it gets used.</p>
+      </header>
+      <div class="swatches">
+        <figure class="swatch rv rv-delay-1">
+          <img src="assets/fin_flake.jpg" alt="Colour flake epoxy finish sample">
+          <figcaption class="sw-flake"><b><span></span>Flake epoxy</b>Colour flake broadcast into the base coat for a speckled, slip-resistant floor that hides dust and marks.</figcaption>
+        </figure>
+        <figure class="swatch rv rv-delay-2">
+          <img src="assets/fin_metal.jpg" alt="Metallic epoxy finish sample">
+          <figcaption class="sw-metal"><b><span></span>Metallic epoxy</b>Pigment swirled through the topcoat for a marbled, high-gloss sheen on a feature garage floor.</figcaption>
+        </figure>
+        <figure class="swatch rv rv-delay-3">
+          <img src="assets/fin_solid.jpg" alt="Solid colour epoxy finish sample">
+          <figcaption class="sw-solid"><b><span></span>Solid colour epoxy</b>One flat colour, gloss or satin, for a clean working floor in a shed, workshop or commercial bay.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section" aria-labelledby="faq-heading">
+    <div class="section-inner">
+      <header class="section-head rv rv-delay-1">
+        <h2 id="faq-heading">Coating questions</h2>
+        <p>What people usually ask before booking a garage floor coating.</p>
+      </header>
+      <div class="faqgrid">
+        <details class="faq rv rv-delay-1" open>
+          <summary>What epoxy finishes can I choose from?</summary>
+          <p>Flake, metallic or solid colour epoxy. Flake gives a speckled, slip-resistant surface, metallic a marbled sheen, and solid colour one flat finish for a clean working floor.</p>
+        </details>
+        <details class="faq rv rv-delay-2">
+          <summary>How is the slab prepared?</summary>
+          <p>Diamond grinding and dust-controlled prep, with crack and spall repair, then a penetrating primer once the concrete is clean and sound.</p>
+        </details>
+        <details class="faq rv rv-delay-3">
+          <summary>Do you coat more than garages?</summary>
+          <p>Yes &mdash; garages, sheds and workshops, plus commercial bays. Slabs are checked for moisture and any existing coating before we quote.</p>
+        </details>
+        <details class="faq rv rv-delay-3">
+          <summary>How do I get a quote?</summary>
+          <p>Call or message <a href="tel:+61478521424">0478 521 424</a> with the slab size and what it gets used for, or send the details below.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#e0a33a))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -418,7 +517,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#babbbc;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#08140c;font-weight:800;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
 #lbq button:disabled{opacity:.6;cursor:wait}
 #lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
@@ -447,7 +546,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 </style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
-      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call, text or email &mdash; we reply fast.</p></div><div><form id="lbq-form" novalidate data-site="br-civil" data-biz="Garage Floor Coatings Victoria"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
+      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call, text or email &mdash; we reply fast.</p></div><div><form id="lbq-form" novalidate data-site="manual-20261021-garage-floor-coatings-victoria" data-biz="Garage Floor Coatings Victoria"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
   </div>
   <script>
 (function(){
@@ -524,6 +623,9 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <noscript>
   <style>.rv{opacity:1!important;transform:none!important}
+.lb-rb__track{aspect-ratio:auto!important}
+.lb-rb__slide{position:relative!important;opacity:1!important}
+.lb-rb__slide+.lb-rb__slide{display:none}
 /* LB-EDITORIAL-HERO kit 2026-10-14 */
 .hero{position:relative;isolation:isolate;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -571,7 +673,7 @@ html,body{overflow-x:hidden}
 
 
 <!-- LB-3D-HERO -->
-<canvas id="heroCanvas" aria-hidden="true"></canvas>
+<!-- LB-3D-HERO --><canvas id="heroCanvas" aria-hidden="true"></canvas>
 <script id="lb-motion-js">
 /* LB MOTION PACK v1 */
 (function(){

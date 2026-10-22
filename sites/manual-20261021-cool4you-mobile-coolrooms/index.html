@@ -13,9 +13,10 @@
   --bg:#0f1115;
   --ink:#e9eef4;
   --muted:#9aa6b2;
-  --accent:#384070;
+  --accent:#5fc0ea;
   --accent-lt:#9dc0e0;
-  --accent-ice:#d7ecfa;
+  --accent-ice:#e6f6ff;
+  --lime:#a9d62b;
   --panel:rgba(255,255,255,.045);
   --line:rgba(255,255,255,.14);
   --font-display:system-ui Narrow',system-ui,sans-serif;
@@ -42,7 +43,7 @@ a:hover{text-decoration:underline}
 .nav{display:flex;align-items:center;gap:32px}
 .nav a{font-size:.85rem;letter-spacing:.08em;text-transform:none;color:var(--muted);transition:color .2s ease}
 .nav a:hover{color:var(--accent);text-decoration:none}
-.cta-btn{display:inline-block;padding:10px 20px;background:var(--accent);color:#eef4fa;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:none;border-radius:6px;border:1px solid rgba(157,192,224,.45);transition:transform .15s ease,box-shadow .15s ease}
+.cta-btn{display:inline-block;padding:10px 20px;background:var(--accent);color:#05202f;font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:none;border-radius:6px;border:1px solid rgba(157,192,224,.45);transition:transform .15s ease,box-shadow .15s ease}
 .cta-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(120,175,225,.28);text-decoration:none}
 @media(max-width:820px){
   .brand-mark{height:48px;width:auto;object-fit:contain}
@@ -236,6 +237,56 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 <style>.hero-copy{display:block!important}.hero-copy h1{font-size:clamp(2.2rem,4vw,3.4rem)!important}</style><style>.lbwm{display:none!important}</style>
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<style id="lb-trade-css">
+/* ==== LB TRADE: mobile coolroom — cold steel bands + frost ==== */
+.tradeband{background:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,transparent 2px 64px),
+  linear-gradient(180deg,rgba(95,192,234,.10),rgba(95,192,234,0) 70%);
+  border-top:1px solid rgba(95,192,234,.38);border-bottom:1px solid rgba(95,192,234,.38)}
+.tradeband .section-head h2{color:var(--accent-ice)}
+.coldrow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+@media(max-width:760px){.coldrow{grid-template-columns:1fr}}
+.coldchip{position:relative;border:1px solid rgba(95,192,234,.42);border-radius:12px;padding:22px 20px 20px;
+  background:linear-gradient(180deg,rgba(230,246,255,.07),rgba(230,246,255,.02))}
+.coldchip::before{content:"";position:absolute;inset:6px;border:1px dashed rgba(95,192,234,.28);border-radius:8px;pointer-events:none}
+.coldchip h3{margin:0 0 6px;font-family:var(--font-display);font-weight:800;font-size:1.05rem;color:var(--ink)}
+.coldchip p{margin:0;color:var(--muted);font-size:.92rem}
+.coldchip .fl{display:inline-block;margin-bottom:10px;font:700 .68rem/1 var(--font-body);letter-spacing:.2em;
+  text-transform:uppercase;color:#05202f;background:var(--accent);border-radius:20px;padding:5px 10px}
+.faqgrid{display:grid;gap:14px}
+.faq{border:1px solid var(--line);border-radius:12px;padding:0 18px;background:var(--panel)}
+.faq summary{cursor:pointer;font-family:var(--font-display);font-weight:700;padding:16px 0;color:var(--ink);list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent);font-weight:900}
+.faq[open] summary::after{content:"\2013"}
+.faq p{margin:0 0 16px;color:var(--muted)}
+/* real-photo hero: full-bleed trailer under a cold gradient scrim */
+.hero{position:relative;isolation:isolate;min-height:clamp(460px,64vh,640px)}
+.hero::before,.hero::after{background:none!important;content:none!important}
+.hero .hero-bg{position:absolute!important;inset:0!important;z-index:0!important;
+  background-position:center 38%!important;background-size:cover!important;
+  filter:brightness(.98) saturate(1.06) contrast(1.02)!important}
+.hero .hero-scrim{position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(180deg,rgba(7,18,28,.28) 0%,rgba(7,18,28,.52) 60%,rgba(7,18,28,.86) 100%)!important}
+.hero canvas#heroCanvas{position:absolute!important;inset:0!important;z-index:0!important;opacity:.35!important}
+.hero #sceneWrap,.hero .hero-copy{position:relative!important;z-index:3!important}
+.hero-copy h1,.hero-copy p{text-shadow:0 2px 26px rgba(0,0,0,.72)}
+</style>
+
+<style id="lb-trade-lockup">/* header lockup: mark 32px desktop / 24px mobile */
+.lb-brand__mark{height:32px !important;max-width:34vw !important}
+.lb-brand__mark img{height:100% !important;width:auto !important}
+.lb-brand__name{font-weight:900 !important;letter-spacing:.01em}
+@media(max-width:700px){.lb-brand__mark{height:24px !important}}
+@media(max-width:700px){
+  .header-inner{flex-wrap:nowrap !important}
+  .nav{display:flex !important;gap:8px !important;align-items:center !important}
+  .nav a:not(.cta-btn){display:none !important}
+  .nav .cta-btn{white-space:nowrap !important;padding:8px 11px !important;font-size:.72rem !important}
+}
+.nav a.cta-btn,.header-inner a.cta-btn,.nav .cta-btn{color:#05202f !important;background:var(--accent) !important;text-decoration:none !important}
+.nav a.cta-btn:hover,.header-inner a.cta-btn:hover,.nav .cta-btn:hover{color:#05202f !important;text-decoration:none !important;filter:brightness(1.08)}
+</style>
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header class="header" role="banner">
@@ -246,23 +297,24 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <a href="#how">How it works</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="tel:0427292866" class="cta-btn">0427 292 866</a>
+      <a href="tel:+61427292866" class="cta-btn">0427 292 866</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
   <section class="hero" aria-label="Mobile coolroom trailer at a Hobart yard">
+    <div class="hero-bg" style="background-image:url('assets/hero.jpg')" aria-hidden="true"></div>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="lbwm" aria-hidden="true">COOLROOMS</div>
-    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <!-- LB-3D-HERO --><canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div id="sceneWrap">
       <div id="sceneSticky">
         
         <div class="hero-copy rv rv-delay-1">
           <h1 style="width:100% !important;grid-column:1/-1 !important;max-width:none !important">Mobile coolroom hire, <em>Hobart wide.</em></h1>
           <p>Refrigerated coolroom trailers delivered, levelled and running &mdash; for events, kitchens and worksites across Hobart and southern Tasmania.</p>
-          <a href="tel:0427292866" class="cta-btn" style="margin-top: 24px; display: inline-block;">Call 0427 292 866</a>
+          <a href="tel:+61427292866" class="cta-btn" style="margin-top: 24px; display: inline-block;">Call 0427 292 866</a>
         </div>
         <div class="hud">
           
@@ -346,7 +398,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <div class="rv rv-delay-2">
           <div class="card" style="height:100%">
             <h3>Talk to us</h3>
-            <p style="margin-bottom:16px"><strong>Phone</strong><br><a href="tel:0427292866">0427 292 866</a></p>
+            <p style="margin-bottom:16px"><strong>Phone</strong><br><a href="tel:+61427292866">0427 292 866</a></p>
             <p style="margin-bottom:16px"><strong>Service area</strong><br>Hobart and southern Tasmania</p>
             <p style="margin-bottom:0"><strong>Coolroom hire</strong><br>Coolroom trailers for events, kitchens and worksites</p>
           </div>
@@ -365,7 +417,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <div class="card rv rv-delay-1">
           <h3>Call Cool4You</h3>
           <p style="margin:0 0 16px">Fastest way to lock in a coolroom.</p>
-          <p><a href="tel:0427292866" style="font-size:1.5rem;font-weight:700;font-family:var(--font-display);color:var(--accent-lt)">0427 292 866</a></p>
+          <p><a href="tel:+61427292866" style="font-size:1.5rem;font-weight:700;font-family:var(--font-display);color:var(--accent-lt)">0427 292 866</a></p>
           <p style="margin-top:12px">Hobart and southern Tasmania</p>
         </div>
         <div class="card rv rv-delay-2">
@@ -378,7 +430,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </section>
 </main>
 
-<section class="lb-rb" aria-label="Hire fleet and setups"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero.jpg" alt="Cool4You Mobile Coolrooms hire" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_1.jpg" alt="Coolroom delivered to site" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_2.jpg" alt="Refrigerated coolroom trailer on hire" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_3.jpg" alt="Coolroom set up and running" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Cool4You Mobile Coolrooms &mdash; mobile coolroom hire, Hobart</div></div></section><footer class="footer" role="contentinfo">
+<section class="lb-rb" aria-label="Hire fleet and setups"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero.jpg" alt="A Cool4You mobile coolroom trailer set up on site, Hobart" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_1.jpg" alt="A Cool4You refrigerated coolroom trailer with its branded side panel" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_2.jpg" alt="A hired commercial kitchen that a mobile coolroom keeps stocked" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Cool4You Mobile Coolrooms &mdash; mobile coolroom hire, Hobart</div></div></section><footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-brand rv rv-delay-1">
       <a href="./" class="logo" aria-label="Cool4You Mobile Coolrooms home">COOL4YOU <span>MOBILE COOLROOMS</span></a>
@@ -397,7 +449,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     <nav class="footer-col rv rv-delay-3" aria-label="Contact">
       <h4>Contact</h4>
       <ul>
-        <li><a href="tel:0427292866">0427 292 866</a></li>
+        <li><a href="tel:+61427292866">0427 292 866</a></li>
         <li>Hobart TAS</li>
         <li><a href="#lbq">Send hire details</a></li>
       </ul>
@@ -412,8 +464,57 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 Cool4You Mobile Coolrooms. All rights reserved.</p>
-    <p><a href="tel:0427292866">Call 0427 292 866</a></p>
+    <p><a href="tel:+61427292866">Call 0427 292 866</a></p>
   </div>
+<span id="quote" aria-hidden="true"></span>
+
+  <section id="coldchain" class="section tradeband" aria-labelledby="coldchain-heading">
+    <div class="section-inner">
+      <header class="section-head rv rv-delay-1">
+        <h2 id="coldchain-heading">Delivered, running, Tasmania wide</h2>
+        <p>Refrigerated coolroom trailers, brought to the job and switched on &mdash; we deliver, you relax.</p>
+      </header>
+      <div class="coldrow">
+        <div class="coldchip rv rv-delay-1"><span class="fl">Delivery &amp; pickup</span>
+          <h3>Brought to your address</h3>
+          <p>The trailer is towed in, levelled and positioned where the cold storage is needed, then collected when the hire ends.</p></div>
+        <div class="coldchip rv rv-delay-2"><span class="fl">Refrigerated &amp; clean</span>
+          <h3>Running before we leave</h3>
+          <p>Refrigerated coolroom trailers, kept clean between hires and running on arrival so stock goes straight in.</p></div>
+        <div class="coldchip rv rv-delay-3"><span class="fl">Tasmania wide</span>
+          <h3>Hobart &amp; beyond</h3>
+          <p>Based around Hobart and southern Tasmania, with Tasmania-wide delivery on request for events and worksites.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section" aria-labelledby="faq-heading">
+    <div class="section-inner">
+      <header class="section-head rv rv-delay-1">
+        <h2 id="faq-heading">Coolroom hire questions</h2>
+        <p>What people usually ask before booking a mobile coolroom trailer with Cool4You.</p>
+      </header>
+      <div class="faqgrid">
+        <details class="faq rv rv-delay-1" open>
+          <summary>Where do you deliver coolroom trailers?</summary>
+          <p>Around Hobart and southern Tasmania, with Tasmania-wide delivery available on request. Delivery and pickup are part of the hire &mdash; tell us the suburb and the dates.</p>
+        </details>
+        <details class="faq rv rv-delay-2">
+          <summary>What can a hired coolroom be used for?</summary>
+          <p>Events and functions, marquees and venue kitchens, kitchen overflow when the cool room is full or a fit-out is underway, and worksites or stores that need extra cold storage.</p>
+        </details>
+        <details class="faq rv rv-delay-3">
+          <summary>How long can I hire a coolroom for?</summary>
+          <p>Short term or long term &mdash; a weekend, a season or longer. Tell us the dates and we will work the delivery and collection around them.</p>
+        </details>
+        <details class="faq rv rv-delay-3">
+          <summary>How do I book?</summary>
+          <p>Call or text <a href="tel:+61427292866">0427 292 866</a> with the dates, the suburb and what needs to stay cold, or send the enquiry details below.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#e0a33a))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -426,7 +527,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#babbbc;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#05202f;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
 #lbq button:disabled{opacity:.6;cursor:wait}
 #lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
@@ -455,7 +556,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 </style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Hire enquiry</h2>
-      <p class="lbq-s">Tell us the dates, the suburb and what needs cooling &mdash; we will come back to you with availability.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call or text 0427 292 866.</p></div><div><form id="lbq-form" novalidate data-site="cool4you-mobile-coolrooms" data-biz="Cool4You Mobile Coolrooms"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">The job and dates</label><textarea id="lbq-m" name="message" placeholder="Suburb, dates, what needs to stay cold&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send hire enquiry</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
+      <p class="lbq-s">Tell us the dates, the suburb and what needs cooling &mdash; we will come back to you with availability.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call or text 0427 292 866.</p></div><div><form id="lbq-form" novalidate data-site="manual-20261021-cool4you-mobile-coolrooms" data-biz="Cool4You Mobile Coolrooms"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">The job and dates</label><textarea id="lbq-m" name="message" placeholder="Suburb, dates, what needs to stay cold&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send hire enquiry</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
   </div>
   <script>
 (function(){
@@ -532,6 +633,9 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <noscript>
   <style>.rv{opacity:1!important;transform:none!important}
+.lb-rb__track{aspect-ratio:auto!important}
+.lb-rb__slide{position:relative!important;opacity:1!important}
+.lb-rb__slide+.lb-rb__slide{display:none}
 /* LB-EDITORIAL-HERO kit 2026-10-14 */
 .hero{position:relative;isolation:isolate;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;

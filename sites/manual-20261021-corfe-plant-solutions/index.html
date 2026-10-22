@@ -10,8 +10,10 @@
   --bg:#0f1115;
   --ink:#e9eef4;
   --muted:#9aa6b2;
-  --accent:#384070;
-  --accent-2:#8b9bd8;
+  --accent:#e07b1a;
+  --accent-2:#f0a44a;
+  --accent-ink:#22160a;
+  --hivis:#f2c200;
   --panel:rgba(255,255,255,.045);
   --line:rgba(255,255,255,.14);
   --font-display:system-ui Narrow',system-ui,sans-serif;
@@ -38,7 +40,7 @@ a:hover{text-decoration:underline}
 .nav{display:flex;align-items:center;gap:32px}
 .nav a{font-size:.85rem;letter-spacing:.08em;text-transform:none;color:var(--muted);transition:color .2s ease}
 .nav a:hover{color:var(--accent-2);text-decoration:none}
-.cta-btn{display:inline-block;padding:10px 20px;background:var(--accent);color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:none;border-radius:6px;transition:transform .15s ease,box-shadow .15s ease}
+.cta-btn{display:inline-block;padding:10px 20px;background:var(--accent);color:#22160a;font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:none;border-radius:6px;transition:transform .15s ease,box-shadow .15s ease}
 .cta-btn:hover{transform:translateY(-1px);box-shadow:0 4px 22px rgba(139,155,216,.3);text-decoration:none}
 @media(max-width:820px){
   .brand-mark{height:48px;width:auto;object-fit:contain}
@@ -232,6 +234,56 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 <style>.hero-copy{display:block!important}.hero-copy h1{font-size:clamp(2.2rem,4vw,3.4rem)!important}</style><style>.lbwm{display:none!important}</style>
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<style id="lb-trade-css">
+/* ==== LB TRADE: plant & equipment hire — hi-vis machine plates ==== */
+.hero{position:relative;isolation:isolate;min-height:clamp(460px,64vh,640px)}
+.hero::before,.hero::after{background:none!important;content:none!important}
+.hero .hero-bg{position:absolute!important;inset:0!important;z-index:0!important;
+  background-position:center 52%!important;background-size:cover!important;
+  filter:brightness(.98) saturate(1.05) contrast(1.02)!important}
+.hero .hero-scrim{position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(180deg,rgba(24,14,4,.34) 0%,rgba(20,14,8,.58) 58%,rgba(14,12,10,.88) 100%)!important}
+.hero canvas#heroCanvas{position:absolute!important;inset:0!important;z-index:0!important;opacity:.32!important}
+.hero #sceneWrap,.hero .hero-copy{position:relative!important;z-index:3!important}
+.hero-copy h1,.hero-copy p{text-shadow:0 2px 26px rgba(0,0,0,.72)}
+.yardband{background:
+  repeating-linear-gradient(135deg,rgba(242,194,0,.055) 0 14px,transparent 14px 28px),
+  linear-gradient(180deg,rgba(224,123,26,.10),rgba(224,123,26,0) 72%);
+  border-top:1px solid rgba(242,194,0,.34);border-bottom:1px solid rgba(242,194,0,.34)}
+.plates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:6px}
+@media(max-width:760px){.plates{grid-template-columns:1fr}}
+.plate{position:relative;border:2px solid rgba(242,194,0,.55);border-radius:6px;padding:18px 20px 16px;
+  background:linear-gradient(180deg,#1c1f24,#15171b)}
+.plate::after{content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  background:repeating-linear-gradient(45deg,#f2c200 0 10px,#15171b 10px 20px);border-radius:4px 4px 0 0}
+.plate h3{margin:8px 0 6px;font-family:var(--font-display);font-weight:900;letter-spacing:.02em;
+  text-transform:uppercase;font-size:1.02rem;color:var(--ink)}
+.plate p{margin:0;color:var(--muted);font-size:.92rem}
+.plate .tag{display:inline-block;font:800 .66rem/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;
+  color:#1c1405;background:var(--hivis);border-radius:3px;padding:5px 8px}
+.faqgrid{display:grid;gap:14px}
+.faq{border:1px solid var(--line);border-radius:12px;padding:0 18px;background:var(--panel)}
+.faq summary{cursor:pointer;font-family:var(--font-display);font-weight:700;padding:16px 0;color:var(--ink);list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent-2);font-weight:900}
+.faq[open] summary::after{content:"\2013"}
+.faq p{margin:0 0 16px;color:var(--muted)}
+</style>
+
+<style id="lb-trade-lockup">/* header lockup: mark 32px desktop / 24px mobile */
+.lb-brand__mark{height:32px !important;max-width:34vw !important}
+.lb-brand__mark img{height:100% !important;width:auto !important}
+.lb-brand__name{font-weight:900 !important;letter-spacing:.01em}
+@media(max-width:700px){
+  .lb-brand__mark{height:24px !important}
+  .header-inner{flex-wrap:nowrap !important}
+  .nav{display:flex !important;gap:8px !important;align-items:center !important}
+  .nav a:not(.cta-btn){display:none !important}
+  .nav .cta-btn{white-space:nowrap !important;padding:8px 11px !important;font-size:.72rem !important}
+}
+.nav a.cta-btn,.header-inner a.cta-btn,.nav .cta-btn{color:var(--accent-ink,#ffffff) !important;background:var(--accent) !important;text-decoration:none !important;font-weight:800 !important}
+.nav a.cta-btn:hover,.header-inner a.cta-btn:hover,.nav .cta-btn:hover{color:var(--accent-ink,#ffffff) !important;text-decoration:none !important;filter:brightness(1.08)}
+</style>
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header class="header" role="banner">
@@ -242,21 +294,23 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <a href="#how">How it works</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="tel:0402138280" class="cta-btn">Call 0402 138 280</a>
+      <a href="tel:+61402138280" class="cta-btn">Call 0402 138 280</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
   <section class="hero" aria-label="Plant hire — excavator on the yard">
-        <div class="lbwm" aria-hidden="true">PLANT HIRE</div>
+        <div class="hero-bg" style="background-image:url('assets/hero.jpg')" aria-hidden="true"></div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="lbwm" aria-hidden="true">PLANT HIRE</div>
     <div id="sceneWrap">
       <div id="sceneSticky">
         
         <div class="hero-copy rv rv-delay-1">
           <h1 style="width:100% !important;grid-column:1/-1 !important;max-width:none !important">The right machine,<br><em>ready to go.</em></h1>
           <p>Excavators, tippers and earthmoving attachments for hire around Grafton and the Clarence Valley. Dry hire or with an operator.</p>
-          <a href="tel:0402138280" class="cta-btn" style="margin-top: 24px; display: inline-block;">Call 0402 138 280</a>
+          <a href="tel:+61402138280" class="cta-btn" style="margin-top: 24px; display: inline-block;">Call 0402 138 280</a>
         </div>
         <div class="hud">
           
@@ -318,7 +372,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
           <p>Excavator and tipper booked together to keep a cut moving.</p>
         </article>
         <article class="card rv rv-delay-3">
-          <img src="assets/gal_3.jpg" alt="Earthmoving plant on a graded site" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:16px">
+          <img src="assets/gal_3.jpg" alt="A retaining wall going up on a Grafton earthworks job" style="width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:16px">
           <h3>Site preparation</h3>
           <p>Stripping, levelling and pad work before the build starts.</p>
         </article>
@@ -366,7 +420,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <div class="rv rv-delay-2">
           <div class="card" style="height:100%">
             <h3>Contact</h3>
-            <p style="margin-bottom:16px"><strong>Call or text</strong><br><a href="tel:0402138280" style="font-size:1.35rem;font-weight:700;font-family:var(--font-display);color:var(--accent-2)">0402 138 280</a></p>
+            <p style="margin-bottom:16px"><strong>Call or text</strong><br><a href="tel:+61402138280" style="font-size:1.35rem;font-weight:700;font-family:var(--font-display);color:var(--accent-2)">0402 138 280</a></p>
             <p style="margin-bottom:16px"><strong>Yard</strong><br>Grafton NSW</p>
             <p>Ring through the job and we'll tell you what's available and when it can get there.</p>
           </div>
@@ -385,7 +439,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <div class="card rv rv-delay-1">
           <h3>Call or text</h3>
           <p style="margin:0 0 16px">Tell us the machine, the dates and the site.</p>
-          <p><a href="tel:0402138280" style="font-size:1.5rem;font-weight:700;font-family:var(--font-display);color:var(--accent-2)">0402 138 280</a></p>
+          <p><a href="tel:+61402138280" style="font-size:1.5rem;font-weight:700;font-family:var(--font-display);color:var(--accent-2)">0402 138 280</a></p>
         </div>
         <div class="card rv rv-delay-2">
           <h3>Prefer to type?</h3>
@@ -397,7 +451,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </section>
 </main>
 
-<section class="lb-rb" aria-label="Plant hired out and working on site"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero.jpg" alt="Excavator on a graded pad" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_1.jpg" alt="Tracked excavator cutting a pad" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_2.jpg" alt="Excavator loading a tipper" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_3.jpg" alt="Earthmoving plant on site" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Corfe Plant Solutions &mdash; plant on hire</div></div></section><footer class="footer" role="contentinfo">
+<section class="lb-rb" aria-label="Plant hired out and working on site"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero.jpg" alt="An excavator working on a site — the kind of machine Corfe hires out" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_1.jpg" alt="Trenches opened up on a site with a hired machine" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_2.jpg" alt="A retaining wall under construction by a hired machine and crew" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Corfe Plant Solutions &mdash; plant on hire</div></div></section><footer class="footer" role="contentinfo">
   <div class="footer-inner">
     <div class="footer-brand rv rv-delay-1">
       <a href="./" class="logo" aria-label="Corfe Plant Solutions home">CORFE <span>PLANT</span></a>
@@ -416,7 +470,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
     <nav class="footer-col rv rv-delay-3" aria-label="Contact">
       <h4>Contact</h4>
       <ul>
-        <li><a href="tel:0402138280">0402 138 280</a></li>
+        <li><a href="tel:+61402138280">0402 138 280</a></li>
         <li><a href="#contact">Grafton NSW</a></li>
         <li><a href="#how">How hire works</a></li>
         <li><a href="#about">About</a></li>
@@ -432,8 +486,60 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
   <div class="footer-bottom">
     <p>&copy; 2026 Corfe Plant Solutions Pty Ltd. All rights reserved.</p>
-    <p><a href="tel:0402138280">0402 138 280</a></p>
+    <p><a href="tel:+61402138280">0402 138 280</a></p>
   </div>
+<span id="quote" aria-hidden="true"></span>
+
+  <section id="yard" class="section yardband" aria-labelledby="yard-heading">
+    <div class="section-inner">
+      <header class="section-head rv rv-delay-1">
+        <h2 id="yard-heading">Plant on the yard</h2>
+        <p>Corfe Plant Solutions hires machines and attachments by the day, week or longer &mdash; dry hire or with an operator.</p>
+      </header>
+      <div class="plates">
+        <div class="plate rv rv-delay-1"><span class="tag">Earthworks</span>
+          <h3>Excavators</h3>
+          <p>Tracked machines for trenching, footing cuts, clearing and general earthmoving, with buckets sized to the job.</p></div>
+        <div class="plate rv rv-delay-2"><span class="tag">Cartage</span>
+          <h3>Tipper trucks</h3>
+          <p>Soil, gravel, sand and demolition spoil carted on site and tipped where you need it.</p></div>
+        <div class="plate rv rv-delay-2"><span class="tag">Attachments</span>
+          <h3>Buckets, augers, breakers</h3>
+          <p>Match the machine to the work instead of hiring a second machine for the day.</p></div>
+        <div class="plate rv rv-delay-3"><span class="tag">Hire terms</span>
+          <h3>Dry or wet hire</h3>
+          <p>Machine only for crews with their own tickets, or machine plus an experienced operator.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section" aria-labelledby="faq-heading">
+    <div class="section-inner">
+      <header class="section-head rv rv-delay-1">
+        <h2 id="faq-heading">Plant hire questions</h2>
+        <p>What people usually ask before booking plant with Corfe Plant Solutions.</p>
+      </header>
+      <div class="faqgrid">
+        <details class="faq rv rv-delay-1" open>
+          <summary>Do you hire with or without an operator?</summary>
+          <p>Both. Dry hire if you have your own crew and tickets, or wet hire with an experienced operator if you would rather hand the seat over and get on with the rest of the build.</p>
+        </details>
+        <details class="faq rv rv-delay-2">
+          <summary>What plant and equipment do you hire?</summary>
+          <p>Excavators for trenching, footing cuts and general earthmoving, tipper trucks for cartage, and attachments including buckets, augers, breakers and grabs.</p>
+        </details>
+        <details class="faq rv rv-delay-3">
+          <summary>Where do you deliver?</summary>
+          <p>Around Grafton and the Clarence Valley, with machines floated to and from your site so the plant arrives when the job is ready for it.</p>
+        </details>
+        <details class="faq rv rv-delay-3">
+          <summary>How do I book a machine?</summary>
+          <p>Call or text <a href="tel:+61402138280">0402 138 280</a> with the machine, the dates and the site, or send the enquiry details below.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent-2,var(--brand,var(--color-lime,#e0a33a)));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -475,7 +581,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 </style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Hire enquiry</h2>
-      <p class="lbq-s">Tell us the machine, the dates and the site and we&#39;ll come back to you with a price.</p><p class="lbq-s" style="margin-bottom:0">In a hurry? Call or text <a href="tel:0402138280">0402 138 280</a> &mdash; that is always faster.</p></div><div><form id="lbq-form" novalidate data-site="corfe-plant-solutions" data-biz="Corfe Plant Solutions Pty Ltd"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Machine, dates and site</label><textarea id="lbq-m" name="message" placeholder="What you need, for how long, and where&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send enquiry</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
+      <p class="lbq-s">Tell us the machine, the dates and the site and we&#39;ll come back to you with a price.</p><p class="lbq-s" style="margin-bottom:0">In a hurry? Call or text <a href="tel:+61402138280">0402 138 280</a> &mdash; that is always faster.</p></div><div><form id="lbq-form" novalidate data-site="manual-20261021-corfe-plant-solutions" data-biz="Corfe Plant Solutions Pty Ltd"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Machine, dates and site</label><textarea id="lbq-m" name="message" placeholder="What you need, for how long, and where&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send enquiry</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
   </div>
   <script>
 (function(){
@@ -552,6 +658,9 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <noscript>
   <style>.rv{opacity:1!important;transform:none!important}
+.lb-rb__track{aspect-ratio:auto!important}
+.lb-rb__slide{position:relative!important;opacity:1!important}
+.lb-rb__slide+.lb-rb__slide{display:none}
 /* LB-EDITORIAL-HERO kit 2026-10-14 */
 .hero{position:relative;isolation:isolate;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -599,7 +708,7 @@ html,body{overflow-x:hidden}
 
 
 <!-- LB-3D-HERO -->
-<canvas id="heroCanvas" aria-hidden="true"></canvas>
+<!-- LB-3D-HERO --><canvas id="heroCanvas" aria-hidden="true"></canvas>
 <script id="lb-motion-js">
 /* LB MOTION PACK v1 */
 (function(){
@@ -646,7 +755,7 @@ html,body{overflow-x:hidden}
   go(0);
 })();
 </script>
-<script src="assets/heroCanvas.js"></script>
+<script src="./assets/heroCanvas.js"></script>
 <script>
 /* hero: tracked excavator on the hire yard — machine, buckets, spoil, float-ready pad */
 (function(){
