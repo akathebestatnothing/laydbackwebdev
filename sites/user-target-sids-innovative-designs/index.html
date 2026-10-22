@@ -397,13 +397,40 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--SIDS-REPAIR--><style id="sids-repair">
+/* header: logo gets a fixed nav-sized box; brand and links each own a flex column */
+.nav .wrap{display:flex;align-items:center;flex-wrap:nowrap;gap:clamp(14px,1.5vw,26px);padding:12px 40px}
+.lb-brand{flex:0 0 auto;align-items:center;gap:12px;min-width:0}
+.lb-logo{display:block;flex:0 0 auto;height:clamp(32px,2.9vw,42px);width:auto;max-width:none;border-radius:6px;box-shadow:none}
+.lb-brand__word{min-width:0;max-width:none}
+.lb-brand__name{font-size:clamp(16px,1.42vw,20px)!important;line-height:1.02;letter-spacing:.01em;white-space:nowrap}
+.lb-brand__sub{font-size:9px;letter-spacing:.2em;margin-top:.5em;white-space:nowrap}
+.lb-brand__rule{display:none}
+.nav-links{flex:0 1 auto;margin-left:auto;gap:clamp(13px,1.4vw,24px)}
+.nav-links a{font-size:12.5px;letter-spacing:.06em;white-space:nowrap}
+.nav-cta{flex:0 0 auto;display:flex;align-items:center;gap:10px}
+.nav-cta .btn{white-space:nowrap}
+/* hero: normal flow under the sticky nav, never max-height clipped */
+header.hero{position:relative!important;display:block!important;max-height:none!important;min-height:0!important;overflow:hidden}
+.hero .wrap{padding:clamp(48px,5.5vw,80px) 40px 40px}
+.hero h1{font-size:clamp(2.1rem,4.2vw,3.5rem)!important;line-height:1.06!important}
+.hero-photo{padding:0 40px 56px}
+@media (max-width:640px){
+ .nav .wrap{padding:12px 20px;gap:12px}
+ .lb-logo{height:30px}
+ .lb-brand__name{font-size:15px!important}
+ .hero .wrap{padding:36px 20px 28px}
+ .hero-photo{padding:0 20px 40px}
+}
+</style><!--/SIDS-REPAIR-->
 </head>
 <body id="top">
 <div class="sa-progress" id="sa-progress"></div>
 
 <nav class="nav">
   <div class="wrap">
-    <a class="lb-brand" href="#top" aria-label="SID'S - Home" style="--lb-disp:system-ui Slab;--lb-sub:system-ui;--lb-acc:#e42424;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"><span class="lb-brand__mark"></span><span class="lb-brand__word"><span class="lb-brand__name">SID'S innovative <span class="lb-acc">designs</span></span><span class="lb-brand__sub"><span class="lb-acc">and</span> construction &middot; 0420 225 865</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="SID'S - Home" style="--lb-disp:system-ui Slab;--lb-sub:system-ui;--lb-acc:#e42424;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"><span class="lb-brand__word"><span class="lb-brand__name">SID'S innovative <span class="lb-acc">designs</span></span><span class="lb-brand__sub"><span class="lb-acc">and</span> construction &middot; 0420 225 865</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#builders">Builders</a>
@@ -474,7 +501,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <p class="rv d1" style="margin-top:22px;">One team owns the whole project, concept, working drawings, approvals and construction, so nothing gets lost between designer and builder.</p>
       <div class="btn-row rv d2">
         <a href="#quote" class="btn btn-acc">Request a quote</a>
-        <a  class="btn btn-ghost">Email us</a>
+        <a href="#quote" class="btn btn-ghost">Get a free quote</a>
       </div>
     </div>
     <div class="sub-pts">
@@ -529,71 +556,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <h2 class="rv">Get a firm price for your project.</h2>
       <div class="q-lines">
         <div class="q-line rv d1"><b>Phone</b><a href="tel:0420225865">0420 225 865</a><span>Mon&ndash;Sat, site hours</span></div>
-        <div class="q-line rv d2"><b>Email</b><a ></a><span>Quotes &amp; enquiries</span></div>
-        <div class="q-line rv d3"><b>Area</b><span style="font-size:19px;font-weight:800;">Newcastle &amp; the Hunter</span><span>Region-wide mobilisation</span></div>
+        <div class="q-line rv d2"><b>Area</b><span style="font-size:19px;font-weight:800;">Newcastle &amp; the Hunter</span><span>Region-wide, no travel fee</span></div>
+        <div class="q-line rv d3"><b>Hours</b><span style="font-size:19px;font-weight:800;">Mon&ndash;Sat, 7am&ndash;5pm</span><span>Site visits by appointment</span></div>
       </div>
     </div>
-    
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap faq-wrap">
-    <div class="sec-head">
-      <div class="sec-idx rv">04</div>
-      <div>
-        <h2 class="rv d1">Asked on every project.</h2>
-      </div>
-    </div>
-    <details class="faq rv"><summary>How much does a new home build cost?</summary><div class="a">It varies by size, specification and site. We provide firm, written quotes after a site assessment so there are no surprises.</div></details>
-    <details class="faq rv"><summary>Are you licensed and insured?</summary><div class="a">Yes, fully licensed and insured. We can provide our licence number and certificate of currency any time.</div></details>
-    <details class="faq rv"><summary>Which areas do you cover?</summary><div class="a">Newcastle and the wider Hunter region, happy to travel for the right project.</div></details>
-    <details class="faq rv"><summary>How long does a typical build take?</summary><div class="a">From slab to handover, a standard single-storey home takes 6-9 months depending on weather, approvals and finishes.</div></details>
-  </div>
-</section>
-
-<section class="cta-strip">
-  <div class="wrap">
-    <h2 class="rv">Ready<br>to build?</h2>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;" class="rv d1">
-      <a href="tel:0420225865" class="btn btn-ghost">Call 0420 225 865</a>
-      <a  class="btn btn-ghost">Email </a>
-    </div>
-  </div>
-</section>
-
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Sid's Innovative Designs & Construction</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Sid's Innovative Designs & Construction &mdash; recent work</div></div></section><footer>
-  <div class="wrap">
-    <div>
-      <div class="brand"><img src="images/sids-innovative-designs-logo.jpg" alt="Sid's Innovative Designs and Construction logo"><span class="b-txt"><span class="comp-name">SID'S INNOVATIVE DESIGNS</span><br><span class="comp-sub" style="font-size:10px;letter-spacing:.22em;color:var(--acc);text-transform:none;font-weight:700;">Design &amp; construct</span></span></div>
-      <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Design &amp; construct &middot; New builds &middot; Renovations &middot; Architectural drafting, Newcastle &amp; the Hunter.<br></p>
-    </div>
-    <div>
-      <h4>Services</h4>
-      <a href="#services">New home builds</a>
-      <a href="#services">Renovations & extensions</a>
-      <a href="#services">Decks & outdoor living</a>
-      <a href="#builders">For homeowners</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="#work">Recent work</a>
-      <a href="#process">How a build runs</a>
-      <a href="#areas">Service area</a>
-      <a href="#faq">FAQ</a>
-      <a href="https://www.facebook.com/share/1FEwwXTf1a" target="_blank" rel="noopener">Facebook</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <a href="tel:0420225865">0420 225 865</a>
-      <a ></a>
-      <a href="#quote">Free quote</a>
-    </div>
-  </div>
-  <div class="footer-bar mono">
-    <span>&copy; 2026 Sid's Innovative Designs and Construction &middot; </span>
-    <a ></a>
-  </div>
+    <div class="quote-form-col">
 <section id="lbq" class="v4" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#ED1C24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -708,7 +675,69 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 })();
 </script>
 </section>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq-wrap">
+    <div class="sec-head">
+      <div class="sec-idx rv">04</div>
+      <div>
+        <h2 class="rv d1">Asked on every project.</h2>
+      </div>
+    </div>
+    <details class="faq rv"><summary>How much does a new home build cost?</summary><div class="a">It varies by size, specification and site. We provide firm, written quotes after a site assessment so there are no surprises.</div></details>
+    <details class="faq rv"><summary>Are you licensed and insured?</summary><div class="a">Yes, fully licensed and insured. We can provide our licence number and certificate of currency any time.</div></details>
+    <details class="faq rv"><summary>Which areas do you cover?</summary><div class="a">Newcastle and the wider Hunter region, happy to travel for the right project.</div></details>
+    <details class="faq rv"><summary>How long does a typical build take?</summary><div class="a">From slab to handover, a standard single-storey home takes 6-9 months depending on weather, approvals and finishes.</div></details>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="wrap">
+    <h2 class="rv">Ready<br>to build?</h2>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;" class="rv d1">
+      <a href="tel:0420225865" class="btn btn-ghost">Call 0420 225 865</a>
+      <a href="#quote" class="btn btn-ghost">Get a free quote</a>
+    </div>
+  </div>
+</section>
+
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Sid's Innovative Designs & Construction</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Sid's Innovative Designs & Construction &mdash; recent work</div></div></section><footer>
+  <div class="wrap">
+    <div>
+      <div class="brand"><img src="images/sids-innovative-designs-logo.jpg" alt="Sid's Innovative Designs and Construction logo"><span class="b-txt"><span class="comp-name">SID'S INNOVATIVE DESIGNS</span><br><span class="comp-sub" style="font-size:10px;letter-spacing:.22em;color:var(--acc);text-transform:none;font-weight:700;">Design &amp; construct</span></span></div>
+      <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Design &amp; construct &middot; New builds &middot; Renovations &middot; Architectural drafting, Newcastle &amp; the Hunter.<br></p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="#services">New home builds</a>
+      <a href="#services">Renovations & extensions</a>
+      <a href="#services">Decks & outdoor living</a>
+      <a href="#builders">For homeowners</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#work">Recent work</a>
+      <a href="#process">How a build runs</a>
+      <a href="#areas">Service area</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://www.facebook.com/share/1FEwwXTf1a" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:0420225865">0420 225 865</a>
+      <a href="#faq">FAQ</a>
+      <a href="#quote">Free quote</a>
+    </div>
+  </div>
+  <div class="footer-bar mono">
+    <span>&copy; 2026 Sid's Innovative Designs and Construction &middot; Newcastle &amp; the Hunter</span>
+    <a href="#top">Back to top &uarr;</a>
+  </div>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
+</footer>
 
 
 <noscript><style>.rv{opacity:1!important;transform:none!important}

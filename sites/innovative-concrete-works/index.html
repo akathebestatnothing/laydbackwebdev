@@ -397,7 +397,38 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   <h2 class="h2" id="p-t">How a pour runs</h2>
   <div class="about">
     <div class="about__art rv">
-      <canvas id="processCanvas" width="560" height="300" aria-hidden="true"></canvas>
+      <svg class="seq" viewBox="0 0 560 300" role="img" aria-label="Diagram: aggregate pour, wash and seal sequence">
+        <defs>
+          <pattern id="agg" width="26" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="4" cy="5" r="2.4" fill="rgba(242,239,232,.30)"/>
+            <circle cx="16" cy="12" r="3.1" fill="rgba(242,239,232,.22)"/>
+            <circle cx="9" cy="17" r="1.9" fill="rgba(242,239,232,.26)"/>
+            <circle cx="22" cy="3" r="1.5" fill="rgba(242,239,232,.20)"/>
+          </pattern>
+        </defs>
+        <g class="seq__stage">
+          <rect x="18" y="96" width="140" height="104" rx="4" fill="#23201a" stroke="rgba(242,239,232,.16)"/>
+          <line x1="18" y1="120" x2="158" y2="120" stroke="var(--acc)" stroke-width="2"/>
+          <text x="24" y="88" class="seq__t">01 POUR</text>
+          <path d="M40 134 h8 M56 134 h8 M72 134 h8 M88 134 h8 M104 134 h8 M120 134 h8" stroke="rgba(242,239,232,.18)" stroke-dasharray="4 6"/>
+        </g>
+        <g class="seq__stage">
+          <rect x="210" y="96" width="140" height="104" rx="4" fill="#23201a" stroke="rgba(242,239,232,.16)"/>
+          <rect x="210" y="96" width="140" height="104" rx="4" fill="url(#agg)"/>
+          <rect x="210" y="96" width="140" height="18" fill="rgba(10,10,9,.55)"/>
+          <text x="216" y="88" class="seq__t">02 WASH</text>
+          <path d="M228 96 v14 M252 96 v14 M276 96 v14 M300 96 v14 M324 96 v14" stroke="var(--acc-hi)" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+        </g>
+        <g class="seq__stage">
+          <rect x="402" y="96" width="140" height="104" rx="4" fill="#2a261d" stroke="var(--acc)"/>
+          <rect x="402" y="96" width="140" height="104" rx="4" fill="url(#agg)" opacity=".75"/>
+          <rect x="402" y="96" width="140" height="8" fill="var(--acc)" opacity=".8"/>
+          <text x="408" y="88" class="seq__t">03 SEAL</text>
+        </g>
+        <path d="M168 148 h30 M370 148 h30" stroke="rgba(242,239,232,.35)" stroke-width="1.5"/>
+        <path d="M196 143 l6 5 -6 5" fill="none" stroke="rgba(242,239,232,.35)" stroke-width="1.5"/>
+        <path d="M398 143 l6 5 -6 5" fill="none" stroke="rgba(242,239,232,.35)" stroke-width="1.5"/>
+      </svg>
       <p class="about__cap">// EXPOSED AGGREGATE SEQUENCE, pour → wash → seal</p>
     </div>
     <ul class="about__lis">
@@ -499,7 +530,14 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 </script>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Innovative Concrete Works Pty Ltd</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Innovative Concrete Works Pty Ltd &mdash; recent work</div></div></section><footer class="foot">
+<section class="lb-rb" aria-label="Recently completed work"><div class="lb-rb__track">
+  <div class="lb-rb__slide is-on"><div class="rb-in"><img class="rb-mk" src="assets/logo-mark_innovative-concrete-works.png" alt="" loading="lazy"><p class="rb-k">Recent work</p><p class="rb-big">Driveways, slabs<br><em>and exposed aggregate</em></p></div></div>
+  <div class="lb-rb__slide"><div class="rb-in"><p class="rb-k">Where we pour</p><p class="rb-big">Central Coast to<br><em>Newcastle &amp; the Hunter</em></p></div></div>
+  <div class="lb-rb__slide"><div class="rb-in"><p class="rb-k">Free measure &amp; quote</p><p class="rb-big">Talk it through<br><em>0458 306 067</em></p></div></div>
+  <button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button>
+  <div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div>
+  <div class="lb-rb__cap">Innovative Concrete Works Pty Ltd &mdash; recent work</div>
+</div></section><footer class="foot">
   <div>
     <h3>Innovative Concrete Works Pty Ltd</h3>
     <p>Concrete, driveways, slabs, patios, exposed aggregate & decorative finishes.<br>Central Coast to Newcastle & Hunter.</p>
@@ -508,7 +546,68 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <!-- lb: old box-hero engine removed -->
+<style id="icw-repair">
+/* ==== repair pass: hero grid flattened by the [class*=hero] flex cascade ==== */
+.hero{min-height:clamp(520px,70vh,660px)!important;max-height:none!important}
+.hero .hero-in{display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)!important;
+  align-items:center!important;gap:clamp(1.8rem,4.4vw,3.6rem)!important}
+.hero .hero-in>*{min-width:0!important}
+.hero .hero-copy{display:block!important;width:auto!important;max-width:none!important;flex:none!important}
+.hero .hero-copy .k{margin:0 0 .95rem!important;font-size:.76rem!important;line-height:1.4!important}
+.hero .hero-copy .h1{font-size:clamp(1.95rem,3.75vw,3.35rem)!important;line-height:1.06!important;
+  margin:0 0 1.1rem!important;max-width:none!important;width:auto!important}
+.hero .hero-copy .d{font-size:clamp(1rem,1.15vw,1.1rem)!important;line-height:1.6!important;
+  margin:0 0 2.15rem!important;max-width:46ch!important}
+.hero .hero-copy .cta{gap:.85rem!important;margin-top:0!important}
+.hero .hero-visual{aspect-ratio:4/3!important;height:auto!important;align-self:center!important}
+/* backdrop: the logo was cover-cropped off the left edge, contain it as a faint watermark */
+.lbhf img{object-fit:contain!important;object-position:left center!important;opacity:.16!important;filter:none!important}
+.lbhf-scrim{background:linear-gradient(100deg,rgba(8,8,7,.95) 0%,rgba(8,8,7,.86) 52%,rgba(8,8,7,.74) 100%)!important}
+
+/* ==== rhythm: hero sat on a double-height gap before the first section ==== */
+.sec{padding-top:clamp(3.1rem,5.4vw,4.5rem)!important;padding-bottom:clamp(3.1rem,5.4vw,4.5rem)!important}
+.sec--panel{padding-top:0!important;padding-bottom:0!important}
+.sec--panel>.inner{padding-top:clamp(3.1rem,5.4vw,4.5rem)!important;padding-bottom:clamp(3.1rem,5.4vw,4.5rem)!important}
+.svc{margin-top:2rem!important}
+.about{margin-top:1.9rem!important}
+.areas{margin-top:1.9rem!important}
+
+/* ==== services: 4-up columns squeezed copy into 215px stacks ==== */
+.svc{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:1.15rem!important}
+.svc__p{font-size:.95rem!important;line-height:1.55!important}
+@media(max-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){.svc{grid-template-columns:1fr!important}}
+
+/* ==== process diagram (canvas was never painted = blank panel) ==== */
+.about__art{display:flex;flex-direction:column;justify-content:center!important;gap:.2rem}
+.about__art svg.seq{width:100%;height:auto;display:block;border-radius:8px!important;box-shadow:none!important}
+.seq__t{font-family:var(--font-m);font-size:13px;font-weight:700;letter-spacing:.16em;fill:var(--acc)}
+
+/* ==== recent-work band: 16/7 dark slabs with a single line of type ==== */
+.lb-rb{background:#0b0c10!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lb-rb__track{aspect-ratio:auto!important;min-height:clamp(250px,27vw,320px)!important}
+.lb-rb__slide{background:radial-gradient(85% 130% at 12% -10%,rgba(184,168,112,.16),transparent 62%),#0b0c10!important}
+.lb-rb__slide .rb-in{position:absolute;left:clamp(20px,5vw,64px);right:clamp(20px,5vw,64px);top:50%;
+  transform:translateY(-50%);display:flex;flex-direction:column;gap:.7rem;z-index:2}
+.rb-k{margin:0;font-family:var(--font-m);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acc-hi)}
+.rb-big{margin:0;font-weight:900;font-size:clamp(1.5rem,3.1vw,2.5rem);line-height:1.08;letter-spacing:-.02em;color:var(--ink)}
+.rb-big em{font-style:normal;color:var(--acc)}
+.rb-mk{height:32px;width:auto;margin:0 0 .25rem!important;align-self:flex-start;border-radius:0!important;box-shadow:none!important}
+.lb-rb__cap{display:none}
+
+/* ==== header: brand ran past the viewport on mid/narrow widths ==== */
+.lb-brand{min-width:0!important;flex:0 1 auto!important;overflow:hidden}
+.lb-brand__name{font-size:clamp(16px,1.55vw,26px)!important;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:1080px){.nav__links{display:none!important}}
+@media(max-width:780px){
+  .lb-tel{display:none!important}
+  .lb-brand{flex:1 1 auto!important;gap:.55rem!important}
+  .lb-brand__mark{height:30px!important;max-width:64px!important}
+  .lb-brand__name{font-size:15px!important;letter-spacing:0!important}
+}</style>
+
 <div class="lb-pulse" aria-hidden="true"></div>
+
 <script id="lb-motion-js">
 /* LB MOTION PACK v1 */
 (function(){
@@ -702,11 +801,8 @@ header a[href^="tel"],.site-header a[href^="tel"]{
 </style>
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
 .lb-mq__in,.lb-pulse{display:none !important}
-letter-spacing: 0.06em on body text{letter-spacing:normal !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-letter-spacing: 0.16em on body text{letter-spacing:normal !important}
-letter-spacing: 0.24em on body text{letter-spacing:normal !important}
-11.52px body text{font-size:max(15px,1em)}
+body,p,li{letter-spacing:normal !important}
+p,li{font-size:max(15px,1em)}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
