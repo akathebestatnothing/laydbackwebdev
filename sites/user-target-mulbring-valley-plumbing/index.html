@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU" data-sig="links:sweep,buttons:fill,tilt:1,marquee:1">
+<html lang="en-AU" data-sig="links:sweep,buttons:fill,tilt:1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,6 +27,10 @@
   --gold:#C9A24A;
   --font-display:'Archivo Black',ui-sans-serif,system-ui,sans-serif;
   --font-sans:system-ui,ui-sans-serif,system-ui,sans-serif;
+  /* the accent hooks (--acc/--accent) were undefined, so the hero canvas field and every
+     hover tint fell back to the pack default #e51924 red on a blue site. Brand blue here. */
+  --acc:#2E8FC4;
+  --accent:#2E8FC4;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -66,7 +70,7 @@ html.js .drop.in{opacity:1;transform:none}
   .mnav{display:none}
   .mnav.open{display:flex;flex-direction:column;position:fixed;top:74px;left:0;right:0;background:rgba(14,42,71,.99);padding:1rem 1.2rem 1.3rem;gap:.2rem;z-index:59}
   .mnav a{color:#989a9b;text-decoration:none;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.09);font-size:.95rem}
-  .mnav .btn{text-align:center;margin-top:.6rem}
+  .mnav .btn{margin-top:.6rem}
 }
 .mnav{display:none}
 
@@ -334,6 +338,77 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<style id="mvp-repair-1">
+/* ---- REPAIR 2026-10-22: logo size, hero clobbering, grid overflow, footer legal ---- */
+
+/* 1. logo: logo.svg has no CSS hook (.brand img never matched .lb-brand) so it drew at
+   natural 200px inside a 74px bar and covered the hero. Size it as a nav mark. */
+.nav img.lb-logo{height:38px;width:auto;max-width:120px;flex:0 0 auto;object-fit:contain;border-radius:8px}
+.nav .lb-brand{gap:.7rem;min-width:0;overflow:hidden}
+/* the empty .lb-brand__mark span added a dead gap next to the real logo */
+.lb-brand>.lb-brand__mark:empty{display:none}
+
+/* 2. the `[class*=hero]` hack was min-height:58vh on every element with "hero" in its
+   class, so kicker/h1/sub/ctas/note each became a 522px block. Scope it to the hero box. */
+.hero{min-height:clamp(520px,86vh,700px)!important;max-height:none!important;display:flex!important;
+  align-items:center!important;padding:132px 0 76px!important;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+  gap:clamp(28px,4vw,56px);align-items:center}
+.kick,.hero-h,.hero-sub,.hero-ctas,.hero-note{min-height:0!important}
+.hero-h{margin-bottom:0}
+.hero-sub{max-width:46ch}
+.hero-note{margin-top:18px;max-width:none;display:flex;flex-wrap:wrap;align-items:center;gap:.15rem .55rem;max-width:100%}
+.hero-note .dot{color:#9FB4CC;line-height:1}
+
+/* 3. illustration column: it had min-height:420px with no min-width:0, so its track
+   collapsed to 82px and the card ran past the viewport edge. Let the column drive it. */
+.pipe-scene{width:100%;min-width:0;min-height:0;aspect-ratio:4/3.4;max-width:100%}
+.pipe-scene .badge{max-width:calc(100% - 36px);white-space:nowrap}
+.pipe-scene .cap{max-width:none;left:0;right:0;bottom:0;padding:30px 18px 14px;
+  background:linear-gradient(180deg,rgba(10,31,52,0) 0%,rgba(8,24,42,.55) 45%,rgba(8,24,42,.92) 100%)}
+
+/* 4. hero canvas sat at z-index:-1 behind the hero background, so the scrim was just a
+   grey wash over flat colour. Put the field above the background, keep copy above it. */
+.hero>.lb-hero-canvas{z-index:0!important;opacity:1}
+.hero::before{background:rgba(234,244,251,.86)!important}
+.hero>.wrap{position:relative;z-index:2}
+
+/* 7. recent-work band was full-bleed with a 16/7 track: only ~37% of each portrait photo
+   was shown and the strip ignored the page grid. Sit it on the grid, show more of the shot. */
+.lb-rb{width:min(1180px,92vw);margin-inline:auto;border-radius:18px}
+.lb-rb__track{aspect-ratio:3/2}
+.lb-rb__slide img{object-position:50% 42%}
+.lb-rb__nav{background:rgba(8,24,42,.62);border-color:rgba(255,255,255,.6);box-shadow:0 4px 14px rgba(8,24,42,.35)}
+.lb-rb__cap{background:rgba(8,24,42,.78)}
+
+/* 8. quote form placeholders inherited a mid grey that sank into the dark panel */
+#lbq input::placeholder,#lbq textarea::placeholder{color:rgba(244,248,252,.62);opacity:1}
+
+/* 5. footer legal links were plain siblings of .wrap, pinned at the far-left viewport edge */
+footer .lb-legal{display:flex;gap:20px;width:min(1180px,92vw);margin-inline:auto;
+  margin-top:16px;font-size:.8rem}
+footer .lb-legal a{color:#93A6BC;text-decoration:none}
+footer .lb-legal a:hover{color:var(--aqua)}
+
+/* 6. carousel dots were near-invisible over photos; footer/quote gap tightened */
+.lb-rb__dots button{background:rgba(8,9,12,.45);border-color:rgba(255,255,255,.9);box-shadow:0 1px 5px rgba(0,0,0,.55)}
+.lb-rb__dots button.is-on{box-shadow:0 0 0 2px rgba(8,9,12,.5)}
+#lbq{padding-bottom:60px!important}
+footer{padding-top:44px}
+
+@media (max-width:560px){
+  .hero-note{row-gap:.35rem}
+  .hero-note>span:first-child{flex-basis:100%}
+  .hero-note .dot{display:none}
+}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero{min-height:0!important;padding-top:112px!important}
+  .pipe-scene{aspect-ratio:16/11}
+  .lb-rb__track{aspect-ratio:4/3}
+}
+</style>
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 
@@ -345,6 +420,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <a href="#process">How we work</a>
       <a href="#areas">Service areas</a>
       <a href="#faq">FAQ</a>
+      <a class="nav-tel" href="tel:+61431616673">0431 616 673</a>
       <a class="nav-cta" href="#quote">Get a quote</a>
     </div>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
@@ -362,13 +438,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   <div class="wrap">
     <div>
       <p class="kick">Plumbing Services &middot; Mulbring Valley &amp; Hunter</p>
-      <h1 class="hero-h" data-ux="words">Plumbing that flows <em>through the valley.</em></h1>
-      <p class="hero-sub">General plumbing, blocked drains, hot water systems and gas fitting — reliable work across the Hunter Region, Cessnock, Maitland and Newcastle.</p>
+      <h1 class="hero-h">Plumbing that flows <em>through the valley.</em></h1>
+      <p class="hero-sub">General plumbing, blocked drains, hot water systems and gas fitting, with reliable work across the Hunter Region, Cessnock, Maitland and Newcastle.</p>
       <div class="hero-ctas">
         <a class="btn btn-acc" href="#quote">Get a free quote</a>
         <a class="btn btn-ghost" href="#services">What we fix</a>
       </div>
-      <p class="hero-note">Based in the Mulbring Valley &middot; <a href="#socials">Find us on Instagram &amp; Facebook</a></p>
+      <p class="hero-note"><span>Based in the Mulbring Valley</span><span class="dot" aria-hidden="true">&middot;</span><a href="tel:+61431616673">0431 616 673</a><span class="dot" aria-hidden="true">&middot;</span><a href="#socials">Instagram &amp; Facebook</a></p>
     </div>
     <!-- LB-3D-HERO -->
     <div class="pipe-scene" aria-hidden="true">
@@ -417,7 +493,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
           <circle cx="240" cy="110" r="6"><animate attributeName="cy" values="110;300" dur="2.9s" repeatCount="indefinite" begin="1.2s"/><animate attributeName="opacity" values="0;1;0" dur="2.9s" repeatCount="indefinite" begin="1.2s"/></circle>
         </g>
       </svg>
-      <p class="cap">Pipes, water and gas handled right — from the tap to the tank.</p>
+      <p class="cap">Pipes, water and gas handled right, from the tap to the tank.</p>
     </div>
   </div>
 </header>
@@ -427,7 +503,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     <div class="sec-head">
       <span class="kicker2">What we do</span>
       <h2>Plumbing services across the valley</h2>
-      <p>Straightforward plumbing for homes and small businesses — done properly, with the job left clean.</p>
+      <p>Straightforward plumbing for homes and small businesses. Done properly, with the job left clean.</p>
     </div>
     <div class="svc-grid">
       <div class="svc drop">
@@ -454,6 +530,8 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   </div>
 </section>
 
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="Mulbring Valley Plumbing" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button></div><div class="lb-rb__cap">Mulbring Valley Plumbing &mdash; recent work</div></div></section>
+
 <section class="sec tint" id="process" data-rv>
   <div class="wrap">
     <div class="sec-head">
@@ -461,7 +539,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <h2>A clear process, from first call to finish</h2>
     </div>
     <div class="steps">
-      <div class="step drop"><div class="n">1</div><h3>Tell us the problem</h3><p>Describe the issue — photos help. We come back with a clear, no-obligation quote.</p></div>
+      <div class="step drop"><div class="n">1</div><h3>Tell us the problem</h3><p>Describe the issue and send photos if you can. We come back with a clear, no-obligation quote.</p></div>
       <div class="step drop"><div class="n">2</div><h3>We diagnose &amp; quote</h3><p>On-site diagnosis, honest advice and an upfront price before any work starts.</p></div>
       <div class="step drop"><div class="n">3</div><h3>Job done properly</h3><p>Repairs and installs completed to standard, with the site left clean.</p></div>
       <div class="step drop"><div class="n">4</div><h3>Follow-up &amp; advice</h3><p>We make sure the job holds up and give practical advice to avoid the next call-out.</p></div>
@@ -503,10 +581,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <h2>Common questions</h2>
     </div>
     <div class="faq">
-      <details><summary>Do you cover emergency plumbing call-outs?</summary><div class="a">We prioritise urgent jobs across the Hunter Region — send a request and we'll get back to you as soon as we can.</div></details>
+      <details open><summary>Do you cover emergency plumbing call-outs?</summary><div class="a">We prioritise urgent jobs across the Hunter Region, so send a request and we'll get back to you as soon as we can.</div></details>
       <details><summary>Can you help with blocked drains?</summary><div class="a">Yes. Blocked drain clearing and CCTV drain inspections are a core part of what we do, using modern equipment.</div></details>
       <details><summary>Which areas do you service?</summary><div class="a">The Mulbring Valley, the wider Hunter Region, Cessnock, Maitland and Newcastle.</div></details>
-      <details><summary>Do you install hot water systems?</summary><div class="a">Yes — electric, gas and solar hot water installation, repairs and replacements.</div></details>
+      <details><summary>Do you install hot water systems?</summary><div class="a">Yes, electric, gas and solar hot water installation, repairs and replacements.</div></details>
     </div>
   </div>
 </section>
@@ -593,8 +671,8 @@ html,body{overflow-x:hidden}
   })();
   </script>
 </section>
+<footer>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="Mulbring Valley Plumbing" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="Mulbring Valley Plumbing" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button></div><div class="lb-rb__cap">Mulbring Valley Plumbing &mdash; recent work</div></div></section><footer>
   <div class="wrap">
     <div class="cols">
       <div>

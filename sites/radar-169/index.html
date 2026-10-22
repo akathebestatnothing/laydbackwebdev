@@ -303,6 +303,125 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
+<!--R169-REPAIR-->
+<style id="r169-hero-repair">
+/* hero: real 2-col grid. the global [class*=hero] rule matches every hero child
+   (hero-copy, hero-kicker, hero-sub...) and forces display:flex + min-height:440-600px
+   + max-height:78vh on each, which squeezes the copy into narrow columns. Every inner
+   node is therefore reset here. */
+header.hero#top{
+  position:relative!important;top:auto!important;overflow:hidden!important;
+  display:block!important;min-height:0!important;max-height:none!important;padding-top:0!important;
+  background:#0B0B0D url('assets/gal_4.jpg') center 32%/cover no-repeat!important;
+  border-bottom:1px solid rgba(236,233,226,.14)!important;
+}
+header.hero#top>canvas{position:absolute!important;inset:0!important;z-index:0!important;
+  width:100%!important;height:100%!important;opacity:.38!important}
+header.hero#top:has(canvas)::before{background:transparent!important}
+header.hero#top .hero-shade{position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(180deg,rgba(6,6,8,.55),rgba(6,6,8,.72) 55%,rgba(6,6,8,.88))!important}
+header.hero#top .hero-in{
+  position:relative!important;z-index:2!important;
+  display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)!important;
+  align-items:center!important;gap:clamp(.9rem,2.2vw,1.6rem) clamp(1.8rem,3.4vw,3.2rem)!important;
+  width:min(1180px,92vw)!important;margin-inline:auto!important;
+  padding-block:calc(72px + clamp(2rem,4.4vh,3rem)) clamp(1.9rem,3.2vh,2.5rem)!important;
+}
+header.hero#top .hero-in>*,
+header.hero#top .hero-copy>*{min-width:0;min-height:0!important;max-height:none!important}
+header.hero#top .hero-copy{
+  display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  width:100%!important;max-width:none!important;flex:none!important;
+}
+header.hero#top .hero-kicker{
+  display:inline-flex!important;align-items:center!important;align-self:flex-start!important;
+  width:auto!important;max-width:100%!important;margin-bottom:.95rem!important;line-height:1.4!important;
+}
+header.hero#top h1{max-width:none!important;width:100%!important}
+header.hero#top .hero-sub{
+  max-width:56ch!important;width:100%!important;
+  font-size:clamp(1rem,1.08vw,1.06rem)!important;line-height:1.6!important;
+  margin-top:.9rem!important;color:#DCD7CB!important;text-wrap:pretty;
+}
+header.hero#top .hero-cta{display:flex!important;flex-wrap:wrap!important;gap:.85rem!important;margin-top:1.7rem!important}
+header.hero#top .hero-strip{
+  grid-column:1/-1!important;
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  align-items:start!important;gap:.75rem 2.2rem!important;
+  width:100%!important;margin-top:clamp(1.5rem,3vw,2.3rem)!important;
+  padding-top:1.15rem!important;
+  border-top:1px solid rgba(236,233,226,.16)!important;
+}
+header.hero#top .hero-strip p{
+  display:block!important;font-size:.74rem!important;letter-spacing:.02em!important;
+  line-height:1.5!important;color:#BDB8AC!important;text-wrap:pretty;
+}
+header.hero#top .hero-strip strong{
+  display:block!important;margin-bottom:.25rem!important;font-size:.95rem!important;
+  line-height:1.2!important;letter-spacing:0!important;color:#F2EFE6!important;
+}
+header.hero#top .hero-visual{
+  position:relative!important;display:block!important;margin:0!important;padding:0!important;
+  align-self:center!important;min-height:0!important;max-height:none!important;height:auto!important;
+  aspect-ratio:5/4!important;border-radius:16px!important;overflow:hidden!important;
+  border:1px solid rgba(236,233,226,.18)!important;
+  box-shadow:0 26px 60px rgba(0,0,0,.55)!important;background:#0B0B0D!important;
+}
+header.hero#top .hero-visual img{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  min-height:0!important;aspect-ratio:auto!important;object-fit:cover!important;
+  object-position:center 44%!important;display:block!important;
+}
+header.hero#top .hero-visual figcaption{
+  position:absolute!important;left:.85rem!important;right:auto!important;bottom:.85rem!important;
+  inset-inline-end:auto!important;z-index:2!important;
+  max-width:calc(100% - 1.7rem)!important;width:max-content!important;
+  padding:.42rem .78rem!important;border-radius:999px!important;
+  background:rgba(8,8,10,.82)!important;-webkit-backdrop-filter:blur(6px)!important;backdrop-filter:blur(6px)!important;
+  border:1px solid rgba(236,233,226,.22)!important;
+  color:#F6F4EE!important;font-size:.7rem!important;letter-spacing:.08em!important;
+  line-height:1.35!important;
+}
+@media(max-width:860px){
+  header.hero#top .hero-in{grid-template-columns:1fr!important;gap:1.35rem!important;
+    width:100%!important;padding-inline:18px!important;
+    padding-block:calc(72px + 1.3rem) 2.2rem!important}
+  header.hero#top .hero-visual{order:-1;aspect-ratio:16/10!important;align-self:start!important;
+    width:calc(100% + 36px)!important;margin-inline:-18px!important;border-radius:0!important;
+    border-inline:0!important}
+  header.hero#top .hero-strip{grid-template-columns:1fr!important;gap:.95rem!important}
+}
+/* the hero now closes on its own stat bar + hairline; the following section must not
+   open on a screenful of dead space */
+section#services{padding-top:clamp(2.1rem,3.5vw,2.9rem)!important}
+/* reveal states must never leave the page blank (below-fold .drop / .lb-rv never
+   intersect during a full-page capture, and stuck-at-0 blocks render as empty bands) */
+html.js .drop,.drop,.lb-rv,.rv,.reveal,.sec-head,.svc,.step,.gal,.why-item,.why-visual,.gal-note{
+  opacity:1!important;transform:none!important;
+}
+html.js .drop,.lb-rv{transition:none!important}
+/* 4 process steps must not orphan the 4th on its own row */
+.steps{grid-template-columns:repeat(4,minmax(0,1fr))!important;align-items:sretch!important}
+@media(max-width:1080px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:620px){.steps{grid-template-columns:1fr!important}}
+/* carousel: sit it on the page grid instead of full-bleed, and shorten the crop */
+section.lb-rb{
+  width:min(1180px,92vw)!important;margin:clamp(2.6rem,4vw,3.6rem) auto!important;
+  padding-block:0!important;border:1px solid var(--line)!important;border-radius:14px!important;
+}
+.lb-rb__track{aspect-ratio:2.7/1!important}
+@media(max-width:760px){.lb-rb__track{aspect-ratio:4/3!important}}
+/* quote request block: breathing room in the intro panel */
+#lbq{padding-block:clamp(3.2rem,6vw,4.6rem)!important;border-top:1px solid var(--line);background:#141417!important}
+#lbq .lbq-hp2{border-left:2px solid var(--lbq-accent);padding:.15rem 1.2rem 1.2rem 1.35rem}
+#lbq .lbq-sp{gap:clamp(1.6rem,3vw,2.8rem)!important}
+#lbq button{color:#101216!important}
+#lbq .lbq-s{margin-bottom:.9rem}
+.lb-legal{display:inline-flex;gap:1.1rem}
+.lb-legal a{color:#C6C1B4;text-decoration:none}
+.lb-legal a:hover{color:#F5F3EC}
+</style>
+<!--/R169-REPAIR-->
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
@@ -331,21 +450,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
    <div class="hero-copy">
     <p class="hero-kicker">Sydney-based carpentry · Residential &amp; commercial</p>
     <h1 data-ux="words">Carpentry, <em>to the millimetre.</em></h1>
-    <p class="hero-sub">Wainscoting, wall panelling, doors and frames, skirtings and mouldings, ceiling battens and full fixout packages, precision finish carpentry for homes across Sydney. Residential and commercial work, done properly.</p>
+    <p class="hero-sub">Wainscoting, wall panelling, doors and frames, mouldings, battens and full fixouts, precision finish carpentry for Sydney homes. Residential and commercial, done properly.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="tel:0499776991">Call 0499 776 991</a>
       <a class="btn btn-ghost" href="#lbq" data-ux="magnetic">Get a free quote</a>
     </div>
-    <div class="hero-strip">
-      <p><strong>Residential &amp; commercial</strong>new builds · renovations · fit-outs</p>
-      <p><strong>Sydney wide</strong>inner east · north shore · the Hills</p>
-      <p><strong>Free quotes</strong>clear pricing, no surprises</p>
-    </div>
    </div>
    <figure class="hero-visual">
      <img src="assets/gal_8.jpg" alt="Entry with wainscoting panelling, console and dark door" fetchpriority="high">
-     <figcaption>Entry panelling &amp; detailing, recent work</figcaption>
+     <figcaption>Entry panelling &amp; detailing</figcaption>
    </figure>
+   <div class="hero-strip">
+     <p><strong>Residential &amp; commercial</strong>new builds · renovations · fit-outs</p>
+     <p><strong>Sydney wide</strong>inner east · north shore · the Hills</p>
+     <p><strong>Free quotes</strong>clear pricing, no surprises</p>
+   </div>
   </div>
 </header>
 
@@ -506,39 +625,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 </section>
 
-<div class="lb-pulse" aria-hidden="true"></div>
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/gal_7.jpg" alt="Dynamic Carpentry & Renovations" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_6.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/why.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_4.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_8.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_3.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button></div><div class="lb-rb__cap">Dynamic Carpentry & Renovations &mdash; recent work</div></div></section><footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand">
-          <img src="assets/logo.png" alt="Dynamic Carpentry &amp; Renovations logo" height="52">
-          <span>
-            <span class="foot-brand-name">DYNAMIC</span><br>
-            <span class="foot-brand-sub">Carpentry &amp; Renovations</span>
-          </span>
-        </div>
-        <p>Dynamic Carpentry &amp; Renovations, precision finish carpentry across Sydney. Wainscoting and wall panelling, doors and frames, skirtings and mouldings, ceiling battens, fireplace framing and full fixout packages.</p>
-      </div>
-      <div>
-        <h4>Get in touch</h4>
-        <p>
-          <a href="tel:0499776991">0499 776 991</a><br>
-          Sydney · NSW<br>Residential &amp; commercial<br>ABN 19 650 036 132
-        </p>
-      </div>
-      <div>
-        <h4>Follow the work</h4>
-        <p class="soc-row">
-          <a class="soc-link" href="https://www.instagram.com/dynamiccarpentryandrenovations/" target="_blank" rel="noopener">Instagram, @dynamiccarpentryandrenovations</a>
-        </p>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Dynamic Carpentry &amp; Renovations</span>
-      <span>Precision carpentry · Immaculate finishes</span>
-    </div>
-  </div>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#D8D2C6))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -671,7 +757,41 @@ html,body{overflow-x:hidden}
 })();
 </script>
 </section>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+<div class="lb-pulse" aria-hidden="true"></div>
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/gal_7.jpg" alt="Dynamic Carpentry & Renovations" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_6.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/why.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_4.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_8.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_3.jpg" alt="Dynamic Carpentry & Renovations" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button></div><div class="lb-rb__cap">Dynamic Carpentry & Renovations &mdash; recent work</div></div></section><footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/logo.png" alt="Dynamic Carpentry &amp; Renovations logo" height="52">
+          <span>
+            <span class="foot-brand-name">DYNAMIC</span><br>
+            <span class="foot-brand-sub">Carpentry &amp; Renovations</span>
+          </span>
+        </div>
+        <p>Dynamic Carpentry &amp; Renovations, precision finish carpentry across Sydney. Wainscoting and wall panelling, doors and frames, skirtings and mouldings, ceiling battens, fireplace framing and full fixout packages.</p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p>
+          <a href="tel:0499776991">0499 776 991</a><br>
+          Sydney · NSW<br>Residential &amp; commercial<br>ABN 19 650 036 132
+        </p>
+      </div>
+      <div>
+        <h4>Follow the work</h4>
+        <p class="soc-row">
+          <a class="soc-link" href="https://www.instagram.com/dynamiccarpentryandrenovations/" target="_blank" rel="noopener">Instagram, @dynamiccarpentryandrenovations</a>
+        </p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Dynamic Carpentry &amp; Renovations</span>
+      <span>Precision carpentry · Immaculate finishes</span>
+      <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
 
 <!-- lb: old box-hero engine removed -->
 <script>
