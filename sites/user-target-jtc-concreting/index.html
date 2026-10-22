@@ -57,8 +57,12 @@ a { color: inherit; }
 @media (max-width: 980px) { .nav-links { display: none; } .nav .wrap { justify-content: space-between; } }
 
 /* hero, real photo, dark-photo + scrim, editorial type on top */
-.hero { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; min-height: min(88vh, 840px); padding: 130px 0 54px; background: #16120d url("images/hero.jpg") center 38%/cover no-repeat; color: var(--paper); }
-.hero::before { content: ""; position: absolute; inset: 0; z-index: 0; background: rgba(12,10,8,.66); }
+.hero { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; min-height: min(72vh, 664px); padding: 116px 0 56px; background: #16120d; color: var(--paper); overflow: hidden; }
+/* the job photo must always be the hero's own layer, under the canvas haze */
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -2; background: #16120d url("images/hero.jpg") center 42%/cover no-repeat; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; z-index: -1; border-radius: 0; box-shadow: none; }
+.hero > .hero-bg { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: 0 !important; object-fit: cover !important; border-radius: 0 !important; box-shadow: none !important; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(12,10,8,.62) 0%, rgba(12,10,8,.30) 38%, rgba(12,10,8,.82) 100%); }
 .hero .wrap { position: relative; z-index: 2; width: 100%; max-width: 1360px; margin: 0 auto; padding: 0 40px; }
 .hero .kick { display: flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform:none; color: var(--acc2); margin-bottom: 26px; text-shadow: 0 1px 18px rgba(0,0,0,.5); }
 .hero .kick::after { content: ""; flex: 1; height: 1px; background: rgba(248,245,241,.28); }
@@ -168,6 +172,12 @@ section { padding: 110px 0; }
 .faq .a { padding: 0 0 24px; color: var(--ink2); font-size: 15.5px; max-width: 700px; }
 
 /* action strip */
+/* action strip */
+.cta-strip { background: var(--acc); color: #f8f5f1; }
+.cta-strip .wrap { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
+.cta-strip h2 { font-size: clamp(36px, 5vw, 66px); font-weight: 900; letter-spacing: -.02em; text-transform:none; line-height: .98; }
+.cta-strip .btn-ghost { border-color: rgba(248,245,241,.9); color: #f8f5f1; box-shadow:none; }
+.cta-strip .btn-ghost:hover { background: #f8f5f1; color: var(--acc); }
 .ctaband { background: var(--acc); color: #f8f5f1; }
 .ctaband .wrap { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
 .ctaband h2 { font-size: clamp(36px, 5vw, 66px); font-weight: 900; letter-spacing: -.02em; text-transform:none; line-height: .98; }
@@ -185,6 +195,8 @@ footer a { color: var(--ink2); text-decoration: none; font-size: 14px; display: 
 footer a:hover { color: var(--acc); }
 .footer-bar { border-top: 1px solid var(--line); padding: 20px 40px; max-width: 1360px; margin: 0 auto; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--ink2); }
 .footer-bar a { display: inline; color: var(--acc); font-weight: 700; }
+.lb-legal{display:flex;gap NV:18px;align-items:center}
+.lb-legal a{display:inline;text-decoration:none;color:var(--acc);font-weight:700}
 
 /* reveal, continuous scroll (Buyckveth law: never a dead scroll) */
 .rv { opacity: 0; transform: translateY(26px); transition: opacity .45s ease, transform .8s ease; }
@@ -219,8 +231,8 @@ footer a:hover { color: var(--acc); }
 /* ==== LB BRAND (logo-true spanning wordmark) ==== */
 .lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
  color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
-.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
-.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
+.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(30px,2.6vw,34px);width:auto;max-width:22vw}
+.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain;border-radius:7px;box-shadow:0 1px 3px rgba(20,14,8,.18)}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
 .lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
@@ -232,7 +244,7 @@ footer a:hover { color: var(--acc); }
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
  background:transparent}
 @media (max-width:640px){
- .lb-brand__mark{height:clamp(30px,8vw,40px)}
+ .lb-brand__mark{height:30px}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
@@ -247,6 +259,7 @@ header .rv, .site-header .rv, .nav-inner .rv{
   opacity:1 !important; visibility:visible !important; transform:none !important;
 }
 .lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
+section.lb-rb{padding:0}
 .lb-mq{max-width:100%;overflow:hidden}
 .lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
 .lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
@@ -391,14 +404,17 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:0}.lb-brand__mark img{display:block;height:100%;width:auto;border-radius:7px}</style>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(17px,1.65vw,23px) !important;letter-spacing:.02em !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(520px,64vh,648px)!important;max-height:none;display:flex;align-items:stretch;justify-content:flex-end}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(100deg,rgba(12,10,8,.80) 0%,rgba(12,10,8,.52) 46%,rgba(12,10,8,.24) 78%,rgba(12,10,8,.40) 100%)!important}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}.hero{position:relative!important;top:auto!important;overflow:hidden}
+/* the min-height above leaks onto hero DESCENDANTS (.hero-sub/.hero-ctas match [class*=hero]), which
+   stretched CTA buttons to 576px tall panels. Scope geometry to the section itself. */
+.hero-sub,.hero-ctas,.hero-copy{min-height:0!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -406,16 +422,20 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{}[class*=hero]:has([class*=hero-bg])::after,[class*=hero]:has([class*=hero-scrim])::after{z-index:-1!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}
+/* ONE scrim only: the flat rgba(.42) here used to overpaint the graded scrim, dumbing the photo to mud. */
+.hero .btn-acc,.hero .btn-ghost{align-self:flex-start;height:auto!important;align-items:center;justify-content:center;line-height:1.1}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body id="top">
 <div class="sa-progress" id="sa-progress"></div>
 
 <nav class="nav">
   <div class="wrap">
-    <a class="lb-brand" href="#top" aria-label="JTC Concreting - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#7d5522;--lb-subc:#7d5522;--lb-acc:#7d5522;"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"><span class="lb-brand__mark" aria-hidden="true"></span><span class="lb-brand__word"><span class="lb-brand__name">JTC Concreting</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="JTC Concreting - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#7d5522;--lb-subc:#7d5522;--lb-acc:#7d5522;"><span class="lb-brand__mark"><img src="assets/logo.svg" class="lb-logo" alt="JTC Concreting logo" width="40" height="40" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">JTC Concreting</span><span class="lb-brand__sub">Concreting &middot; Hobart</span></span></a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#builders">Builders</a>
@@ -431,6 +451,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 </nav>
 
 <header class="hero">
+<img class="hero-bg" src="images/hero.jpg" alt="Exposed aggregate driveway poured by JTC Concreting, Hobart" fetchpriority="high" decoding="async">
 <!-- LB-3D-HERO -->
 <canvas id="heroCanvas" aria-hidden="true" hidden></canvas>
 <!-- LB-3D-HERO -->
@@ -521,7 +542,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   </div>
   <div class="hgal rv">
     <div class="track">
-      <figure class="hg-item rv"><img src="images/hero.jpg" alt="Recent works — JTC Concreting" loading="lazy"><figcaption><span>Recent works</span><span class="mono">/01</span></figcaption></figure>
+      <figure class="hg-item rv"><img src="images/hero.jpg" alt="Exposed aggregate driveway, completed pour" loading="lazy"><figcaption><span>Exposed aggregate drive</span><span class="mono">/01</span></figcaption></figure>
+      <figure class="hg-item rv"><img src="images/work-02.jpg" alt="Aggregate finish detail at the fence line" loading="lazy"><figcaption><span>Aggregate finish detail</span><span class="mono">/02</span></figcaption></figure>
+      <figure class="hg-item rv"><img src="images/work-03.jpg" alt="Poured slab with clean formed edge" loading="lazy"><figcaption><span>Formed edge, slab pour</span><span class="mono">/03</span></figcaption></figure>
+      <figure class="hg-item rv"><img src="images/work-04.jpg" alt="Backyard concrete path and slab" loading="lazy"><figcaption><span>Path &amp; slab set-out</span><span class="mono">/04</span></figcaption></figure>
     </div>
   </div>
   <div class="hgal-nav">
@@ -560,69 +584,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       </div>
     </div>
     
-  </div>
-</section>
-
-<section id="faq">
-  <div class="wrap faq-wrap">
-    <div class="sec-head">
-      <div class="sec-idx rv">04</div>
-      <div>
-        <h2 class="rv d1">Asked on every job.</h2>
-      </div>
-    </div>
-    <details class="faq rv"><summary>How much does a concrete driveway cost?</summary><div class="a">Every job is priced on size, access and finish, and every quote is a firm written price after a site measure, so there are no surprises.</div></details>
-    <details class="faq rv"><summary>What concrete work do you do?</summary><div class="a">All concrete work, exposed aggregate driveways, footpaths, patios, house slabs and civil works.</div></details>
-    <details class="faq rv"><summary>Which areas do you cover?</summary><div class="a">Hobart and surrounds, call with your suburb and we&#39;ll confirm we reach you.</div></details>
-    <details class="faq rv"><summary>How long before I can drive on new concrete?</summary><div class="a">You get a cure schedule with every pour, we walk you through when it&#39;s ready for foot traffic and when it takes cars.</div></details>
-  </div>
-</section>
-
-<section class="cta-strip">
-  <div class="wrap">
-    <h2 class="rv">Ready<br>to pour?</h2>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;" class="rv d1">
-      <a href="tel:0455997235" class="btn btn-ghost">Call 0455 997 235</a>
-      <a href="#quote" class="btn btn-ghost">Get a free quote</a>
-    </div>
-  </div>
-</section>
-
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/hero.jpg" alt="JTC Concreting" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">JTC Concreting</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">JTC Concreting &mdash; recent work</div></div></section><footer>
-  <div class="wrap">
-    <div>
-      <div class="brand"><span class="b-txt"><span class="comp-name">JTC CONCRETING</span><br><span class="comp-sub" style="font-size:10px;letter-spacing:.22em;color:var(--acc);text-transform:none;font-weight:700;">Driveways, pathways &amp; concrete finishes</span></span></div>
-      <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Exposed aggregate &middot; Driveways &amp; extensions &middot; Footpaths &amp; steps &middot; House slabs &amp; civil works, Hobart &amp; surrounds.<br></p>
-    </div>
-    <div>
-      <h4>Services</h4>
-      <a href="#services">Exposed aggregate</a>
-      <a href="#services">Driveways &amp; extensions</a>
-      <a href="#services">Footpaths &amp; steps</a>
-      <a href="#builders">For builders</a>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="#work">Recent work</a>
-      <a href="#process">How a pour runs</a>
-      <a href="#areas">Service area</a>
-      <a href="#faq">FAQ</a>
-      <a href="https://www.facebook.com/share/1CbFpvBSFV" target="_blank" rel="noopener">Facebook</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <a href="tel:0455997235">0455 997 235</a>
-      <a href="#quote">Free quote</a>
-    </div>
-  </div>
-  <div class="footer-bar mono">
-    <span>&copy; 2026 JTC Concreting &middot; Concreting specialists, Hobart &amp; surrounds</span>
-  </div>
-<section id="lbq" class="v4" aria-labelledby="lbq-h">
+    <section id="lbq" class="v4" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#7d5522))));--lbq-ink:#eee7dc;--lbq-muted:#b4ada2;--lbq-bg:#17120d;--lbq-panel:rgba(255,255,255,.05);--lbq-line:rgba(255,255,255,.17);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:#7d5522;--lbq-ink:#27211d;--lbq-muted:#5b5651;--lbq-bg:transparent;--lbq-panel:rgba(39,33,29,.05);--lbq-line:rgba(39,33,29,.26);padding:0;background:transparent;color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
-#lbq .lbq-w{max-width:1060px;margin:0 auto}
+#lbq .lbq-w{max-width:none;margin:0;background:var(--paper);border:1.5px solid var(--ink);padding:38px 36px}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
@@ -653,9 +619,15 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 #lbq.v3 .lbq-hp2{border:1px solid var(--lbq-accent);padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
 /* v4 minimal */
-#lbq.v4 .lbq-w{max-width:620px}
+#lbq.v4{display:block}
+#lbq.v4 .lbq-w{max-width:none}
 #lbq.v4 input,#lbq.v4 textarea{border:0;border-bottom:1px solid var(--lbq-line);border-radius:0;background:transparent;padding:11px 2px}
-#lbq.v4 .lbq-g{display:grid;gap:16px}
+#lbq.v4 .lbq-g{display:grid;gap:14px}
+#lbq .lbq-full{grid-column:1/-1}
+#lbq.v4 input,#lbq.v4 textarea{font-size:15.5px}
+#lbq.v4 label{font-size:11px;letter-spacing:.16em;font-weight:800;color:var(--acc);margin-bottom:8px}
+#lbq.v4 button{width:100%;margin-top:8px;padding:17px;border:0;border-radius:999px;background:var(--acc);color:#f8f5f1;font-weight:900;font-size:14px;letter-spacing:.06em}
+#lbq.v4 button:hover{background:var(--ink)}
 </style>
   <div class="lbq-w">
       <h2 id="lbq-h">Request a quote</h2>
@@ -732,7 +704,65 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 })();
 </script>
 </section>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq-wrap">
+    <div class="sec-head">
+      <div class="sec-idx rv">04</div>
+      <div>
+        <h2 class="rv d1">Asked on every job.</h2>
+      </div>
+    </div>
+    <details class="faq rv"><summary>How much does a concrete driveway cost?</summary><div class="a">Every job is priced on size, access and finish, and every quote is a firm written price after a site measure, so there are no surprises.</div></details>
+    <details class="faq rv"><summary>What concrete work do you do?</summary><div class="a">All concrete work, exposed aggregate driveways, footpaths, patios, house slabs and civil works.</div></details>
+    <details class="faq rv"><summary>Which areas do you cover?</summary><div class="a">Hobart and surrounds, call with your suburb and we&#39;ll confirm we reach you.</div></details>
+    <details class="faq rv"><summary>How long before I can drive on new concrete?</summary><div class="a">You get a cure schedule with every pour, we walk you through when it&#39;s ready for foot traffic and when it takes cars.</div></details>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="wrap">
+    <h2 class="rv">Ready<br>to pour?</h2>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;" class="rv d1">
+      <a href="tel:0455997235" class="btn btn-ghost">Call 0455 997 235</a>
+      <a href="#quote" class="btn btn-ghost">Get a free quote</a>
+    </div>
+  </div>
+</section>
+
+<section class="lb-rb" aria-label="Recent work"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/hero.jpg" alt="Exposed aggregate driveway, Hobart" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="images/work-03.jpg" alt="Formed slab edge, recent pour" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="images/work-04.jpg" alt="Backyard path and slab set-out" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" aria-label="Slide 2"></button><button type="button" aria-label="Slide 3"></button></div><div class="lb-rb__cap">JTC Concreting &mdash; recent work</div></div></section><footer>
+  <div class="wrap">
+    <div>
+      <div class="brand"><span class="b-txt"><span class="comp-name">JTC CONCRETING</span><br><span class="comp-sub" style="font-size:10px;letter-spacing:.22em;color:var(--acc);text-transform:none;font-weight:700;">Driveways, pathways &amp; concrete finishes</span></span></div>
+      <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Exposed aggregate &middot; Driveways &amp; extensions &middot; Footpaths &amp; steps &middot; House slabs &amp; civil works, Hobart &amp; surrounds.<br></p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="#services">Exposed aggregate</a>
+      <a href="#services">Driveways &amp; extensions</a>
+      <a href="#services">Footpaths &amp; steps</a>
+      <a href="#builders">For builders</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#work">Recent work</a>
+      <a href="#process">How a pour runs</a>
+      <a href="#areas">Service area</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://www.facebook.com/share/1CbFpvBSFV" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:0455997235">0455 997 235</a>
+      <a href="#quote">Free quote</a>
+    </div>
+  </div>
+  <div class="footer-bar mono">
+    <span>&copy; 2026 JTC Concreting &middot; Concreting specialists, Hobart &amp; surrounds</span>
+    <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
+  </div></footer>
 
 
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
@@ -933,10 +963,10 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 
 
 <style>/* ==== LB HEADER TRUTH ==== */
-.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
+.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:0 !important;
   align-items:center !important;flex-wrap:nowrap !important}
 .lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
-  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
+  height:clamp(30px,2.6vw,34px) !important;width:auto !important;max-width:30vw !important}
 .lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
   max-width:100% !important;object-fit:contain !important}
 .lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;

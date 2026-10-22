@@ -6,6 +6,7 @@
 <title>Chapo's Concrete - Driveways, Slabs, Excavation | Barossa Valley SA</title>
 <meta name="description" content="Chapo's Concrete: concrete driveways, crossovers, slabs, patios, excavation and tipping across the Barossa Valley. Registered building work, BLD 278399.">
 <link rel="icon" href="assets/logo.jpg">
+<link rel="preload" as="image" href="assets/hero-concrete.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -19,7 +20,7 @@
   --accent:#33c2b4;
   --accent-ink:#04201d;
   --deep:#383d68;
-  --fs-display:clamp(2.5rem,6.1vw,5rem);
+  --fs-display:clamp(2.15rem,3.7vw,3.6rem);
   --fs-h2:clamp(1.6rem,3.4vw,2.5rem);
   --fs-lead:clamp(1.0625rem,1.5vw,1.25rem);
   --fs-small:.845rem;
@@ -59,7 +60,7 @@ section{padding-block:var(--pad)}
   text-decoration:none;color:#f6f9f8;
 }
 .brand img{
-  width:40px;height:40px;flex:0 0 auto;border-radius:50%;
+  width:46px;height:46px;flex:0 0 auto;border-radius:50%;
   border:1px solid var(--line);object-fit:cover;
 }
 .brand span{
@@ -74,20 +75,77 @@ section{padding-block:var(--pad)}
   font-weight:600;text-decoration:none;white-space:nowrap;
 }
 .head-tel i{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:0 0 auto}
-.head-tel:0411141081"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.85rem 1.5rem;border-radius:4px;border:1px solid var(--accent);
+  background:var(--accent);color:var(--accent-ink);
+  font-size:.97rem;font-weight:700;line-height:1.1;text-decoration:none;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.btn:hover{background:#4bd3c4;border-color:#4bd3c4}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{background:rgba(255,255,255,.07);border-color:var(--accent);color:var(--accent)}
+
+/* hero */
+.hero{position:relative;isolation:isolate;padding-block:0}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:
     linear-gradient(100deg,rgba(9,11,11,.94) 0%,rgba(9,11,11,.86) 38%,rgba(9,11,11,.3) 62%,rgba(9,11,11,.12) 100%),
     linear-gradient(180deg,rgba(9,11,11,.55) 0%,rgba(9,11,11,0) 22%,rgba(9,11,11,0) 62%,rgba(9,11,11,.86) 100%);
 }
-.hero-in{width:100%;padding-block:clamp(3rem,7vw,5.5rem)}
+.hero-in{
+  display:grid;gap:clamp(1.6rem,3vw,2.6rem);align-items:start;
+  padding-block:clamp(1.6rem,2.8vw,2.25rem) 0;
+}
+.hero-copy{min-width:0;align-self:start}
+@media (min-width:900px){
+  .hero-in{
+    grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+    gap:clamp(2rem,4vw,4rem);
+    align-items:stretch;
+    min-height:calc(100svh - 76px);
+    padding-block:clamp(2rem,4vw,3.25rem) clamp(2rem,4vw,3.25rem);
+  }
+  .hero-copy{align-self:stretch;display:flex;flex-direction:column;justify-content:flex-start}
+  .hero-facts{margin-top:auto}
+  .hero-media{height:100%;display:flex;flex-direction:column;gap:.8rem}
+  .hero-frame{flex:1;aspect-ratio:auto;max-height:none;min-height:360px}
+}
+
 h1{
   font-size:var(--fs-display);font-weight:900;letter-spacing:-.025em;
-  max-width:19ch;margin-bottom:1.4rem;
+  max-width:20ch;margin-bottom:1.15rem;
 }
 h1 em{font-style:normal;color:var(--accent)}
+.hero-media{position:relative;margin:0;min-width:0;display:grid;gap:.8rem}
+.hero-frame{
+  position:relative;overflow:hidden;border-radius:6px;
+  border:1px solid var(--line);background:#101413;aspect-ratio:4/5;
+}
+.hero-frame canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+@media (min-width:900px){
+  .hero-frame{aspect-ratio:1/1;max-height:min(58vh,520px);width:100%}
+}
+.hero-shot{
+  position:absolute;inset:0;z-index:2;width:100%;height:100%;
+  object-fit:cover;object-position:center 62%;
+}
+.hero-frame::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(9,11,11,.18) 0%,rgba(9,11,11,0) 45%,rgba(9,11,11,.28) 100%);
+}
+.hero-media figcaption{
+  display:flex;justify-content:space-between;gap:1rem;
+  font-size:var(--fs-small);color:var(--muted);
+}
 .hero-lead{max-width:46ch;font-size:var(--fs-lead);color:#dfe7e5}
 .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem;margin-top:2rem}
 .hero-cta .note{font-size:var(--fs-small);color:var(--muted);max-width:22ch}
+.hero-note{font-size:var(--fs-small);color:var(--muted);margin-top:.85rem}
 .hero-facts{
   display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;
   margin-top:clamp(2.5rem,5vw,3.5rem);padding-top:1.2rem;
@@ -214,6 +272,8 @@ form .btn{justify-self:start;border:0;cursor:pointer}
 </style>
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
 
@@ -236,19 +296,26 @@ form .btn{justify-self:start;border:0;cursor:pointer}
 <main id="top">
 
   <section class="hero" aria-labelledby="hero-h">
-    <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
-      <h1 id="hero-h">Concrete poured to spec, <em>across the Barossa.</em></h1>
-      <p class="hero-lead">Driveways, crossovers, slabs and patios, plus the excavation and tipping to get the site ready. One crew, start to finish.</p>
-      <div class="hero-cta">
-        <a class="btn" href="tel:0411141081">Call 0411 141 081</a>
-        <span class="note">Registered building work, BLD 278399.</span>
+      <div class="hero-copy">
+        <h1 id="hero-h">Concrete poured to spec, <em>across the Barossa.</em></h1>
+        <p class="hero-lead">Driveways, crossovers, slabs and patios, plus the excavation and tipping to get the site ready. One crew, start to finish.</p>
+        <div class="hero-cta">
+          <a class="btn" href="tel:0411141081">Call 0411 141 081</a>
+          <a class="btn btn-ghost" href="#quote">Or request a quote</a>
+        </div>
+        <p class="hero-note">Registered building work, BLD 278399.</p>
+        <p class="hero-facts">
+          <span><b>Barossa Valley</b> and surrounds</span>
+          <span><b>Driveways, slabs, patios</b></span>
+        </p>
       </div>
-      <p class="hero-facts">
-        <span><b>Barossa Valley</b> and surrounds</span>
-        <span><b>Driveways, slabs, patios</b></span>
-        <span><b>Excavation and tipping</b></span>
-      </p>
+      <figure class="hero-media">
+        <div class="hero-frame">
+          <img class="hero-shot" src="assets/hero-concrete.jpg" alt="Newly poured concrete patio finished beside a brick home" width="1200" height="1600" decoding="async">
+        </div>
+        <figcaption><span>Site work and finished pours · Barossa Valley</span></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -395,31 +462,6 @@ form .btn{justify-self:start;border:0;cursor:pointer}
   </div>
 </footer>
 
-<script src="assets/heroCanvas.js"></script>
-<script>
-/* hero scene: excavator bucket hanging over the trench, spoil mound, cut batter */
-(function(){
-  var cv = document.getElementById('heroCanvas');
-  if (!cv || !window.Projection) return;
-  var S = Projection.create(cv, {focal:1.52, horizon:.46, camY:1.5, fogNear:10, fogFar:52, fogCol:'#151a19'});
-  var scene = Projection.sceneExcavation(S, {
-    fogCol:'#151a19',
-    tone:{soil:'#3b3529', soil2:'#483f30', clay:'#63513a', clay2:'#756347', sand:'#96794f',
-      gravel:'#645e50', rock:'#4d4a42', lip:'#c4a97c', wear:'#c3cdca', bush:'#26312d', rut:'#241e18'}
-  });
-  S.frame(function(t){
-    var still = Projection.reduced();
-    S.yaw = still ? 0 : Math.sin(t * .13) * .016;
-    S.camX = still ? 0 : Math.sin(t * .07) * .18;
-    scene.render(t, t);
-  });
-  if ('ResizeObserver' in window) new ResizeObserver(function(){ S.resize(); }).observe(cv);
-  else window.addEventListener('resize', function(){ S.resize(); });
-  if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ S.visible = e[0].isIntersecting; }, {threshold:.01}).observe(cv);
-  }
-})();
-</script>
 <script>
 /* reveal */
 (function(){

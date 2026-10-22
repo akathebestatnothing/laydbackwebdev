@@ -175,7 +175,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -183,7 +183,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 
@@ -192,7 +192,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <body>
 <header class="site-hdr">
   <div class="header-inner">
-    <a class="lb-brand" href="#top" aria-label="Newcastle Roofing Specialists - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#100f0e;--lb-subc:#100f0e;--lb-acc:#f07800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__rule-v" aria-hidden="true"></span><span class="lb-brand__word"><span class="lb-brand__name">Newcastle Roofing Specialists</span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Newcastle Roofing Specialists - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#100f0e;--lb-subc:#100f0e;--lb-acc:#f07800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Newcastle Roofing Specialists</span></span></a>
     <nav class="nav" aria-label="Primary">
       <ul>
         <li><a href="#services">Services</a></li>
@@ -217,14 +217,16 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         </div>
         <p class="hero-meta">Licensed &amp; insured <span class="eyebrow__dot"></span> AS 2050 compliant <span class="eyebrow__dot"></span> Free quotes</p>
       </div>
-      <aside class="hero-card" aria-label="Brand and core services">
-        <div class="hero-card__mark"><img src="assets/logo.svg" alt="Newcastle Roofing Specialists mark" loading="eager" decoding="async"></div>
-        <ul class="hero-card__list">
-          <li><span>01</span>Ridge capping &amp; flexible pointing</li>
-          <li><span>02</span>Storm damage &amp; leak repairs</li>
-          <li><span>03</span>Colorbond &amp; Zincalume roofing</li>
-        </ul>
-        <p class="hero-card__foot">Newcastle <span class="eyebrow__dot"></span> Central Coast <span class="eyebrow__dot"></span> Sydney</p>
+      <aside class="hero-card" aria-label="Core services">
+        <div class="hero-card__scene"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas></div>
+        <div class="hero-card__body">
+          <ul class="hero-card__list">
+            <li><span>01</span>Ridge capping &amp; flexible pointing</li>
+            <li><span>02</span>Storm damage &amp; leak repairs</li>
+            <li><span>03</span>Colorbond &amp; Zincalume roofing</li>
+          </ul>
+          <p class="hero-card__foot">Newcastle <span class="eyebrow__dot"></span> Central Coast <span class="eyebrow__dot"></span> Sydney</p>
+        </div>
       </aside>
     </div>
   </section>
@@ -321,7 +323,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <h2 id="contact-title">Newcastle NSW</h2>
         <span class="seam" aria-hidden="true"></span>
       </header>
-      <div classreified="" class="contact-grid">
+      <div class="contact-grid">
         <div class="contact-info">
           <h3>Newcastle Roofing Specialists</h3>
           <address>

@@ -1,0 +1,36 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- KB monogram with terrace-step geometry -->
+  <!-- Background circle (subtle) -->
+  <circle cx="128" cy="128" r="120" fill="#17150f" opacity="0.08"/>
+  
+  <!-- K - left vertical with terrace steps -->
+  <path d="M72 48 L72 208" stroke="#17150f" stroke-width="18" stroke-linecap="round"/>
+  <!-- Terrace steps on the K diagonal -->
+  <path d="M72 72 L136 152" stroke="#600018" stroke-width="14" stroke-linecap="round"/>
+  <path d="M72 128 L136 208" stroke="#4c6b3f" stroke-width="14" stroke-linecap="round"/>
+  
+  <!-- B - right side with terrace levels -->
+  <path d="M184 48 L184 208" stroke="#17150f" stroke-width="18" stroke-linecap="round"/>
+  <!-- Upper terrace level -->
+  <path d="M184 72 L232 72" stroke="#600018" stroke-width="12" stroke-linecap="round"/>
+  <!-- Middle terrace level (longer) -->
+  <path d="M184 128 L240 128" stroke="#4c6b3f" stroke-width="12" stroke-linecap="round"/>
+  <!-- Lower terrace level -->
+  <path d="M184 184 L232 184" stroke="#600018" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Connecting vertical riser between K and B (retaining wall concept) -->
+  <path d="M136 72 L184 72" stroke="#17150f" stroke-width="6" stroke-linecap="round" stroke-dasharray="8 4"/>
+  <path d="M136 128 L184 128" stroke="#17150f" stroke-width="6" stroke-linecap="round" stroke-dasharray="8 4"/>
+  <path d="M136 184 L184 184" stroke="#17150f" stroke-width="6" stroke-linecap="round" stroke-dasharray="8 4"/>
+  
+  <!-- Small accent marks suggesting planted beds -->
+  <circle cx="100" cy="152" r="3" fill="#4c6b3f"/>
+  <circle cx="112" cy="148" r="2" fill="#4c6b3f"/>
+  <circle cx="108" cy="160" r="2" fill="#4c6b3f"/>
+  <circle cx="220" cy="100" r="3" fill="#4c6b3f"/>
+  <circle cx="228" cy="104" r="2" fill="#4c6b3f"/>
+  <circle cx="224" cy="112" r="2" fill="#4c6b3f"/>
+  <circle cx="220" cy="156" r="3" fill="#4c6b3f"/>
+  <circle cx="228" cy="160" r="2" fill="#4c6b3f"/>
+  <circle cx="224" cy="168" r="2" fill="#4c6b3f"/>
+</svg>

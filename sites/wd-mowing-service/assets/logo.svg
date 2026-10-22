@@ -1,20 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
-  <title id="title">WD Mowing Service logo</title>
-  <!-- Lawn plane in perspective: a parallelogram representing the striped lawn -->
-  <g id="lawn-plane">
-    <!-- Base ground plane (light) - expanded to fill more of canvas -->
-    <path fill="#f1f5ea" d="M16 48 L240 48 L224 128 L0 128 Z"/>
-    <!-- Dark stripes (perspective) - alternating with light -->
-    <path fill="#5f8b27" d="M16 48 L240 48 L232 68 L8 68 Z"/>
-    <path fill="#5f8b27" d="M16 88 L240 88 L232 108 L8 108 Z"/>
-    <path fill="#5f8b27" d="M16 128 L240 128 L224 148 L0 148 Z"/>
-    <!-- Mower wheel tracks (two parallel lines converging in perspective) - as filled shapes -->
-    <path fill="#2f3a2a" d="M40 48 L36 56 L44 128 L48 120 Z"/>
-    <path fill="#2f3a2a" d="M216 48 L220 56 L212 128 L208 120 Z"/>
-    <!-- Clean edge line (border strip) - as filled shape -->
-    <path fill="#2f3a2a" d="M16 48 L0 56 L8 128 L24 120 Z"/>
-    <!-- Catcher clippings pile at corner (small mound) -->
-    <path fill="#5f8b27" d="M228 68 Q236 64 244 68 Q248 76 240 80 Q232 84 228 80 Q224 78 224 72 Q226 69 228 68 Z"/>
-    <path fill="#4a701f" d="M230 70 Q235 67 240 70 Q242 74 237 76 Q233 79 230 77 Q228 75 228 71 Q229 69 230 70 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="wdlogo-title">
+  <title id="wdlogo-title">WD Mowing Service logo</title>
+  <defs>
+    <clipPath id="wdlawn">
+      <path d="M66 70 H190 L212 188 H44 Z"/>
+    </clipPath>
+  </defs>
+  <rect width="256" height="256" rx="54" fill="#13180f"/>
+  <rect x="7" y="7" width="242" height="242" rx="48" fill="none" stroke="#f1f5ea" stroke-opacity=".22" stroke-width="2"/>
+  <g clip-path="url(#wdlawn)">
+    <rect x="44" y="70" width="168" height="118" fill="#dfe9c9"/>
+    <rect x="44" y="70" width="168" height="15" fill="#5f8b27"/>
+    <rect x="44" y="98" width="168" height="21" fill="#5f8b27"/>
+    <rect x="44" y="132" width="168" height="28" fill="#5f8b27"/>
+    <rect x="44" y="172" width="168" height="16" fill="#3f5f1c"/>
+    <path d="M100 70 L94 188" stroke="#13180f" stroke-opacity=".45" stroke-width="5"/>
+    <path d="M152 70 L160 188" stroke="#13180f" stroke-opacity=".45" stroke-width="5"/>
   </g>
+  <path d="M66 70 H190 L212 188 H44 Z" fill="none" stroke="#f1f5ea" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M66 70 H190" stroke="#cfe3a4" stroke-width="4"/>
 </svg>

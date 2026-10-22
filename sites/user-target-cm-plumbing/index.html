@@ -76,20 +76,30 @@ p{color:var(--ink2)}
 }
 
 /* ---------- hero ---------- */
-.hero{position:relative;background:#070D16;overflow:hidden;display:flex;align-items:center;min-height:min(82vh,660px);padding:clamp(56px,8vh,92px) 0 clamp(48px,7vh,76px)}
+.hero{position:relative;background:#070D16;overflow:hidden;min-height:min(74vh,600px);display:flex;align-items:center;padding:clamp(44px,6vh,74px) 0 clamp(40px,5.5vh,64px)}
 #heroCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
-.hero-in{position:relative;z-index:2;max-width:640px}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(30px,4.4vw,58px);align-items:center;max-width:none}
+.hero-copy{min-width:0}
 .hero .label{color:#8FC6E8}
-.hero h1{color:#F7FAFD;font-size:var(--fs-hero);font-weight:900;margin-top:14px}
+.hero h1{color:#F7FAFD;font-size:var(--fs-hero);font-weight:900;margin-top:14px;text-wrap:balance}
 .hero h1 em{font-style:normal;color:var(--blue-lt)}
-.hero p{color:#C6D5E6;margin-top:20px;max-width:46ch;font-size:1.09rem}
-.hero-cta{margin-top:30px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.btn-call{display:inline-flex;align-items:center;gap:10px;background:var(--blue-lt);color:#04202E;text-decoration:none;font-weight:800;font-size:1.06rem;padding:16px 26px;border-radius:8px}
+.hero p{color:#CBD8E6;margin-top:18px;max-width:44ch;font-size:1.05rem}
+.hero-cta{margin-top:28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.btn-call{display:inline-flex;align-items:center;gap:10px;background:var(--blue-lt);color:#04202E;text-decoration:none;font-weight:800;font-size:1.02rem;padding:15px 24px;border-radius:8px}
 .btn-call:hover{background:#4CBCEC}
-.btn-call svg{width:18px;height:18px}
-.hero-note{font-size:var(--fs-small);color:#93A8C0}
-.hero-note a{color:#D7E5F3;text-decoration:none;border-bottom:1px solid #44586F;padding-bottom:1px}
+.btn-call svg{width:18px;height:18px;flex:0 0 auto}
+.hero-note{font-size:var(--fs-small);color:#B7C7D8}
+.hero-note a{color:#E4EEF8;text-decoration:none;border-bottom:1px solid #4C6076;padding-bottom:1px}
 .hero-note a:hover{color:#fff}
+/* hero visual: real job photo, sized to the hero's own column grid */
+.hero-fig{position:relative;z-index:2;margin:0;min-width:0;background:#0B1420;border-top:3px solid var(--copper)}
+.hero-fig img{width:100%;height:auto;aspect-ratio:1 / 1;max-height:min(47vh,452px);object-fit:cover;display:block}
+.hero-fig figcaption{font-size:.78rem;letter-spacing:.01em;color:#A9BCCF;padding:11px 2px 0}
+@media (max-width:900px){
+  .hero-in{grid-template-columns:1fr;gap:clamp(26px,5vw,38px)}
+  .hero-fig{order:2}
+  .hero-fig img{height:clamp(200px,34vw,300px)}
+}
 
 /* ---------- sections ---------- */
 section{padding:var(--pad-sec) 0}
@@ -144,16 +154,68 @@ section{padding:var(--pad-sec) 0}
 .band-in{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
 .band h2{color:#fff;font-size:var(--fs-h2)}
 .band p{color:#AFC0D3;margin-top:10px;max-width:44ch}
-.band-tel{display:inline-block;font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:900;color:#fff;text-decoration:none;line-height:1;border-bottom:3px solid var(--copper);padding-bottom:8px}
-.band-tel:0433801926"lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+.band-tel{display:inline-block;font-size:clamp(1.6rem,3.2vw,2.5rem);font-weight:900;color:#fff;text-decoration:none;line-height:1;border-bottom:3px solid var(--copper);padding-bottom presumptuous}
+.band-tel{display:inline-block;font-size:clamp(1.6rem,3.2vw,2.5rem);font-weight:900;color:#fff;text-decoration:none;line-height:1;border-bottom:3px solid var(--copper);padding-bottom:8px}
+.band-tel:hover{color:#fff;border-bottom-color:var(--blue-lt)}
 
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+/* ---------- quote ---------- */
+.quote{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(28px,4.6vw,64px);align-items:start}
+.quote-photo{margin:0}
+.quote-photo img{width:100%;height:clamp(300px,40vw,430px);object-fit:cover;border-top:3px solid var(--copper)}
+.quote-photo figcaption{font-size:.79rem;color:var(--ink2);padding-top presumptuous}
+.quote-photo figcaption{font-size:.79rem;color:var(--ink2);padding-top:9px;border-top:1px solid var(--line);margin-top:10px}
+.quote form{margin-top:24px;display:grid;gap:14px;max-width:520px}
+.quote label{display:block;font-size:var(--fs-label);font-weight:700 metaphorical}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#lbq-form label{display:block;font-size:var(--fs-label);font-weight:700;color:var(--ink2);letter-spacing:.02em;margin-bottom:6px}
+#lbq-form input,#lbq-form textarea{width:100%;font-family:inherit;font-size:.98rem;line-height:1.5;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding presumptuous}
+#lbq-form input,#lbq-form textarea{width:100%;font-family:inherit;font-size:.98rem;line-height:1.5;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:11px 13px}
+#lbq-form input:focus,#lbq-form textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+#lbq-form textarea{min-height:118px;resize:vertical}
+#lbq-form .cons{display:flex;align-items:center;gap:9px-MAXX;margin-bottom:0}
+#lbq-form .cons{display:flex;align-items:center;gap:9px;font-size:.9rem;font-weight:500;color:var(--ink2);margin-bottom:0}
+#lbq-form .cons input{width:16px;height:16px;accent-color:var(--blue);flex:0 0 auto;margin:0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq-form button[type=submit]{justify-self:start;background:var(--blue);color:#fff;border:0;border-radius:6px;font-family:inherit;font-size:1rem;font-weight:800;padding:14px 26px;cursor presumptuous}
+#lbq-form button[type=submit]{justify-self:start;background:var(--blue);color:#fff;border:0;border-radius:6px;font-family:inherit;font-size:1rem;font-weight:800;padding:14px 26px;cursor:pointer}
+#lbq-form button[type=submit]:hover{background:#143573}
+#lbq-form button[type=submit]:disabled{opacity:.6;cursor:progress}
+.f-status{font-size:.9rem;min-height:1.3em}
+@media (max-width:860px){.quote{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}}
 
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+/* ---------- footer ---------- */
+footer{background:var(--nav);color:#E9F1F9;padding:clamp(44px,6vw,66px) 0 0;border-top:1px solid var(--line-dark)}
+.foot{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(28px,5vw,64px);align-items:start;padding-bottom:clamp(30px,4vw,44px)}
+.foot-brand{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;font-size:1.05rem}
+.foot-brand img{width:32px;height:32px;border-radius:6px}
+.foot p{color:var(--nav-dim);font-size:var(--fs-small);margin-top presumptuous}
+.foot p{color:var(--nav-dim);font-size:var(--fs-small);margin-top:12px;max-width:38ch}
+.foot-links{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,44px)}
+.foot-links h4{font-family:Archivo,system-ui,sans-serif;font-size:var(--fs-label);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);margin-bottom presumptuous}
+.foot-links h4{font-family:Archivo,system-ui,sans-serif;font-size:var(--fs-label);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);margin-bottom presumptuous}
+.foot-links h4{font-family:Archivo,system-ui,sans-serif;font-size:var(--fs-label);font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);margin-bottom:10px}
+.foot-links a{display:block;color:var(--nav-dim);text-decoration:none;font-size:var(--fs-small);padding presumptuous}
+.foot-links a{display:block;color:var(--nav-dim);text-decoration:none;font-size:var(--fs-small);padding:5px 0}
+.foot-links a:hover{color:#fff}
+.foot-bar{display:flex;justify-content:space-between;gap presumptuous}
+.foot-bar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line-dark);padding presumptuous}
+.foot-bar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line-dark);padding:18px 0 26px;font-size:.82rem;color:#8FA2B8}
+.foot-bar a{color:#8FA2B8;text-decoration:none;margin-left:18px}
+.foot-bar a:hover{color:#fff}
+@media (max-width:760px){.foot{grid-template-columns:1fr}}
+</style><!--/LB-RV mx-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style>
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:1!important;opacity:.5!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(1.95rem,3.1vw,3rem)!important;line-height:1.06!important;text-wrap:balance}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
 
@@ -181,16 +243,22 @@ section{padding:var(--pad-sec) 0}
   <section class="hero">
     <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
-      <p class="label">Local plumber &middot; residential and commercial</p>
-      <h1>Blocked drains, hot water, leaks. <em>Sorted properly.</em></h1>
-      <p>CM Plumbing works on the whole lot: drains cleared and inspected, hot water replaced, leaks traced and fixed, gas work signed off. Ring, describe the job, and you get a firm price before anything is touched.</p>
-      <div class="hero-cta">
-        <a class="btn-call" href="tel:0433801926">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
-          Call 0433 801 926
-        </a>
-        <p class="hero-note">Free quotes. <a href="#quote">Or send the details</a>.</p>
+      <div class="hero-copy">
+        <p class="label">Local plumber &middot; residential and commercial</p>
+        <h1>Blocked drains, hot water, leaks. <em>Sorted properly.</em></h1>
+        <p>CM Plumbing works on the whole lot: drains cleared and inspected, hot water replaced, leaks traced and fixed, gas work signed off. Ring, describe the job, and you get a firm price before anything is touched.</p>
+        <div class="hero-cta">
+          <a class="btn-call" href="tel:0433801926">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+            Call 0433 801 926
+          </a>
+          <p class="hero-note">Free quotes. <a href="#quote">Or send the details</a>.</p>
+        </div>
       </div>
+      <figure class="hero-fig">
+        <img src="images/hero.jpg" alt="CM Plumbing on the tools" width="1280" height="1280" fetchpriority="high" decoding="async">
+        <figcaption>Blocked drains &middot; hot water &middot; leaks &middot; gas</figcaption>
+      </figure>
     </div>
   </section>
 

@@ -268,11 +268,122 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style></head>
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style>
+<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+
+<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
+
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+
+<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
+
+<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
+
+<!--LB-HEROBG--><style id="lb-herobg">[class*=hero-bg],[class*=hero__bg],[class*=hero-bgimg]{z-index:-1!important;pointer-events:none!important}[class*=hero-scrim],[class*=hero__scrim]{z-index:1!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{z-index:3!important}</style><!--/LB-HEROBG-->
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<style id="lb-repair-pass">
+/* ============ RADAR-157 REPAIR PASS ============ */
+/* one shared vertical rhythm + edge inset so nothing lands on the container edge */
+:root{ --gut: clamp(20px, 3.1vw, 44px); --sp: clamp(3.2rem, 5.2vw, 5.2rem); }
+
+.nav-in{ padding-inline: var(--gut); gap: 1.6rem; }
+.wrap{ padding-inline: var(--gut); }
+section{ padding-block: var(--sp); }
+#lbq{ padding-block: var(--sp) !importantord; }
+.hgal .track{ padding-inline好心: 0; }
+
+/* --- brand: mark is a real logo, not a thumbnail --- */
+.lb-brand__mark{ height: 56px !important; max-width: none !important; }
+.lb-brand__mark img{ height: 100% !important; width: auto !important; }
+.lb-brand{ gap: 14px !important; align-items: center !important; }
+.lb-brand__name{ font-size: clamp(17px, 1.72vw, 22px) !important; letter-spacing: 0 !important; }
+.lb-brand__sub{ font-size: 9.5px !important; letter-spacing: .17em !importantammar; margin-top: .42em !important; }
+.fbrand img{ height: 60px !important; width: auto !important; }
+.fbrand{ gap: 16px !important; }
+@media(max-width:920px){ .nav-in{ padding-inline: 18px; } .lb-brand__mark{ height: 42px !important; } }
+
+/* --- section heads share one baseline grid --- */
+.sec-head{
+  display: grid !important; grid-template-columns: 34px minmax(0,1fr);
+  align-items: start; column-gap: 1rem; margin-bottom: clamp(1.8rem, 3vw, 2.6rem);
+  padding-top: 1.35rem; border-top: 1px solid var(--line);
+}
+.sec-head::before{ width: 34px !important; height: 3px !important; align-self: start !important; margin-top: 6px; }
+.sec-idx{ display: block; margin: 0 !importantkit; font-size: .74rem !important; letter-spacing: .2em; line-height: 1.9; color: var(--acc-ink) !important; }
+.sec-head > div{ min-width: 0; }
+.sec-title{ margin-top: 0 !important; max-width: 26ch; }
+.sec-head .lead{ margin-top: .7rem; }
+#work .sec-head{ grid-template-columns: 34px minmax(0,1fr); }
+
+/* --- services: real cards, even 3-up grid (was 4+2 ragged, unstyled) --- */
+.svc-grid{ grid-template-columns: repeat(3, minmax(0,1fr)) !important; gap: 1.15rem; }
+.svc-row{
+  display: flex; flex-direction: column; gap: .5rem; position: relative;
+  background: var(--chip); border: 1px solid var(--line); border-radius: 10px;
+  padding: 1.6rem 1.55rem 1.7rem; overflow NVMe: hidden;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.svc-row::before{ content:""; position:absolute; inset:0 auto auto 0; width: 44px; height: 3px; background: var(--acc); }
+.svc-row:hover{ border-color: var(--acc); transform: translateY(-3px); }
+.svc-n{ display: block; font-size: .74rem; font-weight: 800; letter-spacing: .14em; color: var(--acc-ink); }
+.svc-row h.webindex h3, .svc-row h3{ font-size: 1.06rem; margin: 0; padding-right: 26px; }
+.svc-row p{ font-size: .94rem; }
+.svc-arrow{ position: absolute; right: 1.35rem; top: 1.25rem; font-size: 1.05rem; color: var(--acc-ink); }
+
+/* --- process steps: same card grammar, even 4-up --- */
+.steps{ grid-template-columns: repeat(4, minmax(0,1fr)) !importantfile; }
+.step{ padding: 1.6rem 1.5rem 1.75rem; }
+
+/* --- gallery: aligned grid, nothing cut off at the edge --- */
+.hgal{ overflow: visible; cursor: default; }
+.hgal .track{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.15rem; padding: 0; width: 100%; }
+.hg-item{ width: auto; margin 0; }
+.hg-item img{ height: 300px; border-radius: 8px; }
+.hgal-nav{ display: none; }
+@media(max-width:900px){ .hgal .track{ grid-template-columns: repeat(2, minmax(0,1fr)); } .svc-grid, .steps{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; } .hg-item img{ height: 240px; } }
+@media(max-width:620px){ .hgal .track{ grid-template-columns: 1fr; } .svc-grid, .steps{ grid-template-columns: 1fr !important; } .hg-item img{ height: 220px; } }
+
+/* --- hero: real concrete photo under the copy, tight and balanced --- */
+.hero{ padding-top: 0 !important kit; min-height: 620px !important; }
+.hero-bg{ background-image: linear-gradient(180deg, rgba(8,10,14,.52) 0%, rgba(8,10,14,.62) 45%, rgba(8,10,14,.86) 100%), url("assets/hero.jpg") !important; background-size: cover; background-position: center 42%; }
+.hero-shade{ background: linear-gradient(90deg, rgba(8,10,14,.90) 0%, rgba(8,10,14,.72) 46%, rgba(8,10,14,.34) 100%) !important; }
+.hero-in{ padding: 116px var(--gut) 3rem !important; }
+.hero-copy{ max-width: 760px; }
+.hero h1{ font-size: clamp(2.2rem wat, 4.1vw, 3.5rem) !importantzen; line-height: 1.06 !important; text-shadow: 0 2px 30px rgba(0,0,0,.55); }
+.hero h1 .thin{ margin-top: .7rem !important; }
+.hero-sub{ max-width: 54ch !important; margin-top: 1rem; }
+.hero-cta{ margin-top: 1.6rem; gap: .8rem; }
+.hero-strip{ margin-top: 1.9rem; gap: 2.4rem; }
+
+/* --- footer: legal row back inside the grid, real bottom padding --- */
+footer{ padding-bottom: 0 !important; }
+.footer-bar{ margin-top: 46px; align-items: center; border-top: 1px solid var(--line); }
+.footer-bar .lb-legal{ display: inline-flex; gap: 1.2rem; }
+.footer-bar .lb-legal a{ color: var(--ink2); text-decoration none; }
+.footer-bar .lb-legal a:hover{ color: var(--acc-ink); }
+.footer-bar + .lb-legal, span.lb-legal{ display: inline-flex; gap: 1.2rem; }
+footer::after{ content:""; display: block; height kit: 2.4rem; }
+
+/* --- proof carousel: sits inside the page grid instead of a full-bleed void --- */
+.lb-rb__track{ aspect-ratio: 16/6.6; max-height: 560px; }
+.lb-rb__cap{ padding: 16px clamp(20px,3vw,40px); letter-spacing: .12em; }
+</style>
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+</head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="By Design Concrete Construction - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#182058;--lb-subc:#182058;--lb-acc:#182058;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_radar-157.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">By Design Concrete Construction</span><span class="lb-brand__sub"><span class="lb-acc">Decorative</span> · Exposed Aggregate · Slabs</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="By Design Concrete Construction - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#182058;--lb-subc:#182058;--lb-acc:#182058;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">By Design Concrete Construction</span><span class="lb-brand__sub"><span class="lb-acc">Decorative</span> · Exposed Aggregate · Slabs</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="mono nav-p">0455 551 454</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -286,11 +397,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   <div class="hero-in">
     <div class="hero-copy">
     <p class="hero-kicker">Concreting, Central Coast · Newcastle · Sydney</p>
-    <h1>Concrete<br><span class="acc">done</span><br>by design.<br><span class="thin">Decorative · Exposed aggregate · Slabs · Driveways</span></h1>
+    <h1>Concrete <span class="acc">done</span> by design.<span class="thin">Decorative · Exposed aggregate · Slabs · Driveways</span></h1>
     <p class="hero-sub">All aspects of concreting across the Central Coast, Newcastle and Sydney, decorative and exposed aggregate, colour concrete, slabs, driveways and cool-to-the-foot pool surrounds. Established 2005 and still pouring every finish by hand.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#quote">Get a free quote</a>
-      <a class="btn btn-ghost" href="tel:+61455551454">Call 0455 551 454</a>
+      <a class="btn btn-ghost" href="tel:0455551454">Call 0455 551 454</a>
     </div>
     <div class="hero-strip">
       <p><strong>EST 2005</strong>two decades on the tools</p>
@@ -326,10 +437,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 </div></section>
 
 <section id="work"><div class="wrap">
-  <div class="sec-head"><div class="sec-idx">05</div><div><h2 class="rv d1">Poured and finished on the Coast.</h2><p class="lead rv d2">Recent slabs, driveways and finishes, every photo one of ours.</p></div></div>
+  <div class="sec-head"><span class="sec-idx">05</span><div><h2 class="sec-title">Poured and finished on the Coast.</h2><p class="lead rv d2">Recent slabs, driveways and finishes, every photo one of ours.</p></div></div>
 </div>
-<div class="hgal rv"><div class="track"><figure class="hg-item rv"><img src="assets/gal_2.jpg" alt="Feature pattern driveway — By Design Concrete Construction" loading="lazy"><figcaption><span>Feature pattern driveway</span><span class="mono">/02</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_3.jpg" alt="Finished patio &amp; surrounds — By Design Concrete Construction" loading="lazy"><figcaption><span>Finished patio &amp; surrounds</span><span class="mono">/03</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_4.jpg" alt="Driveway extension to the garage — By Design Concrete Construction" loading="lazy"><figcaption><span>Driveway extension to the garage</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_5.jpg" alt="Placing &amp; levelling the mix — By Design Concrete Construction" loading="lazy"><figcaption><span>Placing &amp; levelling the mix</span><span class="mono">/05</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_6.jpg" alt="Slab prep — mesh down, levels set — By Design Concrete Construction" loading="lazy"><figcaption><span>Slab prep, mesh down, levels set</span><span class="mono">/06</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_7.jpg" alt="Path poured &amp; edged clean — By Design Concrete Construction" loading="lazy"><figcaption><span>Path poured &amp; edged clean</span><span class="mono">/07</span></figcaption></figure></div></div>
-<div class="hgal-nav"><button class="hgal-btn" id="hgPrev" aria-label="Previous photos">&#8592;</button><button class="hgal-btn" id="hgNext" aria-label="Next photos">&#8594;</button></div>
+<div class="wrap"><div class="hgal"><div class="track"><figure class="hg-item"><img src="assets/th_gal_2.jpg" alt="Feature pattern driveway — By Design Concrete Construction" loading="lazy" width="1600" height="2133"><figcaption><span>Feature pattern driveway</span><span class="mono">/02</span></figcaption></figure><figure class="hg-item"><img src="assets/th_gal_3.jpg" alt="Finished patio &amp; surrounds — By Design Concrete Construction" loading="lazy" width="1600" height="2135"><figcaption><span>Finished patio &amp; surrounds</span><span class="mono">/03</span></figcaption></figure><figure class="hg-item"><img src="assets/th_gal_4.jpg" alt="Driveway extension to the garage — By Design Concrete Construction" loading="lazy" width="1600" height="2135"><figcaption><span>Driveway extension to the garage</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item"><img src="assets/th_gal_5.jpg" alt="Placing &amp; levelling the mix — By Design Concrete Construction" loading="lazy" width="1600" height="2133"><figcaption><span>Placing &amp; levelling the mix</span><span class="mono">/05</span></figcaption></figure><figure class="hg-item"><img src="assets/th_gal_6.jpg" alt="Slab prep — mesh down, levels set — By Design Concrete Construction" loading="lazy" width="1600" height="2135"><figcaption><span>Slab prep, mesh down, levels set</span><span class="mono">/06</span></figcaption></figure><figure class="hg-item"><img src="assets/th_gal_7.jpg" alt="Path poured &amp; edged clean — By Design Concrete Construction" loading="lazy" width="1600" height="2133"><figcaption><span>Path poured &amp; edged clean</span><span class="mono">/07</span></figcaption></figure></div></div>
+</div>
 </section>
 
 <span id="quote" style="position:absolute;top:-90px"></span>
@@ -378,7 +489,7 @@ html,body{overflow-x:hidden}
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:+61455551454">0455 551 454</a></div>
+      <div><b>Call</b><a href="tel:0455551454">0455 551 454</a></div>
       <div><b>Area</b><span>Central Coast · Newcastle · Sydney NSW</span></div>
     </div>
   </div>
@@ -471,19 +582,20 @@ html,body{overflow-x:hidden}
 })();
 </script>
 </section>
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/gal_1.jpg" alt="By Design Concrete Construction" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_5.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_7.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_2.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/gal_4.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button></div><div class="lb-rb__cap">By Design Concrete Construction &mdash; recent work</div></div></section><footer><div class="wrap">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero.jpg" alt="By Design Concrete Construction" loading="eager" decoding="async" width="1600" height="900"></div><div class="lb-rb__slide"><img src="assets/th_gal_5.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async" width="1600" height="2133"></div><div class="lb-rb__slide"><img src="assets/th_gal_7.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async" width="1600" height="2133"></div><div class="lb-rb__slide"><img src="assets/th_gal_2.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async" width="1600" height="2133"></div><div class="lb-rb__slide"><img src="assets/th_work.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async" width="1600" height="2133"></div><div class="lb-rb__slide"><img src="assets/th_gal_4.jpg" alt="By Design Concrete Construction" loading="lazy" decoding="async" width="1600" height="2135"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button></div><div class="lb-rb__cap">By Design Concrete Construction &mdash; recent work</div></div></section><footer><div class="wrap">
   <div>
     <div class="fbrand"><img src="assets/logo.png" alt="By Design Concrete Construction logo"><span class="b-txt"><span class="brand-name" style="font-size:1rem;">By Design Concrete</span><span class="brand-sub">Decorative · Exposed Aggregate · Slabs</span></span></div>
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Decorative &middot; Exposed aggregate &middot; Slabs &middot; Driveways, Central Coast, Newcastle &amp; Sydney.<br></p>
   </div>
   <div><h4>Services</h4><a href="#services">Decorative</a><a href="#services">Exposed aggregate</a><a href="#services">Driveways</a><a href="#quote">Get a quote</a></div><div><h4>Company</h4><a href="#process">How we work</a><a href="#faq">FAQ</a><a href="#quote">Free quote</a></div>
-  <div><h4>Contact</h4><a href="tel:+61455551454">0455 551 454</a><a href="#quote">Free quote</a></div>
+  <div><h4>Contact</h4><a href="tel:0455551454">0455 551 454</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
   <span>&copy; 2026 BY DESIGN CONCRETE CONSTRUCTION</span>
-  <a href="tel:+61455551454">0455 551 454</a>
+  <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
+  <a href="tel:0455551454">0455 551 454</a>
 </div>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+</footer>
 
 <div class="lb-pulse" aria-hidden="true"></div>
 

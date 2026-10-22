@@ -151,11 +151,59 @@ footer a:hover { color: var(--acc); }
 @media (max-width: 900px) { footer .wrap { grid-template-columns: 1fr 1fr; } }
 .hv-motif{background-image:repeating-linear-gradient(90deg, var(--acc) 0 10px, transparent 10px 22px);}.hero-kicker::before{background:var(--acc)}.brand img,.fbrand img{border:1px solid var(--line);background:#fff;padding:4px;border-radius:8px}
 </style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript></head>
+<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript>
+<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+
+<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
+
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">.hero{min-height:clamp(560px,78vh,760px)!important;max-height:none;display:flex;align-items:center;position:relative}.hero>*{position:relative;z-index:2}.hero:has(canvas):before{content:none}</style><!--/LB-HERO-HEIGHT-->
+
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+
+<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
+
+<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+
+<!--R149 FIX--><style id="r149fix">
+/* hero: canvas under copy, no flat veil — canvas paints a light wash only */
+.hero{min-height:clamp(600px,80vh,780px)!important;overflow:hidden}
+.hero canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:0!important;opacity:1!important;height:100%!important}
+.hero .hero-in{display:grid!important;min-height:0!important;max-height:none!important}
+.hero .hero-copy{display:block!important;min-height:0!important;max-height:none!important}
+.hero .hero-visual{display:block!important;min-height:0!important;max-height:none!important}
+.hero .hero-kicker,.hero .hero-sub,.hero .hero-strip,.hero .hero-strip p,.hero .hero-strip strong{min-height:0!important;max-height:none!important}
+.hero .hero-tag{min-height:0!important;max-height:none!important;height:auto;line-height:1;white-space:nowrap;align-self:auto}
+.hero:has(canvas)::before{background:none!important;content:none!important}
+.hero .hero-shade{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 62%,rgba(255,255,255,.92) 100%)!important;z-index:1}
+.hero>.hero-in{z-index:2}
+/* grid: tracks must not be overrun by fixed-width copy */
+.hero .hero-in{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)!important;gap:2.8rem!important;padding:calc(80px + 4vh) 44px 3.2rem!important;align-items:center}
+.hero .hero-copy{width:100%!important;max-width:none!important;min-width:0!important}
+.hero .hero-copy .hero-sub{max-width:58ch!important}
+.hero .hero-kicker{margin-bottom:.9rem!important}
+.hero .hero-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;align-items:start}
+.hero .hero-strip p{font-size:.66rem;line-height:1.4}
+.hero .hero-strip strong{font-size:.98rem;line-height:1.25;margin-top:.25rem}
+.hero .hero-strip span{display:block;margin-top:.1rem;color:var(--ink2);font-size:.66rem;letter-spacing:.02em;text-transform:none}
+@media (max-width:1100px){.hero .hero-in{gap:2rem!important}.hero .hero-strip{gap:1rem}}
+@media (max-width:1000px){.hero .hero-in{grid-template-columns:1fr!important;padding:calc(80px + 3vh) 20px 2.4rem!important}}
+@media (max-width:640px){.hero .hero-in{padding:calc(72px + 2vh) 18px 2rem!important}.hero .hero-strip{grid-template-columns:1fr 1fr;gap:.9rem}}
+</style><!--/R149 FIX-->
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+</head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="brand" href="#top"><img src="assets/logo.png" alt="Metrowalls Plastering logo"><span class="b-txt"><span class="brand-name">Metrowalls</span><br><span class="brand-sub">Plastering &middot; Melbourne Wide</span></span></a>
+  <a class="brand" href="#top"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"><span class="b-txt"><span class="brand-name">Metrowalls</span><br><span class="brand-sub">Plastering &middot; Melbourne Wide</span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#work">Work</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="mono nav-p">0405 985 960</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -172,12 +220,12 @@ footer a:hover { color: var(--acc); }
     <p class="hero-sub">Residential and commercial plastering across Melbourne &mdash; new builds, extensions, repairs, insulation and renovations, finished flat, square and ready for paint.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#quote">Get a free quote</a>
-      <a class="btn btn-ghost" href="tel:+61405985960">Call 0405 985 960</a>
+      <a class="btn btn-ghost" href="tel:0405985960">Call 0405 985 960</a>
     </div>
     <div class="hero-strip">
-      <p><strong><strong>Residential &amp; commercial</strong></strong>every kind of project</p>
-      <p><strong><strong>Melbourne wide</strong></strong>Keysborough based</p>
-      <p><strong><strong>Free quotes</strong></strong>clear pricing up front</p>
+      <p><strong>Residential &amp; commercial</strong><span>every kind of project</span></p>
+      <p><strong>Melbourne wide</strong><span>Keysborough based</span></p>
+      <p><strong>Free quotes</strong><span>clear pricing up front</span></p>
     </div>
     </div>
     <div class="hero-visual">
@@ -251,7 +299,7 @@ footer a:hover { color: var(--acc); }
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:+61405985960">0405 985 960</a></div>
+      <div><b>Call</b><a href="tel:0405985960">0405 985 960</a></div>
       <div><b>Email</b><a href="mailto:Info@metrowallsplastering.com">Info@metrowallsplastering.com</a></div>
       <div><b>Area</b><span>Melbourne wide &middot; Keysborough VIC</span></div>
     </div>
@@ -351,11 +399,11 @@ footer a:hover { color: var(--acc); }
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Residential &middot; Commercial &middot; Repairs &middot; Insulation &mdash; Melbourne wide.<br></p>
   </div>
   <div><h4>Services</h4><a href="#services">New homes</a><a href="#services">Fit-outs</a><a href="#services">Repairs</a><a href="#services">Insulation</a></div><div><h4>Company</h4><a href="#process">How we work</a><a href="#faq">FAQ</a><a href="#work">Recent work</a><a href="#quote">Free quote</a></div>
-  <div><h4>Contact</h4><a href="tel:+61405985960">0405 985 960</a><a href="mailto:Info@metrowallsplastering.com">Info@metrowallsplastering.com</a><a href="#quote">Free quote</a></div>
+  <div><h4>Contact</h4><a href="tel:0405985960">0405 985 960</a><a href="mailto:Info@metrowallsplastering.com">Info@metrowallsplastering.com</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
-  <span>&copy; 2026 METROWALLS PLASTERING &middot; </span>
-  <a href="tel:+61405985960">0405 985 960</a><a href="mailto:Info@metrowallsplastering.com">Info@metrowallsplastering.com</a>
+  <span>&copy; 2026 METROWALLS PLASTERING</span>
+  <a href="tel:0405985960">0405 985 960</a><a href="mailto:Info@metrowallsplastering.com">Info@metrowallsplastering.com</a>
 </div>
 </footer>
 
@@ -389,10 +437,10 @@ setTimeout(function(){ document.querySelectorAll('.drop').forEach(function(el){ 
 (function(){var c=document.getElementById('heroCanvas');if(!c||!c.getContext)return;var ctx=c.getContext('2d');var DPR=Math.min(window.devicePixelRatio||1,2);var W=0,H=0,reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;var px=0,py=0;window.addEventListener('pointermove',function(e){px=(e.clientX/innerWidth-.5)*16;py=(e.clientY/innerHeight-.5)*10;},{passive:true});
 function resize(){W=c.clientWidth||c.offsetWidth;H=c.clientHeight||c.offsetHeight;if(!W||!H)return;c.width=Math.round(W*DPR);c.height=Math.round(H*DPR);ctx.setTransform(DPR,0,0,DPR,0,0);}
 function loop(t){if(!W||!H){resize();return;}frame(t||0);if(!reduce)requestAnimationFrame(loop);}
-function frame(t){var time=t*.001;ctx.clearRect(0,0,W,H);var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#ffffff');g.addColorStop(1,'#efe7d8');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
-for(var s=0;s<10;s++){var y0=H*(0.12+s*0.083);var ph=s*0.7;ctx.strokeStyle='rgba(174,128,49,'+(0.05+((s*7)%5)*0.02)+')';ctx.lineWidth=6+((s%3)*4);ctx.beginPath();for(var x=0;x<=W;x+=18){var yy=y0+Math.sin(x*.006+time*0.7+ph)*H*0.03+Math.sin(x*.013-time*0.4+ph)*H*0.012;if(x===0)ctx.moveTo(x+px*0.3,yy+py*0.3);else ctx.lineTo(x+px*0.3,yy+py*0.3);}ctx.stroke();}
-for(var k=0;k<30;k++){var sx=(k*173+time*26)%W,sy=H*0.08+((k*97+time*40)%(H*0.86));var tw=0.5+0.5*Math.sin(time*1.5+k);ctx.fillStyle='rgba(174,128,49,'+(0.04+tw*0.10)+')';ctx.beginPath();ctx.arc(sx,sy,0.8+tw*1.6,0,Math.PI*2);ctx.fill();}
-var rg=ctx.createRadialGradient(W*0.85,H*0.25,10,W*0.85,H*0.25,W*0.5);rg.addColorStop(0,'rgba(174,128,49,0.12)');rg.addColorStop(1,'rgba(174,128,49,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);}
+function frame(t){var time=t*.001;ctx.clearRect(0,0,W,H);var g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#ffffff');g.addColorStop(.62,'#fdfbf6');g.addColorStop(1,'#f8f1e4');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+for(var s=0;s<10;s++){var y0=H*(0.12+s*0.083);var ph=s*0.7;ctx.strokeStyle='rgba(174,128,49,'+(0.10+((s*7)%5)*0.035)+')';ctx.lineWidth=5+((s%3)*4);ctx.beginPath();for(var x=0;x<=W;x+=18){var yy=y0+Math.sin(x*.006+time*0.7+ph)*H*0.03+Math.sin(x*.013-time*0.4+ph)*H*0.012;if(x===0)ctx.moveTo(x+px*0.3,yy+py*0.3);else ctx.lineTo(x+px*0.3,yy+py*0.3);}ctx.stroke();}
+for(var k=0;k<30;k++){var sx=(k*173+time*26)%W,sy=H*0.08+((k*97+time*40)%(H*0.86));var tw=0.5+0.5*Math.sin(time*1.5+k);ctx.fillStyle='rgba(174,128,49,'+(0.08+tw*0.14)+')';ctx.beginPath();ctx.arc(sx,sy,0.8+tw*1.6,0,Math.PI*2);ctx.fill();}
+var rg=ctx.createRadialGradient(W*0.85,H*0.25,10,W*0.85,H*0.25,W*0.5);rg.addColorStop(0,'rgba(174,128,49,0.10)');rg.addColorStop(1,'rgba(174,128,49,0)');ctx.fillStyle=rg;ctx.fillRect(0,0,W,H);}
 resize();window.addEventListener('resize',resize);requestAnimationFrame(loop);})();
 var hg = document.querySelector('.hgal');
 if (hg) {

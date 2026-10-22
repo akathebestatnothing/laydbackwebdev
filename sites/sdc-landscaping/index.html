@@ -68,26 +68,51 @@ ul,ol{margin:0;padding:0;list-style:none}
 .nav a:hover{color:var(--ink)}
 .tel{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:#fdfbf6;font-size:var(--s);font-weight:600;
   padding:11px 18px;border-radius:8px;white-space:nowrap;transition:background .18s ease}
-.tel:0478105596"";position:absolute;inset:0;z-index:1;pointer-events:none;
+.tel:hover{background:#33372f}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;display:flex;align-items:flex-end;
+  min-height:clamp(520px,74vh,660px);
+  padding:clamp(72px,12vh,120px) 0 clamp(56px,8vh,84px);
+  overflow:hidden;background:#15171a url(assets/hero.jpg) center 58%/cover no-repeat}
+.hero #heroCanvas{position:absolute!important;inset:0!important;z-index:0!important;
+  width:100%!important;height:100%!important;display:block!important}
+.hero::after{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
     linear-gradient(90deg,rgba(9,11,11,.9) 0%,rgba(9,11,11,.66) 40%,rgba(9,11,11,.1) 66%,rgba(9,11,11,.4) 100%),
     linear-gradient(180deg,rgba(9,11,11,.4) 0%,rgba(9,11,11,0) 34%,rgba(9,11,11,.46) 100%)}
-.hero .wrap{position:relative;z-index:2}
+.hero .wrap{position:relative;z-index:2;max-width:1180px}
 .hero .eyebrow{color:#e4a279}
-.hero h1{max-width:16ch;text-wrap:balance;margin-bottom:22px}
+.hero h1{max-width:15ch;text-wrap:balance;margin-bottom:22px;color:#fff;
+  text-shadow:0 2px 20px rgba(9,11,11,.55)}
 .hero h1 em{font-style:normal;color:#e8a97f}
-.hero-sub{max-width:46ch;color:rgba(253,251,246,.86);font-size:clamp(16px,1.5vw,19px);margin-bottom:30px}
+.hero-sub{max-width:46ch;color:rgba(253,251,246,.93);font-size:clamp(16px,1.5vw,19px);margin-bottom:30px}
 .cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:11px;background:var(--clay);color:#fff;font-size:16px;font-weight:600;
   padding:16px 26px;border-radius:8px;border:1px solid transparent;transition:transform .18s ease,background .18s ease}
 .btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2}
 .btn:hover{background:#b25f36;transform:translateY(-2px)}
 .btn:active{transform:translateY(0)}
-.hero-note{font-size:13px;color:rgba(253,251,246,.62)}
+.hero-note{font-size:13px;color:rgba(253,251,246,.78)}
+/* tighten the gap between the hero and the first section */
+.hero + .section{padding-top:clamp(44px,5.4vw,76px)}
+@media (max-width:880px){
+  .nav{display:none}
+  .bar{gap:14px}
+}
+@media (max-width:620px){
+  .brand-name{font-size:14px;white-space:normal}
+}
+@media (max-width:520px){
+  .brand-name{display:none}
+  .tel{padding:10px 14px}
+}
 @media (max-width:700px){
-  .hero{min-height:clamp(470px,68vh,600px);align-items:flex-end}
+  .hero{min-height:clamp(470px,68vh,600px);align-items:flex-end;padding:96px 0 48px}
   .hero::after{background:
-    linear-gradient(180deg,rgba(9,11,11,.66) 0%,rgba(9,11,11,.3) 40%,rgba(9,11,11,.9) 100%)}
+    linear-gradient(90deg,rgba(9,11,11,.78) 0%,rgba(9,11,11,.4) 62%,rgba(9,11,11,.35) 100%),
+    linear-gradient(180deg,rgba(9,11,11,.72) 0%,rgba(9,11,11,.45) 42%,rgba(9,11,11,.92) 100%)}
   .hero h1{max-width:18ch}
 }
 
@@ -196,15 +221,22 @@ form .btn{justify-self:start;margin-top:4px;border:0;cursor:pointer}
   .site-header{background:rgba(23,26,23,.94)}
   .brand-name{color:#f0eee6}
   .tel{background:#f0eee6;color:#171a17}
-  .tel:0478105596"lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+  .tel:hover{background:#fff}
+  .hero{background-color:#101211}
+}
+</style>
+
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
 <!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
 
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:15ch!important;width:auto!important;font-size:clamp(2.15rem,4.5vw,3.65rem)!important;line-height:1.07!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

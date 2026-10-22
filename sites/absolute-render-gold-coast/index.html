@@ -69,20 +69,23 @@ section{padding:var(--sec) 0}
 .burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
 
 /* ---- hero ---------------------------------------------------------- */
-.hero{position:relative;overflow:hidden;padding:0;background:var(--night);border-bottom:1px solid var(--line)}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
-.hero__in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:clamp(54px,7vw,92px) var(--pad) clamp(44px,5vw,64px);display:flex;flex-direction:column;justify-content:center;min-height:clamp(560px,86vh,780px)}
-.hero__top{display:flex;align-items:center;gap:12px;margin-bottom:20px;color:#d8cdba;font-size:var(--t-11);font-weight:700;text-transform:uppercase;letter-spacing:.11em}
+.hero{background:var(--night);border-bottom:1px solid var(--line)}
+.hero__in{width:100%;max-width:var(--max);margin:0 auto;padding clamp(22px,2.6vw,34px) var(--pad) clamp(30px,3.4vw,44px);display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);gap:clamp(26px,3.6vw,54px);align-items:center}
+.hero__copy{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:clamp(6px,1.4vw,18px) 0}
+.hero__top{display:flex;align-items:center;gap:12px;margin-bottom:clamp(15px,1.9vw,21px);color:#d8cdba;font-size:var(--t-11);font-weight:700;text-transform:uppercase;letter-spacing:.11em}
 .hero__top::before{content:"";width:28px;height:2px;background:var(--acc);flex:0 0 auto}
-.hero h1{max-width:17ch}
+.hero h1{font-size:clamp(31px,3.75vw,49px);max-width:16ch}
 .hero h1 em{font-style:normal;color:var(--acc)}
-.hero__sub{margin-top:22px;font-size:clamp(16px,1.55vw,19px);line-height:1.58;color:#d3c9ba;max-width:42ch}
-.hero__cta{margin-top:30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero__sub{margin-top:clamp(16px,1.9vw,20px);font-size:clamp(16px,1.5vw,18px);line-height:1.58;color:#d3c9ba;max-width:44ch}
+.hero__cta{margin-top:clamp(22px,2.6vw,28px);display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero__media{position:relative;margin:0;aspect-ratio:4/5;max-height:600px;border-radius:7px;overflow:hidden;background:var(--night-3);border:1px solid var(--line)}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 34%;filter:brightness(1.2) contrast(1.02)}
+.hero__media figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px;font-size:var(--t-11);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#f1eade;background:linear-gradient(180deg,rgba(9,10,13,0),rgba(9,10,13,.88) 58%)}
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:var(--acc-ink);font-weight:800;font-size:var(--t-17);padding:16px 24px;border-radius:4px;border:0;cursor:pointer;transition:background .16s,transform .16s}
 .btn:hover{background:var(--acc-2);transform:translateY(-2px)}
 .btn:active{transform:none}
-.hero__note{font-size:var(--t-13);color:#b4a998}
-.hero__facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:600px;border-top:1px solid var(--line);margin-top:clamp(34px,5vw,54px);padding-top:20px}
+.hero__note{font-size:var(--t-13);color:var(--ink-2)}
+.hero__facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:100%;border-top:1px solid var(--line);margin-top:clamp(34px,5vw,54px);padding-top:20px}
 .hero__facts dt{font-size:var(--t-11);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#a39786;margin-bottom:4px}
 .hero__facts dd{font-size:var(--t-15);font-weight:700;color:var(--ink)}
 
@@ -189,6 +192,9 @@ footer li a:hover{color:var(--acc)}
   .brand{margin-right:auto}
   .call{padding:10px 13px;font-size:var(--t-13)}
   .burger{display:grid}
+  .hero__in{grid-template-columns:1fr;gap:clamp(22px,3vw,30px);min-height:0;padding-top:clamp(30px,4vw,40px)}
+  .hero__media{aspect-ratio:4/3;max-height:none;order:2}
+  .hero__copy{padding:0}
   .svc-lead,.why,.quote .wrap{grid-template-columns:1fr}
   .svc{grid-template-columns:36px minmax(0,1fr);gap:12px}
   .svc .tag{display:none}
@@ -203,6 +209,7 @@ footer li a:hover{color:var(--acc)}
   .call span{display:none}
   .call{padding:11px}
   .hero__facts{grid-template-columns:1fr 1fr;gap:14px}
+  .hero__media{aspect-ratio:1/1}
   .row{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
 }
@@ -214,6 +221,8 @@ footer li a:hover{color:var(--acc)}
 </style>
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
 
@@ -240,23 +249,28 @@ footer li a:hover{color:var(--acc)}
 <main id="top">
 
   <section class="hero">
-    <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="hero__in">
-      <p class="hero__top">Gold Coast · render and plaster</p>
-      <h1>Render, Venetian plaster and microcement, <em>done properly</em>.</h1>
-      <p class="hero__sub">Clint Crockett, 23 years on the tools. Cement render, polished plaster and microcement over brick, block and blueboard, across the Gold Coast and down to the border.</p>
-      <div class="hero__cta">
-        <a class="btn" href="tel:+61406930004">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-          Call 0406 930 004
-        </a>
-        <span class="hero__note">Free measure and quote, no obligation</span>
+      <div class="hero__copy">
+        <p class="hero__top">Gold Coast · render and plaster</p>
+        <h1>Render, Venetian plaster and microcement, <em>done properly</em>.</h1>
+        <p class="hero__sub">Clint Crockett, 23 years on the tools. Cement render, polished plaster and microcement over brick, block and blueboard, across the Gold Coast and down to the border.</p>
+        <div class="hero__cta">
+          <a class="btn" href="tel:+61406930004">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Call 0406 930 004
+          </a>
+          <span class="hero__note">Free measure and quote, no obligation</span>
+        </div>
+        <dl class="hero__facts">
+          <div><dt>Experience</dt><dd>23 years</dd></div>
+          <div><dt>Licence</dt><dd>QBCC, insured</dd></div>
+          <div><dt>Run by</dt><dd>Clint, on site</dd></div>
+        </dl>
       </div>
-      <dl class="hero__facts">
-        <div><dt>Experience</dt><dd>23 years</dd></div>
-        <div><dt>Tickets</dt><dd>QBCC, insured</dd></div>
-        <div><dt>Run by</dt><dd>Clint, on site</dd></div>
-      </dl>
+      <figure class="hero__media">
+        <img src="images/work_07.jpg" alt="Clint floating plaster by hand onto an arched exterior wall" width="608" height="1080" loading="eager" fetchpriority="high" decoding="async">
+        <figcaption>Floating a wall by hand, Mermaid Beach</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -282,8 +296,8 @@ footer li a:hover{color:var(--acc)}
           <p>Traditional and acrylic systems over brick, block and blueboard. Mesh, beads and scratch coat set right, then floated and finished for the sun and salt on this stretch of coast.</p>
         </div>
         <figure>
-          <img src="images/work_01.jpg" alt="Freshly floated cement render on a Gold Coast wall" loading="eager" decoding="async">
-          <figcaption>Scratch coat, meshed and floated</figcaption>
+          <img src="images/work_04.jpg" alt="Block wall set out and built ready for scratch coat and render" loading="lazy" decoding="async">
+          <figcaption>Block set out, ready for scratch coat</figcaption>
         </figure>
       </div>
 
@@ -338,10 +352,10 @@ footer li a:hover{color:var(--acc)}
         <p>Exterior render, polished interior plaster and microcement, shot on the jobs they were done on.</p>
       </div>
       <div class="gal">
-        <figure><img src="images/Dd3W7VCkaAA_57kb.jpg" alt="Smooth cement render across a two storey Gold Coast home" loading="eager" decoding="async"><figcaption>Cement render, Broadbeach</figcaption></figure>
-        <figure><img src="images/Dd3XJbXkAAA_57kb.jpg" alt="Venetian plaster feature wall with a marble-like burnish" loading="eager" decoding="async"><figcaption>Venetian plaster, Mermaid Beach</figcaption></figure>
-        <figure><img src="images/Dd3YQ7RkAAA_57kb.jpg" alt="Seamless microcement floor and wall finish in a bathroom" loading="eager" decoding="async"><figcaption>Microcement, Burleigh Heads</figcaption></figure>
-        <figure><img src="images/Dd3ZqYTkAAA_57kb.jpg" alt="Textured exterior repaint on a timber Queenslander" loading="eager" decoding="async"><figcaption>Texture repaint, Palm Beach</figcaption></figure>
+        <figure><img src="images/work_01.jpg" alt="Two storey Gold Coast home before render in wrap, and finished with white rendered walls" loading="eager" decoding="async"><figcaption>Cement render, Broadbeach</figcaption></figure>
+        <figure><img src="images/work_08.jpg" alt="Rendered courtyard wall and pool surround beside a home" loading="lazy" decoding="async"><figcaption>Rendered walls, Burleigh Heads</figcaption></figure>
+        <figure><img src="images/DW02tsfEaQ4_37kb.jpg" alt="Worker chiselling failed mortar out of a wall before re-rendering" loading="lazy" decoding="async"><figcaption>Mortar repair and prep, Southport</figcaption></figure>
+        <figure><img src="images/work_06.jpg" alt="Two storey building before and after an exterior repaint from brick red to white" loading="lazy" decoding="async"><figcaption>Exterior repaint, Palm Beach</figcaption></figure>
       </div>
     </div>
   </section>
@@ -427,7 +441,6 @@ footer li a:hover{color:var(--acc)}
   </div>
 </footer>
 
-<script src="assets/heroCanvas.js"></script>
 <script>
 /* nav */
 (function(){
@@ -441,24 +454,6 @@ footer li a:hover{color:var(--acc)}
   n.addEventListener('click',function(e){
     if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded','false');}
   });
-})();
-
-/* hero: a wall mid-render — set-out, scratch coat, screed rail, float pass */
-(function(){
-  var cv=document.getElementById('heroCanvas');
-  if(!cv||!window.Projection) return;
-  var S=Projection.create(cv,{focal:1.46,horizon:.42,camY:1.52,fogNear:9,fogFar:40,fogCol:'#191510'});
-  var scene=Projection.sceneSlabPour(S,{fogCol:'#191510'});
-  S.frame(function(t){
-    S.yaw=Projection.reduced()?0:Math.sin(t*.14)*.024;
-    S.camX=-2.0+(Projection.reduced()?0:Math.sin(t*.085)*.3);
-    scene.render(t,t);
-  });
-  if('ResizeObserver' in window){
-    new ResizeObserver(function(){S.resize();S.dirty=true;}).observe(cv);
-  }else{
-    window.addEventListener('resize',function(){S.resize();S.dirty=true;});
-  }
 })();
 
 /* quote form */

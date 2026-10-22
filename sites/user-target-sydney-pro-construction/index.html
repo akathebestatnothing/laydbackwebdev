@@ -80,17 +80,20 @@ h1,h2,h3{line-height:1.05;font-weight:800;text-wrap:balance}
 }
 #heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
 .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(100deg,var(--navy-deep) 8%,rgba(10,20,47,.7) 46%,rgba(10,20,47,.05) 82%)}
+  background:
+    linear-gradient(97deg,var(--navy-deep) 0%,var(--navy-deep) 36%,rgba(10,20,47,.92) 50%,rgba(10,20,47,.42) 66%,rgba(10,20,47,.06) 86%),
+    linear-gradient(180deg,rgba(10,20,47,.34) 0%,rgba(10,20,47,0) 34%,rgba(10,20,47,.5) 100%)}
 .hero-in{position:relative;z-index:2;padding-block:clamp(3rem,7vh,5rem) clamp(2.4rem,4.5vh,3.4rem);width:100%}
 .hero .kick{display:flex;align-items:center;gap:.7rem;color:var(--gold-lt)}
 .hero .kick::before{content:"";width:34px;height:1px;background:var(--gold)}
-.hero h1{font-size:var(--fs-1);letter-spacing:-.03em;margin-top:1rem;max-width:20ch}
+.hero h1{font-size:var(--fs-1);letter-spacing:-.03em;margin-top:1rem;max-width:14ch}
 .hero h1 em{font-style:normal;color:var(--gold-lt)}
-.hero p{color:#c9c6c0;max-width:44ch;margin-top:1.15rem}
+.hero p{color:#c9c6c0;max-width:40ch;margin-top:1.15rem}
 .hero .tel-btn{margin-top:1.7rem;background:var(--gold);color:var(--navy-deep)}
 .hero .tel-btn:hover{background:var(--gold-lt)}
-.hero-rail{margin-top:clamp(1.8rem,4vh,2.8rem);display:flex;gap:clamp(1.4rem,3.5vw,2.8rem);flex-wrap:wrap;list-style:none}
-.hero-rail li{border-top:1px solid var(--line-dk);padding-top:.65rem;min-width:9rem}
+.hero-rail{margin-top:clamp(1.8rem,4vh,2.8rem);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(1rem,2.4vw,1.6rem);list-style:none;max-width:36rem}
+.hero-rail li{border-top:1px solid var(--line-dk);padding-top:.65rem;min-width:0}
 .hero-rail b{display:block;font-size:.94rem;font-weight:700}
 .hero-rail span{font-size:var(--fs-sm);color:#a5a29b}
 
@@ -230,13 +233,23 @@ footer a:hover{color:var(--navy)}
   .svc{grid-template-columns:2.6rem minmax(0,1fr) 2rem;gap:.9rem}
   .f-row{grid-template-columns:1fr}
   .hero{min-height:auto}
-  .hero-in{padding-block:8.5rem 2.2rem}
-  .hero-scrim{background:linear-gradient(180deg,rgba(10,20,47,.45),rgba(10,20,47,.95) 62%)}
+  .hero-in{padding-block:4.2rem 2.2rem}
+  .hero p{max-width:38ch}
+  .hero-scrim{background:
+    linear-gradient(180deg,rgba(10,20,47,.62) 0%,rgba(10,20,47,.88) 46%,rgba(10,20,47,.97) 74%),
+    linear-gradient(95deg,var(--navy-deep) 0%,rgba(10,20,47,.6) 62%,rgba(10,20,47,.12) 100%)}
   .lb-brand img{height:34px}
+}
+@media (max-width:560px){
+  .hero-in{padding-block-start:7.5rem}
+  .hero-rail{grid-template-columns:1fr;gap:.7rem;max-width:none}
+  .hero-rail li{padding-top:.6rem}
 }
 </style>
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body id="top">
 
@@ -466,7 +479,11 @@ footer a:hover{color:var(--navy)}
     tone:{timber:'#b5824c', plate:'#8d5f33', steel:'#b9c3c0', brass:'#c9a160', slab:'#1b2b46', twine:'#e9e3d4'}
   });
   S.frame(function(t){
-    S.camX = -1.55;
+    var w = S.W;
+    /* hold the framing clear of the headline column: smaller scene, pushed right */
+    S.focal = S.H * (w >= 1180 ? 0.9 : w >= 900 ? 0.78 : w >= 720 ? 0.7
+      : 0.6);
+    S.camX = w >= 1180 ? -4.2 : w >= 900 ? -3.7 : w >= 720 ? -3.0 : -1.9;
     scene.render(t, t);
   });
   window.addEventListener('resize', function(){ S.resize(); });
