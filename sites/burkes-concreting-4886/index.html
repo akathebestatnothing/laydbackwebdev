@@ -1,464 +1,363 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en-AU" class="no-js">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Burkes Concreting | Concrete driveways, slabs and shed floors, Bendigo</title>
-<meta name="description" content="Concreting in Bendigo and surrounding districts. Driveways, crossovers, house slabs, shed floors, paths and patios. Free measure and quote, call 0404 992 750.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Burkes Concreting | Concrete Driveways, Slabs & Shed Floors — Bendigo</title>
+<meta name="description" content="Burkes Concreting — a small local business in Bendigo providing concrete driveways, house slabs, shed floors, paths and light commercial concreting. Call 0404 992 750.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo.png">
 <style>
 :root{
-  --ink:#14161a;
-  --ground:#2b2d31;
-  --slate:#7f8c99;
-  --mist:#d9dbdf;
-  --paper:#f5f5f4;
-  --line:#d4d5d8;
-  --line-dk:#3a3d42;
-  --body:clamp(1.0625rem,1rem + .2vw,1.125rem);
-  --small:.9375rem;
-  --h1:clamp(2.3rem,5.4vw,4.05rem);
-  --h2:clamp(1.55rem,2.6vw,2.15rem);
-  --h3:clamp(1.1rem,1.5vw,1.3rem);
-  --pad:clamp(1.25rem,4vw,2.5rem);
-  --sec:clamp(3.5rem,7vw,6rem);
-  --max:1180px;
+  --ink:#14161A; --ground:#1C1F23; --panel:#24282D; --line:#34383E;
+  --paper:#F3F4F5; --muted:#A9AEB5; --acc:#8A949E; --acc-deep:#5C666F;
+  --acc-ink:#14161A; --acc-lite:#8A949E; --max:1160px; --gut:clamp(1.1rem,4vw,2.5rem);
+  --lb-acc:#8A949E; --lb-name:#F3F4F5;
 }
-*,::before,::after{box-sizing:border-box}
+@font-face{font-family:"Antonio";src:url("assets/fonts/antonio-600.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Antonio";src:url("assets/fonts/antonio-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Manrope";src:url("assets/fonts/manrope-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Manrope";src:url("assets/fonts/manrope-500.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Manrope";src:url("assets/fonts/manrope-700.woff2") format("woff2");font-weight:700;font-display:swap}
+*,*:before,*:after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:"Archivo",system-ui,sans-serif;
-  font-size:var(--body);line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3,h4{margin:0;font-family:"Archivo",system-ui,sans-serif;font-weight:800;line-height:1.06;letter-spacing:-.02em;text-wrap:balance}
-h1{font-size:var(--h1)}
-h2{font-size:var(--h2);line-height:1.1}
-h3{font-size:var(--h3);font-weight:700;letter-spacing:-.01em;line-height:1.25}
-p{margin:0 0 1em}
-p:last-child{margin-bottom:0}
-a{color:inherit}
-img{display:block;max-width:100%;height:auto}
-ul{margin:0;padding:0;list-style:none}
-.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-.eyebrow{font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;margin:0}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-
-/* header */
-.site-head{background:var(--ink);color:#f3f4f5;border-bottom:1px solid #24262b}
-.head-in{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;min-height:68px;padding-top:.6rem;padding-bottom:.6rem}
-.brand{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;color:#f3f4f5;min-width:0}
-.brand-mark{flex:0 0 auto;height:34px;width:auto}
-.brand-mark img{height:100%;width:auto}
-.brand-name{font-weight:700;font-size:1.0625rem;letter-spacing:-.01em;white-space:nowrap;line-height:1.1}
-.nav{display:none;gap:1.6rem;font-size:.9375rem}
-.nav a{text-decoration:none;color:#c8cbd0;padding:.35rem 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-.nav a:hover{color:#fff;border-bottom-color:var(--slate)}
-.head-tel{font-weight:600;font-size:.9375rem;text-decoration:none;border:1px solid #3f434a;padding:.5rem .85rem;border-radius:2px;white-space:nowrap;transition:background .2s,border-color .2s}
-.head-tel:hover{background:#24262b;border-color:var(--slate)}
-@media(min-width:800px){.nav{display:flex;align-items:center}}
-
-/* hero */
-.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;display:flex;align-items:center;min-height:clamp(500px,68vh,660px);padding:var(--sec) 0}
-#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(100deg,rgba(10,11,13,.88) 0%,rgba(10,11,13,.52) 40%,rgba(10,11,13,.02) 72%)}
-.hero-in{position:relative;z-index:2}
-.hero .eyebrow{color:#a8b0b9;margin-bottom:1.4rem}
-.hero h1{max-width:16ch;color:#fff}
-.hero-lead{max-width:46ch;margin-top:1.4rem;color:#d7dade;font-size:clamp(1.05rem,1.5vw,1.225rem);line-height:1.55}
-.hero-cta{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;margin-top:2rem}
-.hero-cta .note{font-size:var(--small);color:#a8b0b9}
-.btn{display:inline-flex;align-items:center;gap:.55rem;background:#f3f4f5;color:var(--ink);text-decoration:none;
-  font-weight:700;font-size:1rem;padding:.95rem 1.5rem;border-radius:2px;border:1px solid #f3f4f5;
-  transition:background .2s,transform .15s}
-.btn:hover{background:var(--mist);transform:translateY(-1px)}
-.btn:focus-visible,.head-tel:focus-visible{outline:2px solid var(--slate);outline-offset:3px}
-.btn svg{width:15px;height:15px;flex:0 0 auto}
-.hero-facts{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.16);max-width:46ch}
-.hero-facts li{font-size:var(--small);color:#c8ccd1;position:relative;padding-left:1.05rem}
-.hero-facts li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:1px;background:var(--slate)}
-
-/* shared section furniture */
-.sec{padding:var(--sec) 0}
-.sec-head{display:grid;gap:1rem;margin-bottom:clamp(1.75rem,3vw,2.75rem)}
-.sec-head .eyebrow{color:var(--slate)}
-.sec-head p{max-width:52ch;font-size:var(--small);color:#4b4f55}
-@media(min-width:820px){
-  .sec-head{grid-template-columns:.9fr 1.1fr;align-items:end;gap:clamp(1.5rem,4vw,3.5rem)}
-  .sec-head h2{max-width:22ch}
-  .sec-head p{margin-bottom:.3rem}
-}
-
-/* services as rows, not cards */
-.services{border-top:1px solid var(--line-dk)}
-.srow{display:grid;gap:.4rem .9rem;grid-template-columns:auto 1fr;padding:1.5rem 0;border-bottom:1px solid var(--line);align-items:baseline}
-.srow .n{font-size:.875rem;font-weight:600;color:var(--slate);font-variant-numeric:tabular-nums;grid-row:1}
-.srow h3{grid-column:2}
-.srow p{grid-column:2;font-size:var(--small);color:#4b4f55;max-width:58ch}
-@media(min-width:820px){
-  .srow{grid-template-columns:4.5rem 1fr 1.1fr;gap:2rem;align-items:start;padding:1.9rem 0}
-  .srow h3,.srow p{grid-column:auto}
-  .srow p{margin:0;padding-top:.15rem}
-}
-
-/* process */
-.process{background:var(--mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.steps{display:grid;gap:2rem 2.5rem;counter-reset:s}
-@media(min-width:720px){.steps{grid-template-columns:1fr 1fr}}
-.step{border-top:1px solid #b9bcc1;padding-top:1.1rem}
-.step .n{font-size:.8125rem;font-weight:600;color:#5c636c;font-variant-numeric:tabular-nums;display:block;margin-bottom:.6rem}
-.step h3{margin-bottom:.4rem}
-.step p{font-size:var(--small);color:#3f444a;max-width:40ch}
-
-/* area */
-.area{background:var(--ground);color:var(--mist)}
-.area-in{display:grid;gap:2rem}
-@media(min-width:820px){.area-in{grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,5rem);align-items:start}}
-.area .eyebrow{color:#9aa3ac;margin-bottom:1.2rem}
-.area h2{color:#fff;max-width:18ch}
-.area p{color:#c3c8ce;max-width:46ch;margin-top:1.2rem;font-size:var(--small)}
-.area-list{display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.5rem;font-size:var(--small);color:#c3c8ce}
-.area-list li{padding-bottom:.55rem;border-bottom:1px solid #3f434a}
-
-/* quote */
-.quote-form{display:grid;gap:1rem;max-width:640px;margin-top:1.75rem}
-.q-row{display:grid;gap:1rem}
-@media(min-width:620px){.q-row{grid-template-columns:1fr 1fr}}
-.quote-form label{display:block;font-size:.8125rem;font-weight:600;color:#4b4f55;margin-bottom:.4rem}
-.quote-form input,.quote-form textarea{width:100%;padding:.75rem .85rem;border:1px solid #c3c6ca;border-radius:2px;
-  background:#fff;font:inherit;font-size:var(--small);color:var(--ink);transition:border-color .2s}
-.quote-form input:focus,.quote-form textarea:focus{outline:none;border-color:var(--ground)}
-.quote-form textarea{min-height:112px;resize:vertical}
-.quote-form .btn{background:var(--ink);color:#fff;border-color:var(--ink);cursor:pointer}
-.quote-form .btn:hover{background:#000}
-.quote-form .btn:disabled{opacity:.55;cursor:wait}
-.cons{display:flex;gap:.55rem;align-items:flex-start;font-size:.8125rem;color:#4b4f55}
-.cons input{width:auto;margin-top:.25rem}
-.q-st{font-size:var(--small);min-height:1.2em;margin:0}
-.hp{position:absolute;left:-9999px}
-
-/* footer */
-.foot{background:var(--ink);color:#b9bec5;padding:clamp(2.5rem,5vw,3.5rem) 0 1.5rem;font-size:var(--small)}
-.foot-in{display:grid;gap:2rem;padding-bottom:2rem;border-bottom:1px solid #2b2e33;margin-bottom:1.25rem}
-@media(min-width:760px){.foot-in{grid-template-columns:1.4fr 1fr auto;align-items:start}}
-.foot .brand{color:#fff}
-.foot .brand-name{font-size:1rem}
-.foot p{margin-top:.9rem;max-width:26ch;color:#8f959c}
-.foot h4{font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#fff;margin-bottom:.9rem}
-.foot nav ul{display:grid;gap:.5rem}
-.foot nav a{text-decoration:none;color:#b9bec5;transition:color .2s}
-.foot nav a:hover{color:#fff}
-.foot-contact a{text-decoration:none;color:#fff;font-weight:600;font-size:1.05rem}
-.foot-contact .addr{margin-top:.5rem;color:#8f959c}
-.foot-bar{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between;font-size:.8125rem;color:#7f858c}
-.legal{display:flex;gap:1.25rem}
-.legal a{text-decoration:none;color:#7f858c}
-.legal a:hover{color:#fff}
+.js .rv{opacity:0;transform:translateY(20px)}
+.js .rv.on{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
 @media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1!important;transform:none!important;transition:none!important}
   html{scroll-behavior:auto}
-  .btn:hover{transform:none}
 }
-</style>
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+body{margin:0;background:var(--ground);color:var(--paper);font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;font-size:clamp(1rem,1.05vw,1.0625rem);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{font-family:"Antonio","Arial Narrow",Arial,sans-serif;font-weight:600;margin:0;line-height:1.06;letter-spacing:-.01em;text-transform:none}
+h1{font-size:clamp(2.15rem,5.4vw,4.35rem)}
+h2{font-size:clamp(1.7rem,3.4vw,2.65rem)}
+h3{font-size:clamp(1.15rem,1.7vw,1.4rem)}
+p{margin:0 0 1em}
+.acc{color:var(--acc);font-style:normal}
+/* ---------- header ---------- */
+.hd{position:sticky;top:0;z-index:40;background:rgba(9,10,12,.86);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.09)}
+.hd-in{display:flex;align-items:center;gap:clamp(.7rem,2vw,1.4rem);max-width:var(--max);margin:0 auto;padding:.6rem var(--gut);min-height:70px}
+.brand{display:flex;align-items:center;gap:.7rem;flex:0 1 auto;min-width:0}
+.brand img{height:clamp(34px,3.4vw,46px);width:auto;max-width:34vw;border-radius:8px;flex:0 0 auto}
+.brand-txt{display:flex;flex-direction:column;min-width:0}
+.brand-name{font-family:"Antonio","Arial Narrow",Arial,sans-serif;font-weight:600;font-size:clamp(1.05rem,1.7vw,1.4rem);letter-spacing:.02em;line-height:1.05;color:var(--paper);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc-lite,var(--acc));line-height:1.3}
+.nav{margin-left:auto;display:flex;align-items:center;gap:clamp(.7rem,1.7vw,1.5rem)}
+.nav a{font-size:.9rem;font-weight:500;color:var(--paper);opacity:.86;white-space:nowrap}
+.nav a:hover{color:var(--acc);opacity:1}
+.hd-call{flex:0 0 auto;background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:.9rem;padding:.62rem 1.05rem;border-radius:9px;white-space:nowrap}
+.hd-call:hover{background:var(--paper);color:var(--ink)}
+.hd-burger{display:none}
+@media (max-width:880px){
+  .nav{display:none}
+  .brand-sub{letter-spacing:.14em}
+  .brand-name{font-size:1rem}
+}
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;perspective:1200px;overflow:hidden;min-height:min(calc(100vh - 71px),940px);display:flex;align-items:center;background:var(--ink)}
+.hero--nophoto{background:radial-gradient(115% 85% at 76% 6%,var(--hero-glow,rgba(255,255,255,.06)),transparent 62%),linear-gradient(158deg,#232833,#12151C)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(96deg,rgba(6,7,9,.93) 0%,rgba(6,7,9,.85) 30%,rgba(6,7,9,.44) 60%,rgba(6,7,9,.13) 100%)}
+.hero-scrim:after{content:"";position:absolute;left:0;right:0;bottom:0;height:20%;background:linear-gradient(180deg,rgba(7,8,10,0),rgba(7,8,10,.42))}
+.hero-in{position:relative;z-index:3;width:100%;max-width:var(--max);margin:0 auto;padding:clamp(3rem,7vw,5rem) var(--gut)}
+.hero-copy{max-width:39rem}
+.hero h1{color:#fff;text-wrap:balance}
+.hero-lede{font-size:clamp(1.06rem,1.4vw,1.22rem);color:#fff;max-width:36rem;margin-top:1.1rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.9rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.55rem;border-radius:10px;font-weight:700;font-size:.98rem;border:2px solid transparent;white-space:nowrap;cursor:pointer;font-family:inherit}
+.btn-acc{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.btn-acc:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-ghost{background:rgba(255,255,255,.07);color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.hero-tags{list-style:none;display:flex;flex-wrap:wrap;gap:.45rem 1.3rem;margin:2rem 0 0;padding:0;font-size:.95rem;color:rgba(255,255,255,.94)}
+.hero-tags li{padding-left:1rem;position:relative}
+.hero-tags li:before{content:"";position:absolute;left:0;top:.5em;width:.42rem;height:.42rem;background:var(--acc);border-radius:50%}
+.hero-credit{margin:1.7rem 0 0;padding-left:.85rem;border-left:3px solid var(--acc);font-size:.8rem;letter-spacing:.01em;color:rgba(255,255,255,.8);max-width:34ch}
+.hero-canvas{display:none}
+.hero-mark{position:absolute;top:50%;right:-6%;transform:translateY(-50%);z-index:1;pointer-events:none;opacity:.28;width:min(58vw,780px);height:auto}
+@media (max-width:880px){
+  .hero{min-height:min(calc(100svh - 61px),820px)}
+  .hero-scrim{background:linear-gradient(178deg,rgba(6,7,9,.62) 0%,rgba(6,7,9,.76) 44%,rgba(6,7,9,.88) 100%)}
+  .hero-scrim:after{height:14%}
+  .hero-in{padding:clamp(2.2rem,8vw,3.2rem) var(--gut)}
+  .hero-copy{max-width:none}
+  .hero-mark{width:74vw;right:-16%;opacity:.16}
+  .hd-in{min-height:61px}
+}
+/* ---------- generic sections ---------- */
+.sec{padding:clamp(3.2rem,7vw,5.6rem) 0}
+.sec--alt{background:var(--ink)}
+.sec-hd{max-width:44rem;margin-bottom:clamp(1.8rem,3.6vw,2.8rem)}
+.sec-kick{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acc-lite,var(--acc));margin:0 0 .7rem;font-weight:700}
+.sec-hd p{color:var(--muted);margin:.9rem 0 0}
+.grid{display:grid;gap:clamp(.9rem,1.8vw,1.35rem)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:960px){.g3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:660px){.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(1.6rem,2.8vw,2.05rem)}
+.card h3{margin-bottom:.55rem}
+.card p{margin:0;color:var(--muted);font-size:.96rem}
+.card .bar{width:2.1rem;height:3px;background:var(--acc);border-radius:2px;margin-bottom:1rem}
+.step{display:flex;gap:1.05rem;align-items:flex-start}
+.step-n{flex:0 0 auto;font-family:"Antonio",Arial,sans-serif;font-size:1.6rem;line-height:1;color:var(--acc-lite,var(--acc));min-width:2rem}
+.step h3{margin-bottom:.35rem}
+.step p{color:var(--muted);margin:0;font-size:.96rem}
+/* work gallery */
+.work-grid{display:grid;gap:clamp(.7rem,1.5vw,1.1rem);grid-template-columns:repeat(3,1fr)}
+@media (max-width:860px){.work-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.work-grid{grid-template-columns:1fr}}
+figure.shot{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+figure.shot img{aspect-ratio:4/3;width:100%;object-fit:cover}
+figure.shot figcaption{padding:.85rem 1rem 1rem;font-size:.83rem;color:var(--muted)}
+/* detail band (no-photo sites) */
+.band{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+@media (max-width:760px){.band{grid-template-columns:1fr}}
+.band div{background:var(--panel);padding:clamp(1.3rem,2.6vw,1.9rem)}
+.band strong{display:block;font-family:"Antonio",Arial,sans-serif;font-size:1.2rem;margin-bottom:.4rem;color:var(--paper)}
+.band span{color:var(--muted);font-size:.96rem}
+/* area strip */
+.area-strip{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:1.4rem 0 0}
+.area-strip li{border:1px solid var(--line);border-radius:999px;padding:.45rem 1rem;font-size:.88rem;color:var(--paper);background:var(--panel)}
+/* footer */
+.ft{background:var(--ink);border-top:1px solid var(--line);padding:clamp(2.6rem,5vw,3.6rem) 0 1.6rem}
+.ft-in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(1.4rem,3vw,2.6rem)}
+@media (max-width:760px){.ft-in{grid-template-columns:1fr}}
+.ft h3{font-size:1.05rem;margin-bottom:.9rem}
+.ft p,.ft li{color:var(--muted);font-size:.93rem}
+.ft ul{list-style:none;padding:0;margin:0}
+.ft li{margin-bottom:.45rem}
+.ft a:hover{color:var(--acc-lite,var(--acc))}
+.ft-bot{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.7rem 1.4rem;justify-content:space-between;color:var(--muted);font-size:.83rem}
+.ft-bot a{text-decoration:underline}
+#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--paper);--lbq-muted:var(--muted);--lbq-bg:var(--ink);--lbq-panel:rgba(255,255,255,.05);--lbq-line:var(--line);padding:clamp(3rem,7vw,5.6rem) 0;background:var(--lbq-bg);color:var(--lbq-ink);position:relative}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto;padding:0 var(--gut)}
+#lbq h2{font-size:clamp(1.7rem,3.4vw,2.65rem);margin:0 0 10px}
+#lbq p.lbq-s{margin:0 0 18px;color:var(--lbq-muted);max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.82rem;letter-spacing:.03em;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:9px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
+#lbq textarea{min-height:104px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:14px 24px;border:0;border-radius:9px;background:var(--lbq-accent);color:var(--acc-ink);font:inherit;font-weight:700;font-size:.96rem;cursor:pointer;letter-spacing:.01em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.83rem;color:var(--lbq-muted)}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.4rem,3vw,2.6rem);align-items:start}
+#lbq .lbq-g{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+#lbq .lbq-full{grid-column:1/-1}
+#lbq .lbq-aside{border:1px solid var(--lbq-accent);border-radius:14px;padding:1.4rem 1.5rem;background:var(--lbq-panel)}
+@media(max-width:780px){#lbq .lbq-sp,#lbq .lbq-g{grid-template-columns:1fr}}</style>
+<script>document.documentElement.className='js';</script>
 </head>
 <body>
-<header class="site-head">
-  <div class="wrap head-in">
-    <a class="brand" href="#top" aria-label="Burkes Concreting, home">
-      <span class="brand-mark"><img src="assets/logo.svg" alt="Burkes Concreting logo" width="34" height="34" decoding="async"></span>
-      <span class="brand-name">Burkes Concreting</span>
+<header class="hd">
+  <div class="hd-in">
+    <a class="brand" href="#top" aria-label="Burkes Concreting — home">
+      <img src="assets/logo.png" alt="Burkes Concreting logo" width="512" height="512">
+      <span class="brand-txt">
+        <span class="brand-name">Burkes Concreting</span>
+        <span class="brand-sub">Bendigo, VIC</span>
+      </span>
     </a>
     <nav class="nav" aria-label="Main">
       <a href="#services">Services</a>
+      <a href="#work">Work</a>
       <a href="#process">How we work</a>
-      <a href="#area">Service area</a>
+      <a href="#quote">Get a quote</a>
     </nav>
-    <a class="head-tel" href="tel:0404992750">0404 992 750</a>
+    <a class="hd-call" href="tel:+61404992750">0404 992 750</a>
   </div>
 </header>
 
-<main id="top">
-  <section class="hero" aria-labelledby="hero-h">
-    <canvas id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="wrap hero-in">
-      <p class="eyebrow">Concreting · Bendigo VIC</p>
-      <h1 id="hero-h">Slabs, driveways and shed floors, poured and finished properly.</h1>
-      <p class="hero-lead">Formwork set true, concrete screeded to level, broom finish and saw-cut joints. One crew from the first measure to the final clean-up.</p>
-      <div class="hero-cta">
-        <a class="btn" href="tel:0404992750">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-          Call 0404 992 750
-        </a>
-        <span class="note">Free measure and quote</span>
-      </div>
-      <ul class="hero-facts">
-        <li>Broom finish and control joints</li>
-        <li>Residential and light commercial</li>
-        <li>Bendigo and surrounding districts</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="sec" id="services" aria-labelledby="serv-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 id="serv-h">What we pour</h2>
-        <p>Driveways, slabs and outdoor surfaces, set out and finished on site. If it is flat, load bearing and needs to drain, it is a conversation worth having.</p>
-      </div>
-      <div class="services">
-        <article class="srow">
-          <span class="n">01</span>
-          <h3>Driveways and crossovers</h3>
-          <p>Excavated, sub-base compacted and formed, then poured with a broom finish for grip and control joints cut where the slab wants to move.</p>
-        </article>
-        <article class="srow">
-          <span class="n">02</span>
-          <h3>House slabs and extensions</h3>
-          <p>Set out to the plan, edged with clean arris lines, screeded flat and floated for the next trade to work off.</p>
-        </article>
-        <article class="srow">
-          <span class="n">03</span>
-          <h3>Shed and garage floors</h3>
-          <p>Reinforced, level slabs for workshops, garages and farm sheds, finished hard-wearing where the traffic runs.</p>
-        </article>
-        <article class="srow">
-          <span class="n">04</span>
-          <h3>Paths, patios and outdoor areas</h3>
-          <p>Walkways and entertaining areas poured to a fall, so water leaves the slab instead of sitting on it.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec process" id="process" aria-labelledby="proc-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 id="proc-h">How the job runs</h2>
-        <p>Four stages, in this order, every time. You know what happens on which day before anyone lifts a shovel.</p>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <span class="n">Step 01</span>
-          <h3>Site visit and measure</h3>
-          <p>We walk the job, take levels and talk through finish, drainage and access. You get the scope in writing.</p>
-        </div>
-        <div class="step">
-          <span class="n">Step 02</span>
-          <h3>Set out and form</h3>
-          <p>Excavation, compaction and formwork set true to the line, staked and checked before the pour.</p>
-        </div>
-        <div class="step">
-          <span class="n">Step 03</span>
-          <h3>Pour and screed</h3>
-          <p>Concrete placed and screeded to level, then floated so the surface comes up uniform.</p>
-        </div>
-        <div class="step">
-          <span class="n">Step 04</span>
-          <h3>Finish and cut</h3>
-          <p>Broom finish for slip resistance, control joints cut to spec, forms stripped and the site left clean.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec area" id="area" aria-labelledby="area-h">
-    <div class="wrap area-in">
-      <div>
-        <p class="eyebrow">Service area</p>
-        <h2 id="area-h">Bendigo and the surrounding districts.</h2>
-        <p>Local work, local turnaround. Call with the address and roughly what the slab is for, and we will sort a time to look at it.</p>
-      </div>
-      <ul class="area-list">
-        <li>Bendigo</li>
-        <li>Golden Square</li>
-        <li>Kangaroo Flat</li>
-        <li>Eaglehawk</li>
-        <li>Strathfieldsaye</li>
-        <li>Maiden Gully</li>
-        <li>Epsom</li>
-        <li>White Hills</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="sec" id="quote" aria-labelledby="q-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 id="q-h">Get a price on the job</h2>
-        <p>Send the details below, or call and we will take it down over the phone. Quotes are free and nothing is booked in until you say go.</p>
-      </div>
-      <form class="quote-form" id="q-form" novalidate data-site="burkes-concreting-4886" data-biz="Burkes Concreting">
-        <div class="q-row">
-          <div><label for="q-n">Name</label><input id="q-n" name="name" autocomplete="name" required></div>
-          <div><label for="q-p">Phone</label><input id="q-p" name="phone" type="tel" autocomplete="tel"></div>
-        </div>
-        <div class="q-row">
-          <div><label for="q-e">Email</label><input id="q-e" name="email" type="email" autocomplete="email"></div>
-          <div><label for="q-s">Job type</label><input id="q-s" name="service" placeholder="Driveway, slab, shed floor"></div>
-        </div>
-        <div><label for="q-m">About the job</label><textarea id="q-m" name="message" placeholder="Size, address, time frame" required></textarea></div>
-        <label class="cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
-        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <div><button class="btn" type="submit">Send the details</button></div>
-        <p class="q-st" id="q-st" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer class="foot">
-  <div class="wrap foot-in">
-    <div>
-      <a class="brand" href="#top" aria-label="Burkes Concreting, home">
-        <span class="brand-mark"><img src="assets/logo.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span>
-        <span class="brand-name">Burkes Concreting</span>
-      </a>
-      <p>Concreting across Bendigo and surrounding districts, Victoria.</p>
-    </div>
-    <nav aria-label="Footer">
-      <h4>Sections</h4>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">How we work</a></li>
-        <li><a href="#area">Service area</a></li>
-        <li><a href="#quote">Get a price</a></li>
-      </ul>
-    </nav>
-    <div class="foot-contact">
-      <h4>Call</h4>
-      <a href="tel:0404992750">0404 992 750</a>
-      <p class="addr">Bendigo VIC</p>
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <img class="hero-img" src="assets/hero.jpg" alt="A job like this: a finished concrete driveway leading to a garage" width="1600" height="900" fetchpriority="high" decoding="async">
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <h1 id="hero-h">Concrete driveways, slabs and shed floors in Bendigo</h1>
+      <p class="hero-lede">A small local business in Bendigo providing concreting — driveways, house slabs, shed floors, paths and light commercial work, poured and finished properly.</p>
+      <div class="hero-cta"><a class="btn btn-acc" href="tel:+61404992750">Call 0404 992 750</a><a class="btn btn-ghost" href="#quote">Request a quote</a></div>
+      <ul class="hero-tags"><li>Driveways</li><li>House slabs</li><li>Shed floors</li><li>Paths &amp; patios</li></ul>
+      <p class="hero-credit">A job like this: a finished concrete driveway.</p>
     </div>
   </div>
-  <div class="wrap foot-bar">
-    <span>&copy; <span id="year"></span> Burkes Concreting</span>
-    <span class="legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
-  </div>
-</footer>
+  <canvas id="heroCanvas" class="hero-canvas" width="16" height="16" aria-hidden="true" style="display:none"></canvas>
+  <!-- LB-3D-HERO -->
+</section>
 
-<script src="assets/heroCanvas.js"></script>
-<script>
-/* hero: a slab on pour day, screed rail set across the bay, reo sheets and forms */
+<section class="sec" id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <p class="sec-kick">What we do</p>
+      <h2 id="svc-h">Concrete work, poured and finished properly</h2>
+      <p>Residential and light commercial concreting across Bendigo and the surrounding districts.</p>
+    </div>
+    <div class="grid g3"><div class="card rv"><div class="bar"></div><h3>Driveways</h3><p>Set out to the plan, edged with clean arris lines, screeded flat and finished for grip.</p></div><div class="card rv"><div class="bar"></div><h3>House slabs &amp; extensions</h3><p>Reinforced, level slabs formed and poured so the next trade has something true to work off.</p></div><div class="card rv"><div class="bar"></div><h3>Shed floors</h3><p>Slabs for workshops, garages and farm sheds, finished hard-wearing where the traffic runs.</p></div><div class="card rv"><div class="bar"></div><h3>Paths, patios &amp; walkways</h3><p>Poured to a fall, so water leaves the slab instead of sitting on it.</p></div><div class="card rv"><div class="bar"></div><h3>Light commercial</h3><p>Hardstand, car park and commercial slab work, planned around access and pours.</p></div><div class="card rv"><div class="bar"></div><h3>Excavation &amp; formwork</h3><p>Set out, excavation, compaction and formwork set true to the line before the pour.</p></div></div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <p class="sec-kick">The finish</p>
+      <h2 id="work-h">Slabs, driveways and finishes</h2>
+      <p>Broom, stamped and exposed aggregate finishes — the surfaces that come out of a well-set pour.</p>
+    </div>
+    <div class="work-grid"><figure class="shot rv"><img src="assets/work-1.jpg" alt="A job like this: stamped concrete finish." loading="lazy" decoding="async"><figcaption>A job like this: a stamped concrete surface, patterned and sealed.</figcaption></figure><figure class="shot rv"><img src="assets/work-2.jpg" alt="A job like this: exposed aggregate." loading="lazy" decoding="async"><figcaption>A job like this: an exposed aggregate finish, washed back to the stone.</figcaption></figure><figure class="shot rv"><img src="assets/work-3.jpg" alt="A job like this: a driveway poured and screeded." loading="lazy" decoding="async"><figcaption>A job like this: a freshly poured driveway, formed and screeded.</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" id="process" aria-labelledby="proc-h">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <p class="sec-kick">How we work</p>
+      <h2 id="proc-h">Four stages, in this order</h2>
+      <p>You know what happens on which day before anyone lifts a shovel.</p>
+    </div>
+    <div class="grid g2"><div class="step rv"><span class="step-n">01</span><div><h3>Walk the job</h3><p>We walk the site, take levels and talk through finish, drainage and access. You get the scope in writing.</p></div></div><div class="step rv"><span class="step-n">02</span><div><h3>Set out and form</h3><p>Excavation, compaction and formwork set true to the line, staked and checked before the pour.</p></div></div><div class="step rv"><span class="step-n">03</span><div><h3>Place and finish</h3><p>Concrete placed and screeded to level, then floated so the surface comes up uniform.</p></div></div><div class="step rv"><span class="step-n">04</span><div><h3>Finish and clean up</h3><p>Broom finish for slip resistance, control joints cut to spec, forms stripped and the site left clean.</p></div></div></div>
+  </div>
+</section>
+
+<section class="sec sec--alt" id="area" aria-labelledby="area-h">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <p class="sec-kick">Where we work</p>
+      <h2 id="area-h">Bendigo and surrounding districts</h2>
+      <p>Concreting across Bendigo and the surrounding districts, Victoria: residential and light commercial.</p>
+    </div>
+    <ul class="area-strip rv"><li>Bendigo</li><li>Surrounding districts</li><li>Residential</li><li>Light commercial</li></ul>
+  </div>
+</section>
+
+<span id="quote" aria-hidden="true"></span>
+<section id="lbq" aria-labelledby="lbq-h">
+  <div class="lbq-w">
+    <div class="lbq-sp">
+      <div class="lbq-aside">
+        <h2 id="lbq-h">Request a quote</h2>
+        <p class="lbq-s">Tell us about the slab, driveway or shed floor and we'll come back with a quote. Prefer to talk? Call 0404 992 750.</p>
+        <p class="lbq-s" style="margin-bottom:0"><a href="tel:+61404992750" style="color:var(--acc-lite);font-weight:700">0404 992 750</a><br>Bendigo, VIC</p>
+      </div>
+      <div><form id="lbq-form" novalidate data-site="burkes-concreting-4886" data-biz="Burkes Concreting"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Driveway, slab, shed floor — size, access and time frame…" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div>
+    </div>
+  </div>
+  <script>
 (function(){
-  var cv = document.getElementById('heroCanvas');
-  if (!cv || !window.Projection) return;
-  var S = Projection.create(cv, {focal:.62, horizon:.4, camY:2.35, fogNear:14, fogFar:58, fogCol:'#55565c'});
-  var scene = Projection.sceneSlabPour(S, {
-    fogCol:'#55565c',
-    tone:{wet:'#a8a189', wet2:'#968e79', wet3:'#b3ab92', wetHi:'#d0c7ab', cream:'#dccfb0',
-      form:'#ac7941', form2:'#8e5f2d', formTop:'#c99253', stake:'#9c6b3d',
-      rail:'#e6eaec', railDk:'#a4aaad', steel:'#bfc5c7', chair:'#2a2c2e', mag:'#d8603f'}
-  });
-  /* the scene ships a night sky; this is a dawn pour, so lift it and put a
-     treeline on the horizon before the geometry is drawn over it */
-  S.frame(function(t){
-    scene.render(t, t);
-    var ctx = S.ctx, hz = S.horizon, i, x, y;
-    var sky = ctx.createLinearGradient(0, 0, 0, hz);
-    sky.addColorStop(0, 'rgba(118,128,140,.30)');
-    sky.addColorStop(.62, 'rgba(150,156,160,.14)');
-    sky.addColorStop(1, 'rgba(176,172,160,.05)');
-    ctx.fillStyle = sky; ctx.fillRect(0, 0, S.W, hz);
-    var sun = ctx.createRadialGradient(S.W * .74, hz * .72, 0, S.W * .74, hz * .72, S.W * .42);
-    sun.addColorStop(0, 'rgba(226,206,170,.20)');
-    sun.addColorStop(1, 'rgba(226,206,170,0)');
-    ctx.fillStyle = sun; ctx.fillRect(0, 0, S.W, hz);
-    for (i = 0; i < 3; i++) {
-      ctx.fillStyle = ['rgba(38,42,47,.55)', 'rgba(30,34,39,.75)', 'rgba(24,27,31,.95)'][i];
-      ctx.beginPath(); ctx.moveTo(0, hz + 1);
-      for (x = 0; x <= S.W; x += 26) {
-        var amp = [9, 17, 26][i];
-        y = hz - amp * (.45 + .55 * Math.abs(Math.sin((x + i * 131) * .0121)));
-        ctx.lineTo(x, y);
-      }
-      ctx.lineTo(S.W, hz + 1); ctx.closePath(); ctx.fill();
-    }
-    /* the scene's own copy scrim is built for night; lift the working side so the
-       slab, rail and float read as daylight rather than a dark diagram */
-    ctx.globalCompositeOperation = 'overlay';
-    var lift = ctx.createLinearGradient(S.W * .3, 0, S.W, 0);
-    lift.addColorStop(0, 'rgba(206,199,180,0)');
-    lift.addColorStop(.5, 'rgba(206,199,180,.34)');
-    lift.addColorStop(1, 'rgba(206,199,180,.62)');
-    ctx.fillStyle = lift; ctx.fillRect(0, 0, S.W, S.H);
-    ctx.globalCompositeOperation = 'source-over';
-  });
-  if ('ResizeObserver' in window) new ResizeObserver(function(){ S.resize(); }).observe(cv);
-  else window.addEventListener('resize', function(){ S.resize(); });
-})();
-</script>
-<script>
-/* quote form -> shim */
-(function(){
-  var EP = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+  var EP = null;
   function base(cb){
     if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
     var done = false;
-    var t = setTimeout(function(){ if(!done){ done = true; cb(EP); } }, 2200);
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
     fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
       .then(function(r){ return r.text(); })
       .then(function(txt){
-        if (done) return; done = true; clearTimeout(t);
-        var b = (txt || '').trim().replace(/\/+$/, '');
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : EP);
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
       })
-      .catch(function(){ if(!done){ done = true; clearTimeout(t); cb(EP); } });
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
   }
-  var f = document.getElementById('q-form');
-  if (!f) return;
-  var st = document.getElementById('q-st');
-  var btn = f.querySelector('button[type=submit]');
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var d = {};
-    new FormData(f).forEach(function(v,k){ d[k] = v; });
-    if (d.website) return;
-    if (!d.name || (!d.phone && !d.email) || !(d.message || '').trim()){
-      st.textContent = 'Add your name, a phone or email, and a few words about the job.';
-      st.style.color = '#a8412c';
-      return;
-    }
-    btn.disabled = true;
-    st.textContent = 'Sending...';
-    st.style.color = '';
-    base(function(B){
-      fetch(B + '/functions/v1/quote-request', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({
-          site_id: f.dataset.site || '',
-          business_name: f.dataset.biz || '',
-          name: d.name, phone: d.phone, email: d.email,
-          service: d.service || '', message: d.message,
-          consent: !!d.consent
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        var url = (B === 'https://grocery-periodically-everyone-wine.trycloudflare.com' ? 'https://grocery-periodically-everyone-wine.trycloudflare.com' : B) + '/functions/v1/quote-request';
+        fetch(url, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
         })
-      })
-      .then(function(r){ return r.json().catch(function(){ return {}; }); })
-      .then(function(x){
-        if (x && x.success){
-          f.reset();
-          st.textContent = 'Thanks, the request is in. We will be in touch shortly.';
-          st.style.color = '#2b2d31';
-        } else {
-          throw new Error((x && x.error) || 'Could not send');
-        }
-      })
-      .catch(function(err){
-        st.textContent = (err && err.message) ? err.message : 'Could not send. Try again or call.';
-        st.style.color = '#a8412c';
-      })
-      .finally(function(){ btn.disabled = false; });
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--lbq-accent)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
     });
-  });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
-document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-in">
+      <div>
+        <h3>Burkes Concreting</h3>
+        <p>A small local business in Bendigo providing concrete driveways, slabs, shed floors, paths and light commercial concreting.</p>
+        
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul><li>Driveways</li><li>House slabs &amp; extensions</li><li>Shed floors</li><li>Paths, patios &amp; walkways</li><li>Light commercial</li><li>Excavation &amp; formwork</li></ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul><li><a href="tel:+61404992750">0404 992 750</a></li><li>Bendigo and surrounding districts, VIC</li></ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>&copy; 2026 Burkes Concreting. Bendigo, VIC.</span>
+      <span><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<script>
+(function(){
+  var els = document.querySelectorAll('.rv');
+  function all(){ for (var i=0;i<els.length;i++) els[i].classList.add('on'); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    for (var i=0;i<els.length;i++) io.observe(els[i]);
+  } else {
+    all();
+  }
+  setTimeout(function(){ document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('on'); }); }, 1200);
+})();
 </script>
 </body>
 </html>
