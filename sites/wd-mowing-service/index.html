@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WD Mowing Service — Lawn Mowing & Garden Care, Withcott QLD</title>
 <meta name="description" content="WD Mowing Service — Lawn mowing & garden care in Withcott QLD. Striped lawns, clean edges, reliable service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&family=Chivo+Mono:wght@400;700&family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <style>
@@ -20,7 +23,7 @@
   --font-display:"Bitter",Georgia,serif;
   --font-body:"Instrument Sans",system-ui,sans-serif;
   --font-mono:"Chivo Mono",ui-monospace,monospace;
-  --max-w:1000px;
+  --max-w:720px;
   --space:clamp(1.5rem,3vw,3rem);
   --space-sm:clamp(0.75rem,1.5vw,1.5rem);
 }
@@ -31,6 +34,11 @@ html{scroll-behavior:smooth}
   .rv{opacity:1!important;transform:none!important;transition:none!important}
   canvas{transition:none!important}
 }
+<noscript>
+<style>
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+</style>
+</noscript>
 body{margin:0;font-family:var(--font-body);font-size:clamp(1rem,0.95rem+0.25vw,1.125rem);line-height:1.6;color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
@@ -46,21 +54,21 @@ p{margin:0 0 var(--space-sm)}
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity 700ms ease,transform 700ms ease}
 .js .rv.on{opacity:1;transform:none}
 .rv.instant{opacity:1;transform:none;transition:none}
-header{padding:0;border-bottom:1px solid var(--hairline);background:var(--ground)}
+header{padding:var(--space) 0;border-bottom:1px solid var(--hairline);background:var(--ground)}
 header .container{display:flex;align-items:center;justify-content:space-between;gap:var(--space-sm)}
 .logo-mark{width:40px;height:40px;flex-shrink:0}
 .logo-mark svg{width:100%;height:100%}
 .site-title{font-family:var(--font-display);font-weight:700;font-size:clamp(1.125rem,1rem+0.625vw,1.375rem);color:var(--ink);line-height:1.1}
 nav a{font-family:var(--font-body);font-size:0.875rem;font-weight:500;color:var(--charcoal);padding:0.25rem 0;transition:color 150ms}
 nav a:hover{color:var(--accent);text-decoration:none}
-main{padding:0 0 var(--space)}
-.hero{text-align:center;padding:calc(var(--space)*1.15) 0 calc(var(--space)*1.35)}
+main{padding:var(--space) 0}
+.hero{text-align:center;padding:calc(var(--space)*2) 0}
 .hero h1{max-width:90%;margin:0 auto var(--space-sm)}
 .hero .tagline{font-size:clamp(1rem,0.95rem+0.25vw,1.125rem);color:var(--charcoal);max-width:60ch;margin:0 auto var(--space)}
 .hero .cta{display:inline-block;font-family:var(--font-body);font-weight:700;font-size:0.875rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--ground);background:var(--ink);padding:0.875rem 1.75rem;border-radius:999px;transition:background 150ms,transform 150ms}
 .hero .cta:hover{background:var(--charcoal);transform:translateY(-2px);text-decoration:none}
-.section{padding:calc(var(--space)*1.15) 0;border-top:1px solid var(--hairline)}
-.section h2{text-align:center;margin-bottom:calc(var(--space)*0.9)}
+.section{padding:calc(var(--space)*1.5) 0;border-top:1px solid var(--hairline)}
+.section h2{text-align:center;margin-bottom:calc(var(--space)*1.5)}
 .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space)}
 .service-card{background:var(--ground);border:1px solid var(--hairline);padding:var(--space);border-radius:8px;transition:border-color 150ms}
 .service-card:hover{border-color:var(--accent)}
@@ -74,7 +82,7 @@ main{padding:0 0 var(--space)}
 .process-step:nth-child(3)::before{content:"3"}
 .process-step h3{margin-top:var(--space-sm);margin-bottom:0.5rem}
 .process-step p{font-size:0.9375rem;color:var(--charcoal);margin:0}
-.locality{text-align:center;padding:calc(var(--space)*1.25) 0;background:var(--ground);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.locality{text-align:center;padding:calc(var(--space)*2) 0;background:var(--ground);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
 .locality h2{margin-bottom:0.5rem}
 .locality p{color:var(--charcoal);margin:0}
 .detail-canvas-wrap{position:relative;width:100%;aspect-ratio:4/3;background:var(--ground);border:1px solid var(--hairline);border-radius:8px;overflow:hidden;margin:calc(var(--space)*1.5) 0}
@@ -112,8 +120,8 @@ header .rv, .site-header .rv, .nav-inner .rv{
 .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
 .lb-rb__slide.is-on img{transform:scale(1.10)}
 .lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:rgba(6,7,10,.72);color:#fff;
- font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
+ font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
  font-size:clamp(9px,1vw,13px);z-index:2}
 .lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
  display:flex;flex-direction:column;gap:9px;z-index:3}
@@ -136,7 +144,7 @@ a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2
  box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
 a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
 a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:rgba(255,255,255,.32);
+ left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
  transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
 a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
@@ -151,11 +159,11 @@ a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 /* marquee band (professional, reference-derived) */
 .lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
  border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:none}
+.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
 .lb-mq:hover .lb-mq__in{animation-play-state:paused}
 .lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
- font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
+ font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
 .lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
 @keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
@@ -175,21 +183,25 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
 .lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
 .lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
+.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
  font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
  color:var(--lb-name,currentColor)}
 .lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
+.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
  font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
  color:var(--lb-subc,currentColor);opacity:.86}
 .lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:transparent}
+ background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
 @media (max-width:640px){
  .lb-brand__mark{height:clamp(30px,8vw,40px)}
  .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
  .lb-brand__sub{letter-spacing:.2em;font-size:7px}
 }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
    Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
    and does NOT hide the hero canvas (that is the intended 3D hero). */
@@ -197,35 +209,16 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<noscript><style>.rv{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>
-
-<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
-
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(300px,38vh,410px)!important;max-height:none;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
 <header class="rv"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
   <div class="container">
-    <a class="lb-brand" href="#top" aria-label="WD Mowing Service - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#3d6112;--lb-subc:#3d6112;--lb-acc:#3d6112;"><span class="lb-brand__mark"><img src="assets/logo.svg" alt="WD Mowing Service logo" width="256" height="256" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">WD Mowing Service</span></span></a>
-    <nav aria-label="Primary"><a class="lb-tel" href="tel:0499267165">0499 267 165</a><a class="nav-cta" href="#contact">Get a Quote</a></nav>
+    <a class="lb-brand" href="#top" aria-label="WD Mowing Service - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#588820;--lb-subc:#588820;--lb-acc:#588820;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">WD Mowing Service</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <img src="assets/logo.svg" alt="" class="sr-only" aria-hidden="true">
+    <span class="site-title">WD Mowing Service</span>
+    <nav aria-label="Primary"><a href="#contact">Get a Quote</a></nav>
   </div>
 </header>
-
 <main id="top">
   <section class="hero rv" aria-labelledby="hero-heading">
     <div class="container">
@@ -282,28 +275,16 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <p>Serving Withcott and surrounding areas</p>
     </div>
   </section>
-  <section class="section rv detail-band" aria-labelledby="detail-heading">
+  <section class="section rv" aria-labelledby="detail-heading">
     <div class="container">
       <h2 id="detail-heading" class="sr-only">Lawn Stripe Detail</h2>
-      <figure class="lawn-panel">
-        <div class="lawn-panel__art" role="img" aria-label="Striped lawn cut in alternating directions with clean edge lines"></div>
-        <figcaption>Alternating stripe directions, crisp edge lines, paths blown clean — every visit.</figcaption>
-      </figure>
+      <div class="detail-canvas-wrap">
+        <canvas id="detail-canvas" aria-label="Striped lawn perspective detail showing alternating light and dark stripes, mower wheel tracks converging to a clean edge, and a clippings pile at the corner"></canvas>
+      </div>
     </div>
   </section>
 </main>
-<section class="lb-rb" aria-label="Recent work and services">
-  <div class="lb-rb__track">
-    <div class="lb-rb__slide is-on"><div class="lb-rb__in"><img class="lb-rb__mark" src="assets/logo.svg" alt="" aria-hidden="true" loading="lazy"><div class="lb-rb__txt"><p class="lb-rb__k">Lawn mowing</p><h3>Fresh stripes, sharp edges</h3><p>Weekly and fortnightly cuts across Withcott and surrounds.</p></div></div></div>
-    <div class="lb-rb__slide"><div class="lb-rb__in"><img class="lb-rb__mark" src="assets/logo.svg" alt="" aria-hidden="true" loading="lazy"><div class="lb-rb__txt"><p class="lb-rb__k">Garden care</p><h3>Beds, hedges, green waste</h3><p>Tidy-ups done properly, with every clipping taken off site.</p></div></div></div>
-    <div class="lb-rb__slide"><div class="lb-rb__in"><img class="lb-rb__mark" src="assets/logo.svg" alt="" aria-hidden="true" loading="lazy"><div class="lb-rb__txt"><p class="lb-rb__k">Free quotes</p><h3>Call 0499 267 165</h3><p>Tell us the address and we will quote it, no obligation.</p></div></div></div>
-    <button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button>
-  </div>
-  <div class="lb-rb__bar">
-    <div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" aria-label="Slide 2"></button><button type="button" aria-label="Slide 3"></button></div>
-    <p class="lb-rb__cap">WD Mowing Service &mdash; recent work</p>
-  </div>
-</section><footer id="foot" role="contentinfo">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">WD Mowing Service</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">WD Mowing Service &mdash; recent work</div></div></section><footer id="contact" role="contentinfo">
   <div class="container">
     <div class="footer-brand">
       <a href="#top" class="logo-mark" aria-label="WD Mowing Service home">
@@ -337,13 +318,13 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#588820))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
@@ -367,7 +348,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 /* v3 split */
 #lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
 #lbq.v3 .lbq-g{display:grid;gap:12px}
-#lbq.v3 .lbq-hp2{border:1px solid var(--lbq-accent);padding-left:16px}
+#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
 /* v4 minimal */
 #lbq.v4 .lbq-w{max-width:620px}
@@ -632,7 +613,18 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 @keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
 </style>
 
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in{display:none !important}
 
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
+</style>
 <style>/* ==== LB HEADER TRUTH ==== */
 .lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
   align-items:center !important;flex-wrap:nowrap !important}
@@ -659,95 +651,6 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
-</style>
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in{display:none !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
-<style id="lb-repair-pass">
-/* ==== REPAIR PASS (header truth, rhythm, panels) ==== */
-header{min-height:0!important;overflow:visible!important}
-header>.container{min-height:78px;gap:clamp(14px,2vw,28px);flex-wrap:nowrap}
-.lb-brand{gap:12px!important;min-height:0!important;overflow:visible!important;text-overflow:clip!important;align-items:center!important;flex:0 1 auto}
-.lb-brand__mark{height:46px!important;width:46px!important;max-width:none!important;display:block!important;flex:0 0 auto!important}
-.lb-brand__mark img{height:46px!important;width:46px!important;max-width:none!important;object-fit:contain}
-.lb-brand__name{font-size:clamp(1rem,1.35vw,1.3rem)!important;letter-spacing:-.01em!important;
-  white-space:nowrap;overflow:visible!important;text-overflow:clip!important;color:#3d6112}
-header nav{display:flex;align-items:center;gap:clamp(10px,1.4vw,20px);flex:0 0 auto}
-header nav a{white-space:nowrap;font-size:.9rem;font-weight:600;text-decoration:none;padding:0}
-header nav .lb-tel{color:#2f3a2a!important;font-variant-numeric:tabular-nums}
-header nav .nav-cta{background:#13180f;color:#f1f5ea!important;padding:.62rem 1.15rem;border-radius:999px;
-  font-weight:700;letter-spacing:.01em;transition:background 150ms,transform 150ms}
-header nav .nav-cta:hover{background:#3d6112;text-decoration:none;transform:translateY(-1px)}
-@media(max-width:620px){
-  header>.container{min-height:64px;gap:10px}
-  .lb-brand__mark,.lb-brand__mark img{height:38px!important;width:38px!important}
-  header nav .lb-tel{display:none}
-  header nav .nav-cta{padding:.58rem 1rem;font-size:.85rem}
-}
-@media(max-width:400px){.lb-brand__name{font-size:.95rem!important}}
-
-.hero{padding:clamp(2rem,4.5vw,3.4rem) 0 clamp(2.2rem,4.5vw,3.6rem)!important}
-.hero h1{max-width:22ch!important;margin:0 auto .9rem!important}
-.hero .tagline{margin-bottom:1.6rem!important}
-
-.detail-band{padding:calc(var(--space)*1.1)!important;padding-left:0!important;padding-right:0!important}
-.lawn-panel{margin:0;border:1px solid var(--hairline);border-radius:10px;overflow:hidden;background:#e7eedd}
-.lawn-panel__art{position:relative;aspect-ratio:16/6.4;background-color:#5f8b27;
-  background-image:
-    repeating-linear-gradient(105deg,rgba(255,255,255,.15) 0 26px,rgba(19,24,15,.11) 26px 52px),
-    linear-gradient(160deg,#7aa63a,rgba(77,117,33,.95));
-  box-shadow:inset 0 -70px 90px -46px rgba(19,24,15,.38)}
-.lawn-panel__art::before{content:"";position:absolute;left:0;right:0;bottom:34px;height:3px;background:#2f3a2a;opacity:.8}
-.lawn-panel__art::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:#cfd8c1;
-  background-image:repeating-linear-gradient(90deg,rgba(19,24,15,.07) 0 2px,rgba(0,0,0,0) 2px 46px)}
-.lawn-panel figcaption{padding:.72rem 1.05rem;border-top:1px solid var(--hairline);
-  background:var(--ground);font-size:.82rem;color:var(--charcoal)}
-
-.lb-rb{color:#f1f5ea;background:#131810}
-.lb-rb__track{aspect-ratio:16/6!important}
-.lb-rb__slide{display:grid;place-items:center}
-.lb-rb__in{display:flex;align-items:center;gap:clamp(18px,3vw,38px);width:100%;max-width:780px;
-  padding:clamp(20px,4vw,46px);margin:0 auto}
-.lb-rb__mark{height:clamp(56px,7vw,86px);width:auto;flex:0 0 auto;border-radius:10px}
-.lb-rb__txt{min-width:0}
-.lb-rb__k{margin:0 0 .35rem;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:#a8c184}
-.lb-rb__txt h3{margin:0 0 .4rem;color:#f1f5ea;font-size:clamp(1.15rem,2vw,1.7rem);line-height:1.2;font-weight:700}
-.lb-rb__txt p:last-child{margin:0;color:#c8d3bd;font-size:.92rem;max-width:46ch}
-.lb-rb__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:.85rem clamp(12px,2vw,22px);border-top:1px solid rgba(255,255,255,.12)}
-.lb-rb__dots{position:static!important;transform:none!important;flex-direction:row!important;display:flex;gap:9px}
-.lb-rb__dots button{width:9px;height:9px;border:1px solid rgba(255,255,255,.6);background:transparent}
-.lb-rb__dots button.is-on{background:#c9e28f;border-color:#c9e28f;transform:scale(1.2)!important}
-.lb-rb__cap{position:static!important;background:none!important;padding:0!important;margin:0;
-  color:#a8c184;font-size:.72rem;letter-spacing:.18em;text-align:right}
-@media(max-width:700px){
-  .lb-rb__track{aspect-ratio:4/3!important}
-  .lb-rb__in{flex-direction:column;text-align:center;align-items:center}
-  .lb-rb__txt p:last-child{max-width:34ch}
-  .lb-rb__bar{flex-direction:column;gap:.6rem}
-  .lb-rb__cap{text-align:center}
-}
-
-footer{padding-top:calc(var(--space)*1.4)!important}
-#lbq{--lbq-ink:#f1f5ea;--lbq-muted:#bcc9ae;--lbq-panel:rgba(255,255,255,.07);
-  --lbq-line:rgba(241,245,234,.26);--lbq-accent:#a8ce6a;padding:calc(var(--space)*1.3) var(--space-sm)!important}
-#lbq .lbq-w{max-width:var(--max-w);margin:0 auto}
-#lbq .lbq-s{margin-bottom:1.4rem}
-#lbq button{color:#13180f}
-
-#privacy,#terms{border-top:1px solid var(--hairline);padding:calc(var(--space)*1.05) 0}
-#privacy h2,#terms h2{text-align:left;margin-bottom:.5rem}
-#privacy p,#terms p{max-width:70ch;color:var(--charcoal);margin:0}
 </style>
 </body>
 </html>

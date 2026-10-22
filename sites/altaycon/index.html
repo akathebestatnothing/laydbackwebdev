@@ -3,762 +3,820 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Altaycon | Concreting and construction in Greenvale VIC</title>
-<meta name="description" content="Altaycon. Concrete contracting, surfacing, structural concreting and site excavation in Greenvale and Melbourne's north. Call 0452 658 485."/>
+<title>Altaycon — Concreting & Construction, Greenvale VIC</title>
+<meta name="description" content="Altaycon — concrete contracting, surfacing, structural concreting and site excavation in Greenvale VIC."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="icon" type="image/png" href="assets/favicon.png"/>
-<meta property="og:title" content="Altaycon | Concreting and construction"/>
+<meta property="og:title" content="Altaycon — Concreting & Construction"/>
 <meta property="og:description" content="Concrete contracting, surfacing, structural concreting and site excavation in Greenvale VIC."/>
 <meta property="og:image" content="assets/logo.png"/>
 <meta property="og:type" content="website"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#101114;
-  --ink-2:#1b1d21;
   --mist:#f0f0f0;
-  --paper:#f7f6f4;
   --hairline:#d8d8d8;
-  --muted:#55585c;
-  --muted-2:#4b4e52;
-  --t-hero:clamp(2.3rem,4.6vw,3.9rem);
-  --t-h2:clamp(1.55rem,2.5vw,2.15rem);
-  --t-h3:1.0625rem;
-  --t-body:1.0625rem;
-  --t-small:.8125rem;
-  --pad:clamp(4rem,7vw,6.5rem);
-  --wrap:1160px;
-  --disp:"Archivo",system-ui,sans-serif;
-  --text:"Public Sans",system-ui,sans-serif;
+  --accent:#000000;
+  --bg:var(--mist);
+  --line:var(--hairline);
+  --canvas-bg:#ffffff;
 }
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+*, *::before, *::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
+  canvas{transition:none!important}
+}
 body{
-  margin:0;background:var(--mist);color:var(--ink);
-  font-family:var(--text);font-size:var(--t-body);line-height:1.6;
+  margin:0;
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-size:clamp(1rem,0.95rem+0.25vw,1.125rem);
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--bg);
   -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
-img{display:block;max-width:100%;height:auto}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity 700ms cubic-bezier(0.16,1,0.3,1),transform 700ms cubic-bezier(0.16,1,0.3,1)}
+.js .rv.on{opacity:1;transform:none}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--disp);margin:0;color:var(--ink)}
-h1{font-size:var(--t-hero);font-weight:800;line-height:1.02;letter-spacing:-.032em}
-h2{font-size:var(--t-h2);font-weight:700;line-height:1.1;letter-spacing:-.022em}
-h3{font-size:var(--t-h3);font-weight:600;line-height:1.3;letter-spacing:-.005em}
-p{margin:0}
-:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding-inline:clamp(1.15rem,4vw,2.5rem)}
-.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:.7rem 1.1rem;z-index:90}
-.skip:focus{left:1rem;top:1rem}
-
-/* ---------- header ---------- */
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip-link{position:absolute;top:-100%;left:50%;transform:translateX(-50%);padding:0.75rem 1.25rem;background:var(--ink);color:#fff;font-weight:600;z-index:1000;border-radius:0 0 6px 6px}
+.skip-link:focus{top:0}
 header{
-  position:sticky;top:0;z-index:60;
-  background:var(--mist);border-bottom:1px solid var(--hairline);
+  position:sticky;top:0;z-index:100;
+  background:rgba(240,240,240,0.92);
+  backdrop-filter:saturate(180%) blur(8px);
+  border-bottom:1px solid var(--hairline);
 }
 .header-inner{
-  max-width:var(--wrap);margin:0 auto;
-  padding:.85rem clamp(1.15rem,4vw,2.5rem);
-  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  max-width:1200px;margin:0 auto;padding:1rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
 }
-.lb-brand{display:flex;align-items:center;gap:.6rem;min-width:0;flex:0 0 auto}
-.lb-brand__mark{display:flex;align-items:center;height:32px;flex:0 0 auto}
-.lb-brand__mark img{height:100%;width:auto}
-.lb-brand__name{
-  font-family:var(--disp);font-weight:800;font-size:1.32rem;
-  letter-spacing:-.028em;line-height:1;white-space:nowrap;color:#101114;
+.logo-mark{width:40px;height:40px;flex-shrink:0}
+.logo-mark svg{width:100%;height:100%;display:block}
+.site-title{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:900;font-size:clamp(1.125rem,1rem+0.5vw,1.375rem);
+  letter-spacing:-0.02em;line-height:1.1;color:var(--ink);
 }
-.nav{display:flex;align-items:center;gap:1.75rem;margin-left:auto}
-.nav a{font-size:.9375rem;font-weight:500;color:var(--muted-2);transition:color .18s ease}
-.nav a:hover{color:var(--ink)}
-.tel-btn{
-  display:inline-flex;align-items:center;gap:.45rem;flex:0 0 auto;
-  background:var(--ink);color:#fff;font-weight:600;font-size:.875rem;
-  padding:.62rem 1rem;border-radius:3px;white-space:nowrap;
-  transition:background .18s ease;
+nav ul{display:flex;gap:2rem;list-style:none;margin:0;padding:0}
+nav a{
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-weight:500;font-size:0.875rem;letter-spacing:0.02em;
+  color:var(--ink);opacity:0.7;
+  transition:opacity 200ms ease;
 }
-.tel-btn:hover{background:var(--ink-2)}
-.tel-btn svg{width:15px;height:15px;flex:0 0 auto}
-@media (max-width:760px){
-  .nav{display:none}
-  .tel-btn{margin-left:auto}
+nav a:hover,nav a:focus{opacity:1}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.625rem 1.25rem;
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-weight:600;font-size:0.875rem;letter-spacing:0.02em;
+  color:#fff;background:var(--ink);
+  border:0;border-radius:999px;cursor:pointer;
+  transition:background 200ms ease,transform 150ms ease;
 }
-@media (max-width:400px){
-  .lb-brand__name{font-size:1.15rem}
+.cta-btn:hover{background:#1a1a1a;transform:translateY(-1px)}
+.cta-btn:active{transform:translateY(0)}
+.cta-btn svg{width:18px;height:18px}
+main{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+section{padding:clamp(3rem,5vw+1rem,5rem) 0}
+.section-inner{width:100%}
+h1{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:900;font-size:clamp(2.5rem,2rem+3vw,4rem);
+  line-height:1.05;letter-spacing:-0.03em;margin:0 0 1rem;color:var(--ink);
 }
-
-/* ---------- hero ---------- */
+h2{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:700;font-size:clamp(1.5rem,1.25rem+1vw,2rem);
+  line-height:1.15;letter-spacing:-0.02em;margin:0 0 0.75rem;color:var(--ink);
+}
+h3{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:700;font-size:clamp(1.125rem,1rem+0.5vw,1.375rem);
+  line-height:1.2;letter-spacing:-0.01em;margin:0 0 0.5rem;color:var(--ink);
+}
+p{margin:0 0 1rem;color:var(--ink);opacity:0.85}
+p:last-child{margin-bottom:0}
+.lead{font-size:clamp(1.125rem,1rem+0.5vw,1.25rem);font-weight:500;opacity:0.9;margin-bottom:1.5rem}
 .hero{
-  position:relative;background:var(--ink);color:var(--paper);
-  min-height:min(84vh,700px);display:flex;align-items:center;overflow:hidden;
+  display:grid;grid-template-columns:1fr;gap:clamp(2rem,4vw,3rem);align-items:center;
+  padding-top:clamp(3rem,5vw,4rem);padding-bottom:clamp(3rem,5vw,4rem);
 }
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hero-veil{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,#101114 0%,rgba(16,17,20,.95) 28%,rgba(16,17,20,.68) 46%,rgba(16,17,20,.36) 66%,rgba(16,17,20,.2) 100%);
+@media (min-width:900px){
+  .hero{grid-template-columns:1.1fr 0.9fr}
 }
-.hero-copy{position:relative;z-index:2;max-width:600px;padding-block:clamp(3.75rem,8vw,6rem)}
-
-/* ---------- hero right panel ---------- */
-.hero .wrap{position:relative;z-index:2;width:100%}
-.hero-grid{
-  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.8fr);
-  gap:clamp(2rem,5vw,4.5rem);align-items:center;
+.hero-copy{display:flex;flex-direction:column;justify-content:center}
+.hero-canvas-wrap{
+  position:relative;aspect-ratio:4/3;background:var(--canvas-bg);
+  border:1px solid var(--hairline);border-radius:8px;overflow:hidden;
 }
-.hero-panel{
-  justify-self:end;width:100%;max-width:390px;
-  background:rgba(16,17,20,.5);border:1px solid rgba(248,246,242,.18);
-  border-radius:3px;padding:1.5rem 1.6rem 1.4rem;
+.hero-canvas-wrap canvas{display:block;width:100%;height:100%}
+.hero-cta{margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap}
+.cta-secondary{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.625rem 1.25rem;
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-weight:600;font-size:0.875rem;letter-spacing:0.02em;
+  color:var(--ink);background:transparent;
+  border:1px solid var(--hairline);border-radius:999px;cursor:pointer;
+  transition:border-color 200ms ease,background 200ms ease;
 }
-.hero-panel__t{
-  font-family:var(--disp);font-weight:600;font-size:.75rem;
-  letter-spacing:.12em;text-transform:uppercase;color:#a9a49b;
-  padding-bottom:.9rem;border-bottom:1px solid rgba(248,246,242,.18);
+.cta-secondary:hover{border-color:var(--ink);background:rgba(0,0,0,0.03)}
+.service-grid{
+  display:grid;grid-template-columns:1fr;gap:1.5rem;
 }
-.hero-panel dl{margin:0}
-.hero-panel .row{
-  display:grid;grid-template-columns:1.9rem minmax(0,1fr);gap:.7rem;
-  padding-block:.85rem;border-bottom:1px solid rgba(248,246,242,.1);
+@media (min-width:640px){
+  .service-grid{grid-template-columns:repeat(2,1fr)}
 }
-.hero-panel .row:last-of-type{border-bottom:0;padding-bottom:.2rem}
-.hero-panel .row b{
-  font-family:var(--disp);font-weight:600;font-size:.75rem;
-  color:#8d887f;font-variant-numeric:tabular-nums;letter-spacing:.04em;
-  padding-top:.2rem;
+@media (min-width:1000px){
+  .service-grid{grid-template-columns:repeat(3,1fr)}
 }
-.hero-panel .row span{font-size:.9375rem;line-height:1.45;color:#ddd8ce}
-.hero-panel__f{
-  font-size:.8125rem;color:#a9a49b;
-  padding-top:.9rem;border-top:1px solid rgba(248,246,242,.18);margin-top:.6rem;
+.service-card{
+  background:var(--canvas-bg);border:1px solid var(--hairline);
+  border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;
+  transition:border-color 200ms ease,box-shadow 200ms ease;
 }
-.hero-kicker{
-  font-family:var(--disp);font-weight:600;font-size:.9375rem;
-  color:#b9b4ab;margin-bottom:1.1rem;
+.service-card:hover{border-color:var(--ink);box-shadow:0 8px 24px rgba(16,17,20,0.06)}
+.service-card h3{margin-bottom:0.5rem}
+.service-card p{font-size:0.9375rem;line-height:1.6;opacity:0.8}
+.process-band{
+  background:var(--canvas-bg);border:1px solid var(--hairline);
+  border-radius:8px;padding:clamp(2rem,3vw,3rem);
 }
-.hero h1{color:#f8f6f2}
-.hero-sub{color:#c6c2ba;margin-top:1.25rem;max-width:46ch}
-.hero-cta{margin-top:2rem;display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:#f8f6f2;color:var(--ink);font-weight:600;font-size:1rem;
-  padding:.95rem 1.5rem;border-radius:3px;transition:background .18s ease;
+.process-steps{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media (min-width:720px){
+  .process-steps{grid-template-columns:repeat(2,1fr)}
 }
-.btn:hover{background:#fff}
-.btn svg{width:17px;height:17px}
-.hero-note{font-size:var(--t-small);color:#a9a49b}
-@media (max-width:860px){
-  .hero{min-height:0;padding-block:clamp(3rem,9vw,4.5rem)}
-  .hero-veil{background:linear-gradient(180deg,rgba(16,17,20,.9) 0%,rgba(16,17,20,.62) 55%,rgba(16,17,20,.92) 100%)}
-  .hero-copy{padding-block:0;max-width:none}
-  .hero-grid{grid-template-columns:1fr;gap:2.25rem}
-  .hero-panel{justify-self:stretch;max-width:none}
+@media (min-width:1000px){
+  .process-steps{grid-template-columns:repeat(4,1fr)}
 }
-
-/* ---------- bands ---------- */
-.band{padding-block:var(--pad)}
-.band--alt{background:var(--paper);border-block:1px solid var(--hairline)}
-.sec-head{display:grid;gap:.85rem;max-width:640px;margin-bottom:clamp(2rem,4vw,3rem)}
-.sec-head p{color:var(--muted)}
-
-/* services: ruled editorial list, not cards */
-.svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
-.svc-row{
-  display:grid;grid-template-columns:3.4rem minmax(0,19rem) minmax(0,1fr);
-  gap:clamp(1rem,3vw,2.5rem);align-items:baseline;
-  padding-block:clamp(1.35rem,2.4vw,1.9rem);border-bottom:1px solid var(--hairline);
+.process-step{position:relative;padding-left:2rem}
+.process-step::before{
+  content:"";position:absolute;left:0;top:0.25rem;
+  width:0.5rem;height:1.5rem;background:var(--ink);
+  border-radius:2px;
 }
-.svc-n{
-  font-family:var(--disp);font-weight:600;font-size:.8125rem;
-  color:var(--muted);font-variant-numeric:tabular-nums;
+.process-step h3{margin-bottom:0.25rem}
+.process-step p{font-size:0.9375rem;opacity:0.8;margin:0}
+.locality-band{
+  background:var(--ink);color:#fff;border-radius:8px;
+  padding:clamp(2rem,3vw,3rem);text-align:center;
 }
-.svc-row h3{transition:transform .2s ease}
-.svc-row:hover h3{transform:translateX(4px)}
-.svc-row p{color:var(--muted)}
-@media (max-width:720px){
-  .svc-row{grid-template-columns:2.2rem minmax(0,1fr);gap:.5rem 1rem}
-  .svc-row p{grid-column:2}
+.locality-band h2{color:#fff;margin-bottom:0.5rem}
+.locality-band p{color:rgba(255,255,255,0.8);margin:0;font-size:1.125rem}
+footer{
+  background:var(--ink);color:#fff;padding:clamp(3rem,5vw,4rem) 1.5rem;
+  margin-top:clamp(2rem,4vw,3rem);
 }
-
-/* approach: weighted columns on a top rule */
-.phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.25rem,3vw,2.5rem)}
-.phase{border-top:2px solid var(--ink);padding-top:1rem}
-.phase p{color:var(--muted);margin-top:.45rem;font-size:.9375rem}
-@media (max-width:900px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.phases{grid-template-columns:1fr}}
-
-/* contact band */
-.contact{background:var(--ink);color:var(--paper);padding-block:var(--pad)}
-.contact-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:flex-end}
-.contact h2{color:#f8f6f2;max-width:18ch}
-.contact p{color:#b5b0a7;margin-top:.85rem;max-width:38ch}
-.contact-tel{
-  font-family:var(--disp);font-weight:700;font-size:clamp(1.6rem,3.6vw,2.6rem);
-  letter-spacing:-.03em;color:#f8f6f2;display:inline-block;
-  border-bottom:2px solid rgba(248,246,242,.35);padding-bottom:.15rem;
-  transition:border-color .18s ease;
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:2rem}
+@media (min-width:720px){
+  .footer-inner{grid-template-columns:1.5fr 1fr 1fr}
 }
-.contact-tel:hover{border-bottom-color:rgba(248,246,242,.9)}
-.contact-grid{align-items:flex-end}
-
-/* ---------- quote form ---------- */
-.form-wrap{max-width:780px}
-.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
-.field{display:grid;gap:.4rem;margin-bottom:1.15rem}
-.field label{
-  font-family:var(--disp);font-weight:600;font-size:.8125rem;
-  letter-spacing:.01em;color:var(--muted-2);
+.footer-brand .logo-mark{width:48px;height:48px;margin-bottom:1rem}
+.footer-brand p{color:rgba(255,255,255,0.7);font-size:0.9375rem;margin:0}
+.footer-nav h3,.footer-contact h3{
+  font-family:"Archivo",system-ui,sans-serif;
+  font-weight:700;font-size:0.875rem;letter-spacing:0.05em;
+  text-transform:uppercase;color:#fff;margin:0 0 1rem;
 }
-.field input,.field textarea{
-  width:100%;padding:.8rem .9rem;font-family:var(--text);font-size:1rem;line-height:1.5;
-  color:var(--ink);background:var(--paper);border:1px solid var(--hairline);border-radius:3px;
-  transition:border-color .16s ease,background .16s ease;
+.footer-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.5rem}
+.footer-nav a{color:rgba(255,255,255,0.7);transition:color 200ms ease}
+.footer-nav a:hover{color:#fff}
+.footer-contact p{color:rgba(255,255,255,0.7);margin:0 0 0.5rem;font-size:0.9375rem}
+.footer-contact a{color:rgba(255,255,255,0.7);transition:color 200ms ease}
+.footer-contact a:hover{color:#fff}
+.footer-bottom{
+  max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;
+  border-top:1px solid rgba(255,255,255,0.1);
+  display:flex;flex-direction:column;gap:1rem;align-items:center;text-align:center;
 }
-.field input:focus,.field textarea:focus{outline:0;border-color:var(--ink);background:#fff}
-.field textarea{min-height:132px;resize:vertical}
-.consent{
-  display:flex;align-items:flex-start;gap:.55rem;font-size:.875rem;
-  line-height:1.45;color:var(--muted);margin:.15rem 0 1.35rem;
+@media (min-width:640px){
+  .footer-bottom{flex-direction:row;justify-content:space-between;text-align:left}
 }
-.consent input{
-  width:1rem;height:1rem;flex:0 0 auto;margin:.15rem 0 0;
-  accent-color:var(--ink);
+.footer-legal{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center}
+@media (min-width:640px){.footer-legal{justify-content:flex-start}}
+.footer-legal a{color:rgba(255,255,255,0.5);font-size:0.8125rem;transition:color 200ms ease}
+.footer-legal a:hover{color:#fff}
+.footer-socials{display:flex;gap:1rem}
+.footer-socials a{
+  width:40px;height:40px;border:1px solid rgba(255,255,255,0.2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  transition:border-color 200ms ease,background 200ms ease;
 }
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-#lbq-form button[type=submit]{
-  display:inline-flex;align-items:center;gap:.55rem;
-  background:var(--ink);color:#fff;font-family:var(--text);font-weight:600;font-size:1rem;
-  padding:.95rem 1.6rem;border:0;border-radius:3px;cursor:pointer;
-  transition:background .18s ease;
+.footer-socials a:hover{border-color:#fff;background:rgba(255,255,255,0.1)}
+.footer-socials svg{width:20px;height:20px}
+.legal-section{
+  max-width:1200px;margin:0 auto;padding:2rem 1.5rem 3rem;
+  border-top:1px solid var(--hairline);
 }
-#lbq-form button[type=submit]:hover{background:var(--ink-2)}
-#lbq-form button[type=submit][disabled]{opacity:.62;cursor:default}
-.form-st{min-height:1.3rem;margin-top:.9rem;font-size:.9375rem}
-@media (max-width:560px){.two{grid-template-columns:1fr;gap:0}}
-
-/* ---------- legal ---------- */
-.legal{padding-block:clamp(2.5rem,4vw,3.4rem);border-top:1px solid var(--hairline)}
-.legal#privacy{border-top:1px solid var(--ink)}
-.legal .wrap > *{max-width:74ch}
-.legal h2{font-size:clamp(1.2rem,1.9vw,1.45rem);margin-bottom:.55rem}
-.legal h3{font-size:.9375rem}
-.legal p{color:var(--muted);margin-bottom:.55rem}
-.legal p + h3{margin-top:1.4rem}
-
-/* ---------- footer ---------- */
-footer{background:var(--ink);color:#b5b0a7;padding-block:clamp(2.75rem,5vw,4rem) 0}
-.foot-grid{
-  display:grid;grid-template-columns:1.7fr .8fr 1fr;
-  gap:clamp(1.75rem,4vw,3.25rem);align-items:start;
-  padding-bottom:.5rem;
+.legal-section h2{font-size:1.25rem;margin-bottom:1rem}
+.legal-section p{font-size:0.9375rem;color:var(--ink);opacity:0.8}
+.legal-section h3{font-size:1rem;margin-top:1.5rem;margin-bottom:0.5rem}
+@media (max-width:599px){
+  .header-inner{flex-wrap:wrap;justify-content:center;text-align:center}
+  nav ul{order:3;width:100%;justify-content:center;margin-top:1rem}
+  .cta-btn{order:4}
 }
-.foot-brand .lb-brand{display:inline-flex;margin-bottom:.9rem}
-.foot-brand .lb-brand__name{color:#f8f6f2}
-.foot-brand .lb-brand__mark{
-  background:var(--paper);border-radius:3px;padding:.28rem;height:32px;
-}
-.foot-brand .lb-brand__mark img{height:100%;width:auto}
-.foot-brand p{max-width:32ch;font-size:.9375rem}
-.foot-col h3{
-  font-size:.8125rem;letter-spacing:.09em;font-weight:600;text-transform:uppercase;
-  color:#8d887f;margin-bottom:.9rem;
-}
-.foot-col a,.foot-col p{display:block;font-size:.9375rem;margin-bottom:.5rem;color:#cbc6bd}
-.foot-col a{transition:color .18s ease;width:fit-content}
-.foot-col a:hover{color:#f8f6f2}
-.foot-bottom{
-  display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;
-  border-top:1px solid rgba(248,246,242,.16);
-  margin-top:clamp(2rem,3.5vw,2.75rem);padding-block:1.35rem;
-  font-size:.8125rem;color:#8d887f;
-}
-.foot-bottom > span:nth-child(2){margin-left:auto}
-.foot-social{display:flex;align-items:center;gap:.7rem}
-.foot-social a{color:#cbc6bd;transition:color .18s ease}
-.foot-social a:hover{color:#f8f6f2}
-.foot-social svg{width:17px;height:17px}
-@media (max-width:760px){
-  .foot-grid{grid-template-columns:1fr 1fr}
-  .foot-brand{grid-column:1 / -1}
-  .foot-bottom > span:nth-child(2){margin-left:0}
-}
-
 </style>
+<style id="lb-motion-css">
+/* ==== LB MOTION PACK ==== */
+.lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
+/* A header must never be hidden by a scroll-reveal state: the nav/brand is chrome, not
+   content. Unrevealed .rv wrappers left whole headers at opacity:0 (invisible logo). */
+header, .site-header, .page-header, nav.nav, .nav .rv, nav.rv, .header-inner, .nav-inner,
+header .rv, .site-header .rv, .nav-inner .rv{
+  opacity:1 !important; visibility:visible !important; transform:none !important;
+}
+.lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
+.lb-mq{max-width:100%;overflow:hidden}
+.lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
+.lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
+.lb-rb__slide.is-on{opacity:1}
+.lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
+.lb-rb__slide.is-on img{transform:scale(1.10)}
+.lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
+ background:linear-gradient(180deg,transparent,rgba(6,7,10,.72));color:#fff;
+ font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+ font-size:clamp(9px,1vw,13px);z-index:2}
+.lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
+ display:flex;flex-direction:column;gap:9px;z-index:3}
+.lb-rb__dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
+ background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s}
+.lb-rb__dots button.is-on{background:#fff;transform:scale(1.35)}
+.lb-rb__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;
+ border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(8,9,12,.35);color:#fff;
+ cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1;backdrop-filter:blur(6px);
+ transition:background .25s,transform .25s}
+.lb-rb__nav:hover{background:rgba(8,9,12,.7)}
+.lb-rb__nav--prev{left:clamp(10px,1.6vw,22px)}
+.lb-rb__nav--next{right:clamp(10px,1.6vw,22px)}
+.lb-rb__nav:active{transform:translateY(-50%) scale(.92)}
+@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3}.lb-rb__nav{width:36px;height:36px}}
 
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+a.btn,.btn,button.btn,.nav-cta a,.wp-block-button__link{position:relative;overflow:hidden;
+ transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,filter .22s}
+a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2px);
+ box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
+a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
+a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
+ left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+ transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
+a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
 
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.lb-rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+ .lb-rv{opacity:1!important;transform:none!important;transition:none!important}
+ .lb-rb__slide img{transform:none!important;transition:none!important}
+ a.btn::after,.btn::after,.nav-cta a::after{display:none}
+}
+
+/* marquee band (professional, reference-derived) */
+.lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
+ border-bottom:1px solid rgba(255,255,255,.10)}
+.lb-mq__in{display:flex;width:max-content;animation:lb-mq 34s linear infinite}
+.lb-mq:hover .lb-mq__in{animation-play-state:paused}
+.lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
+ padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp,Inter),sans-serif;
+ font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
+.lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
+@keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
+</style>
+<style id="lb-hero-css">
+canvas.lb-hero-canvas{position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0; pointer-events:none}
+canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
+  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
+}
+</style>
+<style id="lb-brand-css">
+/* ==== LB BRAND (logo-true spanning wordmark) ==== */
+.lb-brandwrap{display:block;padding:14px 18px;background:inherit}
+.lb-brandwrap .lb-brand{display:inline-flex}
+.lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
+ color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
+.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
+.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
+.lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
+.lb-brand__name{font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;
+ font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
+ color:var(--lb-name,currentColor)}
+.lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
+.lb-brand__sub{font-family:var(--lb-sub,Inter),sans-serif;font-weight:600;text-transform:uppercase;
+ font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
+ color:var(--lb-subc,currentColor);opacity:.86}
+.lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
+ background:linear-gradient(90deg,var(--lb-acc,currentColor),transparent)}
+@media (max-width:640px){
+ .lb-brand__mark{height:clamp(30px,8vw,40px)}
+ .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
+ .lb-brand__sub{letter-spacing:.2em;font-size:7px}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
+   Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
+   and does NOT hide the hero canvas (that is the intended 3D hero). */
+.site-header,.header{z-index:50}
+.container.nav,.nav,.nav-in{z-index:5}
+.lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
+</style>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-<header>
+<body><a href="#main" class="skip-link">Skip to main content</a>
+<header role="banner">
   <div class="header-inner">
-    <a class="lb-brand" href="#top" aria-label="Altaycon home" style="--lb-name:#101114">
-      <span class="lb-brand__mark"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span>
-      <span class="lb-brand__name">Altaycon</span>
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#approach">Approach</a>
-      <a href="#quote">Quote</a>
+    <a class="lb-brand" href="#top" aria-label="Altaycon - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#14161a;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Altaycon</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <div class="site-title">Altaycon</div>
+    <nav role="navigation" aria-label="Primary navigation">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-    <a class="tel-btn" href="tel:0452658485">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-      0452 658 485
+    <a href="#contact" class="cta-btn" aria-label="Request a quote">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      Get a quote
     </a>
   </div>
 </header>
-
-<main id="main">
-  <section class="hero" id="top">
-    <canvas id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="hero-veil" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <p class="hero-kicker">Concreting and construction, Greenvale VIC</p>
-          <h1>Concrete set out, poured and finished to spec.</h1>
-          <p class="hero-sub">Concrete contracting, surfacing, structural concreting and site excavation. Residential and commercial work across Greenvale and Melbourne's north.</p>
-          <div class="hero-cta">
-            <a class="btn" href="tel:0452658485">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
-              Call 0452 658 485
-            </a>
-            <p class="hero-note">Free quote, no obligation.</p>
-          </div>
-        </div>
-        <aside class="hero-panel" aria-label="How a job is run">
-          <p class="hero-panel__t">On site</p>
-          <dl>
-            <div class="row"><b>01</b><span>Set out to line and level, formed and steeled to spec.</span></div>
-            <div class="row"><b>02</b><span>Poured, screeded and finished to the surface you want.</span></div>
-            <div class="row"><b>03</b><span>Domestic driveways, paths and slabs, and commercial work.</span></div>
-          </dl>
-          <p class="hero-panel__f">Greenvale &middot; Craigieburn &middot; Epping &middot; Roxburgh Park</p>
-        </aside>
+<main id="main" role="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title" class="rv">Altaycon</h1>
+      <p class="lead rv" style="transition-delay:80ms">Concrete contracting, surfacing, structural concreting and site excavation in Greenvale VIC.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="cta-btn rv" style="transition-delay:160ms">Request a quote</a>
+        <a href="#services" class="cta-secondary rv" style="transition-delay:240ms">View services</a>
       </div>
     </div>
-  </section>
-
-  <section id="services" class="band">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>What we do</h2>
-        <p>Four scopes, one crew. Each job is set out to line, formed to tolerance and finished to the surface you have specified.</p>
-      </div>
-      <ul class="svc">
-        <li class="svc-row">
-          <span class="svc-n">01</span>
-          <h3>Concrete contracting</h3>
-          <p>Formwork, placement and finishing for residential and commercial concrete work.</p>
-        </li>
-        <li class="svc-row">
-          <span class="svc-n">02</span>
-          <h3>Surfacing and finishes</h3>
+    <div class="hero-canvas-wrap rv" style="transition-delay:120ms" aria-hidden="true">
+      <canvas id="detail-canvas" aria-label="Pour ribbon detail — a continuous concrete ribbon band in perspective with screed bar and formwork edges"></canvas>
+    </div>
+  </section><section id="services" class="rv" aria-labelledby="services-title" style="transition-delay:80ms">
+    <div class="section-inner">
+      <h2 id="services-title">Services</h2>
+      <div class="service-grid">
+        <article class="service-card rv">
+          <h3>Concrete Contracting</h3>
+          <p>Formwork, placement and finishing for residential and commercial concrete works.</p>
+        </article>
+        <article class="service-card rv" style="transition-delay:40ms">
+          <h3>Surfacing & Finishes</h3>
           <p>Exposed aggregate, polished, broom and trowel finishes for driveways, paths and slabs.</p>
-        </li>
-        <li class="svc-row">
-          <span class="svc-n">03</span>
-          <h3>Structural concreting</h3>
+        </article>
+        <article class="service-card rv" style="transition-delay:80ms">
+          <h3>Structural Concreting</h3>
           <p>Footings, beams, columns, suspended slabs and retaining walls to engineering spec.</p>
-        </li>
-        <li class="svc-row">
-          <span class="svc-n">04</span>
-          <h3>Site excavation</h3>
-          <p>Cut and fill, site levelling, trench excavation and subgrade preparation.</p>
-        </li>
-      </ul>
+        </article>
+        <article class="service-card rv" style="transition-delay:120ms">
+          <h3>Site Excavation</h3>
+          <p>Cut and fill, site leveling, trench excavation and subgrade preparation.</p>
+        </article>
+      </div>
     </div>
   </section>
-
-  <section id="approach" class="band band--alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>How a pour runs</h2>
-        <p>The order is fixed, because the surface depends on everything under it being right.</p>
-      </div>
-      <div class="phases">
-        <div class="phase">
-          <h3>Plan and set out</h3>
+  <section id="process" class="process-band rv" aria-labelledby="process-title" style="transition-delay:120ms">
+    <div class="section-inner">
+      <h2 id="process-title">Our Approach</h2>
+      <div class="process-steps">
+        <div class="process-step rv">
+          <h3>Plan & Set Out</h3>
           <p>Review drawings, confirm levels and establish grid lines before any pour.</p>
         </div>
-        <div class="phase">
-          <h3>Form and reinforce</h3>
+        <div class="process-step rv" style="transition-delay:40ms">
+          <h3>Form & Reinforce</h3>
           <p>Erect formwork to tolerance, place reinforcement and install embeds.</p>
         </div>
-        <div class="phase">
-          <h3>Place and screed</h3>
-          <p>Continuous pour, vibrate and screed to the specified finish level.</p>
+        <div class="process-step rv" style="transition-delay:80ms">
+          <h3>Place & Screed</h3>
+          <p>Continuous pour, vibration and screed to specified finish level.</p>
         </div>
-        <div class="phase">
-          <h3>Cure and hand over</h3>
-          <p>Apply the curing regime, saw-cut control joints and hand the work over.</p>
+        <div class="process-step rv" style="transition-delay:120ms">
+          <h3>Cure & Hand Over</h3>
+          <p>Apply curing regime, saw-cut control joints and certify compliance.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <section id="contact" class="contact">
-    <div class="wrap contact-grid">
-      <div>
-        <h2>Work across Greenvale and Melbourne's north.</h2>
-        <p>Call with the job and the site address. Quotes are free and there is no obligation.</p>
-      </div>
-      <a class="contact-tel" href="tel:0452658485">0452 658 485</a>
-    </div>
-  </section>
-
-  <section id="quote" class="band">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Request a quote</h2>
-        <p>Send the details and Altaycon will come back to you.</p>
-      </div>
-      <div class="form-wrap">
-        <form id="lbq-form" novalidate data-site="altaycon" data-biz="Altaycon">
-          <div class="two">
-            <div class="field">
-              <label for="f-name">Name</label>
-              <input id="f-name" name="name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Phone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email">
-          </div>
-          <div class="field">
-            <label for="f-msg">The job</label>
-            <textarea id="f-msg" name="message" placeholder="Size, site address, timing" required></textarea>
-          </div>
-          <label class="consent"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
-          <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-          <button type="submit">Send request</button>
-          <p class="form-st" id="lbq-st" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section id="privacy" class="legal">
-    <div class="wrap">
-      <h2>Privacy</h2>
-      <p>Altaycon collects only the information you provide when you send a quote request: name, contact details and a description of the job. That information is used to respond to your enquiry and is not sold or shared with third parties for marketing. You can ask for access to it, or for it to be deleted, at any time by calling the number above.</p>
-      <h3>Retention</h3>
-      <p>Enquiry records are kept for 12 months unless a longer period is required by law.</p>
-      <h3>Cookies</h3>
-      <p>The site sets no analytics or advertising cookies. Only essential session cookies may be set by the quote endpoint.</p>
-    </div>
-  </section>
-
-  <section id="terms" class="legal">
-    <div class="wrap">
-      <h2>Terms</h2>
-      <p>Information on this site is general guidance only and does not form a contract or an offer. Scope, timing and pricing are subject to a written quotation and agreement.</p>
-      <h3>Copyright</h3>
-      <p>The Altaycon name and the content of this site remain the property of Altaycon. Unauthorised commercial use is not permitted.</p>
-      <h3>Jurisdiction</h3>
-      <p>These terms are governed by the laws of Victoria, Australia.</p>
+  <section id="contact" class="locality-band rv" aria-labelledby="contact-title" style="transition-delay:160ms">
+    <div class="section-inner">
+      <h2 id="contact-title">Greenvale VIC</h2>
+      <p><a href="tel:+61452658485">0452658485</a></p>
     </div>
   </section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="lb-brand" href="#top" aria-label="Altaycon home">
-          <span class="lb-brand__mark"><img src="assets/logo.png" alt="" width="30" height="30" loading="lazy" decoding="async"></span>
-          <span class="lb-brand__name">Altaycon</span>
-        </a>
-        <p>Concreting and construction in Greenvale VIC.</p>
-      </div>
-      <div class="foot-col">
-        <h3>Sections</h3>
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#quote">Request a quote</a>
-      </div>
-      <div class="foot-col">
-        <h3>Contact</h3>
-        <a href="tel:0452658485">0452 658 485</a>
-        <p>Greenvale VIC</p>
-      </div>
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Altaycon</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><div class="lb-rb__slide" style="background:linear-gradient(120deg,#0b0c10 0%,#e51924 165%)"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp,Inter),sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Free quotes &mdash; call today</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Altaycon &mdash; recent work</div></div></section><footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo-mark" aria-label="Altaycon home">
+        <svg viewBox="0 0 256 256" fill="none" aria-hidden="true">
+          <title>Altaycon logo</title>
+          <path d="M58 192 L58 56 C58 50.5 62.5 46 68 46 L72 46 C77.5 46 82 50.5 82 56 L82 192 C82 197.5 77.5 202 72 202 L68 202 C62.5 202 58 197.5 58 192 Z" fill="#fff"/>
+          <path d="M174 192 L174 56 C174 50.5 178.5 46 184 46 L188 46 C193.5 46 198 50.5 198 56 L198 192 C198 197.5 193.5 202 188 202 L184 202 C178.5 202 174 197.5 174 192 Z" fill="#fff"/>
+          <path d="M56 140 C88 140 104 124 128 124 C152 124 168 140 200 140 L200 164 C168 164 152 148 128 148 C104 148 88 164 56 164 Z" fill="#e0e0e0"/>
+          <path d="M56 140 C72 108 88 92 128 92 L128 116 C88 116 72 132 56 164 Z" fill="#ccc"/>
+          <path d="M128 92 C168 92 184 108 200 140 L200 164 C184 132 168 116 128 116 Z" fill="#ccc"/>
+          <path d="M112 88 L144 88 C144 82 148.5 78 154 78 L154 74 C148.5 74 144 70 144 64 L112 64 C106.5 70 102 74 102 78 L102 78 C96.5 78 92 82 92 88 L112 88 Z" fill="#fff"/>
+          <path d="M124 116 L124 140 C124 142.2 125.8 144 128 144 C130.2 144 132 142.2 132 140 L132 116 C132 113.8 130.2 112 128 112 C125.8 112 124 113.8 124 116 Z" fill="#fff"/>
+          <path d="M112 82 L144 82 C144 79 146 77 148 77 L148 75 C146 75 144 73 144 70 L112 70 C106.5 73 104 75 104 77 L104 77 C102 77 100 79 100 82 L112 82 Z" fill="#fff" opacity="0.5"/>
+        </svg>
+      </a>
+      <img src="assets/logo.png" alt="" aria-hidden="true" style="display:none"/>
+      <p>Altaycon — Concreting & construction in Greenvale VIC.</p>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 Altaycon</span>
-      <span><a href="#privacy">Privacy</a> &middot; <a href="#terms">Terms</a></span>
-      <span class="foot-social">
-        <a href="https://facebook.com/altaycon" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/altaycon/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4.5"/><circle cx="12" cy="12" r="4"/><line x1="17.2" y1="6.9" x2="17.21" y2="6.9"/></svg>
-        </a>
-      </span>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <h3>Navigate</h3>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p><a href="tel:+61452658485">0452658485</a></p>
+      <p>Greenvale VIC</p>
     </div>
   </div>
-</footer>
-
-<script src="assets/heroCanvas.js"></script>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+    </div>
+    <div class="footer-socials" aria-label="Social links">
+      <a href="https://facebook.com/altaycon" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/altaycon/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+    </div>
+  </div>
+</footer><section id="privacy" class="legal-section rv" aria-labelledby="privacy-title" style="transition-delay:80ms">
+  <div class="section-inner">
+    <h2 id="privacy-title">Privacy</h2>
+    <p>We collect only the information you voluntarily provide when you submit a quote request: name, contact details and project description. This data is used solely to respond to your enquiry and is not sold or shared with third parties for marketing. You may request access to or deletion of your data at any time by contacting us.</p>
+    <h3>Data retention</h3>
+    <p>Enquiry records are retained for 12 months unless a longer period is required by law.</p>
+    <h3>Cookies</h3>
+    <p>This site uses no analytics or advertising cookies. Only essential session cookies may be set by the quote form endpoint.</p>
+  </div>
+</section>
+<section id="terms" class="legal-section rv" aria-labelledby="terms-title" style="transition-delay:120ms">
+  <div class="section-inner">
+    <h2 id="terms-title">Terms</h2>
+    <p>Information on this website is for general guidance only and does not constitute a contract or offer of employment. All project scopes, timelines and pricing are subject to formal quotation and written agreement. Altaycon accepts no liability for decisions made solely on the basis of this site's content.</p>
+    <h3>Licence</h3>
+    <p>Content and the Altaycon mark are protected by copyright. Unauthorised commercial use is prohibited.</p>
+    <h3>Jurisdiction</h3>
+    <p>These terms are governed by the laws of Victoria, Australia.</p>
+  </div>
+</section>
 <script>
-/* Hero scene: a slab being poured. Form boards and pegs both sides, steel mesh on
-   chairs, a screed bar across the pour, float and barrow in the wet, cement bags
-   stacked off the edge. Everything goes through one projection so perspective,
-   occlusion and fog agree with each other. */
 (function(){
-  var cv = document.getElementById('heroCanvas');
-  if (!cv || !cv.getContext) return;
-  var S = Projection.create(cv, {
-    focal: .92, horizon: .43, camY: .95, fogNear: 9, fogFar: 40, fogCol: '#7E7A72'
-  });
-  var T = {
-    ground:'#CEC9BF', wet:'#A49E92', wet2:'#98938A', set:'#CFC9BD',
-    board:'#96754D', boardTop:'#B28A57', peg:'#856547',
-    steel:'#A2957F', steelHi:'#B9A88F', alu:'#C6CDD0', aluHi:'#E0E6E8',
-    handle:'#A2754A', barrow:'#3F666E', tyres:'#262A2C', bag:'#C9BBA0',
-    bandStrip:'#9E8F74', bucket:'#32636C', heap:'#CCC4B6',
-    wall:'#9C978C', wallTop:'#ADA79B', fence:'#8A857A', sheen:'#DCD7CD'
-  };
-  var LIGHT = (function(){ var l=[-.55,.78,-.31], m=Math.hypot(l[0],l[1],l[2]);
-    return [l[0]/m,l[1]/m,l[2]/m]; })();
-  var faces = [], t0 = 0;
-
-  function shade(c, lit){
-    return lit >= 1 ? Projection.mix(c, '#ffffff', (lit-1)*.55)
-                    : Projection.mix(c, '#14120F', (1-lit)*.72);
-  }
-  function face(pts, tone, n, at){
-    faces.push({ pts:pts, tone:tone, n:n||[0,1,0], at:at||0 });
-  }
-  function box(cx, cy, cz, w, h, d, tone, at){
-    var hw=w/2, hd=d/2;
-    face([[cx-hw,cy,cz+hd],[cx+hw,cy,cz+hd],[cx+hw,cy+h,cz+hd],[cx-hw,cy+h,cz+hd]], shade(tone,.92), [0,0,1], at);
-    face([[cx-hw,cy,cz-hd],[cx+hw,cy,cz-hd],[cx+hw,cy+h,cz-hd],[cx-hw,cy+h,cz-hd]], shade(tone,.6), [0,0,-1], at);
-    face([[cx+hw,cy,cz-hd],[cx+hw,cy,cz+hd],[cx+hw,cy+h,cz+hd],[cx+hw,cy+h,cz-hd]], shade(tone,.78), [1,0,0], at);
-    face([[cx-hw,cy,cz-hd],[cx-hw,cy,cz+hd],[cx-hw,cy+h,cz+hd],[cx-hw,cy+h,cz-hd]], shade(tone,1.04), [-1,0,0], at);
-    face([[cx-hw,cy+h,cz-hd],[cx+hw,cy+h,cz-hd],[cx+hw,cy+h,cz+hd],[cx-hw,cy+h,cz+hd]], shade(tone,1.16), [0,1,0], at);
-  }
-  function rod(a, b, w, tone, at){
-    var dx=b[0]-a[0], dy=b[1]-a[1], len=Math.hypot(dx,dy)||1;
-    var ux=dx/len, uy=dy/len, nx=-uy*w/2, ny=ux*w/2, dd=w/2;
-    var p1=[a[0]-nx,a[1]-ny], p2=[a[0]+nx,a[1]+ny], p3=[b[0]+nx,b[1]+ny], p4=[b[0]-nx,b[1]-ny];
-    face([[p1[0],p1[1],a[2]+dd],[p4[0],p4[1],b[2]+dd],[p3[0],p3[1],b[2]+dd],[p2[0],p2[1],b[2]+dd]], shade(tone,1.06), [ux,uy,1], at);
-    face([[p2[0],p2[1],a[2]-dd],[p3[0],p3[1],b[2]-dd],[p4[0],p4[1],b[2]-dd],[p1[0],p1[1],a[2]-dd]], shade(tone,.78), [-ux,-uy,-1], at);
-    face([[p1[0],p1[1],a[2]-dd],[p4[0],p4[1],b[2]-dd],[p4[0],p4[1],b[2]+dd],[p1[0],p1[1],a[2]+dd]], shade(tone,.9), [-ux,-uy,0], at);
-  }
-  function discFlat(cx, cz, r, tone, at, segs){
-    segs = segs || 20; var pts=[], i, a;
-    for (i=0;i<segs;i++){ a=(i/segs)*Math.PI*2; pts.push([cx+Math.cos(a)*r, .015, cz+Math.sin(a)*r]); }
-    face(pts, tone, [0,1,0], at);
-  }
-
-  /* hardstand, then the slab being poured, then the strip already cured */
-  face([[-18,0,1.2],[18,0,1.2],[18,0,40],[-18,0,40]], T.ground, [0,1,0], 0);
-  face([[-3.9,0,3.0],[3.9,0,3.0],[3.9,0,17.5],[-3.9,0,17.5]], T.wet, [0,1,0], 0);
-  face([[-3.9,0,17.5],[3.9,0,17.5],[3.9,0,27],[-3.9,0,27]], T.set, [0,1,0], .05);
-  face([[-4.2,0,2.7],[4.2,0,2.7],[4.2,0,3.05],[-4.2,0,3.05]], T.wet2, [0,1,0], 0);
-
-  /* wet sheen where the screed has just passed */
-  face([[-3.7,.008,5.0],[3.7,.008,5.0],[3.7,.008,7.4],[-3.7,.008,7.4]], T.sheen, [0,1,0], 1.3);
-
-  /* backdrop: paling fence line, spoil heap, leaning form ply */
-  face([[-15,0,33.4],[15,0,33.4],[15,1.85,33.4],[-15,1.85,33.4]], T.fence, [0,0,-1], .1);
-  face([[-15,1.85,33.4],[15,1.85,33.4],[15,1.85,33.3],[-15,1.85,33.3]], T.wallTop, [0,1,0], .1);
-  (function(){
-    var x;
-    for (x = -14; x < 14; x += 1.05){
-      face([[x,0,33.36],[x+.94,0,33.36],[x+.94,1.8,33.36],[x,1.8,33.36]], x % 2 ? T.fence : T.wall, [0,0,-1], .14);
-    }
-  })();
-  face([[-11,0,29],[ -6.5,0,29],[-6.5,1.5,31.5],[-11,1.05,31.5]], T.wall, [-.3,1,-.4], .2);
-  face([[6.6,0,30.4],[7.1,.05,30.4],[7.1,1.7,32.2],[6.6,1.62,32.2]], T.board, [0,0,-1], .24);
-  face([[7.25,0,30.6],[7.7,.05,30.6],[7.7,1.55,32.1],[7.25,1.5,32.1]], T.boardTop, [0,0,-1], .26);
-
-  /* form boards both sides with pegs, plus the starter board in front */
-  [-1, 1].forEach(function(s){
-    var x = 3.85 * s, z;
-    for (z = 3.1; z < 26.5; z += 3.2){
-      face([[x-.06,.02,z],[x+.06,.02,z],[x+.06,.26,z+3.1],[x-.06,.26,z+3.1]], shade(T.board,.9), [s,0,0], .12);
-      face([[x-.06,.26,z],[x+.06,.26,z],[x+.06,.26,z+3.1],[x-.06,.26,z+3.1]], T.boardTop, [0,1,0], .12);
-      face([[x+.22*s,.02,z+1.5],[x-.004*s,.02,z+1.5],[x-.004*s,.52,z+1.5],[x+.22*s,.52,z+1.5]], T.peg, [s,0,0], .3);
-    }
-  });
-  face([[-3.9,.02,2.86],[3.9,.02,2.86],[3.9,.26,2.94],[-3.9,.26,2.94]], T.board, [0,0,-1], .2);
-  face([[-3.9,.26,2.94],[3.9,.26,2.94],[3.9,.26,2.86],[-3.9,.26,2.86]], T.boardTop, [0,1,0], .2);
-
-  /* steel mesh on chairs, standing proud of the wet ahead of the screed */
-  var i;
-  for (i=0;i<8;i++){
-    var mz = 8.2 + i*2.2;
-    rod([-3.2,.1,mz],[3.2,.1,mz], .034, T.steel, .62 + i*.05);
-  }
-  for (i=0;i<7;i++){
-    var mx = -3.0 + i*1.0;
-    rod([mx,.1,7.9],[mx,.1,26.2], .03, T.steelHi, .8 + i*.04);
-  }
-  [9.0, 13.4, 17.8].forEach(function(cz){
-    [-2.2, 0.4, 2.6].forEach(function(cx){
-      face([[cx-.05,.02,cz],[cx+.05,.02,cz],[cx+.05,.1,cz],[cx-.05,.1,cz]], '#8E8981', [0,0,-1], .9);
-    });
-  });
-
-  /* screed bar across the pour, on its brackets */
-  rod([-3.9,.3,6.9],[3.9,.3,6.9], .16, T.alu, 1.2);
-  face([[-3.9,.382,6.82],[3.9,.382,6.82],[3.9,.382,6.98],[-3.9,.382,6.98]], T.aluHi, [0,1,0], 1.26);
-  rod([-2.6,.03,7.0],[-2.6,.3,6.92], .06, T.alu, 1.16);
-  rod([2.6,.03,7.0],[2.6,.3,6.92], .06, T.alu, 1.16);
-
-  /* hand float left in the wet, trowel marks worked behind it */
-  face([[-3.3,.03,13.0],[-2.9,.03,13.0],[-2.86,.03,13.4],[-3.26,.03,13.4]], '#A9A39A', [0,1,0], 1.5);
-  rod([-3.08,.05,13.2],[-2.9,.48,13.5], .055, T.handle, 1.6);
-  [[-1.4,10.4,.9],[1.1,12.6,1.05],[-.4,15.2,.85]].forEach(function(a){
-    discFlat(a[0], a[1], a[2], '#B6B0A5', 2.0, 24);
-  });
-
-  /* barrow tipped at the near left, heap of wet concrete in it */
-  (function(){
-    var bx=-4.9, bz=8.4, at=1.7;
-    box(bx, .18, bz, 1.05, .32, .66, T.barrow, at);
-    face([[bx-.52,.5,bz-.32],[bx+.52,.5,bz-.32],[bx+.46,.55,bz+.3],[bx-.46,.55,bz+.3]], T.heap, [0,1,0], at+.1);
-    rod([bx-.52,.2,bz-.38],[bx-.6,.7,bz-.5], .05, '#547F87', at+.2);
-    rod([bx+.52,.2,bz-.38],[bx+.6,.7,bz-.5], .05, '#547F87', at+.2);
-    rod([bx-.6,.7,bz-.5],[bx+.6,.7,bz-.5], .05, '#547F87', at+.24);
-    face([[bx-.14,.02,bz-.4],[bx+.14,.02,bz-.4],[bx+.14,.28,bz-.38],[bx-.14,.28,bz-.38]], T.tyres, [0,0,-1], at);
-  })();
-
-  /* bucket and cement bags stacked just off the form edge */
-  face([[3.2,.02,4.4],[3.55,.02,4.4],[3.53,.26,4.42],[3.22,.26,4.42]], T.bucket, [0,0,-1], 1.85);
-  discFlat(3.37, 4.41, .16, '#CFC8BA', 1.86, 12);
-  [[4.85,6.2,0],[5.2,6.25,.26],[4.85,6.6,.52]].forEach(function(b, k){
-    box(b[0], b[2], b[1], .6, .25, .4, T.bag, 1.95 + k*.06);
-    face([[b[0]-.3,b[2]+.125,b[1]-.2],[b[0]+.3,b[2]+.125,b[1]-.2],[b[0]+.3,b[2]+.125,b[1]+.2],[b[0]-.3,b[2]+.125,b[1]+.2]], T.bandStrip, [0,1,0], 1.98 + k*.06);
-  });
-
-  /* saw-cut control joint ticks in the cured strip */
-  [19.4, 22.2, 25.0].forEach(function(cz){
-    face([[-3.6,.016,cz],[3.6,.016,cz],[3.6,.016,cz+.07],[-3.6,.016,cz+.07]], '#8F8A80', [0,1,0], 2.1);
-  });
-
-  function collect(t){
-    var out = [], j, f, p, sum, mapped, miss, n, nm, d;
-    for (j=0;j<faces.length;j++){
-      f = faces[j];
-      if (t < f.at) continue;
-      mapped = []; sum = 0; miss = false;
-      for (var q=0;q<f.pts.length;q++){
-        p = S.project(f.pts[q][0], f.pts[q][1], f.pts[q][2]);
-        if (!p){ miss = true; break; }
-        mapped.push(p); sum += p[2];
-      }
-      if (miss) continue;
-      n = f.n; nm = Math.hypot(n[0],n[1],n[2]) || 1;
-      d = (n[0]/nm)*LIGHT[0] + (n[1]/nm)*LIGHT[1] + (n[2]/nm)*LIGHT[2];
-      out.push({
-        pts: mapped, dz: sum/mapped.length,
-        fill: Projection.mix(shade(f.tone, .5 + .62*Math.max(0,d)), S.fogCol, S.fog(sum/mapped.length)*.7),
-        a: Math.min(1, (t - f.at)/.45)
+  document.documentElement.classList.add('js');
+  var rvEls=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}
       });
-    }
-    out.sort(function(a,b){ return b.dz - a.dz; });
-    return out;
+    },{rootMargin:'0px 0px -10% 0px',threshold:0.1});
+    rvEls.forEach(function(el){obs.observe(el);});
+  }else{
+    rvEls.forEach(function(el){el.classList.add('on');});
   }
-
-  S.frame(function(ts){
-    if (!t0) t0 = ts;
-    var t = (ts - t0)/1000;
-    S.camX = -1.5;
-    S.yaw = Projection.reduced() ? 0 : Math.sin(t*.1)*.018 + .012;
-
-    var ctx = S.ctx;
-    var sky = ctx.createLinearGradient(0,0,0,S.H);
-    sky.addColorStop(0,'#1B1D21');
-    sky.addColorStop(.2,'#2A2B28');
-    sky.addColorStop(.33,'#3B3B35');
-    sky.addColorStop(.4,'#4C4A42');
-    sky.addColorStop(.46,'#5A574C');
-    sky.addColorStop(.56,'#4F4D45');
-    sky.addColorStop(1,'#393932');
-    ctx.fillStyle = sky; ctx.fillRect(0,0,S.W,S.H);
-
-    var glow = ctx.createRadialGradient(S.W*.74, S.horizon*.66, 10, S.W*.74, S.horizon*.66, S.W*.6);
-    glow.addColorStop(0,'rgba(255,243,216,.30)');
-    glow.addColorStop(1,'rgba(255,243,216,0)');
-    ctx.fillStyle = glow; ctx.fillRect(0,0,S.W,S.horizon+20);
-
-    var list = collect(t), k;
-    for (k=0;k<list.length;k++){
-      var it = list[k], pts = it.pts;
-      ctx.globalAlpha = it.a;
-      ctx.fillStyle = it.fill;
-      ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
-      for (var q=1;q<pts.length;q++) ctx.lineTo(pts[q][0], pts[q][1]);
-      ctx.closePath(); ctx.fill();
-    }
-    ctx.globalAlpha = 1;
-
-    /* haze band straddling the horizon so the sky and the far hardstand read as
-       one graded background rather than two butted planes */
-    var hz = S.horizon;
-    var haze = ctx.createLinearGradient(0, hz - S.H*.13, 0, hz + S.H*.16);
-    haze.addColorStop(0,'rgba(126,122,114,0)');
-    haze.addColorStop(.42,'rgba(126,122,114,.34)');
-    haze.addColorStop(.5,'rgba(126,122,114,.46)');
-    haze.addColorStop(1,'rgba(126,122,114,0)');
-    ctx.fillStyle = haze;
-    ctx.fillRect(0, hz - S.H*.13, S.W, S.H*.29);
-
-    var vg = ctx.createRadialGradient(S.W*.52, S.H*.6, Math.min(S.W,S.H)*.4, S.W*.52, S.H*.6, Math.max(S.W,S.H)*.92);
-    vg.addColorStop(0,'rgba(10,11,13,0)');
-    vg.addColorStop(1,'rgba(10,11,13,.42)');
-    ctx.fillStyle = vg; ctx.fillRect(0,0,S.W,S.H);
-  });
+  setTimeout(function(){
+    rvEls.forEach(function(el){
+      if(!el.classList.contains('on')){
+        el.classList.add('on');
+        el.style.opacity='1';
+        el.style.transform='none';
+        el.style.transition='none';
+      }
+    });
+  },1100);
 })();
 </script>
-<script>
+<!-- lb: old box-hero engine removed -->
+</style></head>
+<body>
+  <section id="lbq" class="v4" aria-labelledby="lbq-h">
+    <style>
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto}
+#lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
+#lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
+#lbq textarea{min-height:96px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* v1 card */
+#lbq.v1 .lbq-card{background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
+#lbq.v1 .lbq-g{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+#lbq.v1 .lbq-full{grid-column:1/-1}
+@media(max-width:640px){#lbq.v1 .lbq-g{grid-template-columns:1fr}}
+/* v2 band */
+#lbq.v2{background:var(--lbq-panel);border-top:1px solid var(--lbq-line);border-bottom:1px solid var(--lbq-line)}
+#lbq.v2 .lbq-g{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
+#lbq.v2 .lbq-full{grid-column:1/-1}
+#lbq.v2 .lbq-hd{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
+@media(max-width:760px){#lbq.v2 .lbq-g{grid-template-columns:1fr}#lbq.v2 .lbq-hd{display:block}}
+/* v3 split */
+#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+#lbq.v3 .lbq-g{display:grid;gap:12px}
+#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
+@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
+/* v4 minimal */
+#lbq.v4 .lbq-w{max-width:620px}
+#lbq.v4 input,#lbq.v4 textarea{border:0;border-bottom:1px solid var(--lbq-line);border-radius:0;background:transparent;padding:11px 2px}
+#lbq.v4 .lbq-g{display:grid;gap:16px}
+    </style>
+    <div class="lbq-w">
+        <h2 id="lbq-h">Request a quote</h2>
+        <p class="lbq-s">Tell us a few details and we'll get back to you with a free, no-obligation quote.</p><form id="lbq-form" novalidate data-site="altaycon" data-biz="Altaycon"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form>
+    </div>
+    <script>
 (function(){
+  var EP = null;
   function base(cb){
     if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
     var done = false;
     var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
     fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
       .then(function(r){ return r.text(); })
-      .then(function(txt){ if(done) return; done=true; clearTimeout(t); cb(txt.trim()); })
+      .then(function(txt){
+        if(done) return;
+        done=true; clearTimeout(t);
+        cb(txt.trim());
+      })
       .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
   }
-  var form = document.getElementById('lbq-form');
-  if (!form) return;
-  var st = document.getElementById('lbq-st');
-  function msg(t,c){ if(st){ st.textContent = t; st.style.color = c || 'inherit'; } }
-  var pending = false;
-  form.addEventListener('submit', function(e){
+  var form=document.getElementById('lbq-form');
+  if(!form) return;
+  var st=document.getElementById('lbq-st');
+  function setMsg(t,c){if(st){st.textContent=t;st.style.color=c||'inherit'}}
+  var pending=false;
+  form.addEventListener('submit',function(e){
     e.preventDefault();
-    if (pending) return;
-    var body = Object.fromEntries(new FormData(form));
+    if(pending) return;
+    var fd=new FormData(form);
+    var body=Object.fromEntries(fd);
     delete body.website;
-    pending = true;
-    var btn = form.querySelector('button[type=submit]');
-    if (btn){ btn.disabled = true; btn.textContent = 'Sending'; }
+    pending=true;
+    var btn=form.querySelector('button[type=submit]');
+    if(btn){btn.disabled=true;btn.textContent='Sending…'}
     base(function(api){
-      fetch(api.replace(/\/+$/,'') + '/functions/v1/quote-request', {
-        method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)
-      }).then(function(r){
-        if (r.ok) return r.json().catch(function(){ return {}; });
-        return r.text().then(function(t){ throw new Error(t || ('HTTP ' + r.status)); });
-      }).then(function(){
-        msg('Sent. Altaycon will be in touch.', '#1F7A3D');
-        form.reset();
-      }).catch(function(err){
-        msg('Could not send. Call 0452 658 485 instead.', '#A3271F');
-        console.error(err);
-      }).finally(function(){
-        pending = false;
-        if (btn){ btn.disabled = false; btn.textContent = 'Send request'; }
-      });
+      var url=api.replace(/\/+$/,'')+'/functions/v1/quote-request';
+      fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+        .then(function(r){
+          if(r.ok) return r.json().catch(function(){return {}});
+          return r.text().then(function(t){throw new Error(t||('HTTP '+r.status))});
+        })
+        .then(function(){
+          setMsg('Quote request sent — we\'ll be in touch soon.','#22c55e');
+          form.reset();
+        })
+        .catch(function(err){
+          setMsg('Could not send. Please try again or call us directly.','#ef4444');
+          console.error('quote-request failed:',err);
+        })
+        .finally(function(){
+          pending=false;
+          if(btn){btn.disabled=false;btn.textContent='Send quote request'}
+        });
     });
   });
 })();
+    </script>
+  </section>
+<script id="lb-motion-js">
+/* LB MOTION PACK v1 */
+(function(){
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel = 'section > *, main > *, .sec-head, .cards > *, .grid > *, .faq details, .gal figure, .gallery figure';
+  var els = [].slice.call(document.querySelectorAll(sel)).filter(function(e){
+    if (e.closest && e.closest('.lb-rb')) return false;
+    if (e.tagName === 'SCRIPT' || e.tagName === 'STYLE') return false;
+    var r = e.getBoundingClientRect();
+    return r.width > 40 && r.height > 20;
+  });
+  els.forEach(function(e, i){ e.classList.add('lb-rv'); e.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
+  if (rm || !('IntersectionObserver' in window)) {
+    els.forEach(function(e){ e.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
+  }
+  var rb = document.querySelector('.lb-rb');
+  if (!rb) return;
+  var slides = [].slice.call(rb.querySelectorAll('.lb-rb__slide'));
+  if (slides.length < 2) return;
+  var dots = [].slice.call(rb.querySelectorAll('.lb-rb__dots button'));
+  var i = 0, timer = null, DUR = 5600;
+  function go(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
+    dots.forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
+  }
+  function play(){ if (rm) return; stop(); timer = setInterval(function(){ go(i + 1); }, DUR); }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); play(); }); });
+  var pv = rb.querySelector('.lb-rb__nav--prev'), nx = rb.querySelector('.lb-rb__nav--next');
+  if (pv) pv.addEventListener('click', function(){ go(i - 1); play(); });
+  if (nx) nx.addEventListener('click', function(){ go(i + 1); play(); });
+  rb.addEventListener('mouseenter', stop); rb.addEventListener('mouseleave', play);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){ en.forEach(function(x){ x.isIntersecting ? play() : stop(); }); },
+      { threshold: 0.25 }).observe(rb);
+  } else { play(); }
+  go(0);
+})();
 </script>
+<script id="lb-hero-js">
+/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
+(function(){
+  var cv = document.querySelector('.lb-hero-canvas, #heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero]');
+  if (!cv) return;
+  var ctx = cv.getContext('2d'); if (!ctx) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
+  function accent(){
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
+         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
+    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
+  }
+  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
+  var ACC = hex2rgb(accent());
+  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
+    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
+    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
+
+  function size(){
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
+    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
+    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  // deterministic depth motes
+  var N = 46, motes = [];
+  var seed = 20261019;
+  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
+  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
+
+  function draw(){
+    var isDark = dark();
+    var base = isDark ? [10,11,14] : [248,249,251];
+    var ink  = isDark ? [255,255,255] : [12,14,18];
+    var g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0, 'rgb('+base.join(',')+')');
+    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
+    g.addColorStop(1, 'rgb('+base.join(',')+')');
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+    // aurora: two slow, wide ribbons of the brand colour
+    for (var k=0;k<2;k++){
+      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
+      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
+      var rad = Math.max(W,H)*(0.46 + 0.13*k);
+      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
+      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
+      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
+      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+    }
+
+    // perspective floor: clean architectural depth, not blocks
+    var hz = H*0.70, vpx = W*0.5;
+    ctx.lineWidth = 1;
+    for (var j=-9;j<=9;j++){
+      var fx = vpx + j*(W/9)*1.5;
+      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
+    }
+    for (var r=1;r<=9;r++){
+      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
+      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+    }
+    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
+    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
+    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
+    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
+    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
+
+    // depth motes: size + opacity track z, slow parallax drift
+    for (var q=0;q<motes.length;q++){
+      var m = motes[q];
+      var y = ((m.y + t*0.0000075*m.z) % 1);
+      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
+      var px = x*W, py = y*H;
+      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
+      if (a2 <= 0) continue;
+      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
+    }
+
+    // vignette to seat the copy
+    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
+    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
+  }
+
+  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
+  size(); draw();
+  window.addEventListener('resize', function(){ size(); draw(); });
+  if (!reduce && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
+  }
+  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
+  if (!reduce) raf = requestAnimationFrame(loop); 
+})();
+</script>
+<style>
+/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
+.lb-brand--logoonly .lb-brand__word{display:none !important}
+.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
+.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
+</style>
+<style>
+/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
+header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
+.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
+  opacity:1 !important;visibility:visible !important}
+.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
+@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
+#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
+@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
+</style>
+
+<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
+.lb-mq__in{display:none !important}
+
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
+body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
+p,li{line-height:1.55}
+section,header,footer,.wrap,.container,.inner,[class*="section"]{
+  scroll-margin-top:24px}
+
+</style>
+<style>/* ==== LB HEADER TRUTH ==== */
+.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
+  align-items:center !important;flex-wrap:nowrap !important}
+.lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
+  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
+.lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
+  max-width:100% !important;object-fit:contain !important}
+.lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;
+  min-width:0 !important;overflow:visible !important}
+@media(max-width:700px){
+  .lb-brand__mark{height:32px !important;max-width:40vw !important}
+  .lb-brand__word{font-size:.92em !important}
+}
+</style>
+
+<style>/* ==== LB HEADER POLISH 2 ==== */
+header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
+.site-header nav a:not(.btn):not([class*="btn"]),
+.header-inner nav a:not(.btn):not([class*="btn"]),
+nav.nav a:not(.btn):not([class*="btn"]),
+.nav-inner a:not(.btn):not([class*="btn"]),
+header a[href^="tel"],.site-header a[href^="tel"]{
+  color:var(--lb-name,currentColor) !important;
+  opacity:1 !important;
+}
+.lb-brand__sub:empty{display:none !important}
+</style>
 </body>
 </html>

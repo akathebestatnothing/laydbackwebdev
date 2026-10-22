@@ -96,7 +96,7 @@ footer a:hover { color: var(--acc); }
 section { padding: 100px 0; }
 .wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 .sec-idx { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; color: var(--acc); letter-spacing: .15em; }
-.sec-head { display: grid; grid-template-columns: 140px 1fr; gap: 40px; align-items: start; margin-bottom: 50px; }
+.sec-head { display: flex; gap: 30px; align-items: flex-start; margin-bottom: 50px; }
 .sec-head h2 { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: clamp(28px, 3.8vw, 52px); font-weight: 800; letter-spacing: -.01em; line-height: 1.02; }
 .lead { color: var(--ink2); margin-top: 10px; max-width: 560px; font-size: 16px; line-height: 1.6; }
 
@@ -157,7 +157,7 @@ body { position: relative; }
 .ground-works .sp-img img { border: 2px solid var(--line); }
 .ground-works .sp-copy h2 .acc { color: var(--acc-on-dark); }
 .ground-works .sp-list .li { color: var(--paper); }
-.ground-works .sp-list .li::before { color: var(--acc-on-dark); }
+.ground-works .sp-list .li::before { color: var(--acc); }
 
 /* Service grid - horizontal runs */
 .svc-row { 
@@ -186,20 +186,9 @@ body { position: relative; }
 }
 .svc-body p { color: var(--ink2); margin-top: 8px; max-width: 680px; font-size: 15px; line-height: 1.6; }
 
-/* Ground works split - photo left, copy right */
-.split .wrap { display: grid; grid-template-columns: 0.82fr 1fr; gap: 60px; align-items: center; }
-.sp-img { min-width: 0; }
-.sp-img img { display: block; width: 100%; height: 100%; max-height: 480px; object-fit: cover; object-position: 36% 62%; }
-.sp-copy h2 { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: clamp(28px, 3.8vw, 52px); font-weight: 800; letter-spacing: -.01em; line-height: 1.02; }
-.ground-works .sp-copy p { margin-top: 18px; color: #b8bdb8; max-width: 520px; font-size: 16px; line-height: 1.6; }
-.sp-list { margin-top: 30px; display: grid; gap: 0; }
-.sp-list .li { display: flex; gap: 14px; align-items: baseline; padding: 14px 0; border-top: 1px solid rgba(139,148,144,.32); font-size: 15.5px; line-height: 1.5; }
-.sp-list .li::before { content: "\2014"; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .08em; flex: 0 0 auto; }
-
 /* Process - three station plates */
-.process .wrap { display: block; }
+.process .wrap { display: grid; grid-template-columns: 140px 1fr; gap: 40px; }
 .process .stn { display: grid; grid-template-columns: 140px 1fr; gap: 40px; padding: 24px 0; border-top: 1px solid var(--line); align-items: start; }
-.process .stn:last-child { border-bottom: 1px solid var(--line); }
 .stn-n { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; font-weight: 500; color: var(--acc); letter-spacing: .1em; }
 .stn h3 { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -.01em; line-height: 1.1; }
 .stn p { color: var(--ink2); margin-top: 8px; font-size: 15px; line-height: 1.6; }
@@ -212,8 +201,8 @@ body { position: relative; }
 .tr-i span { font-size: 13.5px; color: var(--ink2); line-height: 1.5; }
 
 /* Quote section - contact info only, NO form (injected #lbq is the only form) */
-.quote .wrap { display: block; }
-.quote h2 { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: clamp(28px, 3.8vw, 52px); font-weightbraces: 800; letter-spacing: -.01em; line-height: 1.02; max-width: 22ch; }
+.quote .wrap { display: grid; grid-template-columns: 140px 1fr; gap: 60px; align-items: start; }
+.quote h2 { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-size: clamp(28px, 3.8vw, 52px); font-weight: 800; letter-spacing: -.01em; line-height: 1.02; }
 .q-lines { margin-top: 34px; display: flex; flex-direction: column; }
 .q-line { display: grid; grid-template-columns: 140px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid var(--line); align-items: baseline; }
 .q-line b { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: .15em; color: var(--acc); }
@@ -231,21 +220,12 @@ footer h4 { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 1
 footer a { font-family: 'Barlow', sans-serif; font-size: 14px; }
 .footer-bar { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11.5px; }
 
-@media (max-width 900px) { }
-@media (max-widthbraces: 900px) {
-  .split .wrap { grid-template-columns: 1fr; gapbraces: 28px; }
-  .sp-img img { max-height: 320px; }
-  .sec-head { grid-template-columns: 1fr; gap: 10px; }
-  .svc-row, .process .stn { grid-template-columns: 1fr; gap: 16px; }
+@media (max-width: 900px) { 
+  .quote .wrap { grid-template-columns: 1fr; } 
+  .svc-row, .process .wrap, .process .stn { grid-template-columns: 1fr; gap: 16px; }
   .svc-n, .stn-n { display: none; }
-  .q-line { grid-template-columns: 1fr; gapbraces: 8px; }
+  .q-line { grid-template-columns: 1fr; gap: 8px; }
   .trust .wrap { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .wrap, footer .wrap { padding: 0 20px; }
-  .footer-bar { padding: 18px 20px; }
-  section { paddingbraces: 68px 0; }
-  .sec-head { margin-bottombraces: 34px; }
 }
 
 
@@ -257,7 +237,7 @@ h1, h2, h3 { text-transform: uppercase; }
 
 <noscript><style>.rv{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.12) 45%,rgba(0,0,0,.42))}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -265,24 +245,9 @@ h1, h2, h3 { text-transform: uppercase; }
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count1:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--HERO-FIX--><style id="hero-fix">
-/* header paints its own bg; without isolation the canvas (z-index:-1) sits BEHIND it and vanishes */
-header.hero-center { isolationbraces: isolate; }
-header.hero-center .hc3-glow { top: 52%; left: 50%; transformbraces: translate(-50%,-50%); }
-header.hero-center .hc3-orbit { topbraces: 50%; left: 50%; transform: translate(-50%,-50%); }
-header.hero-center .hc3-photo { z-index: 3; width: 340px; height: 250px; }
-header.hero-center h1 { font-sizebraces: clamp(46px, 6.1vw, 92px) !important; z-index: 2; positionbraces: relative; }
-header.hero-center .hc3-sub { z-index: 2; }
-</style><!--/HERO-FIX-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.28))}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 </head>
 <body>
-<div class="sa-progress" id="sa-progress"></div>
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#top"><span class="mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="b-txt"><span class="brand-name">Xtreme Fencing</span><br><span class="brand-sub">Fence contractor · Earthworks</span></span></a>
   <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -308,11 +273,11 @@ header.hero-center .hc3-sub { z-index: 2; }
 /* 3D hero layer - floating geometric depth */
 .lb3d-stage { position: absolute; inset: 0; overflow: hidden; pointer-events: none; perspective: 1200px; z-index: 1; }
 .lb3d-stage .lb3d-shape { position: absolute; border-radius: 0; animation: lb3dFloat 12s ease-in-out infinite; transform-style: preserve-3d; backface-visibility: hidden; }
-.lb3d-shape.s1 { width: 60px; height: 60px; background: var(--acc); opacity: .08; top: 12%; left: 8%; animation: lb3dFloat1 14s ease-in-out infinite; transform: rotateY(15deg) translateZ(40px); }
-.lb3d-shape.s2 { width: 90px; height: 90px; border: 2px solid var(--acc); opacity: .06; top: 60%; right: 12%; border-radius: 50%; animation: lb3dFloat2 18s ease-in-out infinite; transform: rotateY(-25deg) translateZ(80px); }
-.lb3d-shape.s3 { width: 40px; height: 40px; background: var(--acc); opacity: .05; bottom: 20%; left: 55%; animation: lb3dFloat3 10s ease-in-out infinite; transform: rotateY(45deg) translateZ(20px); }
-.lb3d-shape.s4 { width: 120px; height: 2px; background: var(--acc); opacity: .07; top: 30%; right: 30%; animation: lb3dFloat4 22s ease-in-out infinite; transform: translateZ(60px) rotateY(20deg); }
-.lb3d-shape.s5 { width: 50px; height: 50px; border: 1.5px solid var(--acc); opacity: .05; top: 75%; left: 20%; transform: rotate(45deg) translateZ(100px); animation: lb3dFloat5 16s ease-in-out infinite; }
+.lb3d-shape.s1 { width: 60px; height: 60px; background: var(--acc, #c4fb24); opacity: .08; top: 12%; left: 8%; animation: lb3dFloat1 14s ease-in-out infinite; transform: rotateY(15deg) translateZ(40px); }
+.lb3d-shape.s2 { width: 90px; height: 90px; border: 2px solid var(--acc, #c4fb24); opacity: .06; top: 60%; right: 12%; border-radius: 50%; animation: lb3dFloat2 18s ease-in-out infinite; transform: rotateY(-25deg) translateZ(80px); }
+.lb3d-shape.s3 { width: 40px; height: 40px; background: var(--acc, #c4fb24); opacity: .05; bottom: 20%; left: 55%; animation: lb3dFloat3 10s ease-in-out infinite; transform: rotateY(45deg) translateZ(20px); }
+.lb3d-shape.s4 { width: 120px; height: 2px; background: var(--acc, #c4fb24); opacity: .07; top: 30%; right: 30%; animation: lb3dFloat4 22s ease-in-out infinite; transform: translateZ(60px) rotateY(20deg); }
+.lb3d-shape.s5 { width: 50px; height: 50px; border: 1.5px solid var(--acc, #c4fb24); opacity: .05; top: 75%; left: 20%; transform: rotate(45deg) translateZ(100px); animation: lb3dFloat5 16s ease-in-out infinite; }
 @keyframes lb3dFloat1 { 0%,100% { transform: translateY(0) rotateY(15deg) translateZ(40px); } 50% { transform: translateY(-30px) rotateY(180deg) translateZ(80px); } }
 @keyframes lb3dFloat2 { 0%,100% { transform: translateY(0) rotateY(-25deg) translateZ(80px); } 50% { transform: translateY(24px) rotateY(25deg) translateZ(40px); } }
 @keyframes lb3dFloat3 { 0%,100% { transform: translateY(0) rotateY(45deg) translateZ(20px); } 50% { transform: translateY(-18px) rotateY(-45deg) translateZ(60px); } }
@@ -336,7 +301,7 @@ header.hero-center .hc3-sub { z-index: 2; }
 </header>
 
 <section id="services"><div class="wrap">
-  <div class="sec-head"><div class="sec-idx rv">01</div><div><h2 class="rv d1">What we do.</h2><p class="lead rv d2">Set-out, strain, tie-off - one crew owns the whole run so nothing gets lost between trades.</p></div></div>
+  <div class="sec-head"><div class="sec-idx rv">01</div><div><h2 class="rv d1">What we run.</h2><p class="lead rv d2">Set-out, strain, tie-off - one crew owns the whole run so nothing gets lost between trades.</p></div></div>
   <div class="svc-row rv"><span class="svc-n">01</span><div class="svc-body"><h3>Colorbond fencing</h3><p>Neat, strong boundary fencing that shrugs off weather and looks sharp from both sides.</p></div></div>
   <div class="svc-row rv d1"><span class="svc-n">02</span><div class="svc-body"><h3>Pool fencing</h3><p>Pool-compliant barriers in aluminium slat or glass-look screening, powder-coated to suit the house.</p></div></div>
   <div class="svc-row rv d2"><span class="svc-n">03</span><div class="svc-body"><h3>Decorative and brick fencing</h3><p>Decorative screening and brick fence runs that hold a street frontage together.</p></div></div>
@@ -387,18 +352,22 @@ header.hero-center .hc3-sub { z-index: 2; }
   <!-- NO FORM HERE - the injected #lbq (before footer) is the ONLY form -->
 </div></section>
 
+<div class="footer-bar mono">
+  <span>&copy; 2026 XTREME FENCING AND EARTHWORX &middot; ABN 62 637 036 511</span>
+  <a href="mailto:justin@xtremefencing.net.au">justin@xtremefencing.net.au</a>
+</div>
 <footer><div class="wrap">
   <div>
     <div class="footer-brand"><span class="mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="b-txt"><span class="brand-name">XTREME FENCING</span><br><span class="brand-sub" style="font-size:10px;letter-spacing:.22em;color:var(--acc);font-weight:700;">Fence contractor · Earthworks</span></span></div>
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Fencing and earthworks, Williamtown NSW. Set-out to tie-off, one crew.<br>ABN 62 637 036 511</p>
   </div>
   <div><h4>Services</h4><a href="#services">Colorbond fencing</a><a href="#services">Pool fencing</a><a href="#services">Decorative & brick</a><a href="#services">Timber post & rail</a><a href="#services">Gates & access</a><a href="#ground-works">Bobcat work</a><a href="#quote">Get a quote</a></div>
-  <div><h4>Company</h4><a href="#services">What we do</a><a href="#ground-works">Ground works</a><a href="#process">How a fence runs</a><a href="#coverage">Coverage</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+  <div><h4>Company</h4><a href="#services">What we run</a><a href="#ground-works">Ground works</a><a href="#process">How a fence runs</a><a href="#coverage">Coverage</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
   <div><h4>Contact</h4><a href="tel:+61422400813">0422 400 813</a><a href="mailto:justin@xtremefencing.net.au">justin@xtremefencing.net.au</a><a href="https://www.facebook.com/xtremefencingandearthworx" target="_blank" rel="noopener">Facebook</a><a href="#quote">Free quote</a></div>
 </div>
 <section id="lbq" class="v4" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,#3f6257));--lbq-ink:var(--text,#eae7e0);--lbq-muted:var(--muted,#9aa8b3);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--text,#eae7e0);--lbq-muted:var(--muted,#9aa8b3);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
@@ -510,10 +479,6 @@ header.hero-center .hc3-sub { z-index: 2; }
 })();
 </script>
 </section>
-<div class="footer-bar mono">
-  <span>&copy; 2026 XTREME FENCING AND EARTHWORX &middot; ABN 62 637 036 511</span>
-  <a href="mailto:justin@xtremefencing.net.au">justin@xtremefencing.net.au</a>
-</div>
 </footer>
 
 <script>

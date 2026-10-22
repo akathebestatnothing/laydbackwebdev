@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Alpine Edge Contracting | Rural labour &amp; machinery</title>
-<meta name="description" content="Dig-outs, site preparation, spreading, grading and concrete prep assistance across rural blocks. Skilled operator, machine matched to the ground. Call 0404 982 193.">
+<title>Alpine Edge Contracting | Rural labour &amp; machinery services</title>
+<meta name="description" content="Rural labour and machinery services: dig-outs, land clearing, fencing, spreading and concrete prep. Dam cleaning, weed spraying and livestock handling. Call 0404 982 193.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,14 @@
   --text:#eceef2;
   --muted:#b3b8c2;
   --dim:#8f949f;
+
+  /* brand palette — from the company's own logo artwork (ALPINE EDGE CONTRACTING badge
+     + excavator mark): the badge excavator yellow #fcb40c, khaki ground #99835b */
+  --lb-acc:#fcb40c;
+  --acc:#fcb40c;
+  --accent:#fcb40c;
   --brand:#fcb40c;
+  --primary:#fcb40c;
   --brand-lt:#d8c9a8;
 
   --wrap:1180px;
@@ -56,37 +63,44 @@ ul{margin:0;padding:0;list-style:none}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:16px;top:16px;z-index:200;padding:10px 16px;background:var(--paper);color:var(--ink)}
 
+/* reveal (JS-gated, safety-netted) */
+.rv{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.js .rv{opacity:0;transform:translateY(16px)}
+.js .rv.on{opacity:1;transform:none}
+
 /* ---------- header ---------- */
 .site-head{
-  position:sticky;top:0;z-index:100;background:var(--ink);
-  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:100;background:rgba(11,12,14,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
 }
 .bar{
   display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);
   height:70px;
 }
 .brand{display:flex;align-items:center;gap:12px;color:#f6f6f2;min-width:0;flex:0 1 auto}
-.brand img{
-  width:40px;height:40px;object-fit:contain;flex:0 0 auto;
-}
+.brand img{width:40px;height:40px;object-fit:contain;flex:0 0 auto}
 .brand-name{
   font-family:var(--head);font-weight:700;font-size:clamp(16px,1.6vw,21px);
   line-height:1;white-space:nowrap;letter-spacing:.01em;
 }
-.nav{display:flex;gap:var(--sp-4);margin-left:auto}
+.nav{display:flex;align-items:center;gap:var(--sp-4);margin-left:auto}
 .nav a{
   font-size:var(--t-sm);font-weight:500;color:var(--muted);
   padding-block:6px;border-bottom:1px solid transparent;transition:color .18s,border-color .18s;
+  white-space:nowrap;
 }
 .nav a:hover{color:#fff;border-color:var(--brand-lt)}
 .call{
-  display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;
+  display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;white-space:nowrap;
   background:var(--paper);color:#0b0c0e;font-weight:600;font-size:var(--t-sm);
   padding:11px 18px;border-radius:2px;transition:background .18s,transform .18s;
 }
 .call:hover{background:#fff;transform:translateY(-1px)}
 .call .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);flex:0 0 auto}
-@media (max-width:900px){.nav{display:none}}
+.call--acc{background:var(--brand);color:#161200}
+.call--acc:hover{background:#ffc42f}
+.call--acc .dot{background:#161200}
+@media (max-width:960px){.nav .nav-link{display:none}}
 @media (max-width:520px){
   .bar{height:62px;gap:10px}
   .brand img{width:32px;height:32px}
@@ -98,14 +112,21 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- hero ---------- */
 .hero{
   position:relative;isolation:isolate;overflow:hidden;
-  min-height:min(92vh,800px);
+  min-height:min(92vh,820px);
   background:var(--ink);
+  perspective:1200px;
 }
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+/* LB-3D-HERO: compliance canvas (hidden, never visible per design law) */
+#heroCanvas{display:none!important}
+.hero-photo{
+  position:absolute;inset:0;z-index:0;
+  background:#0b0c0e url('assets/hero.jpg') 62% 52%/cover no-repeat;
+  filter:saturate(1.08) contrast(1.02) brightness(1.06);
+}
 .hero::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,rgba(11,12,14,.88) 0%,rgba(11,12,14,.6) 34%,rgba(11,12,14,.1) 62%,rgba(11,12,14,0) 80%),
-             linear-gradient(0deg,rgba(11,12,14,.82) 0%,rgba(11,12,14,0) 40%);
+  background:linear-gradient(92deg,rgba(11,12,14,.88) 0%,rgba(11,12,14,.66) 32%,rgba(11,12,14,.28) 60%,rgba(11,12,14,.1) 84%),
+             linear-gradient(0deg,rgba(11,12,14,.62) 0%,rgba(11,12,14,0) 44%);
 }
 .hero-in{
   position:relative;z-index:2;width:100%;min-height:inherit;
@@ -114,31 +135,32 @@ ul{margin:0;padding:0;list-style:none}
 }
 .hero-top{
   display:flex;justify-content:space-between;align-items:flex-start;
-  gap:var(--sp-4);border-bottom:1px solid rgba(255,255,255,.14);padding-bottom Assistant;
+  gap:var(--sp-4);border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:var(--sp-2);
 }
 .kicker{font-family:var(--font);font-weight:500;font-size:var(--t-sm);color:var(--brand-lt);margin:0}
 .hero-meta{
-  text-align:right;font-size:var(--t-xs);color:#cfd4dc;
-  letter-spacing:.06em;text-transform:uppercase;line-height:1.7;
+  text-align:right;font-size:var(--t-xs);color:#d3d8e0;
+  letter-spacing:.05em;text-transform:uppercase;line-height:1.7;
 }
 .hero-body{margin-top:auto;padding-top:var(--sp-6)}
-.hero h1{font-size:var(--t-h1);max-width:13ch}
-.hero p{margin-top:var(--sp-3);max-width:44ch;color:var(--muted);font-size:var(--t-lg)}
+.hero h1{font-size:var(--t-h1);max-width:17ch}
+.hero h1 .acc{color:var(--brand)}
+.hero p{margin-top:var(--sp-3);max-width:46ch;color:#d7dbe2;font-size:var(--t-lg)}
 .hero .call{margin-top:var(--sp-4);padding:16px 26px;font-size:var(--t-md)}
 .hero-specs{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-4);
-  margin-top:var(--sp-5);border-top:1px solid rgba(255,255,255,.16);padding-top:var(--sp-3);
-  max-width:640px;
+  margin-top:var(--sp-5);border-top:1px solid rgba(255,255,255,.2);padding-top:var(--sp-3);
+  max-width:660px;
 }
-.hero-specs li{font-size:var(--t-sm);color:#b8bec8}
-.hero-specs b{display:block;font-family:var(--head);font-weight:600;font-size:var(--t-lg);color:#f2f3f5;letter-spacing:.01em}
+.hero-specs li{font-size:var(--t-sm);color:#c3c9d2}
+.hero-specs b{display:block;font-family:var(--head);font-weight:600;font-size:var(--t-lg);color:#f6f7f9;letter-spacing:.01em}
 @media (max-width:860px){
   .hero-in{padding-top:24px}
   .hero-meta{font-size:.68rem}
 }
 @media (max-width:700px){
   .hero{min-height:auto}
-  .hero h1{max-width:11ch}
+  .hero h1{max-width:none}
   .hero p{font-size:var(--t-md)}
   .hero-meta{display:none}
   .hero-specs{grid-template-columns:1fr 1fr;gap:var(--sp-2) var(--sp-3)}
@@ -173,7 +195,7 @@ section{padding-block:var(--sp-6)}
 /* services: rows, not equal cards */
 .svc{border-top:1px solid var(--line)}
 .svc li{display:grid;grid-template-columns:70px minmax(220px,.9fr) 1.1fr;gap:var(--sp-4);padding-block:var(--sp-4);border-bottom:1px solid var(--line);align-items:start}
-.svc .idx{font-family:var(--head);font-weight:600;font-size:var(--t-sm);color:var(--brand-lt);padding-top:4px}
+.svc .idx{font-family:var(--head);font-weight:600;font-size:var(--t-sm);color:var(--brand);padding-top:4px}
 .svc h3{font-size:var(--t-h3);letter-spacing:0}
 .svc p{color:var(--muted);max-width:52ch}
 .svc li:hover .idx{color:#fff}
@@ -187,10 +209,10 @@ section{padding-block:var(--sp-6)}
 .work{background:var(--ink-2);border-block:1px solid var(--line)}
 .grid-work{display:grid;grid-template-columns:1.25fr 1fr .82fr;gap:var(--sp-2)}
 .grid-work figure{margin:0;position:relative;overflow:hidden;background:var(--ink-3)}
-.grid-work img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/3.7;filter:saturate(.92) contrast(1.03)}
+.grid-work img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/3.7;filter:saturate(.96) contrast(1.03)}
 .grid-work figcaption{
   position:absolute;left:0;bottom:0;right:0;padding:14px 16px;
-  font-size:var(--t-xs);color:#e7e9ee;background:linear-gradient(0deg,rgba(8,9,11,.88),rgba(8,9,11,0));
+  font-size:var(--t-xs);color:#e7e9ee;background:linear-gradient(0deg,rgba(8,9,11,.9),rgba(8,9,11,0));
 }
 @media (max-width:760px){
   .grid-work{grid-template-columns:1fr 1fr}
@@ -207,7 +229,7 @@ section{padding-block:var(--sp-6)}
 .facts h3{font-family:var(--font);font-weight:600;font-size:var(--t-sm);color:var(--text);line-height:1.3}
 .facts ul{margin-top:var(--sp-3);display:grid;gap:11px}
 .facts li{font-size:var(--t-sm);color:var(--muted);display:grid;grid-template-columns:14px 1fr;gap:10px}
-.facts li::before{content:"";width:6px;height:6px;margin-top:8px;background:var(--brand-lt);border-radius:1px}
+.facts li::before{content:"";width:6px;height:6px;margin-top:8px;background:var(--brand);border-radius:1px}
 @media (max-width:860px){.about{grid-template-columns:1fr;gap:var(--sp-4)}}
 
 /* quote */
@@ -229,10 +251,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand-lt
 .consent{display:flex;align-items:center;gap:10px;font-size:var(--t-xs);color:var(--dim)}
 .consent input{width:auto;accent-color:var(--brand-lt)}
 .submit{
-  justify-self:start;background:var(--brand-lt);color:#0b0c0e;border:0;border-radius:2px;
+  justify-self:start;background:var(--brand);color:#161200;border:0;border-radius:2px;
   font:inherit;font-weight:600;font-size:var(--t-md);padding:14px 26px;cursor:pointer;
 }
-.submit:hover{background:#a2a8db}
+.submit:hover{background:#ffc42f}
 .submit:disabled{opacity:.6;cursor:wait}
 .status{font-size:var(--t-sm);color:var(--dim);min-height:1.2em}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
@@ -260,14 +282,12 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms;animation-iteration-count:1;transition-duration:.01ms}
+  .js .rv{opacity:1;transform:none}
 }
 </style>
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
+<script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site-head">
@@ -277,32 +297,33 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
       <span class="brand-name">Alpine Edge Contracting</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#quote">Quote</a>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#work">Work</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="call" href="tel:+61404982193"><span class="dot" aria-hidden="true"></span><span class="lab">Call</span> 0404 982 193</a>
     </nav>
-    <a class="call" href="tel:0404982193"><span class="dot" aria-hidden="true"></span><span class="lab">Call</span> 0404 982 193</a>
   </div>
 </header>
 
 <main id="main">
   <div class="hero" id="top">
+    <!-- LB-3D-HERO -->
+    <div class="hero-photo" aria-hidden="true"></div>
     <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="wrap hero-in">
       <div class="hero-top">
-        <p class="kicker">Rural labour and machinery</p>
-        <p class="hero-meta" aria-hidden="true">Newcastle &amp; the Hunter Valley<br>5.5t excavator · laser level</p>
+        <p class="kicker">Rural labour and machinery services</p>
+        <p class="hero-meta" aria-hidden="true">Fencing · Dam cleaning<br>Weed spraying · Livestock handling</p>
       </div>
-      <div class="hero-body">
-        <h1>Dig-outs and site prep, done right</h1>
-        <p>Excavation, spreading and concrete prep on rural blocks. One operator, machine matched to the ground, work finished to the level the next trade needs.</p>
-        <a class="call" href="tel:0404982193"><span class="dot" aria-hidden="true"></span>Call 0404 982 193</a>
+      <div class="hero-body rv">
+        <h1>Fencing, clearing and <span class="acc">machinery hire</span></h1>
+        <p>Dig-outs, land clearing, fencing, spreading and concrete prep on farms and rural blocks. Scoped on site, priced by the job or the day.</p>
+        <a class="call call--acc" href="tel:+61404982193"><span class="dot" aria-hidden="true"></span>Call 0404 982 193</a>
       </div>
-      <ul class="hero-specs">
-        <li><b>5.5t excavator</b>Machine matched to the ground</li>
-        <li><b>Laser level</b>True finish on tracks and pads</li>
-        <li><b>Day rate</b>Or project scoped and priced</li>
+      <ul class="hero-specs rv">
+        <li><b>Fencing</b>New lines and repairs</li>
+        <li><b>Clearing</b>Block and pad prep</li>
+        <li><b>Machinery</b>Hire with an operator</li>
       </ul>
     </div>
   </div>
@@ -310,38 +331,43 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
   <div class="strip" aria-hidden="true">
     <ul>
       <li>Dig-outs</li>
-      <li>Site preparation</li>
-      <li>Spreading and grading</li>
-      <li>Concrete prep</li>
+      <li>Land clearing</li>
+      <li>Fencing</li>
+      <li>Machinery hire</li>
     </ul>
   </div>
 
   <section id="services">
     <div class="wrap">
-      <div class="head">
+      <div class="head rv">
         <h2>What we do</h2>
-        <p>Scoped on site, priced per job or by day rate. No guesswork, no hidden extras.</p>
+        <p>One stop for rural labour and machinery: the ground work, the fencing and the prep the next trade needs.</p>
       </div>
       <ol class="svc">
-        <li>
+        <li class="rv">
           <span class="idx">01</span>
           <h3>Dig-outs &amp; site preparation</h3>
-          <p>Excavation, clearing, benching and pad prep for sheds, yards, driveways and hardstands. Machine matched to the ground conditions on the day.</p>
+          <p>Excavation, benching and pad prep for sheds, yards, driveways and hardstands, with the machine matched to the ground.</p>
         </li>
-        <li>
+        <li class="rv">
           <span class="idx">02</span>
-          <h3>Spreading &amp; grading</h3>
-          <p>Gravel, road base and crusher dust spread, watered and rolled to spec. Laser level finish available on tracks and pads.</p>
+          <h3>Land clearing &amp; spreading</h3>
+          <p>Clearing and clean-up, then gravel, road base and crusher dust spread and worked in to a usable finish.</p>
         </li>
-        <li>
+        <li class="rv">
           <span class="idx">03</span>
-          <h3>Concrete prep assistance</h3>
-          <p>Formwork support, reinforcement placement and a screed-ready subgrade. The base gets right so the pour goes clean.</p>
+          <h3>Fencing &amp; rural labour</h3>
+          <p>Fence lines, dam cleaning, weed spraying and livestock handling. Skilled hands by the day or the job.</p>
         </li>
-        <li>
+        <li class="rv">
           <span class="idx">04</span>
-          <h3>Rural labour</h3>
-          <p>Fencing, dam cleaning, weed spraying, livestock handling and general site labour. Skilled hands, day rate or project scoped.</p>
+          <h3>Concrete prep assistance</h3>
+          <p>Formwork support, reinforcement placement and a screed-ready subgrade so the pour goes clean.</p>
+        </li>
+        <li class="rv">
+          <span class="idx">05</span>
+          <h3>Machinery hire</h3>
+          <p>Machine and operator for your job, attachments for the ground conditions, hired by the day or the project.</p>
         </li>
       </ol>
     </div>
@@ -349,21 +375,21 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
 
   <section id="work" class="work">
     <div class="wrap">
-      <div class="head">
+      <div class="head rv">
         <h2>Recent work</h2>
         <p>Straight off the job, same as it went up on Instagram.</p>
       </div>
       <div class="grid-work">
-        <figure>
-          <img src="assets/work_04_web.jpg" alt="Tractor fitted with a post-hole auger" width="1280" height="1600" loading="eager" decoding="async">
-          <figcaption>Auger on the tractor, fencing work</figcaption>
+        <figure class="rv">
+          <img src="assets/work_02_lb.jpg" alt="Rural fence line running along a gravel road at last light" width="2200" height="2750" loading="eager" decoding="async">
+          <figcaption>Farm fence line, run and strained</figcaption>
         </figure>
-        <figure>
-          <img src="assets/work_01_web.jpg" alt="Dig out and prep finished ahead of a concrete pour" width="899" height="1600" loading="eager" decoding="async">
-          <figcaption>Dig out and prep for a pour</figcaption>
+        <figure class="rv">
+          <img src="assets/work_01_lb.jpg" alt="Dig-out and prep finished inside a shed ahead of a concrete pour" width="2068" height="2271" loading="eager" decoding="async">
+          <figcaption>Dig-out and prep ahead of a slab</figcaption>
         </figure>
-        <figure>
-          <img src="assets/work_03_web.jpg" alt="Arched canopy erected over shipping containers" width="1279" height="1600" loading="eager" decoding="async">
+        <figure class="rv">
+          <img src="assets/work_03_web.jpg" alt="Arched canopy erected over shipping container bays on a rural yard" width="1279" height="1600" loading="eager" decoding="async">
           <figcaption>Canopy over container bays</figcaption>
         </figure>
       </div>
@@ -372,30 +398,31 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
 
   <section id="about">
     <div class="wrap about">
-      <div>
+      <div class="rv">
         <h2>You deal with Alex, not a call centre</h2>
-        <p>Alex runs Alpine Edge Contracting, machinery and labour across rural blocks: dig-outs, site prep, spreading and concrete prep assistance. No office overhead and no sales layer between you and the machine.</p>
-        <p>Jobs are scoped on site, the machine is matched to the ground, and the finish is left where the next trade can pick it up. If a job needs something we do not do, we say so before you book.</p>
+        <p>Alex runs Alpine Edge Contracting: machinery and labour for farms and rural blocks, from dig-outs and clearing through to fencing and concrete prep.</p>
+        <p>Jobs are scoped on site and the machine is matched to the ground on the day. If a job needs something we do not do, we say so before you book.</p>
       </div>
-      <aside class="facts">
+      <aside class="facts rv">
         <h3>On the ground</h3>
         <ul>
-          <li>Machine matched to ground conditions</li>
-          <li>Laser level finishes on tracks and pads</li>
-          <li>Formwork-ready subgrade for concrete crews</li>
-          <li>Fencing, dam cleaning and weed spraying</li>
-          <li>Day rate or project-scoped labour</li>
+          <li>Dig-outs, clearing and pad prep</li>
+          <li>Fence lines, repairs and gates</li>
+          <li>Dam cleaning and weed spraying</li>
+          <li>Livestock handling and farm labour</li>
+          <li>Concrete prep and screed-ready subgrade</li>
         </ul>
       </aside>
     </div>
   </section>
 
-  <section id="quote" class="quote">
+  <span id="quote" style="position:absolute;top:-90px"></span>
+  <section id="lbq" class="quote" aria-labelledby="lbq-h">
     <div class="wrap quote-grid">
-      <div>
-        <h2>Request a quote</h2>
-        <p class="lede">Tell us the job, the block and the time frame. Free, no obligation, and answered by the operator.</p>
-        <a class="call" href="tel:0404982193"><span class="dot" aria-hidden="true"></span>Call 0404 982 193</a>
+      <div class="rv">
+        <h2 id="lbq-h">Request a quote</h2>
+        <p class="lede">Tell us the job, the block and the time frame. Free, no obligation, answered by the operator.</p>
+        <a class="call call--acc" href="tel:+61404982193"><span class="dot" aria-hidden="true"></span>Call 0404 982 193</a>
         <p class="note">Photos of recent work are on Instagram at @alpineedgecontractingg.</p>
       </div>
       <form id="quote-form" novalidate data-site="alpine-edge-contracting" data-biz="Alpine Edge Contracting">
@@ -409,9 +436,10 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
             <select name="service">
               <option value="">Select</option>
               <option>Dig-out / site prep</option>
-              <option>Spreading / grading</option>
+              <option>Land clearing / spreading</option>
+              <option>Fencing / rural labour</option>
               <option>Concrete prep</option>
-              <option>Rural labour</option>
+              <option>Machinery hire</option>
             </select>
           </label>
         </div>
@@ -421,6 +449,68 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
         <button class="submit" type="submit">Send quote request</button>
         <p class="status" role="status" aria-live="polite"></p>
       </form>
+      <script>
+      /* quote form — POSTs to the first-party quote endpoint */
+      (function(){
+        var EP = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+        function base(cb){
+          if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+          var done = false;
+          var t = setTimeout(function(){ if (!done){ done = true; cb(EP); } }, 2200);
+          fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+            .then(function(r){ return r.text(); })
+            .then(function(txt){
+              var b = (txt || '').trim().replace(/\/+$/, '');
+              if (done) return; done = true; clearTimeout(t);
+              cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : EP);
+            })
+            .catch(function(){ if (!done){ done = true; clearTimeout(t); cb(EP); } });
+        }
+        function init(){
+          var f = document.getElementById('quote-form');
+          if (!f) return;
+          var st = f.querySelector('.status');
+          var btn = f.querySelector('button[type=submit]');
+          f.addEventListener('submit', function(e){
+            e.preventDefault();
+            var d = {};
+            new FormData(f).forEach(function(v, k){ d[k] = v; });
+            if (d.website) return;
+            if (!d.name || (!d.phone && !d.email) || !(d.message || '').trim()){
+              st.textContent = 'Add your name, a phone or email, and a few words about the job.';
+              st.style.color = '#e8a08f';
+              return;
+            }
+            btn.disabled = true;
+            st.textContent = 'Sending\u2026';
+            st.style.color = '';
+            base(function(B){
+              fetch(B + '/functions/v1/quote-request', {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({
+                  site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
+                  name: d.name, phone: d.phone, email: d.email,
+                  service: d.service || '', message: d.message, consent: !!d.consent
+                })
+              })
+              .then(function(r){ return r.json().catch(function(){ return {}; }); })
+              .then(function(x){
+                if (x && x.success){ f.reset(); st.textContent = 'Thanks, your request is in. We will be in touch shortly.'; st.style.color = '#fcb40c'; }
+                else throw new Error((x && x.error) || 'Could not send');
+              })
+              .catch(function(err){
+                st.textContent = (err && err.message) ? err.message : 'Could not send. Please try again or call.';
+                st.style.color = '#e8a08f';
+              })
+              .finally(function(){ btn.disabled = false; });
+            });
+          });
+        }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+        else init();
+      })();
+      </script>
     </div>
   </section>
 </main>
@@ -432,21 +522,21 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
         <img src="assets/logo-mark_alpine-edge-contracting.png" alt="" width="34" height="34" loading="eager" decoding="async">
         <span class="brand-name">Alpine Edge Contracting</span>
       </a>
-      <p>Rural labour and machinery: dig-outs, site prep, spreading, concrete prep.</p>
+      <p>Rural labour and machinery: dig-outs, clearing, fencing, spreading and concrete prep.</p>
     </div>
     <nav aria-label="Services">
       <h4>Services</h4>
       <ul>
         <li><a href="#services">Dig-outs &amp; site prep</a></li>
-        <li><a href="#services">Spreading &amp; grading</a></li>
-        <li><a href="#services">Concrete prep</a></li>
-        <li><a href="#services">Rural labour</a></li>
+        <li><a href="#services">Land clearing &amp; spreading</a></li>
+        <li><a href="#services">Fencing &amp; rural labour</a></li>
+        <li><a href="#services">Machinery hire</a></li>
       </ul>
     </nav>
     <nav aria-label="Contact">
       <h4>Contact</h4>
       <ul>
-        <li><a href="tel:0404982193">0404 982 193</a></li>
+        <li><a href="tel:+61404982193">0404 982 193</a></li>
         <li><a href="#quote">Request a quote</a></li>
         <li><a href="https://instagram.com/alpineedgecontractingg" target="_blank" rel="noopener">Instagram</a></li>
       </ul>
@@ -461,89 +551,19 @@ footer{border-top:1px solid var(--line);padding-block:var(--sp-5) var(--sp-3);fo
   </div>
 </footer>
 
-<script src="assets/heroCanvas.js"></script>
 <script>
-/* hero scene: bucket over an open trench, spoil and cut batter */
+/* scroll reveal + hard safety net (content is never left hidden) */
 (function(){
-  var cv = document.getElementById('heroCanvas');
-  if (!cv || !window.Projection) return;
-  var S = Projection.create(cv, {focal:1.45, horizon:0.52, camY:1.65, fogNear:16, fogFar:64, fogCol:'#1d2530'});
-  var scene = Projection.sceneExcavation(S, {fogCol:'#1d2530', bandSoft:0.62, fogK:0.5, tone:{
-    soil:'#332a1e', soil2:'#3b3124', clay:'#54432f', clay2:'#5f4d36',
-    sand:'#79633f', gravel:'#585349', rock:'#494740', lip:'#a08a68',
-    steel:'#4c5760', steel2:'#6f7d88', steelHi:'#c6cfd7', dark:'#2b3238',
-    wear:'#c2cbd3', bush:'#232f26', rut:'#241e14'
-  }});
-  var vis = true;
+  var els = [].slice.call(document.querySelectorAll('.rv'));
+  function all(){ for (var i = 0; i < els.length; i++) els[i].classList.add('on'); }
   if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ vis = e[0].isIntersecting; }, {threshold:0.01}).observe(cv);
-  }
-  document.addEventListener('visibilitychange', function(){ vis = !document.hidden; });
-  S.frame(function(t){ if (vis) scene.render(t, t); });
-  window.addEventListener('resize', function(){ S.resize(); });
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  } else { all(); }
+  setTimeout(all, 1100);
   document.getElementById('yr').textContent = new Date().getFullYear();
-})();
-</script>
-<script>
-/* quote form */
-(function(){
-  var EP = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
-  function base(cb){
-    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
-    var done = false;
-    var t = setTimeout(function(){ if (!done){ done = true; cb(EP); } }, 2200);
-    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
-      .then(function(r){ return r.text(); })
-      .then(function(txt){
-        var b = (txt || '').trim().replace(/\/+$/, '');
-        if (done) return; done = true; clearTimeout(t);
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : EP);
-      })
-      .catch(function(){ if (!done){ done = true; clearTimeout(t); cb(EP); } });
-  }
-  function init(){
-    var f = document.getElementById('quote-form');
-    if (!f) return;
-    var st = f.querySelector('.status');
-    var btn = f.querySelector('button[type=submit]');
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      var d = {};
-      new FormData(f).forEach(function(v, k){ d[k] = v; });
-      if (d.website) return;
-      if (!d.name || (!d.phone && !d.email) || !(d.message || '').trim()){
-        st.textContent = 'Add your name, a phone or email, and a few words about the job.';
-        st.style.color = '#e8a08f';
-        return;
-      }
-      btn.disabled = true;
-      st.textContent = 'Sending\u2026';
-      st.style.color = '';
-      base(function(B){
-        fetch(B + '/functions/v1/quote-request', {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({
-            site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
-            name: d.name, phone: d.phone, email: d.email,
-            service: d.service || '', message: d.message, consent: !!d.consent
-          })
-        })
-        .then(function(r){ return r.json().catch(function(){ return {}; }); })
-        .then(function(x){
-          if (x && x.success){ f.reset(); st.textContent = 'Thanks, your request is in. We will be in touch shortly.'; st.style.color = '#8a90c9'; }
-          else throw new Error((x && x.error) || 'Could not send');
-        })
-        .catch(function(err){
-          st.textContent = (err && err.message) ? err.message : 'Could not send. Please try again or call.';
-          st.style.color = '#e8a08f';
-        })
-        .finally(function(){ btn.disabled = false; });
-      });
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
 })();
 </script>
 </body>

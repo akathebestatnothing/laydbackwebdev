@@ -11,7 +11,7 @@
     :root{
       --ink:#0f0e10; --ink-soft:#3a3839; --muted:#6b6869;
       --paper:#faf9f7; --paper-alt:#f2efe9;
-      --brand:#24cce4; --brand-ink:#00706f; --teal:#00cecd; --gold:#d4a843; --rust:#c45d2e; --slate:#3b3e50;
+      --brand:#383860; --brand-ink:#00706f; --teal:#00cecd; --gold:#d4a843; --rust:#c45d2e; --slate:#3b3e50;
       --line:rgba(15,14,16,.08); --line-strong:rgba(15,14,16,.16);
       --shadow:0 4px 24px rgba(15,14,16,.06),0 1px 3px rgba(15,14,16,.04);
       --shadow-lg:0 12px 48px rgba(15,14,16,.1),0 4px 12px rgba(15,14,16,.06);
@@ -71,32 +71,27 @@
     .nav__links a{color:var(--ink-soft);transition:color .15s var(--ease)}
     .nav__links a:hover{color:var(--ink)}
     .nav__cta{display:none}
-    .nav__right{display:flex;align-items:center;gap:clamp(.75rem,1.4vw,1.25rem);flex:0 0 auto;min-width:0}
-    .nav__tel{display:none;font-weight:600;font-size:.9375rem;letter-spacing:.01em;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums;border-bottom:1px solid transparent;transition:border-color .15s var(--ease),color .15s var(--ease)}
-    .nav__tel:hover{border-bottom-color:var(--brand);color:var(--brand-ink)}
     @media(min-width:768px){.nav__links{display:flex}.nav__cta{display:block}}
-    @media(min-width:640px){.nav__tel{display:block}}
 
     /* ===== Hero: real-photo dark hero + scrim (LB-3D-HERO) ===== */
     #heroCanvas{perspective:800px}
-    .hero{position:relative;display:flex;align-items:center;min-height:clamp(520px,68vh,720px);overflow:hidden;padding clamp(2.25rem,4vw,3.5rem) 0 clamp(2.25rem,3.4vw,3rem);background:var(--ink);border-bottom:1px solid var(--line);margin:calc(var(--nav-h) + clamp(10px,1.4vw,18px)) clamp(10px,1.6vw,20px) 0;border-radius:var(--radius-lg)}
-    .hero-media{position:absolute;inset:0;z-index:0}
-    .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 45%;filter:brightness(.98) saturate(1.05) contrast(1.03);border-radius:0}
-    .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(10,11,14,.86) 0%,rgba(10,11,14,.66) 44%,rgba(10,11,14,.26) 76%,rgba(10,11,14,.14) 100%),linear-gradient(0deg,rgba(10,11,14,.55) 0%,rgba(10,11,14,0) 42%)}
-    .hero-in{position:relative;z-index:2;width:100%;max-width:var(--max-w);margin:0 auto}
-    .hero-in{padding:0 var(--space);perspective:1200px}
+    .hero{position:relative;display:flex;align-items:center;min-height:min(92vh,900px);overflow:hidden;padding:calc(var(--nav-h) + 3rem) 0 3.5rem;background:var(--ink);border-bottom:1px solid var(--line)}
+    .hero-media{position:absolute;inset:-3%;z-index:0}
+    .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:brightness(.55) saturate(.9)}
+    .hero-scrim{position:absolute;inset:0;z-index:1;background:rgba(15,14,16,.88),rgba(0,206,209,.16)}
+    .hero-in{position:relative;z-index:2;width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);perspective:1200px}
     .hero-copy{display:flex;flex-direction:column;gap:1.25rem;max-width:50rem}
-    .hero-kicker{font-family:var(--ff-disp);font-weight:600;font-size:var(--fs-step-0);letter-spacing:.14em;color:var(--brand);text-transform:uppercase;--brand:#3fe0ea}
-    .hero h1{margin:0;font-family:var(--ff-disp);font-weight:800;font-size:var(--fs-step-4);line-height:1.05;letter-spacing:-.025em;color:#fdfcfa;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+    .hero-kicker{font-family:var(--ff-disp);font-weight:600;font-size:var(--fs-step-0);letter-spacing:.08em;color:rgba(242,239,233,.78);text-transform:uppercase}
+    .hero h1{margin:0;font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-4);line-height:1.05;letter-spacing:-.02em;color:#898887;text-shadow:0 2px 28px rgba(0,0,0,.55)}
     .hero h1 em{font-style:italic;color:var(--gold)}
-    .hero-sub{margin:0;font-size:var(--fs-step-1);color:rgba(250,249,247,.84);max-width:54ch;line-height:1.6}
+    .hero-sub{margin:0;font-size:var(--fs-step-1);color:#6a6864;max-width:54ch}
     .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem}
-    .hero-cta .btn--p{background:var(--brand);color:#08343a;font-weight:700}
-    .hero-cta .btn--p:hover{background:#33d9d8;color:#08343a}
-    .hero-stats{display:flex;gap:2.5rem;margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid rgba(242,239,233,.26)}
+    .hero-cta .btn--p{background:var(--brand);color:#484f4e;font-weight:700}
+    .hero-cta .btn--p:hover{background:#33d9d8;color:#484f4e}
+    .hero-stats{display:flex;gap:2.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(242,239,233,.24)}
     .hero-stat{display:flex;flex-direction:column}
-    .hero-stat strong{font-family:var(--ff-disp);font-weight:800;font-size:var(--fs-step-2);line-height:1.1;color:#fdfcfa}
-    .hero-stat span{font-size:.8125rem;color:rgba(250,249,247,.72);text-transform:uppercase;letter-spacing:.06em}
+    .hero-stat strong{font-family:var(--ff-disp);font-weight:700;font-size:var(--fs-step-2);line-height:1.1;color:#898887}
+    .hero-stat span{font-size:.8125rem;color:rgba(242,239,233,.72);text-transform:uppercase;letter-spacing:.05em}
     @media(max-width:899px){.hero-in{text-align:center}.hero-copy{margin:0 auto}.hero-cta{justify-content:center}.hero-stats{justify-content:center}.hero h1 br{display:none}}
 
     /* ===== Pulse (fleet telemetry heartbeat) ===== */
@@ -365,7 +360,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.12) 45%,rgba(0,0,0,.42))}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -379,28 +374,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.28))}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 </head>
 <body>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-in">
-      <a class="lb-brand" href="#top" aria-label="Medina Rendering - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#383860;--lb-subc:#383860;--lb-acc:#24cce4;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Medina Rendering</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+      <a class="lb-brand" href="#top" aria-label="Medina Rendering - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#383860;--lb-subc:#383860;--lb-acc:#383860;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_medina-rendering.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Medina Rendering</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
       <ul class="nav__links">
         <li><a href="#services">Services</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#lbq">Get a Quote</a></li>
       </ul>
-      <div class="nav__right">
-        <a class="nav__tel" href="tel:0458811308">04 5881 1308</a>
-        <div class="nav__cta"><a class="btn btn--p" href="#lbq">Request a Quote</a></div>
-      </div>
+      <div class="nav__cta"><a class="btn btn--p" href="#lbq">Request a Quote</a></div>
     </div>
-  </nav>
+  <a class="lb-tel" href="tel:61458811308" style="text-decoration:none;white-space:nowrap;align-self:center">+61458811308</a></nav>
 
   <header class="hero" id="top" aria-label="Medina Rendering - Mix to Wall">
     <!-- LB-3D-HERO -->
@@ -455,8 +443,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <article class="flow-i rv" style="--i:4"><span class="step-n">04</span><h3>Finish Coat Pass</h3><p>Second sweep follows immediately - same hopper, adjusted mix. Grain tightens, colour locks, straight edge cuts the clean line. Done.</p></article>
     </div>
   </section>
-
-  <section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="Medina Rendering" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">Medina Rendering &mdash; recent work</div></div></section>
 
   <section class="sec" id="faq" aria-labelledby="f-t">
     <div class="sec-head">
@@ -605,7 +591,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   </script>
 </section>
 
-  <footer class="foot" role="contentinfo">
+  <section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="Medina Rendering" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="Medina Rendering" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">Medina Rendering &mdash; recent work</div></div></section><footer class="foot" role="contentinfo">
     <div class="foot-in">
       <a class="foot-brand" href="#top" aria-label="Medina Rendering - Home">
         <img src="assets/logo-mark_medina-rendering.png" width="32" height="32" alt="" aria-hidden="true">
@@ -830,8 +816,9 @@ header a[href^="tel"],.site-header a[href^="tel"]{
 .lb-brand__sub:empty{display:none !important}
 </style>
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,.lb-pulse{display:none !important}
-.sec-idx{display:none !important}
+.lb-mq__in,.lb-pulse,tiny numbered label "01" beside h2 "What we render." (4 on page),tiny numbered label "03" beside h2 "Asked on every site." (4 on page),tiny numbered label "04" beside h2 "Why the wall holds." (4 on page){display:none !important}
+letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
   font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -839,45 +826,6 @@ small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
-
-/* ==== MEDINA REPAIR PASS (overrides injected packs) ==== */
-/* hero must be its own stacking context; the scrim + canvas are layers, not flex items */
-header.hero{position:relative !important;isolation:isolate;display:flex !important;align-items:center !important;
-  overflow:hidden !important;min-height:clamp(520px,68vh,720px) !important;max-height:none !important;
-  margin:calc(var(--nav-h) + clamp(10px,1.4vw,18px)) clamp(10px,1.6vw,20px) 0 !important;
-  padding:clamp(2.25rem,4vw,3.5rem) 0 clamp(2.25rem,3.4vw,3rem) !important;border-radius:20px}
-/* the packs each add a full-bleed ::before veil on top of the scrim - drop them */
-header.hero::before,header.hero::after{display:none !important}
-header.hero>canvas{position:absolute !important;inset:0 !important;z-index:0 !important;pointer-events:none}
-header.hero>.hero-media{position:absolute !important;inset:0 !important;z-index:0 !important}
-header.hero>.hero-scrim{position:absolute !important;inset:0 !important;z-index:1 !important}
-header.hero>.hero-in{position:relative !important;z-index:3 !important;flex:1 1 auto !important;
-  width:100% !important;max-width:var(--max-w) !important;padding:0 var(--space) !important}
-header.hero .hero-media img{border-radius:0 !important;box-shadow:none !important;transform:none !important}
-.hero-copy{position:relative;z-index:4;max-width:min(820px,100%) !important}
-/* [class*=hero] also matches .hero-copy / .hero-sub / .hero-stats ... which forced a
-   58vh min-height on every one of them and pushed the copy out of the panel. */
-header.hero .hero-in,header.hero .hero-copy,header.hero .hero-kicker,header.hero .hero-sub,
-header.hero .hero-cta,header.hero .hero-stats,header.hero .hero-stat,
-header.hero .hero-media,header.hero .hero-scrim{min-height:0 !important;max-height:none !important}
-header.hero .hero-kicker,header.hero .hero-sub,header.hero .hero-cta,header.hero .hero-stats,
-header.hero .hero-stat{display:revert !important;border-radius:0}
-header.hero .hero-kicker{display:block !important}
-header.hero .hero-cta,header.hero .hero-stats,header.hero .hero-stat{display:flex !important}
-header.hero .hero-stats{align-items:flex-start}
-header.hero .hero-media img{border-radius:0 !important;box-shadow:none !important}
-.hero h1{text-wrap:nowrap}
-@media(max-width:899px){.hero h1{text-wrap:balance}}
-/* phone lives in the header row now */
-.lb-tel,.nav__tel{align-self:center;flex:0 0 auto;white-space:nowrap;text-decoration:none}
-.nav__links{margin:0 auto}
-@media(min-width:768px){.nav-in{gap:clamp(1rem,2vw,2rem)}}
-/* footer legal links were unstyled and stranded at the left edge */
-footer .lb-legal{display:block;text-align:center;margin-top:1.25rem;font-size:.8125rem;color:var(--muted)}
-footer .lb-legal a{color:var(--muted);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong);transition:color .15s var(--ease)}
-footer .lb-legal a:hover{color:var(--ink)}
-footer .lb-legal a+a{margin-left:1.25rem}
-@media(prefers-color-scheme:dark){footer .lb-legal{color:var(--muted)}}
 
 </style>
 </body>

@@ -325,99 +325,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
 }
 </style>
-
-<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
-
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
-
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--SWL-CLEAN: header + hero structural repair. [class*=hero] substring rules were
-    hitting .hero-in/.hero-copy/.hero-tag as well as .hero itself; retarget to header.hero. -->
-<style id="swl-clean">
-/* ---- brand: logo keeps its proportions, never blows out the bar ---- */
-.nav-in{align-items:center}
-.lb-brand{flex:0 0 auto;overflow:visible;align-items:center;gap:.7rem}
-.lb-brand img,.lb-brand img.lb-logo{height:54px!important;width:auto!important;max-width:none!important;object-fit:contain;border-radius:8px;box-shadow:none;flex:0 0 auto}
-.lb-brand__word{width:auto;flex:0 0 auto}
-.lb-brand__name{font-size:1.6rem;line-height:1;white-space:nowrap}
-.lb-brand__sub{font-size:.54rem;letter-spacing:.16em;white-space:nowrap;margin-top:.3em}
-.lb-brand__rule{display:none}
-.nav-links{margin-left:auto}
-.nav-cta{align-items:center}
-.nav-p{white-space:nowrap;font-size:.86rem;flex:0 0 auto}
-
-/* ---- hero: one backdrop, no double veil, real two-column grid ---- */
-header.hero{min-height:0!important;max-height:none!important;padding-top:80px;display:block;
-  background:linear-gradient(180deg,#f2f6ee 0%,#eaf1e4 58%,#fff 100%)}
-header.hero canvas{opacity:.34}
-header.hero:has(canvas)::before{background:none}
-.hero-shade{background:linear-gradient(180deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.18) 46%,#fff 100%)}
-header.hero>*{position:relative;z-index:2}
-header.hero>.hero-shade,header.hero>canvas{position:absolute;inset:0;z-index:0;height:100%}
-header.hero .hero-in{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(1.6rem,3.2vw,3.2rem);
-  align-items:center;padding:clamp(2.2rem,4.6vh,3.6rem) 40px clamp(2.6rem,5vh,4rem)}
-header.hero :is(.hero-in,.hero-copy,.hero-visual,.hero-strip,.hero-cta,
-  .hero-kicker,.hero-sub,.hero-tag,.hero-photo){min-height:0!important;max-height:none!important}
-header.hero .hero-copy{display:block;width:auto!important;max-width:none!important;flex:none}
-header.hero .hero-copy>*{position:static;z-index:auto}
-header.hero .hero-visual{display:block}
-header.hero .hero-visual figure{position:relative;background:var(--paper2)}
-header.hero .hero-visual img{height:clamp(320px,52vh,520px)}
-header.hero .hero-tag{position:absolute!important;top:16px;left:16px;height:auto;paddingbreathe:0}
-header.hero .hero-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
-header.hero .hero-strip p{min-width:0;font-size:.68rem;letter-spacing:.1em}
-header.hero .hero-strip strong{font-size:.95rem!important;line-height:1.25}
-header.hero .hv-motif{height:0;background:none;border-top:3px solid var(--acc);opacity:1}
-header.hero h1{font-size:clamp(2.05rem,4.5vw,3.5rem)!important;line-height:1.06!important;letter-spacing:-.015em}
-
-/* ---- service cards actually look like cards (CSS targeted .svc, markup uses .svc-row) ---- */
-.svc-grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-.svc-row{position:relative;display:block;background:var(--chip);border:1px solid var(--line);
-  border-radius:12px;padding:1.6rem 3.2rem 1.6rem 1.5rem;overflow:hidden;
-  transition:border-color .2s ease,transform .2s ease}
-.svc-row::after{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--acc);transition:width .3s ease}
-.svc-row:hover{border-color:var(--acc);transform:translateY(-3px)}
-.svc-row:hover::after{width:100%}
-.svc-row h3{font-family:'Montserrat',system-ui,sans-serif;font-weight:800;font-size:1.1rem;margin-bottom:.35rem}
-.svc-row p{color:var(--ink2);font-size:.94rem}
-.svc-arrow{color:var(--acc);font-size:1.2rem;position:absolute;right:18px;top:18px}
-@media (max-width:1000px){
-  header.hero .hero-in{grid-template-columns:1fr}
-  header.hero .hero-visual{order:-1}
-  header.hero .hero-visual img{height:clamp(220px,34vh,300px)}
-  header.hero .hero-strip{grid-template-columns:1fr 1fr}
-}
-@media (max-width:820px){
-  header.hero .hero-in{padding:1.6rem 20px 2.2rem}
-  .lb-brand__sub{display:none}
-}
-@media (max-width:640px){
-  .lb-brand img,.lb-brand img.lb-logo{height:38px!important}
-  .lb-brand__name{font-size:1rem}
-  header.hero .hero-strip{grid-template-columns:1fr;gap:.8rem}
-}</style>
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Sydney Wide Lawns - Home" style="--lb-disp:Caveat;--lb-sub:Montserrat;--lb-acc:#0c3c0c;--lb-name:#0c3c0c;--lb-subc:#0c3c0c;"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"><span class="lb-brand__word"><span class="lb-brand__name">SYDNEY WIDE LAWNS</span><span class="lb-brand__sub"><span class="lb-acc">CLEANER</span> LAWNS &bull; HEALTHIER SPACES &middot; SYDNEY WIDE</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Sydney Wide Lawns - Home" style="--lb-disp:Caveat;--lb-sub:Montserrat;--lb-acc:#0c3c0c;--lb-name:#0c3c0c;--lb-subc:#0c3c0c;"><span class="lb-brand__word"><span class="lb-brand__name">SYDNEY WIDE LAWNS</span><span class="lb-brand__sub"><span class="lb-acc">CLEANER</span> LAWNS • HEALTHIER SPACES &middot; Sydney-Wide &middot; LAWN MOWING</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#work">Work</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="mono nav-p">0410 437 088</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -435,7 +347,7 @@ header.hero h1{font-size:clamp(2.05rem,4.5vw,3.5rem)!important;line-height:1.06!
     <p class="hero-sub">Regular and one-off lawn mowing, whipper snipping, edging, weeding and full yard clean-ups across Sydney &mdash; with the clippings taken away. Reliable, tidy, and done right the first time.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#quote">Get a free quote</a>
-      <a class="btn btn-ghost" href="tel:0410437088">Call 0410 437 088</a>
+      <a class="btn btn-ghost" href="tel:+61410437088">Call 0410 437 088</a>
     </div>
     <div class="hero-strip">
       <p><strong><strong>Regular or one-off</strong></strong>weekly, fortnightly or a once-over</p>
@@ -514,7 +426,7 @@ header.hero h1{font-size:clamp(2.05rem,4.5vw,3.5rem)!important;line-height:1.06!
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:0410437088">0410 437 088</a></div>
+      <div><b>Call</b><a href="tel:+61410437088">0410 437 088</a></div>
       
       <div><b>Area</b><span>Sydney wide &middot; NSW</span></div>
     </div>
@@ -614,11 +526,11 @@ header.hero h1{font-size:clamp(2.05rem,4.5vw,3.5rem)!important;line-height:1.06!
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Lawn mowing &middot; Edging &middot; Weeding &middot; Yard clean-ups &mdash; Sydney wide.<br></p>
   </div>
   <div><h4>Services</h4><a href="#services">Lawn mowing</a><a href="#services">Edging</a><a href="#services">Weeding</a><a href="#services">Yard clean-ups</a></div><div><h4>Company</h4><a href="#process">How we work</a><a href="#faq">FAQ</a><a href="#work">Recent lawns</a><a href="#quote">Free quote</a></div>
-  <div><h4>Contact</h4><a href="tel:0410437088">0410 437 088</a><a href="#quote">Free quote</a></div>
+  <div><h4>Contact</h4><a href="tel:+61410437088">0410 437 088</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
   <span>&copy; 2026 SYDNEY WIDE LAWNS &middot; </span>
-  <a href="tel:0410437088">0410 437 088</a>
+  <a href="tel:+61410437088">0410 437 088</a>
 </div>
 </footer>
 
