@@ -1,552 +1,491 @@
 <!doctype html>
-<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lachlan Jones painting & decorating — House Painting, Central Coast</title>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lachlan Jones painting &amp; decorating - House Painting, Wyee NSW</title>
+<meta name="description" content="House painting and decorating in Wyee and across the Central Coast. Interior, exterior, decorative finishes, prep and repair. Licensed 474003C, insured.">
 <link rel="icon" type="image/png" href="assets/logo-mark_lachlan-jones-painting.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F0F0F0;--ink:#303030;--acc:#50b8b0;--acc-dark:#409080;--mid:#B0B0B0;--mid-dark:#C0C0C0;--card:#FFFFFF;--line:#D0D0D0;--shadow:rgba(48,48,48,.08);--shadow-strong:rgba(48,48,48,.14)}
-html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*, *::before, *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-body{margin:0;font-family:system-ui, system-ui, sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none}
-.skip{position:absolute;top:-100%;left:1rem;padding:.75rem 1rem;background:var(--acc);color:#fff;border-radius:0 0 6px 6px;z-index:100;font-weight:600}.skip:focus{top:0}
-.brand{display:flex;align-items:center;gap:.8rem;color:var(--ink);text-decoration:none}.brand-mark{height:32px;width:auto;display:block}.brand-txt{display:flex;flex-direction:column;line-height:1}.brand-name{font-family:system-ui, sans-serif;font-size:1.16rem;line-height:1;font-weight:700}.brand-sub{display:block;margin-top:4px;font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;font-style:normal;opacity:.75}.brand-sub em{font-style:normal;opacity:1;color:var(--acc)}
-@media (max-width:680px){.brand-mark{height:24px}.brand-name{font-size:1.02rem}.brand-sub{display:none}}
-nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(240,240,240,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}.nav-cta{display:flex;gap:.75rem;align-items:center}.btn{display:inline-flex;align-items:center;justify-content:center;padding:.65rem 1.25rem;border-radius:6px;font-family:system-ui, sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.02em;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}.btn:active{transform:scale(.98)}.btn-primary{background:var(--acc);color:#fff;border:none}.btn-primary:hover{box-shadow:0 6px 20px rgba(80,176,176,.35)}.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--mid)}.btn-ghost:hover{background:var(--mid);border-color:var(--mid-dark)}
-.stage{position:relative;height:420vh}.pin{position:sticky;top:0;height:100vh;overflow:hidden}canvas{position:absolute;inset:0;width:100%;height:100%;min-width:1280px;min-height:720px}
-.hud{position:absolute;left:30px;bottom:26px;font:600 11px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;color:#fff;text-transform:uppercase;z-index:2;text-shadow:0 1px 8px rgba(0,0,0,.6)}.hud b{display:block;color:var(--acc);font-size:13px}
-/* .cap removed — painter's scroll animation disabled */
-@media (max-width:680px){.hud{left:16px;bottom:16px;font-size:10px}.cap{left:16px;top:8vh;max-width:18ch}}.section-services{padding:5rem 1.5rem;background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.section-services header{text-align:center;margin-bottom:3rem}
-.section-services h2{font:800 clamp(28px,4vw,44px)/1.1 Montserrat,sans-serif;margin:0 0 .75rem;color:var(--ink)}
-.section-services p{font-size:clamp(16px,1.8vw,20px);color:var(--mid-dark);margin:0;max-width:60ch;margin-left:auto;margin-right:auto}
-.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
-.service-card{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:2rem;transition:transform .2s ease,box-shadow .2s ease}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px var(--shadow-strong)}
-.service-card h3{font:700 1.25rem/1.3 Montserrat,sans-serif;margin:0 0 .5rem;color:var(--ink)}
-.service-card p{margin:0;color:var(--mid-dark);font-size:.95rem}
-.section-marquee{background:var(--ink);overflow:hidden;padding:1.25rem 0}
-.marquee-track{color:var(--bg);font:600 1rem/1 Montserrat,sans-serif;letter-spacing:.02em;display:flex;gap:2.5rem;width:max-content;white-space:nowrap;will-change:transform;animation:none}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
-.marquee-track .dot{opacity:.5}
-.section-quote{padding:5rem 1.5rem;background:var(--bg)}
-.section-quote header{text-align:center;margin-bottom:2.5rem}
-.section-quote h2{font:800 clamp(28px,4vw,44px)/1.1 Montserrat,sans-serif;margin:0 0 .75rem;color:var(--ink)}
-.section-quote p{font-size:clamp(16px,1.8vw,20px);color:var(--mid-dark);margin:0}
-.quote-form{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:2rem;box-shadow:var(--shadow)}
-.quote-form .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.quote-form label{display:block;font:600 .85rem/1 Montserrat,sans-serif;margin-bottom:.35rem;color:var(--ink);text-transform:none;letter-spacing:.08em}
-.quote-form input,.quote-form select,.quote-form textarea{width:100%;padding:.75rem 1rem;border:1px solid var(--mid);border-radius:6px;font:inherit;background:var(--bg);color:var(--ink);outline:none;transition:border-color .15s,box-shadow .15s}
-.quote-form input:focus,.quote-form select:focus,.quote-form textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(80,176,176,.15)}
-.quote-form textarea{resize:vertical;min-height:100px}
-.quote-form .consent{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-bottom:1.5rem;font-size:.8rem;color:var(--mid-dark)}
-.quote-form .consent input{width:1rem;height:1rem;accent-color:var(--acc);cursor:pointer}
-.quote-form .consent label{cursor:pointer;line-height:1.4;margin:0}
-.quote-form .btn-primary{width:100%;padding:1rem;font-size:1rem}
-#form-status{margin-top:1rem;font-size:.9rem;text-align:center;min-height:1.4em}
-.site-footer{background:var(--ink);color:var(--bg);padding:3rem 1.5rem 2rem}
-.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
-.footer-brand{margin-bottom:1rem}
-.footer-brand img{height:40px}
-.footer-brand .brand-name{font:700 1.16rem/1 Montserrat,sans-serif}
-.footer-brand .brand-sub{display:block;margin-top:4px;font-size:.5rem;letter-spacing:.3em;text-transform:none;font-weight:700;opacity:.75}
-.footer-brand .brand-sub em{font-style:normal;opacity:1;color:var(--acc)}
-.footer-desc{margin:0 0 .5rem;font-size:.9rem;opacity:.8}
-.footer-location{margin:0 0 .5rem;font-size:.9rem;opacity:.8}
-.footer-license{margin:0;font-size:.9rem;opacity:.8}
-.footer-cta{text-align:right}
-.footer-cta .btn{margin-bottom:.75rem;display:inline-block}
-.footer-cta .btn-ghost{border-color:var(--mid);color:var(--bg)}
-.footer-cta .btn-ghost:hover{background:var(--mid);border-color:var(--mid-dark)}
-.footer-social{display:inline-block;margin-top:.75rem;font-size:.85rem;opacity:.7;color:var(--bg);text-decoration:underline}
-.footer-divider{margin:2rem 0;border:none;border-top:1px solid rgba(255,255,255,.1)}
-.footer-copyright{margin:0;font-size:.75rem;opacity:.5;text-align:center}
-#reveal-net{position:fixed;inset:0;pointer-events:none;z-index:9999}
-@media (max-width:680px){.footer-grid{grid-template-columns:1fr}.footer-cta{text-align:left;margin-top:1.5rem}.footer-brand .brand-sub{display:none}.footer-brand img{height:32px}}.revealed{opacity:1!important;transform:none!important}.revealed *{opacity:1!important;transform:none!important}
-</style><style id="lb-brand-css">
-/* ==== LB BRAND (logo-true spanning wordmark) ==== */
-.lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
- color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
-.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
-.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
-.lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:500;text-transform:none;
- font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
- color:var(--lb-name,currentColor)}
-.lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
- font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
- color:var(--lb-subc,currentColor);opacity:.86}
-.lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:transparent}
-@media (max-width:640px){
- .lb-brand__mark{height:clamp(30px,8vw,40px)}
- .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
- .lb-brand__sub{letter-spacing:.2em;font-size:7px}
-}
-</style>
-<style id="lb-motion-css">
-/* ==== LB MOTION PACK ==== */
-.lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
-/* A header must never be hidden by a scroll-reveal state: the nav/brand is chrome, not
-   content. Unrevealed .rv wrappers left whole headers at opacity:0 (invisible logo). */
-header, .site-header, .page-header, nav.nav, .nav .rv, nav.rv, .header-inner, .nav-inner,
-header .rv, .site-header .rv, .nav-inner .rv{
-  opacity:1 !important; visibility:visible !important; transform:none !important;
-}
-.lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
-.lb-mq{max-width:100%;overflow:hidden}
-.lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
-.lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
-.lb-rb__slide.is-on{opacity:1}
-.lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
-.lb-rb__slide.is-on img{transform:scale(1.10)}
-.lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:rgba(6,7,10,.72);color:#fff;
- font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
- font-size:clamp(9px,1vw,13px);z-index:2}
-.lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
- display:flex;flex-direction:column;gap:9px;z-index:3}
-.lb-rb__dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
- background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s}
-.lb-rb__dots button.is-on{background:#fff;transform:scale(1.35)}
-.lb-rb__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;
- border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(8,9,12,.35);color:#fff;
- cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1;backdrop-filter:blur(6px);
- transition:background .25s,transform .25s}
-.lb-rb__nav:hover{background:rgba(8,9,12,.7)}
-.lb-rb__nav--prev{left:clamp(10px,1.6vw,22px)}
-.lb-rb__nav--next{right:clamp(10px,1.6vw,22px)}
-.lb-rb__nav:active{transform:translateY(-50%) scale(.92)}
-@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3}.lb-rb__nav{width:36px;height:36px}}
-
-a.btn,.btn,button.btn,.nav-cta a,.wp-block-button__link{position:relative;overflow:hidden;
- transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,filter .22s}
-a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2px);
- box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
-a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
-a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:rgba(255,255,255,.32);
- transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
-a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
-
-.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
-.lb-rv.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){
- .lb-rv{opacity:1!important;transform:none!important;transition:none!important}
- .lb-rb__slide img{transform:none!important;transition:none!important}
- a.btn::after,.btn::after,.nav-cta a::after{display:none}
-}
-
-/* marquee band (professional, reference-derived) */
-.lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
- border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:none}
-.lb-mq:hover .lb-mq__in{animation-play-state:paused}
-.lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
- font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
-.lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
-@keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
-</style>
-<style id="lb-depth-css">
-/* ==== LB DEPTH PACK — layered shadow + gradient surfaces ==== */
 :root{
-  --lb-acc: var(--acc, var(--accent, #e51924));
-  --lb-ink: var(--ink, #14161a);
-  --lb-paper: var(--paper, #ffffff);
-  --lb-e1: 0 1px 2px rgba(8,10,14,.06), 0 2px 6px rgba(8,10,14,.05);
-  --lb-e2: 0 2px 4px rgba(8,10,14,.07), 0 8px 18px -6px rgba(8,10,14,.14);
-  --lb-e3: 0 4px 10px rgba(8,10,14,.09), 0 18px 40px -12px rgba(8,10,14,.22);
-  --lb-hair: rgba(8,10,14,.10);
+  --paper:#F2F1ED; --paper-2:#E8E6DF; --ink:#191D1F; --ink-2:#4A5254; --ink-3:#6C7476;
+  --teal:#50B8B0; --teal-deep:#2C7671; --line:#D3D0C7; --dark:#14181A; --dark-2:#222A2C;
+  --lb-name:#191D1F; --lb-subc:#191D1F;
+  --disp:"Bricolage Grotesque",Archivo,system-ui,sans-serif; --text:"Archivo",system-ui,sans-serif;
+  --pad:clamp(56px,7vw,104px); --gut:clamp(18px,2.4vw,34px);
 }
-body{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--text);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:700;letter-spacing:-.018em;line-height:1.02;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+.pad{padding:var(--pad) 0}
+.skip{position:absolute;top:-60px;left:12px;z-index:99;background:var(--ink);color:var(--paper);padding:10px 16px;font-size:14px;border-radius:4px}
+.skip:focus{top:10px}
 
-/* sections: soft accent-keyed gradient wash for depth, never a flat slab */
-section{ position:relative; }
-section::before{
-  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
-  background:
-    transparent,
-    transparent;
-}
-section > *{ position:relative; z-index:1; }
+/* header */
+.bar{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1240px;margin:0 auto;padding:11px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{height:46px;width:auto;flex:0 0 auto}
+.brand span{font-family:var(--disp);font-weight:700;font-size:16px;line-height:1.12;letter-spacing:-.01em;max-width:220px;color:#191D1F}
+.bar-nav{display:flex;align-items:center;gap:22px;flex:0 0 auto}
+.bar-tel{font-size:15px;font-weight:500;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .18s}
+.bar-tel:hover{border-color:var(--teal-deep)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);font-weight:600;font-size:15px;padding:12px 20px;border-radius:4px;border:0;cursor:pointer;transition:background .18s}
+.btn:hover{background:var(--teal-deep)}
+.btn svg{width:15px;height:15px;flex:0 0 auto}
 
-/* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
-.card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:transparent;
-  border:1px solid var(--lb-hair);
-  border-radius:14px;
-  box-shadow:var(--lb-e1);
-  transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s, border-color .28s;
-}
-.card:hover,.cards > *:hover,.panel:hover,.tile:hover,.service:hover,.grid > article:hover,
-.grid > div:hover,figure:hover,.gal figure:hover,.gallery figure:hover{
-  transform:translateY(-4px); box-shadow:var(--lb-e3); border-color:color-mix(in srgb, var(--lb-acc) 34%, var(--lb-hair));
-}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(330px,42%) 1fr;border-bottom:1px solid var(--line)}
+.hero-copy{padding:clamp(28px,4.2vw,60px) var(--gut) clamp(30px,3.6vw,52px) max(var(--gut),calc((100vw - 1240px)/2 + var(--gut)))}
+.kick{font-size:13px;font-weight:500;color:var(--teal-deep);display:flex;align-items:center;gap:9px;margin-bottom:20px}
+.kick::before{content:"";width:26px;height:2px;background:var(--teal)}
+h1{font-size:clamp(36px,4.4vw,64px);font-weight:800}
+h1 em{font-style:normal;color:var(--teal-deep)}
+.hero-sub{margin-top:18px;max-width:44ch;font-size:clamp(15px,1.15vw,17px);color:var(--ink-2);line-height:1.5}
+.hero-cta{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.hero-cta .btn{padding:16px 26px;font-size:17px}
+.hero-cta small{font-size:14px;color:var(--ink-3);max-width:15ch;line-height:1.35}
+.hero-feats{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:32px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-2)}
+.hero-feats b{font-weight:600;color:var(--ink)}
+.scene{position:relative;background:#DDD9CF;min-height:clamp(320px,58vh,600px);border-left:1px solid var(--line);overflow:hidden}
+.scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scene-tag{position:absolute;left:0;bottom:0;background:var(--paper);border-top:1px solid var(--line);border-right:1px solid var(--line);padding:9px 14px;font-size:12px;color:var(--ink-2)}
 
-/* photographs: rounded, layered shadow, slight scrim so text over them stays legible */
-section img, figure img, .gal img, .gallery img, .card img{
-  border-radius:10px; box-shadow:var(--lb-e2); display:block;
-}
-figure, .gal figure, .gallery figure{ overflow:hidden; }
-figure img, .gal img{ transform:scale(1.001); transition:transform .5s cubic-bezier(.2,.7,.3,1); }
-figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:scale(1.035); }
+/* prep strip */
+.prep{border-bottom:1px solid var(--line);background:var(--paper-2)}
+.prep-in{max-width:1240px;margin:0 auto;padding:26px var(--gut) 22px;display:grid;grid-template-columns:240px 1fr;gap:30px;align-items:end}
+.prep h2{font-size:19px}
+.prep p{font-size:14px;color:var(--ink-2);margin-top:5px}
+.prep-trace{position:relative;height:78px}
+#prep-trace{width:100%;height:100%;position:absolute;inset:0}
+.prep-trace .step{position:absolute;bottom:0;font-family:var(--disp);font-weight:700;font-size:15px;background:var(--paper-2);z-index:1}
+.prep-trace .step span{display:block;font-family:var(--text);font-weight:400;font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.s1{left:0}.s2{left:33.5%}.s3{left:67%}
 
-/* buttons: gradient fill, inset highlight, layered shadow */
-a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:rgba(255,255,255,.16);
-  box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
-  border-radius:10px;
-}
-a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
-  box-shadow:var(--lb-e3), inset 0 1px 0 rgba(255,255,255,.26);
-}
-.btn-ghost{ box-shadow:var(--lb-e1); }
+/* services */
+.svc{display:grid;grid-template-columns:minmax(270px,33%) 1fr;gap:clamp(24px,5vw,80px)}
+.svc-head h2{font-size:clamp(27px,3.3vw,42px)}
+.svc-head p{margin-top:15px;color:var(--ink-2);font-size:16px;max-width:30ch}
+.svc-note{margin-top:24px;font-size:13px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:14px;max-width:32ch}
+.row-list{border-top:1px solid var(--ink)}
+.svc-row{display:grid;grid-template-columns:1fr auto;align-items:start;gap:20px;padding:20px 0 24px;border-bottom:1px solid var(--line);transition:padding-left .22s}
+.svc-row:hover{padding-left:10px}
+.svc-row h3{font-size:clamp(21px,2.2vw,29px)}
+.svc-row p{margin-top:6px;color:var(--ink-2);font-size:15px;max-width:52ch}
+.svc-row i{font-style:normal;font-size:12px;color:var(--ink-3);padding-top:8px;font-variant-numeric:tabular-nums}
+.svc-row.first i{color:var(--teal-deep)}
 
-/* nav: subtle vertical gradient + hairline for separation from the page */
-.nav,nav,.site-header,header.nav{
-  background-image:transparent;
-  box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
+/* proof */
+.proof{background:var(--dark);color:var(--paper)}
+#proof-in{max-width:1240px;margin:0 auto;padding:var(--pad) var(--gut)}
+.proof-top{display:grid;grid-template-columns:1fr minmax(220px,290px);gap:var(--gut);align-items:end;margin-bottom:var(--gut)}
+.proof h2{font-size:clamp(25px,3.1vw,39px);color:#fff}
+.proof-top p{font-size:15px;color:#B9BFBE;line-height:1.5}
+.shots{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:1fr 1fr;gap:12px}
+.shots figure{margin:0;overflow:hidden;background:#0C0F10;position:relative}
+.shots figure:first-child{grid-row:1/3}
+.shots img{width:100%;height:100%;object-fit:cover;filter:saturate(.93) contrast(1.03);transition:transform .6s ease}
+.shots figure:hover img{transform:scale(1.03)}
+.shots figcaption{position:absolute;left:0;bottom:0;background:rgba(12,15,16,.8);color:#DDE2E1;font-size:12px;padding:7px 11px}
+.facts{display:flex;flex-wrap:wrap;margin:var(--gut) 0 0;border-top:1px solid #333B3D}
+.facts div{flex:1 1 170px;padding:16px 18px 0 0}
+.facts dt{font-size:12px;color:#8E9798}
+.facts dd{margin:4px 0 0;font-family:var(--disp);font-weight:700;font-size:16px;color:#fff}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(270px,37%) 1fr;gap:clamp(26px,5vw,70px);align-items:start}
+.contact h2{font-size:clamp(27px,3.5vw,44px)}
+.contact-lead{margin-top:14px;color:var(--ink-2);max-width:34ch;font-size:16px}
+.tel-big{display:inline-block;margin-top:22px;font-family:var(--disp);font-weight:800;font-size:clamp(26px,3vw,38px);letter-spacing:-.02em;border-bottom:3px solid var(--teal);padding-bottom:4px}
+.tel-big:hover{color:var(--teal-deep)}
+.det{margin-top:24px;font-size:14px;color:var(--ink-2);line-height:1.95;border-top:1px solid var(--line);padding-top:16px}
+.det b{font-weight:600;color:var(--ink);display:inline-block;min-width:86px}
+form{background:#fff;border:1px solid var(--line);padding:clamp(18px,2.4vw,30px)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:12px;color:var(--ink-2);margin-bottom:5px}
+input,select,textarea{width:100%;font:400 15px var(--text);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:10px 11px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:1px}
+.f3{margin-top:14px}
+textarea{resize:vertical;min-height:96px}
+.consent{display:flex;gap:9px;align-items:flex-start;margin:16px 0 18px;font-size:13px;color:var(--ink-2)}
+.consent input{width:16px;height:16px;flex:0 0 auto;margin-top:2px;accent-color:var(--teal-deep)}
+form .btn{width:100%;justify-content:center;padding:14px}
+#form-status{margin-top:12px;font-size:13px;min-height:1.2em;color:var(--ink-2)}
+
+/* footer */
+footer{background:var(--dark-2);color:#C9CFCE;padding:36px 0 24px;font-size:14px}
+.f-in{max-width:1240px;margin:0 auto;padding:0 var(--gut);display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
+.f-brand{display:flex;gap:11px;align-items:center;color:#fff;font-family:var(--disp);font-weight:700;font-size:15px;max-width:255px;line-height:1.2}
+.f-brand img{height:38px}
+.f-col{max-width:235px}
+.f-col a{border-bottom:1px solid #454F51;padding-bottom:1px}
+.f-col a:hover{color:#fff}
+.f-bottom{max-width:1240px;margin:24px auto 0;padding:16px var(--gut) 0;border-top:1px solid #394244;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:12px;color:#8D9697}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease;animation:fi .01s 2.4s forwards}
+.rv.on{opacity:1;transform:none}
+@keyframes fi{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv,.rv.on{opacity:1;transform:none;transition:none;animation:none}
+  .svc-row,.btn,.bar-tel,.shots img{transition:none}
 }
-
-/* section heads get a hairline rule for structure (no risky text clipping) */
-.sec-head{ border-bottom:1px solid var(--lb-hair); padding-bottom:.7rem; }
-h1,h2,h3{ text-wrap:balance; }
-
-/* footer: depth anchor */
-footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5); }
-
-/* dark surfaces get stronger, softer shadows */
-@media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
-@supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:rgba(229,25,36,.06); }
-}
-@media (prefers-reduced-motion: reduce){
-  .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .scene{order:-1;border-left:0;border-bottom:1px solid var(--line);min-height:46vh}
+  .hero-copy{padding:30px var(--gut) 38px}
+  .prep-in{grid-template-columns:1fr;align-items:start;gap:4px}
+  .svc,.contact{grid-template-columns:1fr;gap:26px}
+  .proof-top,.shots{grid-template-columns:1fr}
+  .shots{grid-template-rows:none}
+  .shots figure:first-child{grid-row:auto}
+  .shots figure{aspect-ratio:16/10}
+  .shots figure:first-child{aspect-ratio:4/3}
+  .bar-nav .bar-tel{display:none}
+  .brand span{font-size:14px;max-width:170px}
+  .brand img{height:40px}
+  .f2{grid-template-columns:1fr}
+  .facts div{flex:1 1 50%}
 }
 </style>
-<style id="lb-hero-css">
-canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
-  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
-}
-</style>
-<style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
-   Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
-   and does NOT hide the hero canvas (that is the intended 3D hero). */
-.site-header,.header{z-index:50}
-.container.nav,.nav,.nav-in{z-index:5}
-.lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
-</style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.12) 45%,rgba(0,0,0,.42))}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-</head><body><a class="skip" href="#main">Skip to content</a>
-<nav><a class="lb-brand" href="#top" aria-label="Lachlan Jones painting & decorating - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#50b8b0;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark_lachlan-jones-painting.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Lachlan Jones painting & decorating</span><span class="lb-brand__sub"><span class="lb-acc">Painting</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a><div class="nav-cta"><a class="btn btn-ghost" href="#quote">Get a quote</a><a class="btn btn-primary magnetic" data-ux="magnetic" href="tel:+61403333497">Call 0403 333 497</a></div></nav>
-<header class="hero" style="position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:var(--bg)"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
-  <div class="rv" style="margin-bottom:1.5rem"><span style="font:600 .8rem/1 Montserrat,sans-serif;letter-spacing:.3em;text-transform:none;color:var(--acc);background:rgba(80,176,176,.1);padding:.4rem 1rem;border-radius:999px">Central Coast · Lake Mac · Hunter</span></div>
-  <h1 class="rv" data-ux="words" style="font:800 clamp(36px,6vw,72px)/1.05 Montserrat,sans-serif;margin:0 0 1rem;max-width:900px;color:var(--ink);text-shadow:none">House painting done right - from prep to final reveal</h1>
-  <p class="rv" style="font-size:clamp(18px,2.2vw,24px);max-width:70ch;margin:0 auto 2rem;color:var(--ink);opacity:.85;text-shadow:none">Lachlan Jones Painting & Decorating delivers interior, exterior, decorative finishes and prep & repair across the Central Coast, Lake Macquarie and Hunter. Licensed, insured, same-day callback.</p>
-  <div class="rv" style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center">
-    <a class="btn btn-primary magnetic" data-ux="magnetic" href="#quote" style="padding:1rem 2rem;font-size:1rem">Get a quote</a>
-    <a class="btn btn-ghost" href="tel:+61403333497" style="padding:1rem 2rem;font-size:1rem">Call 0403 333 497</a>
+<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
+
+<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
+
+<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
+
+<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
+
+<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
+
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.28))}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="bar" aria-label="Lachlan Jones painting &amp; decorating">
+  <div class="bar-in">
+    <a class="brand" href="#top">
+      <img src="assets/logo-mark_lachlan-jones-painting.png" alt="Lachlan Jones painting &amp; decorating logo">
+      <span>Lachlan Jones painting & decorating</span>
+    </a>
+    <div class="bar-nav">
+      <a class="bar-tel" href="tel:+61403333497">0403 333 497</a>
+      <a class="btn" href="#quote">Get a quote <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
   </div>
-  <div class="rv" style="margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;font-size:.8rem;letter-spacing:.12em;text-transform:none;color:var(--ink);opacity:.7"><span>Licensed</span><span>Insured</span><span>Same-day callback</span><span>55* Google reviews</span></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-copy">
+    <p class="kick rv">Wyee, Central Coast NSW</p>
+    <h1 class="rv">Weatherboards, walls and trim, <em>cut in clean</em>.</h1>
+    <p class="hero-sub rv">Interior and exterior house painting, decorative finishes, and the sanding, filling and sealing that make a finish last. Working out of Wyee across the Central Coast, Lake Macquarie and the Hunter.</p>
+    <div class="hero-cta rv">
+      <a class="btn" href="tel:+61403333497">Call 0403 333 497</a>
+      <small>Straight through to Lachlan. Prices given after a look at the job.</small>
+    </div>
+    <p class="hero-feats rv"><span><b>Licensed</b> 474003C</span><span><b>Insured</b></span><span>Same-day callback</span></p>
+  </div>
+  <div class="scene">
+    <canvas id="wall-scene" aria-label="Roller and brush against a weatherboard wall with a freshly painted band and crisply cut in skirting"></canvas>
+    <p class="scene-tag">Exterior repaint, weatherboard and trim</p>
+  </div>
 </header>
+
 <main id="main">
-<section class="section-services rv" id="services">
-  <div style="max-width:1100px;margin:0 auto">
-    <header>
-      <h2>What we do</h2>
-      <p>Four trade services - done properly, from prep to final reveal.</p>
-    </header>
-    <div class="service-grid">
-      <article class="service-card rv" data-ux="spotlight">
-        <h3>Interior painting</h3>
-        <p>Ceilings, walls, trims, doors - clean edges, even sheen, no splatter.</p>
+
+<section class="prep" aria-label="How the work is prepped">
+  <div class="prep-in">
+    <div>
+      <h2>Prep decides the finish</h2>
+      <p>Every job starts here.</p>
+    </div>
+    <div class="prep-trace">
+      <canvas id="prep-trace" aria-hidden="true"></canvas>
+      <span class="step s1">Wash and scrape<span>Mould, chalk, loose coats</span></span>
+      <span class="step s2">Fill and sand<span>Gaps, dents, bare timber</span></span>
+      <span class="step s3">Prime and coat<span>Seal, then two full coats</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="services">
+  <div class="wrap svc">
+    <div class="svc-head">
+      <h2>What Lachlan paints</h2>
+      <p>House painting and decorating, inside and out, on the Coast.</p>
+      <p class="svc-note">One painter on the tools, start to finish. No subbies turning up instead.</p>
+    </div>
+    <div class="row-list">
+      <article class="svc-row first">
+        <div><h3>Exterior and weatherboard</h3><p>Weatherboards, render, fascia, eaves and trims. Sun and hail damage made good before a coat goes near it.</p></div>
+        <i>01</i>
       </article>
-      <article class="service-card rv" data-ux="spotlight" data-ux="tilt">
-        <h3>Exterior painting</h3>
-        <p>Weatherboards, render, fascia, eaves - prep that lasts, coatings that protect.</p>
+      <article class="svc-row">
+        <div><h3>Interior walls, ceilings, doors</h3><p>Clean cut lines along cornice and skirting, even sheen, furniture covered and floors protected.</p></div>
+        <i>02</i>
       </article>
-      <article class="service-card rv" data-ux="spotlight">
-        <h3>Decorative finishes</h3>
-        <p>Feature walls, lime wash, texture coats - crafted detail for character spaces.</p>
+      <article class="svc-row">
+        <div><h3>Decorative finishes</h3><p>Feature walls, lime wash and texture coats for rooms with character worth keeping.</p></div>
+        <i>03</i>
       </article>
-      <article class="service-card rv" data-ux="spotlight">
-        <h3>Surface preparation & repair</h3>
-        <p>Sanding, filling, sealing, lead-safe removal - the foundation every good job needs.</p>
+      <article class="svc-row">
+        <div><h3>Preparation and repair</h3><p>Pressure washing, scraping, filling, sanding, sealing and lead-safe removal on older homes.</p></div>
+        <i>04</i>
       </article>
     </div>
   </div>
 </section>
-<section class="section-marquee" aria-hidden="true" id="marquee">
-  <div class="marquee-track" data-ux="marquee" data-speed="-32" data-ux="dynamic" data-words="Interior painting|Exterior painting|Decorative finishes|Surface preparation & repair">
-    Interior painting<span class="dot" aria-hidden="true">·</span>Exterior painting<span class="dot" aria-hidden="true">·</span>Decorative finishes<span class="dot" aria-hidden="true">·</span>Surface preparation & repair
+
+<section class="proof" aria-label="Recent work">
+  <div id="proof-in">
+    <div class="proof-top">
+      <h2>On the wall, not just in a quote.</h2>
+      <p>Repaints and finish work around Wyee and the lower Coast.</p>
+    </div>
+    <div class="shots">
+      <figure><img src="assets/photo-3.jpg" alt="Freshly painted exterior wall and trims"><figcaption>Exterior repaint</figcaption></figure>
+      <figure><img src="assets/photo-1.jpg" alt="Painted exterior trim and fixed furniture"><figcaption>Exterior and trim</figcaption></figure>
+      <figure><img src="assets/photo-5.jpg" alt="Prepared and painted surface"><figcaption>Prep and finish</figcaption></figure>
+    </div>
+    <dl class="facts">
+      <div><dt>Licence</dt><dd>474003C</dd></div>
+      <div><dt>ABN</dt><dd>36 694 152 545</dd></div>
+      <div><dt>Base</dt><dd>Wyee NSW</dd></div>
+      <div><dt>Cover</dt><dd>Central Coast, Lake Mac, Hunter</dd></div>
+    </dl>
   </div>
 </section>
-<section class="section-quote rv" id="lbq">
-  <div style="max-width:720px;margin:0 auto">
-    <header>
-      <h2>Request a quote</h2>
-      <p>Tell us the job - we'll call you back same day.</p>
-    </header>
-    <form id="lbq" data-site="lachlan-jones-painting" class="quote-form" novalidate action="https://api.laydbackapps.com.au/functions/v1/quote-request" method="POST">
+
+<section class="pad" id="quote">
+  <div class="wrap contact">
+    <div>
+      <h2>Get a price on the job.</h2>
+      <p class="contact-lead">Ring and describe it, or send the details below. Prices are given after a look, not over the phone.</p>
+      <a class="tel-big" href="tel:+61403333497">0403 333 497</a>
+      <p class="det"><b>Servicing</b> Wyee, Lake Macquarie, Central Coast, Hunter<br><b>Hours</b> Mon to Sat, by arrangement<br><b>Licence</b> 474003C, insured</p>
+    </div>
+    <form id="quote-form" data-site="lachlan-jones-painting" action="https://api.laydbackapps.com.au/functions/v1/quote-request" method="POST" novalidate>
       <input type="hidden" name="website" value="" tabindex="-1" autocomplete="off" style="display:none">
-      <div class="row">
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
+      <div class="f2">
+        <div><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
       </div>
-      <div class="row">
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-          <label for="service">Service</label>
+      <div class="f2 f3">
+        <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="service">Work needed</label>
           <select id="service" name="service" required>
-            <option value="">Select a service</option>
-            <option value="Interior painting">Interior painting</option>
-            <option value="Exterior painting">Exterior painting</option>
-            <option value="Decorative finishes">Decorative finishes</option>
-            <option value="Surface preparation & repair">Surface preparation & repair</option>
+            <option value="">Choose</option>
+            <option>Exterior and weatherboard</option>
+            <option>Interior walls, ceilings, doors</option>
+            <option>Decorative finishes</option>
+            <option>Preparation and repair</option>
           </select>
         </div>
       </div>
-      <div style="margin-bottom:1.5rem">
-        <label for="message">Details</label>
-        <textarea id="message" name="message" rows="4" placeholder="Room count, surfaces, timeline, access, colour thoughts..."></textarea>
-      </div>
-      <div class="consent">
-        <input type="checkbox" id="consent" name="consent" required>
-        <label for="consent">I agree to be contacted about this quote. No spam, ever.</label>
-      </div>
-      <button type="submit" class="btn btn-primary magnetic" data-ux="magnetic">Send quote request</button>
-      <p id="form-status" aria-live="polite"></p>
+      <div class="f3"><label for="message">The job</label><textarea id="message" name="message" rows="4" placeholder="Suburb, rooms or surfaces, timing, access"></textarea></div>
+      <div class="consent"><input id="consent" name="consent" type="checkbox" required><label for="consent">Contact me about this quote. No list, no spam.</label></div>
+      <button class="btn" type="submit">Send the details</button>
+      <p id="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/photo-3.jpg" alt="Lachlan Jones painting & decorating" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/photo-4.jpg" alt="Lachlan Jones painting & decorating" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/photo-1.jpg" alt="Lachlan Jones painting & decorating" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/photo-5.jpg" alt="Lachlan Jones painting & decorating" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/photo-2.jpg" alt="Lachlan Jones painting & decorating" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button></div><div class="lb-rb__cap">Lachlan Jones painting & decorating &mdash; recent work</div></div></section><footer class="site-footer"><div class="footer-grid"><div><a class="brand footer-brand" href="#top" aria-label="Lachlan Jones painting & decorating - Home"><img class="brand-mark" src="assets/logo-mark_lachlan-jones-painting.png" alt="" aria-hidden="true" loading="lazy"><span class="brand-txt"><b class="brand-name">Lachlan Jones</b><i class="brand-sub"><em>Painting</em> & Decorating</i></span></a><p class="footer-desc">House painting - interior, exterior, decorative finishes, prep & repair.</p><p class="footer-location">Wyee NSW - Central Coast, Lake Mac, Hunter & surrounds.</p><p class="footer-license">LIC 474003C · ABN 36 694 152 545</p></div><div class="footer-cta"><a class="btn btn-primary magnetic" data-ux="magnetic" href="tel:+61403333497">Call 0403 333 497</a><br><a class="btn btn-ghost" href="#quote">Get a quote</a><br><a class="footer-social" href="https://www.facebook.com/people/Lachlan-Jones-painting-decorating/61569845860435/" target="_blank" rel="noopener noreferrer">Facebook</a></div></div><hr class="footer-divider"><p class="footer-copyright">© 2026 Lachlan Jones painting & decorating. All rights reserved.</p><span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer><div id="reveal-net" aria-hidden="true"></div>
-<!-- lb: old box-hero engine removed --><script>document.documentElement.setAttribute("data-debug","PS-check:"+(typeof window.PS)+","+(typeof window.PS.setup)+","+(window.PS?Object.keys(window.PS).join(","):"none"));</script><script>document.documentElement.setAttribute("data-debug","PS-after-proscene:"+(typeof window.PS)+","+(typeof window.PS.setup));</script>
 
-<script>!function(){var e={clamp:function(e,t,n){return e<t?t:e>n?n:e},lerp:function(e,t,n){return e+(t-e)*n},spring:function(e){var t={k:(e&&e.stiffness)||170,d:(e&&e.damping)||22,v:0,x:0,target:0};return t.step=function(e){var n=(t.target-t.x)*t.k-t.v*t.d;t.v+=n*(60*e||1),t.x+=t.v*(60*e||1);return t.x},t}},t=!1;try{t=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}var n=[],r=!1,o=0;function a(e){n.push(e),i()}function i(){if(!r&&!t){r=!0,o=0;function u(e){var i=o?(e-o)/1e3:1/60;o=e;for(var a=0;a<n.length;a++)try{n[a](i,e)}catch(e){}n.length?requestAnimationFrame(u):r=!1}requestAnimationFrame(u)}}function u(e,t,n){var r;try{r=(t||document).querySelectorAll(e)}catch(e){return}for(var o=0;o<r.length;o++)n(r[o],o)}function c(e,n){if(t||!("IntersectionObserver"in window)){n(e);return}var r=!1,o=new IntersectionObserver(function(t){for(var o=0;o<t.length;o++)t[o].isIntersecting&&(r=!0,n(e),o.disconnect())},{rootMargin:"0px 0px -12% 0px",threshold:.12});o.observe(e),setTimeout(function(){r||(o.disconnect(),n(e))},2500)}var s=function(e){if(e.getAttribute("data-ux-done"))return;e.setAttribute("data-ux-done","1");var t=(e.textContent||"").length;if(t<2||t>200)return;var n=document.createDocumentFragment(),r=[],o=[];for(var a=e.firstChild;a;a=a.nextSibling)o.push(a);for(var i=0;i<o.length;i++){var u=o[i];if(3===u.nodeType){var c=u.textContent.split(/(\s+)/);for(var s=0;s<c.length;s++){var l=c[s];if(!l)continue;/^\s+$/.test(l)?n.appendChild(document.createTextNode(l)):(f=document.createElement("span")).textContent=l,r.push(f),n.appendChild(f)}}else if(1===u.nodeType){"BR"===u.tagName?n.appendChild(document.createElement("br")):(r.push(u),n.appendChild(u))}}e.textContent="",e.appendChild(n);var f=function(){for(var t=0;t<r.length;t++)!function(e,t){if(t){e.style.display=e.style.display||"inline-block",e.style.opacity="0",e.style.transform="translateY(0.55em)",setTimeout(function(){e.style.transition="opacity .5s ease, transform .6s cubic-bezier(.2,.7,.2,1)",e.style.opacity="1",e.style.transform="none"},55*t)}else e.style.opacity="1",e.style.transform="none"}(r[t],t);setTimeout(function(){for(var e=0;e<r.length;e++)r[e].style.opacity="1",r[e].style.transform="none"},1600)};c(e,f)},l=function(e){var t=(e.getAttribute("data-words")||"").split("|").filter(Boolean);if(t.length<2)return;var n=0;e.textContent=t[0];if(t)return;var r=document.createElement("span");r.style.display="inline-block",r.style.transition="opacity .28s ease, transform .34s cubic-bezier(.2,.7,.2,1)",e.textContent="",e.appendChild(r),r.textContent=t[0],setInterval(function(){r.style.opacity="0",r.style.transform="translateY(-0.45em)",setTimeout(function(){n=(n+1)%t.length,r.textContent=t[n],r.style.transition="none",r.style.transform="translateY(0.45em)",void r.offsetHeight,r.style.transition="opacity .28s ease, transform .34s cubic-bezier(.2,.7,.2,1)",r.style.opacity="1",r.style.transform="none"},300)},2600)},f=function(e){var t=parseFloat(e.getAttribute("data-to")||"0"),n=1.4,r=0,o=e.getAttribute("data-suffix")||"",a=e.getAttribute("data-prefix")||"";c(e,function(){if(t){e.textContent=a+t+o;return}var i=function(t){r+=t;var u=1-Math.pow(1-r/n,3);e.textContent=a+Math.round(t*u)+o,u>=1&&a(function(){})}})},d=function(e){if(t)return;e.style.position=e.style.position||"relative";var n=document.createElement("div");n.setAttribute("aria-hidden","true"),n.style.cssText="position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;z-index:0";var r=document.createElement("i");r.style.cssText="position:absolute;left:0;top:0;width:420px;height:420px;border-radius:50%;background:rgba(196,251,36,.10);filter:blur(58px);opacity:0;transition:opacity .4s ease;transform:translate(-50%,-50%)",n.appendChild(r),e.appendChild(n),e.addEventListener("pointermove",function(e){var t=e.getBoundingClientRect();r.style.transform="translate("+(e.clientX-t.left-210).toFixed(1)+"px,"+(e.clientY-t.top-210).toFixed(1)+"px)",r.style.opacity="1"}),e.addEventListener("pointerleave",function(){r.style.opacity="0"})},m=function(e){if(t)return;var n=e.spring({stiffness:150,damping:15}),r=e.spring({stiffness:150,damping:15}),o=0;a(function(e){if(o||Math.abs(n.x-n.target)>.01||Math.abs(r.x-r.target)>.01){var t=n.step(e),i=r.step(e);e.style.transform="translate("+t.toFixed(2)+"px,"+i.toFixed(2)+"px)"}}),e.addEventListener("pointermove",function(t){var r=e.getBoundingClientRect();n.target=(t.clientX-(r.left+r.width/2))*.22,r.target=(t.clientY-(r.top+r.height/2))*.22}),e.addEventListener("pointerleave",function(){n.target=0,r.target=0})},p=function(e){if(t)return;var n=e.spring({stiffness:140,damping:18}),r=e.spring({stiffness:140,damping:18}),o="perspective(900px)";a(function(e){n.step(e),r.step(e),e.style.transform=o+" rotateX("+n.x.toFixed(2)+"deg) rotateY("+r.x.toFixed(2)+"deg)"}),e.addEventListener("pointermove",function(t){var o=e.getBoundingClientRect(),a=(t.clientX-o.left)/o.width-.5,i=(t.clientY-o.top)/o.height-.5;r.target=7*a,n.target=-7*i}),e.addEventListener("pointerleave",function(){n.target=0,r.target=0})},h=function(e){var t=e.innerHTML;e.innerHTML="",e.style.overflow="hidden";var n=document.createElement("div");n.style.cssText="display:flex;gap:2.5rem;width:max-content;white-space:nowrap;will-change:transform",n.innerHTML='<span style="display:flex;gap:2.5rem">'+t+"</span><span aria-hidden=\"true\" style=\"display:flex;gap:2.5rem\">"+t+"</span>",e.appendChild(n);if(t)return;var r=0,o=0;var i=parseFloat(e.getAttribute("data-speed")||"-38");a(function(e){if(!o)o=n.scrollWidth/2;if(o){r+=i*e,r<=-o&&(r+=o),r>0&&(r-=o),n.style.transform="translateX("+r.toFixed(1)+"px)"}})},v=function(e){if(t)return;var n=parseFloat(e.getAttribute("data-speed")||"-.12"),r=0,o=0;a(function(t){var a=e.getBoundingClientRect(),i=window.innerHeight||800,u=a.top+a.height/2-i/2;o=u*n,r=e.clamp(r,o,1-Math.pow(.001,t)),e.style.transform="translate3d(0,"+r.toFixed(1)+"px,0)"})},g=function(e){e.style.opacity="0",e.style.transform="translateY(14px)",c(e,function(){e.style.transition="opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1)",e.style.opacity="1",e.style.transform="none"})},y=function(){if(document.documentElement.getAttribute("data-ux-nobar")!==null)return;var e=document.createElement("div");e.style.cssText="position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:#50b8b0;transition:width .1s linear",document.body.appendChild(e);var t=function(){var t=document.documentElement,n=(t.scrollHeight-t.clientHeight)||1;e.style.width=window.UX.clamp((window.pageYOffset||t.scrollTop||0)/n*100,0,100)+"%"};addEventListener("scroll",t,{passive:!0}),t()},b=function(e){try{u('[data-ux="words"]:not([data-ux-done])',e,s)}catch(e){}try{u('[data-ux="dynamic"]',e,l)}catch(e){}try{u('[data-ux="count"]',e,f)}catch(e){}try{u('[data-ux="spotlight"]',e,d)}catch(e){}try{u('[data-ux="magnetic"]',e,m)}catch(e){}try{u('[data-ux="tilt"]',e,p)}catch(e){}try{u('[data-ux="marquee"]',e,h)}catch(e){}try{u('[data-ux="parallax"]',e,v)}catch(e){}try{u('[data-ux="fadein"]:not([data-ux-done])',e,function(e){e.setAttribute("data-ux-done","1"),g(e)})}catch(e){}try{y()}catch(e){}};setTimeout(function(){u('[data-ux="words"],[data-ux="fadein"]',null,function(e){for(var t=0;t<e.children.length;t++)e.children[t].style.opacity="1",e.children[t].style.transform="none";e.style.opacity="1",e.style.transform="none"})},1500),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",function(){b()}):b(),window.UX={clamp:e.clamp,lerp:e.lerp,spring:e.spring,words:s,dynamic:l,count:f,spotlight:d,magnetic:m,tilt:p,marquee:h,parallax:v,fadein:g,progressBar:y,init:b,_addTask:a,_removeTask:function(e){var t=n.indexOf(e);t>=0&&n.splice(t,1)}}}();</script>
-<script>!function(){try{ document.documentElement.setAttribute("data-debug3d","1-script-start"); var canvas=document.getElementById("sceneCanvas"); if(!canvas){document.documentElement.setAttribute("data-debug3d","2-no-canvas");return} document.documentElement.setAttribute("data-debug3d","3-canvas-found"); if(typeof window.PS==="undefined"){document.documentElement.setAttribute("data-debug3d","4-PS-undefined");return} document.documentElement.setAttribute("data-debug3d","5-PS-ok"); document.documentElement.setAttribute("data-debug3d","6-calling-setup"); var scene=window.PS.setup(canvas,{ sun:"left",seed:42,p:0,reduce:false, sky:["#e8f0f0","#d0e8e8","#a0d0d0"], glow:"#50B0B0",fogNear:2,fogFar:28,horizon:.45,focal:1.15,camH:1.55,progress:null, onFrame:function(S,p,time){ document.documentElement.setAttribute("data-debug3d","7-onFrame:"+S.W+","+S.H); try{ if(S.sky){ document.documentElement.setAttribute("data-debug3d","7b-calling-sky"); S.sky(0); document.documentElement.setAttribute("data-debug3d","7c-sky-done"); document.documentElement.setAttribute("data-debug3d","7d-sky-rendered"); } }catch(e){ document.documentElement.setAttribute("data-debug3d","7e-onFrame-error:"+e) } } }); document.documentElement.setAttribute("data-debug3d","8-scene-returned"); scene.start(); document.documentElement.setAttribute("data-debug3d","9-started"); }catch(e){ document.documentElement.setAttribute("data-debug3d","0-outer-error:"+e) }}();document.documentElement.setAttribute("data-debug3d","PS-check:"+(typeof window.PS)+","+(typeof window.PS.setup));</script>
-<script>!function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("reduce-motion");setTimeout(function revealAll(){var e=document.querySelectorAll(".rv,[data-ux=\"words\"],[data-ux=\"fadein\"]");for(var t=0;t<e.length;t++){e[t].classList.add("revealed"),e[t].style.opacity="1",e[t].style.transform="none";for(var n=0;n<e[t].children.length;n++)e[t].children[n].style.opacity="1",e[t].children[n].style.transform="none"}},1200)}();</script><script>document.documentElement.setAttribute("data-debug","body-script-ran");</script>
-<script id="lb-motion-js">
-/* LB MOTION PACK v1 */
-(function(){
-  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sel = 'section > *, main > *, .sec-head, .cards > *, .grid > *, .faq details, .gal figure, .gallery figure';
-  var els = [].slice.call(document.querySelectorAll(sel)).filter(function(e){
-    if (e.closest && e.closest('.lb-rb')) return false;
-    if (e.tagName === 'SCRIPT' || e.tagName === 'STYLE') return false;
-    var r = e.getBoundingClientRect();
-    return r.width > 40 && r.height > 20;
-  });
-  els.forEach(function(e, i){ e.classList.add('lb-rv'); e.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
-  if (rm || !('IntersectionObserver' in window)) {
-    els.forEach(function(e){ e.classList.add('is-in'); });
-  } else {
-    var io = new IntersectionObserver(function(en){
-      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
-    els.forEach(function(e){ io.observe(e); });
-    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
-  }
-  var rb = document.querySelector('.lb-rb');
-  if (!rb) return;
-  var slides = [].slice.call(rb.querySelectorAll('.lb-rb__slide'));
-  if (slides.length < 2) return;
-  var dots = [].slice.call(rb.querySelectorAll('.lb-rb__dots button'));
-  var i = 0, timer = null, DUR = 5600;
-  function go(n){
-    i = (n + slides.length) % slides.length;
-    slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
-    dots.forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
-  }
-  function play(){ if (rm) return; stop(); timer = setInterval(function(){ go(i + 1); }, DUR); }
-  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
-  dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); play(); }); });
-  var pv = rb.querySelector('.lb-rb__nav--prev'), nx = rb.querySelector('.lb-rb__nav--next');
-  if (pv) pv.addEventListener('click', function(){ go(i - 1); play(); });
-  if (nx) nx.addEventListener('click', function(){ go(i + 1); play(); });
-  rb.addEventListener('mouseenter', stop); rb.addEventListener('mouseleave', play);
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function(en){ en.forEach(function(x){ x.isIntersecting ? play() : stop(); }); },
-      { threshold: 0.25 }).observe(rb);
-  } else { play(); }
-  go(0);
-})();
-</script>
-<script id="lb-hero-js">
-/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
-(function(){
-  var cv = document.querySelector('#heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero], header canvas, .hero canvas');
-  if (!cv) return;
-  var ctx = cv.getContext('2d'); if (!ctx) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
-  function accent(){
-    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
-         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
-    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
-  }
-  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
-    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
-  var ACC = hex2rgb(accent());
-  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
-    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
-    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
+</main>
 
-  function size(){
+<footer>
+  <div class="f-in">
+    <a class="f-brand" href="#top"><img src="assets/logo-mark_lachlan-jones-painting.png" alt="" aria-hidden="true">Lachlan Jones painting & decorating</a>
+    <p class="f-col">House painting and decorating. Wyee NSW, working the Central Coast, Lake Macquarie and Hunter.</p>
+    <p class="f-col"><a href="privacy.html">Privacy</a><br><a href="terms.html">Terms</a><br><a href="tel:+61403333497">0403 333 497</a></p>
+  </div>
+  <div class="f-bottom"><span>&copy; <span id="yr">2026</span> Lachlan Jones painting &amp; decorating</span><span>LIC 474003C &middot; ABN 36 694 152 545</span></div>
+</footer>
+
+<script src="heroCanvas.js" defer></script>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* hero scene: weatherboard wall in perspective, paint band, roller, brush, tin, cut-in line */
+(function(){
+  var cv = document.getElementById('wall-scene'); if (!cv) return;
+  var ctx = cv.getContext('2d');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, t0 = performance.now(), raf = 0;
+
+  var cam = { yaw: 0.155, eye: 1.42, f: 1 };
+  var WALL_X = 1.38, Z0 = 0.85, Z1 = 9.4;
+  var PAINT_FROM = 1.15, PAINT_TO = 3.55;
+  var Y0 = 0.86, Y1 = 2.5;
+
+  function project(x, y, z){
+    var c = Math.cos(cam.yaw), s = Math.sin(cam.yaw);
+    var cx = x*c - z*s, cz = x*s + z*c;
+    if (cz < 0.12) cz = 0.12;
+    return [W*0.5 + cam.f*cx/cz, H*0.53 - cam.f*(y - cam.eye)/cz, cz];
+  }
+  function wall(y, z, off){ return project(WALL_X - (off||0), y, z); }
+  function quad(a, b, c, d, fill){
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]);
+    ctx.lineTo(c[0], c[1]); ctx.lineTo(d[0], d[1]); ctx.closePath();
+    ctx.fillStyle = fill; ctx.fill();
+  }
+  function wallLine(y, z1, z2, style, w, cap){
+    var a = wall(y, z1), b = wall(y, z2);
+    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]);
+    ctx.strokeStyle = style; ctx.lineWidth = w || 1; ctx.lineCap = cap || 'butt'; ctx.stroke();
+  }
+
+  function resize(){
     var r = cv.getBoundingClientRect();
-    dpr = Math.min(2, window.devicePixelRatio || 1);
-    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
-    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
+    dpr = Math.min(2, devicePixelRatio || 1);
+    W = Math.max(260, r.width); H = Math.max(260, r.height);
     cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cam.f = W * 0.8;
   }
 
-  // deterministic depth motes
-  var N = 46, motes = [];
-  var seed = 20261019;
-  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
-  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
+  function draw(prog){
+    var bg = ctx.createLinearGradient(0, 0, W, H);
+    bg.addColorStop(0, '#CBC6BA'); bg.addColorStop(1, '#E1DDD3');
+    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
 
-  function draw(){
-    var isDark = dark();
-    var base = isDark ? [10,11,14] : [248,249,251];
-    var ink  = isDark ? [255,255,255] : [12,14,18];
-    var g = ctx.createLinearGradient(0,0,0,H);
-    g.addColorStop(0, 'rgb('+base.join(',')+')');
-    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
-    g.addColorStop(1, 'rgb('+base.join(',')+')');
-    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+    var fl = ctx.createLinearGradient(0, H*0.5, 0, H);
+    fl.addColorStop(0, '#B4AE9F'); fl.addColorStop(1, '#8B8375');
+    ctx.fillStyle = fl; ctx.fillRect(0, H*0.52, W, H*0.5);
 
-    // aurora: two slow, wide ribbons of the brand colour
-    for (var k=0;k<2;k++){
-      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
-      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
-      var rad = Math.max(W,H)*(0.46 + 0.13*k);
-      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
-      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
-      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
-      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
-      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
-      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
+    quad(wall(0, Z0), wall(2.75, Z0), wall(2.75, Z1), wall(0, Z1), '#C6C1B4');
+
+    for (var y = 0.19; y < 2.75; y += 0.19){
+      wallLine(y, Z0, Z1, 'rgba(30,25,18,0.15)', 2.6);
+      wallLine(y + 0.022, Z0, Z1, 'rgba(255,253,244,0.30)', 1.4);
     }
 
-    // perspective floor: clean architectural depth, not blocks
-    var hz = H*0.70, vpx = W*0.5;
-    ctx.lineWidth = 1;
-    for (var j=-9;j<=9;j++){
-      var fx = vpx + j*(W/9)*1.5;
-      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
-      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
-      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
-    }
-    for (var r=1;r<=9;r++){
-      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
-      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
-      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
-    }
-    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
-    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
-    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
-    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
-    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
-
-    // depth motes: size + opacity track z, slow parallax drift
-    for (var q=0;q<motes.length;q++){
-      var m = motes[q];
-      var y = ((m.y + t*0.0000075*m.z) % 1);
-      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
-      var px = x*W, py = y*H;
-      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
-      if (a2 <= 0) continue;
-      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
-      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
+    var zEnd = PAINT_FROM + (PAINT_TO - PAINT_FROM) * prog;
+    if (prog > 0.02){
+      quad(wall(Y1, PAINT_FROM), wall(Y1, zEnd), wall(Y0, zEnd), wall(Y0, PAINT_FROM), '#F8F6EE');
+      ctx.save(); ctx.globalAlpha = 0.55;
+      wallLine(Y1 - 0.2, PAINT_FROM, zEnd, 'rgba(255,255,252,0.6)', 12, 'round');
+      ctx.restore();
+      var e1 = wall(Y1, zEnd), e2 = wall(Y0, zEnd);
+      ctx.beginPath(); ctx.moveTo(e1[0], e1[1]); ctx.lineTo(e2[0], e2[1]);
+      ctx.strokeStyle = 'rgba(142,162,157,0.6)'; ctx.lineWidth = 4; ctx.stroke();
+      wallLine(Y0, PAINT_FROM, zEnd, '#F1EDE3', 6);
+      wallLine(Y0, PAINT_FROM, zEnd, 'rgba(255,255,255,0.75)', 2);
     }
 
-    // vignette to seat the copy
-    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
-    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
-    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
+    quad(wall(0.15, Z0), wall(0.15, Z1), wall(0, Z1), wall(0, Z0), '#EFEDE4');
+    wallLine(0.15, Z0, Z1, 'rgba(40,34,26,0.34)', 2);
+    quad(wall(0.02, Z0), wall(0.02, Z1), project(0, 0, Z1), project(0, 0, Z0), 'rgba(30,26,20,0.17)');
+
+    /* paint tin */
+    var tz = 1.66, tx = 0.9;
+    var base = project(tx, 0, tz), top = project(tx, 0.29, tz);
+    var rw = Math.max(6, cam.f * 0.17 / base[2]);
+    var hgt = base[1] - top[1];
+    ctx.beginPath(); ctx.ellipse(base[0] + rw*0.5, base[1] + 2, rw*1.1, rw*0.32, 0, 0, 6.283);
+    ctx.fillStyle = 'rgba(24,20,15,0.28)'; ctx.fill();
+    ctx.fillStyle = '#E3E0D6';
+    ctx.fillRect(base[0] - rw, base[1] - hgt, rw*2, hgt);
+    ctx.beginPath(); ctx.ellipse(base[0], base[1] - hgt, rw, rw*0.3, 0, 0, 3.142);
+    ctx.fillStyle = '#D3CFC4'; ctx.fill();
+    ctx.fillStyle = '#50B8B0';
+    ctx.fillRect(base[0] - rw, base[1] - hgt*0.55, rw*2, Math.max(3, rw*0.4));
+    ctx.beginPath(); ctx.ellipse(base[0], base[1] - hgt, rw, rw*0.32, 0, 0, 6.283);
+    ctx.fillStyle = '#F4F2E9'; ctx.fill();
+    ctx.beginPath(); ctx.ellipse(base[0], base[1] - hgt, rw*0.82, rw*0.26, 0, 0, 6.283);
+    ctx.fillStyle = '#CFCBC0'; ctx.fill();
+    ctx.beginPath(); ctx.ellipse(top[0] + rw*0.75, top[1] - rw*0.55, rw*0.8, rw*0.2, -0.55, 0, 6.283);
+    ctx.fillStyle = '#EAE7DD'; ctx.fill();
+
+    /* brush */
+    var bz = 2.4, tip = project(0.4, 0.5, bz), foot = project(0.86, 0.02, bz);
+    ctx.beginPath(); ctx.moveTo(tip[0], tip[1]); ctx.lineTo(foot[0], foot[1]);
+    ctx.strokeStyle = '#8A6A43'; ctx.lineWidth = Math.max(2, cam.f*0.026/foot[2]); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(tip[0], tip[1]); ctx.lineTo(foot[0] - 2, foot[1]);
+    ctx.strokeStyle = 'rgba(20,18,15,0.85)'; ctx.lineWidth = Math.max(2, cam.f*0.03/tip[2]);
+    ctx.lineCap = 'round'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(tip[0], tip[1], Math.max(2.2, cam.f*0.02/tip[2]), 0, 6.283);
+    ctx.fillStyle = '#1C1A16'; ctx.fill();
+    ctx.lineCap = 'butt';
+
+    /* roller at the wet edge */
+    var rz = zEnd + 0.03, ry = (Y0 + Y1) / 2;
+    var rTop = wall(ry + 0.2, rz, 0.05), rBot = wall(ry - 0.2, rz, 0.05);
+    var rW = Math.max(3, cam.f * 0.042 / rTop[2]);
+    var sTop = wall(ry + 0.2, rz, 0), sBot = wall(ry - 0.2, rz, 0);
+    ctx.beginPath(); ctx.moveTo(sTop[0] + rW, sTop[1] + 5); ctx.lineTo(sBot[0] + rW, sBot[1] + 5);
+    ctx.strokeStyle = 'rgba(24,20,15,0.18)'; ctx.lineWidth = rW*1.9; ctx.lineCap = 'round'; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(rTop[0], rTop[1]); ctx.lineTo(rBot[0], rBot[1]);
+    ctx.strokeStyle = '#93AAA7'; ctx.lineWidth = rW*2; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(rTop[0], rTop[1]); ctx.lineTo(rBot[0], rBot[1]);
+    ctx.strokeStyle = '#C9D8D5'; ctx.lineWidth = rW; ctx.stroke();
+    for (var k = -0.18; k < 0.2; k += 0.05){
+      var p = wall(ry + k, rz, 0.05), q = wall(ry + k, rz, 0.1);
+      ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]);
+      ctx.strokeStyle = 'rgba(96,124,120,0.3)'; ctx.lineWidth = 1; ctx.stroke();
+    }
+    var hEnd = project(0.58, ry - 0.44, rz + 0.3);
+    ctx.beginPath(); ctx.moveTo(rBot[0], rBot[1]);
+    ctx.quadraticCurveTo(rBot[0] - rW*1.6, rBot[1] + rW*1.2, hEnd[0], hEnd[1]);
+    ctx.strokeStyle = '#B6B1A3'; ctx.lineWidth = Math.max(2, rW*0.5); ctx.stroke();
+    ctx.beginPath(); ctx.arc(hEnd[0], hEnd[1], Math.max(3, rW*0.75), 0, 6.283);
+    ctx.fillStyle = '#50B8B0'; ctx.fill();
+    ctx.lineCap = 'butt';
+
+    var haze = ctx.createLinearGradient(W*0.34, 0, W*0.95, 0);
+    haze.addColorStop(0, 'rgba(219,215,204,0.5)');
+    haze.addColorStop(0.6, 'rgba(219,215,204,0.05)');
+    haze.addColorStop(1, 'rgba(219,215,204,0)');
+    ctx.fillStyle = haze; ctx.fillRect(0, 0, W, H);
+    var lg = ctx.createLinearGradient(W, 0, W*0.25, H*0.4);
+    lg.addColorStop(0, 'rgba(255,251,238,0.26)'); lg.addColorStop(1, 'rgba(255,251,238,0)');
+    ctx.fillStyle = lg; ctx.fillRect(0, 0, W, H);
   }
 
-  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
-  size(); draw();
-  window.addEventListener('resize', function(){ size(); draw(); });
-  if (!reduce && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
+  function frame(ts){
+    var prog = Math.min(1, Math.max(0, (ts - t0) / 1500));
+    prog = 1 - Math.pow(1 - prog, 3);
+    cam.yaw = 0.155 + (reduce ? 0 : Math.sin(ts * 0.00022) * 0.012);
+    cam.eye = 1.42 + (reduce ? 0 : Math.sin(ts * 0.00019) * 0.012);
+    ctx.clearRect(0, 0, W, H);
+    draw(prog);
+    raf = requestAnimationFrame(frame);
   }
-  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
-  if (!reduce) raf = requestAnimationFrame(loop); 
+
+  resize();
+  if ('ResizeObserver' in window){
+    new ResizeObserver(function(){ resize(); if (reduce){ ctx.clearRect(0,0,W,H); draw(1); } }).observe(cv);
+  }
+  addEventListener('resize', resize);
+  raf = requestAnimationFrame(frame);
+  document.addEventListener('visibilitychange', function(){
+    cancelAnimationFrame(raf); if (!document.hidden) raf = requestAnimationFrame(frame);
+  });
+
+  var f = document.getElementById('quote-form'), st = document.getElementById('form-status');
+  if (f) f.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!f.checkValidity()){ st.textContent = 'Name, phone, email and consent are needed.'; return; }
+    st.textContent = 'Sending...';
+    fetch(f.action, { method: 'POST', body: new FormData(f), mode: 'cors' })
+      .then(function(r){ if (!r.ok) throw 0; st.textContent = 'Sent. Lachlan will call you back.'; f.reset(); })
+      .catch(function(){ st.textContent = 'Could not send. Ring 0403 333 497 and it is done.'; });
+  });
 })();
 </script>
-<style>
-/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
-header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
-.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
-  opacity:1 !important;visibility:visible !important}
-.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
-@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
-#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
-@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
-</style>
-
-
-<style>/* ==== LB HEADER TRUTH ==== */
-.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
-  align-items:center !important;flex-wrap:nowrap !important}
-.lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
-  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
-.lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
-  max-width:100% !important;object-fit:contain !important}
-.lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;
-  min-width:0 !important;overflow:visible !important}
-@media(max-width:700px){
-  .lb-brand__mark{height:32px !important;max-width:40vw !important}
-  .lb-brand__word{font-size:.92em !important}
-}
-</style>
-
-<style>/* ==== LB HEADER POLISH 2 ==== */
-header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
-.site-header nav a:not(.btn):not([class*="btn"]),
-.header-inner nav a:not(.btn):not([class*="btn"]),
-nav.nav a:not(.btn):not([class*="btn"]),
-.nav-inner a:not(.btn):not([class*="btn"]),
-header a[href^="tel"],.site-header a[href^="tel"]{
-  color:var(--lb-name,currentColor) !important;
-  opacity:1 !important;
-}
-.lb-brand__sub:empty{display:none !important}
-</style>
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,.marquee-track{display:none !important}
-Colored box-shadow glow (#50b0b0) on dark page{box-shadow:none !important;text-shadow:none !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-letter-spacing: 0.16em on body text{letter-spacing:normal !important}
-letter-spacing: 0.30em on body text{letter-spacing:normal !important}
-7px functional text "Painting" (below 11px floor){font-size:max(1em,15px) !important}
-8px functional text "Painting" (below 11px floor){font-size:max(1em,15px) !important}
-
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
-</body></html>
+</body>
+</html>
