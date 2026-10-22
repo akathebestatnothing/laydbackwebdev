@@ -8,72 +8,21 @@
 <link rel="icon" href="assets/logo.jpg" sizes="any">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#f4f2ee;
-  --ink-2:#c3c7cb;
-  --ink-3:#98a0a6;
-  --dark:#161d22;
-  --dark-2:#1c252b;
-  --line:rgba(244,242,238,.14);
-  --line-2:rgba(244,242,238,.28);
-  --sand:#d4b88c;
-  --sand-2:#e2cba6;
-  --nav:74px;
-  --wrap:1180px;
-  --sec:clamp(4.25rem,7vw,6.5rem);
-  --t-h1:clamp(2.15rem,5.1vw,4.05rem);
-  --t-h2:clamp(1.6rem,2.9vw,2.35rem);
-  --t-h3:clamp(1.15rem,1.5vw,1.4rem);
-  --t-body:clamp(1rem,1.02vw,1.0625rem);
-  --t-sm:.8125rem;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--dark);color:var(--ink);font-family:Archivo,system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:var(--t-body);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img,canvas{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-h1,h2,h3{font-weight:700;line-height:1.1;text-wrap:balance}
-p{max-width:62ch}
-::selection{background:var(--sand);color:#161d22}
-.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(1rem,3.2vw,2rem)}
-:focus-visible{outline:2px solid var(--sand);outline-offset:3px}
-.kick{font-size:var(--t-sm);font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--sand)}
+<link rel="stylesheet" href="assets/site.css">
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+</head>
+<body>
 
-/* ---------- header ---------- */
-header{position:fixed;inset:0 0 auto 0;height:var(--nav);z-index:100;background:var(--dark);
-  border-bottom:1px solid var(--line)}
-.hdr{max-width:var(--wrap);margin:0 auto;height:100%;display:flex;align-items:center;
-  gap:clamp(.75rem,2.4vw,2rem);padding:0 clamp(1rem,3.2vw,2rem)}
-.brand{display:flex;align-items:center;gap:.7rem;min-width:0;flex:0 1 auto;
-  --lb-name:#f4f2ee;--lb-acc:#d4b88c}
-.brand img{width:40px;height:40px;border-radius:4px;flex:0 0 auto;object-fit:cover;
-  box-shadow:0 0 0 1px rgba(244,242,238,.22)}
-.brand-txt{display:flex;flex-direction:column;min-width:0;line-height:1.05}
-.brand-name{font-weight:800;font-size:clamp(.98rem,1.35vw,1.16rem);letter-spacing:-.012em;
-  color:#f4f2ee;white-space:nowrap}
-.brand-sub{font-size:var(--t-sm);color:var(--ink-3);white-space:nowrap;margin-top:.18rem}
-.hdr-nav{display:flex;align-items:center;gap:1.55rem;margin-left:auto}
-.hdr-nav a{font-size:.9375rem;font-weight:500;color:var(--ink-2);transition:color .18s ease}
-.hdr-nav a:hover{color:#fff}
-.hdr-tel{display:inline-flex;align-items:center;gap:.5rem;flex:0 0 auto;
-  background:var(--sand);color:#182026;font-weight:700;font-size:.9375rem;
-  padding:.62rem .95rem;border-radius:3px;transition:background .18s ease}
-.hdr-tel:0433857762"hdr">
-    <a class="brand" href="#top" aria-label="TL Carport, back to top">
+<header>
+  <div class="hdr">
+    <a class="brand" href="#top" aria-label="TL Carport, back to top" style="--lb-name:#f4f2ee;--lb-acc:#d4b88c">
       <img src="assets/logo.jpg" alt="" width="40" height="40">
       <span class="brand-txt">
         <span class="brand-name">TL Carport</span>
         <span class="brand-sub">Verandahs &amp; carports, Melbourne</span>
       </span>
     </a>
-    </style>
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-</head>
-<body>
-<nav class="hdr-nav" aria-label="Sections">
+    <nav class="hdr-nav" aria-label="Sections">
       <a href="#services">What we build</a>
       <a href="#process">Process</a>
       <a href="#quote">Quote</a>
@@ -97,7 +46,7 @@ header{position:fixed;inset:0 0 auto 0;height:var(--nav);z-index:100;background:
         <div class="hero-act">
           <a class="cta" href="tel:0433857762">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
-            <span>0433 857 762<small>Call to talk through your site</small></span>
+            <span class="cta-txt">Call 0433 857 762 <small>Talk through your site</small></span>
           </a>
           <p class="hero-note">What we build, how we work, and the quote form are below.</p>
         </div>
@@ -131,7 +80,7 @@ header{position:fixed;inset:0 0 auto 0;height:var(--nav);z-index:100;background:
           <p>Open pergolas, paved patios and shade structures, detailed to suit the block rather than a catalogue.</p>
         </article>
       </div>
-      <p class="svc-foot">Built to engineer's specification. Council permits arranged where they apply.</p>
+      <p class="svc-foot">Built to an engineer's specification. Council permits arranged where they apply.</p>
     </div>
   </section>
 
@@ -205,6 +154,15 @@ header{position:fixed;inset:0 0 auto 0;height:var(--nav);z-index:100;background:
   </section>
 </main>
 
+<section id="legal" aria-label="Privacy and terms">
+  <div class="wrap">
+    <h2>Privacy</h2>
+    <p>We only use the details you send through the quote form to respond to your enquiry. We do not sell or share your information.</p>
+    <h2>Terms</h2>
+    <p>Quotes are free and remain valid for 30 days. Work is carried out to the scope agreed in writing before starting.</p>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="ftr">
@@ -238,15 +196,6 @@ header{position:fixed;inset:0 0 auto 0;height:var(--nav);z-index:100;background:
   </div>
 </footer>
 
-<section id="legal" aria-label="Privacy and terms">
-  <div class="wrap">
-    <h2>Privacy</h2>
-    <p>We only use the details you send through the quote form to respond to your enquiry. We do not sell or share your information.</p>
-    <h2>Terms</h2>
-    <p>Quotes are free and remain valid for 30 days. Work is carried out to the scope agreed in writing before starting.</p>
-  </div>
-</section>
-
 <script src="assets/heroCanvas.js"></script>
 <script>
 /* hero: timber frame set out with a gable truss, set-out lines and a saw bench in the foreground */
@@ -263,8 +212,8 @@ header{position:fixed;inset:0 0 auto 0;height:var(--nav);z-index:100;background:
   var baseX = 0;
   function place(){
     var wide = window.innerWidth >= 900;
-    baseX = wide ? 1.15 : 0.35;
-    S.camZ = wide ? -3.6 : -5.2;
+    baseX = wide ? 0.55 : 0.35;
+    S.camZ = wide ? -9.2 : -6.4;
     S.camY = wide ? 1.38 : 1.55;
     S.camX = baseX;
   }
@@ -287,11 +236,21 @@ header{position:fixed;inset:0 0 auto 0;height:var(--nav);z-index:100;background:
   }
   function draw(t){
     sky();
-    S.camX = baseX + Math.sin(t*0.16)*0.07;
+    S.camX = baseX + Math.sin(t*0.16)*0.05;
     scene.render(t);
     var v = S.ctx.createRadialGradient(S.W*.5,S.H*.52,Math.min(S.W,S.H)*.34,S.W*.5,S.H*.52,Math.max(S.W,S.H)*.82);
     v.addColorStop(0,'rgba(8,12,15,0)'); v.addColorStop(1,'rgba(8,12,15,.55)');
     S.ctx.fillStyle = v; S.ctx.fillRect(0,0,S.W,S.H);
+    var eg = Math.min(90, S.W*.18);
+    var lf = S.ctx.createLinearGradient(0,0,eg,0);
+    lf.addColorStop(0,'#161d22'); lf.addColorStop(1,'rgba(22,29,34,0)');
+    S.ctx.fillStyle = lf; S.ctx.fillRect(0,0,eg,S.H);
+    var rf = S.ctx.createLinearGradient(S.W-eg,0,S.W,0);
+    rf.addColorStop(0,'rgba(22,29,34,0)'); rf.addColorStop(1,'#161d22');
+    S.ctx.fillStyle = rf; S.ctx.fillRect(S.W-eg,0,eg,S.H);
+    var tf = S.ctx.createLinearGradient(0,0,0,46);
+    tf.addColorStop(0,'#161d22'); tf.addColorStop(1,'rgba(22,29,34,0)');
+    S.ctx.fillStyle = tf; S.ctx.fillRect(0,0,S.W,46);
   }
   place();
   S.frame(draw);
@@ -325,7 +284,7 @@ header{position:fixed;inset:0 0 auto 0;height:var(--nav);z-index:100;background:
         var b = (txt||'').trim().replace(/\/+$/, '');
         if (done) return;
         done = true; clearTimeout(t);
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+        cb(/^https?:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
       })
       .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
   }
