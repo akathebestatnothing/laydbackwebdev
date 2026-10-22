@@ -14,12 +14,12 @@
         .rv{opacity:0;transform:translateY(24px);transition: opacity .45s ease,transform .7s ease}.rv.on{opacity:1;transform:none}
         .js .rv{opacity:0;transform:translateY(24px)}.js .rv.on{opacity:1;transform:none}
         .no-js .rv{opacity:1!important;transform:none!important}
-        .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip:focus{position:fixed;left:16px;top:16px;z-index:10000;padding:12px 18px;background:var(--accent);color:#696c6e;font-weight:700;border-radius:4px;width:auto;height:auto}
+        .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip:focus{position:fixed;left:16px;top:16px;z-index:10000;padding:12px 18px;background:var(--accent);color:#a3aebf;font-weight:700;border-radius:4px;width:auto;height:auto}
         header{position:relative;z-index:10}
         .nav{display:flex;align-items:center;justify-content:space-between;padding:16px clamp(16px,4vw,48px);gap:24px}
         .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}.logo img{height:44px;width:auto}.logo span{font-weight:700;letter-spacing:.02em;font-size:clamp(16px,2.2vw,20px)}.logo:hover{text-decoration:none}
         .nav-links{display:flex;gap:32px;list-style:none;margin:0;padding:0}.nav-links a{color:var(--muted);font-size:14px;font-weight:500;letter-spacing:.04em;transition:color .2s}.nav-links a:hover{color:var(--ink);text-decoration:none}
-        .cta-btn{background:var(--accent);color:#696c6e;padding:12px 28px;border-radius:4px;font-weight:700;font-size:14px;letter-spacing:.04em;border:none;cursor:pointer;transition:background .2s,transform .1s}.cta-btn:hover{background:#c98a32;transform:translateY(-1px);text-decoration:none}.cta-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+        .cta-btn{background:var(--accent);color:#a3aebf;padding:12px 28px;border-radius:4px;font-weight:700;font-size:14px;letter-spacing:.04em;border:none;cursor:pointer;transition:background .2s,transform .1s}.cta-btn:hover{background:#c98a32;transform:translateY(-1px);text-decoration:none}.cta-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
         main{position:relative;z-index:1}
         /* HERO / SCENE */
         #sceneWrap{position:relative;height:auto}
@@ -263,7 +263,8 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style>
+<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 </head><body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <header>
   <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -287,7 +288,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <h1 id="hero-heading" style="margin:0 0 16px;font:800 clamp(32px,5.5vw,64px)/1.02 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#f0f4f8;letter-spacing:-.02em;text-shadow:0 2px 24px rgba(0,0,0,0.7)">Rural labour & machinery.<br><i style="color:#b47a26;font-style:normal">Done right.</i></h1>
       <p style="margin:0 0 28px;font-size:clamp(16px,2vw,20px);color:#a8b8cc;line-height:1.5;max-width:55ch">Dig-outs, site prep, spreading, concrete prep — high country capable.</p>
       <div style="display:flex;gap:16px;flex-wrap:wrap">
-        <a href="#lbq" class="cta-btn" data-ux="magnetic" style="background:#f0f4f8;color:#696c6e;padding:16px 32px;border-radius:4px;font-weight:700;font-size:15px;letter-spacing:.02em;border:none;cursor:pointer;transition:background .2s,transform .1s;text-decoration:none;display:inline-block">Request quote</a>
+        <a href="#lbq" class="cta-btn" data-ux="magnetic" style="background:#f0f4f8;color:#a3aebf;padding:16px 32px;border-radius:4px;font-weight:700;font-size:15px;letter-spacing:.02em;border:none;cursor:pointer;transition:background .2s,transform .1s;text-decoration:none;display:inline-block">Request quote</a>
         <a href="tel:+61499317948" style="background:transparent;color:#f0f4f8;padding:16px 32px;border:2px solid #8a9bb3;border-radius:4px;font-weight:600;font-size:15px;letter-spacing:.02em;cursor:pointer;transition:background .2s,border-color .2s,color .2s;text-decoration:none;display:inline-block;line-height:1">Call 0499 317 948</a>
       </div>
     </div>
@@ -770,7 +771,7 @@ letter-spacing: 0.16em on body text{letter-spacing:normal !important}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+  font-family:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
