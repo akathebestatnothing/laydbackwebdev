@@ -1,408 +1,233 @@
-<!doctype html>
-<html lang="en-AU" data-sig="links:grow,buttons:arrow,tilt:1">
+<!DOCTYPE html>
+<html lang="en-AU" class="js">
 <head>
 <meta charset="utf-8">
-<title>AT Engineering | Fabrication &amp; Engineering, Whitton NSW</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="AT Engineering — stainless steel tank fabrication, structural steel, agricultural equipment and CNC cutting, fabricated in Whitton NSW. Call Shawn on 0429 698 930.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AT Engineering | Steel Fabrication &amp; Engineering, Whitton NSW</title>
+<meta name="description" content="AT Engineering fabricates stainless steel tanks, structural steel, agricultural equipment and CNC-cut metalwork from its Whitton NSW workshop for projects across Eastern Australia.">
+<link rel="icon" href="assets/logo-white.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0f1115;
-  --ink:#e9eef4;
-  --muted:#9aa6b2;
-  --accent:#384070;
-  --accent-2:#3f9ae0;
-  --panel:rgba(255,255,255,.045);
-  --line:rgba(255,255,255,.14);
-  --font-display:system-ui Narrow',system-ui,sans-serif;
-  --font-body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --paper:#0f1114; --ink:#eef1f3; --muted:#98a2a9; --panel:#171a1e; --line:#282d33;
+  --accent:#dfe4e8; --acc-ink:#14181c; --acc-deep:#9aa6ad;
+  --bg:var(--paper); --text:var(--ink); --color-lime:var(--accent);
+  --gut:clamp(18px,4.4vw,64px); --rad:14px;
+  --font-d:'Saira Condensed',Impact,sans-serif; --font-b:'Barlow',system-ui,sans-serif;
 }
-*,*::before,*::after{box-sizing:border-box}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rv{opacity:1!important;transform:none!important;transition:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-b);font-size:clamp(16px,1.05vw,17.5px);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-d);font-weight:700;line-height:1.04;letter-spacing:-.005em;margin:0}
+h2{font-size:clamp(1.7rem,3.6vw,2.7rem);margin-bottom:14px}
+h3{font-size:1.06rem;letter-spacing:.005em;margin-bottom:8px}
+p{margin:0 0 14px}
+.wrap{width:100%;max-width:1220px;margin:0 auto;padding-inline:var(--gut)}
+.skip{position:absolute;left:-9999px}
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:var(--panel);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:.9rem;padding:.7rem var(--gut);max-width:1220px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;min-width:0}
+.brand img{height:clamp(30px,3.2vw,42px);width:auto}
+.brand-txt{display:flex;flex-direction:column;min-width:0}
+.brand-name{font-family:var(--font-d);font-weight:700;font-size:clamp(1rem,1.35vw,1.2rem);line-height:1;white-space:nowrap}
+.brand-sub{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.brand--logoonly{display:block}
+.brand--logoonly .brand-stack{display:flex;flex-direction:column;gap:3px;min-width:0}
+.brand--logoonly .brand-stack img{height:clamp(26px,3.2vw,44px);width:auto;max-width:min(72vw,340px)}
+.brand--logoonly .brand-sub{margin-top:0}
+.nav{margin-left:auto;display:flex;gap:1.25rem;font-size:.95rem}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.hdr-cta{font-weight:700;background:var(--accent);color:var(--acc-ink);text-decoration:none;padding:.62rem 1.05rem;border-radius:999px;white-space:nowrap;font-size:.9rem}
+.hdr-cta.tel{background:transparent;border:1px solid var(--line);color:var(--ink)}
+@media(max-width:900px){
+  .hdr-in{flex-wrap:wrap;row-gap:.5rem;padding-block:.6rem}
+  .brand{flex:1 1 auto}
+  .brand-name{font-size:.98rem;white-space:normal;line-height:1.06}
+  .brand-sub{display:none}
+  .hdr-cta{order:2;flex:0 0 auto}
+  .nav{order:3;flex-basis:100%;margin-left:0;gap:1.05rem;font-size:.86rem;overflow-x:auto;white-space:nowrap;padding-bottom:2px}
 }
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.header{position:sticky;top:0;z-index:100;background:rgba(15,17,21,.92);-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);border-bottom:1px solid var(--line)}
-.header-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px}
-.brand{display:flex;align-items:center;gap:.7rem;color:var(--ink);text-decoration:none}
-.brand-mark{height:48px;width:auto;object-fit:contain}
-.brand-txt{display:flex;flex-direction:column;line-height:1}
-.brand-name{font-family:var(--font-display);font-weight:800;font-size:1.15rem;line-height:1;letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
-.brand-sub{display:block;margin-top:4px;font-family:var(--font-display);font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);font-weight:700}
-.brand-sub em{font-style:normal;color:var(--accent)}
-.nav{display:flex;align-items:center;gap:32px}
-.nav a{font-size:.85rem;letter-spacing:.08em;text-transform:none;color:var(--muted);transition:color .2s ease}
-.nav a:hover{color:var(--accent);text-decoration:none}
-.cta-btn{display:inline-block;padding:10px 20px;background:var(--accent);color:#babbbc;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:none;border-radius:6px;transition:transform .15s ease,box-shadow .15s ease}
-.cta-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(224,163,58,.3);text-decoration:none}
-@media(max-width:820px){
-  .brand-mark{height:48px;width:auto;object-fit:contain}
-  .brand-name{font-size:1rem}
-  .brand-sub{font-size:.44rem;letter-spacing:.24em;margin-top:3px}
-  .header-inner{padding:0 18px;gap:.9rem;height:64px}
-}
-.hero{position:relative;min-height: 100vh; min-height: 100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;background-repeat:no-repeat;filter: brightness(0.7) contrast(1.05);}
-.hero-scrim{position:absolute;inset:0;background:rgba(15,17,21,.55);z-index:1}
-#sceneWrap{position:relative;height:auto;z-index:2}
-#sceneSticky{position:relative;top:0;height: 100vh; height: 100svh;overflow:hidden}
-#buildCanvas{position:relative;inset:0;width:100%;height:100%;display:block;opacity:0.55}
-.hero-copy{position:absolute;left:50%;top:12vh;transform:translateX(-50%);max-width:28ch;text-align:center;z-index:10}
-.hero-copy h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.5rem,6vw,5rem);line-height:1.02;letter-spacing:-.03em;text-transform:none;margin:0 0 12px;color:var(--ink);text-shadow:0 2px 34px rgba(0,0,0,.6)}
-.hero-copy h1 em{font-style:normal;color:var(--accent)}
-.hero-copy p{font-size:clamp(1rem,2.2vw,1.25rem);color:var(--muted);margin:0;max-width:40ch;margin-left:auto;margin-right:auto}
-.hud{position:absolute;left:30px;bottom:26px;font:600 11px/1.7 ui-monospace,Menlo,monospace;letter-spacing:.18em;color:#f0f4f8;z-index:10;text-shadow:0 1px 8px rgba(0,0,0,.6)}
-.hud b{display:block;color:var(--accent);font-size:13px}
-.section{padding:80px 24px}
-.section-inner{max-width:1060px;margin:0 auto}
-.section-head{margin-bottom:40px}
-.section-head h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3.8vw,2.5rem);letter-spacing:-.02em;margin:0 0 10px;color:var(--ink)}
-.section-head p{color:var(--muted);font-size:clamp(1rem,2vw,1.15rem);margin:0;max-width:56ch}
-.grid{display:grid;gap:24px}
-.grid-2{grid-template-columns:repeat(2,1fr)}
-.grid-3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:860px){.grid-2,.grid-3{grid-template-columns:1fr}}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;transition:border-color .2s ease}
-.card:hover{border-color:var(--accent)}
-.card h3{font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;margin:0 0 10px;color:var(--ink)}
-.card p{color:var(--muted);margin:0;font-size:.95rem;line-height:1.65}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-@media(max-width:720px){.stats{grid-template-columns:1fr 1fr}}
-.stat{text-align:center}
-.stat-num{font-family:var(--font-display);font-weight:800;font-size:clamp(2.5rem,5vw,4rem);color:var(--accent);line-height:1;letter-spacing:-.02em}
-.stat-label{font-size:.8rem;letter-spacing:.12em;text-transform:none;color:var(--muted);margin-top:6px;display:block}
-.about{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
-@media(max-width:900px){.about{grid-template-columns:1fr}}
-.about h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,3.8vw,2.5rem);letter-spacing:-.02em;margin:0 0 16px;color:var(--ink)}
-.about p{color:var(--muted);margin:0 0 16px;line-height:1.75}
-.about ul{margin:0;padding-left:20px;color:var(--muted)}
-.about li{margin-bottom:8px;line-height:1.6}
-.footer{background:#0a0c0f;border-top:1px solid var(--line);padding:56px 24px 32px}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
-@media(max-width:1020px){.footer-inner{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.footer-inner{grid-template-columns:1fr}}
-.footer-brand .logo{margin-bottom:12px}
-.footer-brand p{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:30ch}
-.footer-col h4{font-size:.75rem;letter-spacing:.14em;text-transform:none;color:var(--muted);margin:0 0 16px}
-.footer-col ul{list-style:none;padding:0;margin:0}
-.footer-col li{margin-bottom:10px}
-.footer-col a{color:var(--ink);font-size:.95rem;transition:color .2s ease}
-.footer-col a:hover{color:var(--accent)}
-.footer-bottom{border-top:1px solid var(--line);margin-top:40px;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;color:var(--muted);font-size:.85rem}
-.footer-bottom a{color:var(--muted)}
-.footer-bottom a:hover{color:var(--accent)}
-.rv{opacity:0;transform:translateY(24px);transition: opacity .45s ease,transform .7s ease}
-.rv.on{opacity:1;transform:none}
-.rv-delay-1{transition-delay:100ms}
-.rv-delay-2{transition-delay:200ms}
-.rv-delay-3{transition-delay:300ms}
-.rv-delay-4{transition-delay:400ms}
+/* hero */
+.hero{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:min(80vh,760px);color:#fff;overflow:hidden;background:#0e1013}
+.hero-stage{perspective:1200px}
+#heroCanvas{display:none}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(7,8,10,.60) 0%,rgba(0,0,0,.10) 58%,rgba(0,0,0,0) 100%),linear-gradient(180deg,rgba(9,10,12,.78) 0%,rgba(9,10,12,.45) 42%,rgba(9,10,12,.19) 74%,rgba(9,10,12,.62) 100%)}
+.hero-in{padding-block:clamp(46px,7vw,96px)}
+.hero h1{font-size:clamp(2.1rem,5.6vw,4.3rem);max-width:19ch;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;color:#ffffff}
+.hero-sub{max-width:56ch;margin-top:16px;font-size:clamp(1rem,1.35vw,1.18rem);color:rgba(255,255,255,.92)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:26px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:.85rem 1.4rem;border-radius:999px;white-space:nowrap}
+.btn-acc{background:var(--accent);color:var(--acc-ink)}
+.btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff}
+.hero-facts{list-style:none;display:flex;flex-wrap:wrap;gap:.55rem 1.6rem;padding:0;margin:34px 0 0;border-top:1px solid rgba(255,255,255,.28);padding-top:20px}
+.hero-facts li{font-size:.86rem;color:rgba(255,255,255,.9)}
+.hero-facts li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:2px;background:var(--accent);margin-right:.5rem;vertical-align:middle}
+/* generic sections */
+.sec{padding-block:clamp(54px,7vw,104px);padding-inline:var(--gut)}
+.sec>.wrap{padding-inline:0}
+.sec.alt{background:var(--panel)}
+.lede{max-width:62ch;color:var(--muted);margin-bottom:34px}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:880px){.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--rad);padding:22px}
+.sec.alt .card{background:var(--paper)}
+.card .num{font-family:var(--font-d);font-size:.8rem;letter-spacing:.16em;color:var(--acc-deep);margin-bottom:10px}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+/* gallery */
+.gal{display:grid;gap:14px;grid-template-columns:repeat(6,1fr)}
+.gal figure{margin:0;position:relative;overflow:hidden;border-radius:var(--rad);background:#111}
+.gal img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.gal .big{grid-column:span 4}
+.gal .sm{grid-column:span 2}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-size:.8rem;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.72))}
+@media(max-width:880px){.gal{grid-template-columns:repeat(2,1fr)}.gal .big,.gal .sm{grid-column:span 1}}
+@media(max-width:560px){.gal{grid-template-columns:1fr}}
+/* about */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:start}
+@media(max-width:880px){.about{grid-template-columns:1fr}}
+.ticks{list-style:none;padding:0;margin:0}
+.ticks li{padding-left:1.6rem;position:relative;margin-bottom:.55rem;color:var(--muted)}
+.ticks li::before{content:"";position:absolute;left:0;top:.55em;width:.75rem;height:.75rem;border-right:3px solid var(--accent);border-bottom:3px solid var(--accent);transform:rotate(40deg)}
+.factbox{border:1px solid var(--line);border-radius:var(--rad);padding:24px;background:var(--panel)}
+.factbox dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem;font-size:.94rem}
+.factbox dt{color:var(--muted)}
+.factbox dd{margin:0;font-weight:600}
+/* process */
+.steps{display:grid;gap:16px;grid-template-columns:repeat(4,1fr);counter-reset:s}
+@media(max-width:880px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{counter-increment:s;border-top:2px solid var(--accent);padding-top:16px}
+.step::before{content:"0" counter(s);font-family:var(--font-d);font-size:.82rem;letter-spacing:.14em;color:var(--acc-deep);display:block;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.94rem;margin:0}
+/* cta band */
+.band{background:var(--ink);color:var(--paper);border-radius:var(--rad);padding:clamp(26px,4vw,52px);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.band h2{color:var(--paper);margin:0}
+.band .btn-acc{background:var(--accent);color:var(--acc-ink)}
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:44px 34px;font-size:.92rem;color:var(--muted)}
+.f-in{display:grid;gap:22px;grid-template-columns:1.3fr 1fr 1fr;max-width:1220px;margin:0 auto;padding-inline:var(--gut)}
+@media(max-width:880px){.f-in{grid-template-columns:1fr}}
+.f-in strong{color:var(--ink);font-family:var(--font-d);font-size:1.02rem;display:block;margin-bottom:8px}
+.f-in a{text-decoration:none}
+.f-in a:hover{text-decoration:underline}
+.f-leg{max-width:1220px;margin:26px auto 0;padding:18px var(--gut) 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:.84rem}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(16px)}
+.rv.on{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1!important;transform:none!important}}
 </style>
-<style>/* de-scroll gap fix 2026-10-14 */
-#sceneWrap,#sceneSticky{height:auto !important;min-height:0 !important;overflow:visible !important;}
-#sceneSticky .hero-copy,#sceneWrap .hero-copy{position:relative !important;left:auto !important;top:auto !important;right:auto !important;padding:calc(var(--nav-h,64px) + 7vh) clamp(1rem,6vw,7rem) 44px !important;max-width:64ch;pointer-events:auto;}
-</style>
-
-<style>#heroCanvas{perspective:800px}</style>
-<style id="lb-motion-css">
-/* ==== LB MOTION PACK ==== */
-.lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
-/* A header must never be hidden by a scroll-reveal state: the nav/brand is chrome, not
-   content. Unrevealed .rv wrappers left whole headers at opacity:0 (invisible logo). */
-header, .site-header, .page-header, nav.nav, .nav .rv, nav.rv, .header-inner, .nav-inner,
-header .rv, .site-header .rv, .nav-inner .rv{
-  opacity:1 !important; visibility:visible !important; transform:none !important;
-}
-.lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
-.lb-mq{max-width:100%;overflow:hidden}
-.lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
-.lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
-.lb-rb__slide.is-on{opacity:1}
-.lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
-.lb-rb__slide.is-on img{transform:scale(1.10)}
-.lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:rgba(6,7,10,.72);color:#fff;
- font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
- font-size:clamp(9px,1vw,13px);z-index:2}
-.lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
- display:flex;flex-direction:column;gap:9px;z-index:3}
-.lb-rb__dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
- background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s}
-.lb-rb__dots button.is-on{background:#fff;transform:scale(1.35)}
-.lb-rb__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;
- border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(8,9,12,.35);color:#fff;
- cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1;backdrop-filter:blur(6px);
- transition:background .25s,transform .25s}
-.lb-rb__nav:hover{background:rgba(8,9,12,.7)}
-.lb-rb__nav--prev{left:clamp(10px,1.6vw,22px)}
-.lb-rb__nav--next{right:clamp(10px,1.6vw,22px)}
-.lb-rb__nav:active{transform:translateY(-50%) scale(.92)}
-@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3}.lb-rb__nav{width:36px;height:36px}}
-
-a.btn,.btn,button.btn,.nav-cta a,.wp-block-button__link{position:relative;overflow:hidden;
- transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,filter .22s}
-a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2px);
- box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
-a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
-a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:rgba(255,255,255,.32);
- transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
-a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
-
-.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
-.lb-rv.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){
- .lb-rv{opacity:1!important;transform:none!important;transition:none!important}
- .lb-rb__slide img{transform:none!important;transition:none!important}
- a.btn::after,.btn::after,.nav-cta a::after{display:none}
-}
-
-/* marquee band (professional, reference-derived) */
-.lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
- border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:none}
-.lb-mq:hover .lb-mq__in{animation-play-state:paused}
-.lb-mq__in 0429 698 930{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
- font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
-.lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
-@keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
-</style>
-<style id="lb-hero-css">
-canvas.lb-hero-canvas{position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0; pointer-events:none}
-canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
-  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
-}
-</style>
-<style id="lb-brand-css">
-/* ==== LB BRAND (logo-true spanning wordmark) ==== */
-.lb-brandwrap{display:block;padding:14px 18px;background:inherit}
-.lb-brandwrap .lb-brand{display:inline-flex}
-.lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
- color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
-.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
-.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
-.lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
- font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
- color:var(--lb-name,currentColor)}
-.lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
- font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
- color:var(--lb-subc,currentColor);opacity:.86}
-.lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:transparent}
-@media (max-width:640px){
- .lb-brand__mark{height:clamp(30px,8vw,40px)}
- .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
- .lb-brand__sub{letter-spacing:.2em;font-size:7px}
-}
-</style>
-<style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
-   Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
-   and does NOT hide the hero canvas (that is the intended 3D hero). */
-.site-header,.header{z-index:50}
-.container.nav,.nav,.nav-in{z-index:5}
-.lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
-</style>
-<style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
-
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
-
-<!--LB-HEROBG--><style id="lb-herobg">[class*=hero-bg],[class*=hero__bg],[class*=hero-bgimg]{z-index:-1!important;pointer-events:none!important}[class*=hero-scrim],[class*=hero__scrim]{z-index:1!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{z-index:3!important}</style><!--/LB-HEROBG-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-<style>.hero-copy{display:block!important}.hero-copy h1{font-size:clamp(2.2rem,4vw,3.4rem)!important}</style><style>.lbwm{display:none!important}</style>
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<noscript><style>.js .rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
-<header class="header" role="banner">
-  <div class="header-inner">
-    <a class="lb-brand" href="#top" aria-label="AT Engineering - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#9aa6b2;--lb-acc:#3f9ae0;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="AT Engineering" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">AT Engineering</span><span class="lb-brand__sub">Fabrication <span class="lb-acc">&middot;</span> Whitton NSW</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-      <a href="#services">Capabilities</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">Workshop</a>
-      <a href="#contact">Contact</a>
-      <a href="tel:0429698930" class="cta-btn">Call 0429 698 930</a>
+<body>
+<!-- LB-3D-HERO -->
+<a class="skip" href="#top">Skip to content</a>
+<header class="hdr" id="top">
+  <div class="hdr-in">
+    <a class="brand" href="#top">
+      <span class="brand-stack"><img src="assets/logo-white.png" alt="AT Engineering"><span class="brand-sub">Whitton &middot; NSW</span></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a><a href="#work">Work</a><a href="#about">About</a><a href="#quote">Quote</a>
     </nav>
+    <a class="hdr-cta tel" href="tel:+61429698930">Call 0429 698 930</a>
   </div>
 </header>
 
-<main id="main">
-  <section class="hero" aria-label="Plasma cutting hero scene">
-    <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="lbwm" aria-hidden="true">FABRICATION</div>
-    <div id="sceneWrap">
-      <div id="sceneSticky">
-        
-        <div class="hero-copy rv rv-delay-1">
-          <p class="hero-kicker">Stainless <span aria-hidden="true">/</span> Structural <span aria-hidden="true">/</span> CNC</p>
-          <h1 style="width:100% !important;grid-column:1/-1 !important;max-width:none !important">Fabricated to spec.<br><em>Delivered on time.</em></h1>
-          <p>Stainless steel tanks, structural steel and CNC-cut components, built in our Whitton workshop for mining, agriculture and food production.</p>
-          <a href="tel:0429698930" class="cta-btn" style="margin-top: 24px; display: inline-block;">Call Shawn &middot; 0429 698 930</a>
-        </div>
-        <div class="hud">
-          
-        </div>
+<section class="hero hero-stage" id="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-bg"><img src="assets/work-1.jpg" alt="Planning a fabrication job in the AT Engineering workshop"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-in">
+    <h1>Steel fabricated <em>to spec</em>.</h1>
+    <p class="hero-sub">Custom fabrication, structural steel and stainless tank work for mining, agriculture, manufacturing and food processing, built in our Whitton workshop and delivered across Eastern Australia.</p>
+    <div class="hero-cta">
+      <a class="btn btn-acc" href="#quote">Request a quote</a>
+      <a class="btn btn-ghost" href="tel:+61429698930">Call 0429 698 930</a>
+    </div>
+    <ul class="hero-facts"><li>Stainless tanks</li><li>Structural steel</li><li>CNC cutting &amp; forming</li><li>Whitton, NSW</li></ul>
+  </div>
+</section>
+
+<main>
+<section class="sec" id="services">
+  <div class="wrap rv">
+    <h2>What we fabricate</h2>
+    <p class="lede">End-to-end fabrication: design, cutting, forming, welding and delivery, for projects of all sizes.</p>
+    <div class="grid g3">      <article class="card"><div class="num">01</div><h3>Stainless steel &amp; tank fabrication</h3><p>Custom-built stainless vessels and tanks for demanding industrial environments.</p></article>
+      <article class="card"><div class="num">02</div><h3>Structural steel &amp; general fabrication</h3><p>Catwalks, platforms, shed frames and steel building work, built to specification.</p></article>
+      <article class="card"><div class="num">03</div><h3>Agricultural &amp; custom equipment</h3><p>Custom farm machinery, ute trays and modifications to suit the operation.</p></article>
+      <article class="card"><div class="num">04</div><h3>Conveying &amp; material handling</h3><p>Material handling systems designed and fabricated to site requirements.</p></article>
+      <article class="card"><div class="num">05</div><h3>CNC cutting &amp; metal processing</h3><p>Precision cutting, folding and forming with fast turnaround.</p></article>
+      <article class="card"><div class="num">06</div><h3>Workshop welding &amp; machining</h3><p>Heavy fabrication, welding and precision machining under the one roof.</p></article></div>
+  </div>
+</section>
+
+<section class="sec alt" id="work">
+  <div class="wrap rv">
+    <h2>Out of the workshop</h2>
+    <p class="lede">Tanks, vessels, structural work and cut steel, the kind of fabrication that goes through the shed.</p>
+    <div class="gal">      <figure class="sm"><img src="assets/work-2.jpg" alt="Stainless tanks fabricated for site" loading="lazy"><figcaption>Stainless tanks fabricated for site</figcaption></figure>
+      <figure class="sm"><img src="assets/work-6.jpg" alt="Segmented stainless vessel on a skid" loading="lazy"><figcaption>Segmented stainless vessel on a skid</figcaption></figure>
+      <figure class="sm"><img src="assets/work-7.jpg" alt="Tank on a fabricated stand with mesh seating" loading="lazy"><figcaption>Tank on a fabricated stand with mesh seating</figcaption></figure>
+      <figure class="sm"><img src="assets/work-3.jpg" alt="Laser-cut steel screening" loading="lazy"><figcaption>Laser-cut steel screening</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap about rv">
+    <div>
+      <h2>Custom fabrication, engineering and delivery</h2>
+      <p>AT Engineering is a hands-on fabrication and engineering team based at Whitton in the NSW Riverina. We work with mining, agriculture, manufacturing, meat processing and food production clients, and we are set up to take a job from design through to manufacture and delivery.</p>
+      <p>The workshop handles stainless tank and vessel fabrication, structural steel, agricultural equipment, conveying and material handling systems, plus CNC cutting, folding and forming, so the work stays under one roof from drawing to dispatch.</p>
+      <ul class="ticks"><li>Stainless steel and tank fabrication in house</li><li>Structural steel, platforms and shed frames</li><li>Agricultural equipment and custom modifications</li><li>CNC cutting, folding and forming</li><li>Projects delivered across Eastern Australia</li></ul>
+    </div>
+    <div class="factbox">
+      <strong style="font-family:var(--font-d);display:block;margin-bottom:14px">Workshop details</strong>
+      <dl>        <dt>Business</dt><dd>AT Engineering</dd>
+        <dt>Workshop</dt><dd>95 Young Road, Whitton NSW 2705</dd>
+        <dt>Postal</dt><dd>PO Box 5159, Griffith DC NSW 2680</dd>
+        <dt>Phone</dt><dd><a href="tel:+61429698930">0429 698 930</a></dd>
+        <dt>Contact</dt><dd>Shawn</dd></dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="process">
+  <div class="wrap rv">
+    <h2>How a project runs</h2>
+    <p class="lede">From the first drawing to the truck leaving the shed.</p>
+    <div class="steps">      <div class="step"><h3>Scope &amp; drawings</h3><p>Tell us what the job has to do and send drawings or dimensions.</p></div>
+      <div class="step"><h3>Quote &amp; engineering</h3><p>We price the fabrication and work through the practical details.</p></div>
+      <div class="step"><h3>Cut, form &amp; weld</h3><p>Plate cut and formed on the machines, then fabricated and welded in the shed.</p></div>
+      <div class="step"><h3>Finish &amp; deliver</h3><p>Finishing, inspection and delivery to site, or collection from Whitton.</p></div></div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap rv">
+    <div class="band">
+      <h2>Have a project in mind?</h2>
+      <div class="hero-cta" style="margin:0">
+        <a class="btn btn-acc" href="#quote">Request a quote</a>
+        <a class="btn btn-ghost" href="tel:+61429698930">Call 0429 698 930</a>
       </div>
     </div>
-  </section>
-
-  <section id="services" class="section" aria-labelledby="services-heading">
-    <div class="section-inner">
-      <header class="section-head rv rv-delay-1">
-        <h2 id="services-heading">What we fabricate</h2>
-        <p>Design through to manufacture and delivery, for projects of every size.</p>
-      </header>
-      <ul class="specs">
-        <li class="spec rv rv-delay-1">
-          <h3>Stainless steel &amp; tank fabrication</h3>
-          <p>Custom stainless steel vessels and tanks, designed for durability, hygiene and performance in demanding industrial environments.</p>
-        </li>
-        <li class="spec rv rv-delay-2">
-          <h3>Structural steel &amp; general fabrication</h3>
-          <p>Catwalks and access platforms, shed frames and general structural work, delivered to specification.</p>
-        </li>
-        <li class="spec rv rv-delay-3">
-          <h3>Agricultural &amp; custom equipment</h3>
-          <p>Hard-wearing farm machinery, ute trays and modifications, tailored to the way your operation works.</p>
-        </li>
-        <li class="spec rv rv-delay-1">
-          <h3>Conveying &amp; material handling</h3>
-          <p>Material handling systems fabricated to site-specific requirements, to improve the way product moves through your plant.</p>
-        </li>
-        <li class="spec rv rv-delay-2">
-          <h3>CNC cutting &amp; metal processing</h3>
-          <p>Precision cutting, folding and forming, for accuracy, consistency and fast turnaround.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="projects" class="section" aria-labelledby="projects-heading">
-    <div class="section-inner">
-      <header class="section-head rv rv-delay-1">
-        <h2 id="projects-heading">Out of the workshop</h2>
-        <p>A sample of the fabrication work that leaves our Whitton shop floor.</p>
-      </header>
-      <div class="rail">
-        <figure class="work rv rv-delay-1">
-          <img src="assets/work-2.jpg" alt="Large stainless steel tank under fabrication in the workshop" loading="lazy" decoding="async">
-          <figcaption><span>270,000L stainless steel tank</span> Fabrication and installation</figcaption>
-        </figure>
-        <figure class="work rv rv-delay-2">
-          <img src="assets/work-3.jpg" alt="CNC cut steel artwork panel of a paddle steamer" loading="lazy" decoding="async">
-          <figcaption><span>Murrumbidgee riverboat panel</span> CNC cut steel artwork</figcaption>
-        </figure>
-        <figure class="work rv rv-delay-3">
-          <img src="assets/work-5.jpg" alt="Custom built agricultural disc plough attachment" loading="lazy" decoding="async">
-          <figcaption><span>Disc plough attachment</span> Custom agricultural build</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section" aria-labelledby="about-heading">
-    <div class="section-inner">
-      <div class="about">
-        <div class="rv rv-delay-1">
-          <h2 id="about-heading">The workshop</h2>
-          <p>AT Engineering is a hands-on fabrication team working out of 95 Young Road, Whitton. We work closely with clients to land on a solution that meets the real requirements of the job, then we build it, deliver it and stand behind it.</p>
-          <p>The work runs from stainless steel tanks and pressure vessels through to structural steel, conveying systems, agricultural equipment and CNC cutting. We fabricate for mining, agriculture, manufacturing, meat processing and food production, across Eastern Australia.</p>
-          <ul>
-            <li>End-to-end fabrication, from design through to delivery</li>
-            <li>Stainless steel, structural steel and CNC metal processing</li>
-            <li>Built for industrial and agricultural duty</li>
-            <li>Workshop in Whitton NSW, servicing Eastern Australia</li>
-          </ul>
-        </div>
-        <div class="rv rv-delay-2">
-          <div class="card" style="height:100%">
-            <h3>Talk to the workshop</h3>
-            <p style="margin-bottom:16px"><strong>Shawn</strong><br><a href="tel:0429698930">0429 698 930</a></p>
-            <p style="margin-bottom:16px"><strong>Workshop</strong><br>95 Young Road<br>Whitton NSW 2705</p>
-            <p><strong>Post</strong><br>PO Box 5159<br>Griffith DC NSW 2680</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section" aria-labelledby="contact-heading" style="padding-bottom:40px">
-    <div class="section-inner">
-      <header class="section-head rv rv-delay-1">
-        <h2 id="contact-heading">Have a project in mind?</h2>
-        <p>Call Shawn and talk it through. Drawings, sizes, site conditions, whatever you have. We'll tell you straight what it takes to build.</p>
-      </header>
-      <div class="rv rv-delay-1">
-        <div class="card callcard">
-          <p class="callnum"><a href="tel:0429698930">0429 698 930</a></p>
-          <p class="callmeta">Shawn &middot; AT Engineering &middot; 95 Young Road, Whitton NSW</p>
-          <a href="tel:0429698930" class="cta-btn">Call the workshop</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 </main>
 
-<section class="lb-rb" aria-label="Recent work and capabilities"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work-1.jpg" alt="AT Engineering" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-4.jpg" alt="AT Engineering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-6.jpg" alt="AT Engineering" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-7.jpg" alt="AT Engineering" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">AT Engineering &middot; Whitton NSW</div></div></section><footer class="footer" role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-brand rv rv-delay-1">
-      <a href="./" class="logo" aria-label="AT Engineering home">AT <span>ENGINEERING</span></a>
-      <p>Stainless steel and structural fabrication, agricultural equipment and CNC metal processing. Built in Whitton NSW, delivered across Eastern Australia.</p>
-    </div>
-    <nav class="footer-col rv rv-delay-2" aria-label="Services">
-      <h4>Capabilities</h4>
-      <ul>
-        <li><a href="#services">Stainless &amp; tank fabrication</a></li>
-        <li><a href="#services">Structural steel</a></li>
-        <li><a href="#services">Agricultural equipment</a></li>
-        <li><a href="#services">Conveying systems</a></li>
-        <li><a href="#services">CNC cutting</a></li>
-      </ul>
-    </nav>
-    <nav class="footer-col rv rv-delay-3" aria-label="Contact">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:0429698930">0429 698 930</a></li>
-        <li>95 Young Road</li>
-        <li>Whitton NSW 2705</li>
-        <li><a href="https://www.instagram.com/shawnmichaelmccann" target="_blank" rel="noopener">Instagram</a></li>
-      </ul>
-    </nav>
-    <nav class="footer-col rv rv-delay-3" aria-label="Legal">
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-      </ul>
-    </nav>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 AT Engineering. All rights reserved.</p>
-    <p><a href="tel:0429698930">Call 0429 698 930</a></p>
-  </div>
+<span id="quote" style="position:absolute;top:-90px"></span>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#e0a33a))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -411,11 +236,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
 #lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
 #lbq .lbq-f{display:grid;gap:12px}
-#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
+#lbq label{display:block;font-size:.86rem;letter-spacing:.01em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
 #lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
 #lbq textarea{min-height:96px;resize:vertical}
 #lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#babbbc;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:var(--acc-ink,#14181c);font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
 #lbq button:disabled{opacity:.6;cursor:wait}
 #lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
 #lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
@@ -435,7 +260,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 /* v3 split */
 #lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
 #lbq.v3 .lbq-g{display:grid;gap:12px}
-#lbq.v3 .lbq-hp2{border:1px solid var(--lbq-accent);padding-left:16px}
+#lbq.v3 .lbq-hp2{border:1px solid var(--lbq-accent);padding:20px 22px}
 @media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
 /* v4 minimal */
 #lbq.v4 .lbq-w{max-width:620px}
@@ -444,7 +269,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 </style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Send it through</h2>
-      <p class="lbq-s">Not a phone person? Leave the details of the job and we&#39;ll call you back.</p><p class="lbq-s" style="margin-bottom:0">Drawings, photos, site address &mdash; whatever you have helps.</p></div><div><form id="lbq-form" novalidate data-site="at-engineering" data-biz="AT Engineering"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="What needs building, size, site address, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
+      <p class="lbq-s">We&#39;ll come back to you with a price and a plan.</p><p class="lbq-s" style="margin-bottom:0">We&#39;ll come back to you with a price and a plan.</p></div><div><form id="lbq-form" novalidate data-site="manual-20261021-at-engineering" data-biz="AT Engineering"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="What needs fabricating, material, size, site address, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
   </div>
   <script>
 (function(){
@@ -517,317 +342,38 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 })();
 </script>
 </section>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
-<noscript>
-  <style>.rv{opacity:1!important;transform:none!important}
-/* LB-EDITORIAL-HERO kit 2026-10-14 */
-.hero{position:relative;isolation:isolate;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
- background:#384070,
-            #384070}
-.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.45;mix-blend-mode:overlay;
- background-image:repeating-rgba(120,124,130,.12)}
-.hero>*{position:relative;z-index:1}
-.hero .lbwm{position:absolute;right:-3%;bottom:-7%;z-index:0;font-family:var(--disp, inherit);font-weight:900;
- font-size:clamp(84px,24vw,210px);line-height:.8;letter-spacing:-.02em;
- color:color-mix(in srgb,var(--acc,#384070) 13%,transparent);pointer-events:none;user-select:none;white-space:nowrap;max-width:130%}
-@media (max-width:820px){.hero .lbwm{font-size:clamp(64px,28vw,140px);bottom:-5%}}
-
-/* mobile overflow guard 2026-10-14 */
-html,body{overflow-x:hidden}
-@media (max-width:820px){
-  h1,h2,h3,.h1,.hero h1,.sec-title,.k,.kicker,.kick,.eyebrow,.tag-line,.tag,.hero-kicker,.hero-sub,.lead{
-    white-space:normal!important;overflow-wrap:anywhere;word-break:break-word;max-width:100%!important}
-  .hero-kicker,.k,.kicker,.kick,.eyebrow,.tag{font-size:clamp(10px,3.1vw,13px)!important;letter-spacing:.22em!important}
-  h1,.h1{font-size:clamp(26px,10.5vw,54px)!important;line-height:1.05!important}
-}
-</style>
-</noscript>
-
-
+<footer>
+  <div class="f-in">
+    <div>
+      <strong>AT Engineering</strong>
+      <p>Custom fabrication, structural steel and engineering, stainless tanks, agricultural equipment and CNC metal processing from our Whitton NSW workshop.</p>
+    </div>
+    <div>
+      <strong>Get in touch</strong>
+      <p>95 Young Road, Whitton NSW 2705<br>PO Box 5159, Griffith DC NSW 2680<br><a href="tel:+61429698930">0429 698 930</a></p>
+    </div>
+    <div>
+      <strong>On this site</strong>
+      <p><a href="#services">Services</a><br><a href="#work">Work</a><br><a href="#about">About</a><br><a href="#quote">Request a quote</a><br><a href="privacy.html">Privacy</a><br><a href="terms.html">Terms</a></p>
+    </div>
+  </div>
+  <div class="f-leg"><span>&copy; <span id="yr">2026</span> AT Engineering</span><span>Engineering &amp; fabrication &middot; Whitton NSW</span></div>
+</footer>
 
 <script>
-(() => {
-  const rvEls = document.querySelectorAll('.rv');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
-    }, {rootMargin: '0px 0px -10% 0px', threshold: 0.1});
-    rvEls.forEach(el => io.observe(el));
-  } else {
-    rvEls.forEach(el => el.classList.add('on'));
-  }
-  // JS safety net: reveal all after ~1100ms if IntersectionObserver fails
-  setTimeout(() => { rvEls.forEach(el => el.classList.add('on')); }, 1100);
-})();
-</script>
-
-
-
-
-
-<!-- LB-3D-HERO -->
-<canvas id="heroCanvas" aria-hidden="true"></canvas>
-<script id="lb-motion-js">
-/* LB MOTION PACK v1 */
 (function(){
-  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sel = 'section > *, main > *, .sec-head, .cards > *, .grid > *, .faq details, .gal figure, .gallery figure';
-  var els = [].slice.call(document.querySelectorAll(sel)).filter(function(e){
-    if (e.closest && e.closest('.lb-rb')) return false;
-    if (e.tagName === 'SCRIPT' || e.tagName === 'STYLE') return false;
-    var r = e.getBoundingClientRect();
-    return r.width > 40 && r.height > 20;
-  });
-  els.forEach(function(e, i){ e.classList.add('lb-rv'); e.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
-  if (rm || !('IntersectionObserver' in window)) {
-    els.forEach(function(e){ e.classList.add('is-in'); });
-  } else {
+  var els = document.querySelectorAll('.rv');
+  function all(){ for (var i=0;i<els.length;i++){ els[i].classList.add('on'); } }
+  if ('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(en){
-      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
-    els.forEach(function(e){ io.observe(e); });
-    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
-  }
-  var rb = document.querySelector('.lb-rb');
-  if (!rb) return;
-  var slides = [].slice.call(rb.querySelectorAll('.lb-rb__slide'));
-  if (slides.length < 2) return;
-  var dots = [].slice.call(rb.querySelectorAll('.lb-rb__dots button'));
-  var i = 0, timer = null, DUR = 5600;
-  function go(n){
-    i = (n + slides.length) % slides.length;
-    slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
-    dots.forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
-  }
-  function play(){ if (rm) return; stop(); timer = setInterval(function(){ go(i + 1); }, DUR); }
-  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
-  dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); play(); }); });
-  var pv = rb.querySelector('.lb-rb__nav--prev'), nx = rb.querySelector('.lb-rb__nav--next');
-  if (pv) pv.addEventListener('click', function(){ go(i - 1); play(); });
-  if (nx) nx.addEventListener('click', function(){ go(i + 1); play(); });
-  rb.addEventListener('mouseenter', stop); rb.addEventListener('mouseleave', play);
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function(en){ en.forEach(function(x){ x.isIntersecting ? play() : stop(); }); },
-      { threshold: 0.25 }).observe(rb);
-  } else { play(); }
-  go(0);
+      for (var i=0;i<en.length;i++){ if(en[i].isIntersecting){ en[i].target.classList.add('on'); io.unobserve(en[i].target); } }
+    },{rootMargin:'0px 0px -8% 0px',threshold:.1});
+    for (var i=0;i<els.length;i++){ io.observe(els[i]); }
+  } else { all(); }
+  setTimeout(function(){ var e=document.querySelectorAll('.rv'); for(var i=0;i<e.length;i++){ e[i].classList.add('on'); } },1100);
+  var y=document.getElementById('yr'); if(y) y.textContent=String(new Date().getFullYear());
 })();
 </script>
-<script id="lb-hero-js">
-/* AT ENGINEERING — hero: plasma-cut plate scene (profile traced on a steel sheet, sparks, blueprint bed) */
-(function(){
-  var cv = document.getElementById('heroCanvas');
-  if (!cv) return;
-  var ctx = cv.getContext('2d'); if (!ctx) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W = 0, H = 0, dpr = 1, t0 = null, raf = null, visible = true, dead = false;
-  function tok(n, fb){ var v = getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-    return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : fb; }
-  function rgb(h){ h = h.replace('#',''); if (h.length===3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
-    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
-  var BLUE = rgb(tok('--accent-2', '#3f9ae0'));
-  var NAVY = rgb(tok('--accent', '#384070'));
-
-  function size(){
-    var r = cv.getBoundingClientRect();
-    dpr = Math.min(2, window.devicePixelRatio || 1);
-    W = Math.max(320, Math.round(r.width || window.innerWidth));
-    H = Math.max(420, Math.round(r.height || window.innerHeight));
-    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    build();
-  }
-
-  /* the profile: a vessel cut out of plate, in normalised plate-space */
-  var PATH = [];
-  function build(){
-    PATH = [];
-    var px = W*0.60, py = H*0.26, pw = Math.min(W*0.32, H*0.52), ph = Math.min(H*0.50, W*0.40);
-    var cx = px + pw/2;
-    // dome: left shoulder over the top to right shoulder
-    for (var a = Math.PI; a >= 0; a -= Math.PI/26)
-      PATH.push([cx + Math.cos(a)*pw*0.5, py + ph*0.26 - Math.sin(a)*ph*0.24]);
-    // right wall down
-    for (var d = 0; d <= 1; d += 0.04) PATH.push([px + pw, py + ph*0.26 + d*ph*0.62]);
-    // base flange
-    for (var b = 0; b <= 1; b += 0.05) PATH.push([px + pw + b*0.02*pw, py + ph*0.88]);
-    for (var c = 1; c >= 0; c -= 0.05) PATH.push([px + c*pw, py + ph*0.93]);
-    // left wall up
-    for (var e = 1; e >= 0; e -= 0.04) PATH.push([px, py + ph*0.26 + e*ph*0.62]);
-  }
-
-  var SPARKS = [];
-  function spawn(x, y){
-    for (var i=0;i<2;i++) SPARKS.push({x:x, y:y, vx:(Math.random()-0.5)*1.7, vy:-0.4-Math.random()*1.9,
-      l:1, r:0.7+Math.random()*1.5});
-  }
-  function ptAt(p){
-    var f = p*(PATH.length-1), i = Math.floor(f), m = f-i;
-    var a = PATH[Math.min(i, PATH.length-1)], b = PATH[Math.min(i+1, PATH.length-1)];
-    return [a[0]+(b[0]-a[0])*m, a[1]+(b[1]-a[1])*m];
-  }
-
-  function frame(ts){
-    if (!isFinite(ts)) ts = 0;
-    if (t0 === null) t0 = ts;
-    var t = (ts - t0) / 1000;
-
-    // bed
-    var g = ctx.createLinearGradient(0,0,0,H);
-    g.addColorStop(0,'#0b0d12'); g.addColorStop(0.55,'#0d1118'); g.addColorStop(1,'#090a0e');
-    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
-
-    // blueprint bed
-    ctx.lineWidth = 1;
-    var gs = Math.max(34, W/26);
-    for (var x = (t*4 % gs) - gs; x < W+gs; x += gs){
-      ctx.strokeStyle = 'rgba('+BLUE.join(',')+',0.07)';
-      ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke();
-    }
-    for (var y = 0; y < H; y += gs){
-      ctx.strokeStyle = 'rgba('+BLUE.join(',')+',0.055)';
-      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
-    }
-
-    // the plate: a lighter sheet the profile is cut from
-    var px = W*0.60 - 22, py = H*0.20, pw = Math.min(W*0.32, H*0.52) + 44, ph = Math.min(H*0.58, W*0.44);
-    var pg = ctx.createLinearGradient(px, py, px+pw, py+ph);
-    pg.addColorStop(0,'rgba(126,140,158,0.15)'); pg.addColorStop(0.5,'rgba(96,110,130,0.08)');
-    pg.addColorStop(1,'rgba(70,82,99,0.13)');
-    ctx.fillStyle = pg;
-    ctx.beginPath();
-    ctx.roundRect ? ctx.roundRect(px, py, pw, ph, 6) : ctx.rect(px, py, pw, ph);
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(190,205,225,0.16)'; ctx.stroke();
-
-    // cut cycle
-    var CYC = 9.5, p = (t % CYC) / CYC;
-    var cut = Math.min(1, p*1.12);
-    var fade = p > 0.90 ? 1 - (p-0.90)/0.10 : 1;
-
-    // travelled path
-    ctx.lineJoin = 'round';
-    ctx.beginPath();
-    ctx.moveTo(PATH[0][0], PATH[0][1]);
-    var upto = Math.floor(cut*(PATH.length-1));
-    for (var i=1; i<=upto; i++) ctx.lineTo(PATH[i][0], PATH[i][1]);
-    ctx.strokeStyle = 'rgba('+BLUE.join(',')+','+(0.42*fade).toFixed(3)+')';
-    ctx.lineWidth = 1.6; ctx.stroke();
-    ctx.strokeStyle = 'rgba('+BLUE.join(',')+','+(0.14*fade).toFixed(3)+')';
-    ctx.lineWidth = 5; ctx.stroke();
-
-    // head + arc
-    if (cut < 1){
-      var h = ptAt(cut);
-      var rg = ctx.createRadialGradient(h[0],h[1],0,h[0],h[1],44);
-      rg.addColorStop(0,'rgba(255,246,224,0.92)');
-      rg.addColorStop(0.18,'rgba('+BLUE.join(',')+',0.62)');
-      rg.addColorStop(1,'rgba('+BLUE.join(',')+',0)');
-      ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(h[0],h[1],44,0,6.283); ctx.fill();
-      ctx.fillStyle = '#fffdf6'; ctx.beginPath(); ctx.arc(h[0],h[1],1.9,0,6.283); ctx.fill();
-      spawn(h[0], h[1]);
-      // torch body above the head
-      ctx.strokeStyle = 'rgba(220,230,245,0.5)'; ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.moveTo(h[0], h[1]-4); ctx.lineTo(h[0]+8, h[1]-26); ctx.stroke();
-    }
-
-    // sparks
-    for (var s = SPARKS.length-1; s >= 0; s--){
-      var sp = SPARKS[s];
-      sp.x += sp.vx; sp.y += sp.vy; sp.vy += 0.045; sp.vx *= 0.985; sp.l -= 0.016;
-      if (sp.l <= 0 || sp.y > H){ SPARKS.splice(s,1); continue; }
-      ctx.fillStyle = 'rgba(255,'+(150 + Math.round(sp.l*70))+',86,'+(sp.l*0.85).toFixed(3)+')';
-      ctx.beginPath(); ctx.arc(sp.x, sp.y, sp.r*sp.l, 0, 6.283); ctx.fill();
-    }
-    if (SPARKS.length > 240) SPARKS.splice(0, SPARKS.length-240);
-
-    // floor haze + vignette
-    var hz = ctx.createLinearGradient(0,H*0.62,0,H);
-    hz.addColorStop(0,'rgba('+NAVY.join(',')+',0)');
-    hz.addColorStop(1,'rgba('+NAVY.join(',')+',0.30)');
-    ctx.fillStyle = hz; ctx.fillRect(0,H*0.62,W,H*0.38);
-    var vg = ctx.createRadialGradient(W*0.58,H*0.5,Math.min(W,H)*0.24,W*0.5,H*0.5,Math.max(W,H)*0.82);
-    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,0.55)');
-    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
-  }
-
-  function loop(ts){ if (dead) return;
-    try { if (visible) frame(ts); } catch(e){ dead = true; }
-    raf = requestAnimationFrame(loop); }
-
-  size(); frame(0);
-  window.addEventListener('resize', function(){ size(); frame(0); });
-  if (!reduce){
-    raf = requestAnimationFrame(loop);
-    if ('IntersectionObserver' in window)
-      new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
-    document.addEventListener('visibilitychange', function(){ visible = !document.hidden; });
-  }
-})();
-</script>
-<style>
-/* ==== LB BRAND: logo-only mode (the asset already carries the company words) ==== */
-.lb-brand--logoonly .lb-brand__word{display:none !important}
-.lb-brand--logoonly .lb-brand__mark{height:clamp(38px,4.6vw,64px) !important;max-width:38vw !important}
-.lb-brand--logoonly .lb-brand__mark img{height:100% !important;width:auto !important;max-width:38vw !important}
-</style>
-<style>
-/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
-header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
-.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
-  opacity:1 !important;visibility:visible !important}
-.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
-@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
-#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
-@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
-</style>
-
-
-<style>/* ==== LB HEADER TRUTH ==== */
-.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
-  align-items:center !important;flex-wrap:nowrap !important}
-.lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
-  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
-.lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
-  max-width:100% !important;object-fit:contain !important}
-.lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;
-  min-width:0 !important;overflow:visible !important}
-@media(max-width:700px){
-  .lb-brand__mark{height:32px !important;max-width:40vw !important}
-  .lb-brand__word{font-size:.92em !important}
-}
-</style>
-
-<style>/* ==== LB HEADER POLISH 2 ==== */
-header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
-.site-header nav a:not(.btn):not([class*="btn"]),
-.header-inner nav a:not(.btn):not([class*="btn"]),
-nav.nav a:not(.btn):not([class*="btn"]),
-.nav-inner a:not(.btn):not([class*="btn"]),
-header a[href^="tel"],.site-header a[href^="tel"]{
-  color:var(--lb-name,currentColor) !important;
-  opacity:1 !important;
-}
-.lb-brand__sub:empty{display:none !important}
-</style>
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in{display:none !important}
-Colored box-shadow glow (#e0a33a) on dark page{box-shadow:none !important;text-shadow:none !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-letter-spacing: 0.16em on body text{letter-spacing:normal !important}
-7px functional text "Bendigo" (below 11px floor){font-size:max(1em,15px) !important}
-7px functional text "VIC" (below 11px floor){font-size:max(1em,15px) !important}
-
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 </body>
 </html>
