@@ -15,9 +15,9 @@
   --bg: #131715;
   --ink: #f5f0e8;
   --ink-muted: #c8c0a8;
-  --acc:#3c5424;
-  --acc-dim: #c88818;
-  --acc-up: #a3d94f;
+  --acc:#689E2D;
+  --acc-dim: #c8ae8a;
+  --acc-up: #85d756;
   --ground: #1a1510;
   --ground-lighter: #2a2218;
   --sky-top: #2a2018;
@@ -25,8 +25,8 @@
   --sky-low: #4a3a2a;
   --card: #1f1a15;
   --card-border: #3a3020;
-  --line: rgba(232, 168, 56, 0.15);
-  --focus: #e8a838;
+  --line: rgba(133, 215, 86, 0.16);
+  --focus: #85d756;
   --fluid: clamp(36px, 8vw, 100px);
   --disp: 'Syne', 'Arial Narrow', sans-serif;
   --body-font: system-ui, sans-serif;
@@ -168,7 +168,7 @@ footer a:hover { color: var(--acc); }
 #lbq .lbq-g .lbq-full{grid-column:1/-1}
 @media (max-width:640px){#lbq .lbq-g{grid-template-columns:1fr}}
 </style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}
+<noscript>.lb-rb__slide{opacity:1!important;position:relative!important}<style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}
 
 /* skip-link hide (fleet) 2026-10-14 */
 .skip-link,.skip, .skip-to-content, [class*="skip"]{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;z-index:10000!important}
@@ -305,6 +305,38 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 
 <!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<style id="lb-batchc">
+/* ==== LB-BATCH-C: earthworks trade detail (ground layers, track marks) + honest hero exposure ==== */
+.lbhf img{filter:saturate(1.06) contrast(1.03) brightness(1.02)!important;object-position:center 46%!important}
+.lbhf-scrim{background:linear-gradient(96deg,rgba(9,12,9,.92) 0%,rgba(9,12,9,.74) 40%,rgba(9,12,9,.34) 74%,rgba(9,12,9,.18) 100%)!important}
+.hero__kicker{display:none!important}
+.layers{padding:var(--fluid) 0}
+.layers .wrap{max-width:1400px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem)}
+.lyr{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:center;margin-top:2.5rem}
+@media (max-width:900px){.lyr{grid-template-columns:1fr}}
+.lyr__svg{width:100%;height:auto;display:block;background:var(--card);border:1px solid var(--card-border);border-radius:6px}
+.l-band{stroke:var(--card-border);stroke-width:1}
+.l-top{fill:#4a3a2a}
+.l-v{fill:#5a4630}
+.l-base{fill:#61605C}
+.l-drain{fill:#595B2D}
+.l-bed{fill:#c8ae8a;opacity:.55}
+.l-track{fill:#0f120f;stroke:var(--card-border);stroke-width:1}
+.l-tread path{stroke:var(--acc-up);stroke-width:3}
+.lyr__key{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.8rem 1.4rem;margin:0;padding:0}
+@media (max-width:560px){.lyr__key{grid-template-columns:1fr}}
+.lyr__key li{border-left:3px solid var(--acc);padding-left:.7rem}
+.lyr__key b{display:block;font-family:var(--disp);font-size:.95rem;color:var(--ink)}
+.lyr__key span{font-size:.8rem;color:var(--ink-muted)}
+.rig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-top:clamp(2rem,4vw,3rem)}
+@media (max-width:820px){.rig{grid-template-columns:1fr}}
+.rig__item{background:var(--card);border:1px solid var(--card-border);border-radius:6px;padding:1.3rem 1.2rem}
+.rig__item svg{width:100%;max-width:150px;height:auto;display:block;margin-bottom:.9rem}
+.rig__item .rm{fill:none;stroke:var(--acc-up);stroke-width:3;stroke-linecap:round}
+.rig__item h3{font-size:1.05rem;color:var(--ink);margin-bottom:.35rem}
+.rig__item p{font-size:.86rem;color:var(--ink-muted)}
+.lb-rb__cap{font-size:.72rem;letter-spacing:.12em!important}
+</style>
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <!-- LB-3D-HERO (retained, hidden 2026-10-14): 3D hero system kept as hidden marker; visible scroll-canvas removed -->
@@ -313,7 +345,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="Cyclone Earthworks - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#0080e8;--lb-subc:#0080e8;--lb-acc:#3c5424;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cyclone Earthworks</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+<a class="lb-brand" href="#top" aria-label="Cyclone Earthworks - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f0e8;--lb-subc:#0080e8;--lb-acc:#689E2D;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cyclone Earthworks</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#waste">Quarry Products</a></li>
@@ -325,12 +357,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <a class="lb-tel" href="tel:0466888855" style="text-decoration:none;white-space:nowrap;align-self:center">0466 888 855</a></nav>
 
 <header class="hero" id="top">
-<div class="lbhf" aria-hidden="true"><img src="assets/hero-work.jpg" alt="" loading="eager" fetchpriority="high"></div>
+<div class="lbhf" aria-hidden="true"><img src="assets/hero-excavator.jpg" alt="" loading="eager" fetchpriority="high" width="2200" height="1650"></div>
 <div class="lbhf-scrim" aria-hidden="true"></div>
 
   <div class="hero__inner" id="heroCopy">
     <div class="hero__copy rv">
-      <p class="hero__kicker">Earthworks · Cartage · Quarry Supply · Sydney</p>
       <h1 data-ux="words">Earth moved,<br>materials supplied,<br><span class="acc">sites cleared.</span></h1>
       <p class="hero__sub">15+ years moving Sydney's ground. Excavation, cartage & disposal, quarry product supply, tight-access work, VENM & demolition waste removal, site clearing - one call, job sorted.</p>
       <div class="hero__cta">
@@ -340,6 +371,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
         <div class="hero__strip-item"><span class="hero__strip-label">Experience</span><span class="hero__strip-value">15+ Years</span></div>
         <div class="hero__strip-item"><span class="hero__strip-label">Region</span><span class="hero__strip-value">Sydney & Surrounds</span></div>
         <div class="hero__strip-item"><span class="hero__strip-label">ABN</span><span class="hero__strip-value">28 613 879 548</span></div>
+        <div class="hero__strip-item"><span class="hero__strip-label">Photo</span><span class="hero__strip-value">An earthworks job like this</span></div>
       </div>
     </div>
   </div>
@@ -405,6 +437,58 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <span class="area__tag rv">Blue Mountains</span>
       <span class="area__tag rv">Central Coast</span>
       <span class="area__tag rv">Illawarra</span>
+    </div>
+  </div>
+</section>
+
+
+<section id="layers" class="layers" aria-labelledby="layers-title">
+  <div class="wrap">
+    <div class="sec__head">
+      <span class="sec__idx">03</span>
+      <div>
+        <h2 class="sec__title" id="layers-title">Ground out, material in.</h2>
+        <p class="lead">We take the ground down to design level, cart what comes out, and put the right product back in its place - road base, drainage aggregate, bedding sand and crusher dust, tipped where the machine needs it.</p>
+      </div>
+    </div>
+    <div class="lyr">
+      <svg class="lyr__svg" viewBox="0 0 720 300" role="img" aria-label="Ground layers from topsoil down to bedding sand">
+        <path class="l-band l-top" d="M0 34h720v48H0Z"/>
+        <path class="l-band l-v" d="M0 82h720v54H0Z"/>
+        <path class="l-band l-base" d="M0 136h720v54H0Z"/>
+        <path class="l-band l-drain" d="M0 190h720v48H0Z"/>
+        <path class="l-band l-bed" d="M0 238h720v40H0Z"/>
+        <path class="l-track" d="M60 6h28v288H60Z"/>
+        <g class="l-tread">
+          <path d="M64 20h20M64 44h20M64 68h20M64 92h20M64 116h20M64 140h20M64 164h20M64 188h20M64 212h20M64 236h20M64 260h20"/>
+        </g>
+        <path class="l-track" d="M632 6h28v288h-28Z"/>
+        <g class="l-tread">
+          <path d="M636 20h20M636 44h20M636 68h20M636 92h20M636 116h20M636 140h20M636 164h20M636 188h20M636 212h20M636 236h20M636 260h20"/>
+        </g>
+      </svg>
+      <ul class="lyr__key">
+        <li><b>Topsoil &amp; strip</b><span>Stripped and stockpiled, or loaded out.</span></li>
+        <li><b>VENM &amp; clean fill</b><span>Classified virgin excavated natural material.</span></li>
+        <li><b>Road base</b><span>Compacted base course to design level.</span></li>
+        <li><b>Drainage aggregate</b><span>Washed aggregate for agi and subsoil drains.</span></li>
+        <li><b>Bedding sand</b><span>For pipes, pavers and services.</span></li>
+        <li><b>Crusher dust</b><span>Final trim, paths and under-slab.</span></li>
+      </ul>
+    </div>
+    <div class="rig">
+      <div class="rig__item rv">
+        <svg viewBox="0 0 120 74" aria-hidden="true" focusable="false"><path class="rm" d="M6 40h44v22H6Z"/><path class="rm" d="M50 40 82 26v36H50Z"/><circle class="rm" cx="22" cy="66" r="6"/><circle class="rm" cx="40" cy="66" r="6"/><circle class="rm" cx="92" cy="66" r="6"/><path class="rm" d="M50 30h20"/></svg>
+        <h3>Tipper &amp; dog cartage</h3><p>Spoil, VENM and demolition waste carted out to a licensed facility.</p>
+      </div>
+      <div class="rig__item rv">
+        <svg viewBox="0 0 120 74" aria-hidden="true" focusable="false"><path class="rm" d="M14 62h34v-24H14Z"/><path class="rm" d="M48 38 84 12"/><path class="rm" d="M60 40h40v22H60Z"/><path class="rm" d="M74 46c4-8 16-8 20 0"/></svg>
+        <h3>Tight access</h3><p>Compact machines for rear yards, basements and restricted sites.</p>
+      </div>
+      <div class="rig__item rv">
+        <svg viewBox="0 0 120 74" aria-hidden="true" focusable="false"><path class="rm" d="M10 58h100"/><path class="rm" d="M18 58c6-14 18-14 24 0M46 58c6-14 18-14 24 0M74 58c6-14 18-14 24 0"/><path class="rm" d="M34 22h52v20H34Z"/><path class="rm" d="M56 42v6"/></svg>
+        <h3>Product delivery</h3><p>Quarry products tipped where the machine is working, not out the front.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -514,7 +598,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 </script>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero-work.jpg" alt="Cyclone Earthworks" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Cyclone Earthworks</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Cyclone Earthworks &mdash; recent work</div></div></section><footer><div class="wrap">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero-work.jpg" alt="Cyclone Earthworks" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-1.jpg" alt="A job like this - excavator on site" loading="lazy" decoding="async"><span class="lb-rb__cap">A job like this - excavator on site</span></div><div class="lb-rb__slide"><img src="assets/work-2.jpg" alt="A job like this - site cut and cartage" loading="lazy" decoding="async"><span class="lb-rb__cap">A job like this - site cut and cartage</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Cyclone Earthworks &mdash; recent work</div></div></section><footer><div class="wrap">
   <div>
     <div class="footer__brand">
       <img src="assets/logo.png" alt="Cyclone Earthworks logo" loading="lazy" width="48" height="48" style="display:none;">
