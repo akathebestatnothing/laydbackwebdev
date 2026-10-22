@@ -346,7 +346,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.12) 45%,rgba(0,0,0,.42))}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -358,12 +358,14 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.28))}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 <nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Ramcon Earthworks & Property Maintenance - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#2b2f36;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Ramcon Earthworks & Property Maintenance</span><span class="lb-brand__sub"><span class="lb-acc">Earthworks</span> · Drainage · Property Maintenance</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Ramcon Earthworks & Property Maintenance - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#2b2f36;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Ramcon Earthworks & Property Maintenance</span><span class="lb-brand__sub"><span class="lb-acc">Earthworks</span> · Drainage · Property Maintenance</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="mono nav-p">0488 237 917</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -380,7 +382,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     <p class="hero-sub">Tight-access excavation, drainage, trenching, driveways, land clearing and retaining walls across Gippsland, owner operated by Steve, on the tools and accountable for the finish.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#quote">Get a free quote</a>
-      <a class="btn btn-ghost" href="tel:+61488237917">Call 0488 237 917</a>
+      <a class="btn btn-ghost" href="tel:0488237917">Call 0488 237 917</a>
     </div>
     <div class="hero-strip">
       <p><strong>Owner operated</strong>Steve, on the tools</p>
@@ -453,7 +455,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     <h2 id="lbq-h">Get a free quote</h2>
     <p class="lbq-s">Tell us about the job and we&rsquo;ll come back with a firm price &mdash; no surprises, no obligation.</p>
     <div class="lbq-info">
-      <div><b>Call</b><a href="tel:+61488 237 917">0488 237 917</a></div>
+      <div><b>Call</b><a href="tel:0488237917">0488 237 917</a></div>
       <div><b>Email</b><a href="mailto:ramcon.earthworks@gmail.com">ramcon.earthworks@gmail.com</a></div>
       <div><b>Area</b><span>Gippsland, VIC</span></div>
     </div>
@@ -554,11 +556,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Earthworks &middot; Drainage &middot; Trenching &middot; Driveways, Gippsland, VIC.<br></p>
   </div>
   <div><h4>Services</h4><a href="#services">Excavation</a><a href="#services">Drainage</a><a href="#services">Driveways</a><a href="#quote">Get a quote</a></div><div><h4>Company</h4><a href="#process">How we work</a><a href="#faq">FAQ</a><a href="#quote">Free quote</a></div><div><h4>Connect</h4><a href="https://www.instagram.com/ramcon_earthworks/" rel="noopener" target="_blank">Instagram</a></div>
-  <div><h4>Contact</h4><a href="tel:+61488237917">0488 237 917</a><a href="mailto:ramcon.earthworks@gmail.com">ramcon.earthworks@gmail.com</a><a href="#quote">Free quote</a></div>
+  <div><h4>Contact</h4><a href="tel:0488237917">0488 237 917</a><a href="mailto:ramcon.earthworks@gmail.com">ramcon.earthworks@gmail.com</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
   <span>&copy; 2026 RAMCON EARTHWORKS & PROPERTY MAINTENANCE &middot; </span>
-  <a href="tel:+61488237917">0488 237 917</a><a href="mailto:ramcon.earthworks@gmail.com">ramcon.earthworks@gmail.com</a>
+  <a href="tel:0488237917">0488 237 917</a><a href="mailto:ramcon.earthworks@gmail.com">ramcon.earthworks@gmail.com</a>
 </div>
 <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 

@@ -1,804 +1,555 @@
 <!DOCTYPE html>
-<html lang="en-AU" data-sig="links:grow,buttons:arrow,tilt:1">
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JEC Project Group — Commercial Fitouts, Residential Projects, Renovations & Project Management</title>
-<meta name="description" content="JEC Project Group - Commercial fitouts, residential projects, renovations and project management. Delivering quality construction across all project phases.">
-<meta property="og:title" content="JEC Project Group - Construction & Project Management">
-<meta property="og:description" content="Commercial fitouts, residential projects, renovations and project management.">
+<title>JEC Project Group — Construction &amp; Project Management, Sydney</title>
+<meta name="description" content="JEC Project Group builds commercial fitouts, residential projects, renovations and managed construction across Sydney. Licence 339272C. Call 0405 543 822.">
+<meta property="og:title" content="JEC Project Group — Construction &amp; Project Management, Sydney">
+<meta property="og:description" content="Commercial fitouts, residential projects, renovations and project management across Sydney.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/hero-construction7.jpg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f8fafc; --bg-2:#f0f4f8; --panel:#ffffff; --panel-2:#f8fafc;
-  --ink:#1a2a3a; --mut:#5a6a7a; --acc:#c9762e; --acc-2:#9c5718; --acc-dk:#8f4d16; --acc-hi:#e8a85e;
-  --line:rgba(26,42,58,.15); --line-acc:rgba(201,118,46,.55);
-  --dark:#101822;
-  --nav-h:64px;
-  --nav-pad:clamp(1rem,4vw,2.6rem);
-  --font-d:system-ui,system-ui,sans-serif;
-  --font-m:system-ui,monospace;
+  --ink:#111c27; --paper:#f6f4f1; --panel:#ffffff;
+  --acc:#c9762e; --acc-dk:#a75f1f; --acc-hi:#e2a05a;
+  --mut:#55636f; --line:rgba(17,28,39,.14); --line-2:rgba(17,28,39,.28);
+  --on-dark:rgba(255,255,255,.72);
+  --t-hero:clamp(2.35rem,5.6vw,4.6rem);
+  --t-h2:clamp(1.65rem,3.1vw,2.5rem);
+  --t-body:1.0625rem; --t-small:.875rem; --t-micro:.75rem;
+  --gutter:clamp(1.15rem,4vw,3.5rem);
+  --sec:clamp(4.5rem,9vw,8rem);
+  --max:1180px;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-section[id],header[id],footer[id]{scroll-margin-top:calc(var(--nav-h) + 10px)}
-html:not(.js) .rv{opacity:1!important;transform:none!important}
-.js .rv{opacity:0;transform:translateY(24px);transition: opacity .45s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.js .rv.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-d);line-height:1.55;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--t-body)/1.6 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
-a:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px}
-.skip{position:absolute;top:-100%;left:50%;transform:translateX(-50%);padding:.7rem 1.2rem;background:var(--acc-2);color:#fff;font-weight:700;z-index:10000}
-.skip:focus{top:1rem}
-/* ===== nav / header lockup ===== */
-.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 var(--nav-pad);background:rgba(248,250,252,0.95);-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);border-bottom:1px solid var(--line);z-index:1000}
-.nav__b{display:flex;align-items:center;gap:.65rem;min-width:0}
-.nav__b svg{height:38px;width:38px;display:block;flex-shrink:0}
-.nav__bn{display:flex;flex-direction:column;line-height:1.15;min-width:0}
-.nav__bn b{font-size:clamp(.95rem,1.8vw,1.08rem);font-weight:700;letter-spacing:.01em;color:var(--ink);white-space:nowrap}
-.nav__bn span{font-family:var(--font-m);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc-2);font-weight:600;white-space:nowrap}
-.nav__links{display:flex;gap:clamp(1rem,2.4vw,2rem);list-style:none;margin:0;padding:0}
-.nav__links a{font-size:.85rem;letter-spacing:.08em;color:var(--ink);transition:color .2s;font-weight:700;font-family:var(--font-d)}
-.nav__links a:hover{color:var(--acc-2)}
-.nav__cta{display:flex;align-items:center}
-.nav__cta a{display:inline-flex;align-items:center;gap:.45rem;padding:.58rem 1.15rem;font-size:.8rem;font-weight:800;letter-spacing:.07em;background:var(--acc-2);color:#ffffff;border-radius:6px;font-family:var(--font-d)}
-.nav__cta a:hover{background:var(--acc-dk)}
-@media (max-width:680px){.nav__links{display:none}.nav__bn span{display:none}}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.5rem;font-size:.86rem;font-weight:800;letter-spacing:.07em;border:0;border-radius:6px;cursor:pointer;font-family:var(--font-d)}
-.btn--p{background:var(--acc-2);color:#ffffff}
-.btn--p:hover{background:var(--acc-dk)}
-.btn--o{background:transparent;color:var(--ink);border:2px solid var(--line);box-shadow:inset 0 0 0 1px var(--line)}
-.btn--o:hover{border-color:var(--acc);color:var(--acc-2);box-shadow:inset 0 0 0 1px var(--acc),0 0 0 2px rgba(201,118,46,.15)}
-/* ===== hero (real photo + scrim) ===== */
-#hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;perspective:1000px;background:#101822}
-#heroCanvas{perspective:1000px}
-.lbhf{position:absolute;inset:0;overflow:hidden;z-index:0}
-.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block}
-.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(8,12,18,.55),rgba(8,12,18,.92)}
-.hero-in{position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;padding:calc(var(--nav-h) + 9vh) var(--nav-pad) 9vh}
-.hero-copy{max-width:640px}
-.hero-copy .k{margin:0 0 .9rem;font-family:var(--font-d);font-size:.78rem;letter-spacing:.15em;color:#ffffff;background:var(--acc-2);padding:.35rem 1rem;border-radius:4px;display:inline-block;white-space:nowrap;font-weight:800}
-.hero-copy .h1{margin:0 0 1rem;font-size:clamp(2.2rem,5.5vw,4.4rem);font-weight:900;line-height:1.02;letter-spacing:-.025em;color:#ffffff;text-shadow:0 2px 26px rgba(8,12,18,.35)}
-.hero-copy .h1 em{font-style:normal;color:var(--acc-hi)}
-.hero-copy .d{margin:0 0 1.9rem;font-size:clamp(1rem,1.45vw,1.18rem);color:rgba(255,255,255,.9);max-width:52ch;line-height:1.65}
-.hero-copy .cta{display:flex;flex-wrap:wrap;gap:1rem}
-.hero .btn--p{background:var(--acc-2);color:#ffffff}
-.hero .btn--p:hover{background:var(--acc-dk)}
-.hero .btn--o{background:transparent;color:#ffffff;border:2px solid rgba(255,255,255,.55);box-shadow:none}
-.hero .btn--o:hover{border-color:var(--acc-hi);color:var(--acc-hi);box-shadow:none}
-.hero-trust{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:.55rem 1.7rem;font-size:.92rem;color:rgba(255,255,255,.88)}
-.hero-trust span{font-weight:700;color:#ffffff}
-.hero-stats{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem}
-.hero-stats span{color:rgba(255,255,255,.85);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
-.hero-stats b{display:block;font-size:1.85rem;color:var(--acc-hi);font-weight:800;line-height:1.1;letter-spacing:-.01em;text-transform:none}
-@media (max-width:900px){
-  .hero-in{padding:calc(var(--nav-h) + 8vh) var(--nav-pad) 8vh}
-  .hero-copy{max-width:none}
-}
-@media (max-width:680px){
-  .nav__cta a{padding:.5rem .9rem;font-size:.75rem}
-  .hero-copy .k{font-size:.7rem;padding:.3rem .8rem;white-space:normal}
-  .hero-stats b{font-size:1.55rem}
-}
-/* ===== sections ===== */
-.sec{position:relative;padding:clamp(64px,10vh,110px) var(--nav-pad)}
-.sec--panel{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.inner{max-width:1120px;margin:0 auto}
-.kick{margin:0 0 .8rem;font-family:var(--font-m);font-size:.72rem;letter-spacing:.2em;text-transform:none;color:var(--acc-2);font-weight:600}
-.h2{margin:0 0 1rem;font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink)}
-.lead{margin:0 0 2.4rem;font-size:clamp(1rem,1.5vw,1.12rem);color:var(--mut);max-width:64ch;line-height:1.65}
-/* build stages */
-.stg{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.stg__it{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.4rem}
-.stg__it::before{content:"";position:absolute;top:0;left:1.4rem;width:34px;height:3px;background:var(--acc);border-radius:0 0 3px 3px}
-.stg__n{margin:0 0 .6rem;font-family:var(--font-m);font-size:.78rem;color:var(--acc-2);font-weight:600}
-.stg__h{margin:0 0 .5rem;font-size:1.06rem;font-weight:700;color:var(--ink)}
-.stg__p{margin:0;font-size:.9rem;color:var(--mut);line-height:1.6}
-@media (max-width:1000px){.stg{grid-template-columns:1fr 1fr}}
-@media (max-width:600px){.stg{grid-template-columns:1fr}}
-/* capability cards */
-.svc{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.svc__it{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.8rem 1.6rem;transition:border-color .2s,transform .2s}
-.svc__it:hover{border-color:var(--line-acc);transform:translateY(-2px)}
-.svc__n{margin:0 0 .7rem;font-family:var(--font-m);font-size:.78rem;color:var(--acc-2);font-weight:600}
-.svc__h{margin:0 0 .55rem;font-size:1.15rem;font-weight:700;color:var(--ink)}
-.svc__p{margin:0;color:var(--mut);font-size:.94rem;line-height:1.62}
-@media (max-width:700px){.svc{grid-template-columns:1fr}}
-/* approach / about */
-.about{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:start}
-.about__art{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
-.about__art img{width:100%;height:100%;object-fit:cover;display:block;min-height:320px}
-.about__cap{margin:0;padding:.7rem 1rem;font-family:var(--font-m);font-size:.72rem;letter-spacing:.08em;color:var(--mut);background:var(--panel);border-top:1px solid var(--line)}
-.about__lis{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
-.about__lis li{position:relative;padding:0 0 1.1rem 1.6rem;margin-bottom:1.1rem;color:var(--mut);border-bottom:1px solid var(--line);line-height:1.65}
-.about__lis li:last-child{border-bottom:0;margin-bottom:0}
-.about__lis li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;background:var(--acc);border-radius:2px}
-@media (max-width:900px){.about{grid-template-columns:1fr}}
-/* marquee strip */
-.ux-strip{overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:15px 0;background:var(--dark)}
-.ux-strip__in{display:flex;gap:2.4rem;justify-content:center;font-weight:700;letter-spacing:1px;font-size:13.5px;color:rgba(255,255,255,.78);white-space:nowrap}
-.uxdot{color:var(--acc-hi)}
-@media (max-width:760px){.ux-strip__in{flex-wrap:wrap;gap:.8rem;justify-content:center;white-space:normal;padding:0 1.2rem;text-align:center}}
-/* footer */
-.foot{background:var(--dark);color:rgba(255,255,255,.82);padding:clamp(48px,7vh,72px) var(--nav-pad) 24px}
-.foot__in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:2rem 3rem;align-items:start}
-.foot h3{margin:0 0 .8rem;color:#ffffff;font-size:1.15rem;font-weight:700}
-.foot p{margin:0;font-size:.9rem;line-height:1.7}
-.foot__meta b{display:block;font-family:var(--font-m);font-size:.68rem;letter-spacing:.16em;text-transform:none;color:rgba(255,255,255,.6);margin-bottom:.25rem}
-.foot__meta p{margin-bottom:1.1rem}
-.foot a{color:var(--acc-hi);font-weight:700}
-.foot a:hover{text-decoration:underline}
-.foot__legal{max-width:1120px;margin:2.4rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.78rem;color:rgba(255,255,255,.62)}
-@media (max-width:700px){.foot__in{grid-template-columns:1fr}}
-/* pulse (required) */
-.lb-pulse{position:fixed;bottom:1.5rem;right:1.5rem;width:12px;height:12px;background:var(--acc);border-radius:50%;opacity:.6;animation:pulse 2s ease-in-out infinite;pointer-events:none;z-index:999}
-@keyframes pulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
-@media (prefers-reduced-motion:reduce){.lb-pulse{animation:none;opacity:.5}}
+h1,h2,h3,p,ul,ol,figure,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+h1,h2,h3{letter-spacing:-.022em;line-height:1.08;font-weight:800;text-wrap:balance}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--acc-dk);color:#fff;padding:.8rem 1.2rem;font-weight:700}
+.skip:focus{left:1rem;top:1rem}
+.kick{font-size:var(--t-micro);font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--acc-dk)}
+.lead{font-size:1.075rem;color:var(--mut);max-width:46ch}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.1)}
+.hdr__in{max-width:var(--max);margin:0 auto;padding:.75rem var(--gutter);display:flex;align-items:center;gap:1.25rem;min-height:74px}
+.brand{display:flex;align-items:center;gap:.7rem;flex:0 1 auto;min-width:0;color:#fff}
+.brand img{width:38px;height:38px;flex:none;border-radius:9px;display:block}
+.brand b{font-size:1.06rem;font-weight:800;letter-spacing:-.015em;white-space:nowrap;line-height:1.15;display:block;overflow:hidden;text-overflow:ellipsis}
+.brand small{display:block;font-size:var(--t-micro);color:rgba(255,255,255,.6);letter-spacing:0;white-space:nowrap}
+.hdr nav{display:flex;gap:1.5rem;margin-left:auto}
+.hdr nav a{font-size:var(--t-small);font-weight:600;color:rgba(255,255,255,.84);padding:.35rem 0;border-bottom:1px solid transparent}
+.hdr nav a:hover{color:#fff;border-bottom-color:var(--acc)}
+.tel{display:inline-flex;align-items:center;gap:.5rem;background:var(--acc);color:#fff;font-weight:800;font-size:var(--t-small);padding:.68rem 1rem;border-radius:6px;white-space:nowrap;flex:none;transition:background .2s var(--ease)}
+.tel:0405543822"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(8,15,24,.93) 0%,rgba(8,15,24,.82) 34%,rgba(8,15,24,.34) 62%,rgba(8,15,24,.55) 100%)}
+.hero__in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:clamp(5rem,14vh,9rem) var(--gutter) clamp(2.4rem,6vh,4rem)}
+.hero .kick{color:var(--acc-hi)}
+.hero h1{font-size:var(--t-hero);max-width:16ch;margin:.9rem 0 0;font-weight:900;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;display:block;color:var(--acc-hi)}
+.hero p{max-width:44ch;margin:1.1rem 0 0;color:var(--on-dark);font-size:1.06rem}
+.hero__cta{margin-top:1.9rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.4rem}
+.hero .tel{padding:.95rem 1.35rem;font-size:1rem}
+.hero__alt{font-size:var(--t-small);font-weight:600;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:.15rem}
+.hero__alt:hover{color:#fff;border-bottom-color:var(--acc)}
+.hero__meta{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:var(--t-small);color:rgba(255,255,255,.62)}
+.hero__meta span{display:inline-flex;align-items:center;gap:.45rem}
+.hero__meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:none}
+
+/* ---------- sections ---------- */
+.sec{padding:var(--sec) 0}
+.sec--tight{padding-top:calc(var(--sec) * .7)}
+.sec--dark{background:var(--ink);color:#fff}
+.sec--dark .lead{color:rgba(255,255,255,.7)}
+.sec--dark .kick{color:var(--acc-hi)}
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.split .head{position:sticky;top:calc(74px + 2rem)}
+@media (max-width:900px){.split{grid-template-columns:1fr;gap:2.2rem}}
+.head h2{font-size:var(--t-h2);margin:.8rem 0 1rem}
+.head .lead{font-size:1rem}
+.mini{margin-top:1.8rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.mini p{font-size:.95rem;color:var(--mut);max-width:26ch}
+.mini p b{display:block;color:var(--ink);font-size:1rem;margin-bottom:.15rem}
+.mini a{display:inline-block;margin-top:.7rem;font-weight:800;font-size:1.05rem;border-bottom:2px solid var(--acc)}
+.mini a:hover{color:var(--acc-dk)}
+@media (max-width:900px){.split .head{position:static}}
+
+/* services index */
+.svc{border-top:1px solid var(--line-2)}
+.svc li{border-bottom:1px solid var(--line);position:relative;transition:padding-left .3s var(--ease)}
+.svc .row{display:grid;grid-template-columns:2.6rem 1fr;gap:0 1rem;padding:1.5rem 0 .4rem;align-items:start}
+.svc li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--acc);transform:scaleY(0);transform-origin:top;transition:transform .35s var(--ease)}
+.svc li:hover::before{transform:scaleY(1)}
+.svc li:hover{padding-left:1rem}
+.svc .n{font-size:var(--t-small);font-weight:700;color:var(--acc-dk);padding-top:.3rem;font-variant-numeric:tabular-nums}
+.svc h3{font-size:1.22rem;margin:0 0 .35rem}
+.svc p{color:var(--mut);font-size:.98rem;max-width:56ch}
+.svc .tag{grid-column:1/-1;margin:.45rem 0 1.3rem 3.6rem;font-size:var(--t-micro);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+
+/* stages rail */
+.rail{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2.4vw,2.2rem);margin-top:clamp(2.2rem,5vw,3.4rem);position:relative}
+.rail::before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:rgba(255,255,255,.18)}
+.rail li{position:relative;padding-top:1.9rem}
+.rail li::before{content:"";position:absolute;top:0;left:0;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--acc)}
+.rail .n{font-size:var(--t-micro);font-weight:800;color:var(--acc-hi);letter-spacing:.08em}
+.rail h3{font-size:1.05rem;margin:.45rem 0 .5rem;color:#fff}
+.rail p{font-size:.93rem;color:rgba(255,255,255,.65)}
+@media (max-width:780px){.rail{grid-template-columns:1fr 1fr;gap:1.6rem 1.4rem}}
+@media (max-width:430px){.rail{grid-template-columns:1fr}.rail::before{display:none}}
+.railnote{margin-top:clamp(2rem,4vw,3rem);padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:.5rem 2rem;font-size:var(--t-small);color:rgba(255,255,255,.55)}
+.railnote p{display:flex;align-items:center;gap:.5rem}
+.railnote p::before{content:"";width:4px;height:4px;background:var(--acc);border-radius:50%}
+
+/* approach */
+.approach{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.approach figure{overflow:hidden;border-radius:4px}
+.approach figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
+figcaption{margin-top:.7rem;font-size:var(--t-micro);color:var(--mut);letter-spacing:.04em}
+.points{margin-top:1.8rem;border-top:1px solid var(--line)}
+.points li{padding:1.15rem 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1.4rem 1fr;gap:.9rem}
+.points b{display:block;font-weight:800;font-size:1rem;margin-bottom:.2rem}
+.points p{font-size:.97rem;color:var(--mut)}
+.points .tick{width:1.35rem;height:1.35rem;border:1px solid var(--acc);border-radius:50%;display:grid;place-items:center;color:var(--acc-dk);font-size:.7rem;font-weight:800;margin-top:.1rem}
+@media (max-width:900px){.approach{grid-template-columns:1fr}.approach figure img{aspect-ratio:16/10}}
+
+/* work grid */
+.work{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem}
+.work figure{overflow:hidden;border-radius:4px;background:#dcd7d0}
+.work img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .7s var(--ease)}
+.work figure:hover img{transform:scale(1.04)}
+.work .big{grid-column:span 4;grid-row:span 2}
+.work .std{grid-column:span 2}
+.work .big img{aspect-ratio:16/10}
+@media (max-width:700px){.work{grid-template-columns:1fr 1fr;gap:.55rem}.work .big{grid-column:span 2;grid-row:auto}.work img,.work .big img{aspect-ratio:4/3}}
+
+/* quote */
+.quote{background:var(--paper);border-top:1px solid var(--line)}
+.quote__in{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.quote a.big-tel{display:inline-block;font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:.3rem 0 1.4rem;border-bottom:2px solid var(--acc)}
+.quote a.big-tel:0405543822'js')</script>
+<a class="skip" href="#services">Skip to content</a>
+
 </style>
-<noscript><style>.rv,.drop,.hg-item,.sld-item,[data-ux]{opacity:1!important;transform:none!important;visibility:visible!important}#sigSplash{display:none!important}.sld-item{position:static!important;margin-top:14px}</style></noscript><style id="lb-brand-css">
-/* ==== LB BRAND (logo-true spanning wordmark) ==== */
-.lb-brand{display:inline-flex;align-items:center;gap:clamp(9px,1vw,16px);text-decoration:none;
- color:inherit;min-width:0;padding:0;background:none;border:0;flex:0 1 auto}
-.lb-brand__mark{flex:0 0 auto;display:block;height:clamp(34px,4.1vw,58px);width:auto;max-width:22vw}
-.lb-brand__mark img{display:block;height:100%;width:auto;max-width:22vw;object-fit:contain}
-.lb-brand__word{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:.94}
-.lb-brand__name{font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;
- font-size:clamp(21px,2.75vw,44px);letter-spacing:.004em;white-space:nowrap;line-height:.92;
- color:var(--lb-name,currentColor)}
-.lb-brand__name .lb-acc{color:var(--lb-acc,currentColor)}
-.lb-brand__sub{font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;text-transform:none;
- font-size:clamp(7px,.82vw,12px);letter-spacing:.30em;white-space:nowrap;margin-top:.34em;
- color:var(--lb-subc,currentColor);opacity:.86}
-.lb-brand__rule{display:block;height:3px;width:100%;margin-top:.5em;border-radius:2px;
- background:transparent}
-@media (max-width:640px){
- .lb-brand__mark{height:clamp(30px,8vw,40px)}
- .lb-brand__name{font-size:clamp(18px,6.2vw,26px)}
- .lb-brand__sub{letter-spacing:.2em;font-size:7px}
-}
-</style>
-<style id="lb-motion-css">
-/* ==== LB MOTION PACK ==== */
-.lb-rb,.lb-rb *,.lb-mq,.lb-mq *{box-sizing:border-box}
-/* A header must never be hidden by a scroll-reveal state: the nav/brand is chrome, not
-   content. Unrevealed .rv wrappers left whole headers at opacity:0 (invisible logo). */
-header, .site-header, .page-header, nav.nav, .nav .rv, nav.rv, .header-inner, .nav-inner,
-header .rv, .site-header .rv, .nav-inner .rv{
-  opacity:1 !important; visibility:visible !important; transform:none !important;
-}
-.lb-rb{position:relative;width:100%;max-width:100%;overflow:hidden;background:#0c0d10}
-.lb-mq{max-width:100%;overflow:hidden}
-.lb-rb__track{position:relative;width:100%;aspect-ratio:16/7}
-.lb-rb__slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;will-change:opacity}
-.lb-rb__slide.is-on{opacity:1}
-.lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03);transition:transform 7s linear}
-.lb-rb__slide.is-on img{transform:scale(1.10)}
-.lb-rb__cap{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2.2vw,30px);
- background:rgba(6,7,10,.72);color:#fff;
- font-family:var(--lb-sub, system-ui), sans-serif;font-weight:600;letter-spacing:.16em;text-transform:none;
- font-size:clamp(9px,1vw,13px);z-index:2}
-.lb-rb__dots{position:absolute;top:50%;right:clamp(10px,1.6vw,22px);transform:translateY(-50%);
- display:flex;flex-direction:column;gap:9px;z-index:3}
-.lb-rb__dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.7);
- background:transparent;cursor:pointer;padding:0;transition:transform .25s,background .25s}
-.lb-rb__dots button.is-on{background:#fff;transform:scale(1.35)}
-.lb-rb__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;
- border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(8,9,12,.35);color:#fff;
- cursor:pointer;display:grid;place-items:center;font-size:17px;line-height:1;backdrop-filter:blur(6px);
- transition:background .25s,transform .25s}
-.lb-rb__nav:hover{background:rgba(8,9,12,.7)}
-.lb-rb__nav--prev{left:clamp(10px,1.6vw,22px)}
-.lb-rb__nav--next{right:clamp(10px,1.6vw,22px)}
-.lb-rb__nav:active{transform:translateY(-50%) scale(.92)}
-@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3}.lb-rb__nav{width:36px;height:36px}}
 
-a.btn,.btn,button.btn,.nav-cta a,.wp-block-button__link{position:relative;overflow:hidden;
- transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s,filter .22s}
-a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{transform:translateY(-2px);
- box-shadow:0 10px 24px -12px rgba(0,0,0,.55);filter:brightness(1.05)}
-a.btn:active,.btn:active,button.btn:active,.nav-cta a:active{transform:translateY(0) scale(.985)}
-a.btn::after,.btn::after,.nav-cta a::after{content:'';position:absolute;top:0;bottom:0;width:38%;
- left:-60%;background:rgba(255,255,255,.32);
- transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
-a.btn:hover::after,.btn:hover::after,.nav-cta a:hover::after{left:130%}
-
-.lb-rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
-.lb-rv.is-in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){
- .lb-rv{opacity:1!important;transform:none!important;transition:none!important}
- .lb-rb__slide img{transform:none!important;transition:none!important}
- a.btn::after,.btn::after,.nav-cta a::after{display:none}
-}
-
-/* marquee band (professional, reference-derived) */
-.lb-mq{position:relative;overflow:hidden;background:#0b0c10;border-top:1px solid rgba(255,255,255,.10);
- border-bottom:1px solid rgba(255,255,255,.10)}
-.lb-mq__in{display:flex;width:max-content;animation:none}
-.lb-mq:hover .lb-mq__in{animation-play-state:paused}
-.lb-mq__in span{display:inline-flex;align-items:center;gap:clamp(18px,3vw,44px);
- padding:clamp(11px,1.5vw,19px) clamp(14px,2vw,26px);color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;
- font-weight:700;text-transform:none;letter-spacing:.14em;font-size:clamp(11px,1.25vw,17px);white-space:nowrap}
-.lb-mq__in span i{font-style:normal;color:var(--lb-acc,#e51924)}
-@keyframes lb-mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){.lb-mq__in{animation:none}}
-</style>
-<style id="lb-depth-css">
-/* ==== LB DEPTH PACK — layered shadow + gradient surfaces ==== */
-:root{
-  --lb-acc: var(--acc, var(--accent, #e51924));
-  --lb-ink: var(--ink, #14161a);
-  --lb-paper: var(--paper, #ffffff);
-  --lb-e1: 0 1px 2px rgba(8,10,14,.06), 0 2px 6px rgba(8,10,14,.05);
-  --lb-e2: 0 2px 4px rgba(8,10,14,.07), 0 8px 18px -6px rgba(8,10,14,.14);
-  --lb-e3: 0 4px 10px rgba(8,10,14,.09), 0 18px 40px -12px rgba(8,10,14,.22);
-  --lb-hair: rgba(8,10,14,.10);
-}
-body{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
-
-/* sections: soft accent-keyed gradient wash for depth, never a flat slab */
-section{ position:relative; }
-section::before{
-  content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
-  background:
-    transparent,
-    transparent;
-}
-section > *{ position:relative; z-index:1; }
-
-/* cards / panels / figures: gradient surface + hairline + elevation, lift on hover */
-.card,.cards > *,.panel,.tile,.service,.box,.grid > article,.grid > div,figure,.gal figure,.gallery figure{
-  background:transparent;
-  border:1px solid var(--lb-hair);
-  border-radius:14px;
-  box-shadow:var(--lb-e1);
-  transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s, border-color .28s;
-}
-.card:hover,.cards > *:hover,.panel:hover,.tile:hover,.service:hover,.grid > article:hover,
-.grid > div:hover,figure:hover,.gal figure:hover,.gallery figure:hover{
-  transform:translateY(-4px); box-shadow:var(--lb-e3); border-color:color-mix(in srgb, var(--lb-acc) 34%, var(--lb-hair));
-}
-
-/* photographs: rounded, layered shadow, slight scrim so text over them stays legible */
-section img, figure img, .gal img, .gallery img, .card img{
-  border-radius:10px; box-shadow:var(--lb-e2); display:block;
-}
-figure, .gal figure, .gallery figure{ overflow:hidden; }
-figure img, .gal img{ transform:scale(1.001); transition:transform .5s cubic-bezier(.2,.7,.3,1); }
-figure:hover img, .gal figure:hover img, .gallery figure:hover img{ transform:scale(1.035); }
-
-/* buttons: gradient fill, inset highlight, layered shadow */
-a.btn,.btn,button.btn,.nav-cta a,.btn-primary{
-  background-image:rgba(255,255,255,.16);
-  box-shadow:var(--lb-e1), inset 0 1px 0 rgba(255,255,255,.22);
-  border-radius:10px;
-}
-a.btn:hover,.btn:hover,button.btn:hover,.nav-cta a:hover{
-  box-shadow:var(--lb-e3), inset 0 1px 0 rgba(255,255,255,.26);
-}
-.btn-ghost{ box-shadow:var(--lb-e1); }
-
-/* nav: subtle vertical gradient + hairline for separation from the page */
-.nav,nav,.site-header,header.nav{
-  background-image:transparent;
-  box-shadow:0 1px 0 var(--lb-hair), 0 6px 20px -14px rgba(8,10,14,.28);
-}
-
-/* section heads get a hairline rule for structure (no risky text clipping) */
-.sec-head{ border-bottom:1px solid var(--lb-hair); padding-bottom:.7rem; }
-h1,h2,h3{ text-wrap:balance; }
-
-/* footer: depth anchor */
-footer{ box-shadow:0 -1px 0 var(--lb-hair), 0 -14px 40px -30px rgba(8,10,14,.5); }
-
-/* dark surfaces get stronger, softer shadows */
-@media (prefers-color-scheme: dark){ :root{ --lb-hair: rgba(255,255,255,.12); } }
-@supports not (background: color-mix(in srgb, red 5%, blue)){
-  section::before{ background:rgba(229,25,36,.06); }
-}
-@media (prefers-reduced-motion: reduce){
-  .card,.cards > *,.panel,.tile,figure,.gal figure, a.btn,.btn, img{ transition:none!important; transform:none!important; }
-}
-</style>
-<style id="lb-hero-css">
-canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
-  position:absolute; inset:0; width:100%; height:100%; display:block; z-index:0;
-}
-</style>
-<style id="lb-hdr-stack">/* header brand must never be hidden by reveal wrappers.
-   Deliberately does NOT touch position: (an existing fixed/sticky header must keep working)
-   and does NOT hide the hero canvas (that is the intended 3D hero). */
-.site-header,.header{z-index:50}
-.container.nav,.nav,.nav-in{z-index:5}
-.lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
-</style>
-<style id="lb-markimg">.lb-brand__mark{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;margin-right:.6rem}.lb-brand__mark img{display:block;height:clamp(34px,3.4vw,44px);width:auto;border-radius:8px}</style>
-<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
-
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.12) 45%,rgba(0,0,0,.42))}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
-
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.28))}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
-<body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
-<script>document.documentElement.classList.add('js');</script>
-
-<a class="skip" href="#stages">Skip to content</a>
-
-<nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="JEC Project Group - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#c9762e;"><img src="assets/logomark.svg" alt="" width="44" height="44" class="lb-logomark"><span class="lb-brand__mark" aria-hidden="true"></span><span class="lb-brand__word"><span class="lb-brand__name">JEC Project Group</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
-  <ul class="nav__links">
-    <li><a href="#stages">Stages</a></li>
-    <li><a href="#capabilities">Capabilities</a></li>
-    <li><a href="#about">Approach</a></li>
-  </ul>
-  <div class="nav__cta">
-    <a class="btn btn--p" href="#lbq">Get a free quote</a>
-  </div>
-<a class="lb-tel" href="tel:+61405543822" style="text-decoration:none;white-space:nowrap;align-self:center">0405 543 822</a></nav>
-
-<header id="hero">
-  <!-- LB-3D-HERO -->
-  <canvas id="heroCanvas" class="lb3d-canvas" aria-hidden="true"></canvas>
-  <div class="lbhf" aria-hidden="true"><img src="assets/hero-construction7.jpg" alt="" loading="eager" fetchpriority="high" width="1200" height="901"></div>
-  <div class="lbhf-scrim" aria-hidden="true"></div>
-  <div class="hero-in">
-    <div class="hero-copy">
-      <p class="k">Construction & Project Management</p>
-      <h1 class="h1">Building properly.<br><em>Every stage.</em></h1>
-      <p class="d">Commercial fitouts, residential projects, renovations and project management — delivered with precision from set-out to completion.</p>
-      <div class="cta">
-        <a class="btn btn--p" href="#lbq">Get a free quote</a>
-        <a class="btn btn--o" href="#stages">View our build stages</a>
-      </div>
-      <div class="hero-trust">
-        <span>Lic 339272C</span>
-        <span>ABN 22 126 491 969</span>
-        <span>Owner-operator oversight</span>
-      </div>
-      <div class="hero-stats">
-        <span><b>15+</b>Years experience</span>
-        <span><b>200+</b>Projects delivered</span>
-        <span><b>$50M+</b>Value managed</span>
-      </div>
-    </div>
+<body>
+<header class="hdr">
+  <div class="hdr__in">
+    <a class="brand" href="#top" aria-label="JEC Project Group — home">
+      <img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async">
+      <span>
+        <b>JEC Project Group</b>
+        <small>Sydney &middot; construction</small>
+      </span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#approach">Approach</a>
+      <a href="#work">Work</a>
+    </nav>
+    <a class="tel" href="tel:0405543822">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"/></svg>
+      0405 543 822
+    </a>
   </div>
 </header>
 
-<section class="sec" id="stages" aria-labelledby="stages-t">
-  <div class="inner">
-  <p class="kick" aria-hidden="true">Our build stages</p>
-  <h2 class="h2" id="stages-t">From set-out to handover</h2>
-  <p class="lead">Every JEC project runs the same four checkpoints — set-out, frame, clad, complete — inspected and signed off before the next trade starts.</p>
-  <div class="stg">
-    <article class="stg__it rv"><p class="stg__n">01</p><h3 class="stg__h">Set-out</h3><p class="stg__p">Survey, levels and layout lines locked in before a single member is cut or fixed.</p></article>
-    <article class="stg__it rv"><p class="stg__n">02</p><h3 class="stg__h">Frame</h3><p class="stg__p">Structural framing squared, plumbed and fixed to spec — checked before sheeting.</p></article>
-    <article class="stg__it rv"><p class="stg__n">03</p><h3 class="stg__h">Clad</h3><p class="stg__p">Roof and wall cladding sealed and flashed — weatherproof before interior works begin.</p></article>
-    <article class="stg__it rv"><p class="stg__n">04</p><h3 class="stg__h">Complete</h3><p class="stg__p">Defects closed out, site cleaned, handover with the paperwork in order.</p></article>
-  </div>
-  </div>
-</section>
-<div data-ux="marquee" class="ux-strip"><div class="ux-strip__in"><span>Commercial fitouts</span><span class="uxdot">·</span><span>Residential projects</span><span class="uxdot">·</span><span>Renovations</span><span class="uxdot">·</span><span>Project management</span><span class="uxdot">·</span></div></div>
-
-
-<section class="sec sec--panel" id="capabilities" aria-labelledby="cap-t">
-  <div class="inner">
-  <p class="kick" aria-hidden="true">Capabilities</p>
-  <h2 class="h2" id="cap-t">What we deliver</h2>
-  <p class="lead">Four core service pillars - each managed end-to-end with the same rigour.</p>
-  <div class="svc">
-    <article class="svc__it rv" data-ux="spotlight"><p class="svc__n">01</p><h3 class="svc__h">Commercial fitouts</h3><p class="svc__p">Office, retail and hospitality fitouts - services coordination, compliance and finish quality on programme.</p></article>
-    <article class="svc__it rv" data-ux="spotlight"><p class="svc__n">02</p><h3 class="svc__h">Residential projects</h3><p class="svc__p">New homes and major renovations - structural to finish, managed with site discipline and clear communication.</p></article>
-    <article class="svc__it rv" data-ux="spotlight"><p class="svc__n">03</p><h3 class="svc__h">Renovations</h3><p class="svc__p">Extensions, remodels and adaptive reuse - integrating new work with existing fabric seamlessly.</p></article>
-    <article class="svc__it rv" data-ux="spotlight"><p class="svc__n">04</p><h3 class="svc__h">Project management</h3><p class="svc__p">Programme control, procurement, quality assurance and stakeholder coordination - single point of accountability.</p></article>
-  </div>
+<section class="hero" id="top">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero__in">
+    <p class="kick">Sydney &middot; commercial &amp; residential</p>
+    <h1>Built to the drawing. <em>Managed to the day.</em></h1>
+    <p>Fitouts, renovations and new work delivered by the people holding the tools — set-out, structure and finish, in that order, with nothing left to chance.</p>
+    <div class="hero__cta">
+      <a class="tel" href="tel:0405543822">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"/></svg>
+        Call Josh &mdash; 0405 543 822
+      </a>
+      <a class="hero__alt" href="#services">What we build</a>
+    </div>
+    <div class="hero__meta">
+      <span>NSW builder licence 339272C</span>
+      <span>ABN 22 126 491 969</span>
+      <span>Owner on site</span>
+    </div>
   </div>
 </section>
 
-<section class="sec" id="about" aria-labelledby="abt-t">
-  <div class="inner">
-  <p class="kick" aria-hidden="true">Approach</p>
-  <h2 class="h2" id="abt-t">Precision at every phase</h2>
-  <div class="about">
-    <div class="about__art rv">
-      <img src="assets/hero-construction4.jpg" alt="JEC Project Group construction site - structural works in progress" loading="eager" width="1200" height="857">
-      <p class="about__cap">// ON SITE - JEC PROJECT GROUP, IN PROGRESS</p>
-    </div>
-    <ul class="about__lis">
-      <li class="rv">Every project gets the same layout lines, tolerance checks and pride in a tight joint - from a commercial fitout to a residential renovation.</li>
-      <li class="rv">Working clean is non-negotiable: protection down, site managed, finish left ready for the next trade.</li>
-      <li class="rv">Clear scopes before work starts - you know what is being built, with what materials, and what it will take.</li>
-      <li class="rv">Single-point accountability. Owner-operator oversight, on the tools, accountable for the finish.</li>
-    </ul>
-  </div>
-  </div>
-</section>
-
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="JEC Project Group" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="JEC Project Group" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="JEC Project Group" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="JEC Project Group" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="JEC Project Group" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="JEC Project Group" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="JEC Project Group" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="JEC Project Group" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">JEC Project Group &mdash; recent work</div></div></section><footer class="foot" id="foot">
-  <div class="foot__in">
-    <div>
-      <h3>JEC Project Group</h3>
-      <p>Commercial fitouts, residential projects, renovations & project management.<br>ABN 22 126 491 969</p>
-    </div>
-    <div class="foot__meta">
-      <p><b>Area</b>Greater Melbourne & regional VIC</p>
-      <p><b>Quote</b><a href="#lbq">Request a free quote</a></p>
-    </div>
-  </div>
-  <p class="foot__legal">&copy; <span id="year"></span> JEC Project Group. All rights reserved.</p>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
-
-<section id="lbq" aria-labelledby="lbq-h">
-<style>
-#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--mut);--lbq-bg:var(--bg-2);--lbq-panel:var(--panel);--lbq-line:var(--line);padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
-#lbq *{box-sizing:border-box}
-#lbq .lbq-w{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
-@media(max-width:900px){#lbq .lbq-w{grid-template-columns:1fr}}
-#lbq h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin:0 0 10px;letter-spacing:-.02em;font-family:var(--font-d)}
-#lbq p.lbq-s{margin:0 0 22px;color:var(--lbq-muted);max-width:52ch}
-#lbq .lbq-info{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--lbq-line);padding-top:22px}
-#lbq .lbq-info div{display:flex;gap:10px;align-items:baseline}
-#lbq .lbq-info b{font-size:.78rem;letter-spacing:.14em;color:var(--acc-dk);min-width:64px}
-#lbq .lbq-info a{font-weight:800;text-decoration:none}
-#lbq .lbq-f{display:grid;gap:12px;background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
-#lbq label{display:block;font-size:.78rem;letter-spacing:.08em;color:var(--lbq-muted);margin-bottom:5px}
-#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;font-size:.95rem}
-#lbq textarea{min-height:96px;resize:vertical}
-#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
-#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#1a1a1a;font:inherit;font-weight:800;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
-#lbq button:disabled{opacity:.6;cursor:wait}
-#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
-#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
-#lbq .lbq-cons input{width:auto}
-#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-
-/* skip-link hide (fleet) 2026-10-14 */
-.skip-link,.skip, .skip-to-content, [class*="skip"]{position:absolute!important;left:-9999px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;z-index:10000!important}
-.skip-link:focus,[class*="skip"]:focus{left:16px!important;top:16px!important;width:auto!important;height:auto!important;padding:10px 16px!important;background:#111!important;color:#fff!important;border-radius:6px!important;overflow:visible!important}
-
-/* mobile overflow guard 2026-10-14 */
-html,body{overflow-x:hidden}
-@media (max-width:820px){
-  h1,h2,h3,.h1,.hero h1,.sec-title,.k,.kicker,.kick,.eyebrow,.tag-line,.tag,.hero-kicker,.hero-sub,.lead{
-    white-space:normal!important;overflow-wrap:anywhere;word-break:break-word;max-width:100%!important}
-  .hero-kicker,.k,.kicker,.kick,.eyebrow,.tag{font-size:clamp(10px,3.1vw,13px)!important;letter-spacing:.22em!important}
-  h1,.h1{font-size:clamp(26px,10.5vw,54px)!important;line-height:1.05!important}
-}
-</style>
-<div class="lbq-w">
-  <div>
-    <h2 id="lbq-h">Get a free quote</h2>
-    <p class="lbq-s">Tell us about the job and we'll come back with a firm price - no surprises, no obligation.</p>
-    <div class="lbq-info">
-      <div><b>Area</b><span>Greater Melbourne & regional VIC</span></div>
-    </div>
-  </div>
-  <form id="lbq-form" novalidate data-site="jec-project-group" data-biz="JEC Project Group">
-    <div class="lbq-f">
-      <div class="lbq-g">
-        <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
-        <div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div>
-        <div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div>
-        <div class="lbq-full"><label for="lbq-svc">Service</label>
-          <select id="lbq-svc" name="service"><option>Commercial fitouts</option><option>Residential projects</option><option>Renovations</option><option>Project management</option><option>Other</option></select>
-        </div>
-        <div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Project type, scope, timeline, location…" required></textarea></div>
+<main>
+<section class="sec" id="services">
+  <div class="wrap split">
+    <div class="head rv">
+      <p class="kick">Services</p>
+      <h2>Four kinds of work, one standard of build</h2>
+      <p class="lead">We take on work where the detail matters and the programme has to hold — and we price it properly before anyone lifts a tool.</p>
+      <div class="mini">
+        <p><b>Not sure which one?</b> Describe the job and we will tell you straight.</p>
+        <a href="tel:0405543822">0405 543 822</a>
       </div>
-      <label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
-      <div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-      <button type="submit">Send quote request</button>
-      <p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p>
     </div>
-  </form>
-</div>
+    <ol class="svc rv">
+      <li><div class="row"><span class="n">01</span><div><h3>Commercial fitouts</h3><p>Offices, retail and hospitality stripped and rebuilt — services coordinated, compliance covered, finishes to drawing.</p></div></div><p class="tag">Sydney metro</p></li>
+      <li><div class="row"><span class="n">02</span><div><h3>Residential projects</h3><p>New homes and major additions run by the builder, not a phone. Structure, envelope and finish in sequence.</p></div></div><p class="tag">Architectural &amp; custom</p></li>
+      <li><div class="row"><span class="n">03</span><div><h3>Renovations</h3><p>Kitchens, bathrooms and whole-house reworks, with the existing fabric opened carefully and made good.</p></div></div><p class="tag">Occupied homes</p></li>
+      <li><div class="row"><span class="n">04</span><div><h3>Project management</h3><p>Programme, procurement and quality control for owners who need one accountable head on the job.</p></div></div><p class="tag">Owner-side</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec--dark" id="process">
+  <div class="wrap">
+    <div class="head rv" style="max-width:52ch">
+      <p class="kick">The build, in four checkpoints</p>
+      <h2>Every stage signed off before the next trade starts</h2>
+      <p class="lead">Same sequence on a fitout and on a house. Nothing gets sheeted over until it has been checked.</p>
+    </div>
+    <ol class="rail rv">
+      <li><p class="n">01</p><h3>Set-out</h3><p>Survey, levels and layout lines locked in before a member is cut.</p></li>
+      <li><p class="n">02</p><h3>Frame</h3><p>Structure squared, plumbed and fixed to spec, then inspected.</p></li>
+      <li><p class="n">03</p><h3>Clad</h3><p>Roof and walls sealed and flashed — weathertight before interiors.</p></li>
+      <li><p class="n">04</p><h3>Complete</h3><p>Defects closed, site cleaned, handover with the paperwork in order.</p></li>
+    </ol>
+    <div class="railnote rv">
+      <p>Programme issued at set-out</p><p>Every inspection logged</p><p>Defect list closed before handover</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="approach">
+  <div class="wrap approach">
+    <figure class="rv">
+      <img src="assets/hero-construction4.jpg" alt="JEC Project Group site with structural framing under way" loading="lazy" width="1200" height="857">
+      <figcaption>On site, mid-programme — frame checked before sheeting.</figcaption>
+    </figure>
+    <div class="rv">
+      <p class="kick">Approach</p>
+      <h2>Precision is cheaper than rework</h2>
+      <p class="lead" style="margin-top:1rem">The same tolerance on a commercial fitout as on a family renovation. That is the whole method.</p>
+      <ul class="points">
+        <li><span class="tick" aria-hidden="true">&#10003;</span><div><b>Scope before price</b><p>You know what is being built, in what material, and what it takes — before work starts.</p></div></li>
+        <li><span class="tick" aria-hidden="true">&#10003;</span><div><b>Site kept clean</b><p>Protection down, waste managed, the space left ready for the next trade and safe to walk through.</p></div></li>
+        <li><span class="tick" aria-hidden="true">&#10003;</span><div><b>One accountable head</b><p>The owner-operator is on the tools and answerable for the finish, not a supervisor three jobs away.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--tight" id="work">
+  <div class="wrap">
+    <div class="head rv" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:flex-end;justify-content:space-between;margin-bottom:1.8rem">
+      <div>
+        <p class="kick">On site</p>
+        <h2>Recent work</h2>
+      </div>
+      <p class="lead" style="max-width:34ch;font-size:.97rem">Framing, fitout and finish across current JEC jobs.</p>
+    </div>
+    <div class="work rv">
+      <figure class="big"><img src="assets/work_01.jpg" alt="Framing in progress on a JEC Project Group job" loading="eager"></figure>
+      <figure class="std"><img src="assets/work_02.jpg" alt="Structural works on site" loading="eager"></figure>
+      <figure class="std"><img src="assets/work_03.jpg" alt="Interior of a JEC Project Group build" loading="eager"></figure>
+      <figure class="std"><img src="assets/work_04.jpg" alt="Completed surface detail" loading="eager"></figure>
+      <figure class="std"><img src="assets/work_05.jpg" alt="Site detail during construction" loading="eager"></figure>
+      <figure class="std"><img src="assets/work_06.jpg" alt="Trade work underway" loading="eager"></figure>
+      <figure class="std"><img src="assets/work_07.jpg" alt="Finished room by JEC Project Group" loading="eager"></figure>
+      <figure class="std"><img src="assets/work_08.jpg" alt="Exterior works on a JEC Project Group job" loading="eager"></figure>
+      <figure class="big"><img src="assets/hero-construction7.jpg" alt="JEC Project Group site at working height" loading="eager"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec quote" id="quote">
+  <div class="wrap quote__in">
+    <div class="rv">
+      <p class="kick">Free quote</p>
+      <h2>Talk to the builder</h2>
+      <a class="big-tel" href="tel:0405543822">0405 543 822</a>
+      <p class="lead" style="max-width:38ch">Ring through the job in a couple of minutes, or send the details and we will come back with a firm price.</p>
+      <dl class="facts">
+        <div><dt>Email</dt><dd><a href="mailto:josh@jecprojectgroup.com">josh@jecprojectgroup.com</a></dd></div>
+        <div><dt>Area</dt><dd>Sydney and surrounds, NSW</dd></div>
+        <div><dt>Licence</dt><dd>339272C</dd></div>
+        <div><dt>ABN</dt><dd>22 126 491 969</dd></div>
+      </dl>
+    </div>
+    <form id="quoteForm" novalidate data-site="jec-project-group" data-biz="JEC Project Group">
+      <div class="f-grid">
+        <div><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required></div>
+        <div><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="f-full"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email"></div>
+        <div class="f-full"><label for="q-service">Service</label>
+          <select id="q-service" name="service">
+            <option>Commercial fitout</option><option>Residential project</option><option>Renovation</option><option>Project management</option><option>Other</option>
+          </select>
+        </div>
+        <div class="f-full"><label for="q-msg">The job</label><textarea id="q-msg" name="message" placeholder="Type of work, suburb, rough timing" required></textarea></div>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <label class="cons"><input type="checkbox" name="consent" value="1" checked> Contact me about this request.</label>
+      <button type="submit">Send request</button>
+      <p class="st" id="q-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div>
+      <h2>JEC Project Group</h2>
+      <p>Commercial fitouts, residential projects, renovations and project management across Sydney.</p>
+      <p style="margin-top:.6rem">Licence 339272C &middot; ABN 22 126 491 969</p>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="tel:0405543822">0405 543 822</a></li>
+        <li><a href="mailto:josh@jecprojectgroup.com">josh@jecprojectgroup.com</a></li>
+        <li><a href="#quote">Request a quote</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Sections</h2>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#work">Work</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot__base">
+    <p>&copy; <span id="year">2026</span> JEC Project Group. All rights reserved.</p>
+    <p><a href="privacy.html">Privacy</a> &nbsp; <a href="terms.html">Terms</a></p>
+  </div>
+</footer>
+
+<script src="assets/heroCanvas.js"></script>
 <script>
+/* Hero scene — a fitout mid-build: set-out lines, stud wall, scaffold, sawbench,
+   timber stack and tools. Everything is world-space geometry pushed through the
+   shared pinhole projection, so depth, occlusion and fog come out of the maths. */
 (function(){
-  var EP = null;
+  var cv = document.getElementById('heroCanvas');
+  if (!cv || !window.Projection) return;
+  var P = Projection;
+  var S = P.create(cv, {focal:1.12, horizon:.56, camY:1.52, fogNear:9, fogFar:46, fogCol:'#16222f'});
+  var ACC = '#c9762e', STEEL = '#8b98a6', TIMBER = '#8a6135', TIMBER_HI = '#a87c46';
+
+  var faces = [], parts = [];
+  function face(pts, tone, n, t0){ faces.push({pts:pts, tone:tone, n:n||[0,1,0], t0:t0||0}); }
+  function member(a, b, w, d, tone, t0, dur){ parts.push({a:a, b:b, w:w, d:d, tone:tone, t0:t0, dur:dur||.3}); }
+
+  /* --- ground + set-out lines --- */
+  face([[-20,0,1.2],[20,0,1.2],[20,0,44],[-20,0,44]], '#22303c', [0,1,0]);
+  for (var gz=2.4; gz<30; gz+=2.2){
+    face([[-9,0.004,gz],[-.4,0.004,gz],[-.4,0.004,gz+.045],[-9,0.004,gz+.045]], ACC, [0,1,0], .1);
+    face([[2.4,0.004,gz],[11,0.004,gz],[11,0.004,gz+.045],[2.4,0.004,gz+.045]], ACC, [0,1,0], .16);
+  }
+  /* --- stud wall under construction --- */
+  member([-4.9,.06,7.4],[-.9,.06,7.4],.1,.05,TIMBER_HI,.35,.5);
+  for (var i=0;i<=10;i++){
+    var x = -4.8 + i*.39;
+    member([x,.12,7.4],[x,2.38,7.4],.09,.045,TIMBER,.55+i*.06,.28);
+  }
+  member([-4.9,1.25,7.39],[2.0,1.25,7.39],.08,.04,TIMBER_HI,1.3,.4);
+  member([-4.9,2.42,7.4],[2.0,2.42,7.4],.1,.05,TIMBER,1.42,.4);
+  member([-4.95,.1,7.4],[-2.6,2.4,7.4],.07,.04,TIMBER_HI,1.55,.35);
+
+  /* --- opening further back --- */
+  member([-.5,.1,14.4],[-.5,2.3,14.4],.11,.06,TIMBER,.7,.3);
+  member([1.5,.1,14.4],[1.5,2.3,14.4],.11,.06,TIMBER,.75,.3);
+  member([-.6,2.34,14.4],[1.6,2.34,14.4],.14,.06,TIMBER_HI,.85,.3);
+  face([[-.4,.12,14.45],[1.4,.12,14.45],[1.4,2.28,14.45],[-.4,2.28,14.45]], '#0e1a25', [0,0,-1], .9);
+
+  /* --- scaffold bays receding --- */
+  [9.5,13.4,17.2,21].forEach(function(sz, k){
+    var tall = 3.2 - k*.16;
+    member([4.0,.05,sz],[4.0,tall,sz],.075,.075,STEEL,1.0+k*.1,.3);
+    member([5.5,.05,sz],[5.5,tall,sz],.075,.075,STEEL,1.05+k*.1,.3);
+    [1.05,2.05,3.05].forEach(function(ly, j){
+      if (ly > tall) return;
+      member([3.95,ly,sz],[5.55,ly,sz],.055,.055,STEEL,1.15+k*.1+j*.05,.3);
+    });
+    member([4.0,.05,sz],[5.5,1.6,sz],.045,.045,STEEL,1.4+k*.1,.3);
+    if (k < 3) face([[3.9,2.08,sz],[5.6,2.08,sz],[5.6,2.08,sz+3.7],[3.9,2.08,sz+3.7]], '#6b6f6b', [0,1,0], 1.6+k*.1);
+  });
+
+  /* --- foreground sawbench, timber, tools --- */
+  var bx = 3.1, bz = 3.5;
+  member([bx-.6,.02,bz],[bx-.34,.76,bz],.06,.06,TIMBER_HI,1.75,.26);
+  member([bx+.6,.02,bz],[bx+.34,.76,bz],.06,.06,TIMBER_HI,1.78,.26);
+  member([bx-.75,.82,bz],[bx+.75,.82,bz],.34,.09,TIMBER,1.84,.3);
+  member([bx-.7,.9,bz],[bx+.7,.9,bz],.28,.3,TIMBER_HI,1.94,.3);
+  member([bx-.7,1.12,bz],[bx+.7,1.12,bz],.24,.28,TIMBER,2.02,.3);
+  (function(){
+    var sx = bx-.28, sy = 1.24;
+    face([[sx-.18,sy,bz-.06],[sx+.18,sy,bz-.06],[sx+.18,sy+.15,bz-.06],[sx-.18,sy+.15,bz-.06]], '#5c6773', [0,0,-1], 2.1);
+    face([[sx-.18,sy,bz+.06],[sx+.18,sy,bz+.06],[sx+.18,sy+.15,bz+.06],[sx-.18,sy+.15,bz+.06]], '#7e8a96', [0,0,1], 2.1);
+    face([[sx-.18,sy+.15,bz-.06],[sx+.18,sy+.15,bz-.06],[sx+.18,sy+.15,bz+.06],[sx-.18,sy+.15,bz+.06]], '#9aa5af', [0,1,0], 2.12);
+    var disc = [], r=.135;
+    for (var d=0; d<16; d++){ var a=d/16*6.283; disc.push([sx+.02+Math.cos(a)*r, sy+.09+Math.sin(a)*r, bz-.065]); }
+    face(disc, '#b9c2c9', [0,0,-1], 2.16);
+  })();
+  (function(){
+    var hx = bx+.34, hy = 1.26, ring = [];
+    for (var d=0; d<12; d++){ var a=d/12*6.283; ring.push([hx+Math.cos(a)*.13, hy, bz+Math.sin(a)*.1]); }
+    face(ring, '#d9dee2', [0,1,0], 2.22);
+    face([[hx-.09,hy,bz-.01],[hx+.09,hy,bz-.01],[hx,hy+.12,bz-.01]], '#eef1f3', [0,0,-1], 2.24);
+  })();
+  member([bx-1.0,.03,bz-.3],[bx-.62,1.0,bz-.3],.075,.05,'#d7b23f',2.2,.3);
+  [[-.2,1.9],[-.16,1.75],[-.24,1.6]].forEach(function(o, k){
+    member([bx-1.5,o[0]+.06,bz+1.2],[bx-1.5+.9,o[0]+.06,bz+1.1],.14,.16,TIMBER_HI,2.3+k*.06,.25);
+  });
+  member([1.2,.02,2.1],[2.0,.02,2.35],.05,.05,'#c9cdd1',2.4,.22);
+
+  var LIGHT = (function(){ var l=[-.5,.74,-.44], m=Math.hypot(l[0],l[1],l[2]); return [l[0]/m,l[1]/m,l[2]/m]; })();
+  function shade(t, lit){ return lit>=1 ? P.mix(t,'#ffffff',(lit-1)*.5) : P.mix(t,'#0a121b',(1-lit)*.72); }
+
+  function memberFaces(m, k){
+    var b=[m.a[0]+(m.b[0]-m.a[0])*k, m.a[1]+(m.b[1]-m.a[1])*k, m.a[2]+(m.b[2]-m.a[2])*k];
+    var dx=b[0]-m.a[0], dy=b[1]-m.a[1], len=Math.hypot(dx,dy)||1;
+    var ux=dx/len, uy=dy/len, nx=-uy*m.w/2, ny=ux*m.w/2, dz=m.d/2, z=m.a[2];
+    var a0=[m.a[0]-nx,m.a[1]-ny], a1=[m.a[0]+nx,m.a[1]+ny], b0=[b[0]-nx,b[1]-ny], b1=[b[0]+nx,b[1]+ny];
+    return [
+      [[a0[0],a0[1],z+dz],[b0[0],b0[1],z+dz],[b1[0],b1[1],z+dz],[a1[0],a1[1],z+dz],[ux,uy,dz]],
+      [[a1[0],a1[1],z-dz],[b1[0],b1[1],z-dz],[b0[0],b0[1],z-dz],[a0[0],a0[1],z-dz],[-ux,-uy,-dz]],
+      [[a0[0],a0[1],z-dz],[b0[0],b0[1],z-dz],[b0[0],b0[1],z+dz],[a0[0],a0[1],z+dz],[-ux,-uy,0]],
+      [[a1[0],a1[1],z-dz],[b1[0],b1[1],z-dz],[b1[0],b1[1],z+dz],[a1[0],a1[1],z+dz],[ux,uy,0]]
+    ];
+  }
+
+  function paint(t){
+    var ctx = S.ctx;
+    var sky = ctx.createLinearGradient(0,0,0,S.H);
+    sky.addColorStop(0,'#0a121c'); sky.addColorStop(.48,'#132030'); sky.addColorStop(1,'#1b2a37');
+    ctx.fillStyle = sky; ctx.fillRect(0,0,S.W,S.H);
+
+    var glow = ctx.createLinearGradient(0,S.horizon-S.H*.34,0,S.horizon+S.H*.14);
+    glow.addColorStop(0,'rgba(201,118,46,0)'); glow.addColorStop(.7,'rgba(201,118,46,.20)'); glow.addColorStop(1,'rgba(201,118,46,.02)');
+    ctx.fillStyle = glow; ctx.fillRect(0,S.horizon-S.H*.34,S.W,S.H*.48);
+
+    var lit = [], j, q, p, sum, mapped;
+    function push(pts, tone, n, t0){
+      if (t < t0) return;
+      mapped=[]; sum=0;
+      for (q=0;q<pts.length;q++){ p=S.project(pts[q][0],pts[q][1],pts[q][2]); if(!p) return; mapped.push(p); sum+=p[2]; }
+      lit.push({pts:mapped, tone:tone, n:n, dz:sum/mapped.length});
+    }
+    for (j=0;j<faces.length;j++) push(faces[j].pts, faces[j].tone, faces[j].n, faces[j].t0);
+    for (j=0;j<parts.length;j++){
+      var mm=parts[j], kk=(t-mm.t0)/mm.dur;
+      if (kk<=0) continue;
+      kk = kk>=1 ? 1 : 1-Math.pow(1-kk,3);
+      var fs = memberFaces(mm,kk);
+      for (q=0;q<fs.length;q++) push(fs[q].slice(0,-1), mm.tone, fs[q][fs[q].length-1], 0);
+    }
+    for (j=0;j<lit.length;j++){
+      var it=lit[j], nx=it.n[0], ny=it.n[1], nz=it.n[2], nm=Math.hypot(nx,ny,nz)||1;
+      var d=(nx/nm)*LIGHT[0]+(ny/nm)*LIGHT[1]+(nz/nm)*LIGHT[2];
+      it.fill = P.mix(shade(it.tone, .55+.6*Math.max(0,d)), '#16222f', S.fog(it.dz)*.62);
+    }
+    lit.sort(function(a,b){ return b.dz-a.dz; });
+    for (j=0;j<lit.length;j++){
+      var f=lit[j].pts; ctx.beginPath(); ctx.moveTo(f[0][0],f[0][1]);
+      for (q=1;q<f.length;q++) ctx.lineTo(f[q][0],f[q][1]);
+      ctx.closePath(); ctx.fillStyle=lit[j].fill; ctx.fill();
+    }
+
+    for (j=0;j<34;j++){
+      var mx=((j*37)%100)/100, mz=.16+((j*53)%100)/100;
+      var px=mx*S.W + Math.sin(t*.5+j)*8, py=S.horizon - ((j*29)%100)/100*S.H*.55 - 12;
+      ctx.fillStyle='rgba(226,160,90,'+(.10+.16*mz)+')';
+      ctx.beginPath(); ctx.arc(px,py,.9+mz*1.4,0,6.283); ctx.fill();
+    }
+    var vg=ctx.createRadialGradient(S.W*.5,S.H*.55,S.H*.3,S.W*.5,S.H*.55,S.W*.85);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(4,9,15,.55)');
+    ctx.fillStyle=vg; ctx.fillRect(0,0,S.W,S.H);
+  }
+
+  if (P.reduced()){
+    S.resize(); paint(3.2);
+    window.addEventListener('resize', function(){ S.resize(); paint(3.2); });
+  } else {
+    S.frame(function(t){
+      S.camY = 1.52 + Math.sin(t*.28)*.03;
+      S.camX = Math.sin(t*.13)*.16;
+      S.yaw = Math.sin(t*.11)*.035;
+      paint(Math.min(t, 4.2));
+    });
+  }
+})();
+</script>
+<script>
+/* reveal + year + quote form */
+(function(){
+  var rvs = [].slice.call(document.querySelectorAll('.rv'));
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -10% 0px', threshold:.08});
+    rvs.forEach(function(el){ io.observe(el); });
+  } else { rvs.forEach(function(el){ el.classList.add('on'); }); }
+  setTimeout(function(){ rvs.forEach(function(el){ el.classList.add('on'); }); }, 700);
+
+  var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+
+  var f = document.getElementById('quoteForm'); if (!f) return;
+  var st = document.getElementById('q-status'), btn = f.querySelector('button[type=submit]');
   function base(cb){
     if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
-    var done = false;
-    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    var FB = 'https://grocery-periodically-everyone-wine.trycloudflare.com', done = false;
+    var t = setTimeout(function(){ if(!done){ done=true; cb(FB); } }, 2500);
     fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
       .then(function(r){ return r.text(); })
       .then(function(txt){
-        var b = (txt||'').trim().replace(/\/+$/, '');
-        if (done) return;
-        done = true; clearTimeout(t);
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+        var b = (txt||'').trim().replace(/\/+$/,'');
+        if (done) return; done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : FB);
       })
-      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+      .catch(function(){ if(!done){ done=true; clearTimeout(t); cb(FB); } });
   }
-  function init(){
-    var f = document.getElementById('lbq-form');
-    if (!f) return;
-    var st = document.getElementById('lbq-st');
-    var btn = f.querySelector('button[type=submit]');
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      var d = {};
-      new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;
-      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
-        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
-        st.style.color = '#ff9d8a';
-        return;
-      }
-      btn.disabled = true;
-      st.textContent = 'Sending…';
-      st.style.color = '';
-      base(function(B){
-        var url = B + '/functions/v1/quote-request';
-        fetch(url, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({
-            site_id: f.dataset.site || '',
-            business_name: f.dataset.biz || '',
-            name: d.name, phone: d.phone, email: d.email,
-            service: d.service || '', message: d.message,
-            consent: !!d.consent
-          })
-        })
-        .then(function(r){ return r.json().catch(function(){ return {}; }); })
-        .then(function(x){
-          if (x && x.success) {
-            f.reset();
-            st.textContent = "Thanks - your request is in. We'll be in touch shortly.";
-            st.style.color = 'var(--lbq-accent)';
-          } else {
-            throw new Error((x && x.error) || 'Could not send');
-          }
-        })
-        .catch(function(err){
-          st.textContent = (err && err.message) ? err.message : 'Could not send - please try again or call.';
-          st.style.color = '#ff9d8a';
-        })
-        .finally(function(){ btn.disabled = false; });
-      });
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = {}; new FormData(f).forEach(function(v,k){ d[k]=v; });
+    if (d.website) return;
+    if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()){
+      st.textContent = 'Add your name, a phone or email, and a few words about the job.';
+      st.style.color = '#b3261e'; return;
+    }
+    btn.disabled = true; st.style.color = ''; st.textContent = 'Sending&hellip;';
+    base(function(B){
+      fetch(B + '/functions/v1/quote-request', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({site_id:f.dataset.site, business_name:f.dataset.biz, name:d.name,
+          phone:d.phone, email:d.email, service:d.service||'', message:d.message, consent:!!d.consent})
+      })
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(x){
+        if (x && x.success){ f.reset(); st.style.color = '#3a6b3f';
+          st.textContent = "Thanks — that's in. We'll be in touch shortly."; }
+        else throw new Error((x && x.error) || 'Could not send');
+      })
+      .catch(function(err){
+        st.style.color = '#b3261e';
+        st.textContent = (err && err.message) ? err.message : 'Could not send — please call 0405 543 822.';
+      })
+      .finally(function(){ btn.disabled = false; });
     });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-})();
-</script>
-</section>
-
-
-<script>
-/* ---- page glue (reveal + nav) preserved through the scene retrofit ---- */
-(function(){var rvs=[].slice.call(document.querySelectorAll('.rv'));
-if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{rootMargin:'0px 0px -12% 0px',threshold:0.08});rvs.forEach(function(el){io.observe(el);});}else{rvs.forEach(function(el){el.classList.add('on');});}
-setTimeout(function(){document.querySelectorAll('.rv:not(.on)').forEach(function(el){el.classList.add('on');});},420);
-var b=document.getElementById('burger'),n=document.getElementById('navlinks');if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});}var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();})();
-</script>
-
-
-
-<div class="lb-pulse" aria-hidden="true"></div>
-<script>/* herocopy-failsafe 2026-10-14 */setTimeout(function(){var hc=document.getElementById('heroCopy')||document.querySelector('.hero-copy');if(hc){var o=parseFloat(getComputedStyle(hc).opacity||'1');if(o<0.08){hc.style.opacity='1';}var guard=0;var t=setInterval(function(){guard++;var oo=parseFloat(getComputedStyle(hc).opacity||'1');if(oo<0.08&&guard<12){hc.style.opacity='1';}if(guard>=12){clearInterval(t);}} ,800);}},900);</script>
-<script id="lb-motion-js">
-/* LB MOTION PACK v1 */
-(function(){
-  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sel = 'section > *, main > *, .sec-head, .cards > *, .grid > *, .faq details, .gal figure, .gallery figure';
-  var els = [].slice.call(document.querySelectorAll(sel)).filter(function(e){
-    if (e.closest && e.closest('.lb-rb')) return false;
-    if (e.tagName === 'SCRIPT' || e.tagName === 'STYLE') return false;
-    var r = e.getBoundingClientRect();
-    return r.width > 40 && r.height > 20;
   });
-  els.forEach(function(e, i){ e.classList.add('lb-rv'); e.style.transitionDelay = ((i % 6) * 55) + 'ms'; });
-  if (rm || !('IntersectionObserver' in window)) {
-    els.forEach(function(e){ e.classList.add('is-in'); });
-  } else {
-    var io = new IntersectionObserver(function(en){
-      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
-    els.forEach(function(e){ io.observe(e); });
-    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
-  }
-  var rb = document.querySelector('.lb-rb');
-  if (!rb) return;
-  var slides = [].slice.call(rb.querySelectorAll('.lb-rb__slide'));
-  if (slides.length < 2) return;
-  var dots = [].slice.call(rb.querySelectorAll('.lb-rb__dots button'));
-  var i = 0, timer = null, DUR = 5600;
-  function go(n){
-    i = (n + slides.length) % slides.length;
-    slides.forEach(function(s, k){ s.classList.toggle('is-on', k === i); });
-    dots.forEach(function(d, k){ d.classList.toggle('is-on', k === i); });
-  }
-  function play(){ if (rm) return; stop(); timer = setInterval(function(){ go(i + 1); }, DUR); }
-  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
-  dots.forEach(function(d, k){ d.addEventListener('click', function(){ go(k); play(); }); });
-  var pv = rb.querySelector('.lb-rb__nav--prev'), nx = rb.querySelector('.lb-rb__nav--next');
-  if (pv) pv.addEventListener('click', function(){ go(i - 1); play(); });
-  if (nx) nx.addEventListener('click', function(){ go(i + 1); play(); });
-  rb.addEventListener('mouseenter', stop); rb.addEventListener('mouseleave', play);
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function(en){ en.forEach(function(x){ x.isIntersecting ? play() : stop(); }); },
-      { threshold: 0.25 }).observe(rb);
-  } else { play(); }
-  go(0);
 })();
 </script>
-<script id="lb-hero-js">
-/* LB HERO v2 - depth field (aurora + perspective grid + parallax motes). No literal objects. */
-(function(){
-  var cv = document.querySelector('#heroCanvas, .hero-canvas, .lb3d-canvas, .hero-canvas-bg, canvas[data-hero], header canvas, .hero canvas');
-  if (!cv) return;
-  var ctx = cv.getContext('2d'); if (!ctx) return;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W = 0, H = 0, dpr = 1, t = 0, raf = null, visible = true;
-  function accent(){
-    var v = getComputedStyle(document.documentElement).getPropertyValue('--acc')
-         || getComputedStyle(document.documentElement).getPropertyValue('--accent');
-    v = (v || '').trim(); return /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(v) ? v : '#e51924';
-  }
-  function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
-    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
-  var ACC = hex2rgb(accent());
-  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
-    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
-    return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
-
-  function size(){
-    var r = cv.getBoundingClientRect();
-    dpr = Math.min(2, window.devicePixelRatio || 1);
-    W = Math.max(320, r.width || cv.clientWidth || window.innerWidth);
-    H = Math.max(240, r.height || cv.clientHeight || window.innerHeight);
-    cv.width = Math.round(W*dpr); cv.height = Math.round(H*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-
-  // deterministic depth motes
-  var N = 46, motes = [];
-  var seed = 20261019;
-  function rnd(){ seed = (seed*1103515245 + 12345) % 2147483648; return seed/2147483648; }
-  for (var i=0;i<N;i++) motes.push({x:rnd(), y:rnd(), z:0.25+rnd()*0.75, s:0.6+rnd()*1.9, p:rnd()*6.283});
-
-  function draw(){
-    var isDark = dark();
-    var base = isDark ? [10,11,14] : [248,249,251];
-    var ink  = isDark ? [255,255,255] : [12,14,18];
-    var g = ctx.createLinearGradient(0,0,0,H);
-    g.addColorStop(0, 'rgb('+base.join(',')+')');
-    g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
-    g.addColorStop(1, 'rgb('+base.join(',')+')');
-    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
-
-    // aurora: two slow, wide ribbons of the brand colour
-    for (var k=0;k<2;k++){
-      var cx = W*(0.30 + 0.34*k + 0.05*Math.sin(t*0.00013 + k*2.1));
-      var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
-      var rad = Math.max(W,H)*(0.46 + 0.13*k);
-      var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
-      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
-      rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
-      rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
-      rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
-      ctx.fillStyle = rg; ctx.fillRect(0,0,W,H);
-    }
-
-    // perspective floor: clean architectural depth, not blocks
-    var hz = H*0.70, vpx = W*0.5;
-    ctx.lineWidth = 1;
-    for (var j=-9;j<=9;j++){
-      var fx = vpx + j*(W/9)*1.5;
-      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
-      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
-      ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
-    }
-    for (var r=1;r<=9;r++){
-      var y = hz + Math.pow(r/9, 2.15)*(H-hz+4);
-      ctx.strokeStyle = 'rgba('+ACC.join(',')+','+((isDark?0.13:0.10)*(1-r/11)).toFixed(3)+')';
-      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
-    }
-    var hg = ctx.createLinearGradient(0,hz-70,0,hz+70);
-    hg.addColorStop(0,'rgba('+ACC.join(',')+',0)');
-    hg.addColorStop(0.5,'rgba('+ACC.join(',')+','+(isDark?0.16:0.11)+')');
-    hg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
-    ctx.fillStyle = hg; ctx.fillRect(0,hz-70,W,140);
-
-    // depth motes: size + opacity track z, slow parallax drift
-    for (var q=0;q<motes.length;q++){
-      var m = motes[q];
-      var y = ((m.y + t*0.0000075*m.z) % 1);
-      var x = m.x + 0.016*Math.sin(t*0.00022*m.z + m.p);
-      var px = x*W, py = y*H;
-      var a2 = (isDark?0.42:0.30) * m.z * (0.55 + 0.45*Math.sin(t*0.0011 + m.p));
-      if (a2 <= 0) continue;
-      ctx.fillStyle = 'rgba('+ink.join(',')+','+a2.toFixed(3)+')';
-      ctx.beginPath(); ctx.arc(px, py, m.s*(0.6+m.z*0.9), 0, 6.283); ctx.fill();
-    }
-
-    // vignette to seat the copy
-    var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
-    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
-    ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
-  }
-
-  function loop(ts){ if (ts) t = ts; if (visible) draw(); raf = requestAnimationFrame(loop); }
-  size(); draw();
-  window.addEventListener('resize', function(){ size(); draw(); });
-  if (!reduce && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:0.02}).observe(cv);
-  }
-  document.addEventListener('visibilitychange', function(){ visible = !document.hidden && document.visibilityState === 'visible'; });
-  if (!reduce) raf = requestAnimationFrame(loop); 
-})();
-</script>
-<style>
-/* ==== LB HEADER TRUTH: fail-safe visibility (never ship an invisible header) ==== */
-header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
-.lb-brand,.lb-brand *,.lb-brand__mark,.lb-brand__word{
-  opacity:1 !important;visibility:visible !important}
-.lb-rv,.rv,[data-rv]{animation:lbForceIn .001s 2.5s forwards !important}
-@keyframes lbForceIn{to{opacity:1 !important;transform:none !important}}
-#sigSplash,#splash,.sp{animation:lbKillSplash .001s 2.5s forwards !important}
-@keyframes lbKillSplash{to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}}
-</style>
-
-
-<style>/* ==== LB HEADER TRUTH ==== */
-.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
-  align-items:center !important;flex-wrap:nowrap !important}
-.lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
-  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
-.lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
-  max-width:100% !important;object-fit:contain !important}
-.lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;
-  min-width:0 !important;overflow:visible !important}
-@media(max-width:700px){
-  .lb-brand__mark{height:32px !important;max-width:40vw !important}
-  .lb-brand__word{font-size:.92em !important}
-}
-</style>
-
-<style>/* ==== LB HEADER POLISH 2 ==== */
-header nav a:not(.btn):not([class*="btn"]):not([class*="cta"]),
-.site-header nav a:not(.btn):not([class*="btn"]),
-.header-inner nav a:not(.btn):not([class*="btn"]),
-nav.nav a:not(.btn):not([class*="btn"]),
-.nav-inner a:not(.btn):not([class*="btn"]),
-header a[href^="tel"],.site-header a[href^="tel"]{
-  color:var(--lb-name,currentColor) !important;
-  opacity:1 !important;
-}
-.lb-brand__sub:empty{display:none !important}
-</style>
-<style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,.lb-pulse{display:none !important}
-letter-spacing: 0.07em on body text{letter-spacing:normal !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-letter-spacing: 0.16em on body text{letter-spacing:normal !important}
-letter-spacing: 0.22em on body text{letter-spacing:normal !important}
-11.52px body text{font-size:max(15px,1em)}
-
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
-  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
-small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
-p,li{line-height:1.55}
-section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
-
-</style>
 </body>
 </html>
