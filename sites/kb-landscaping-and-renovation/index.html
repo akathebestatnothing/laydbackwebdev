@@ -199,6 +199,68 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
+<style id="repair-v3">
+/* ============ ONE PAGE GRID ============ */
+:root{--page:1160px;--cream:#f4f1e7;--cream-dim:#cbc4b6;--stone:#8b8271}
+.container{max-width:var(--page);padding-inline:1.5rem}
+.section{padding-block:clamp(3.25rem,5vw,5rem)}
+.header-inner{max-width:var(--page);height:auto;min-height:82px;padding:0 1.5rem;gap:1.5rem}
+.lb-brand{flex:0 0 auto;overflow:visible;align-items:center}
+.lb-brand__name{font-size:clamp(16px,1.3vw,21px)!important;white-space:nowrap;overflow:visible;text-overflow:clip;line-height:1}
+.lb-brand__mark{height:clamp(32px,2.7vw,42px)!important;max-width:none!important}
+.header-inner>nav{margin-left:auto;flex:0 1 auto}
+nav ul{gap:clamp(15px,1.9vw,30px);align-items:center}
+nav a{white-space:nowrap;padding:.4rem 0}
+.header-inner>.cta-btn{flex:0 0 auto;margin-left:clamp(16px,2vw,30px)}
+@media (max-width:1080px){nav ul{gap:15px}.lb-brand__name{font-size:15.5px!important}.lb-brand__mark{height:30px!important}}
+@media (max-width:900px){
+  .header-inner{flex-wrap:wrap;gap:.55rem 1rem;padding-block:.7rem}
+  .header-inner>nav{order:3;width:100%;margin-left:0}
+  nav ul{width:100%;justify-content:space-between;gap:.5rem}
+  nav a{font-size:.8125rem}
+  .header-inner>.cta-btn{margin-left:auto}
+}
+@media (max-width:520px){
+  .lb-brand__name{font-size:14px!important;white-space:normal;line-height:1.1;text-align:left}
+  .header-inner>.cta-btn{padding:.5rem .7rem;font-size:.8125rem}
+}
+/* ============ HERO ============ */
+.hero{position:relative;isolation:isolate;display:block!important;align-items:stretch!important;
+  min-height:clamp(520px,64vh,660px)!important;max-height:none!important;
+  background:#141310!important;color:var(--cream);
+  padding:clamp 0!important;
+  padding-top:clamp(3.25rem,6vw,6rem)!important;padding-bottom:clamp(2.75rem,4.5vw,4.25rem)!important;overflow:hidden}
+.hero__art{position:absolute;inset:0;z-index:0;display:block}
+.hero__art svg{width:100%;height:100%;display:block}
+.hero__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(96deg,rgba(15,14,11,.95) 0%,rgba(15,14,11,.9) 34%,rgba(15,14,11,.62) 56%,rgba(15,14,11,.22) 78%,rgba(15,14,11,.1) 100%)}
+.hero>.container{position:relative;z-index:2}
+.hero__copy{max-width:37rem}
+.hero .eyebrow{font-family:"Chivo Mono",ui-monospace,monospace;font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#e6b3a2;margin:0 0 1rem;font-weight:500;display:flex;align-items:center;gap:.7rem}
+.hero .eyebrow:before{content:"";width:26px;height:1px;background:#e6b3a2;display:block;flex:0 0 auto}
+.hero h1{color:var(--cream);margin:0 0 1.1rem;font-size:clamp(2.1rem,4vw,3.4rem)!important;line-height:1.06!important;letter-spacing:-.03em;max-width:32ch}
+.hero__sub{color:var(--cream-dim);font-size:clamp(1.05rem,.98rem+.4vw,1.22rem);line-height:1.6;max-width:44ch;margin:0 0 1.9rem}
+.hero__btns{display:flex;gap:.85rem;flex-wrap:wrap}
+.hero .cta-btn.ghost{background:transparent;border:2px solid rgba(244,241,231,.55);color:var(--cream)}
+.hero .cta-btn.ghost:hover{background:rgba(244,241,231,.1);border-color:var(--cream)}
+.hero__stats{display:flex;flex-wrap:wrap;gap:.6rem 1.9rem;margin:2.4rem 0 0;padding:1.15rem 0 0;list-style:none;
+  border-top:1px solid rgba(244,241,231,.18);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#b0a897}
+.hero__stats li{display:flex;align-items:center;gap:.5rem}
+.hero__stats li:before{content:"";width:5px;height:5px;border-radius:50%;background:#9fae83;flex:0 0 auto}
+/* carousel: no empty black slab, controls not stacked on arrows */
+.lb-rb__track{aspect-ratio:16/6.2}
+.lb-rb__slide{background-image:radial-gradient(120% 130% at 50% 145%,#39482f 0%,#212a1c 38%,#12140f 68%,#0b0c10 100%)!important}
+.lb-rb__slide span{max-width:20ch}
+.lb-rb__dots{top:auto;bottom:clamp(52px,6vw,66px);right:auto;left:50%;transform:translateX(-50%);flex-direction:row;gap:0}
+.lb-rb__dots{gap:9px}
+.lb-rb__dots button{width:8px;height:8px}
+/* footer */
+footer .lb-legal{grid-column:1/-1;display:flex;gap:1.4rem;margin-top:.35rem;padding-top:1rem;border-top:1px solid rgba(244,241,231,.14);font-size:.8125rem}
+footer .lb-legal a{color:#a3aebf;text-decoration:underline;text-underline-offset:3px}
+footer .container{row-gap:1rem;align-items:start}
+footer .logo{font-size:1rem}
+</style>
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 </head>
 <body>
@@ -218,23 +280,75 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 </header>
 <main>
-  <section class="section hero" aria-labelledby="hero-title">
+  <sectionrot class="section hero" aria-labelledby="hero-title">
+    <div class="hero__art" aria-hidden="true">
+      <svg viewBox="0 0 1440 720" preserveAspectRatio="xMidYMax slice" role="presentation" focusable="false">
+        <defs>
+          <linearGradient id="kbSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#141310"/><stop offset=".52" stop-color="#251c17"/><stop offset="1" stop-color="#40301f"/>
+          </linearGradient>
+          <radialGradient id="kbSun" cx=".5" cy=".5" r=".5">
+            <stop offset="0" stop-color="#e0a06f" stop-opacity=".55"/><stop offset="1" stop-color="#e0a06f" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="kbVig" cx=".62" cy=".45" r=".85">
+            <stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/>
+          </radialGradient>
+        </defs>
+        <rect width="1440" height="720" fill="url(#kbSky)"/>
+        <circle cx="1128" cy="196" r="210" fill="url(#kbSun)"/>
+        <circle cx="1128" cy="196" r="64" fill="#d99b6b" opacity=".22"/>
+        <path d="M0 402 C 210 356 400 392 622 372 C 848 352 1042 386 1440 352 L1440 720 L0 720 Z" fill="#33422c" opacity=".9"/>
+        <path d="M0 402 C 210 356 400 392 622 372 C 848 352 1042 386 1440 352" stroke="#96907c" stroke-width="6" fill="none" opacity=".38"/>
+        <path d="M0 476 C 236 440 486 470 742 448 C 992 426 1214 458 1440 430 L1440 720 L0 720 Z" fill="#2b3725"/>
+        <path d="M0 476 C 236 440 486 470 742 448 C 992 426 1214 458 1440 430" stroke="#8d8570" stroke-width="8" fill="none" opacity=".5"/>
+        <g fill="#6d6552" opacity=".55">
+          <rect x="742" y="452" width="58" height="26" rx="2"/><rect x="806" y="449" width="58" height="26" rx="2"/>
+          <rect x="870" y="446" width="58" height="26" rx="2"/><rect x="934" y="443" width="58" height="26" rx="2"/>
+          <rect x="998" y="440" width="58" height="26" rx="2"/><rect x="1062" y="437" width="58" height="26" rx="2"/>
+        </g>
+        <path d="M0 560 C 260 528 520 556 788 534 C 1024 514 1236 542 1440 518 L1440 720 L0 720 Z" fill="#232c1e"/>
+        <path d="M0 560 C 260 528 520 556 788 534 C 1024 514 1236 542 1440 518" stroke="#877f6b" stroke-width="9" fill="none" opacity=".55"/>
+        <g fill="#8e8873" opacity=".62">
+          <rect x="1012" y="530" width="96" height="12" rx="2"/><rect x="1022" y="546" width="96" height="12" rx="2"/>
+          <rect x="1032" y="562" width="96" height="12" rx="2"/><rect x="1042" y="578" width="96" height="12" rx="2"/>
+          <rect x="1052" y="594" width="96" height="12" rx="2"/><rect x="1062" y="610" width="96" height="12" rx="2"/>
+        </g>
+        <path d="M0 646 C 300 620 610 646 906 626 C 1120 612 1300 630 1440 614 L1440 720 L0 720 Z" fill="#1a2217"/>
+        <g fill="#4c6b3f">
+          <ellipse cx="1216" cy="596" rx="62" ry="30"/><ellipse cx="1300" cy="608" rx="48" ry="24"/>
+          <ellipse cx="1128" cy="606" rx="40" ry="22"/><ellipse cx="1400" cy="588" rx="56" ry="26"/>
+        </g>
+        <g fill="#6d8b59">
+          <ellipse cx="1188" cy="580" rx="34" ry="19"/><ellipse cx="1258" cy="588" rx="30" ry="17"/>
+          <ellipse cx="1348" cy="576" rx="36" ry="18"/>
+        </g>
+        <g stroke="#8fa878" stroke-width="4" stroke-linecap="round" opacity=".8">
+          <path d="M1188 596 L1182 566"/><path d="M1216 600 L1216 562"/><path d="M1258 592 L1266 566"/><path d="M1348 582 L1356 556"/>
+        </g>
+        <g fill="#33422c" opacity=".85">
+          <ellipse cx="160" cy="640" rx="72" ry="26"/><ellipse cx="70" cy="652" rx="58" ry="20"/>
+        </g>
+        <g fill="#7f9a6c" opacity=".9">
+          <ellipse cx="180" cy="620" rx="30" ry="15"/><ellipse cx="96" cy="628" rx="24" ry="13"/>
+        </g>
+        <rect width="1440" height="720" fill="url(#kbVig)"/>
+      </svg>
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
     <div class="container">
-      <div class="rv" style="transition-delay:60ms">
-        <p class="mono" style="color:var(--accent);margin-bottom:.5rem;font-weight:500">Landscaping & Renovation</p>
+      <div class="hero__copy">
+        <p class="eyebrow">Landscaping &amp; Renovation · Canberra ACT</p>
         <h1 id="hero-title">KB Landscaping and Renovation</h1>
-      </div>
-      <div class="rv" style="transition-delay:140ms">
-        <p style="font-size:clamp(1.125rem,1rem+0.6vw,1.375rem);color:var(--muted);max-width:55ch;margin-top:.5rem">Terraced gardens, retaining walls, and outdoor living — built for Canberra conditions.</p>
-      </div>
-      <div class="rv" style="transition-delay:220ms">
-        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem">
+        <p class="hero__sub">Terraced gardens, retaining walls, and outdoor living — built for Canberra conditions.</p>
+        <div class="hero__btns">
           <a href="#lbq-form" class="cta-btn">Request a Quote</a>
-          <a href="tel:0405655553" class="cta-btn" style="background:transparent;border:2px solid var(--accent);color:var(--accent)">Call <span class="mono">0405655553</span></a>
+          <a href="tel:0405655553" class="cta-btn ghost">Call <span class="mono">0405655553</span></a>
         </div>
-      </div>
-      <div class="rv" style="transition-delay:300ms;margin-top:3rem">
-        <canvas id="detailCanvas" aria-hidden="true" style="width:100%;max-width:720px;height:auto;aspect-ratio:4/3;border:1px solid var(--line);border-radius:8px;background:var(--panel)"></canvas>
+        <ul class="hero__stats">
+          <li>ACTPLA registered</li>
+          <li>Fully insured</li>
+          <li>12-month check-in</li>
+        </ul>
       </div>
     </div>
   </section><section class="section" id="services" aria-labelledby="services-title">
