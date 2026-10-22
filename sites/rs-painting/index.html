@@ -40,7 +40,7 @@ h1,h2,h3{font-weight:600;line-height:1.1}
 header{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;backdrop-filter:blur(8px)}
 .bar{height:var(--bar);display:flex;align-items:center;gap:var(--s4);padding:0 var(--pad);max-width:1240px;margin:0 auto}
 .lb-brand{display:inline-flex;align-items:center;gap:11px;flex:0 0 auto;min-width:0;--lb-name:#f3f5f8}
-.lb-brand__mark{width:44px;height:44px;flex:0 0 auto;background:var(--cream);border-radius:5px;padding:4px;display:grid;place-items:center}
+.lb-brand__mark{width:52px;height:52px;flex:0 0 auto;background:var(--cream);border-radius:5px;padding:3px;display:grid;place-items:center}
 .lb-brand__mark img{width:100%;height:100%;object-fit:contain}
 .lb-brand__word{display:flex;align-items:baseline;gap:9px;white-space:nowrap;min-width:0}
 .lb-brand__name{font-family:var(--d);font-size:clamp(17px,1.5vw,21px);font-weight:700;letter-spacing:-.01em;color:var(--lb-name);line-height:1}
@@ -49,7 +49,20 @@ header{background:var(--bg);border-bottom:1px solid var(--line);position:sticky;
 .nav-links a{font-size:var(--t2);color:var(--mut);padding:6px 0;border-bottom:1px solid transparent}
 .nav-links a:hover{color:var(--ink);border-color:var(--gold)}
 .tel{display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;background:var(--gold);color:#141a26;font-weight:700;font-size:var(--t2);padding:11px 17px;border-radius:4px;transition:background .18s ease}
-.tel:0412014156"";width:34px;height:1px;background:var(--gold)}
+.tel:hover{background:var(--gold-lt)}
+.tel span{white-space:nowrap}
+
+/* hero */
+.hero{position:relative;isolation:isolate;display:flex;align-items:center;overflow:hidden;
+  min-height:clamp(560px,74vh,780px);padding:calc(var(--bar) + var(--s4)) 0 var(--s6)}
+#heroCanvas{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;pointer-events:none}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(11,17,25,.95) 0%,rgba(11,17,25,.88) 38%,rgba(11,17,25,.55) 62%,rgba(11,17,25,.18) 100%)}
+.hero-in{position:relative;z-index:2;width:100%}
+.hero-in>*{max-width:660px}
+.kick{display:inline-flex;align-items:center;gap:11px;font-size:var(--t1);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold-lt);margin-bottom:var(--s3)}
+.kick::before{content:"";width:34px;height:1px;background:var(--gold)}
 .hero h1{font-family:var(--d);font-size:var(--t6);letter-spacing:-.025em;max-width:15ch}
 .hero h1 em{font-style:normal;color:var(--gold-lt)}
 .hero p.lede{margin-top:var(--s3);max-width:47ch;color:#d7dde5;font-size:var(--t4);line-height:1.5}
@@ -72,10 +85,10 @@ section{padding:var(--s7) 0}
 @media(max-width:760px){.sec-head{display:block}.sec-head p{text-align:left;margin-top:var(--s2)}}
 
 /* work */
-.work-grid{display:grid;grid-template-columns:1.42fr 1fr;grid-template-rows:auto auto;gap:var(--s3)}
+.work-grid{display:grid;grid-template-columns:1.42fr 1fr;grid-template-rows:1fr 1fr;gap:var(--s3)}
 .work-grid figure{position:relative;overflow:hidden;background:var(--bg2)}
 .work-grid figure:first-child{grid-row:span 2;aspect-ratio:4/5}
-.work-grid figure:nth-child(2),.work-grid figure:nth-child(3){aspect-ratio:16/10}
+.work-grid figure:nth-child(2),.work-grid figure:nth-child(3){height:100%}
 .work-grid img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
 .work-grid figure:hover img{transform:scale(1.03)}
 .work-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:var(--s3) var(--s3) var(--s2);background:linear-gradient(transparent,rgba(8,11,16,.9));font-size:var(--t1);color:#d3dae2}
@@ -102,7 +115,7 @@ section{padding:var(--s7) 0}
 .fact h3{font-family:var(--d);font-size:var(--t4);letter-spacing:-.01em}
 .fact p{color:var(--mut);font-size:var(--t2);margin-top:5px;max-width:44ch}
 .why-fig{position:sticky;top:calc(var(--bar) + var(--s3));align-self:start}
-.why-fig img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.why-fig img{width:100%;aspect-ratio:1/1;object-fit:cover}
 .why-fig figcaption{font-size:var(--t1);color:var(--mut);margin-top:var(--s2);line-height:1.5}
 @media(max-width:820px){.why-grid{grid-template-columns:1fr;gap:var(--s4)}.why-fig{position:static}}
 
@@ -197,9 +210,9 @@ footer{background:#080d13;border-top:1px solid var(--line);padding:var(--s5) 0 v
         <p>Interiors, exteriors, decks and facades. The prep is what shows up in the finish.</p>
       </div>
       <div class="work-grid">
-        <figure><img src="assets/work_01.jpg" alt="Recently painted interior wall and trim" loading="eager" decoding="async" width="2200" height="2200"><figcaption>Interior repaint, walls and trim</figcaption></figure>
-        <figure><img src="assets/work_02.jpg" alt="Exterior painting work on a Hunter Valley home" loading="lazy" decoding="async" width="2200" height="2200"><figcaption>Exterior, weatherboard prep and coat</figcaption></figure>
-        <figure><img src="assets/work_03.jpg" alt="Painting and surface preparation detail" loading="lazy" decoding="async" width="2200" height="2200"><figcaption>Cut in, sand back, clean edges</figcaption></figure>
+        <figure><img src="assets/work_01.jpg" alt="Recently painted interior wall and trim" loading="eager" decoding="async" width="1400" height="1400"><figcaption>Interior repaint, walls and trim</figcaption></figure>
+        <figure><img src="assets/work_02.jpg" alt="Exterior painting work on a Hunter Valley home" loading="lazy" decoding="async" width="1400" height="1400"><figcaption>Exterior, weatherboard prep and coat</figcaption></figure>
+        <figure><img src="assets/work_03.jpg" alt="Painting and surface preparation detail" loading="lazy" decoding="async" width="1400" height="1400"><figcaption>Cut in, sand back, clean edges</figcaption></figure>
       </div>
     </div>
   </section>
@@ -236,7 +249,7 @@ footer{background:#080d13;border-top:1px solid var(--line);padding:var(--s5) 0 v
           <div class="fact"><h3>Fixed scope, fixed price</h3><p>Scope written and agreed before day one. If something changes, you hear it from us first.</p></div>
         </div>
         <figure class="why-fig">
-          <img src="assets/work_04.jpg" alt="Prepared and painted surface detail" loading="lazy" decoding="async" width="2200" height="2200">
+          <img src="assets/work_04.jpg" alt="Prepared and painted surface detail" loading="lazy" decoding="async" width="1400" height="1400">
           <figcaption>Prep is the job. Sand, fill, prime, cut in, then coat.</figcaption>
         </figure>
       </div>

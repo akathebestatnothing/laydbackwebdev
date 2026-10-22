@@ -57,24 +57,32 @@ ul{margin:0;padding:0;list-style:none}
 .bar__links a{font-size:.79rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.78)}
 .bar__links a:hover{color:#fff}
 .bar__tel{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--navy-deep);font-weight:700;font-size:.86rem;letter-spacing:.02em;padding:.62rem 1rem;border-radius:2px}
-.bar__tel:0404515703"";width:26px;height:2px;background:var(--blue)}
+.bar__tel::before{content:"";width:22px;height:2px;background:var(--blue)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--paper);min-height:clamp(480px,64vh,660px);display:flex;align-items:center}
 h1{font-size:clamp(2.9rem,6.6vw,5.2rem);text-transform:uppercase;letter-spacing:-.015em;color:var(--navy-deep)}
 h1 em{font-style:normal;color:var(--blue)}
+.hero__in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:clamp(2.8rem,6vw,4.4rem) var(--pad)}
+.hero__copy{max-width:600px}
+.hero__kick{display:inline-flex;align-items:center;gap:.62rem;font-size:.72rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--blue);margin-bottom:1.05rem}
+.hero__kick::before{content:"";width:30px;height:2px;background:var(--blue);flex:0 0 auto}
 .hero__sub{margin-top:1.05rem;font-size:clamp(1rem,1.35vw,1.12rem);line-height:1.45;color:var(--ink-2);max-width:38ch}
 .hero__acts{display:flex;flex-wrap:wrap;align-items:center;gap:1.1rem;margin-top:1.7rem}
-.btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;font-weight:700;font-size:.94rem;letter-spacing:.02em;padding:.92rem 1.35rem;border-radius:2px;transition:background .18s ease,transform .18s ease}
+.btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;font-weight:700;font-size:.94rem;letter-spacing:.02em;padding:.92rem 1.35rem;border-radius:2px;white-space:nowrap;transition:background .18s ease,transform .18s ease}
 .btn:hover{background:var(--blue);transform:translateY(-1px)}
-.btn span{font-family:var(--disp);font-size:1.06rem;letter-spacing:.03em;text-transform:uppercase;line-height:1}
+.btn span{font-family:var(--disp);font-size:1.06rem;letter-spacing:.03em;text-transform:uppercase;line-height:1;white-space:nowrap}
 .hero__alt{font-size:.86rem;font-weight:600;color:var(--ink-2);border-bottom:1px solid var(--line);padding-bottom:2px}
 .hero__alt:hover{color:var(--navy);border-color:var(--navy)}
-.hero__media{position:absolute;inset:0 0 0 46%;z-index:1}
+.hero__media{position:absolute;inset:0 0 0 42%;z-index:1}
 .hero__media canvas{display:block;width:100%;height:100%}
-.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(242,241,238,.95) 0%,rgba(242,241,238,.62) 16%,rgba(242,241,238,0) 40%);pointer-events:none}
+.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(242,241,238,.96) 0%,rgba(242,241,238,.55) 14%,rgba(242,241,238,0) 38%);pointer-events:none}
 .hero__cap{position:absolute;right:var(--pad);bottom:1rem;z-index:2;font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(17,21,25,.42)}
 @media(max-width:960px){
-  .hero__in{min-height:0;padding-bottom:clamp(3rem,9vw,4.6rem);align-items:flex-start}
-  .hero__media{inset:0;opacity:.9}
-  .hero__media::after{background:linear-gradient(180deg,rgba(242,241,238,.94) 0%,rgba(242,241,238,.72) 42%,rgba(242,241,238,.28) 100%)}
+  .hero{min-height:0}
+  .hero__in{padding:clamp(2.2rem,8vw,3.2rem) var(--pad) clamp(3rem,9vw,4.4rem)}
+  .hero__media{inset:0;opacity:1}
+  .hero__media::after{background:linear-gradient(180deg,rgba(242,241,238,.96) 0%,rgba(242,241,238,.82) 48%,rgba(242,241,238,.55) 100%)}
   .hero__copy{max-width:100%}
   .hero__cap{display:none}
 }
@@ -191,6 +199,21 @@ button.btn:disabled{opacity:.55;cursor:wait}
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HERO-FINAL--><style id="lb-hero-final">
+.hero{position:relative!important;overflow:hidden!important;display:flex!important;align-items:center!important;min-height:clamp(500px,66vh,660px)!important;max-height:none!important}
+.hero__in,.hero__copy,.hero__sub,.hero__acts,.hero__media,.hero__cap,.hero__kick{min-height:0!important;max-height:none!important}
+.hero>.hero__media{position:absolute!important;inset:0 0 0 46%!important;z-index:1!important;display:block!important}
+.hero__media canvas{position:absolute!important;inset:0!important;top:0!important;left:0!important;z-index:0!important;width:100%!important;height:100%!important;display:block!important}
+.hero__media::after{z-index:1!important}
+.hero>.hero__in{position:relative!important;z-index:2!important;display:block!important}
+.hero__copy{display:block!important}
+.hero__sub{display:block!important}
+.hero__acts{display:flex!important;flex-wrap:wrap!important;align-items:center!important}
+.hero__kick{display:flex!important;align-items:center!important;white-space:nowrap}
+.hero>.hero__cap{z-index:3!important;display:block!important}
+@media(max-width:960px){.hero>.hero__media{inset:0!important}}
+</style><!--/LB-HERO-FINAL-->
 </head>
 <body>
 <a class="skip" href="#services">Skip to content</a>
@@ -296,7 +319,7 @@ button.btn:disabled{opacity:.55;cursor:wait}
       <div class="spec">
         <dl><dt>Material</dt><dd>Non-rusting aluminium with a protective oxide skin, no red rust and no staining down the wall.</dd></dl>
         <dl><dt>Finish</dt><dd>Powder coat rated for UV and salt, matched to Colorbond and Zincalume palettes.</dd></dl>
-        <dl><dt>Weight</dt><dd>A third the weight of steel and still rigid over the span, so the fascia carries less.</dd></dl>
+        <dl><dt>Weight</dt><dd>A third of the weight of steel and still rigid over the span, so the fascia carries less.</dd></dl>
         <dl><dt>Joins</dt><dd>One continuous piece per run, so there is no silicone joint to fail and no callback.</dd></dl>
         <dl><dt>Fire</dt><dd>Non-combustible aluminium, suited to BAL rated blocks around the coast.</dd></dl>
       </div>
@@ -527,7 +550,7 @@ document.documentElement.classList.add('js');
 
   var C = {
     fascia: '#35597f', fasciaTop: '#446c94',
-    alu: '#d8dee6', aluTop: '#f0f3f7', aluShade: '#a9b3c0',
+    alu: '#c9d0da', aluTop: '#e9edf3', aluShade: '#96a1b0',
     wall: '#16304f', wallLow: '#0e2038',
     roof: '#0f253d', bracket: '#9aa5b4'
   };
@@ -579,7 +602,7 @@ document.documentElement.classList.add('js');
 
     for (var i = 0; i < faces.length; i++){
       var f = faces[i], k;
-      var fog = Math.min(0.34, Math.max(0, (f.z - 1.4) * 0.055));
+      var fog = Math.min(0.26, Math.max(0, (f.z - 1.4) * 0.042));
       ctx.beginPath();
       ctx.moveTo(f.pts[0].x, f.pts[0].y);
       for (k = 1; k < 4; k++) ctx.lineTo(f.pts[k].x, f.pts[k].y);

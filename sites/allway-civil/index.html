@@ -59,7 +59,7 @@ a:focus-visible { outline: 2px solid var(--acc-hi); outline-offset: 3px; }
 .nav__links { display: flex; gap: clamp(1rem, 2.4vw, 2rem); list-style: none; margin: 0; padding: 0; }
 .nav__links a { font-size: .78rem; text-transform: uppercase; letter-spacing: .13em; color: var(--mut); transition: color .2s; }
 .nav__links a:hover { color: var(--acc-hi); }
-.nav__cta a { display: inline-flex; align-items: center; gap: .45rem; padding: .58rem 1.15rem; font-size: .8rem; font-weight: 800; text-transform:none; letter-spacing: .07em; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; }
+.nav__cta a { display: inline-flex; align-items: center; gap: .45rem; padding: .58rem 1.15rem; font-size: .8rem; font-weight: 800; text-transform:none; letter-spacing: .07em; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; }
 .nav__cta a:hover { background: var(--acc); color: #fff; border-color: var(--acc); }
 @media (max-width: 680px) { .nav__links { display: none; } .nav__cta { display: none; } }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .8rem 1.5rem; font-size: .86rem; font-weight: 800; text-transform:none; letter-spacing: .07em; border: 0; border-radius: 6px; cursor: pointer; }
@@ -251,7 +251,6 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <nav class="nav" role="navigation" aria-label="Primary">
   <a class="lb-brand" href="#top" aria-label="Allway Civil - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#9e271e;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Allway Civil</span><span class="lb-brand__sub"><span class="lb-acc">Central</span> Coast · Newcastle · Sydney</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
-</a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#machines">Machines</a></li>
@@ -264,32 +263,25 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 </nav>
 
-<header id="top"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
-<!-- LB-3D-HERO -->
-<canvas id="lbfx" aria-hidden="true"></canvas>
-<div class="lbfx-shade" aria-hidden="true"></div>
-  <div class="hero-bg"></div>
-<div class="lbwm" aria-hidden="true">EARTHWORKS</div>
+<header id="top" class="hx">
+  <div class="hx__media" aria-hidden="true">
+    <img class="hx__img" src="assets/hero-excavator.jpg" alt="" loading="eager" decoding="async">
+    <span class="hx__scrim"></span>
+  </div>
 
-<div id="sceneWrap" aria-label="Scroll to watch the tight-access combo">
-  <div id="sceneSticky">
-    <canvas id="buildCanvas" aria-hidden="true"></canvas>
-    <div class="hero-copy" id="heroCopy">
-      <p class="k">Central Coast · Newcastle · Sydney</p>
-      <h1 class="h1" data-ux="words">Tight-access excavation.<br><em>Combo</em> power.</h1>
-      <p class="d">Excavation, wet hire, plant hire, labour hire, bobcat & tipper, posi track, excavator & truck combos. We fit where others can't.</p>
-      <div class="cta">
+  <div class="hx__in">
+    <div class="hxc" id="heroCopy">
+      <p class="hx__k">Central Coast · Newcastle · Sydney</p>
+      <h1 class="hx__h">Tight-access excavation.<br><em>Combo</em> power.</h1>
+      <p class="hx__d">Excavation, wet hire, plant hire, labour hire, bobcat &amp; tipper, posi track, excavator &amp; truck combos. We fit where others can't.</p>
+      <div class="hx__cta">
         <a class="btn btn--p" href="#lbq" data-ux="magnetic">Get a free quote</a>
         <a class="btn btn--o" href="mailto:allwaycivil@outlook.com.au" aria-label="Email Allway Civil">Email us</a>
       </div>
     </div>
-
-    <div class="hud" aria-hidden="true">
-      <div class="rail"><i id="railFill"></i></div>
-    </div>
   </div>
-</div>
 
+  <div class="hx__wm" aria-hidden="true">EARTHWORKS</div>
 </header>
 
 <section class="sec" id="services" aria-labelledby="s-t">
@@ -1409,14 +1401,48 @@ letter-spacing: 0.20em on body text{letter-spacing:normal !important}
 letter-spacing: 0.22em on body text{letter-spacing:normal !important}
 7px functional text "Central" (below 11px floor){font-size:max(1em,15px) !important}
 
-:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
-body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
+:root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
   font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
+</style>
+<style id="hx-hero">/* ==== HERO REBUILD 2026-10-22: real photo, grid-aligned copy, nothing clipped ==== */
+header#top.hx{position:relative!important;top:auto!important;display:block!important;height:auto!important;
+  min-height:clamp(560px,86svh,800px)!important;max-height:none!important;overflow:hidden!important;background:#0a0a0a;
+  border-bottom:1px solid var(--line-acc)}
+.hx{display:flex;align-items:center;min-height:clamp(580px,84svh,760px)}
+.hx__media{position:absolute;inset:0;z-index:0}
+.hx__img{position:absolute!important;inset:0;width:100%!important;height:100%!important;max-width:none!important;
+  object-fit:cover;object-position:58% 58%;display:block}
+.hx__scrim{position:absolute;inset:0;display:block;
+  background:
+    linear-gradient(96deg,rgba(8,8,9,.95) 0%,rgba(8,8,9,.88) 32%,rgba(8,8,9,.58) 62%,rgba(8,8,9,.26) 100%),
+    linear-gradient(180deg,rgba(8,8,9,.62) 0%,rgba(8,8,9,0) 24%,rgba(8,8,9,.5) 100%)}
+.hx__in{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;
+  padding:calc(var(--nav-h) + clamp(46px,7vw,82px))}
+.hxc{max-width:660px}
+.hx__k{margin:0 0 14px;font-family:var(--font-m);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--acc-hi);font-weight:700}
+.hx__h{margin:0 0 18px;font-size:clamp(2.3rem,4.9vw,4rem);font-weight:900;line-height:1.04;letter-spacing:-.03em;
+  color:#fff;max-width:17ch;text-wrap:balance}
+.hx__h em{font-style:normal;color:var(--acc-hi)}
+.hx__d{margin:0 0 30px;font-size:clamp(1rem,1.15vw,1.12rem);line-height:1.6;color:#dcdcdc;max-width:48ch}
+.hx__cta{display:flex;flex-wrap:wrap;gap:12px}
+.hx__cta .btn{padding:.85rem 1.55rem}
+.hx__wm{position:absolute;right:clamp(1rem,4vw,2.6rem);bottom:clamp(10px,1.8vw,22px);z-index:1;
+  font-weight:900;font-size:clamp(46px,10.2vw,124px);line-height:.78;letter-spacing:-.02em;
+  color:rgba(255,255,255,.14);pointer-events:none;user-select:none;white-space:nowrap}
+@media (max-width:820px){
+  .hx{min-height:clamp(520px,78svh,640px);align-items:flex-end}
+  .hx__in{padding-bottom:clamp(40px,6vw,58px)}
+  .hxc{max-width:none}
+  .hx__d{max-width:none}
+  .hx__wm{font-size:clamp(38px,15vw,64px);opacity:.85}
+}
+@media (max-width:520px){.hx__wm{display:none}}
 </style>
 </body>
 </html>

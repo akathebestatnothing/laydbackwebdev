@@ -322,7 +322,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="lb-brand" href="#top" aria-label="Gowling Plasterboard Linings - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#388848;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Gowling Plasterboard Linings</span><span class="lb-brand__sub"><span class="lb-acc">Plasterboard</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Gowling Plasterboard Linings - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#388848;"><img class="lb-logo-mark" src="assets/logo-gowling-plasterboard-trim.png" alt="Gowling Plasterboard Linings" width="1176" height="313" loading="eager" decoding="async"><span class="lb-brand__word"><span class="lb-brand__name">Gowling Plasterboard Linings</span><span class="lb-brand__sub"><span class="lb-acc">Plasterboard</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <ul class="nav__links">
     <li><a href="#services">What We Do</a></li>
     <li><a href="#finish">How We Finish</a></li>
@@ -399,13 +399,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work-2.jpg" alt="Gowling Plasterboard Linings" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-1.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/hero-plasterboard.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-3.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Gowling Plasterboard Linings &mdash; recent work</div></div></section><footer class="foot">
-  <div>
-    <h3>Gowling Plasterboard Linings</h3>
-    <p>Plasterboard installation & finishing - South Australia, Mallee & Riverland.<br>Phone <a href="tel:0407013770">0407 013 770</a></p>
-  </div>
-  <p aria-hidden="true">&copy; <span id="year"></span> Gowling Plasterboard Linings. All rights reserved.</p>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work-2.jpg" alt="Gowling Plasterboard Linings" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-1.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/hero-plasterboard.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-3.jpg" alt="Gowling Plasterboard Linings" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button></div><div class="lb-rb__cap">Gowling Plasterboard Linings &mdash; recent work</div></div></section>
 
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
@@ -514,6 +508,17 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 })();
 var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 </script>
+<footer class="foot">
+  <div class="foot__in">
+    <h3>Gowling Plasterboard Linings</h3>
+    <p>Plasterboard installation &amp; finishing — South Australia, Mallee &amp; Riverland.<br>Phone <a href="tel:0407013770">0407 013 770</a></p>
+  </div>
+  <div class="foot__meta">
+    <p class="foot__legal">&copy; <span id="year"></span> Gowling Plasterboard Linings. All rights reserved.</p>
+    <p class="lb-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></p>
+  </div>
+</footer>
+<script>var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();</script>
 <div class="lb-pulse" aria-hidden="true"></div>
 <script id="lb-motion-js">
 /* LB MOTION PACK v1 */
@@ -708,9 +713,8 @@ header a[href^="tel"],.site-header a[href^="tel"]{
 </style>
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
 .lb-mq__in,.lb-pulse{display:none !important}
-letter-spacing: 0.05em on body text{letter-spacing:normal !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-letter-spacing: 0.16em on body text{letter-spacing:normal !important}
+body,p,li,dd,figcaption{letter-spacing:normal}
+.small,.meta,.caption,.eyebrow,.kicker,.kip{letter-spacing:normal}
 7px functional text "Plasterboard" (below 11px floor){font-size:max(1em,15px) !important}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
@@ -721,6 +725,61 @@ p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
+</style>
+
+<style id="repair-20261022">
+/* ===== REPAIR 2026-10-22 - audit items only ===== */
+
+/* 1. Brand bar: show the real logo at a legible size, drop the oversized black chip
+      and the duplicated HTML wordmark (the lockup already carries the name). */
+.lb-brand{min-height:0!important;gap:0!important;max-width:100%!important;overflow:visible!important}
+.lb-logo-mark{display:block!important;height:clamp(34px,3.9vw,50px)!important;width:auto!important;
+  max-width:min(56vw,300px);object-fit:contain;filter:none}
+.lb-brand__word{display:none!important}
+@media (max-width:470px){.lb-logo-mark{height:30px!important;max-width:60vw}}
+
+/* 2. HERO. Root cause of the crowding: the injected LB-HERO-HEIGHT block matched
+      [class*=hero], which hits .hero-copy - so the copy box itself became a flex ROW
+      (label, h1, paragraph and buttons side by side in narrow columns) and was capped
+      at 78vh, clipping it under the header. Restore block flow on the copy, and put the
+      hero layout on the real container only. */
+#sceneSticky{display:flex!important;align-items:center!important;
+  min-height:clamp(520px,84svh,780px)!important;max-height:none!important}
+.hero-copy{display:block!important;width:100%!important;max-width:1180px!important;
+  margin:0 auto!important;min-height:0!important;max-height:none!important;
+  padding:calc(var(--nav-h) + 5vh) clamp(1rem,4vw,2.6rem) clamp(48px,8vh,88px)!important}
+.hero-copy .k{margin:0 0 .95rem}
+.hero-copy .h1{max-width:17ch!important;margin-bottom:1.2rem;
+  font-size:clamp(2.3rem,5.1vw,4.15rem)!important;line-height:1.03!important;letter-spacing:-.025em!important}
+.hero-copy .d{max-width:46ch!important;margin-bottom:1.9rem;line-height:1.62}
+.hero-copy .cta{gap:.85rem}
+
+/* 3. Phone button: solid light plate so the number reads at any photo brightness. */
+.hero-copy .btn--o{background:#fff!important;border:2px solid #fff!important;
+  color:#1c4526!important;text-shadow:none!important}
+.hero-copy .btn--o:hover{background:#eef6ef!important;border-color:#eef6ef!important;color:#12331a!important}
+
+/* 4. Put the animated depth field actually on screen (it was painted behind the photo and
+      the opaque scrim), wired so the photograph still reads through it. */
+#sceneSticky{position:relative}
+.lbhf{z-index:0}
+#heroCanvas{z-index:1!important;mix-blend-mode:screen;opacity:.9}
+.lbhf-scrim{z-index:2}
+.hero-copy{z-index:3!important}
+
+/* 5. #finish carried .sec padding AND an .inner with the same padding - double inset,
+      so it sat off the page grid and looked cramped. One padding only. */
+.sec--panel{max-width:none!important;padding-block:0!important;padding-inline:0!important}
+.sec--panel > .inner{max-width:1180px!important;margin-inline:auto!important;
+  padding:clamp(4rem,8.5vw,7rem) clamp(1rem,4vw,2.6rem)!important}
+
+/* 6. Footer now closes the page (it sat above the quote form). */
+.foot{display:flex!important;flex-wrap:wrap;gap:1.3rem 2rem;
+  align-items:flex-end;justify-content:space-between}
+.foot__meta{display:grid;gap:.5rem}
+.foot__legal{margin:0}
+.foot .lb-legal{display:flex;gap:1.3rem;margin:0;font-size:.86rem}
+.foot .lb-legal a{color:var(--acc)}
 </style>
 </body>
 </html>
