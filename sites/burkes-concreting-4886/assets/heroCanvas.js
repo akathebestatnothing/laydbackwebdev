@@ -1920,9 +1920,10 @@
       face([[fx + inner * 0.045, 0, Z0], [fx + inner * 0.045, 0, Z1], [fx + inner * 0.045, 0.17, Z1], [fx + inner * 0.045, 0.17, Z0]],
         shade(TONE.form2, 0.66), [-inner, 0, 0], 0.15);
       for (z = Z1 - 1.4; z > Z0; z -= 2.6) {
-        rod([fx - inner * 0.02, 0.19, z], [fx - inner * 0.14, -0.02, z + 0.12], 0.05, TONE.stake, 0.3 + (Z1 - z) * 0.012);
-        face([[fx - inner * 0.03, 0.19, z - 0.03], [fx - inner * 0.03, 0.19, z + 0.03],
-              [fx - inner * 0.05, 0.22, z + 0.03], [fx - inner * 0.05, 0.22, z - 0.03]], shade(TONE.stakeTop, 1.1), [0, 1, 0], 0.32);
+        /* stakes sit against the outside face of the form, driven into the ground */
+        rod([fx - inner * 0.075, 0.16, z], [fx - inner * 0.30, -0.02, z + 0.14], 0.05, TONE.stake, 0.3 + (Z1 - z) * 0.012);
+        face([[fx - inner * 0.05, 0.155, z - 0.035], [fx - inner * 0.05, 0.155, z + 0.035],
+              [fx - inner * 0.10, 0.185, z + 0.035], [fx - inner * 0.10, 0.185, z - 0.035]], shade(TONE.stakeTop, 1.1), [0, 1, 0], 0.32);
       }
     });
 
@@ -1964,12 +1965,20 @@
 
     /* ---- screed board pulled back over the pass, wet grout behind it ---- */
     var SZ = 5.35;
-    face([[-1.55, 0.038, SZ - 0.11], [1.55, 0.038, SZ - 0.11], [1.55, 0.038, SZ + 0.11], [-1.55, 0.038, SZ + 0.11]],
-      shade(TONE.rail, 1.12), [0, 1, 0], 1.15);
-    face([[-1.55, 0.001, SZ + 0.11], [1.55, 0.001, SZ + 0.11], [1.55, 0.038, SZ + 0.11], [-1.55, 0.038, SZ + 0.11]],
+    face([[-1.9, 0.052, SZ - 0.13], [1.9, 0.052, SZ - 0.13], [1.9, 0.052, SZ + 0.13], [-1.9, 0.052, SZ + 0.13]],
+      shade(TONE.rail, 1.14), [0, 1, 0], 1.15);
+    face([[-1.9, 0.001, SZ + 0.13], [1.9, 0.001, SZ + 0.13], [1.9, 0.052, SZ + 0.13], [-1.9, 0.052, SZ + 0.13]],
       shade(TONE.railDk, 0.72), [0, 0, 1], 1.15);
-    rod([-1.42, 0.06, SZ], [-1.15, 0.30, SZ - 0.55], 0.04, TONE.grip, 1.2);
-    rod([1.42, 0.06, SZ], [1.15, 0.30, SZ - 0.55], 0.04, TONE.grip, 1.2);
+    [-1.9, 1.9].forEach(function (ex) {
+      face([[ex < 0 ? ex : ex - 0.05, 0.001, SZ - 0.13], [ex < 0 ? ex + 0.05 : ex, 0.001, SZ - 0.13],
+            [ex < 0 ? ex + 0.05 : ex, 0.052, SZ - 0.13], [ex < 0 ? ex : ex - 0.05, 0.052, SZ - 0.13]],
+        shade(TONE.railDk, 0.92), [0, 0, -1], 1.16);
+    });
+    /* the two handles: raked back over the board, clear of the slab */
+    [-1.62, 1.62].forEach(function (hx) {
+      rod([hx, 0.05, SZ], [hx - 0.06, 0.56, SZ - 0.16], 0.05, TONE.handle, 1.2);
+      rod([hx - 0.06, 0.52, SZ - 0.15], [hx - 0.08, 0.66, SZ - 0.20], 0.075, TONE.grip, 1.24);
+    });
 
     /* ---- bull float on the finished pass: blade flat, long handle raked back ---- */
     var FX = 2.55, FZ2 = 3.15;
