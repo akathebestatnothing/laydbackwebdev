@@ -59,7 +59,25 @@ a{color:inherit}
 .nav-links a{font-size:.95rem;font-weight:500;text-decoration:none;color:#C6D0DA;padding-block:.35rem;border-bottom:1px solid transparent}
 .nav-links a:hover{color:#F7F5F0;border-bottom-color:#7C93A8}
 .nav-tel{display:inline-flex;align-items:center;gap:.5rem;background:#F7F5F0;color:#0B1A2E !important;font-weight:700;padding:.6rem 1.05rem !important;border-radius:2px;border-bottom:0 !important;white-space:nowrap}
-.nav-tel:0450680040"";width:34px;height:2px;background:var(--paint);flex:none}
+.nav-tel::before{content:"";display:block;width:20px;height:2px;background:var(--paint);flex:none}
+.burger{display:none;margin-left:1rem;background:none;border:1px solid #3A4E64;border-radius:2px;padding:.5rem .55rem;cursor:pointer;line-height:0}
+.burger span{display:block;width:20px;height:2px;background:#F7F5F0;margin:4px 0;transition:transform .2s ease,opacity .2s ease}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:900px){
+  .burger{display:block}
+  .nav-links{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:#0B1A2E;border-bottom:1px solid #24384F;padding:.4rem 5vw .9rem;display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:.75rem 0;border-bottom:1px solid #24384F}
+  .nav-links .nav-tel{margin-top:.8rem;justify-content:center;border-bottom:0}
+}
+
+.hero{position:relative;background:var(--chalk);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);align-items:stretch;width:min(1180px,90vw)}
+.hero-copy{display:block;padding-right:clamp(1.4rem,3vw,3rem)}
+.hero-kicker{display:inline-flex;align-items:center;gap:.7rem;font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--paint)}
+.hero-kicker::before{content:"";width:34px;height:2px;background:var(--paint);flex:none}
 .hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(2.55rem,6.2vw,4.9rem);line-height:.98;letter-spacing:-.025em;margin-top:1.1rem;max-width:11ch}
 .hero h1 em{font-style:normal;color:var(--paint)}
 .hero-sub{margin-top:1.15rem;font-size:clamp(1rem,1.35vw,1.12rem);color:var(--muted);max-width:36ch;line-height:1.5}

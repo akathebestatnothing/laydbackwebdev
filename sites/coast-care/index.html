@@ -46,7 +46,7 @@ section{padding-block:clamp(3.6rem,7vw,6rem)}
 .bar{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.12)}
 .bar-in{display:flex;align-items:center;gap:1.6rem;height:74px}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;flex:none}
-.brand img{height:38px;width:auto;object-fit:contain}
+.brand img{height:44px;width:44px;object-fit:contain;background:#fff;border-radius:4px}
 .brand-txt{display:flex;flex-direction:column;line-height:1.05}
 .brand-name{font-size:.98rem;font-weight:700;color:var(--lb-name);letter-spacing:-.01em;white-space:nowrap}
 .brand-sub{font-size:.74rem;font-weight:500;color:#A9B8AC;margin-top:.2rem}
@@ -176,7 +176,7 @@ footer a:hover{color:#fff}
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.20)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -191,6 +191,35 @@ footer a:hover{color:#fff}
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--CC-HERO-REPAIR v1: neutralise the stacked LB-* bundles. [class*=hero] hit
+    .hero-copy/.hero-cta/.hero-note/.hero-facts with 58vh min-heights (pushing the
+    h1 above the fold and leaving a lone divider in dead space), display:flex
+    cancelled the two-column hero grid so .scene collapsed to 0px, and the canvas
+    z-index:-1 dropped it behind the very panel it draws on. This block restores
+    the page's own grid and spacing and scopes min-height to the hero only. -->
+<style id="cc-hero-repair">
+.hero{position:relative!important;display:grid!important;grid-template-columns:1.02fr .98fr!important;
+  align-items:stretch!important;min-height:min(84vh,700px)!important;max-height:none!important}
+.hero>.hero-copy{min-height:0!important;max-height:none!important;width:auto!important;max-width:none!important;
+  flex:none!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:stretch!important;
+  padding:clamp(2.6rem,5vw,4.6rem) clamp(1.2rem,4vw,3.4rem) clamp(2.2rem,4vw,3rem);
+  padding-left:max(5vw,calc((100vw - 1180px)/2))}
+.hero .hero-cta,.hero .hero-facts,.hero .hero-note{min-height:0!important;max-height:none!important}
+.hero .hero-note{display:block!important}
+.hero>.scene{min-height:0!important;height:auto;width:auto!important}
+.hero #scene{position:absolute!important;inset:0!important;z-index:0!important;width:100%;height:100%}
+.hero>:before{z-index:1!important}
+.hero .hero-copy{position:relative!important;z-index:3!important}
+.hero h1{font-size:clamp(2rem,3.9vw,3.25rem)!important;line-height:1.1!important;width:100%!important;max-width:none!important}
+.hero .lead{max-width:36ch!important}
+#services h2,#why h2,#areas h2,#quote h2{line-height:1.08}
+@media(max-width:880px){
+  .hero{grid-template-columns:1fr!important;min-height:0!important}
+  .hero>.hero-copy{padding:2rem 5vw 1.3rem}
+  .hero>.scene{height:38vh}
+}
+</style>
 </head>
 <body>
 
@@ -373,7 +402,8 @@ footer a:hover{color:#fff}
     var r=cv.getBoundingClientRect();
     W=Math.max(280,r.width); H=Math.max(240,r.height);
     cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-    HZ=H*0.335; F=H*1.25; CX=W*0.44;
+    HZ=H*0.30; F=H*1.30; CX=W*0.55;
+    CAM=1.55;
   }
   /* world (x lateral m, y up m, z depth m) -> screen */
   function P(x,y,z){
@@ -394,9 +424,9 @@ footer a:hover{color:#fff}
 
   function hedgeLine(){
     var sky=ctx.createLinearGradient(0,HZ-H*0.30,0,HZ+H*0.02);
-    sky.addColorStop(0,'rgba(9,20,14,0)');
-    sky.addColorStop(.72,'rgba(196,168,96,0.20)');
-    sky.addColorStop(1,'rgba(214,190,120,0.32)');
+    sky.addColorStop(0,'rgba(24,46,36,0)');
+    sky.addColorStop(.62,'rgba(210,178,104,0.34)');
+    sky.addColorStop(1,'rgba(226,198,128,0.55)');
     ctx.fillStyle=sky; ctx.fillRect(0,HZ-H*0.30,W,H*0.32);
     ctx.fillStyle='#0C2313'; ctx.fillRect(0,HZ-H*0.10,W,H*0.10);
     for(var x=-14;x<14;x+=0.9){
@@ -407,18 +437,18 @@ footer a:hover{color:#fff}
     ctx.fillStyle='#0A1A11'; ctx.fillRect(0,HZ-H*0.02,W,H*0.02);
   }
   function lawn(){
-    ctx.fillStyle='#153A1C'; ctx.fillRect(0,HZ,W,H-HZ);
+    ctx.fillStyle='#1B4722'; ctx.fillRect(0,HZ,W,H-HZ);
     var zOff=(roll%2.4);
     for(var z=-1+zOff; z<26; z+=1.2){
       var idx=Math.round((z-zOff)/1.2);
       if(idx%2!==0) continue;
-      var a=0.74*(1-fade(z)*0.62);
+      var a=0.86*(1-fade(z)*0.55);
       var o=z*0.34;
       poly([[-16+o,0,z],[-16+o,0,z+1.2],[16+o,0,z+1.2],[16+o,0,z]],'rgba(104,184,66,'+a.toFixed(3)+')');
       var o2=o+1.2*0.34;
       poly([[-16+o2,0,z+1.2],[-16+o2,0,z+1.24],[16+o2,0,z+1.24],[16+o2,0,z+1.2]],'rgba(28,74,28,0.35)');
     }
-    ctx.fillStyle='rgba(10,22,16,0.55)';
+    ctx.fillStyle='rgba(10,22,16,0.30)';
     ctx.fillRect(0,HZ,W,(H-HZ)*0.42);
     for(var i=0;i<170;i++){
       var gz=0.6+((i*13.7)%17), gx=((i*7.3)%29)-14.5;
@@ -505,7 +535,7 @@ footer a:hover{color:#fff}
     ctx.fillStyle='#0A1610'; ctx.fillRect(0,0,W,H);
     hedgeLine(); lawn(); bed(); spade(); mower();
     var grd=ctx.createRadialGradient(W*0.5,H*0.45,Math.min(W,H)*0.25,W*0.5,H*0.55,Math.max(W,H)*0.9);
-    grd.addColorStop(0,'rgba(10,22,16,0)'); grd.addColorStop(1,'rgba(8,18,13,0.55)');
+    grd.addColorStop(0,'rgba(10,22,16,0)'); grd.addColorStop(1,'rgba(8,18,13,0.34)');
     ctx.fillStyle=grd; ctx.fillRect(0,0,W,H);
   }
   function loop(ts){ roll=(ts||0)/900; draw(); requestAnimationFrame(loop); }
