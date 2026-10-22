@@ -48,7 +48,7 @@ html.js .drop.in{opacity:1;transform:none}
 .brand-name{font-family:var(--font-display);font-size:1.28rem;line-height:1;color:#fff;font-weight:700;letter-spacing:.02em}
 .brand-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#A5D66B;font-weight:700}
 .nav-links{display:flex;gap:1.35rem;margin-left:auto;align-items:center}
-.nav-links a{color:#A9C4AC;text-decoration:none;font-size:.92rem;font-weight:500}
+.nav-links a{color:#C9D9CB;text-decoration:none;font-size:.92rem;font-weight:500}
 .nav-links a:hover{color:#fff}
 .nav-cta{background:var(--accent);color:#FFFFFF !important;padding:.55rem 1.2rem;border-radius:6px;font-weight:700}
 .nav-cta:hover{filter:brightness(1.08)}
@@ -65,22 +65,22 @@ html.js .drop.in{opacity:1;transform:none}
   .burger{display:block}
 }
 
-.hero{position:relative;min-height:95vh;display:flex;align-items:flex-start;background:#0E2416;overflow:hidden;padding-top:80px}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-shade{position:absolute;inset:0;background:rgba(0,0,0,.02);pointer-events:none}
-.hero-in{position:relative;z-index:2;padding-block:12.5vh 3.4rem;width:100%}
+.hero{position:relative;min-height:clamp(540px,84vh,820px);display:flex;align-items:center;background:#0E2416;overflow:hidden;padding-top:80px}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,26,15,.62) 0%,rgba(8,26,15,.34) 42%,rgba(8,26,15,.74) 100%);pointer-events:none;z-index:1}
+.hero-in{position:relative;z-index:2;padding-block:6vh 4.4rem;width:100%}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#A5D66B;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
 .hero-kicker::before{content:"";width:36px;height:2px;background:var(--accent)}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.3rem,5.8vw,4.5rem);line-height:1.06;color:#F4F8FA;font-weight:700;max-width:22ch;letter-spacing:-.01em}
 .hero h1 em{font-style:normal;color:#A5D66B}
-.hero-sub{margin-top:1.1rem;color:#A9BAC6;font-size:clamp(.98rem,1.5vw,1.09rem);max-width:56ch}
+.hero-sub{margin-top:1.1rem;color:#D9E4DB;font-size:clamp(1.02rem,1.5vw,1.12rem);max-width:56ch;text-shadow:0 1px 2px rgba(0,0,0,.35)}
 .hero-cta{display:flex;gap:.9rem;margin-top:1.8rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.55rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .15s ease,filter .15s ease}
 .btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
 .btn-primary{background:var(--accent);color:#FFFFFF}
 .btn-ghost{border:1.5px solid rgba(244,248,250,.4);color:#F4F8FA}
 .hero-strip{margin-top:2.6rem;display:flex;gap:2.6rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:1.2rem}
-.hero-strip p{color:#a3aebf;font-size:.7rem;letter-spacing:.13em;text-transform:none;font-weight:700}
+.hero-strip p{color:#BFCFC4;font-size:.7rem;letter-spacing:.13em;text-transform:none;font-weight:700}
 .hero-strip strong{display:block;color:#F4F8FA;font-family:var(--font-display);font-size:1.05rem;margin-top:.2rem;font-weight:600}
 
 section{padding-block:5.4rem}
@@ -347,7 +347,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <body>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top" aria-label="FreshLeaf Gardening - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#003800;--lb-subc:#003800;--lb-acc:#b8771d;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">FreshLeaf Gardening</span><span class="lb-brand__sub"><span class="lb-acc">Lawn</span> & Garden Care</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="FreshLeaf Gardening - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#F2F8F3;--lb-subc:#A5D66B;--lb-acc:#b8771d;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">FreshLeaf Gardening</span><span class="lb-brand__sub"><span class="lb-acc">Lawn</span> & Garden Care</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
     </button>
@@ -517,7 +517,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       <span>© 2026 FreshLeaf Gardening</span>
       <span>Free quotes</span>
     </div>
+    <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
   </div>
+</footer>
+<div id="quote"></div>
 <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#003800))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
@@ -632,7 +635,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 })();
 </script>
 </section>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+
 
 <!-- lb: old box-hero engine removed -->
 <script id="lb-motion-js">
@@ -697,8 +700,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   function hex2rgb(h){ h = h.replace('#',''); if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
     return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]; }
   var ACC = hex2rgb(accent());
-  function dark(){ var b = getComputedStyle(document.body).backgroundColor || '';
-    var m = b.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
+  function dark(){ var host = cv.closest('header, [class*=hero], section') || cv.parentElement;
+    var bDi = host ? getComputedStyle(host).backgroundColor : '';
+    if (!bDi || bDi === 'rgba(0, 0, 0, 0)' || bDi === 'transparent') bDi = getComputedStyle(document.body).backgroundColor;
+    var m = bDi.match(/(\d+),\s*(\d+),\s*(\d+)/); if (!m) return true;
     return (0.299*m[1] + 0.587*m[2] + 0.114*m[3]) < 128; }
 
   function size(){
@@ -718,7 +723,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
   function draw(){
     var isDark = dark();
-    var base = isDark ? [10,11,14] : [248,249,251];
+    var base = isDark ? [14,36,22] : [248,249,251];
     var ink  = isDark ? [255,255,255] : [12,14,18];
     var g = ctx.createLinearGradient(0,0,0,H);
     g.addColorStop(0, 'rgb('+base.join(',')+')');
@@ -732,7 +737,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
       var cy = H*(0.34 + 0.16*k + 0.05*Math.cos(t*0.00017 + k*1.3));
       var rad = Math.max(W,H)*(0.46 + 0.13*k);
       var rg = ctx.createRadialGradient(cx,cy,0,cx,cy,rad);
-      var a = (isDark ? 0.20 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
+      var a = (isDark ? 0.40 : 0.13) * (0.72 + 0.28*Math.sin(t*0.0003 + k));
       rg.addColorStop(0,'rgba('+ACC.join(',')+','+a.toFixed(3)+')');
       rg.addColorStop(0.55,'rgba('+ACC.join(',')+','+(a*0.32).toFixed(3)+')');
       rg.addColorStop(1,'rgba('+ACC.join(',')+',0)');
@@ -744,7 +749,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
     ctx.lineWidth = 1;
     for (var j=-9;j<=9;j++){
       var fx = vpx + j*(W/9)*1.5;
-      var al = (isDark?0.16:0.13) * (1 - Math.min(1, Math.abs(j)/11));
+      var al = (isDark?0.30:0.13) * (1 - Math.min(1, Math.abs(j)/11));
       ctx.strokeStyle = 'rgba('+ACC.join(',')+','+al.toFixed(3)+')';
       ctx.beginPath(); ctx.moveTo(vpx + j*(W/9)*0.16, hz); ctx.lineTo(fx, H+2); ctx.stroke();
     }
@@ -850,6 +855,45 @@ p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
+</style>
+<style id="lb-final-repair">/* ==== FINAL REPAIR PASS ==== */
+/* 1. hero must not be sticky (LB-HDRFIX targets every header) and must not be clipped */
+header.hero{position:relative!important;top:auto!important;min-height:clamp(540px,84vh,820px)!important;
+  max-height:none!important;align-items:center!important;overflow:hidden!important}
+/* 2. canvas sits at the base, shade is a single controlled scrim, copy on top */
+header.hero > canvas#heroCanvas{position:absolute!important;inset:0!important;z-index:0!important;
+  width:100%!important;height:100%!important}
+header.hero > .hero-shade{position:absolute!important;inset:0!important;z-index:1!important;
+  background:linear-gradient(180deg,rgba(8,26,15,.46) 0%,rgba(8,26,15,.16) 46%,rgba(8,26,15,.70) 100%)!important}
+header.hero > .hero-in,.hero-in{z-index:2!important;position:relative!important;padding-block:5.2vh 4.6rem!important}
+/* 3. the two stacked ::before scrims duplicated the shade - keep the hero flat */
+header.hero::before,header.hero:has(canvas)::before,header.hero:has(.hero-shade)::before{
+  content:none!important;background:none!important}
+/* 4. kicker rule starts inside the grid, never offscreen */
+.hero-kicker{max-width:100%;align-items:center}
+/* 5. header legibility */
+.lb-brand__name{color:#F2F8F3!important}
+.lb-brand__sub{color:#A5D66B!important}
+nav.nav .nav-links a:not(.nav-cta){color:#CBDACD!important;opacity:1!important}
+nav.nav .nav-links a:not(.nav-cta):hover{color:#fff!important}
+nav.nav .nav-cta{color:#fff!important}
+/* 6. reveal state never leaves content hidden (no JS ever added .in to .drop) */
+.drop{opacity:1!important;transform:none!important}
+/* 7. anchors + form band placement */
+#quote{display:block;height:0;scroll-margin-top:96px}
+#lbq{scroll-margin-top:96px}
+section#lbq{padding-block:4.4rem!important;background:#FFFFFF!important;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+#lbq .lbq-hd{margin-bottom:1.5rem!important}
+/* 8. carousel proportion + caption */
+.lb-rb__track{aspect-ratio:21/9}
+@media(max-width:700px){.lb-rb__track{aspect-ratio:4/3}}
+.lb-rb__cap{background:rgba(8,26,15,.82)}
+/* 9. footer legal row */
+.lb-legal{display:flex;gap:1.6rem;flex-wrap:wrap;margin-top:1.4rem;padding-top:1.1rem;
+  border-top:1px solid rgba(255,255,255,.12);font-size:.83rem}
+.lb-legal a{color:#9CB8A0;text-decoration:none}
+.lb-legal a:hover{color:#F2F8F3}
 </style>
 </body>
 </html>

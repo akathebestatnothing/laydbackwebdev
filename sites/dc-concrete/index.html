@@ -36,7 +36,7 @@ a{color:inherit}
 
 /* reveal, hidden only when JS active (html.js), so no-JS shows everything */
 html.js .drop{opacity:0;transform:translateY(24px);transition:opacity .7s ease-out,transform .7s ease-out}
-html.js .drop.in{opacity:1;transform:none}
+html.js .drop.in,html.js .drop.is-in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html.js .drop{opacity:1;transform:none;transition:none}
   *{animation-duration:.001s !important;transition-duration:.001s !important}
@@ -71,7 +71,7 @@ html.js .drop.in{opacity:1;transform:none}
 .hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;background:#08090B;overflow:hidden;padding-top:66px;perspective:1200px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;}
 .hero-shade{position:absolute;inset:0;background:rgba(8,9,11,.52);pointer-events:none}
-.hero-in{position:relative;z-index:2;padding-block:4.6rem 3.4rem}
+.hero-in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;padding-block:4.6rem 3.4rem}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:var(--red-bright);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;margin-bottom:1rem}
 .hero-kicker::before{content:"";width:36px;height:2px;background:var(--red)}
 .hero h1{font-family:var(--font-display);font-size:clamp(3rem,9vw,6.6rem);line-height:.95;color:#fff;font-weight:400;letter-spacing:.015em;max-width:16ch}
@@ -138,7 +138,7 @@ section{padding-block:5.2rem}
 .why-item h3{font-family:var(--font-display);font-weight:400;font-size:1.3rem;letter-spacing:.04em;color:#fff}
 .why-item p{color:var(--steel);font-size:.9rem;margin-top:.12rem;font-weight:300}
 .why-visual{border-radius:12px;border:1px solid var(--line);background:transparent;padding:2.2rem;position:relative;overflow:hidden}
-.why-visual::before{content:"";position:absolute;inset:0;background:repeating-rgba(200,37,27,.06)}
+.why-visual::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(200,37,27,.07) 0 2px,transparent 2px 12px)}
 .why-visual .big{font-family:var(--font-display);font-size:clamp(2.6rem,5.6vw,4.4rem);line-height:1;color:#fff;position:relative}
 .why-visual .big em{font-style:normal;color:var(--red-bright)}
 .why-visual p{color:var(--steel);margin-top:.9rem;position:relative;font-weight:300}
@@ -260,7 +260,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .container.nav,.nav,.nav-in{z-index:5}
 .lb-brand,.nav__brand{position:relative;z-index:6;opacity:1 !important;visibility:visible !important;transform:none !important}
 </style>
-<style id="lb-repair-tel">.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style id="lb-repair-tel">
+.lb-tel{white-space:nowrap;align-self:center;text-decoration:none;flex:0 0 auto;
+  font-variant-numeric:tabular-nums;font-weight:600;padding-left:1.15rem;border-left:1px solid var(--line)}
+.lb-tel:hover{color:#fff !important}
+@media(max-width:880px){.lb-tel{border-left:0;padding-left:0;width:100%;text-align:center;padding:.5rem 0}}</style><style id="lb-repair-polish">/* the brand wordmark scales with vw (2.75vw) and runs away on wide screens, crowding the nav links. Cap it at a nav-appropriate size and keep a gap. */.lb-brand__name{font-size:clamp(18px,2vw,26px) !important}.lb-brand__word{max-width:42vw}</style><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
 
@@ -277,6 +281,16 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+<!--LB-HEROFLOW--><style id="lb-heroflow">/* [class*=hero] also matches the hero's own children (kicker/sub/cta/strip) and forces
+   min-height:58vh on each of them, stacking the hero into one giant column. Reset the
+   children so the copy behaves like normal stacked copy again. */
+.hero-in{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center;gap:0}
+.hero-in > *{min-height:0!important;max-height:none!important;display:block}
+.hero-in > .hero-kicker{display:inline-flex!important}
+.hero-in > .hero-cta{display:flex!important;flex-direction:row!important;align-items:center!important;flex-wrap:wrap!important;gap:.9rem!important}
+.hero-in > .hero-strip{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;align-items:flex-start!important}
+.hero-in > .hero-sub{margin-top:1.15rem}
+</style><!--/LB-HEROFLOW-->
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <nav class="nav" aria-label="Main">
@@ -289,10 +303,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
       <a href="#services">What we do</a>
       <a href="#process">How we work</a>
       <a href="#areas">Service areas</a>
+      <a class="lb-tel" href="tel:0411544225">0411 544 225</a>
       <a class="nav-cta" href="#quote">Get a quote</a>
     </div>
   </div>
-<a class="lb-tel" href="tel:0411544225" style="text-decoration:none;white-space:nowrap;align-self:center">0411 544 225</a></nav>
+</nav>
 
 <header class="hero" id="top">
 <!-- LB-3D-HERO -->
@@ -475,7 +490,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
  background:#FF5348}
 .hero::after{content:none}
-.hero-photo{position:absolute;inset:0;z-index:0;background:rgba(10,11,12,.95)}
+.hero-photo{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center;background:rgba(10,11,12,.95)}
 .hero-shade{z-index:1}
 .hero-in{z-index:2}
 .hero .lbwm{display:none}
@@ -605,10 +620,10 @@ html,body{overflow-x:hidden}
     <div class="foot-bottom">
       <span>&copy; 2026 Dc concrete &amp; excavation &middot; Maitland NSW</span>
       <span>Concreting &amp; excavation</span>
+      <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
     </div>
   </div>
-
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+</footer>
 
 <!-- lb: old box-hero engine removed -->
 
@@ -832,5 +847,26 @@ section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
 </style>
+<style>/* ==== LB REVEAL SAFETY ==== */
+.lb-legal{display:inline-flex;gap:.9rem}
+.lb-legal a{color:var(--steel2);text-decoration:none}
+.lb-legal a:hover{color:#fff}
+</style>
+<script id="lb-drop-reveal">
+/* .drop carries an html.js opacity:0 rule but nothing ever added the `.in` class,
+   so every section below the hero rendered blank. Reveal on scroll, with a
+   hard fallback so nothing can stay invisible. */
+(function(){
+  var els = [].slice.call(document.querySelectorAll('.drop'));
+  if (!els.length) return;
+  var rmRe = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (rmRe || !('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('is-in'); }); return; }
+  var io假期 = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
+  }, { rootMargin: '0px 0px -5% 0px', threshold: 0.06 });
+  els.forEach(function(e){ io.observe(e); });
+  setTimeout(function(){ els.forEach(function(e){ e.classList.add('is-in'); }); }, 2200);
+})();
+</script>
 </body>
 </html>

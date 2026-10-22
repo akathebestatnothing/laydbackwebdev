@@ -370,7 +370,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <canvas id="sceneFixCanvas" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;height:100svh;pointer-events:none;z-index:0"></canvas>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top" aria-label="J&J Water Trucks - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#10a8e0;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">J&J Water Trucks</span><span class="lb-brand__sub">The Water Specialists</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="J&J Water Trucks - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#F2F7FC;--lb-subc:#9FD3EA;--lb-acc:#10a8e0;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">J&J Water Trucks</span><span class="lb-brand__sub">The Water Specialists</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
     </button>
@@ -1432,5 +1432,69 @@ section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
 </style>
+<style id="repair-2026-10-22">
+/* ===== audit repair 3/10: empty band, invisible header ink, undersized lockup ===== */
+:root{--acc:#18B4E4;--lb-name:#F2F7FC}
+/* 1 — hero was laid out as a flex ROW because [class*=hero] also matches .hero-in.
+      Restore a column stack aligned to the page grid. */
+.hero{min-height:clamp(520px,72vh,680px)!important;max-height:none!important;
+  align-items:center!important;padding-top:88px}
+.hero-in{display:block!important;width:min(1180px,92vw)!important;margin-inline:auto!important;
+  padding-inline:0!important;padding-block:3.4rem 2.8rem!important}
+.hero-kicker{display:inline-flex!important;align-items:center;height:auto!important}
+.hero-sub{display:block!important;margin-top:1.15rem;max-width:54ch}
+.hero-cta{display:flex!important;gap:.9rem;margin-top:1.9rem}
+.hero-strip{display:flex!important;gap:2.6rem;margin-top:2.2rem;height:auto}
+.hero h1{margin-top:.15rem}
+.hero::before{background:var(--navy-deep)}
+.hero::after{background-image:repeating-linear-gradient(90deg,rgba(120,124,130,.06) 0 1px,transparent 1px 6px)}
+.hero .lbwm{color:rgba(255,255,255,.11)}
+/* 2 — header ink was #14161a on a near-black bar */
+.nav-in{height:88px}
+.nav-links a{color:#CCDFEF!important}
+.nav-links a:hover{color:#fff!important}
+.nav-links a.nav-cta{color:#04101E!important}
+@media(max-width:920px){.nav-links{inset:88px 0 auto 0}}
+/* 3 — lockup was undersized (26px name / 7px tagline) */
+.lb-brand__mark{height:58px!important;max-width:26vw!important}
+.lb-brand__mark img{height:100%!important;width:auto!important}
+.lb-brand__name{font-size:clamp(21px,2.1vw,30px)!important;line-height:1!important}
+.lb-brand__sub{font-size:11px!important;letter-spacing:.2em!important;font-weight:700!important;
+  opacity:1!important;color:#9FD3EA!important;margin-top:.42em!important}
+@media(max-width:640px){.lb-brand__mark{height:44px!important}}
+/* 4 — .drop reveal never ran: every section below the hero sat at opacity 0 */
+html.js .drop{opacity:0;transform:translateY(18px);transition:opacity .6s ease-out,transform .6s ease-out}
+html.js .drop.in{opacity:1!important;transform:none!important}
+@media (prefers-reduced-motion:reduce){html.js .drop{opacity:1!important;transform:none!important}}
+/* 5 — quote intro panel clipped its last line against the border */
+#lbq .lbq-hp2{padding:18px 20px;border-radius:10px;background:#EAF2F9;border-color:#BBD5E8}
+/* 6 — privacy/terms sat outside the footer grid, flush to the viewport edge */
+.lb-legal{display:block;width:min(1180px,92vw);margin:1.8rem auto 0;font-size:.8rem;color:#93A6B9}
+.lb-legal a{color:#B9CDDF;text-decoration:none;margin-right:1.2rem;border-bottom:1px solid rgba(185,205,223,.35)}
+.lb-legal a:hover{color:#fff}
+footer{padding-bottom:2.6rem}
+/* 7 — gallery band was blown out */
+.lb-rb__slide img{filter:brightness(.9) saturate(.95)}
+/* 8 — footer lockup matched to the header scale */
+.foot-brand img{width:48px;height:48px;border-radius:10px}
+.foot-brand-name{font-size:1.32rem}
+.foot-brand-sub{font-size:10px;letter-spacing:.2em;font-weight:700;color:#9FD3EA}
+@media (max-width:640px){.lb-brand__name{font-size:20px!important}}
+</style>
+<script id="lb-drop-reveal">
+/* .drop reveal — the class the template animates but nothing ever activated */
+(function(){
+  var els = [].slice.call(document.querySelectorAll('.drop'));
+  if (!els.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function on(e){ e.classList.add('in'); e.classList.add('is-in'); }
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(on); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting) { on(x.target); io.unobserve(x.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  els.forEach(function(e){ io.observe(e); });
+  setTimeout(function(){ els.forEach(on); }, 1400);
+})();
+</script>
 </body>
 </html>
