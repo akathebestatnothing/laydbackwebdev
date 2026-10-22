@@ -40,7 +40,7 @@ a{color:inherit}
 ::selection{background:var(--acc);color:#fff}
 
 html.js .drop{opacity:0;transform:translateY(22px);transition:opacity .7s ease-out,transform .7s ease-out}
-html.js .drop.in{opacity:1;transform:none}
+html.js .drop.in,html.js .drop.is-in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html.js .drop{opacity:1;transform:none;transition:none}
   *{animation-duration:.001s !important;transition-duration:.001s !important}
@@ -74,16 +74,17 @@ html.js .drop.in{opacity:1;transform:none}
   .burger{display:block}
 }
 
-.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding-top:80px;background:var(--deep);perspective:1000px}
+.hero{position:relative;min-height:min(88vh,820px);display:flex;align-items:center;overflow:hidden;padding-top:80px;background:var(--deep)}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;z-index:4;background:transparent}
+.hero>.lbhf,.hero>.lbhf-scrim,.hero>.hero-scrim,.hero>canvas{position:absolute!important;inset:0!important;width:100%;height:100%}
 .lbhf{position:absolute;inset:0;overflow:hidden;z-index:0}
-.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
-.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(6,14,23,.94)}
+.lbhf img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;filter:saturate(1.08) contrast(1.04)}
+.lbhf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(6,14,23,.9) 0%,rgba(6,14,23,.8) 42%,rgba(6,14,23,.44) 72%,rgba(6,14,23,.3) 100%)}
 .lb3d-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 #heroCanvas{perspective:800px}
-.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:rgba(6,14,23,.55)}
-.hero-in{position:relative;z-index:3;width:100%;width:min(1320px,92vw);margin-inline:auto;padding:10vh 0 4rem;display:grid;grid-template-columns:1.06fr .94fr;gap:3.2rem;align-items:center}
-.hero-copy{min-width:0}
+.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(6,14,23,.5) 0%,rgba(6,14,23,0) 32%,rgba(6,14,23,.55) 100%)}
+.hero-in{position:relative;z-index:3;width:min(1320px,92vw);margin-inline:auto;padding:11vh 0 3.4rem;display:grid;grid-template-columns:1fr;gap:0;align-items:center}
+.hero-copy{min-width:0;max-width:min(720px,100%)}
 .hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#5CC2FF;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:800;margin-bottom:1.05rem}
 .hero-kicker::before{content:"";width:36px;height:2px;background:var(--acc2)}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.7rem,6.3vw,5.1rem);line-height:.97;color:#F3FAFF;font-weight:900;text-transform:none;letter-spacing:-.005em;max-width:15ch}
@@ -687,7 +688,7 @@ html,body{overflow-x:hidden}
       en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } });
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
     els.forEach(function(e){ io.observe(e); });
-    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 2600);
+    setTimeout(function(){ els.forEach(function(e){ if (!e.classList.contains('is-in')) e.classList.add('is-in'); }); }, 600);
   }
   var rb = document.querySelector('.lb-rb');
   if (!rb) return;
@@ -832,9 +833,10 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 </style>
 
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
-.lb-mq__in,.lb-pulse,44x44px icon tile above h3 "Commercial surfaces,44x44px icon tile above h3 "Solar panel cleaning,tiny numbered label "01,tiny numbered label "02,tiny numbered label "03,tiny numbered label "04,tiny numbered label "05{display:none !important}
-Colored box-shadow glow (#0a88ce) on dark page{box-shadow:none !important;text-shadow:none !important}
-7px functional text "Cleaning" (below 11px floor){font-size:max(1em,15px) !important}
+.lb-pulse{display:none !important}
+.svc:hover{box-shadow:none !important}
+.brand-sub,.foot-brand-sub,.lb-brand__sub{font-size:11px !important}
+.hero h1 .thin,.sec-title{text-wrap:balance}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
@@ -842,7 +844,7 @@ body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
 small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
-  scroll-margin-top:24px}
+  scroll-margin-top:90px}
 
 </style>
 <style>/* ==== LB HEADER TRUTH ==== */
