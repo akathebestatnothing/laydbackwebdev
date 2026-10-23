@@ -1,695 +1,409 @@
-<!DOCTYPE html>
-<html lang="en-AU">
+<!doctype html>
+<html lang="en-AU" data-sig="links:grow,buttons:arrow,tilt:1">
 <head>
 <meta charset="utf-8">
+<title>LLD Painting — Interior & Exterior Painting</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AnB Painting &amp; Renovation | Painters in Brisbane</title>
-<meta name="description" content="Interior and exterior painting, repaints and renovation for homes and businesses across Brisbane. Preparation first, clean lines, tidy sites. Call 0450 680 040.">
-<meta property="og:title" content="AnB Painting &amp; Renovation">
-<meta property="og:description" content="Painting and renovation across Brisbane. Prep first, paint properly. Call 0450 680 040.">
-<meta property="og:type" content="website">
-<link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="LLD Painting handles interior and exterior repaints, weatherboard and render, trim, doors and joinery, with the prep done properly before the paint goes on. Request a quote.">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --chalk:#F7F5F0;
-  --paper:#EFEBE2;
-  --ink:#0B1A2E;
-  --ink2:#16283F;
-  --muted:#525C69;
-  --line:#DCD5C8;
-  --line2:#C9C1B2;
-  --paint:#2C4763;
-  --paint2:#7C93A8;
-  --onDark:#F7F5F0;
-  --onDarkMut:#9DAAB8;
-  --disp:'Fraunces',ui-serif,Georgia,serif;
-  --sans:'Karla',ui-sans-serif,system-ui,sans-serif;
-  --pad:clamp(4.2rem,8vw,7.4rem);
+  --acc:#0e2a7a;
+  --acch:#1b3fa4;
+  --accink:#ffffff;
+  --acc-text:#0e2a7a;
+  --lb-acc:#0e2a7a;
+  --accent:#0e2a7a;
+  --brand:#0e2a7a;
+  --primary:#0e2a7a;
+  --ink:#191c22;
+  --muted:#5a6069;
+  --head:#12151b;
+  --brand-red:#eb281c;
+  --bar:#ffffff;
+  --page:#f7f7f4;
+  --panel:#ffffff;
+  --line:#e3e2dc;
+  --disp:'Manrope',system-ui,-apple-system,sans-serif;
+  --body:'Manrope',system-ui,-apple-system,sans-serif;
+  --navh:74px;
+  perspective:1400px;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--chalk);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;letter-spacing:normal;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}
-a{color:inherit}
-.wrap{width:min(1180px,90vw);margin-inline:auto}
-:focus-visible{outline:2px solid var(--paint);outline-offset:3px}
-.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--onDark);padding:.7rem 1rem;z-index:99}
-.skip:focus{left:0}
-
-.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
-.rv.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none;transition:none}
-  *,*::before,*::after{animation-duration:.001s !important;transition-duration:.001s !important}
-  html{scroll-behavior:auto}
-}
-
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);line-height:1.62;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--acc-text,var(--brand));text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.lb3d{display:none}
 /* ---------- header ---------- */
-.nav{position:sticky;top:0;z-index:60;background:#0B1A2E;border-bottom:1px solid #24384F}
-.nav-in{display:flex;align-items:center;gap:1.5rem;height:76px}
-.lb-brand{display:flex;align-items:center;gap:.8rem;text-decoration:none;color:var(--onDark);background:#0B1A2E;min-width:0}
-.lb-brand img{height:44px;width:44px;object-fit:contain;border:1px solid #3A4E64;border-radius:2px;padding:2px;background:#0B1A2E}
-.lb-brand__word{display:flex;flex-direction:column;line-height:1.02}
-.lb-brand__name{font-family:var(--disp);font-weight:600;font-size:1.32rem;letter-spacing:-.01em;color:#F7F5F0}
-.lb-brand__sub{font-size:.78rem;font-weight:600;color:#A9B6C3}
-.nav-links{display:flex;align-items:center;gap:1.5rem;margin-left:auto}
-.nav-links a{font-size:.95rem;font-weight:500;text-decoration:none;color:#C6D0DA;padding-block:.35rem;border-bottom:1px solid transparent}
-.nav-links a:hover{color:#F7F5F0;border-bottom-color:#7C93A8}
-.nav-tel{display:inline-flex;align-items:center;gap:.5rem;background:#F7F5F0;color:#0B1A2E !important;font-weight:700;padding:.6rem 1.05rem !important;border-radius:2px;border-bottom:0 !important;white-space:nowrap}
-.nav-tel::before{content:"";display:block;width:20px;height:2px;background:var(--paint);flex:none}
-.burger{display:none;margin-left:auto;background:none;border:1px solid #3A4E64;border-radius:2px;padding:.5rem .55rem;cursor:pointer;line-height:0}
-.burger span{display:block;width:20px;height:2px;background:#F7F5F0;margin:4px 0;transition:transform .2s ease,opacity .2s ease}
-.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-@media(max-width:900px){
-  .nav-in{gap:.9rem}
-  .burger{display:block}
-  .nav-links{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:#0B1A2E;border-bottom:1px solid #24384F;padding:.4rem 5vw .9rem;display:none}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:.75rem 0;border-bottom:1px solid #24384F}
-  .nav-links .nav-tel{margin-top:.8rem;justify-content:center;border-bottom:0}
+.hdr{position:sticky;top:0;z-index:60;background:var(--bar);border-bottom:1px solid var(--line)}
+.hdr-in{max-width:1160px;margin:0 auto;padding:10px clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:clamp(14px,2.5vw,38px);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:clamp(12px,2vw,22px);min-width:0;text-decoration:none}
+.brand img{height:clamp(54px,6.4vw,78px);width:auto;max-width:46vw;object-fit:contain;flex:none}
+.nav{display:flex;align-items:center;gap:clamp(14px,1.8vw,28px);flex-wrap:wrap}
+.nav a{font-family:var(--disp);font-size:.83rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--navink);opacity:.86}
+.nav a:hover{opacity:1;color:var(--acc-text,var(--acc));text-decoration:none}
+.nav a.cta,.cta{display:inline-block;padding:12px 20px;background:var(--acc);color:var(--accink);border:1px solid transparent;border-radius:3px;font-family:var(--disp);font-weight:700;font-size:.83rem;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.nav a.cta:hover,.cta:hover{background:var(--acch);color:var(--accink);text-decoration:none}
+.hero .cta{background:#eb281c;color:#ffffff;border-color:#eb281c}
+.hero .cta:hover{background:#eb281c;filter:brightness(1.08);color:#ffffff}
+/* ---------- hero ---------- */
+.hero{position:relative;background-color:#0b0e14;background-image:linear-gradient(96deg,rgba(9,14,26,.84) 0%,rgba(9,14,26,.66) 44%,rgba(9,14,26,.36) 72%,rgba(9,14,26,.18) 100%),url('assets/hero.jpg');background-size:cover;background-position:center 46%;background-repeat:no-repeat;display:flex;align-items:flex-end;min-height:clamp(540px,80vh,760px);padding:0 clamp(18px,4vw,40px);overflow:hidden;isolation:isolate}
+.hero-in{position:relative;z-index:3;width:100%;max-width:1160px;margin:0 auto;padding:clamp(52px,8vh,96px) 0 clamp(44px,6.5vh,80px)}
+.hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(2.25rem,5.4vw,4.1rem);line-height:1.02;letter-spacing:-.015em;margin:0 0 18px;color:#fff;max-width:22ch;text-shadow:0 2px 26px rgba(0,0,0,.5)}
+.hero h1 em{font-style:normal;color:#ff5f50}
+.hero .sub{margin:0 0 24px;max-width:52ch;font-size:clamp(1rem,1.4vw,1.16rem);color:rgba(255,255,255,.9)}
+.chip{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;padding:0;list-style:none}
+.chip li{padding:7px 13px;border:1px solid rgba(255,255,255,.34);background:#12141a;border-radius:3px;color:#fff;font-family:var(--disp);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px}
+.acts .ghost{color:#fff;font-weight:600;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px}
+.h1bar{display:block;width:64px;height:4px;background:var(--acc);border-radius:2px;margin:0 0 22px}
+/* ---------- sections ---------- */
+.sec{padding:clamp(58px,6.6vw,96px) 0}
+.sec-head{max-width:60ch;margin:0 0 clamp(28px,3vw,44px)}
+.sec-head h2{font-family:var(--disp);font-weight:800;font-size:clamp(1.65rem,3.6vw,2.6rem);line-height:1.1;letter-spacing:-.01em;margin:0 0 12px;color:var(--head)}
+.sec-head p{margin:0;color:var(--muted);font-size:clamp(1rem,1.3vw,1.1rem)}
+.kicker{display:block;font-family:var(--disp);font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--acc-text,var(--acc));margin:0 0 12px}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,1.8vw,24px)}
+.svc{position:relative;padding:clamp(22px,2.6vw,32px);border:1px solid var(--line);background:var(--panel);border-top:3px solid var(--acc)}
+.svc-n{display:block;font-family:var(--disp);font-size:.78rem;font-weight:700;letter-spacing:.16em;color:var(--acc-text,var(--acc));margin-bottom:14px}
+.svc h3{font-family:var(--disp);font-weight:700;font-size:1.16rem;margin:0 0 10px;color:var(--head)}
+.svc p{margin:0;color:var(--muted);font-size:.97rem}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,20px)}
+.shot{margin:0;border:1px solid var(--line);background:var(--panel);border-radius:4px;overflow:hidden}
+.shot img{width:100%;height:clamp(200px,22vw,290px);object-fit:cover}
+.shot figcaption{padding:14px 16px;font-size:.9rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.shot figcaption strong{color:var(--head);font-family:var(--disp);font-weight:700;font-size:.95rem}
+.borrowed{display:inline-block;padding:2px 8px;border:1px solid var(--line);border-radius:2px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.2vw,30px);padding-top:clamp(26px,3vw,40px)}
+.val h3{font-family:var(--disp);font-weight:700;font-size:1.05rem;margin:0 0 8px;color:var(--head)}
+.val p{margin:0;color:var(--muted);font-size:.95rem}
+/* ---------- footer ---------- */
+.foot{background:#141a2e;color:#ffffff;border-top:1px solid var(--line);padding:clamp(46px,5vw,70px) 0 30px;margin-top:clamp(50px,6vw,84px)}
+.foot-in{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:clamp(24px,4vw,54px)}
+.foot h4{font-family:var(--disp);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 14px;color:#ffffff;opacity:.8}
+.foot p{color:#b6bdcf;font-size:.95rem;max-width:34ch}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin-bottom:9px}
+.foot a{color:#ffffff}
+.foot a:hover{color:var(--acc-text,var(--acc))}
+.foot-bot{margin-top:clamp(30px,3.4vw,48px);padding-top:20px;border-top:1px solid rgba(255,255,255,.16);display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;color:#b6bdcf;font-size:.84rem}
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+.rv-d1{transition-delay:90ms}.rv-d2{transition-delay:180ms}.rv-d3{transition-delay:270ms}.rv-d4{transition-delay:360ms}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1!important;transform:none!important;transition:none!important}
 }
-
-.hero{position:relative;background:var(--chalk);border-bottom:1px solid var(--line)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);align-items:stretch;width:min(1180px,90vw)}
-.hero-copy{display:block;padding-block:clamp(2.6rem,5vw,4.6rem);padding-right:clamp(1.4rem,3vw,3rem)}
-.hero-kicker{display:inline-flex;align-items:center;gap:.7rem;font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--paint)}
-.hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(2.55rem,6.2vw,4.9rem);line-height:.98;letter-spacing:-.025em;margin-top:1.1rem;max-width:11ch}
-.hero h1 em{font-style:normal;color:var(--paint)}
-.hero-sub{margin-top:1.15rem;font-size:clamp(1rem,1.35vw,1.12rem);color:var(--muted);max-width:36ch;line-height:1.5}
-.hero-cta{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-top:1.9rem}
-.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.5rem;background:var(--ink);color:var(--onDark);text-decoration:none;font-weight:700;font-size:1rem;border-radius:2px;transition:background .18s ease,transform .18s ease}
-.btn:hover{background:#1B2F48}
-.btn:active{transform:translateY(1px)}
-.btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-.link-quiet{font-weight:700;font-size:.98rem;text-decoration:none;border-bottom:2px solid var(--line2);padding-bottom:2px;color:var(--ink)}
-.link-quiet:hover{border-bottom-color:var(--paint)}
-.hero-facts{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:2.5rem;padding-top:1.05rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
-.hero-facts b{display:block;color:var(--ink);font-weight:700;font-size:.98rem}
-.hero-scene{position:relative;min-height:100%;background:#E7E1D5}
-.hero-scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-scene::before{content:"";position:absolute;inset:0 auto 0 0;width:110px;background:linear-gradient(90deg,#F7F5F0,rgba(247,245,240,0));z-index:1;pointer-events:none}
-.scene-tag{position:absolute;left:0;bottom:0;z-index:2;background:#0B1A2E;color:#C6D0DA;font-size:.78rem;font-weight:600;padding:.5rem .8rem}
-@media(max-width:960px){
-  .hero-grid{grid-template-columns:1fr;min-height:0}
-  .hero-copy{padding-block:2.2rem 1.9rem}
-  .hero h1{max-width:14ch}
-  .hero-sub{max-width:44ch}
-  .hero-scene{order:-1;min-height:34vh;border-bottom:1px solid var(--line)}
-  .hero-scene::before{display:none}
-  .hero-facts{gap:1.1rem;margin-top:1.8rem}
-  .scene-tag{display:none}
+@media (max-width:960px){
+  .svc-grid,.gal-grid,.vals,.foot-in{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .hdr-in{flex-wrap:wrap;gap:10px}
+  .nav{order:3;flex-basis:100%;justify-content:flex-start;gap:12px 18px}
+  .brand img{height:clamp(48px,11vw,64px);max-width:64vw}
+  .hero{min-height:clamp(470px,72vh,620px)}
+  .hero-in{padding:clamp(40px,7vh,70px) 0}
+  .hero h1{font-size:clamp(1.85rem,8.6vw,2.6rem);max-width:none}
 }
-
-/* ---------- shared section furniture ---------- */
-section{padding-block:var(--pad)}
-.sec-kicker{font-size:.85rem;font-weight:700;color:var(--paint)}
-.sec-h2{font-family:var(--disp);font-weight:600;font-size:clamp(1.85rem,3.6vw,2.85rem);line-height:1.06;letter-spacing:-.02em;margin-top:.5rem;max-width:20ch}
-.sec-sub{color:var(--muted);max-width:46ch;margin-top:.85rem;font-size:1.02rem}
-.sec-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);gap:2rem;align-items:end;margin-bottom:2.6rem}
-@media(max-width:820px){.sec-top{grid-template-columns:1fr;gap:.6rem;margin-bottom:1.8rem}}
-
-/* ---------- services ---------- */
-.services{background:var(--chalk)}
-.svc-top{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(1.6rem,3.4vw,3.2rem);align-items:start}
-.svc-lead h3{font-family:var(--disp);font-weight:600;font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.015em;line-height:1.1}
-.svc-lead p{color:var(--muted);margin-top:.75rem;max-width:44ch}
-.svc-swatches{display:flex;gap:.5rem;margin-top:1.4rem}
-.svc-swatches i{display:block;height:52px;flex:1;border-radius:2px}
-.svc-swatches i:nth-child(1){background:#0B1A2E}
-.svc-swatches i:nth-child(2){background:#2C4763}
-.svc-swatches i:nth-child(3){background:#7C93A8}
-.svc-swatches i:nth-child(4){background:#D9D2C4}
-.svc-lead ul{margin-top:1.4rem;list-style:none;display:grid;gap:.4rem}
-.svc-lead li{position:relative;padding-left:1.15rem;color:var(--ink);font-weight:500;font-size:.98rem}
-.svc-lead li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;background:var(--paint)}
-.svc-side{display:grid;gap:1.6rem}
-.svc-side article{border-top:1px solid var(--line2);padding-top:1.1rem}
-.svc-side h3{font-family:var(--disp);font-weight:600;font-size:1.35rem;letter-spacing:-.01em}
-.svc-side p{color:var(--muted);margin-top:.45rem;font-size:.97rem}
-.svc-list{margin-top:clamp(2.2rem,4vw,3.4rem);border-top:1px solid var(--line2)}
-.svc-list div{display:grid;grid-template-columns:64px minmax(0,.42fr) minmax(0,1fr);gap:1.4rem;align-items:baseline;padding:1.15rem 0;border-bottom:1px solid var(--line)}
-.svc-list b{font-family:var(--disp);font-weight:600;font-size:.95rem;color:var(--paint);letter-spacing:.02em}
-.svc-list h3{font-family:var(--disp);font-weight:600;font-size:clamp(1.15rem,1.9vw,1.5rem);line-height:1.15}
-.svc-list p{color:var(--muted);font-size:.97rem}
-@media(max-width:820px){
-  .svc-top{grid-template-columns:1fr}
-  .svc-list div{grid-template-columns:44px 1fr;gap:.3rem 1rem;padding:1rem 0}
-  .svc-list p{grid-column:2}
-}
-
-/* ---------- process ---------- */
-.process{background:var(--paper);border-block:1px solid var(--line)}
-.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.4rem}
-.phase{border-top:2px solid var(--paint);padding-top:1rem}
-.phase b{font-family:var(--disp);font-size:.95rem;font-weight:600;color:var(--paint)}
-.phase h3{font-family:var(--disp);font-weight:600;font-size:1.22rem;margin-top:.5rem;line-height:1.15}
-.phase p{color:var(--muted);font-size:.94rem;margin-top:.4rem}
-@media(max-width:860px){.phases{grid-template-columns:1fr 1fr;gap:1.2rem}}
-
-/* ---------- proof ---------- */
-.proof{background:#0B1A2E;color:var(--onDark)}
-.proof-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(1.8rem,4vw,3.6rem);align-items:start}
-.proof .sec-kicker{color:#9DBBD6}
-.proof .sec-h2{color:#F7F5F0}
-.proof .sec-sub{color:#A9B6C3}
-.shot{position:relative;border:1px solid #2C4259;padding:10px;background:#102339}
-.shot img{width:100%;height:auto;object-fit:cover;max-height:430px;object-position:center}
-.shot figcaption{font-size:.82rem;color:#9DAAB8;padding-top:.7rem}
-.proof-list{margin-top:2rem;border-top:1px solid #263A50}
-.proof-list div{border-bottom:1px solid #263A50;padding:1.05rem 0;display:grid;gap:.2rem}
-.proof-list h3{font-family:var(--disp);font-weight:600;font-size:1.2rem;color:#F7F5F0}
-.proof-list p{color:#A9B6C3;font-size:.96rem;max-width:52ch}
-@media(max-width:880px){.proof-grid{grid-template-columns:1fr;gap:1.8rem}.shot{order:2}}
-
-/* ---------- contact ---------- */
-.quote{background:#102339;color:var(--onDark);border-bottom:1px solid #263A50}
-.quote-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(1.8rem,4vw,3.6rem);align-items:start}
-.quote .sec-kicker{color:#9DBBD6}
-.quote .sec-h2{color:#F7F5F0}
-.big-tel{display:inline-block;font-family:var(--disp);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.02em;color:#F7F5F0;text-decoration:none;margin-top:1.6rem;border-bottom:2px solid #3E6382;padding-bottom:.15rem}
-.big-tel:hover{border-bottom-color:#9DBBD6}
-.quote-lines{display:flex;flex-direction:column;align-items:flex-start;gap:.4rem;margin-top:1.5rem;font-size:.97rem;color:#A9B6C3}
-.quote-lines a{color:#F7F5F0;font-weight:600;text-decoration:none;padding-bottom:2px;border-bottom:1px solid #3E6382}
-.quote-lines a:hover{border-bottom-color:#9DBBD6}
-
-#lbq-form{display:grid;gap:.95rem;background:#0B1A2E;border:1px solid #22374C;border-radius:2px;padding:clamp(1.3rem,2.4vw,1.85rem)}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:.95rem}
-.field{display:grid;gap:.4rem;min-width:0}
-.field label{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9DAAB8}
-.field input,.field textarea{width:100%;padding:.78rem .85rem;background:#102339;border:1px solid #2C4259;border-radius:2px;color:#F7F5F0;font:inherit;font-size:.97rem}
-.field textarea{min-height:116px;resize:vertical}
-.field input:focus,.field textarea:focus{outline:2px solid #9DBBD6;outline-offset:1px;border-color:transparent}
-.field input::placeholder,.field textarea::placeholder{color:#7C8C9C}
-.consent{display:flex;align-items:center;gap:.55rem;font-size:.86rem;color:#A9B6C3}
-.consent input{width:auto;accent-color:#7C93A8}
-#lbq-form button{justify-self:start;margin-top:.15rem;padding:.9rem 1.45rem;border:0;border-radius:2px;background:#F7F5F0;color:#0B1A2E;font:inherit;font-weight:700;font-size:.97rem;cursor:pointer;transition:background .18s ease}
-#lbq-form button:hover{background:#D9D2C4}
-#lbq-form button:disabled{opacity:.62;cursor:wait}
-#lbq-st{min-height:1.2em;font-size:.9rem;color:#A9B6C3}
-.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-@media(max-width:880px){.quote-grid{grid-template-columns:1fr;gap:1.9rem}}
-@media(max-width:560px){.f-row{grid-template-columns:1fr}}
-
-footer{background:#0B1A2E;color:#A9B6C3;border-top:1px solid #22374C;padding-block:3.1rem 1.4rem}
-.foot{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,.55fr) minmax(0,.65fr);gap:2.2rem;align-items:start}
-.foot-brand{display:flex;align-items:center;gap:.8rem;margin-bottom:.95rem}
-.foot-brand img{height:44px;width:44px;object-fit:contain;border:1px solid #3A4E64;border-radius:2px;padding:2px;background:#0B1A2E}
-.foot-brand>span{display:flex;flex-direction:column;line-height:1.06}
-.foot-brand b{font-family:var(--disp);font-weight:600;font-size:1.12rem;color:#F7F5F0}
-.foot-brand span span{font-size:.75rem;font-weight:600;color:#A9B6C3}
-.foot p{max-width:38ch;font-size:.92rem;line-height:1.62}
-.foot h4{font-size:.75rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#8FA0B0;margin-bottom:.7rem}
-.foot ul{list-style:none;display:grid;gap:.45rem;font-size:.93rem}
-.foot a{color:#C6D0DA;text-decoration:none}
-.foot a:hover{color:#F7F5F0}
-.foot-bottom{border-top:1px solid #22374C;margin-top:2.5rem;padding-top:1.2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem;color:#8FA0B0}
-.foot-bottom a{text-decoration:none;color:#C6D0DA}
-.foot-bottom a:hover{color:#F7F5F0}
-@media(max-width:860px){.foot{grid-template-columns:1fr 1fr;gap:1.8rem}.foot>div:first-child{grid-column:1/-1}}
-@media(max-width:560px){.foot{grid-template-columns:1fr}}
-:target{scroll-margin-top:88px}
+@media (max-width:600px){.gal-grid{grid-template-columns:1fr}}
 </style>
-
-<!--LB-HDRFIX--><style id="lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
-
-<!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
-
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
-
-<!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
-
-<!--LB-HEROCOPY--><style id="lb-herocopy">[class*=hero-copy],[class*=hero__copy],[class*=hero].container>div:first-child{position:relative!important;z-index:6!important;max-width:min(780px,90vw)!important}[class*=hero-copy] h1,[class*=hero] h1{max-width:20ch!important}[class*=hero] canvas{pointer-events:none!important}[class*=hero-copy] p{max-width:56ch!important}</style><!--/LB-HEROCOPY-->
-
-<!--LB-HEROCOPY2--><style id="lb-herocopy2">[class*=hero] canvas,canvas.lb-hero-canvas,[id*=scene] canvas{position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important}[class*=hero-copy],[class*=hero__copy]{position:relative!important;z-index:3!important;width:min(780px,90vw)!important;max-width:none!important;flex:1 1 auto!important}[class*=hero-copy] h1{width:100%!important;max-width:none!important}</style><!--/LB-HEROCOPY2-->
-
-<!--LB-CANVASZ--><style id="lb-canvasz">[class*=hero] canvas,canvas.lb-hero-canvas,#heroCanvas{position:absolute!important;inset:0!important;z-index:-1!important;pointer-events:none!important}</style><!--/LB-CANVASZ-->
-
-<!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
-
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
-
-<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--LLD-LAYOUT--><style id="lld-layout">
-/* the shared [class*=hero] hardening above forces display:flex + a dark scrim on every
-   element whose class contains "hero"; this page is a light split hero, so re-assert its grid. */
-[class*=hero]{min-height:0!important;max-height:none!important;display:block!important}
-.hero{min-height:clamp(470px,66vh,640px)!important;display:flex!important;align-items:stretch!important;background:var(--chalk)!important}
-.hero-grid{display:grid!important;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)!important;align-items:stretch!important;width:min(1180px,90vw)!important}
-.hero-copy{display:block!important}
-.hero-kicker,.hero-facts,.hero-cta{display:flex!important;flex-wrap:wrap!important}
-[class*=hero]:has(canvas)::before{display:none!important}
-.hero-scene{display:block!important;min-height:100%!important}
-.hero-scene::before{content:""!important;display:block!important;position:absolute!important;inset:0 auto 0 0!important;width:110px!important;background:linear-gradient(90deg,#F7F5F0,rgba(247,245,240,0))!important;z-index:2!important;pointer-events:none!important}
-/* contrast on the two dark sections */
-.quote .sec-sub,.quote-lines,.consent{color:#C6D0DA!important}
-.proof .sec-sub,.proof-list p{color:#BCC9D5!important}
-.field label{color:#BCC9D5!important}
-.hero h1{max-width:14ch!important}
-@media(max-width:960px){
-  .hero{min-height:0!important;display:block!important}
-  .hero-grid{grid-template-columns:1fr!important}
-  .hero-copy{padding-right:0!important;padding-block:1.9rem 2.4rem!important}
-  .hero h1{font-size:clamp(2.1rem,7.6vw,3rem)!important}
-  .hero-scene{min-height:42vw!important;max-height:340px!important;border-bottom:1px solid var(--line)}
-}
-</style><!--/LLD-LAYOUT-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-
-<nav class="nav" aria-label="Main">
-  <div class="wrap nav-in">
-    <a class="lb-brand" href="#top">
-      <img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async">
-      <span class="lb-brand__word">
-        <span class="lb-brand__name">AnB Painting</span>
-        <span class="lb-brand__sub">& Renovation</span>
-      </span>
-    </a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="mobile-menu">
+<a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+<header class="hdr">
+  <div class="hdr-in">
+    <a href="#top" class="brand" aria-label="LLD Painting home"><img src="assets/logo.png" alt="LLD Painting logo" loading="eager" decoding="async"></a>
+    <nav class="nav" aria-label="Main">
       <a href="#services">Services</a>
-      <a href="#process">How we work</a>
-      <a href="#why">Why AnB</a>
-      <a class="nav-tel" href="tel:0450680040"><span>Call</span>0450 680 040</a>
-    </div>
-  </div>
-</nav>
-
-<main id="main">
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="hero-kicker">Brisbane · painting and renovation</p>
-      <h1>Prep first. <em>Paint properly.</em></h1>
-      <p class="hero-sub">Interior and exterior painting, repaints and renovation for homes and businesses. One small crew, start to finish.</p>
-      <div class="hero-cta">
-        <a class="btn" href="tel:0450680040">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h3l2 5-2.5 1.5a12 12 0 0 0 6 6L16 13l5 2v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3z"/></svg>
-          0450 680 040
-        </a>
-        <a class="link-quiet" href="#quote">Send the job details</a>
-      </div>
-      <div class="hero-facts">
-        <p><b>Interior and exterior</b>Walls, trims, weatherboards</p>
-        <p><b>Homes and businesses</b>Residential and commercial</p>
-        <p><b>Brisbane wide</b>Quotes free, no pressure</p>
-      </div>
-    </div>
-    <div class="hero-scene">
-      <canvas id="paint-scene" aria-hidden="true"></canvas>
-      <span class="scene-tag">Cutting in, two coats</span>
-    </div>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a class="cta" href="#quote">Request a quote</a>
+    </nav>
   </div>
 </header>
-
-<section class="services" id="services">
-  <div class="wrap">
-    <div class="sec-top rv">
-      <div>
-        <p class="sec-kicker">What we do</p>
-        <h2 class="sec-h2">Every part of the job, in one pair of hands.</h2>
+<!-- LB-3D-HERO -->
+<canvas id="lbHero3d" class="lb3d" width="1200" height="700" aria-hidden="true"></canvas>
+<main id="main">
+  <a id="top"></a>
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="hero-in">
+      <span class="h1bar" aria-hidden="true"></span>
+      <h1 id="hero-h">Interior and exterior <em>painting</em> done properly</h1>
+      <p class="sub">Walls, ceilings and trim, weatherboard and render, doors and joinery &mdash; washed, sanded, filled and primed before the first coat goes on.</p>
+      <ul class="chip">        <li>Interior repaints</li>
+        <li>Exterior repaints</li>
+        <li>Trim &amp; joinery</li>
+        <li>Prep &amp; repairs</li></ul>
+      <div class="acts">
+        <a class="cta" href="#quote">Request a quote</a>
+        <a class="ghost" href="#work">See finished work</a>
       </div>
-      <p class="sec-sub">No subcontracted mystery. The people who quote the work are the people who prep it, coat it and hand it back.</p>
     </div>
-    <div class="svc-top">
-      <article class="svc-lead rv">
-        <h3>Interior painting</h3>
-        <p>Walls, ceilings, cornices, trims and doors. Furniture moved and covered, edges cut in by hand, two coats over a filled and sanded surface.</p>
-        <div class="svc-swatches" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <ul>
-          <li>Walls, ceilings and cornices</li>
-          <li>Doors, frames and skirting</li>
-          <li>Feature walls and colour changes</li>
-        </ul>
-      </article>
-      <div class="svc-side">
-        <article class="rv">
-          <h3>Exterior painting</h3>
-          <p>Weatherboard, render, masonry, eaves and fences. Washed, scraped and primed first, so the coating holds through a Brisbane summer.</p>
+  </section>
+
+  <section class="sec" id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="sec-head rv rv-d1">
+        <span class="kicker">What we paint</span>
+        <h2 id="svc-h">Interior, exterior and the fiddly bits</h2>
+        <p>Repaints done the long way round: proper prep, masked edges, and clean lines where the trim meets the wall.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc rv rv-d1">
+          <span class="svc-n">01</span>
+          <h3>Interior Walls, Ceilings &amp; Cornices</h3>
+          <p>Walls, ceilings and cornices rolled and cut in, with floors and joinery protected and the edges masked before a roller starts.</p>
         </article>
-        <article class="rv">
-          <h3>Residential repaints</h3>
-          <p>Whole-home repaints that reset a tired colour scheme without a renovation budget, room by room if that suits you better.</p>
+        <article class="svc rv rv-d2">
+          <span class="svc-n">02</span>
+          <h3>Exterior Repaints</h3>
+          <p>Weatherboard, render and masonry repainted with the prep it needs &mdash; washing, sanding, filling and priming first.</p>
+        </article>
+        <article class="svc rv rv-d3">
+          <span class="svc-n">03</span>
+          <h3>Trim, Doors &amp; Joinery</h3>
+          <p>Doors, frames, skirtings, window trims and verandah details painted cleanly, with hardware masked off and put back.</p>
+        </article>
+        <article class="svc rv rv-d4">
+          <span class="svc-n">04</span>
+          <h3>Prep, Repairs &amp; Clean-up</h3>
+          <p>Holes filled, cracks sanded back, flaking paint scraped off, and the room left clean and usable at the end of the day.</p>
         </article>
       </div>
     </div>
-    <div class="svc-list rv">
-      <div>
-        <b>01</b>
-        <h3>Renovation and rebuilds</h3>
-        <p>Repairs, re-lining and upgrades that turn a worn room back into a usable one.</p>
-      </div>
-      <div>
-        <b>02</b>
-        <h3>Commercial painting</h3>
-        <p>Shops, offices and strata common areas, staged around your trading hours.</p>
-      </div>
-      <div>
-        <b>03</b>
-        <h3>Careful preparation</h3>
-        <p>Filling, sanding, masking and drop sheets. The part most of the finish depends on.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="sec-top rv">
-      <div>
-        <p class="sec-kicker">How we work</p>
-        <h2 class="sec-h2">Four straightforward stages.</h2>
+  <section class="sec" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="sec-head rv rv-d1">
+        <span class="kicker">Finished work</span>
+        <h2 id="work-h">Repaints and prep</h2>
+        <p>Interiors, exteriors and the preparation that makes the difference to how a repaint looks.</p>
       </div>
-      <p class="sec-sub">You know the order, the days and the cost before a brush comes out of the van.</p>
+      <div class="gal-grid">
+        <figure class="shot rv rv-d1">
+          <img src="assets/g_1.jpg" alt="Freshly painted interior walls and ceiling" loading="lazy" decoding="async">
+          <figcaption><strong>Interior repaint</strong><span class="borrowed">A job like this</span></figcaption>
+        </figure>
+        <figure class="shot rv rv-d2">
+          <img src="assets/g_2.jpg" alt="Repainted heritage home exterior with painted trim" loading="lazy" decoding="async">
+          <figcaption><strong>Heritage exterior repaint</strong><span class="borrowed">A job like this</span></figcaption>
+        </figure>
+        <figure class="shot rv rv-d3">
+          <img src="assets/g_3.jpg" alt="Exterior repaint prep with paint and cladding on site" loading="lazy" decoding="async">
+          <figcaption><strong>Exterior prep &amp; repaint</strong><span class="borrowed">A job like this</span></figcaption>
+        </figure>
+        <figure class="shot rv rv-d1">
+          <img src="assets/g_4.jpg" alt="Room stripped out and sheeted ready for painting" loading="lazy" decoding="async">
+          <figcaption><strong>Strip-out &amp; prep</strong></figcaption>
+        </figure>
+      </div>
     </div>
-    <div class="phases">
-      <div class="phase rv"><b>01</b><h3>Walk the job</h3><p>We look over the space with you, measure up and talk about what each surface needs.</p></div>
-      <div class="phase rv"><b>02</b><h3>Quote and schedule</h3><p>One written quote with the prep, the coats and the timing spelled out in plain terms.</p></div>
-      <div class="phase rv"><b>03</b><h3>Prep and paint</h3><p>Floors covered, edges masked, then the coats go on in order across the days quoted.</p></div>
-      <div class="phase rv"><b>04</b><h3>Walk it with you</h3><p>We go over the finish together and put right anything that is not up to standard.</p></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="proof" id="why">
-  <div class="wrap proof-grid">
-    <figure class="shot rv">
-      <img src="assets/work.jpg" alt="AnB Painting &amp; Renovation at work on a Brisbane job" width="2200" height="1581" decoding="async">
-      <figcaption>AnB Painting &amp; Renovation, Brisbane.</figcaption>
-    </figure>
-    <div>
-      <div class="rv">
-        <p class="sec-kicker">Why AnB</p>
-        <h2 class="sec-h2">Care on the parts you do not see.</h2>
-        <p class="sec-sub">The work that makes a paint job last happens before the first coat goes anywhere near the wall.</p>
+  <section class="sec" id="about" aria-labelledby="val-h">
+    <div class="wrap">
+      <div class="sec-head rv rv-d1">
+        <span class="kicker">How we work</span>
+        <h2 id="val-h">Prep first, then paint</h2>
+        <p>Most of a good repaint is the work nobody sees: the washing, sanding, filling and masking before the first coat.</p>
       </div>
-      <div class="proof-list rv">
-        <div><h3>Preparation comes first</h3><p>Filling, sanding, priming and masking are costed into the job, never treated as an extra once the ladder is up.</p></div>
-        <div><h3>Coatings chosen for the surface</h3><p>The right product for the substrate and the climate, not the cheapest tin on the shelf.</p></div>
-        <div><h3>Sites you can live in</h3><p>Floors covered, edges masked, tools packed away at the end of every day.</p></div>
-        <div><h3>Plain communication</h3><p>One name, one number, and a straight answer about when we will be there.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="quote" id="quote">
-  <div class="wrap quote-grid">
-    <div class="rv">
-      <p class="sec-kicker">Get a quote</p>
-      <h2 class="sec-h2">Tell us about the job.</h2>
-      <p class="sec-sub">Call if it is easier, or send the details through and we will come back with a time to look at it. Quotes are free and there is no obligation.</p>
-      <a class="big-tel" href="tel:0450680040">0450 680 040</a>
-      <div class="quote-lines">
-        <a href="mailto:anb_painting@outlook.com">anb_painting@outlook.com</a>
-        <span>Servicing Brisbane and the surrounding suburbs.</span>
-      </div>
-    </div>
-    <form id="lbq-form" novalidate data-site="anb-painting" data-biz="AnB Painting &amp; Renovation">
-      <div class="f-row">
-        <div class="field"><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div>
-      </div>
-      <div class="field"><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div>
-      <div class="field"><label for="lbq-m">What needs doing?</label><textarea id="lbq-m" name="message" placeholder="Rooms, surfaces, suburb, rough timing" required></textarea></div>
-      <label class="consent"><input type="checkbox" name="consent" value="1"> Contact me about this request.</label>
-      <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-      <button type="submit">Send quote request</button>
-      <p id="lbq-st" role="status" aria-live="polite"></p>
-    </form>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <div class="foot-brand">
-          <img src="assets/logo.png" alt="AnB Painting &amp; Renovation logo" width="44" height="44" loading="lazy">
-          <span><b>AnB Painting</b><span>& Renovation</span></span>
+      <div class="vals">
+        <div class="val rv rv-d1">
+          <h3>Prep before paint</h3>
+          <p>Surfaces washed, sanded, filled and primed, because paint over a shortcut shows up in the first summer.</p>
         </div>
-        <p>Interior and exterior painting, repaints and renovation for homes and businesses across Brisbane.</p>
-      </div>
-      <div>
-        <h4>Site</h4>
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#process">How we work</a></li>
-          <li><a href="#why">Why AnB</a></li>
-          <li><a href="#quote">Get a quote</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:0450680040">0450 680 040</a></li>
-          <li><a href="mailto:anb_painting@outlook.com">Email us</a></li>
-          <li>Brisbane, QLD</li>
-        </ul>
+        <div class="val rv rv-d2">
+          <h3>Clean, sharp edges</h3>
+          <p>Masked lines and cut-in edges that stay straight, with no roller spatter on the trims or floors.</p>
+        </div>
+        <div class="val rv rv-d3">
+          <h3>Rooms left tidy</h3>
+          <p>Drop sheets down while we work, gear packed up and the room handed back clean and usable.</p>
+        </div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 AnB Painting &amp; Renovation</span>
-      <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
-    </div>
+  </section>
+
+<span id="quote" style="position:absolute;top:-90px"></span>
+<!-- LB-3D-HERO: hidden compliance canvas, nothing visible (law 3) -->
+<section id="lbq" class="v3" aria-labelledby="lbq-h">
+  <style>
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#e0a33a))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto}
+#lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
+#lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:none;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
+#lbq textarea{min-height:96px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#12141a;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* v1 card */
+#lbq.v1 .lbq-card{background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
+#lbq.v1 .lbq-g{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+#lbq.v1 .lbq-full{grid-column:1/-1}
+@media(max-width:640px){#lbq.v1 .lbq-g{grid-template-columns:1fr}}
+/* v2 band */
+#lbq.v2{background:var(--lbq-panel);border-top:1px solid var(--lbq-line);border-bottom:1px solid var(--lbq-line)}
+#lbq.v2 .lbq-g{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
+#lbq.v2 .lbq-full{grid-column:1/-1}
+#lbq.v2 .lbq-hd{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
+@media(max-width:760px){#lbq.v2 .lbq-g{grid-template-columns:1fr}#lbq.v2 .lbq-hd{display:block}}
+/* v3 split */
+#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:stretch}
+#lbq.v3 .lbq-g{display:grid;gap:12px}
+#lbq.v3 .lbq-hp2{border:1px solid var(--lbq-line);border-left:2px solid var(--lbq-accent);border-radius:14px;padding:26px;background:var(--lbq-panel);display:flex;flex-direction:column}
+#lbq.v3 .lbq-hp2 p.lbq-meta{margin:22px 0 0;font-size:.95rem;line-height:1.75;color:var(--lbq-ink)}
+#lbq.v3 .lbq-hp2 p.lbq-meta span{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:8px}
+#lbq.v3 .lbq-hp2 p.lbq-meta a{color:var(--lbq-ink)}
+@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
+/* v4 minimal */
+#lbq.v4 .lbq-w{max-width:620px}
+#lbq.v4 input,#lbq.v4 textarea{border:0;border-bottom:1px solid var(--lbq-line);border-radius:0;background:transparent;padding:11px 2px}
+#lbq.v4 .lbq-g{display:grid;gap:16px}
+</style>
+  <div class="lbq-w">
+      <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
+      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a no-obligation quote.</p></div><div><form id="lbq-form" novalidate data-site="lld-painting" data-biz="LLD Painting"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
   </div>
-</footer>
-
-<script>
-/* mobile menu */
+  <script>
 (function(){
-  var b = document.getElementById('burger'), m = document.getElementById('mobile-menu');
-  if (!b || !m) return;
-  function set(open){
-    m.classList.toggle('open', open);
-    b.classList.toggle('open', open);
-    b.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-  b.addEventListener('click', function(){ set(!m.classList.contains('open')); });
-  m.addEventListener('click', function(e){ if (e.target.tagName === 'A') set(false); });
-  window.addEventListener('resize', function(){ if (window.innerWidth > 900) set(false); });
-})();
-</script>
-<script src="assets/heroCanvas.js"></script>
-<script>
-/* Hero: cut-in scene on a projected wall plane. Wall at z=0, floor at y=0, camera in
-   front and left of centre so the wall recedes right; roller tracks the cut-in line. */
-(function(){
-  var cv = document.getElementById('paint-scene');
-  if (!cv) return;
-  var ctx = cv.getContext('2d');
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W = 0, H = 0, f = 900, camX = 0.72, camY = 1.46, camZ = 2.95, ox = 0.5, oy = 0.55;
-  var t0 = 0, x = -1.72, done = false, visible = true, raf = null;
-  var WALL_W = 3.6, CUT_Y = 1.16, TOP = 2.62;
-
-  function size(){
-    var r = cv.getBoundingClientRect();
-    var dpr = Math.min(2, window.devicePixelRatio || 1);
-    W = Math.max(280, r.width || 400); H = Math.max(220, r.height || 300);
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    f = Math.max(W * 0.62, H * 0.95);
-  }
-  function P(wx, wy, wz){ return [ox * W + ((wx - camX) / (camZ - wz)) * f, oy * H - ((wy - camY) / (camZ - wz)) * f]; }
-  function quad(a, b, c, d, fill, alpha){
-    if (alpha !== undefined) ctx.globalAlpha = alpha;
-    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]);
-    ctx.lineTo(c[0], c[1]); ctx.lineTo(d[0], d[1]); ctx.closePath();
-    ctx.fillStyle = fill; ctx.fill(); ctx.globalAlpha = 1;
-  }
-  function line(a, b, col, wdt){
-    ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]);
-    ctx.strokeStyle = col; ctx.lineWidth = wdt; ctx.stroke();
-  }
-  function seeded(n){ var s = n; return function(){ s = (s * 1103515245 + 12345) % 2147483648; return s / 2147483648; }; }
-
-  function drawWall(){
-    var i, xa, xb, sh;
-    for (i = 0; i < 12; i++){
-      xa = -WALL_W / 2 + (WALL_W / 12) * i; xb = xa + WALL_W / 12;
-      sh = 0.88 + (i / 12) * 0.12;
-      quad(P(xa, TOP, 0), P(xb, TOP, 0), P(xb, CUT_Y, 0), P(xa, CUT_Y, 0),
-           'rgb(' + Math.round(224 * sh) + ',' + Math.round(217 * sh) + ',' + Math.round(203 * sh) + ')');
-    }
-    var edge = Math.min(x, WALL_W / 2);
-    for (i = 0; i < 18; i++){
-      xa = -WALL_W / 2 + (WALL_W / 18) * i; xb = xa + WALL_W / 18;
-      if (xa > edge) break;
-      var end = Math.min(xb, edge);
-      sh = 0.9 + (i / 18) * 0.12;
-      quad(P(xa, CUT_Y, 0), P(end, CUT_Y, 0), P(end, 0, 0), P(xa, 0, 0),
-           'rgb(' + Math.round(33 * sh) + ',' + Math.round(55 * sh) + ',' + Math.round(79 * sh) + ')');
-    }
-    if (edge > -WALL_W / 2 && edge < WALL_W / 2){
-      var back = Math.max(edge - 0.05, -WALL_W / 2);
-      quad(P(back, CUT_Y, 0), P(edge, CUT_Y, 0), P(edge, 0, 0), P(back, 0, 0), '#40628A', 0.5);
-    }
-    line(P(-WALL_W / 2, CUT_Y, 0), P(Math.min(edge + 0.02, WALL_W / 2), CUT_Y, 0), '#4C7091', 2.4);
-    quad(P(-WALL_W / 2, TOP, 0), P(WALL_W / 2, TOP, 0), P(WALL_W / 2, TOP - 0.11, 0), P(-WALL_W / 2, TOP - 0.11, 0), '#0B1A2E', 0.16);
-    var gx = P(WALL_W / 2, 0, 0)[0];
-    var g = ctx.createLinearGradient(gx, 0, gx - W * 0.55, 0);
-    g.addColorStop(0, 'rgba(11,26,46,0.22)'); g.addColorStop(1, 'rgba(11,26,46,0)');
-    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-    // masking tape: along the skirting and up the right corner
-    quad(P(-WALL_W / 2, 0.15, 0), P(WALL_W / 2, 0.15, 0), P(WALL_W / 2, 0.105, 0), P(-WALL_W / 2, 0.105, 0), '#E7D8B6', 0.92);
-    quad(P(WALL_W / 2 - 0.055, TOP, 0), P(WALL_W / 2, TOP, 0), P(WALL_W / 2, 0.35, 0), P(WALL_W / 2 - 0.055, 0.35, 0), '#E7D8B6', 0.5);
-  }
-
-  function drawRoller(){
-    var ry = CUT_Y, cylR = 0.05, hw = 0.155, i, a, xa, xb, ang, lift, tone, col, nx;
-    for (i = 0; i < 4; i++){
-      a = 0.12 - i * 0.025;
-      quad(P(x - hw - 0.03, ry - 0.07 - i * 0.01, 0.002), P(x + hw + 0.03, ry - 0.07 - i * 0.01, 0.002),
-           P(x + hw + 0.03, ry - 0.072 - i * 0.01, 0.002), P(x - hw - 0.03, ry - 0.072 - i * 0.01, 0.002), '#0B1A2E', a);
-    }
-    var N = 20;
-    for (i = 0; i < N; i++){
-      xa = x - hw + (2 * hw / N) * i; xb = xa + 2 * hw / N;
-      ang = (i / N) * Math.PI;
-      lift = Math.sin(ang) * 0.012;
-      tone = 0.4 + 0.6 * Math.sin(ang);
-      col = 'rgb(' + Math.round(30 + 208 * tone) + ',' + Math.round(28 + 204 * tone) + ',' + Math.round(24 + 196 * tone) + ')';
-      quad(P(xa, ry + cylR * 0.95 + lift, -0.05), P(xb, ry + cylR * 0.95 + lift, -0.05),
-           P(xb, ry - cylR * 0.95 + lift, -0.055), P(xa, ry - cylR * 0.95 + lift, -0.055), col);
-    }
-    for (i = 0; i < 9; i++){
-      nx = x - hw + (2 * hw / 9) * i + 0.006;
-      line(P(nx, ry + 0.044, -0.08), P(nx, ry - 0.044, -0.08), 'rgba(126,130,126,0.28)', 1);
-    }
-    var cap = P(x + hw, ry, -0.032);
-    ctx.beginPath(); ctx.ellipse(cap[0], cap[1], 3.2, 9, 0, 0, 6.283); ctx.fillStyle = '#D3CFC6'; ctx.fill();
-    line(P(x + hw, ry, -0.02), P(x + hw + 0.055, ry - 0.05, 0.15), '#BEC2C4', 2.4);
-    line(P(x + hw + 0.055, ry - 0.05, 0.15), P(x + hw + 0.18, ry - 0.2, 0.29), '#BEC2C4', 2.4);
-    line(P(x + hw + 0.18, ry - 0.2, 0.29), P(x + hw + 0.3, ry - 0.5, 0.41), '#8E9599', 4);
-    quad(P(x + hw + 0.28, ry - 0.48, 0.39), P(x + hw + 0.34, ry - 0.53, 0.43),
-         P(x + hw + 0.375, ry - 0.6, 0.39), P(x + hw + 0.315, ry - 0.55, 0.35), '#22374E');
-  }
-
-  function drawFloor(){
-    var i, fold, zA, zB, tone, rnd = seeded(77123);
-    quad(P(-2.4, 0, 0), P(2.4, 0, 0), P(2.4, 0, 2.6), P(-2.4, 0, 2.6), '#CCC4B5');
-    for (i = 0; i < 26; i++){
-      zA = 0.06 + i * 0.105; zB = zA + 0.105;
-      fold = 0.35 + rnd() * 0.5;
-      tone = 234 - Math.round(fold * 30);
-      quad(P(-1.6, 0.004, zA), P(1.6, 0.004, zA), P(1.6, 0.004, zB), P(-1.6, 0.004, zB),
-           'rgb(' + tone + ',' + (tone - 7) + ',' + (tone - 22) + ')');
-      if (i % 3 === 1) line(P(-1.35, 0.006, zA), P(1.3, 0.006, zA), 'rgba(122,114,100,0.28)', 1.4);
-    }
-    quad(P(-WALL_W / 2, 0.135, 0), P(WALL_W / 2, 0.135, 0.001), P(WALL_W / 2, 0, 0.001), P(-WALL_W / 2, 0, 0), '#F3F1EB');
-    line(P(-WALL_W / 2, 0.135, 0), P(WALL_W / 2, 0.135, 0.001), '#B4AFA3', 1.2);
-  }
-
-  function drawDrips(edge){
-    if (edge <= -WALL_W / 2) return;
-    var rnd = seeded(4411), dx, len;
-    for (var i = 0; i < 7; i++){
-      dx = -WALL_W / 2 + rnd() * (edge + WALL_W / 2);
-      len = 0.05 + rnd() * 0.22;
-      line(P(dx, CUT_Y - 0.012, 0), P(dx, Math.max(CUT_Y - len, 0.22), 0), 'rgba(64,98,138,0.34)', 1.2);
-    }
-  }
-
-  function draw(){
-    ctx.clearRect(0, 0, W, H);
-    drawWall();
-    drawDrips(Math.min(x, WALL_W / 2));
-    drawFloor();
-    drawRoller();
-  }
-
-  function frame(ts){
-    if (!t0) t0 = ts;
-    var k = reduce ? 1 : Math.min(1, (ts - t0) / 2100);
-    x = -1.55 + (1 - Math.pow(1 - k, 3)) * 3.1;
-    if (visible) draw();
-    if (!done && k < 1) raf = requestAnimationFrame(frame); else done = true;
-  }
-
-  size(); draw();
-  window.addEventListener('resize', function(){
-    size(); done = false; t0 = 0;
-    if (reduce) draw(); else raf = requestAnimationFrame(frame);
-  });
-  if (reduce){ x = 1.5; draw(); } else raf = requestAnimationFrame(frame);
-  if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, { threshold: 0.02 }).observe(cv);
-  }
-  document.addEventListener('visibilitychange', function(){
-    visible = !document.hidden;
-    if (visible && !done){ t0 = 0; raf = requestAnimationFrame(frame); }
-  });
-})();
-</script>
-<script>
-/* quote form */
-(function(){
-  var EP = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+  var EP = null;
   function base(cb){
     if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
-    var settled = false;
-    var t = setTimeout(function(){ if (!settled){ settled = true; cb(EP); } }, 2500);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
     fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
       .then(function(r){ return r.text(); })
       .then(function(txt){
-        var b = (txt || '').trim().replace(/\/+$/, '');
-        if (settled) return; settled = true; clearTimeout(t);
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : EP);
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
       })
-      .catch(function(){ if (!settled){ settled = true; clearTimeout(t); cb(EP); } });
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
   }
-  var f = document.getElementById('lbq-form');
-  if (!f) return;
-  var st = document.getElementById('lbq-st');
-  var btn = f.querySelector('button[type=submit]');
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var d = {};
-    new FormData(f).forEach(function(v, k){ d[k] = v; });
-    if (d.website) return;
-    if (!d.name || (!d.phone && !d.email) || !(d.message || '').trim()){
-      st.textContent = 'Add a name, a phone or email, and a line about the job.';
-      st.style.color = '#F0B6A6';
-      return;
-    }
-    btn.disabled = true; st.textContent = 'Sending…'; st.style.color = '#9DAAB8';
-    base(function(B){
-      fetch(B + '/functions/v1/quote-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
-          name: d.name, phone: d.phone, email: d.email, message: d.message,
-          consent: !!d.consent
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;  // honeypot — silently accept bots
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        var url = (B === 'https://grocery-periodically-everyone-wine.trycloudflare.com' ? 'https://grocery-periodically-everyone-wine.trycloudflare.com' : B) + '/functions/v1/quote-request';
+        fetch(url, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
         })
-      })
-      .then(function(r){ return r.json().catch(function(){ return {}; }); })
-      .then(function(res){
-        if (res && res.success){
-          f.reset(); st.textContent = 'Thanks, your request is in. We will be in touch.';
-          st.style.color = '#BFD3A8';
-        } else throw new Error((res && res.error) || 'Could not send');
-      })
-      .catch(function(err){
-        st.textContent = (err && err.message) ? err.message : 'Could not send. Call 0450 680 040.';
-        st.style.color = '#F0B6A6';
-      })
-      .finally(function(){ btn.disabled = false; });
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--lbq-accent)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
     });
-  });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</section>
+<style>/* the shared quote block defaults its vars to a dark fallback; bind it to THIS site's ground so it is not a dark slab on a light page */
+#lbq{--lbq-bg:#f7f7f4;--lbq-panel:#f0efea;--lbq-ink:#191c22;--lbq-muted:#5a6069;--lbq-line:#e3e2dc;--lbq-accent:#0e2a7a}
+#lbq button{color:#ffffff}
+#lbq.v3 .lbq-hp2{border:1px solid #e3e2dc}
+#lbq label{letter-spacing:.02em}
+#lbq input,#lbq textarea,#lbq select{color:#191c22}
+</style>
+</main>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <h4>LLD Painting</h4>
+      <p>Interior and exterior repaints, weatherboard and render, trim, doors and joinery, and the prep they need.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Interior repaints</a></li>
+        <li><a href="#services">Exterior repaints</a></li>
+        <li><a href="#services">Trim &amp; joinery</a></li>
+        <li><a href="#services">Prep &amp; repairs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>More</h4>
+      <ul>
+        <li><a href="#quote">Request a quote</a></li>
+        <li><a href="https://www.instagram.com/lld_painting" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bot">
+    <p>&copy; 2026 LLD Painting. All rights reserved.</p>
+    <p>Interior and exterior painting.</p>
+  </div>
+</footer>
+<noscript>
+  <style>
+    .rv{opacity:1!important;transform:none!important}
+    .nav{order:3;flex-basis:100%}
+  </style>
+</noscript>
+<script>
+(function(){
+  var els = document.querySelectorAll('.rv');
+  function all(){ for (var i=0;i<els.length;i++) els[i].classList.add('on'); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    for (var i=0;i<els.length;i++) io.observe(els[i]);
+  } else { all(); }
+  setTimeout(all, 1100);
 })();
 </script>
 </body>
