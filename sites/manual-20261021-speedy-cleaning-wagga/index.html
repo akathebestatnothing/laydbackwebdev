@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speedy Cleaning Wagga — house, office and carpet cleaning in Wagga Wagga</title>
+<meta name="description" content="House cleaning, office cleaning, carpet and upholstery cleaning and end-of-lease cleans across Wagga Wagga NSW. Call 0431 096 200.">
+<meta name="theme-color" content="#0d1114">
+<link rel="icon" href="assets/logomark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --acc:#2f9e8f;            /* brand accent — taken from the logo */
+  --accent:#2f9e8f;
+  --brand:#2f9e8f;
+  --primary:#2f9e8f;
+  --lb-acc:#2f9e8f;
+  --acc-lift:#5ec9ba;
+  --bg:#0d1114;
+  --bg-2:#12181c;
+  --panel:rgba(255,255,255,.045);
+  --ink:#f2f6f7;
+  --muted:#b3c0c6;
+  --line:rgba(255,255,255,.14);
+  --disp:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --shadow:0 18px 44px -24px rgba(0,0,0,.7);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--acc-lift);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:0}
+p{margin:0 0 14px}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 clamp(18px,4vw,32px)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:10px 16px;z-index:99}
+.skip:focus{left:12px;top:12px}
+
+/* ---------- header ---------- */
+.header{position:sticky;top:0;z-index:60;background:rgba(13,17,20,.94);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:18px;justify-content:space-between;flex-wrap:wrap;min-height:72px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;flex:0 1 auto;min-width:0}
+.brand:hover{text-decoration:none}
+.brand-mark{height:32px;width:auto;flex:0 0 auto;display:block}
+.brand-name{font-family:var(--disp);font-weight:900;font-size:1.16rem;line-height:1.05;letter-spacing:-.01em;color:var(--ink);white-space:nowrap}
+.brand-sub{display:block;font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.nav{display:flex;align-items:center;gap:26px;flex:0 1 auto;min-width:0}
+.nav a{font-size:.92rem;font-weight:600;color:var(--muted);padding:6px 0}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.nav a.cta-btn{color:#06110f}
+.cta-btn{display:inline-block;background:var(--acc);color:#06110f;font-weight:800;font-size:.95rem;padding:12px 20px;border-radius:8px;white-space:nowrap;transition:transform .16s ease,filter .16s ease;text-align:center}
+.cta-btn:hover{text-decoration:none;color:#06110f;transform:translateY(-1px);filter:brightness(1.06)}
+.tel-lg{display:inline-block;font-family:var(--disp);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.1rem);color:var(--ink);letter-spacing:-.01em}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;min-height:clamp(520px,86vh,760px);perspective:800px}
+.hero-bg{position:absolute;inset:0;z-index:-2;background-image:url('assets/hero.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;filter:brightness(1.04) saturate(1.02)}
+.hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(9,15,18,.92) 0%,rgba(9,15,18,.76) 34%,rgba(9,15,18,.44) 68%,rgba(9,15,18,.24) 100%)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:0;pointer-events:none}
+.hero-copy{position:relative;z-index:3;max-width:min(760px,92vw);padding:clamp(48px,9vh,96px) 0}
+.hero-copy h1{font-size:clamp(2.2rem,5.4vw,4rem);margin-bottom:18px;text-shadow:0 3px 30px rgba(0,0,0,.45)}
+.hero-copy h1 em{font-style:normal;color:var(--acc-lift)}
+.hero-copy .sub{font-size:clamp(1.02rem,2.1vw,1.22rem);color:#dae3e6;max-width:52ch;margin-bottom:30px}
+.hero-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero-cta .remark{font-size:.92rem;color:var(--muted)}
+
+/* ---------- sections ---------- */
+.section{padding:clamp(58px,8vw,104px) 0}
+.section.alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{max-width:64ch;margin-bottom:clamp(26px,4vw,44px)}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.6rem);margin-bottom:12px}
+.sec-head p{color:var(--muted);font-size:clamp(1rem,1.8vw,1.1rem);margin:0}
+.grid{display:grid;gap:clamp(16px,2.4vw,26px)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,2.4vw,28px);box-shadow:var(--shadow)}
+.card h3{font-size:1.16rem;margin-bottom:9px}
+.card p{color:var(--muted);font-size:.96rem;margin:0}
+.card .tick{display:block;width:26px;height:3px;background:var(--acc);border-radius:2px;margin-bottom:16px}
+figure.shot{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+figure.shot img{width:100%;height:290px;object-fit:cover}
+figure.shot figcaption{padding:13px 16px;font-size:.88rem;color:var(--muted);border-top:1px solid var(--line)}
+figure.shot figcaption b{display:block;color:var(--ink);font-family:var(--disp);font-weight:800;font-size:.95rem;margin-bottom:2px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,26px)}
+.steps li{border-top:2px solid var(--acc);padding-top:16px}
+.steps .n{display:block;font-family:var(--disp);font-weight:800;font-size:.8rem;letter-spacing:.08em;color:var(--acc-lift);margin-bottom:9px}
+.steps h3{font-size:1.05rem;margin-bottom:7px}
+.steps p{color:var(--muted);font-size:.94rem;margin:0}
+.area{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,4vw,54px);align-items:start}
+.area ul{margin:0;padding-left:20px;color:var(--muted)}
+.area li{margin-bottom:9px}
+.quote-band{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.quote-in{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,54px);align-items:start}
+.quote-copy h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:14px}
+.quote-copy p{color:var(--muted);max-width:38ch}
+
+/* ---------- quote form ---------- */
+#lbq{position:relative}
+#lbq form{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,2.6vw,30px)}
+#lbq label{display:block;font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+#lbq input,#lbq textarea,#lbq select{width:100%;font:inherit;font-size:.98rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 13px}
+#lbq textarea{min-height:104px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:transparent}
+#lbq .f{margin-bottom:15px}
+#lbq .two{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+#lbq .cons{display:flex;gap:10px;align-items:flex-start;font-size:.86rem;color:var(--muted);margin:6px 0 16px}
+#lbq .cons input{width:auto;margin-top:3px;accent-color:var(--acc)}
+#lbq button{width:100%;font:inherit;font-size:.98rem;font-weight:800;cursor:pointer;background:var(--acc);color:#06110f;border:0;border-radius:8px;padding:14px 20px}
+#lbq button:disabled{opacity:.62;cursor:wait}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq .st{margin:11px 0 0;font-size:.9rem;color:var(--muted);min-height:1.2em}
+
+/* ---------- footer ---------- */
+.footer{background:#080b0d;border-top:1px solid var(--line);padding:clamp(38px,5vw,60px) 0 22px}
+.foot-in{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:11px;align-items:center}
+.foot-brand img{height:30px;width:auto}
+.foot-brand span{font-family:var(--disp);font-weight:800;font-size:1.02rem}
+.foot-meta{display:flex;gap:26px;flex-wrap:wrap;font-size:.94rem;color:var(--muted)}
+.foot-meta a{color:var(--ink)}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:30px;padding-top:18px;font-size:.82rem;color:var(--muted)}
+.foot-bottom nav{display:flex;gap:16px}
+.foot-bottom a{color:var(--muted)}
+
+/* ---------- motion ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  .rv{opacity:1!important;transform:none!important}
+}
+@media (max-width:900px){
+  .g3{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .area,.quote-in{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .hdr-in{flex-wrap:wrap;min-height:0;padding:10px 0 8px;gap:10px}
+  .brand-mark{height:24px}
+  .brand-name{font-size:1.12rem;white-space:normal;line-height:1.15}
+  .brand-sub{display:none}
+  .nav{order:3;flex-basis:100%;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:8px}
+  .nav a{font-size:.88rem}
+  .nav a.cta-btn{padding:10px 14px}
+  .g3,.g2,.steps{grid-template-columns:1fr}
+  #lbq .two{grid-template-columns:1fr}
+  .hero-copy h1{font-size:clamp(2rem,8.6vw,2.7rem)}
+}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top" aria-label="Speedy Cleaning Wagga — home">
+      <img class="brand-mark" src="assets/logomark.svg" alt="Speedy Cleaning Wagga logo" width="32" height="32">
+      <span>
+        <span class="brand-name">Speedy Cleaning Wagga</span>
+        <span class="brand-sub">Cleaning · Wagga Wagga NSW</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">What we clean</a>
+      <a href="#work">Our cleans</a>
+      <a href="#how">How it runs</a>
+      <a href="#area">Areas</a>
+      <a class="cta-btn" href="tel:+61431096200">Call 0431 096 200</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>House, office and carpet cleaning in&nbsp;Wagga&nbsp;Wagga</h1>
+      <p class="sub">Regular home cleaning, commercial cleaning, carpet and upholstery work, deep cleans and end-of-lease cleans — done room by room, to a written list.</p>
+      <div class="hero-cta">
+        <a class="cta-btn" href="tel:+61431096200">Call 0431 096 200</a>
+        <span class="remark">Or send the quote form below and we&rsquo;ll ring you back.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>What we clean</h2>
+      <p>Homes, rentals and small workplaces across Wagga Wagga. Pick one job or set up a regular visit — the checklist stays the same either way.</p>
+    </div>
+    <div class="grid g3">
+      <article class="card rv">
+        <span class="tick" aria-hidden="true"></span>
+        <h3>House cleaning</h3>
+        <p>Weekly, fortnightly or one-off visits. Kitchens, bathrooms, floors, dusting, beds and the corners that usually get skipped.</p>
+      </article>
+      <article class="card rv">
+        <span class="tick" aria-hidden="true"></span>
+        <h3>Office &amp; commercial cleaning</h3>
+        <p>Desks, kitchens, bathrooms and shared areas for small offices and shops. Before hours or after close, whichever suits the business.</p>
+      </article>
+      <article class="card rv">
+        <span class="tick" aria-hidden="true"></span>
+        <h3>Carpet &amp; upholstery</h3>
+        <p>Vacuuming, spot treatment and deodorising for carpets, rugs, lounges and mattresses.</p>
+      </article>
+      <article class="card rv">
+        <span class="tick" aria-hidden="true"></span>
+        <h3>End-of-lease cleaning</h3>
+        <p>Built for the final walk-through: oven, cupboards, walls, marks, floors and tracks, worked to a written checklist you can hand over.</p>
+      </article>
+      <article class="card rv">
+        <span class="tick" aria-hidden="true"></span>
+        <h3>Deep &amp; spring cleaning</h3>
+        <p>The full reset — skirtings, window tracks, inside cupboards and appliance fronts that a regular clean doesn&rsquo;t reach.</p>
+      </article>
+      <article class="card rv">
+        <span class="tick" aria-hidden="true"></span>
+        <h3>Windows &amp; glass</h3>
+        <p>Glass inside and out where it can be reached safely, plus screens, sills, frames and sliding door tracks.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>The standard we work to</h2>
+      <p>Bright rooms, clear surfaces, floors you can walk on barefoot. Every one of these is a clean like this.</p>
+    </div>
+    <div class="grid g3">
+      <figure class="shot rv">
+        <img src="assets/clean-kitchen.jpg" alt="Cleaned white kitchen with an island bench and stools">
+        <figcaption><b>Kitchens</b>a clean like this</figcaption>
+      </figure>
+      <figure class="shot rv">
+        <img src="assets/clean-living.jpg" alt="Cleaned living and dining room with bright natural light">
+        <figcaption><b>Living areas</b>a clean like this</figcaption>
+      </figure>
+      <figure class="shot rv">
+        <img src="assets/clean-exterior.jpg" alt="House exterior washed clean, before and after">
+        <figcaption><b>Exteriors &amp; windows</b>a clean like this</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>How a clean runs</h2>
+      <p>Four steps, every job, so you know exactly what happens and when.</p>
+    </div>
+    <ol class="steps rv">
+      <li>
+        <span class="n">Step 01</span>
+        <h3>Get in touch</h3>
+        <p>Ring or send the form. Tell us the address, the size and the kind of clean you&rsquo;re after.</p>
+      </li>
+      <li>
+        <span class="n">Step 02</span>
+        <h3>Walk the job</h3>
+        <p>We look over the rooms, note the extras and put the checklist together with you.</p>
+      </li>
+      <li>
+        <span class="n">Step 03</span>
+        <h3>Price &amp; time</h3>
+        <p>A straight price for the list, and a time window that fits your week.</p>
+      </li>
+      <li>
+        <span class="n">Step 04</span>
+        <h3>Clean it through</h3>
+        <p>Worked top to bottom against the list. Anything you flag on the day gets a second pass.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section alt" id="area">
+  <div class="wrap area">
+    <div class="rv">
+      <h2 style="font-size:clamp(1.7rem,3.6vw,2.6rem);margin-bottom:14px">Working across Wagga Wagga</h2>
+      <p style="color:var(--muted)">We&rsquo;re set up for homes, rentals and small commercial spaces in Wagga Wagga and the surrounding district. If you&rsquo;re not sure whether you&rsquo;re in range, ring through — it&rsquo;s a quick answer.</p>
+      <p style="color:var(--muted)">Regular clients get the same cleaner and the same list each visit, so nothing is missed and nothing gets moved around.</p>
+    </div>
+    <div class="card rv">
+      <h3>Good to know</h3>
+      <ul style="margin:12px 0 0;padding-left:20px;color:var(--muted)">
+        <li>Bring our own products and equipment.</li>
+        <li>End-of-lease work runs to a written checklist.</li>
+        <li>Offices and shops cleaned outside trading hours.</li>
+        <li>Carpets, rugs, lounges and mattresses all covered.</li>
+        <li>One phone number for pricing and bookings.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<span id="quote" style="position:absolute;top:-90px"></span>
+<section id="lbq" class="section quote-band" aria-labelledby="lbq-h">
+  <div class="wrap quote-in">
+    <div class="quote-copy rv">
+      <h2 id="lbq-h">Request a quote</h2>
+      <p>Send a few details and we&rsquo;ll come back to you with a price and the next available time. Prefer to talk it through? Ring the number below.</p>
+      <a class="tel-lg" href="tel:+61431096200">0431 096 200</a>
+      <p style="font-size:.9rem;margin-top:6px">Wagga Wagga NSW</p>
+    </div>
+    <form id="lbq-form" novalidate data-site="manual-20261021-speedy-cleaning-wagga" data-biz="Speedy Cleaning Wagga">
+      <div class="two">
+        <div class="f">
+          <label for="lbq-n">Name</label>
+          <input id="lbq-n" name="name" autocomplete="name" required>
+        </div>
+        <div class="f">
+          <label for="lbq-p">Phone</label>
+          <input id="lbq-p" name="phone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="f">
+        <label for="lbq-e">Email</label>
+        <input id="lbq-e" name="email" type="email" autocomplete="email">
+      </div>
+      <div class="f">
+        <label for="lbq-s">What kind of clean?</label>
+        <select id="lbq-s" name="service">
+          <option>House cleaning</option>
+          <option>Office or commercial cleaning</option>
+          <option>Carpet and upholstery</option>
+          <option>End-of-lease cleaning</option>
+          <option>Deep or spring clean</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="f">
+        <label for="lbq-m">The job</label>
+        <textarea id="lbq-m" name="message" placeholder="Suburb, how many rooms, and the kind of clean you need." required></textarea>
+      </div>
+      <label class="cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
+      <div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit">Send quote request</button>
+      <p class="st" id="lbq-st" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <script>
+(function(){
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ffb3a3';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        fetch(B + '/functions/v1/quote-request', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = '#a9e6d9';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
+          st.style.color = '#ffb3a3';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-brand">
+        <img src="assets/logomark.svg" alt="">
+        <span>Speedy Cleaning Wagga</span>
+      </div>
+      <div class="foot-meta">
+        <a href="tel:+61431096200">0431 096 200</a>
+        <span>Wagga Wagga NSW</span>
+        <a href="#lbq">Request a quote</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Speedy Cleaning Wagga</span>
+      <nav aria-label="Legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var rvEls = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window) || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    for (var i = 0; i < rvEls.length; i++) rvEls[i].classList.add('on');
+  } else {
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.add('on'); io.unobserve(x.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    for (var j = 0; j < rvEls.length; j++) io.observe(rvEls[j]);
+    setTimeout(function(){ for (var k = 0; k < rvEls.length; k++) rvEls[k].classList.add('on'); }, 1200);
+  }
+  var cv = document.getElementById('heroCanvas');
+  if (cv) {
+    cv.setAttribute('data-hero', 'depth');
+  }
+})();
+</script>
+</body>
+</html>
