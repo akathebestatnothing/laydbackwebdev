@@ -57,11 +57,11 @@ p{margin:0 0 14px}
 .tel-lg{display:inline-block;font-family:var(--disp);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.1rem);color:var(--ink);letter-spacing:-.01em}
 
 /* ---------- hero ---------- */
-.hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;min-height:clamp(520px,86vh,760px);perspective:800px}
+.hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;min-height:clamp(500px,76vh,660px);perspective:800px}
 .hero-bg{position:absolute;inset:0;z-index:-2;background-image:url('assets/hero.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;filter:brightness(1.04) saturate(1.02)}
 .hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(9,15,18,.92) 0%,rgba(9,15,18,.76) 34%,rgba(9,15,18,.44) 68%,rgba(9,15,18,.24) 100%)}
 #heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:0;pointer-events:none}
-.hero-copy{position:relative;z-index:3;max-width:min(760px,92vw);padding:clamp(48px,9vh,96px) 0}
+.hero-copy{position:relative;z-index:3;max-width:min(760px,92vw);padding:clamp(34px,6vh,58px) 0}
 .hero-copy h1{font-size:clamp(2.2rem,5.4vw,4rem);margin-bottom:18px;text-shadow:0 3px 30px rgba(0,0,0,.45)}
 .hero-copy h1 em{font-style:normal;color:var(--acc-lift)}
 .hero-copy .sub{font-size:clamp(1.02rem,2.1vw,1.22rem);color:#dae3e6;max-width:52ch;margin-bottom:30px}
@@ -85,6 +85,23 @@ figure.shot{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--l
 figure.shot img{width:100%;height:290px;object-fit:cover}
 figure.shot figcaption{padding:13px 16px;font-size:.88rem;color:var(--muted);border-top:1px solid var(--line)}
 figure.shot figcaption b{display:block;color:var(--ink);font-family:var(--disp);font-weight:800;font-size:.95rem;margin-bottom:2px}
+/* interactive cleans viewer */
+.viewer{position:relative}
+.viewer-track{display:flex;gap:clamp(14px,2vw,22px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.viewer-track::-webkit-scrollbar{height:6px}
+.viewer-track::-webkit-scrollbar-thumb{background:var(--acc);border-radius:4px}
+.viewer-track figure.shot{flex:0 0 min(420px,84vw);scroll-snap-align:start;margin:0}
+.viewer-bar{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;justify-content:center;min-width:46px;min-height:42px;padding:0 14px;background:transparent;border:1px solid var(--line);border-radius:8px;color:var(--ink);font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;transition:background .16s ease,border-color .16s ease}
+.vbtn:hover{background:var(--acc);border-color:var(--acc);color:#06110f}
+.vhint{font-size:.88rem;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 8px;padding:0;list-style:none}
+.tags li{font-size:.86rem;font-weight:700;color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:6px;padding:8px 13px;background:var(--panel)}
+.rooms{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,22px)}
+.room{border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.2vw,24px)}
+.room h3{font-size:1.02rem;margin-bottom:8px;color:var(--acc-lift)}
+.room ul{margin:0;padding-left:18px;color:var(--muted);font-size:.94rem}
+.room li{margin-bottom:6px}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,26px)}
 .steps li{border-top:2px solid var(--acc);padding-top:16px}
 .steps .n{display:block;font-family:var(--disp);font-weight:800;font-size:.8rem;letter-spacing:.08em;color:var(--acc-lift);margin-bottom:9px}
@@ -147,7 +164,7 @@ figure.shot figcaption b{display:block;color:var(--ink);font-family:var(--disp);
   .nav{order:3;flex-basis:100%;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:8px}
   .nav a{font-size:.88rem}
   .nav a.cta-btn{padding:10px 14px}
-  .g3,.g2,.steps{grid-template-columns:1fr}
+  .g3,.g2,.steps,.rooms{grid-template-columns:1fr}
   #lbq .two{grid-template-columns:1fr}
   .hero-copy h1{font-size:clamp(2rem,8.6vw,2.7rem)}
 }
@@ -199,6 +216,14 @@ figure.shot figcaption b{display:block;color:var(--ink);font-family:var(--disp);
     <div class="sec-head rv">
       <h2>What we clean</h2>
       <p>Homes, rentals and small workplaces across Wagga Wagga. Pick one job or set up a regular visit — the checklist stays the same either way.</p>
+      <ul class="tags" style="margin-top:20px">
+        <li>House cleaning</li>
+        <li>Office cleaning</li>
+        <li>Carpet &amp; upholstery</li>
+        <li>End-of-lease</li>
+        <li>Deep clean</li>
+        <li>Windows</li>
+      </ul>
     </div>
     <div class="grid g3">
       <article class="card rv">
@@ -238,22 +263,80 @@ figure.shot figcaption b{display:block;color:var(--ink);font-family:var(--disp);
 <section class="section alt" id="work">
   <div class="wrap">
     <div class="sec-head rv">
-      <h2>The standard we work to</h2>
+      <h2>Our cleans</h2>
       <p>Bright rooms, clear surfaces, floors you can walk on barefoot. Every one of these is a clean like this.</p>
     </div>
-    <div class="grid g3">
-      <figure class="shot rv">
-        <img src="assets/clean-kitchen.jpg" alt="Cleaned white kitchen with an island bench and stools">
-        <figcaption><b>Kitchens</b>a clean like this</figcaption>
-      </figure>
-      <figure class="shot rv">
-        <img src="assets/clean-living.jpg" alt="Cleaned living and dining room with bright natural light">
-        <figcaption><b>Living areas</b>a clean like this</figcaption>
-      </figure>
-      <figure class="shot rv">
-        <img src="assets/clean-exterior.jpg" alt="House exterior washed clean, before and after">
-        <figcaption><b>Exteriors &amp; windows</b>a clean like this</figcaption>
-      </figure>
+    <div class="viewer rv">
+      <div class="viewer-track" id="cleans" tabindex="0" aria-label="Photos of completed cleans, scroll for more">
+        <figure class="shot">
+          <img src="assets/clean-kitchen.jpg" alt="Cleaned white kitchen with an island bench and stools">
+          <figcaption><b>Kitchen clean</b>a clean like this</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/clean-living.jpg" alt="Cleaned living and dining room with bright natural light">
+          <figcaption><b>Living and dining</b>a clean like this</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/clean-exterior.jpg" alt="House exterior washed clean, before and after">
+          <figcaption><b>Exterior and windows</b>a clean like this</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/hero.jpg" alt="Open plan kitchen and living area after a clean">
+          <figcaption><b>Open plan living</b>a clean like this</figcaption>
+        </figure>
+      </div>
+      <div class="viewer-bar">
+        <button class="vbtn" id="cleans-prev" type="button" aria-label="Previous photo">&#8249;</button>
+        <button class="vbtn" id="cleans-next" type="button" aria-label="Next photo">&#8250;</button>
+        <span class="vhint">Scroll or use the arrows for more photos.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="list">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>What&rsquo;s on the list</h2>
+      <p>The same list runs every visit, whichever clean you book. Add or drop items and it still gets worked the same way.</p>
+    </div>
+    <div class="rooms">
+      <div class="room rv">
+        <h3>Kitchen</h3>
+        <ul>
+          <li>Benches, splashback and sink scrubbed</li>
+          <li>Stovetop, range hood and oven front</li>
+          <li>Cupboard doors wiped, handles included</li>
+          <li>Floors swept and mopped, edges done</li>
+        </ul>
+      </div>
+      <div class="room rv">
+        <h3>Bathrooms</h3>
+        <ul>
+          <li>Shower screens, tiles and grout lines</li>
+          <li>Vanity, basin and mirror</li>
+          <li>Toilet inside and out</li>
+          <li>Exhaust fan covers and floors</li>
+        </ul>
+      </div>
+      <div class="room rv">
+        <h3>Bedrooms &amp; living</h3>
+        <ul>
+          <li>Dusting from the top down</li>
+          <li>Skirtings, switches and door handles</li>
+          <li>Beds made or linen changed</li>
+          <li>Vacuuming under and behind what moves</li>
+        </ul>
+      </div>
+      <div class="room rv">
+        <h3>Office &amp; shared areas</h3>
+        <ul>
+          <li>Desks and shared surfaces wiped</li>
+          <li>Kitchenette and rubbish removed</li>
+          <li>Bathrooms restocked and cleaned</li>
+          <li>Entry glass and floors</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -464,6 +547,17 @@ figure.shot figcaption b{display:block;color:var(--ink);font-family:var(--disp);
   var cv = document.getElementById('heroCanvas');
   if (cv) {
     cv.setAttribute('data-hero', 'depth');
+  }
+  var track = document.getElementById('cleans');
+  if (track) {
+    var step = function(){
+      var f = track.querySelector('figure');
+      return f ? f.getBoundingClientRect().width + 20 : 300;
+    };
+    var pv = document.getElementById('cleans-prev');
+    var nx = document.getElementById('cleans-next');
+    if (pv) pv.addEventListener('click', function(){ track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    if (nx) nx.addEventListener('click', function(){ track.scrollBy({ left: step(), behavior: 'smooth' }); });
   }
 })();
 </script>
