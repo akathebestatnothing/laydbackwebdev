@@ -632,6 +632,16 @@ header#top.hero .hero-facts{display:flex !important;flex-wrap:wrap !important}
   /* keep the design's own light edge strip on the photo (the scrim rule had overwritten it) */
   header#top.hero .hero-scene::before{content:"" !important;background:#F7F5F0 !important;
     inset:0 auto 0 0 !important;width:110px !important;z-index:1 !important;pointer-events:none !important}
+  /* LIGHT-HERO COLOUR REPAIR (2026-10-23): this build was converted from a dark photo hero to a
+     light ground (#F7F5F0) but kept the dark-theme token --ink:#f7f7f5, which is the "on-dark"
+     colour. Result: h1 base, kicker, fact strip and the .btn label all painted near-white on
+     cream (invisible), and .btn's background (var(--ink)) rendered as a washed-out empty box.
+     Re-point --ink at the build's own dark ink (--ink2) and give the hero kicker the brand accent. */
+  html{--ink:#16283F !important}
+  header#top.hero .hero-kicker{color:var(--paint,#2C4763) !important}
+  header#top .nav-tel{color:#0B1A2E !important;background:#F7F5F0 !important}
+  header#top.hero .btn{background:var(--ink2,#16283F) !important;color:var(--onDark,#F7F5F0) !important}
+  nav a.nav-tel,nav a.nav-tel span,nav a.nav-tel svg{color:#0B1A2E !important;fill:#0B1A2E !important}
 @media(max-width:900px){
   /* the nav is sticky and in flow (171px tall), so the hero's fixed-header top padding is pure
      empty band above the photo and pushes the headline + call button past the fold. */
