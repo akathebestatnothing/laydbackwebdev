@@ -10,9 +10,6 @@
 <meta property="og:description" content="Lawn mowing & yard care across Raymond Terrace, Newcastle and the Hunter. Call 0404 697 621.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <noscript></noscript>
 <style>
 :root{
@@ -50,12 +47,9 @@ html.js .drop.in{opacity:1;transform:none}
 .brand img{height:48px;width:auto;border-radius:6px;background:#fff;padding:4px}
 .brand-name{font-family:var(--font-display);font-size:1.28rem;line-height:1;color:#fff;font-weight:700;letter-spacing:.02em}
 .brand-sub{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:#B8E04A;font-weight:700}
-.nav-links{display:flex;gap:1.6rem;margin-left:auto;align-items:center}
-.nav-links a{color:#DCE8D6;text-decoration:none;font-size:.95rem;font-weight:600;position:relative;padding-block:.35rem}
+.nav-links{display:flex;gap:1.35rem;margin-left:auto;align-items:center}
+.nav-links a{color:#A9C4A5;text-decoration:none;font-size:.92rem;font-weight:500}
 .nav-links a:hover{color:#fff}
-.nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
-.nav-links a:not(.nav-cta):hover::after{transform:scaleX(1)}
-.nav-links a:focus-visible,.brand:focus-visible{outline:2px solid #B8E04A;outline-offset:3px;border-radius:4px}
 .nav-cta{background:var(--accent);color:#0C130C !important;padding:.55rem 1.2rem;border-radius:6px;font-weight:700}
 .nav-cta:hover{filter:brightness(1.08)}
 .burger{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:.4rem .6rem;cursor:pointer}
@@ -71,53 +65,23 @@ html.js .drop.in{opacity:1;transform:none}
   .burger{display:block}
 }
 
-.hero{position:relative!important;min-height:0!important;max-height:none!important;display:block!important;
-  background:var(--bg);overflow:hidden;
-  padding:calc(80px + clamp(2.2rem,5vh,3.6rem)) 0 clamp(2.2rem,4vh,3rem)}
-.hero canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block;z-index:0!important}
-.hero-shade{position:absolute!important;inset:0!important;z-index:1;pointer-events:none;
-  background:linear-gradient(100deg,rgba(245,248,242,.95) 0%,rgba(245,248,242,.88) 46%,rgba(245,248,242,.62) 100%)}
-.hero-in{position:relative!important;z-index:2;display:grid!important;grid-template-columns:minmax(0,1.14fr) minmax(300px,.86fr);
-  gap:clamp(2rem,4.4vw,4rem);align-items:center;padding-block:0!important;min-height:0!important}
-.hero-copy{min-width:0;max-width:36rem}
-.hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#356B1D;font-size:.75rem;
-  letter-spacing:.06em;text-transform:none;font-weight:800;margin-bottom:.85rem}
-.hero-kicker::before{content:"";width:36px;height:2px;background:var(--accent);flex:none}
-.hero-art{border:1px solid var(--line);border-radius:14px;background:#fff;padding:.85rem;
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
-  box-shadow:0 18px 44px -28px rgba(12,25,8,.5)}
-.hero-art img{width:100%;height:auto;max-height:clamp(250px,40vh,398px);object-fit:contain}
-.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,4.2vw,3.45rem);line-height:1.06;color:#12200F;font-weight:800;max-width:19ch;letter-spacing:-.015em}
-.hero h1 em{font-style:normal;color:#5C3D0C}
-.hero-sub{margin-top:1.05rem;color:#42553F;font-size:clamp(1rem,1.3vw,1.08rem);max-width:44ch}
-.hero-cta{display:flex;gap:.8rem;margin-top:1.7rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.6rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .15s ease,filter .15s ease,border-color .15s ease,background .15s ease}
+.hero{position:relative;min-height:95vh;display:flex;align-items:flex-start;background:#0C130C url("assets/work.jpg") center 45%/cover no-repeat;perspective:1200px;overflow:hidden;padding-top:80px}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-shade{position:absolute;inset:0;background:rgba(6,11,6,.90),rgba(6,11,6,.72);pointer-events:none}
+.hero-in{position:relative;z-index:2;padding-block:12.5vh 3.4rem}
+.hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:#B8E04A;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
+.hero-kicker::before{content:"";width:36px;height:2px;background:var(--accent)}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.3rem,5.8vw,4.5rem);line-height:1.06;color:#F4F8FA;font-weight:700;max-width:22ch;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:#B8E04A}
+.hero-sub{margin-top:1.1rem;color:#A9BAC6;font-size:clamp(.98rem,1.5vw,1.09rem);max-width:56ch}
+.hero-cta{display:flex;gap:.9rem;margin-top:1.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.55rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .15s ease,filter .15s ease}
 .btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
-.btn-primary{background:var(--accent);color:#0C130C;box-shadow:0 8px 20px -12px rgba(90,55,10,.75)}
-.btn-ghost{border:1.5px solid rgba(18,32,15,.55);color:#12200F;background:rgba(255,255,255,.5)}
-.btn-ghost:hover{background:#12200F;border-color:#12200F;color:#F4F8FA;filter:none}
-
-/* right-side hero facts panel */
-.hero-panel{background:#FFFFFF;border:1px solid var(--line);border-radius:14px;
-  box-shadow:0 24px 50px -34px rgba(12,25,8,.55);overflow:hidden;min-width:0}
-.hero-panel-h{padding:1.05rem 1.35rem;border-bottom:1px solid var(--line);background:#F1F6EC;
-  font-size:.7rem;letter-spacing:.1em;text-transform:none;font-weight:800;color:#356B1D}
-.hp-row{display:flex;gap:.9rem;align-items:flex-start;padding:1.05rem 1.35rem;border-bottom:1px solid var(--line)}
-.hp-row:last-child{border-bottom:0}
-.hp-row::before{content:"";flex:none;width:3px;height:2.1rem;border-radius:2px;background:var(--accent);margin-top:.15rem}
-.hp-k{display:block;font-size:.98rem;font-weight:800;color:#12200F;line-height:1.25}
-.hp-v{display:block;font-size:.87rem;color:#4E6149;margin-top:.18rem;line-height:1.45}
-
+.btn-primary{background:var(--accent);color:#0C130C}
+.btn-ghost{border:1.5px solid rgba(244,248,250,.4);color:#F4F8FA}
 .hero-strip{margin-top:2.6rem;display:flex;gap:2.6rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:1.2rem}
 .hero-strip p{color:#B3CBB0;font-size:.72rem;letter-spacing:.13em;text-transform:none;font-weight:700}
 .hero-strip strong{display:block;color:#F4F8FA;font-family:var(--font-display);font-size:1.05rem;margin-top:.2rem;font-weight:600}
-
-@media(max-width:920px){
-  .hero-in{grid-template-columns:1fr;gap:2rem}
-  .hero-copy{max-width:none}
-  .hero-panel-h{display:none}
-  .hp-row{padding:.85rem 1.1rem}
-}
 
 section{padding-block:5.4rem}
 .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.4rem}
@@ -303,16 +267,14 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 <style>header.hero .hero-in,header.hero p,header.hero .hero-copy{color:#101a16!important}header.hero h1{color:#0d1712!important}header.hero .hero-in :is(p,span,li){color:#1b2a22!important}header.hero::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.45))!important}header.hero .hero-in{position:relative;z-index:2}</style><style>header.hero nav a,header.hero .nav a,header.hero .menu a{color:#101a16!important;font-weight:600}header.hero .btn,header.hero a[class*=btn]{color:#0d1712!important;border-color:#0d1712!important}</style><style>header.hero{min-height:54vh!important;max-height:66vh!important}header.hero::before{background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.62))!important}header.hero h1,header.hero p,header.hero nav a,header.hero .hero-in :is(p,span,li){color:#0d1712!important}header.hero h1{font-size:clamp(2rem,3.6vw,3rem)!important}</style>
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
 </head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top" aria-label="Thane Gillham Mowing - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#b87a1d;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-mark.png" width="360" height="360" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Thane Gillham Mowing</span><span class="lb-brand__sub"><span class="lb-acc">Lawn</span> Mowing · Hunter NSW</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Thane Gillham Mowing - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#b87a1d;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Thane Gillham Mowing</span><span class="lb-brand__sub"><span class="lb-acc">Lawn</span> Mowing · Hunter NSW</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
     </button>
@@ -325,12 +287,25 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 </nav>
 
-<section class="hero" id="top">
-  <canvas id="heroCanvas" aria-hidden="true"></canvas>
-  <h1>Lawn mowing and yard care, done properly.</h1>
-  <p>Regular mowing and one-off tidy-ups across Raymond Terrace, Newcastle and the Hunter. One call and it is booked.</p>
-  <a class="hero-cta" href="tel:0404697621">Call 0404 697 621</a>
-</section>
+<header class="hero" id="top">
+  <!-- LB-3D-HERO -->
+  <canvas id="heroCanvas" hidden aria-hidden="true"></canvas>
+  <div class="hero-shade"></div>
+  <div class="wrap hero-in">
+    <p class="hero-kicker">Raymond Terrace · Hunter NSW</p>
+    <h1 data-ux="words">A tidy lawn, <em>without lifting a finger.</em></h1>
+    <p class="hero-sub">Reliable lawn mowing and yard care across the Hunter, from Raymond Terrace and Newcastle to the surrounding areas.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="tel:0404697621">Call 0404 697 621</a>
+      <a class="btn btn-ghost" href="#lbq">Get a quote</a>
+    </div>
+    <div class="hero-strip">
+      <p><strong>Lawn mowing</strong>regular & one-off</p>
+      <p><strong>Hunter wide</strong>Raymond Terrace to Newcastle</p>
+      <p><strong>Easy booking</strong>call or text</p>
+    </div>
+  </div>
+</header>
 
 <section class="tgm-services" id="services">
   <div class="wrap">
@@ -445,7 +420,34 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
   </div>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work.jpg" alt="Thane Gillham Mowing" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Thane Gillham Mowing</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Lawn Mowing &middot; Hunter NSW</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Thane Gillham Mowing &mdash; recent work</div></div></section><section id="lbq" class="v1" aria-labelledby="lbq-h">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work.jpg" alt="Thane Gillham Mowing" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Thane Gillham Mowing</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Lawn Mowing &middot; Hunter NSW</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Thane Gillham Mowing &mdash; recent work</div></div></section><footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/logo.jpg" alt="Thane Gillham Mowing logo" height="52">
+          <span>
+            <span class="foot-brand-name">Thane Gillham Mowing</span><br>
+            <span class="foot-brand-sub">Lawn Mowing · Hunter NSW</span>
+          </span>
+        </div>
+        <p>Thane Gillham Mowing, reliable lawn mowing and yard care across the Hunter region: Raymond Terrace, Newcastle and surrounding areas, NSW.</p>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <p>
+          <a href="tel:0404697621">0404 697 621</a><br>
+          <a href="mailto:thanebruce82@gmail.com">thanebruce82@gmail.com</a><br>
+          Raymond Terrace & the Hunter, NSW
+        </p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Thane Gillham Mowing · Hunter NSW</span>
+      <span>Free quotes</span>
+    </div>
+  </div>
+<section id="lbq" class="v1" aria-labelledby="lbq-h">
   <style>
 #lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#006000))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
@@ -582,40 +584,13 @@ html,body{overflow-x:hidden}
 })();
 </script>
 </section>
-
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand">
-          <img src="assets/logo-mark.png" width="360" height="360" alt="Thane Gillham Mowing logo">
-          <span>
-            <span class="foot-brand-name">Thane Gillham Mowing</span><br>
-            <span class="foot-brand-sub">Lawn Mowing · Hunter NSW</span>
-          </span>
-        </div>
-        <p>Thane Gillham Mowing, reliable lawn mowing and yard care across the Hunter region: Raymond Terrace, Newcastle and surrounding areas, NSW.</p>
-      </div>
-      <div>
-        <h4>Get in touch</h4>
-        <p>
-          <a href="tel:0404697621">0404 697 621</a><br>
-          <a href="mailto:thanebruce82@gmail.com">thanebruce82@gmail.com</a><br>
-          Raymond Terrace & the Hunter, NSW
-        </p>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Thane Gillham Mowing · Hunter NSW</span>
-      <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
-    </div>
-  </div>
-</footer>
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
 
 <!-- lb: old box-hero engine removed -->
 
 
 
+<div class="lb-pulse" aria-hidden="true"></div>
 <!-- lb:pulse -->
 <script id="lb-motion-js">
 /* LB MOTION PACK v1 */
@@ -828,183 +803,5 @@ section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
 </style>
-<style id="repair-2310">
-/* ---- repair pass: logo plate, nav contrast, hero grid truth ---- */
-/* the cartoon mark is nearly square and detailed: give it a real white plate, not a dark tile */
-nav.nav .lb-brand__mark{height:74px!important;width:74px!important;max-width:none!important;padding:0!important;
-  background:#fff!important;border-radius:12px!important;display:grid!important;place-items:center!important;
-  overflow:hidden!important;box-shadow:0 6px 16px -8px rgba(0,0,0,.7)!important}
-nav.nav .lb-brand__mark img{height:100%!important;width:100%!important;max-width:none!important;
-  object-fit:contain!important;background:none!important;border-radius:0!important;box-shadow:none!important;padding:5px!important}
-nav.nav .lb-brand{gap:1rem!important;align-items:center!important}
-nav.nav .lb-brand__name{font-size:clamp(20px,1.85vw,25px)!important;letter-spacing:-.01em!important}
-nav.nav .lb-brand__sub{color:#B8E04A!important;opacity:1!important;letter-spacing:.2em!important}
-/* nav link contrast, wins over the later --lb-name:currentColor polish rule */
-html nav.nav .nav-links a:not(.nav-cta){color:#E9F2E3!important;opacity:1!important;font-weight:600!important}
-html nav.nav .nav-links a:not(.nav-cta):hover{color:#fff!important}
-html nav.nav .nav-links a.nav-cta{color:#0C130C!important;background:var(--accent)!important;font-weight:800!important;
-  box-shadow:0 8px 18px -10px rgba(0,0,0,.8)!important}
-nav.nav .nav-in{height:96px!important;gap:1.4rem}
-nav.nav{border-bottom-color:var(--accent)!important}
-.foot-brand img{height:64px!important;width:auto!important}
-
-/* hero: the [class*=hero] rule forces display:flex on every child — undo it, element by element */
-header.hero{min-height:0!important;max-height:none!important;overflow:hidden!important;
-  padding:calc(96px + clamp(2.4rem,5vh,3.4rem)) 0 clamp(2.8rem,5vh,3.6rem)!important}
-header.hero::before{display:none!important}
-header.hero canvas#heroCanvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  z-index:0!important;display:block!important}
-header.hero .hero-shade{z-index:1!important;
-  background:linear-gradient(100deg,rgba(245,248,242,.96) 0%,rgba(245,248,242,.86) 44%,rgba(245,248,242,.44) 100%)!important}
-header.hero .hero-in{z-index:3!important;display:grid!important;
-  grid-template-columns:minmax(0,1fr) minmax(300px,404px)!important;
-  gap:clamp(2rem,4vw,3.4rem)!important;align-items:center!important}
-header.hero .hero-copy{display:block!important;max-width:34rem}
-header.hero .hero-kicker{display:inline-flex!important;align-items:center!important}
-header.hero .hero-sub{display:block!important}
-header.hero .hero-cta{display:flex!important;gap:.8rem!important;flex-wrap:wrap!important}
-header.hero .hero-panel{display:block!important;justify-self:end!important;width:100%!important;max-width:404px}
-header.hero .hero-panel-h{display:block!important}
-header.hero .hp-row{display:flex!important}
-header.hero .hp-k{color:#12200F!important}
-header.hero .hp-v{color:#556F50!important}
-
-@media(max-width:920px){
-  nav.nav .lb-brand__mark{height:58px!important;width:58px!important}
-  nav.nav .lb-brand__name{font-size:clamp(17px,4.6vw,21px)!important}
-  .nav-links{inset:96px 0 auto 0!important}
-  header.hero{padding-top:calc(96px + 2rem)!important}
-  header.hero .hero-in{grid-template-columns:1fr!important;gap:1.8rem!important}
-  header.hero .hero-panel{justify-self:stretch!important;max-width:none!important}
-}
-
-/* floating call button: was a 10px dot that read as an artefact */
-.lb-pulse{display:inline-flex!important;align-items:center!important;gap:.5rem!important;
-  width:auto!important;height:auto!important;padding:.72rem 1.1rem!important;border-radius:999px!important;
-  background:var(--accent)!important;color:#0C130C!important;font-family:"Archivo",system-ui,sans-serif!important;
-  font-weight:800!important;font-size:.9rem!important;text-decoration:none!important;
-  opacity:1!important;animation:none!important;pointer-events:auto!important;
-  box-shadow:0 16px 32px -14px rgba(0,0,0,.7)!important;border:0!important}
-.lb-pulse:hover{filter:brightness(1.07)}
-.lb-pulse svg{width:15px;height:15px;stroke:#0C130C;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:600px){.lb-pulse{right:1rem!important;bottom:1rem!important;padding:.62rem .9rem!important;font-size:.84rem!important}}
-
-/* footer bottom: legal links need their own line rhythm */
-.foot-bottom{align-items:center!important}
-.lb-legal{display:inline-flex!important;gap:1.1rem!important;font-size:.79rem!important}
-.lb-legal a{color:#a3aebf!important;font-size:.79rem!important;text-decoration:none}
-.lb-legal a:hover{color:#F4F8FA!important}
-/* quote section now sits above the footer, not inside it */
-#lbq{border-top:1px solid var(--line)!important;padding-block:clamp(3.4rem,7vh,5rem)!important}
-
-/* ================= repair pass: hero rebuild + reveal truth + logo plate ================= */
-/* reveals must never leave a whole section blank if the observer is late */
-.lb-rv,.drop{opacity:1!important;transform:none!important}
-
-/* brand mark: real size on a white plate, never stretched  */
-nav.nav .lb-brand__mark{height:80px!important;width:80px!important;max-width:none!important;padding:0!important;
-  background:#fff!important;border-radius:12px!important;display:grid!important;place-items:center!important;
-  overflow:hidden!important;box-shadow:0 6px 16px -8px rgba(0,0,0,.7)!important}
-nav.nav .lb-brand__mark img{height:100%!important;width:100%!important;max-width:none!important;
-  object-fit:contain!important;background:none!important;padding:4px!important;border-radius:0!important}
-
-/* hero: one text column, one image column, canvas behind. nothing floating */
-header.hero{display:block!important;min-height:0!important;max-height:none!important;overflow:hidden!important;
-  padding:calc(104px + clamp(2rem,4vh,3rem)) 0 clamp(2.4rem,4.4vh,3.4rem)!important}
-header.hero canvas#heroCanvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  z-index:0!important;display:block!important}
-header.hero .hero-shade{z-index:1!important;background:linear-gradient
-(96deg,rgba(245,248,242,.97) 0%,rgba(245,248,242,.95) 46%,rgba(245,248,242,.72) 74%,rgba(245,248,242,.4) 100%)!important}
-header.hero .hero-in{z-index:3!important;display:grid!important;
-  grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)!important;
-  gap:clamp(1.8rem,3.6vw,3rem)!important;align-items:center!important}
-header.hero .hero-copy{display:block!important;max-width:34rem!important}
-header.hero h1{font-size:clamp(2rem,4vw,3.4rem)!important;line-height:1.05!important;max-width:17ch!important;color:#12200F!important}
-header.hero .hero-art{display:block!important;width:100%!important;max-width:none!important;margin:0!important;
-  padding:.55rem!important;background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important;
-  box-shadow:0 22px 46px -30px rgba(12,25,8,.55)!important;overflow:hidden!important}
-header.hero .hero-art img{display:block!important;width:100%!important;height:clamp(215px,34vh,360px)!important;
-  max-height:none!important;object-fit:cover!important;border-radius:9px!important}
-header.hero .hero-art figcaption{padding:.7rem .3rem .25rem;font-size:.74rem;letter-spacing:.14em;
-  text-transform:uppercase;font-weight:700;color:#4E6149}
-header.hero .hero-kicker{margin-bottom:.9rem!important}
-header.hero .hero-sub{max-width:40ch!important;margin-top:1rem!important}
-header.hero .hero-cta{margin-top:1.5rem!important}
-
-@media(max-width:920px){
-  nav.nav .lb-brand__mark{height:60px!important;width:60px!important}
-  .nav-links{inset:96px 0 auto 0!important}
-  header.hero{padding-top:calc(96px + 1.8rem)!important}
-  header.hero .hero-in{grid-template-columns:1fr!important;gap:1.6rem!important}
-  header.hero h1{max-width:none!important;font-size:clamp(1.9rem,7vw,2.6rem)!important}
-  header.hero .hero-art img{height:230px!important}
-}
-</style>
-<style id="hero-rebuild-2310">
-/* ============ HERO REBUILD (one column, canvas behind, nothing floating) ============ */
-section.hero{
-  position:relative!important; display:grid!important;
-  grid-template-columns:minmax(0,1fr)!important; gap:18px!important;
-  align-content:center!important; justify-items:start!important; align-items:start!important;
-  min-height:clamp(440px,56vh,600px)!important; max-height:none!important;
-  padding-block:calc(112px + clamp(28px,5vw,64px)) clamp(28px,5vw,64px)!important;
-  padding-inline:max(clamp(28px,5vw,64px),calc((100% - 1180px)/2))!important;
-  background:transparent!important; overflow:hidden!important; border:0!important;
-  scroll-margin-top:0
-}
-section.hero canvas#heroCanvas{
-  position:absolute!important; inset:0!important; width:100%!important; height:100%!important;
-  display:block!important; z-index:-1!important; pointer-events:none!important; max-width:none!important
-}
-/* the pack paints a black scrim over the canvas; re-tone it to this light page so ink stays legible */
-section.hero:has(canvas)::before{
-  content:""!important; position:absolute!important; inset:0!important; z-index:0!important;
-  pointer-events:none!important;
-  background:linear-gradient(102deg,rgba(245,248,242,.94) 0%,rgba(245,248,242,.80) 52%,rgba(245,248,242,.46) 100%)!important
-}
-section.hero > h1{
-  position:relative!important; z-index:2!important;
-  font-family:var(--font-display)!important; font-weight:800!important;
-  color:#12200F!important; letter-spacing:-.022em!important;
-  font-size:clamp(2.1rem,4vw,3.4rem)!important; line-height:1.05!important;
-  width:100%!important; max-width:none!important; text-wrap:balance
-}
-section.hero > p{
-  position:relative!important; z-index:2!important; margin:0!important;
-  color:#3C5139!important; font-size:clamp(1rem,1.35vw,1.13rem)!important; line-height:1.55!important;
-  max-width:54ch!important; font-weight:500
-}
-section.hero > a.hero-cta{
-  position:relative!important; z-index:2!important; margin:0!important; justify-self:start!important;
-  display:inline-flex!important; align-items:center!important; justify-content:center!important;
-  background:var(--accent)!important; color:#0C130C!important; text-decoration:none!important;
-  font-weight:800!important; font-size:1rem!important; letter-spacing:.01em!important;
-  padding:.95rem 1.75rem!important; border-radius:8px!important; border:0!important;
-  min-height:0!important; max-height:none!important;
-  box-shadow:0 16px 30px -18px rgba(90,55,10,.95)!important;
-  transition:transform .18s ease,filter .18s ease,box-shadow .18s ease
-}
-section.hero > a.hero-cta:hover{transform:translateY(-2px);filter:brightness(1.06);
-  box-shadow:0 20px 34px -16px rgba(90,55,10,.95)}
-section.hero > a.hero-cta:focus-visible{outline:3px solid #12200F;outline-offset:3px}
-@media(max-width:920px){
-  section.hero{padding-block:calc(104px + 2rem) clamp(1.8rem,4vh,2.4rem)!important;
-    align-content:center!important; min-height:clamp(420px,62vh,520px)!important}
-}
-
-/* logo: bigger plate, sharper source (480px mark instead of the 360px one) */
-nav.nav .lb-brand__mark{height:88px!important;width:88px!important}
-nav.nav .lb-brand__mark img{content:url("assets/logo-hd.png")}
-nav.nav .nav-in{height:104px!important}
-.nav-links{inset:104px 0 auto 0}
-.foot-brand img{content:url("assets/logo-hd.png");height:72px!important}
-@media(max-width:920px){
-  nav.nav .lb-brand__mark{height:62px!important;width:62px!important}
-  nav.nav .nav-in{height:84px!important}
-  .nav-links{inset:84px 0 auto 0!important}
-  section.hero{padding-block:calc(84px + 1.6rem) 1.8rem!important}
-}
-</style>
 </body>
 </html>
-

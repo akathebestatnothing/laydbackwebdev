@@ -57,26 +57,34 @@ p{margin:0 0 1em}
   .brand-name{font-size:1rem}
 }
 /* ---------- hero ---------- */
-.hero{
-  position:relative;isolation:isolate;overflow:hidden;
-  display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-content:center;
-  padding:clamp(28px,5vw,64px);
-  padding-inline:max(clamp(28px,5vw,64px),calc((100% - var(--max)) / 2 + var(--gut)));
-  min-height:clamp(440px,56vh,600px);
-  background:var(--ink) url("assets/hero.jpg") no-repeat 66% 66% / cover;
-}
-.hero h1{color:#fff;font-size:clamp(2.1rem,4vw,3.4rem);line-height:1.05;width:100%;max-width:none;text-wrap:balance}
-.hero-lede{margin:0;max-width:46ch;font-size:clamp(1rem,1.2vw,1.12rem);line-height:1.6;color:rgba(255,255,255,.92)}
-.hero canvas{position:absolute;inset:0;z-index:-1;display:block;width:100%;height:100%;pointer-events:none}
-.hero .btn{justify-self:start;margin-top:2px}
+.hero{position:relative;isolation:isolate;perspective:1200px;overflow:hidden;min-height:min(calc(100vh - 71px),940px);display:flex;align-items:center;background:var(--ink)}
+.hero--nophoto{background:radial-gradient(115% 85% at 76% 6%,var(--hero-glow,rgba(255,255,255,.06)),transparent 62%),linear-gradient(158deg,#232833,#12151C)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(96deg,rgba(6,7,9,.93) 0%,rgba(6,7,9,.85) 30%,rgba(6,7,9,.44) 60%,rgba(6,7,9,.13) 100%)}
+.hero-scrim:after{content:"";position:absolute;left:0;right:0;bottom:0;height:20%;background:linear-gradient(180deg,rgba(7,8,10,0),rgba(7,8,10,.42))}
+.hero-in{position:relative;z-index:3;width:100%;max-width:var(--max);margin:0 auto;padding:clamp(3rem,7vw,5rem) var(--gut)}
+.hero-copy{max-width:39rem}
+.hero h1{color:#fff;text-wrap:balance}
+.hero-lede{font-size:clamp(1.06rem,1.4vw,1.22rem);color:#fff;max-width:36rem;margin-top:1.1rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.9rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.55rem;border-radius:10px;font-weight:700;font-size:.98rem;border:2px solid transparent;white-space:nowrap;cursor:pointer;font-family:inherit}
 .btn-acc{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
 .btn-acc:hover{background:#fff;color:var(--ink);border-color:#fff}
 .btn-ghost{background:rgba(255,255,255,.07);color:#fff;border-color:rgba(255,255,255,.5)}
 .btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.hero-tags{list-style:none;display:flex;flex-wrap:wrap;gap:.45rem 1.3rem;margin:2rem 0 0;padding:0;font-size:.95rem;color:rgba(255,255,255,.94)}
+.hero-tags li{padding-left:1rem;position:relative}
+.hero-tags li:before{content:"";position:absolute;left:0;top:.5em;width:.42rem;height:.42rem;background:var(--acc);border-radius:50%}
+.hero-credit{margin:1.7rem 0 0;padding-left:.85rem;border-left:3px solid var(--acc);font-size:.8rem;letter-spacing:.01em;color:rgba(255,255,255,.8);max-width:34ch}
+.hero-canvas{display:none}
+.hero-mark{position:absolute;top:50%;right:-6%;transform:translateY(-50%);z-index:1;pointer-events:none;opacity:.28;width:min(58vw,780px);height:auto}
 @media (max-width:880px){
-  .hero{background-position:58% top}
-  .hero-lede{max-width:none}
+  .hero{min-height:min(calc(100svh - 61px),820px)}
+  .hero-scrim{background:linear-gradient(178deg,rgba(6,7,9,.62) 0%,rgba(6,7,9,.76) 44%,rgba(6,7,9,.88) 100%)}
+  .hero-scrim:after{height:14%}
+  .hero-in{padding:clamp(2.2rem,8vw,3.2rem) var(--gut)}
+  .hero-copy{max-width:none}
+  .hero-mark{width:74vw;right:-16%;opacity:.16}
   .hd-in{min-height:61px}
 }
 /* ---------- generic sections ---------- */
@@ -169,10 +177,19 @@ figure.shot figcaption{padding:.85rem 1rem 1rem;font-size:.83rem;color:var(--mut
 </header>
 
 <section class="hero" id="top" aria-labelledby="hero-h">
-  <h1 id="hero-h">Switchboards, powerpoints and lighting, <em class="acc">wired right.</em></h1>
-  <p class="hero-lede">Residential and commercial electrician working across Melbourne's south-east. Switchboard upgrades, new GPOs, lighting and battery systems. Registered Electrical Contractor REC 33711.</p>
-  <a class="btn btn-acc" href="tel:+614****2086">Call 0421 352 086</a>
-  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <img class="hero-img" src="assets/hero.jpg" alt="A job like this: an electrician on a ladder fitting a light to a pole" width="1600" height="900" fetchpriority="high" decoding="async">
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <h1 id="hero-h">Switchboards, powerpoints and lighting across <em class="acc">Melbourne&rsquo;s south-east</em></h1>
+      <p class="hero-lede">Heff's Electrical Services looks after residential and commercial electrical work — switchboard upgrades, new powerpoints and GPOs, lighting, and battery systems. Registered Electrical Contractor REC 33711.</p>
+      <div class="hero-cta"><a class="btn btn-acc" href="tel:+61421352086">Call 0421 352 086</a><a class="btn btn-ghost" href="#quote">Request a quote</a></div>
+      <ul class="hero-tags"><li>Residential</li><li>Commercial</li><li>Switchboards</li><li>Lighting &amp; GPOs</li></ul>
+      <p class="hero-credit">A job like this: outdoor lighting installation.</p>
+    </div>
+  </div>
+  <canvas id="heroCanvas" class="hero-canvas" width="16" height="16" aria-hidden="true" style="display:none"></canvas>
+  <!-- LB-3D-HERO -->
 </section>
 
 <section class="sec" id="services" aria-labelledby="svc-h">
@@ -340,123 +357,6 @@ figure.shot figcaption{padding:.85rem 1rem 1rem;font-size:.83rem;color:var(--mut
     all();
   }
   setTimeout(function(){ document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('on'); }); }, 1200);
-})();
-</script>
-<script>
-/* hero scene: scrim + site plan grid + live cable pulse, drawn behind the copy */
-(function(){
-  var c = document.getElementById('heroCanvas');
-  if (!c || !c.getContext) return;
-  var ctx = c.getContext('2d');
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0, px = 0, py = 0;
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function size(){
-    var r = c.getBoundingClientRect();
-    W = r.width; H = r.height;
-    if (!W || !H) return;
-    c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    if (reduce) frame(0);
-  }
-
-  function scrim(){
-    var g;
-    if (W < 880){
-      g = ctx.createLinearGradient(0, 0, 0, H);
-      g.addColorStop(0, 'rgba(9,11,14,.60)');
-      g.addColorStop(.42, 'rgba(9,11,14,.80)');
-      g.addColorStop(1, 'rgba(9,11,14,.94)');
-    } else {
-      g = ctx.createLinearGradient(0, 0, W * .94, H * .10);
-      g.addColorStop(0, 'rgba(9,11,14,.955)');
-      g.addColorStop(.36, 'rgba(9,11,14,.90)');
-      g.addColorStop(.54, 'rgba(9,11,14,.60)');
-      g.addColorStop(.72, 'rgba(9,11,14,.24)');
-      g.addColorStop(.90, 'rgba(9,11,14,.05)');
-      g.addColorStop(1, 'rgba(9,11,14,0)');
-    }
-    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-    var b = ctx.createLinearGradient(0, H * .70, 0, H);
-    b.addColorStop(0, 'rgba(12,14,17,0)'); b.addColorStop(1, 'rgba(12,14,17,.55)');
-    ctx.fillStyle = b; ctx.fillRect(0, H * .70, W, H * .30);
-  }
-
-  function grid(){
-    var start = W * .44;
-    for (var x = start; x < W; x += 96){
-      var a = .05 * Math.min(1, (x - start) / (W * .12));
-      ctx.strokeStyle = 'rgba(245,206,61,' + a.toFixed(3) + ')'; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, H); ctx.stroke();
-    }
-    ctx.strokeStyle = 'rgba(245,206,61,.05)';
-    for (var y = 0; y < H; y += 96){
-      ctx.beginPath(); ctx.moveTo(0, y + .5); ctx.lineTo(W, y + .5); ctx.stroke();
-    }
-  }
-
-  var noise = (function(){
-    var n = document.createElement('canvas'); n.width = n.height = 64;
-    var nc = n.getContext('2d'), d = nc.createImageData(64, 64);
-    for (var i = 0; i < d.data.length; i += 4){
-      var v = 110 + Math.random() * 90;
-      d.data[i] = d.data[i+1] = d.data[i+2] = v; d.data[i+3] = 255;
-    }
-    nc.putImageData(d, 0, 0);
-    var pat = ctx.createPattern(n, 'repeat');
-    return pat;
-  })();
-
-  function frame(t){
-    ctx.clearRect(0, 0, W, H);
-    scrim();
-    if (W >= 880) grid();
-
-    /* a cable run dropping out of the right edge, with current travelling it */
-    var x0 = W * .54, y0 = H * .30 + py;
-    var x1 = W * 1.02, y1 = H * .58 + py;
-    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-    ctx.strokeStyle = 'rgba(255,255,255,.22)'; ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(x0, y0);
-    ctx.bezierCurveTo(W * .74, y0, W * .80, y1, x1, y1);
-    ctx.stroke();
-
-    for (var i = 0; i < 3; i++){
-      var p = (((t * 0.00009) + i / 3) % 1);
-      var mt = 1 - p;
-      var bx = mt*mt*mt*x0 + 3*mt*mt*p*(W*.74) + 3*mt*p*p*(W*.80) + p*p*p*x1;
-      var by = mt*mt*mt*y0 + 3*mt*mt*p*y0 + 3*mt*p*p*y1 + p*p*p*y1;
-      var gl = ctx.createRadialGradient(bx, by, 0, bx, by, 15);
-      gl.addColorStop(0, 'rgba(245,206,61,.85)'); gl.addColorStop(1, 'rgba(245,206,61,0)');
-      ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(bx, by, 15, 0, 6.2832); ctx.fill();
-    }
-
-    /* corner nodes where the run turns */
-    ctx.fillStyle = 'rgba(245,206,61,.55)';
-    ctx.beginPath(); ctx.arc(x0, y0, 2.6, 0, 6.2832); ctx.fill();
-
-    /* fine grain, kills 8-bit banding on the scrim */
-    if (noise){
-      ctx.save();
-      ctx.globalCompositeOperation = 'overlay';
-      ctx.globalAlpha = .06;
-      ctx.fillStyle = noise;
-      ctx.fillRect(0, 0, W, H);
-      ctx.restore();
-    }
-  }
-
-  function loop(t){ frame(t); if (!reduce) requestAnimationFrame(loop); }
-  window.addEventListener('pointermove', function(e){
-    px = (e.clientX / window.innerWidth - .5) * -10;
-    py = (e.clientY / window.innerHeight - .5) * -8;
-  }, {passive: true});
-
-  size();
-  window.addEventListener('resize', size);
-  if (!reduce) requestAnimationFrame(loop);
 })();
 </script>
 </body>
