@@ -291,7 +291,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -305,14 +305,16 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-</head>
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<style id="lb-soc-css">.lb-soc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;opacity:.85;text-decoration:none}.lb-soc:hover{opacity:1}footer .lb-soc{margin-right:8px}</style><style id="lb-header-rule">nav,header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(18px,4vw,64px)!important;background:#e0c000!important;color:#111111!important;padding:14px clamp(16px,4vw,48px)!important;min-height:0!important;height:auto!important}.lb-brand{display:flex!important;align-items:center!important;gap:clamp(14px,2.5vw,38px)!important;flex:0 1 auto!important;min-width:0!important;text-decoration:none!important}.lb-mark{height:clamp(56px,5vw,72px)!important;width:auto!important;object-fit:contain!important;flex:none!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%)}.lb-word{height:auto!important;max-height:clamp(26px,2.3vw,34px)!important;width:auto!important;object-fit:contain!important;max-width:min(32vw,460px)!important;flex:0 1 auto!important;min-width:0!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%)}.lb-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}nav ul,nav .nav-links{display:flex!important;align-items:center!important;gap:clamp(12px,2vw,26px)!important;margin:0!important;padding:0!important;list-style:none!important;flex:1 1 auto!important;justify-content:flex-end!important}nav>div,nav>span,nav>.wrap,nav>.container,nav>.nav-in,nav>.nav-links{flex:1 1 auto!important;min-width:0!important;width:auto!important;max-width:none!important;margin-left:auto!important;margin-right:0!important}nav{flex-wrap:nowrap!important}.lb-brand{overflow:hidden!important}nav{min-width:0!important;flex-wrap:wrap!important;row-gap:6px!important}.hdr__in,.nav__in,.nav-inner{min-width:0!important;flex:1 1 auto!important}nav a{color:#111111!important}[class*=hero-copy],[class*=hero__copy],[class*=hero-in],[class*=hero-inner]{flex-wrap:nowrap!important}[class*=hero-copy]>*,[class*=hero__copy]>*,[class*=hero-in]>*,[class*=hero-inner]>*{flex:0 0 auto!important;min-height:0!important}body{background:#e0c000!important;color:#111111!important}section,.section{background-color:transparent!important}.nav-cta,.cta{background:#eecc00!important;color:#fff!important;border-color:#eecc00!important}a{--lb-accent:#eecc00}body{padding-top:0!important}[class~=hero],.hero,header#top:not(.hdr),section#top{padding-top:calc(var(--lb-navh,112px) + 20px)!important;padding-bottom:36px!important;min-height:clamp(400px,50vh,540px)!important;max-height:none!important;align-content:center!important;align-items:stretch!important;flex-wrap:wrap!important;gap:14px!important}[class~=hero]:not(.lb-hgrid),.hero:not(.lb-hgrid),header#top:not(.hdr),section#top{display:flex!important;flex-direction:row!important;justify-content:center!important;position:relative!important}[class~=hero]>*,.hero>*,header#top>*,section#top>*{flex:1 1 min(430px,100%)!important;min-width:0!important;max-width:100%!important}[class~=hero]>canvas,.hero>canvas,[class~=hero]>[class*=scrim],[class~=hero]>.lbhf{flex:none!important}[class~=hero] canvas,.hero canvas,header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important}[class~=hero]>.hero-photo,[class~=hero]>.hero-shade,[class~=hero]>[class*=scrim],header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;margin:0!important}header{overflow:visible!important}.lb-hgrid{justify-items:stretch!important}p,li,.sub,.lede{color:rgba(17,17,17,.7)!important}[class*=hero] p,[class*=hero] li,[class*=hero] .sub,[class*=hero] .lede,.hero p{color:rgba(255,255,255,.88)!important;text-shadow:0 1px 12px rgba(0,0,0,.45)}@media(max-width:820px){nav{flex-wrap:wrap!important;gap:10px!important}}.lb-mark{height:clamp(56px,5vw,76px)!important}.lb-word{height:clamp(38px,4.4vw,62px)!important;max-height:none!important;max-width:min(60vw,900px)!important}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
-<header class="site-header" role="banner">
+<header class="site-header" role="banner"><a href="/" class="lb-brand" aria-label="Shane's Roof Restorations"><img src="assets/logo-flat-mark.png" alt="" class="lb-mark" loading="eager" decoding="async"><img src="assets/logo-word.png" alt="" class="lb-word" loading="eager" decoding="async"><span class="lb-sr">Shane's Roof Restorations</span></a>
   <div class="wrap">
-    <a class="lb-brand" href="#top" aria-label="Shane's Roof Restorations - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-acc:#e0c000;--lb-name:#e0c000;--lb-subc:#e0c000;"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"><span class="lb-brand__mark" aria-hidden="true"></span><span class="lb-brand__word"><span class="lb-brand__name">Shane's Roof Restorations</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    
     <nav class="site-nav" aria-label="Main navigation">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
@@ -407,6 +409,8 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 
   <div class="divider rv"></div>
 
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero.jpg" alt="Shane's Roof Restorations" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Shane's Roof Restorations</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Shane's Roof Restorations &mdash; recent work</div></div></section>
+
   <!-- ===== QUOTE FORM ===== -->
   <div id="quote">
     <section id="lbq" class="v1" aria-labelledby="lbq-h">
@@ -467,7 +471,7 @@ html,body{overflow-x:hidden}
 </style>
   <div class="lbq-w">
       <h2 id="lbq-h">Request a quote</h2>
-      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p><div class="lbq-card"><form id="lbq-form" novalidate data-site="shanes-roof-restorations" data-biz="Shane's Roof Restorations"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div>
+      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p><div class="lbq-card"><form id="lbq-form" novalidate data-site="shanes-roof-restorations" data-biz="Shane's Roof Restorations"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div class="lbq-full"><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div>
   </div>
   <script>
 (function(){
@@ -543,10 +547,10 @@ html,body{overflow-x:hidden}
   </div>
 </main>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero.jpg" alt="Shane's Roof Restorations" loading="eager" decoding="async"></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Shane's Roof Restorations</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Shane's Roof Restorations &mdash; recent work</div></div></section><footer class="site-footer" role="contentinfo">
+<footer class="site-footer" role="contentinfo">
   <div class="wrap">
     <div class="footer-brand">
-      <img src="logo.jpg" alt="" aria-hidden="true">
+      <img src="assets/logo.svg" alt="" aria-hidden="true">
       <span>Shane's Roof Restorations</span>
     </div>
     <nav class="footer-links" aria-label="Footer links">
@@ -555,8 +559,9 @@ html,body{overflow-x:hidden}
       <a href="#quote">Get a Quote</a>
     </nav>
     <p class="footer-copy">Fully insured. All areas. <a href="tel:0431414509">0431 414 509</a> · <a href="mailto:shanesroofrestorations@gmail.com">shanesroofrestorations@gmail.com</a></p>
+    <span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span>
   </div>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+<div class="lb-socials"><a class="lb-soc" href="https://www.facebook.com/people/Shanes-Roof-Restorations/100089800848737/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></div></footer>
 
 
 <!-- lb: old box-hero engine removed -->
@@ -1846,14 +1851,14 @@ header,.site-header,.page-header,.header-inner,nav.nav,.nav-inner,
 
 
 <style>/* ==== LB HEADER TRUTH ==== */
-.lb-brand{gap:clamp(8px,1vw,14px) !important;min-height:clamp(44px,5vw,64px) !important;
+.lb-brand{gap:clamp(8px,1vw,12px) !important;min-height:0 !important;height:100% !important;
   align-items:center !important;flex-wrap:nowrap !important}
 .lb-brand__mark{flex:0 0 auto !important;display:flex !important;align-items:center !important;
-  height:clamp(36px,4vw,52px) !important;width:auto !important;max-width:30vw !important}
+  height:clamp(34px,4vw,44px) !important;width:auto !important;max-width:30vw !important}
 .lb-brand__mark img{display:block !important;height:100% !important;width:auto !important;
   max-width:100% !important;object-fit:contain !important}
 .lb-brand__word{display:flex !important;flex-direction:column !important;justify-content:center !important;
-  min-width:0 !important;overflow:visible !important}
+  min-width:0 !important;overflow:hidden !important}
 @media(max-width:700px){
   .lb-brand__mark{height:32px !important;max-width:40vw !important}
   .lb-brand__word{font-size:.92em !important}
@@ -1885,6 +1890,70 @@ p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
+</style>
+<style id="sr-repair-1022">/* ==== REPAIR PASS 22/10 ==== */
+/* 1. header lockup: logo fits the bar, name never collides with the nav, phone never wraps */
+.site-header{--nav-h:72px}
+.site-header .wrap{height:72px;gap:14px;justify-content:space-between;align-items:center}
+.site-header .lb-brand{flex:0 1 auto;min-width:0;max-width:min(46%,520px);overflow:hidden}
+.lb-brand__mark{height:38px!important;flex:0 0 38px!important;width:38px!important;max-width:38px!important;
+  display:flex!important;align-items:center;justify-content:center}
+.lb-brand__mark img,.lb-brand__mark img.lb-logo{height:38px!important;width:38px!important;
+  max-width:38px!important;object-fit:contain!important;border-radius:8px}
+.lb-brand__word{overflow:hidden!important;min-width:0!important;max-width:100%!important}
+.lb-brand__name{display:block;font-size:clamp(15px,1.5vw,19px)!important;line-height:1.15!important;
+  white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:100%!important}
+.lb-brand__rule{display:none!important}
+.site-nav{flex:0 0 auto;margin-left:auto;gap:26px!important}
+.site-cta{flex:0 0 auto;white-space:nowrap!important}
+.site-header .site-cta{line-height:1}
+@media (max-width:900px){
+  .site-header .wrap{height:64px;gap:10px}
+  .site-header .lb-brand{max-width:58%}
+  .lb-brand__name{font-size:15px!important}
+  .site-header .site-cta{padding: 9px 13px;font-size:12px}
+}
+@media (max-width:420px){
+  .site-header .wrap{height:60px;padding:0 16px}
+  .lb-brand__mark,.lb-brand__mark img.lb-logo{height:32px!important;width:32px!important;max-width:32px!important}
+  .lb-brand{flex:0 1 auto;max-width:52%}
+  .lb-brand__name{font-size:14px!important}
+  .site-cta{padding:8px 11px!important}
+}
+/* 2. process section: three real columns, aligned cards (markup uses .stages/.stage, CSS only had .steps/.step) */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px 22px}
+.stage h3{font-size:18px;margin-bottom:8px}
+.stage p{margin:0;font-size:15px;max-width:100%}
+@media (max-width:780px){.stages{grid-template-columns:1fr}}
+/* 3. section rhythm: the invisible .divider stacked 48px on top of 96px section padding */
+.section{padding:72px 0}
+.divider{display:none}
+/* 4. footer: legal row belongs inside the footer grid, not stranded under it */
+.site-footer .wrap{row-gap:0}
+.footer-copy{margin:0;max-width:none;font-size:12px;line-height:1.6}
+.lb-legal{flex:0 0 100%;display:flex;gap:18px;align-items:center;margin-top:18px;padding-top:14px;
+  border-top:1px solid var(--line);font-size:12px}
+.lb-legal a{color:var(--muted);text-decoration:none}
+.lb-legal a:hover{color:var(--accent)}
+/* 5. services: 4 cards orphaned one per row at 1120px because minmax(260px) only fits 3 */
+.services-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.services-grid{grid-template-columns:1fr}}
+/* 6. gallery: dots sat on the same coordinate as the next arrow */
+.lb-rb__dots{top:auto;bottom:clamp(52px,6vw,74px);right:auto;left:50%;transform:translateX(-50%);
+  flex-direction:row;gap:10px;padding:7px 10px;border-radius:999px;background:rgba(8,9,12,.45)}
+.lb-rb__dots button{width:8px;height:8px;flex:0 0 auto}
+/* 7. hero: headline sat in a low band under a dead top half */
+#sceneSticky.hero{align-items:center}
+.hero-in{padding hybrid calc(var(--nav-h,72px) + 4vh) 24px 4vh}
+@media (max-width:820px){.hero-in{padding:calc(var(--nav-h,64px) + 3vh) 20px 4vh}}
+/* 8. form + type polish */
+#lbq input[type="checkbox"]{accent-color:var(--accent);width:16px;height:16px}
+#lbq{padding:58px 20px 64px}
+.lead{margin-bottom:34px}
+.hero-in .tagline{margin-bottom:14px}
+:root{--muted:#95a1b1}
 </style>
 </body>
 </html>
