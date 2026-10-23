@@ -83,10 +83,10 @@ header.bar{
 
 /* ---------- hero ---------- */
 .hero{position:relative;isolation:isolate;overflow:hidden;background:#20262a;color:#fff;
-  min-height:min(84vh,760px);display:flex;align-items:flex-end;padding:var(--s6) 0 var(--s5)}
+  min-height:min(78vh,700px);display:flex;align-items:flex-end;padding:var(--s6) 0 var(--s5)}
 .hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,rgba(14,17,19,.86) 0%,rgba(14,17,19,.62) 42%,rgba(14,17,19,.12) 78%)}
+  background:rgba(14,17,19,.56)}
 .hero-in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--s3)}
 .hero-kicker{font-size:var(--t-sm);color:rgba(255,255,255,.8);margin-bottom:var(--s3)}
 .hero h1{font-size:var(--t-h1);max-width:15ch;color:#fff}
@@ -104,7 +104,7 @@ header.bar{
   border-top:1px solid rgba(255,255,255,.18);font-size:var(--t-sm);color:rgba(255,255,255,.72);max-width:620px}
 @media (max-width:700px){
   .hero{min-height:0;padding:var(--s5) 0 var(--s4)}
-  .hero::after{background:linear-gradient(180deg,rgba(14,17,19,.5),rgba(14,17,19,.86))}
+  .hero::after{background:rgba(14,17,19,.72)}
   .hero h1{max-width:100%}
   .hero-meta{margin-top:var(--s4)}
 }
@@ -123,7 +123,7 @@ header.bar{
 .svc-lead{background:var(--ink);color:#fff;padding:var(--s5) var(--s4) var(--s4);display:flex;flex-direction:column;justify-content:space-between;min-height:400px}
 .svc-lead h3{font-size:var(--t-h3);color:#fff;max-width:18ch}
 .svc-lead p{color:rgba(255,255,255,.76);margin-top:var(--s3);font-size:var(--t-b);max-width:44ch}
-.svc-lead .label{color:#7fd3c9}
+.svc-lead .label{color:#a5e6dd}
 .svc-lead-foot{margin-top:var(--s5);font-size:var(--t-sm);color:rgba(255,255,255,.55)}
 .svc-rows{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
 .svc-row{display:grid;grid-template-columns:44px minmax(0,1fr);gap:var(--s3);padding:var(--s4) 0;border-bottom:1px solid var(--line)}
@@ -199,22 +199,24 @@ footer{background:var(--ink);color:#fff;padding:var(--s5) 0 var(--s3);font-size:
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-</head>
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<style id="lb-soc-css">.lb-soc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;opacity:.85;text-decoration:none}.lb-soc:hover{opacity:1}footer .lb-soc{margin-right:8px}</style><style id="lb-header-rule">nav,header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(18px,4vw,64px)!important;background:#ffffff!important;color:#111111!important;padding:14px clamp(16px,4vw,48px)!important;min-height:0!important;height:auto!important}.lb-brand{display:flex!important;align-items:center!important;gap:clamp(14px,2.5vw,38px)!important;flex:0 1 auto!important;min-width:0!important;text-decoration:none!important}.lb-mark{height:clamp(56px,5vw,72px)!important;width:auto!important;object-fit:contain!important;flex:none!important;-webkit-mask-image:none;mask-image:none}.lb-word{height:auto!important;max-height:clamp(26px,2.3vw,34px)!important;width:auto!important;object-fit:contain!important;max-width:min(32vw,460px)!important;flex:0 1 auto!important;min-width:0!important;-webkit-mask-image:none;mask-image:none}.lb-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}nav ul,nav .nav-links{display:flex!important;align-items:center!important;gap:clamp(12px,2vw,26px)!important;margin:0!important;padding:0!important;list-style:none!important;flex:1 1 auto!important;justify-content:flex-end!important}nav>div,nav>span,nav>.wrap,nav>.container,nav>.nav-in,nav>.nav-links{flex:1 1 auto!important;min-width:0!important;width:auto!important;max-width:none!important;margin-left:auto!important;margin-right:0!important}nav{flex-wrap:nowrap!important}.lb-brand{overflow:hidden!important}nav{min-width:0!important;flex-wrap:wrap!important;row-gap:6px!important}.hdr__in,.nav__in,.nav-inner{min-width:0!important;flex:1 1 auto!important}nav a{color:#111111!important}[class*=hero-copy],[class*=hero__copy],[class*=hero-in],[class*=hero-inner]{flex-wrap:nowrap!important}[class*=hero-copy]>*,[class*=hero__copy]>*,[class*=hero-in]>*,[class*=hero-inner]>*{flex:0 0 auto!important;min-height:0!important}body{background:#f7f7f5!important;color:#111111!important}section,.section{background-color:transparent!important}.nav-cta,.cta{background:#0f0d0e!important;color:#fff!important;border-color:#0f0d0e!important}a{--lb-accent:#0f0d0e}body{padding-top:0!important}[class~=hero],.hero,header#top:not(.hdr),section#top{padding-top:calc(var(--lb-navh,112px) + 20px)!important;padding-bottom:36px!important;min-height:clamp(400px,50vh,540px)!important;max-height:none!important;align-content:center!important;align-items:stretch!important;flex-wrap:wrap!important;gap:14px!important}[class~=hero]:not(.lb-hgrid),.hero:not(.lb-hgrid),header#top:not(.hdr),section#top{display:flex!important;flex-direction:row!important;justify-content:center!important;position:relative!important}[class~=hero]>*,.hero>*,header#top>*,section#top>*{flex:1 1 min(430px,100%)!important;min-width:0!important;max-width:100%!important}[class~=hero]>canvas,.hero>canvas,[class~=hero]>[class*=scrim],[class~=hero]>.lbhf{flex:none!important}[class~=hero] canvas,.hero canvas,header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important}[class~=hero]>.hero-photo,[class~=hero]>.hero-shade,[class~=hero]>[class*=scrim],header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;margin:0!important}header{overflow:visible!important}.lb-hgrid{justify-items:stretch!important}p,li,.sub,.lede{color:rgba(17,17,17,.7)!important}[class*=hero] p,[class*=hero] li,[class*=hero] .sub,[class*=hero] .lede,.hero p{color:rgba(255,255,255,.88)!important;text-shadow:0 1px 12px rgba(0,0,0,.45)}@media(max-width:820px){nav{flex-wrap:wrap!important;gap:10px!important}}.lb-mark{height:clamp(56px,5vw,76px)!important}.lb-word{height:clamp(38px,4.4vw,62px)!important;max-height:none!important;max-width:min(60vw,900px)!important}</style></head>
 <body>
 <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
 
-<header class="bar">
+<header class="bar"><a href="/" class="lb-brand" aria-label="Auzcrete, Architectural House Slabs, Drop Edge Beams, Driveways"><img src="assets/logo-mark.jpg" alt="" class="lb-mark" loading="eager" decoding="async"><img src="assets/logo-word.png" alt="" class="lb-word" loading="eager" decoding="async"><span class="lb-sr">Auzcrete, Architectural House Slabs, Drop Edge Beams, Driveways</span></a>
   <div class="bar-in">
-    <a class="brand" href="#top" aria-label="Auzcrete, home">
-      <img src="assets/logo.jpg" alt="" class="lb-logo" loading="eager" decoding="async">
-      <span class="brand-word">
-        <span class="brand-name">Auzcrete</span>
-        <span class="brand-sub">Concrete contractor, Redhead NSW</span>
-      </span>
-    </a>
+    
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#quote">Quote</a>
+    </nav>
     <a class="call" href="tel:0417504840">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7 12.8 12.8 0 0 0 .7 2.8 2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5 12.8 12.8 0 0 0 2.8.7 2 2 0 0 1 1.7 2z"/></svg>
       0417 504 840
@@ -223,6 +225,7 @@ footer{background:var(--ink);color:#fff;padding:var(--s5) 0 var(--s3);font-size:
 </header>
 
 <main id="top">
+<style>section[id]{scroll-margin-top:86px}</style>
   <section class="hero" aria-labelledby="hero-title">
     <canvas id="heroCanvas" class="hero-canvas" width="1440" height="760" aria-hidden="true"></canvas>
     <div class="hero-in">
@@ -243,7 +246,7 @@ footer{background:var(--ink);color:#fff;padding:var(--s5) 0 var(--s3);font-size:
     </div>
   </section>
 
-  <section class="sec rv" aria-labelledby="svc-title">
+  <section id="services" class="sec rv" aria-labelledby="svc-title">
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -291,7 +294,7 @@ footer{background:var(--ink);color:#fff;padding:var(--s5) 0 var(--s3);font-size:
     </div>
   </section>
 
-  <section class="sec rv" aria-labelledby="process-title">
+  <section id="process" class="sec rv" aria-labelledby="process-title">
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -325,7 +328,7 @@ footer{background:var(--ink);color:#fff;padding:var(--s5) 0 var(--s3);font-size:
     </div>
   </section>
 
-  <section class="sec-tight rv" aria-labelledby="work-title">
+  <section id="work" class="sec-tight rv" aria-labelledby="work-title">
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -344,7 +347,7 @@ footer{background:var(--ink);color:#fff;padding:var(--s5) 0 var(--s3);font-size:
     </div>
   </section>
 
-  <section class="sec rv" aria-labelledby="area-title">
+  <section id="area" class="sec rv" aria-labelledby="area-title">
     <div class="wrap area-in">
       <div>
         <p class="label">Where we work</p>
@@ -448,6 +451,49 @@ html,body{overflow-x:hidden}
 .btn-ghost{border:1px solid rgba(255,255,255,.38);color:#fff}
 .btn-ghost:hover{background:rgba(255,255,255,.12)}
 @media (max-width:820px){.btn{padding:12px 18px;font-size:.9rem}}
+
+/* ============ repair pass 2026-10-23: layering, contrast, grid ============ */
+/* hero: canvas under scrim under content, no flat teal wash */
+.hero{--hair:rgba(255,255,255,.22)}
+.hero::before{background:transparent;z-index:0}
+.hero .hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1!important;
+  filter:brightness(1.32) saturate(1.06) contrast(1.02)}
+.hero::after{z-index:1;
+  background:rgba(12,15,17,.62)}
+.hero .hero-in{position:relative;z-index:2}
+.hero .hero-kicker{color:rgba(255,255,255,.9);letter-spacing:.02em}
+.hero h1{text-shadow:0 1px 2px rgba(0,0,0,.5),0 6px 40px rgba(0,0,0,.5)}
+.hero-sub{color:rgba(255,255,255,.94)}
+.hero-cta .btn{background:#63c9bb;color:#08100e;border:1px solid rgba(255,255,255,.4);
+  box-shadow:0 8px 24px -10px rgba(0,0,0,.8)}
+.hero-cta .btn:hover{background:#7fd8cb;color:#08100e}
+.hero-meta{color:rgba(255,255,255,.82);border-top-color:rgba(255,255,255,.24)}
+
+/* header nav: desktop only, sits between brand and call */
+.nav{display:flex;align-items:center;gap:26px;flex:0 0 auto;margin-left:auto;
+  font-size:var(--t-sm);font-weight:500;color:var(--ink-2)}
+.nav a{position:relative;padding:2px 0}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav a:hover::after{transform:scaleX(1)}
+@media (max-width:860px){.nav{display:none}}
+
+/* quote band: light ink on the dark band, on the page grid */
+#lbq{padding:var(--s6) var(--s3);background:#14171a;
+  --lbq-accent:#63c9bb;--lbq-ink:#f3f2ee;--lbq-muted:rgba(243,242,238,.66);
+  --lbq-panel:rgba(255,255,255,.05);--lbq-line:rgba(255,255,255,.2)}
+#lbq .lbq-w{max-width:var(--max)}
+#lbq h2{color:#f3f2ee;font-size:var(--t-h2);line-height:1.08;max-width:18ch}
+#lbq .lbq-s{margin-top:16px;font-size:var(--t-b);color:rgba(243,242,238,.66)}
+#lbq .lbq-hp2{border-top:2px solid #63c9bb;padding-top:var(--s2)}
+#lbq label{color:rgba(243,242,238,.72);font-size:var(--t-xs);letter-spacing:.02em}
+#lbq input,#lbq textarea{border-radius:4px;font-size:var(--t-b);padding:13px 14px}
+#lbq textarea{min-height:112px}
+#lbq button{border-radius:4px;background:#63c9bb;color:#08100e;font-size:var(--t-b);padding:14px 24px;margin-top:var(--s1)}
+#lbq button:hover{background:#7fd8cb}
+#lbq .lbq-sp{gap:var(--s6)}
+@media (max-width:760px){#lbq .lbq-sp{gap:var(--s4)}#lbq h2{font-size:var(--t-h2)}#lbq{padding:var(--s5) var(--s3)}}
+
 </style>
   <div class="lbq-w">
       <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
@@ -551,7 +597,7 @@ html,body{overflow-x:hidden}
       <span><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
     </div>
   </div>
-</footer>
+<div class="lb-socials"><a class="lb-soc" href="https://www.instagram.com/auzcrete/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a class="lb-soc" href="https://www.facebook.com/Auzcrete/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></div></footer>
 
 <script src="assets/heroCanvas.js"></script>
 <script>

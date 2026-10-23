@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>T J Nielsen Building — home renovations &amp; bathrooms, Hunter NSW</title>
+<title>T J Nielsen Building: home renovations &amp; bathrooms, Hunter NSW</title>
 <meta name="description" content="Full home renovations, bathroom renovations, kitchens and interior linings across the Hunter region, NSW. Call 0423 588 424.">
 <meta name="theme-color" content="#162a25">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
@@ -57,10 +57,14 @@ p{margin:0 0 14px}
 
 /* ---------- hero ---------- */
 .hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;min-height:clamp(520px,86vh,760px);perspective:800px}
-.hero-bg{position:absolute;inset:0;z-index:-2;background-image:url('assets/work-shower.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;filter:brightness(1.03)}
-.hero-scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,32,27,.92) 0%,rgba(12,32,27,.76) 34%,rgba(12,32,27,.44) 68%,rgba(12,32,27,.24) 100%)}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:#12291f}
+.hero-inner{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:center;width:100%}
+.hero-shot{margin:0;justify-self:end;width:100%;max-width:min(100%,600px)}
+.hero-shot img{display:block;width:100%;height:auto;max-height:min(74vh,660px);object-fit:cover;object-position:center;border-radius:4px;border:1px solid rgba(226,240,232,.16);box-shadow:0 24px 60px rgba(0,0,0,.42)}
+.hero-scrim{position:absolute;inset:0;z-index:-1;background:rgba(12,32,27,.78)}
 #heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:-3;opacity:0;pointer-events:none}
 .hero-copy{position:relative;z-index:3;max-width:min(780px,92vw);padding:clamp(48px,9vh,96px) 0}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;gap:26px}.hero-copy{padding:clamp(40px,7vh,64px) 0 4px;max-width:100%}.hero-shot{justify-self:stretch;max-width:100%}.hero-shot img{max-height:52vh}}
 .hero-copy h1{font-size:clamp(2.2rem,5.4vw,4rem);margin-bottom:18px;text-shadow:0 3px 30px rgba(0,0,0,.42)}
 .hero-copy h1 em{font-style:normal;color:var(--acc)}
 .hero-copy .sub{font-size:clamp(1.02rem,2.1vw,1.22rem);color:#dbe8e1;max-width:54ch;margin-bottom:30px}
@@ -77,19 +81,18 @@ p{margin:0 0 14px}
 .g4{grid-template-columns:repeat(4,1fr)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g2{grid-template-columns:repeat(2,1fr)}
-.card{background:var(--panel);border:1px solid var(--line-soft);border-radius:4px;padding:clamp(20px,2.2vw,26px)}
-.card h3{font-size:1.1rem;margin-bottom:9px}
-.card p{color:var(--muted);font-size:.95rem;margin:0}
-.card .rule{display:block;width:26px;height:3px;background:var(--acc);margin-bottom:16px}
+.row{background:none;border:1px solid var(--line);border-radius:0;padding:clamp(20px,2.2vw,26px)}
+.row h3{font-size:1.1rem;margin-bottom:9px}
+.row p{color:var(--muted);font-size:.95rem;margin:0}
+.row .rule{display:block;width:26px;height:3px;background:var(--acc);margin-bottom:16px}
 figure.shot{margin:0;border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;background:var(--panel)}
 figure.shot img{width:100%;height:280px;object-fit:cover}
 figure.shot figcaption{padding:13px 15px;font-size:.87rem;color:var(--muted);border-top:1px solid var(--line-soft)}
 figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-size:.95rem;margin-bottom:2px}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,26px)}
-.steps li{border-top:2px solid var(--acc);padding-top:16px}
-.steps .n{display:block;font-weight:800;font-size:.78rem;letter-spacing:.1em;color:var(--acc);margin-bottom:9px}
-.steps h3{font-size:1.02rem;margin-bottom:7px}
-.steps p{color:var(--muted);font-size:.93rem;margin:0}
+.phases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,26px)}
+.phases li{border-top:2px solid var(--acc);padding-top:16px}
+.phases h3{font-size:1.02rem;margin-bottom:7px}
+.phases p{color:var(--muted);font-size:.93rem;margin:0}
 .area{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,4vw,54px);align-items:start}
 .area ul{margin:0;padding-left:20px;color:var(--muted)}
 .area li{margin-bottom:9px}
@@ -136,7 +139,7 @@ figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-siz
 }
 @media (max-width:980px){
   .g4{grid-template-columns:1fr 1fr}
-  .steps{grid-template-columns:1fr 1fr}
+  .phases{grid-template-columns:1fr 1fr}
   .area,.quote-in{grid-template-columns:1fr}
   .g3{grid-template-columns:1fr 1fr}
 }
@@ -148,26 +151,20 @@ figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-siz
   .nav{order:3;flex-basis:100%;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line-soft);padding-top:8px}
   .nav a{font-size:.88rem}
   .nav a.cta-btn{padding:10px 14px}
-  .g4,.g3,.g2,.steps{grid-template-columns:1fr}
+  .g4,.g3,.g2,.phases{grid-template-columns:1fr}
   #lbq .two{grid-template-columns:1fr}
   .hero-copy h1{font-size:clamp(2rem,8.6vw,2.7rem)}
 }
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
-</head>
+<style id="lb-no-upscale">img{max-width:100%;height:auto}[style*="background-image"]{background-size:cover;background-position:center}</style><style id="lb-soc-css">.lb-soc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;opacity:.85;text-decoration:none}.lb-soc:hover{opacity:1}footer .lb-soc{margin-right:8px}</style><style id="lb-header-rule">nav,header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(18px,4vw,64px)!important;background:#cfe4d8!important;color:#111111!important;padding:14px clamp(16px,4vw,48px)!important;min-height:0!important;height:auto!important}.lb-brand{display:flex!important;align-items:center!important;gap:clamp(14px,2.5vw,38px)!important;flex:0 1 auto!important;min-width:0!important;text-decoration:none!important}.lb-mark{height:clamp(56px,5vw,72px)!important;width:auto!important;object-fit:contain!important;flex:none!important;clip-path:ellipse(74% 74% at center)!important;-webkit-clip-path:ellipse(74% 74% at center)!important}.lb-word{height:auto!important;max-height:clamp(26px,2.3vw,34px)!important;width:auto!important;object-fit:contain!important;max-width:min(32vw,460px)!important;flex:0 1 auto!important;min-width:0!important;clip-path:ellipse(78% 78% at center)!important;-webkit-clip-path:ellipse(78% 78% at center)!important}.lb-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}nav ul,nav .nav-links{display:flex!important;align-items:center!important;gap:clamp(12px,2vw,26px)!important;margin:0!important;padding:0!important;list-style:none!important;flex:1 1 auto!important;justify-content:flex-end!important}nav>div,nav>span,nav>.wrap,nav>.container,nav>.nav-in,nav>.nav-links{flex:1 1 auto!important;min-width:0!important;width:auto!important;max-width:none!important;margin-left:auto!important;margin-right:0!important}nav{flex-wrap:nowrap!important}.lb-brand{overflow:hidden!important}nav{min-width:0!important;flex-wrap:wrap!important;row-gap:6px!important}.hdr__in,.nav__in,.nav-inner{min-width:0!important;flex:1 1 auto!important}nav a{color:#111111!important}[class*=hero-copy],[class*=hero__copy],[class*=hero-in],[class*=hero-inner]{flex-wrap:nowrap!important}[class*=hero-copy]>*,[class*=hero__copy]>*,[class*=hero-in]>*,[class*=hero-inner]>*{flex:0 0 auto!important;min-height:0!important}body{background:#cfe4d8!important;color:#111111!important}section,.section{background-color:transparent!important}.nav-cta,.cta{background:#05050b!important;color:#fff!important;border-color:#05050b!important}a{--lb-accent:#05050b}body{padding-top:0!important}[class~=hero],.hero,header#top:not(.hdr),section#top{padding-top:calc(var(--lb-navh,112px) + 20px)!important;padding-bottom:36px!important;min-height:clamp(400px,50vh,540px)!important;max-height:none!important;align-content:center!important;align-items:stretch!important;flex-wrap:wrap!important;gap:14px!important}[class~=hero]:not(.lb-hgrid),.hero:not(.lb-hgrid),header#top:not(.hdr),section#top{display:flex!important;flex-direction:row!important;justify-content:center!important;position:relative!important}[class~=hero]>*,.hero>*,header#top>*,section#top>*{flex:1 1 min(430px,100%)!important;min-width:0!important;max-width:100%!important}[class~=hero]>canvas,.hero>canvas,[class~=hero]>[class*=scrim],[class~=hero]>.lbhf{flex:none!important}[class~=hero] canvas,.hero canvas,header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important}[class~=hero]>.hero-photo,[class~=hero]>.hero-shade,[class~=hero]>[class*=scrim],header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;margin:0!important}header{overflow:visible!important}.lb-hgrid{justify-items:stretch!important}p,li,.sub,.lede{color:rgba(17,17,17,.7)!important}[class*=hero] p,[class*=hero] li,[class*=hero] .sub,[class*=hero] .lede,.hero p{color:rgba(255,255,255,.88)!important;text-shadow:0 1px 12px rgba(0,0,0,.45)}@media(max-width:820px){nav{flex-wrap:wrap!important;gap:10px!important}}</style><style id="lb-ink">header,nav.nav,.lb-brand{color:#111111!important}</style><style>header,nav.nav,.lb-brand{--lb-name:currentColor}</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="header">
+<header class="header"><a href="/" class="lb-brand" aria-label="T J Nielsen Building"><img src="assets/logo-flat-mark.png" alt="" class="lb-mark" loading="eager" decoding="async"><img src="assets/logo-word.png" alt="" class="lb-word" loading="eager" decoding="async"><span class="lb-sr">T J Nielsen Building</span></a>
   <div class="wrap hdr-in">
-    <a class="brand" href="#top" aria-label="T J Nielsen Building — home">
-      <img class="brand-mark" src="assets/logo.svg" alt="T J Nielsen Building logo" width="32" height="32">
-      <span>
-        <span class="brand-name">T J Nielsen Building</span>
-        <span class="brand-sub">Renovations · Hunter NSW</span>
-      </span>
-    </a>
-    <nav class="nav" aria-label="Main">
+    
+    <span class="lb-socials"><a class="lb-soc" href="instagram.com/nielsen_building" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a class="lb-soc" href="https://www.instagram.com/nielsen_building" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></span><nav class="nav" aria-label="Main">
       <a href="#services">What we build</a>
       <a href="#work">Our work</a>
       <a href="#process">How it runs</a>
@@ -183,15 +180,18 @@ figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-siz
   <div class="hero-scrim" aria-hidden="true"></div>
   <!-- LB-3D-HERO -->
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
-  <div class="wrap">
+  <div class="wrap hero-inner">
     <div class="hero-copy">
       <h1>Home renovations and bathrooms, <em>built properly</em></h1>
-      <p class="sub">Full home renovations, new bathrooms, kitchens and interior linings across the Hunter region — one builder on site from the first walk-through to the final clean.</p>
+      <p class="sub">Full home renovations, new bathrooms, kitchens and interior linings across the Hunter region, with one builder on site from the first walk-through to the final clean.</p>
       <div class="hero-cta">
         <a class="cta-btn" href="tel:+61423588424">Call 0423 588 424</a>
         <span class="remark">Or send the quote form below and we&rsquo;ll book a walk-through.</span>
       </div>
     </div>
+    <figure class="hero-shot">
+      <img src="assets/work-shower.jpg" width="1080" height="1440" alt="Bathroom vanity with black cabinetry and mirrored cabinet, built by this team">
+    </figure>
   </div>
 </section>
 
@@ -202,25 +202,25 @@ figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-siz
       <p>Renovations run room by room or as a whole house, quoted and managed by the builder who does the work.</p>
     </div>
     <div class="grid g4">
-      <article class="card rv">
+      <article class="row rv">
         <span class="rule" aria-hidden="true"></span>
         <h3>Bathrooms</h3>
-        <p>Strip out and rebuild — set out, framing, waterproofing, tiling fixtures and fittings.</p>
+        <p>Strip out and rebuild: set out, framing, waterproofing, tiling fixtures and fittings.</p>
       </article>
-      <article class="card rv">
+      <article class="row rv">
         <span class="rule" aria-hidden="true"></span>
         <h3>Full home renovations</h3>
         <p>Room-by-room renewal through the whole house, worked so the family can stay put.</p>
       </article>
-      <article class="card rv">
+      <article class="row rv">
         <span class="rule" aria-hidden="true"></span>
         <h3>Kitchens</h3>
         <p>Cabinetry removed and set up again, benches, splashbacks, plumbing and electrical rough-in.</p>
       </article>
-      <article class="card rv">
+      <article class="row rv">
         <span class="rule" aria-hidden="true"></span>
         <h3>Linings &amp; fit-out</h3>
-        <p>New framing, plasterboard, cornice, trims and doors — the inside of the job finished square.</p>
+        <p>New framing, plasterboard, cornice, trims and doors, so the inside of the job finishes square.</p>
       </article>
     </div>
   </div>
@@ -230,24 +230,24 @@ figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-siz
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Our work</h2>
-      <p>Bathrooms, kitchens and interior linings — a job like this is what we turn out.</p>
+      <p>Bathrooms, kitchens and interior linings. A job like this is what we turn out.</p>
     </div>
     <div class="grid g4">
       <figure class="shot rv">
         <img src="assets/work-shower.jpg" alt="New bathroom shower with tiled wall and glass screen">
-        <figcaption><b>Bathroom shower</b>a job like this</figcaption>
-      </figure>
-      <figure class="shot rv">
-        <img src="assets/work-vanity.jpg" alt="Bathroom vanity with two basins and mirrors">
         <figcaption><b>Bathroom vanity</b>a job like this</figcaption>
       </figure>
       <figure class="shot rv">
-        <img src="assets/work_06.jpg" alt="Renovated kitchen with island bench and stone top">
-        <figcaption><b>Kitchen</b>a job like this</figcaption>
+        <img src="assets/work-vanity.jpg" alt="New bathroom with glass shower screen">
+        <figcaption><b>Glass shower</b>a job like this</figcaption>
       </figure>
       <figure class="shot rv">
-        <img src="assets/work_02.jpg" alt="Renovated hallway with new floors and wall panelling">
-        <figcaption><b>Hallway linings</b>a job like this</figcaption>
+        <img src="assets/work_06.jpg" alt="Shower enclosure beside freestanding bath">
+        <figcaption><b>Shower and bath</b>a job like this</figcaption>
+      </figure>
+      <figure class="shot rv">
+        <img src="assets/work_02.jpg" alt="Dark tiled bathroom with vanity">
+        <figcaption><b>Tiled vanity</b>a job like this</figcaption>
       </figure>
     </div>
   </div>
@@ -259,24 +259,20 @@ figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-siz
       <h2>How a renovation runs</h2>
       <p>Four steps, every job, so you always know what happens next and who is on site.</p>
     </div>
-    <ol class="steps rv">
+    <ol class="phases rv">
       <li>
-        <span class="n">Step 01</span>
         <h3>First call</h3>
         <p>Tell us the rooms, the timeline and what you want out of the job.</p>
       </li>
       <li>
-        <span class="n">Step 02</span>
         <h3>Walk-through</h3>
         <p>On site, checking the existing structure, services and access.</p>
       </li>
       <li>
-        <span class="n">Step 03</span>
         <h3>Scope &amp; price</h3>
         <p>A written scope with allowances, and a price for the work.</p>
       </li>
       <li>
-        <span class="n">Step 04</span>
         <h3>Build &amp; handover</h3>
         <p>Programmed trades, site kept tidy, signed off room by room.</p>
       </li>
@@ -288,10 +284,10 @@ figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-siz
   <div class="wrap area">
     <div class="rv">
       <h2 style="font-size:clamp(1.7rem,3.6vw,2.6rem);margin-bottom:14px">Working across the Hunter</h2>
-      <p style="color:var(--muted)">T J Nielsen Building works on homes through the Hunter region of NSW — renovations, bathrooms and interior work, from the first walk-through to handover.</p>
+      <p style="color:var(--muted)">T J Nielsen Building works on homes through the Hunter region of NSW, handling renovations, bathrooms and interior work from the first walk-through to handover.</p>
       <p style="color:var(--muted)">One builder stays with the job. That means the same person setting out the walls, checking the waterproofing and signing it off with you at the end.</p>
     </div>
-    <div class="card rv">
+    <div class="row rv">
       <h3>What a renovation covers</h3>
       <ul style="margin:12px 0 0;padding-left:20px;color:var(--muted)">
         <li>Strip out, set out and structural openings.</li>
@@ -440,7 +436,7 @@ figure.shot figcaption b{display:block;color:var(--ink);font-weight:800;font-siz
       </nav>
     </div>
   </div>
-</footer>
+<div class="lb-socials"><a class="lb-soc" href="instagram.com/nielsen_building" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a class="lb-soc" href="https://www.instagram.com/nielsen_building" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></div></footer>
 
 <script>
 (function(){
