@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lewis Painting Solution</title>
-<meta name="description" content="Interior and exterior painting, repaints and renovation for homes and businesses across Brisbane. Preparation first, clean lines, tidy sites. Call 0450 680 040.">
-<meta property="og:title" content="AnB Painting &amp; Renovation">
-<meta property="og:description" content="Painting and renovation across Brisbane. Prep first, paint properly. Call 0450 680 040.">
+<meta name="description" content="Interior and exterior painting, repaints and renovation for homes and businesses across Brisbane. Preparation first, clean lines, tidy sites. Call 0434 378 924.">
+<meta property="og:title" content="Lewis Painting Solution">
+<meta property="og:description" content="Painting and renovation across Brisbane. Prep first, paint properly. Call 0434 378 924.">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
   --muted:#525C69;
   --line:#DCD5C8;
   --line2:#C9C1B2;
-  --paint:#2C4763;
+  --paint:#2C4763;--paint-txt:#96b0cb;
   --paint2:#7C93A8;
   --onDark:#F7F5F0;
   --onDarkMut:#9DAAB8;
@@ -59,9 +59,9 @@ a{color:inherit}
 .nav-links a{font-size:.95rem;font-weight:500;text-decoration:none;color:#C6D0DA;padding-block:.35rem;border-bottom:1px solid transparent}
 .nav-links a:hover{color:#F7F5F0;border-bottom-color:#7C93A8}
 .nav-tel{display:inline-flex;align-items:center;gap:.5rem;background:#F7F5F0;color:#0B1A2E !important;font-weight:700;padding:.6rem 1.05rem !important;border-radius:2px;border-bottom:0 !important;white-space:nowrap}
-.nav-tel:0434378924"";width:34px;height:2px;background:var(--paint);flex:none}
+.nav-tel:+61434378924"";width:34px;height:2px;background:var(--paint);flex:none}
 .hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(2.55rem,6.2vw,4.9rem);line-height:.98;letter-spacing:-.025em;margin-top:1.1rem;max-width:11ch}
-.hero h1 em{font-style:normal;color:var(--paint)}
+.hero h1 em{font-style:normal;color:var(--paint-txt)}
 .hero-sub{margin-top:1.15rem;font-size:clamp(1rem,1.35vw,1.12rem);color:var(--muted);max-width:36ch;line-height:1.5}
 .hero-cta{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;margin-top:1.9rem}
 .btn{display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.5rem;background:var(--ink);color:var(--onDark);text-decoration:none;font-weight:700;font-size:1rem;border-radius:2px;transition:background .18s ease,transform .18s ease}
@@ -69,7 +69,7 @@ a{color:inherit}
 .btn:active{transform:translateY(1px)}
 .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .link-quiet{font-weight:700;font-size:.98rem;text-decoration:none;border-bottom:2px solid var(--line2);padding-bottom:2px;color:var(--ink)}
-.link-quiet:hover{border-bottom-color:var(--paint)}
+.link-quiet:hover{border-bottom-color:var(--paint-txt)}
 .hero-facts{display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:2.5rem;padding-top:1.05rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
 .hero-facts b{display:block;color:var(--ink);font-weight:700;font-size:.98rem}
 .hero-scene{position:relative;min-height:100%;background:#E7E1D5}
@@ -89,7 +89,7 @@ a{color:inherit}
 
 /* ---------- shared section furniture ---------- */
 section{padding-block:var(--pad)}
-.sec-kicker{font-size:.85rem;font-weight:700;color:var(--paint)}
+.sec-kicker{font-size:.85rem;font-weight:700;color:var(--paint-txt)}
 .sec-h2{font-family:var(--disp);font-weight:600;font-size:clamp(1.85rem,3.6vw,2.85rem);line-height:1.06;letter-spacing:-.02em;margin-top:.5rem;max-width:20ch}
 .sec-sub{color:var(--muted);max-width:46ch;margin-top:.85rem;font-size:1.02rem}
 .sec-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);gap:2rem;align-items:end;margin-bottom:2.6rem}
@@ -115,7 +115,7 @@ section{padding-block:var(--pad)}
 .svc-side p{color:var(--muted);margin-top:.45rem;font-size:.97rem}
 .svc-list{margin-top:clamp(2.2rem,4vw,3.4rem);border-top:1px solid var(--line2)}
 .svc-list div{display:grid;grid-template-columns:64px minmax(0,.42fr) minmax(0,1fr);gap:1.4rem;align-items:baseline;padding:1.15rem 0;border-bottom:1px solid var(--line)}
-.svc-list b{font-family:var(--disp);font-weight:600;font-size:.95rem;color:var(--paint);letter-spacing:.02em}
+.svc-list b{font-family:var(--disp);font-weight:600;font-size:.95rem;color:var(--paint-txt);letter-spacing:.02em}
 .svc-list h3{font-family:var(--disp);font-weight:600;font-size:clamp(1.15rem,1.9vw,1.5rem);line-height:1.15}
 .svc-list p{color:var(--muted);font-size:.97rem}
 @media(max-width:820px){
@@ -128,7 +128,7 @@ section{padding-block:var(--pad)}
 .process{background:var(--paper);border-block:1px solid var(--line)}
 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.4rem}
 .phase{border-top:2px solid var(--paint);padding-top:1rem}
-.phase b{font-family:var(--disp);font-size:.95rem;font-weight:600;color:var(--paint)}
+.phase b{font-family:var(--disp);font-size:.95rem;font-weight:600;color:var(--paint-txt)}
 .phase h3{font-family:var(--disp);font-weight:600;font-size:1.22rem;margin-top:.5rem;line-height:1.15}
 .phase p{color:var(--muted);font-size:.94rem;margin-top:.4rem}
 @media(max-width:860px){.phases{grid-template-columns:1fr 1fr;gap:1.2rem}}
@@ -154,7 +154,7 @@ section{padding-block:var(--pad)}
 .quote .sec-kicker{color:#9DBBD6}
 .quote .sec-h2{color:#F7F5F0}
 .big-tel{display:inline-block;font-family:var(--disp);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.02em;color:#F7F5F0;text-decoration:none;margin-top:1.6rem;border-bottom:2px solid #3E6382;padding-bottom:.15rem}
-.big-tel:0434378924"lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
+.big-tel:+61434378924"lb-hdrfix">header{position:sticky!important;top:0;min-height:72px;overflow:hidden}header>.lb-hero-canvas,header>canvas{position:absolute!important;inset:0!important;height:100%!important;width:100%!important;z-index:0!important;pointer-events:none}header>.container{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:nowrap;min-height:72px;padding-block:10px}header .lb-brand,header a[class*=brand]{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header>.container>nav,header nav[role=navigation]{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:clamp(10px,1.4vw,22px)}header .lb-tel,header a[href^="tel:"]{white-space:nowrap;flex:0 0 auto}header .lb-brand__name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}</style><!--/LB-HDRFIX-->
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
@@ -175,27 +175,22 @@ section{padding-block:var(--pad)}
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
 
 <!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
-</head>
+<style id="lb-ink">header,nav.nav,.lb-brand{color:#ffffff!important}</style><style>#heroCanvas{perspective:900px}</style><noscript><style>.rv{opacity:1!important;transform:none!important}.lb-rb__slide{opacity:1!important}.hero,.site-header,header,.nav,.lb-brand{opacity:1!important;transform:none!important}</style></noscript>
+<style id="lb-header-rule">nav,header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(18px,4vw,64px)!important;background:#000000!important;color:#ffffff!important;padding:14px clamp(16px,4vw,48px)!important;min-height:0!important;height:auto!important}.lb-brand{display:flex!important;align-items:center!important;gap:clamp(14px,2.5vw,38px)!important;flex:0 1 auto!important;min-width:0!important;text-decoration:none!important}.lb-mark{height:clamp(56px,5vw,72px)!important;width:auto!important;object-fit:contain!important;flex:none!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%)}.lb-word{height:auto!important;max-height:clamp(26px,2.3vw,34px)!important;width:auto!important;object-fit:contain!important;max-width:min(32vw,460px)!important;flex:0 1 auto!important;min-width:0!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%)}.lb-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}nav ul,nav .nav-links{display:flex!important;align-items:center!important;gap:clamp(12px,2vw,26px)!important;margin:0!important;padding:0!important;list-style:none!important;flex:1 1 auto!important;justify-content:flex-end!important}nav>div,nav>span,nav>.wrap,nav>.container,nav>.nav-in,nav>.nav-links{flex:1 1 auto!important;min-width:0!important;width:auto!important;max-width:none!important;margin-left:auto!important;margin-right:0!important}nav{flex-wrap:nowrap!important}.lb-brand{overflow:hidden!important}nav{min-width:0!important;flex-wrap:wrap!important;row-gap:6px!important}.hdr__in,.nav__in,.nav-inner{min-width:0!important;flex:1 1 auto!important}nav a{color:#ffffff!important}[class*=hero-copy],[class*=hero__copy],[class*=hero-in],[class*=hero-inner]{flex-wrap:nowrap!important}[class*=hero-copy]>*,[class*=hero__copy]>*,[class*=hero-in]>*,[class*=hero-inner]>*{flex:0 0 auto!important;min-height:0!important}body{background:#000000!important;color:#ffffff!important}section,.section{background-color:transparent!important}.nav-cta,.cta{background:#ffffff!important;color:#fff!important;border-color:#ffffff!important}a{--lb-accent:#ffffff}body{padding-top:0!important}[class~=hero],.hero,header#top:not(.hdr),section#top{padding-top:calc(var(--lb-navh,112px) + 20px)!important;padding-bottom:36px!important;min-height:clamp(400px,50vh,540px)!important;max-height:none!important;align-content:center!important;align-items:stretch!important;flex-wrap:wrap!important;gap:14px!important}[class~=hero]:not(.lb-hgrid),.hero:not(.lb-hgrid),header#top:not(.hdr),section#top{display:flex!important;flex-direction:row!important;justify-content:center!important;position:relative!important}[class~=hero]>*,.hero>*,header#top>*,section#top>*{flex:1 1 min(430px,100%)!important;min-width:0!important;max-width:100%!important}[class~=hero]>canvas,.hero>canvas,[class~=hero]>[class*=scrim],[class~=hero]>.lbhf{flex:none!important}[class~=hero] canvas,.hero canvas,header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important}[class~=hero]>.hero-photo,[class~=hero]>.hero-shade,[class~=hero]>[class*=scrim],header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;margin:0!important}header{overflow:visible!important}.lb-hgrid{justify-items:stretch!important}p,li,.sub,.lede{color:rgba(255,255,255,.72)!important}[class*=hero] p,[class*=hero] li,[class*=hero] .sub,[class*=hero] .lede,.hero p{color:rgba(255,255,255,.88)!important;text-shadow:0 1px 12px rgba(0,0,0,.45)}@media(max-width:820px){nav{flex-wrap:wrap!important;gap:10px!important}}.lb-mark{height:clamp(56px,5vw,76px)!important}.lb-word{height:clamp(38px,4.4vw,62px)!important;max-height:none!important;max-width:min(60vw,900px)!important}</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<nav class="nav" aria-label="Main">
+<nav class="nav" aria-label="Main"><a href="/" class="lb-brand" aria-label="Lewis Painting Solution"><img src="assets/logo-flat-mark.png" alt="" class="lb-mark" loading="eager" decoding="async"><img src="assets/logo-flat-word.png" alt="" class="lb-word" loading="eager" decoding="async"><span class="lb-sr">Lewis Painting Solution</span></a>
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top">
-      <img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async">
-      <span class="lb-brand__word">
-        <span class="lb-brand__name">AnB Painting</span>
-        <span class="lb-brand__sub">& Renovation</span>
-      </span>
-    </a>
+    
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="mobile-menu">
       <a href="#services">Services</a>
       <a href="#process">How we work</a>
-      <a href="#why">Why AnB</a>
-      <a class="nav-tel" href="tel:0434378924"><span>Call</span>0450 680 040</a>
+      <a href="#why">Why Lewis</a>
+      <a class="nav-tel" href="tel:+61434378924"><span>Call</span>0434 378 924</a>
     </div>
   </div>
 </nav>
@@ -208,9 +203,9 @@ section{padding-block:var(--pad)}
       <h1>Prep first. <em>Paint properly.</em></h1>
       <p class="hero-sub">Interior and exterior painting, repaints and renovation for homes and businesses. One small crew, start to finish.</p>
       <div class="hero-cta">
-        <a class="btn" href="tel:0434378924">
+        <a class="btn" href="tel:+61434378924">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h3l2 5-2.5 1.5a12 12 0 0 0 6 6L16 13l5 2v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3z"/></svg>
-          0450 680 040
+          0434 378 924
         </a>
         <a class="link-quiet" href="#quote">Send the job details</a>
       </div>
@@ -299,12 +294,12 @@ section{padding-block:var(--pad)}
 <section class="proof" id="why">
   <div class="wrap proof-grid">
     <figure class="shot rv">
-      <img src="assets/work.jpg" alt="AnB Painting &amp; Renovation at work on a Brisbane job" width="2200" height="1581" loading="lazy" decoding="async">
-      <figcaption>AnB Painting &amp; Renovation, Brisbane.</figcaption>
+      <img src="assets/work.jpg" alt="Lewis Painting Solution at work" width="2200" height="1581" loading="lazy" decoding="async">
+      <figcaption>Lewis Painting Solution.</figcaption>
     </figure>
     <div>
       <div class="rv">
-        <p class="sec-kicker">Why AnB</p>
+        <p class="sec-kicker">Why Lewis</p>
         <h2 class="sec-h2">Care on the parts you do not see.</h2>
         <p class="sec-sub">The work that makes a paint job last happens before the first coat goes anywhere near the wall.</p>
       </div>
@@ -318,19 +313,18 @@ section{padding-block:var(--pad)}
   </div>
 </section>
 
-<section class="quote" id="quote">
+<section class="quote" id="lbq"><span id="quote" style="position:absolute;top:-90px"></span>
   <div class="wrap quote-grid">
     <div class="rv">
       <p class="sec-kicker">Get a quote</p>
       <h2 class="sec-h2">Tell us about the job.</h2>
       <p class="sec-sub">Call if it is easier, or send the details through and we will come back with a time to look at it. Quotes are free and there is no obligation.</p>
-      <a class="big-tel" href="tel:0434378924">0450 680 040</a>
+      <a class="big-tel" href="tel:+61434378924">0434 378 924</a>
       <div class="quote-lines">
-        <a href="mailto:anb_painting@outlook.com">anb_painting@outlook.com</a>
         <span>Servicing Brisbane and the surrounding suburbs.</span>
       </div>
     </div>
-    <form id="lbq-form" novalidate data-site="anb-painting" data-biz="AnB Painting &amp; Renovation">
+    <form id="lbq-form" novalidate data-site="lewis-painting-solution" data-biz="Lewis Painting Solution">
       <div class="f-row">
         <div class="field"><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
         <div class="field"><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div>
@@ -343,6 +337,64 @@ section{padding-block:var(--pad)}
       <p id="lbq-st" role="status" aria-live="polite"></p>
     </form>
   </div>
+<script>
+/* quote form */
+(function(){
+  var EP = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var settled = false;
+    var t = setTimeout(function(){ if (!settled){ settled = true; cb(EP); } }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt || '').trim().replace(/\/+$/, '');
+        if (settled) return; settled = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : EP);
+      })
+      .catch(function(){ if (!settled){ settled = true; clearTimeout(t); cb(EP); } });
+  }
+  var f = document.getElementById('lbq-form');
+  if (!f) return;
+  var st = document.getElementById('lbq-st');
+  var btn = f.querySelector('button[type=submit]');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = {};
+    new FormData(f).forEach(function(v, k){ d[k] = v; });
+    if (d.website) return;
+    if (!d.name || (!d.phone && !d.email) || !(d.message || '').trim()){
+      st.textContent = 'Add a name, a phone or email, and a line about the job.';
+      st.style.color = '#F0B6A6';
+      return;
+    }
+    btn.disabled = true; st.textContent = 'Sending…'; st.style.color = '#9DAAB8';
+    base(function(B){
+      fetch(B + '/functions/v1/quote-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
+          name: d.name, phone: d.phone, email: d.email, message: d.message,
+          consent: !!d.consent
+        })
+      })
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(res){
+        if (res && res.success){
+          f.reset(); st.textContent = 'Thanks, your request is in. We will be in touch.';
+          st.style.color = '#BFD3A8';
+        } else throw new Error((res && res.error) || 'Could not send');
+      })
+      .catch(function(err){
+        st.textContent = (err && err.message) ? err.message : 'Could not send. Call 0434 378 924.';
+        st.style.color = '#F0B6A6';
+      })
+      .finally(function(){ btn.disabled = false; });
+    });
+  });
+})();
+</script>
 </section>
 </main>
 
@@ -351,8 +403,8 @@ section{padding-block:var(--pad)}
     <div class="foot">
       <div>
         <div class="foot-brand">
-          <img src="assets/logo.png" alt="AnB Painting &amp; Renovation logo" width="44" height="44" loading="lazy">
-          <span><b>AnB Painting</b><span>& Renovation</span></span>
+          <img src="assets/logo.png" alt="Lewis Painting Solution logo" width="44" height="44" loading="lazy">
+          <span><b>Lewis Painting Solution</b><span>Painting</span></span>
         </div>
         <p>Interior and exterior painting, repaints and renovation for homes and businesses across Brisbane.</p>
       </div>
@@ -361,27 +413,27 @@ section{padding-block:var(--pad)}
         <ul>
           <li><a href="#services">Services</a></li>
           <li><a href="#process">How we work</a></li>
-          <li><a href="#why">Why AnB</a></li>
+          <li><a href="#why">Why Lewis</a></li>
           <li><a href="#quote">Get a quote</a></li>
         </ul>
       </div>
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="tel:0434378924">0450 680 040</a></li>
-          <li><a href="mailto:anb_painting@outlook.com">Email us</a></li>
-          <li>Brisbane, QLD</li>
+          <li><a href="tel:+61434378924">0434 378 924</a></li>
+          <li></li>
+          <li>Brisbane QLD</li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 AnB Painting &amp; Renovation</span>
+      <span>© 2026 Lewis Painting Solution</span>
       <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
     </div>
   </div>
 </footer>
 
-<script src="assets/heroCanvas.js"></script>
+<!-- LB-3D-HERO --><canvas id="heroCanvas" aria-hidden="true" style="display:none"></canvas>
 <script>
 /* Hero: cut-in scene on a projected wall plane. Wall at z=0, floor at y=0, camera in
    front and left of centre so the wall recedes right; roller tracks the cut-in line. */
@@ -533,63 +585,7 @@ section{padding-block:var(--pad)}
   });
 })();
 </script>
-<script>
-/* quote form */
-(function(){
-  var EP = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
-  function base(cb){
-    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
-    var settled = false;
-    var t = setTimeout(function(){ if (!settled){ settled = true; cb(EP); } }, 2500);
-    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
-      .then(function(r){ return r.text(); })
-      .then(function(txt){
-        var b = (txt || '').trim().replace(/\/+$/, '');
-        if (settled) return; settled = true; clearTimeout(t);
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : EP);
-      })
-      .catch(function(){ if (!settled){ settled = true; clearTimeout(t); cb(EP); } });
-  }
-  var f = document.getElementById('lbq-form');
-  if (!f) return;
-  var st = document.getElementById('lbq-st');
-  var btn = f.querySelector('button[type=submit]');
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var d = {};
-    new FormData(f).forEach(function(v, k){ d[k] = v; });
-    if (d.website) return;
-    if (!d.name || (!d.phone && !d.email) || !(d.message || '').trim()){
-      st.textContent = 'Add a name, a phone or email, and a line about the job.';
-      st.style.color = '#F0B6A6';
-      return;
-    }
-    btn.disabled = true; st.textContent = 'Sending…'; st.style.color = '#9DAAB8';
-    base(function(B){
-      fetch(B + '/functions/v1/quote-request', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
-          name: d.name, phone: d.phone, email: d.email, message: d.message,
-          consent: !!d.consent
-        })
-      })
-      .then(function(r){ return r.json().catch(function(){ return {}; }); })
-      .then(function(res){
-        if (res && res.success){
-          f.reset(); st.textContent = 'Thanks, your request is in. We will be in touch.';
-          st.style.color = '#BFD3A8';
-        } else throw new Error((res && res.error) || 'Could not send');
-      })
-      .catch(function(err){
-        st.textContent = (err && err.message) ? err.message : 'Could not send. Call 0450 680 040.';
-        st.style.color = '#F0B6A6';
-      })
-      .finally(function(){ btn.disabled = false; });
-    });
-  });
-})();
-</script>
+
+<script>setTimeout(function(){document.querySelectorAll('.rv,.lb-rb__slide:first-child').forEach(function(e){e.classList.add('on','is-on')})},1100);</script>
 </body>
 </html>
