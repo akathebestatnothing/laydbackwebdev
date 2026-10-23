@@ -9,7 +9,7 @@ a{color:inherit;text-decoration:none}
 .skip{position:absolute;top:-100%;left:1rem;padding:.75rem 1rem;background:var(--acc);color:#fff;border-radius:0 0 6px 6px;z-index:100;font-weight:600}.skip:focus{top:0}
 .brand{display:flex;align-items:center;gap:.8rem;color:var(--ink);text-decoration:none}.brand-mark{height:32px;width:auto;display:block}.brand-txt{display:flex;flex-direction:column;line-height:1}.brand-name{font-family:system-ui, sans-serif;font-size:1.16rem;line-height:1;font-weight:700}.brand-sub{display:block;margin-top:4px;font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;font-style:normal;opacity:.75}.brand-sub em{font-style:normal;opacity:1;color:var(--acc)}
 @media (max-width:680px){.brand-mark{height:24px}.brand-name{font-size:1.02rem}.brand-sub{display:none}}
-nav{position:sticky;top:0;left:0;right:0;height:64px;background:rgba(232,245,233,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}.nav-cta{display:flex;gap:.75rem;align-items:center}.btn{display:inline-flex;align-items:center;justify-content:center;padding:.65rem 1.25rem;border-radius:6px;font-family:system-ui, sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.02em;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}.btn:active{transform:scale(.98)}.btn-primary{background:var(--acc);color:#fff;border:none}.btn-primary:hover{box-shadow:0 6px 20px rgba(46,125,50,.35)}.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--mid)}.btn-ghost:hover{background:var(--mid);border-color:var(--mid-dark)}
+nav{position:fixed;top:0;left:0;right:0;height:64px;background:rgba(232,245,233,.92);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}.nav-cta{display:flex;gap:.75rem;align-items:center}.btn{display:inline-flex;align-items:center;justify-content:center;padding:.65rem 1.25rem;border-radius:6px;font-family:system-ui, sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.02em;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}.btn:active{transform:scale(.98)}.btn-primary{background:var(--acc);color:#fff;border:none}.btn-primary:hover{box-shadow:0 6px 20px rgba(46,125,50,.35)}.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--mid)}.btn-ghost:hover{background:var(--mid);border-color:var(--mid-dark)}
 section{padding:6rem 1.5rem}@media (max-width:680px){section{padding:4rem 1rem}}
 .container{max-width:1100px;margin:0 auto}
 h1,h2,h3{font-family:system-ui, sans-serif;line-height:1.1;margin:0}h1{font-weight:800;font-size:clamp(36px,6vw,72px)}h2{font-weight:700;font-size:clamp(28px,4vw,40px)}h3{font-weight:700;font-size:1.25rem}
@@ -204,7 +204,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -212,70 +212,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-<!--LB-REPAIR-->
-<style id="lb-repair">
-/* 1. logo: real box, never cut off, sized to the nav bar */
-.lb-brand__mark{overflow:visible}
-.lb-brand__mark img{height:100%!important;width:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain;border-radius:9px}
-.lb-brand__sub{font-size:clamp Hessian}
-.lb-brand__sub{font-size:clamp(9px,.72vw,11px)!important;letter-spacing:.14em!important;opacity:.8}
-.lb-brand__name{overflow:visible!important}
-
-/* 2. hero: own space below the (now sticky) nav, no clipping of content, no dead band */
-header.hero{box-sizing:border-box;height:auto!important;min-height:clamp(520px,72vh,680px)!important;max-height:none!important;
-  padding:clamp(2rem,4vh,3rem) 1.5rem clamp(2.5rem,5vh,3.5rem)!important;justify-content:center!important;overflow:hidden!important}
-header.hero>*{max-width:100%}
-
-/* 3. hero canvas: sits above the hero fill, below the copy. The stock .38 black scrim
-   turned the pastel green hero slate-grey, so neutralise it (dark ink copy needs none). */
-[class*=hero]:has(canvas)::before{background:transparent!important}
-#heroCanvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;pointer-events:none!important}
-
-/* 4. marquee band was display:none -> empty dark strip. Restore a real scrolling band. */
-.section-marquee{overflow:hidden;padding:1.15rem 0}
-.marquee-track{display:flex!important;gap:3rem;width:max-content;animation:lbMarquee 34s linear infinite}
-.marquee-track span{font:700 .95rem/1 "Archivo",system-ui,sans-serif;letter-spacing:.1em;white-space:nowrap;display:inline-flex;align-items:center;gap:3rem;color:#fff}
-.marquee-track span::after{content:"·";color:#81C784}
-@keyframes lbMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
-
-/* 5. footer brand gets the logo back (it was an empty 0-height line) */
-.footer-brand .brand-mark{height:34px;width:34px;border-radius:8px}
-
-/* 6. breathing room so section heads never sit against the fold */
-#services{padding-top:4.5rem}
-
-/* 7. 4 service cards in a 3-col auto-fit left an orphan + a hole. Even 2x2. */
-.service-grid{grid-template-columns:repeat(2,1fr)!important;gap:1.5rem}
-.service-card{padding:1.9rem}
-@media (max-width:680px){.service-grid{grid-template-columns:1fr!important}}
-
-/* 8. footer: ghost button text was var(--ink) on a var(--ink) footer = invisible box.
-   <br> spacers, an unaligned legal row and a left-hugging link pair fixed here too. */
-.footer-cta{align-items:flex-start;gap:1rem}
-.footer-cta br{display:none}
-.footer-cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.38);background:transparent}
-.footer-cta .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6);color:#fff}
-.site-footer .lb-legal{display:block;text-align:center;margin-top:.9rem;font-size:.8rem}
-.site-footer .lb-legal a{color:var(--mid-dark);margin:0 .55rem;text-decoration:underline;text-underline-offset:3px}
-.site-footer .lb-legal a:hover{color:#fff}
-
-/* 9. slideshow: caption bar sits at the bottom, the vertical dot stack collided with the
-   right arrow and read as debris. Dots go to a bottom-centre row above the caption. */
-.lb-rb__track{aspect-ratio:16/6.2}
-.lb-rb__dots{top:auto;bottom:72px;left:50%;right:auto;transform:translateX(-50%);flex-direction:row;gap:10px}
-.lb-rb__slide{background:#0b0c10}
-.lb-rb .lb-rb__slide span small{display:block;margin-top:.9rem;font-size:clamp(11px,1.05vw,15px);font-weight:600;letter-spacing:.1em;color:#9ad3a0}
-@media (max-width:700px){.lb-rb__track{aspect-ratio:4/3.1}.lb-rb__dots{bottom:66px}}
-</style>
-<!--/LB-REPAIR-->
-
-<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
-<style id="lb-soc-css">.lb-soc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;opacity:.85;text-decoration:none}.lb-soc:hover{opacity:1}footer .lb-soc{margin-right:8px}</style><style id="lb-header-rule">nav,header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(18px,4vw,64px)!important;background:#2e7d32!important;color:#ffffff!important;padding:14px clamp(16px,4vw,48px)!important;min-height:0!important;height:auto!important}.lb-brand{display:flex!important;align-items:center!important;gap:clamp(14px,2.5vw,38px)!important;flex:0 1 auto!important;min-width:0!important;text-decoration:none!important}.lb-mark{height:clamp(56px,5vw,72px)!important;width:auto!important;object-fit:contain!important;flex:none!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%)}.lb-word{height:auto!important;max-height:clamp(26px,2.3vw,34px)!important;width:auto!important;object-fit:contain!important;max-width:min(32vw,460px)!important;flex:0 1 auto!important;min-width:0!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%)}.lb-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}nav ul,nav .nav-links{display:flex!important;align-items:center!important;gap:clamp(12px,2vw,26px)!important;margin:0!important;padding:0!important;list-style:none!important;flex:1 1 auto!important;justify-content:flex-end!important}nav>div,nav>span,nav>.wrap,nav>.container,nav>.nav-in,nav>.nav-links{flex:1 1 auto!important;min-width:0!important;width:auto!important;max-width:none!important;margin-left:auto!important;margin-right:0!important}nav{flex-wrap:nowrap!important}.lb-brand{overflow:hidden!important}nav{min-width:0!important;flex-wrap:wrap!important;row-gap:6px!important}.hdr__in,.nav__in,.nav-inner{min-width:0!important;flex:1 1 auto!important}nav a{color:#ffffff!important}[class*=hero-copy],[class*=hero__copy],[class*=hero-in],[class*=hero-inner]{flex-wrap:nowrap!important}[class*=hero-copy]>*,[class*=hero__copy]>*,[class*=hero-in]>*,[class*=hero-inner]>*{flex:0 0 auto!important;min-height:0!important}body{background:#2e7d32!important;color:#ffffff!important}section,.section{background-color:transparent!important}.nav-cta,.cta{background:#1f7423!important;color:#fff!important;border-color:#1f7423!important}a{--lb-accent:#1f7423}body{padding-top:0!important}[class~=hero],.hero,header#top:not(.hdr),section#top{padding-top:calc(var(--lb-navh,112px) + 20px)!important;padding-bottom:36px!important;min-height:clamp(400px,50vh,540px)!important;max-height:none!important;align-content:center!important;align-items:stretch!important;flex-wrap:wrap!important;gap:14px!important}[class~=hero]:not(.lb-hgrid),.hero:not(.lb-hgrid),header#top:not(.hdr),section#top{display:flex!important;flex-direction:row!important;justify-content:center!important;position:relative!important}[class~=hero]>*,.hero>*,header#top>*,section#top>*{flex:1 1 min(430px,100%)!important;min-width:0!important;max-width:100%!important}[class~=hero]>canvas,.hero>canvas,[class~=hero]>[class*=scrim],[class~=hero]>.lbhf{flex:none!important}[class~=hero] canvas,.hero canvas,header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important}[class~=hero]>.hero-photo,[class~=hero]>.hero-shade,[class~=hero]>[class*=scrim],header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;margin:0!important}header{overflow:visible!important}.lb-hgrid{justify-items:stretch!important}p,li,.sub,.lede{color:rgba(255,255,255,.72)!important}[class*=hero] p,[class*=hero] li,[class*=hero] .sub,[class*=hero] .lede,.hero p{color:rgba(255,255,255,.88)!important;text-shadow:0 1px 12px rgba(0,0,0,.45)}@media(max-width:820px){nav{flex-wrap:wrap!important;gap:10px!important}}.lb-mark{height:clamp(56px,5vw,76px)!important}.lb-word{height:clamp(38px,4.4vw,62px)!important;max-height:none!important;max-width:min(60vw,900px)!important}</style></head><body><a class="skip" href="#main">Skip to content</a>
-<span class="lb-socials"><a class="lb-soc" href="https://www.facebook.com/people/RDs-Fresh-Lawns/61576403743322/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></span><nav class="nav"><a href="/" class="lb-brand" aria-label="RD's Fresh Lawns, Lawn & Garden Services, Central Coast NSW"><img src="assets/logo-flat-mark.png" alt="" class="lb-mark" loading="eager" decoding="async"><img src="assets/logo-word.png" alt="" class="lb-word" loading="eager" decoding="async"><span class="lb-sr">RD's Fresh Lawns, Lawn & Garden Services, Central Coast NSW</span></a><div class="nav-cta"><a class="btn btn-ghost" href="#quote">Get a quote</a><a class="btn btn-primary magnetic" data-ux="magnetic" href="tel:0406273136">Call 0406 273 136</a></div></nav><header class="hero" style="position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:var(--bg)">
+</head><body><a class="skip" href="#main">Skip to content</a>
+<nav><a class="lb-brand" href="#top" aria-label="RD's Fresh Lawns - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#2E7D32;--lb-subc:#2E7D32;--lb-acc:#2E7D32;"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"><span class="lb-brand__mark" aria-hidden="true"></span><span class="lb-brand__word"><span class="lb-brand__name">RD's Fresh Lawns</span><span class="lb-brand__sub"><span class="lb-acc">Lawn</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a><div class="nav-cta"><a class="btn btn-ghost" href="#quote">Get a quote</a><a class="btn btn-primary magnetic" data-ux="magnetic" href="tel:0406273136">Call 0406 273 136</a></div></nav><header class="hero" style="position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:var(--bg)">
   <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0"></canvas>
   <div class="rv" style="position:relative;z-index:1;margin-bottom:1.5rem"><span style="font:600 .8rem/1 Montserrat,sans-serif;letter-spacing:.3em;text-transform:none;color:var(--acc);background:rgba(46,125,50,.1);padding:.4rem 1rem;border-radius:999px">Central Coast · Lake Mac · Hunter Valley</span></div>
   <h1 class="rv" data-ux="words" style="position:relative;z-index:1;font:800 clamp(36px,6vw,72px)/1.05 Montserrat,sans-serif;margin:0 0 1rem;max-width:900px;color:var(--ink);text-shadow:none">Fresh lawns, tidy gardens, done right</h1>
@@ -373,11 +314,11 @@ header.hero>*{max-width:100%}
       <div id="form-status" aria-live="polite"></div>
     </form>
   </div>
-</section><section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#101a12;background-image:radial-gradient(120% 140% at 20% 0%,#2E7D32 0%,#101a12 62%)"><span style="position:absolute;inset:0;display:grid;place-items:center;align-content:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">RD's Fresh Lawns<small>Fresh lawns, tidy gardens, done right.</small></span></div><div class="lb-rb__slide" style="background:#101a12;background-image:radial-gradient(120% 140% at 50% 0%,#2E7D32 0%,#101a12 62%)"><span style="position:absolute;inset:0;display:grid;place-items:center;align-content:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Mowing that shows<small>Clean stripes, crisp edges, clippings gone.</small></span></div><div class="lb-rb__slide" style="background:#101a12;background-image:radial-gradient(120% 140% at 50% 0%,#2E7D32 0%,#101a12 62%)"><span style="position:absolute;inset:0;display:grid;place-items:center;align-content:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area<small>Wyong · Central Coast · Lake Mac · Hunter Valley.</small></span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">RD's Fresh Lawns &mdash; recent work</div></div></section><footer class="site-footer">
+</section><section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">RD's Fresh Lawns</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Lawn</span></div><div class="lb-rb__slide" style="background:#0b0c10"><span style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:6%;color:#fff;font-family:var(--lb-disp, system-ui), sans-serif;font-weight:800;text-transform:none;font-size:clamp(19px,3.4vw,46px);letter-spacing:.02em;line-height:1.05">Servicing your area</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">RD's Fresh Lawns &mdash; recent work</div></div></section><footer class="site-footer">
   <div class="footer-grid">
     <div>
       <a class="brand footer-brand" href="#top" aria-label="RD's Fresh Lawns - Home">
-        <img class="brand-mark" src="assets/logo.svg" alt="" loading="lazy" decoding="async">
+        
         <span class="brand-txt">
           <b class="brand-name">RD's Fresh Lawns</b>
           <i class="brand-sub"><em>Lawn</em> & Garden Services</i>
@@ -399,7 +340,7 @@ header.hero>*{max-width:100%}
   </div>
   <hr class="footer-divider">
   <p class="footer-copyright">© 2026 RD's Fresh Lawns. All rights reserved.</p>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span><div class="lb-socials"><a class="lb-soc" href="https://www.facebook.com/people/RDs-Fresh-Lawns/61576403743322/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></div></footer><main id="main">
+<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer><main id="main">
 </main>
 <!-- lb: old box-hero engine removed --><script>document.documentElement.setAttribute("data-debug","PS-check:"+typeof window.PS+","+typeof window.PS.setup+","+(window.PS?Object.keys(window.PS).join(","):"none"));</script><script>document.documentElement.setAttribute("data-debug","PS-after-proscene:"+typeof window.PS+","+typeof window.PS.setup);</script>
 
@@ -489,8 +430,8 @@ header.hero>*{max-width:100%}
 
   function draw(){
     var isDark = dark();
-    var base = isDark ? [10,11,14] : [232,245,233];
-    var ink  = isDark ? [255,255,255] : [27,94,32];
+    var base = isDark ? [10,11,14] : [248,249,251];
+    var ink  = isDark ? [255,255,255] : [12,14,18];
     var g = ctx.createLinearGradient(0,0,0,H);
     g.addColorStop(0, 'rgb('+base.join(',')+')');
     g.addColorStop(0.62, 'rgb('+Math.round(base[0]*1.06+2)+','+Math.round(base[1]*1.06+2)+','+Math.round(base[2]*1.09+2)+')');
@@ -544,7 +485,7 @@ header.hero>*{max-width:100%}
 
     // vignette to seat the copy
     var vg = ctx.createRadialGradient(W*0.5,H*0.52,Math.min(W,H)*0.30,W*0.5,H*0.52,Math.max(W,H)*0.80);
-    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(27,94,32,0.10)');
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1, isDark?'rgba(0,0,0,0.42)':'rgba(0,0,0,0.14)');
     ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
   }
 
