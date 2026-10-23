@@ -1442,7 +1442,7 @@
 
 
   /* ------------------------------------------------------------------ *
-   * sceneExcavation — BR CIVIL. A loading bucket on its dipper arm hanging
+   * sceneExcavation — Lake Mac Concrete Constructions. A loading bucket on its dipper arm hanging
    * over an open trench, spoil mound in the near left, cut batter with
    * strata receding behind. World-space faces through one projection,
    * far-to-near, so occlusion and haze come out of the maths.
