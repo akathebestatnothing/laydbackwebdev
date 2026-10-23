@@ -346,7 +346,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -358,15 +358,17 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-H1W--><style id="lb-h1w">[class*=hero] h1,[class*=hero-copy] h1{max-width:none!important;width:100%!important;font-size:clamp(2.1rem,4.4vw,3.6rem)!important;line-height:1.08!important}</style><!--/LB-H1W-->
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-</head>
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<style id="lb-no-upscale">img{max-width:100%;height:auto}[style*="background-image"]{background-size:cover;background-position:center}</style><style id="lb-soc-css">.lb-soc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;opacity:.85;text-decoration:none}.lb-soc:hover{opacity:1}footer .lb-soc{margin-right:8px}</style><style id="lb-header-rule">nav,header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(18px,4vw,64px)!important;background:#ffffff!important;color:#111111!important;padding:14px clamp(16px,4vw,48px)!important;min-height:0!important;height:auto!important}.lb-brand{display:flex!important;align-items:center!important;gap:clamp(14px,2.5vw,38px)!important;flex:0 1 auto!important;min-width:0!important;text-decoration:none!important}.lb-mark{height:clamp(56px,5vw,72px)!important;width:auto!important;object-fit:contain!important;flex:none!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%)}.lb-word{height:auto!important;max-height:clamp(26px,2.3vw,34px)!important;width:auto!important;object-fit:contain!important;max-width:min(32vw,460px)!important;flex:0 1 auto!important;min-width:0!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%)}.lb-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}nav ul,nav .nav-links{display:flex!important;align-items:center!important;gap:clamp(12px,2vw,26px)!important;margin:0!important;padding:0!important;list-style:none!important;flex:1 1 auto!important;justify-content:flex-end!important}nav>div,nav>span,nav>.wrap,nav>.container,nav>.nav-in,nav>.nav-links{flex:1 1 auto!important;min-width:0!important;width:auto!important;max-width:none!important;margin-left:auto!important;margin-right:0!important}nav{flex-wrap:nowrap!important}.lb-brand{overflow:hidden!important}nav{min-width:0!important;flex-wrap:wrap!important;row-gap:6px!important}.hdr__in,.nav__in,.nav-inner{min-width:0!important;flex:1 1 auto!important}nav a{color:#111111!important}[class*=hero-copy],[class*=hero__copy],[class*=hero-in],[class*=hero-inner]{flex-wrap:nowrap!important}[class*=hero-copy]>*,[class*=hero__copy]>*,[class*=hero-in]>*,[class*=hero-inner]>*{flex:0 0 auto!important;min-height:0!important}body{background:#ffffff!important;color:#111111!important}section,.section{background-color:transparent!important}.nav-cta,.cta{background:#070707!important;color:#fff!important;border-color:#070707!important}a{--lb-accent:#070707}body{padding-top:0!important}[class~=hero],.hero,header#top:not(.hdr),section#top{padding-top:calc(var(--lb-navh,112px) + 20px)!important;padding-bottom:36px!important;min-height:clamp(400px,50vh,540px)!important;max-height:none!important;align-content:center!important;align-items:stretch!important;flex-wrap:wrap!important;gap:14px!important}[class~=hero]:not(.lb-hgrid),.hero:not(.lb-hgrid),header#top:not(.hdr),section#top{display:flex!important;flex-direction:row!important;justify-content:center!important;position:relative!important}[class~=hero]>*,.hero>*,header#top>*,section#top>*{flex:1 1 min(430px,100%)!important;min-width:0!important;max-width:100%!important}[class~=hero]>canvas,.hero>canvas,[class~=hero]>[class*=scrim],[class~=hero]>.lbhf{flex:none!important}[class~=hero] canvas,.hero canvas,header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important}[class~=hero]>.hero-photo,[class~=hero]>.hero-shade,[class~=hero]>[class*=scrim],header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;margin:0!important}header{overflow:visible!important}.lb-hgrid{justify-items:stretch!important}p,li,.sub,.lede{color:rgba(17,17,17,.7)!important}[class*=hero] p,[class*=hero] li,[class*=hero] .sub,[class*=hero] .lede,.hero p{color:rgba(255,255,255,.88)!important;text-shadow:0 1px 12px rgba(0,0,0,.45)}@media(max-width:820px){nav{flex-wrap:wrap!important;gap:10px!important}}</style><style id="lb-noblur">.lb-rb{max-width:min(100%,1200px);margin-inline:auto}.lb-rb .lb-rb__slide img{width:100%;height:100%;object-fit:cover;display:block;transform:none!important;transition:none!important}.hgal .hg-item img{width:auto;max-width:100%;height:auto}.hero-visual img{object-fit:cover}img{max-width:100%}</style><style id="lb-canvasbox">header.hero{position:relative!important;overflow:hidden!important}header.hero>canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important}header.hero>.hero-in,header.hero>.hero-photo{position:relative!important;z-index:2!important}</style><style id="lb-ink2">header .brand,header .b-txt,header .b-txt *,nav .brand,nav .lb-brand,header nav a,nav.nav a,.site-head .brand,.brand__name{color:#0a0a0a!important}</style></head>
 <body>
 <script>document.documentElement.className+=' js';</script>
-<nav class="nav"><div class="nav-in">
-  <a class="lb-brand" href="#top" aria-label="Ramcon Earthworks & Property Maintenance - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f5f0;--lb-subc:#f5f5f0;--lb-acc:#2b2f36;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Ramcon Earthworks & Property Maintenance</span><span class="lb-brand__sub"><span class="lb-acc">Earthworks</span> · Drainage · Property Maintenance</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
-  <div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
+<nav class="nav"><a href="/" class="lb-brand" aria-label="Ramcon Earthworks & Property Maintenance, Excavation, Drainage & Driveways"><img src="assets/logo-mark.png" alt="" class="lb-mark" loading="eager" decoding="async"><img src="assets/logo-word.png" alt="" class="lb-word" loading="eager" decoding="async"><span class="lb-sr">Ramcon Earthworks & Property Maintenance, Excavation, Drainage & Driveways</span></a><div class="nav-in">
+  
+  <span class="lb-socials"><a class="lb-soc" href="instagram.com/ramcon_earthworks" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a class="lb-soc" href="https://www.instagram.com/ramcon_earthworks" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></span><div class="nav-links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#quote">Quote</a></div>
   <div class="nav-cta"><span class="mono nav-p">0488 237 917</span><a href="#quote" class="btn btn-primary btn-sm">Get a quote</a></div>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></nav>
@@ -398,7 +400,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <section id="services"><div class="wrap">
   <div class="sec-head"><span class="sec-idx">01</span><div><h2 class="sec-title">What we do.</h2><p class="lead">One operator for the cut, the drainage and the finished levels, so the site is left ready for what comes next.</p></div></div>
-  <div class="svc-grid"><div class="svc-row rv"><span class="svc-n">01</span><div class="svc-body"><h3>Tight-access excavation</h3><p>Excavation with a compact machine where a full-size digger will not fit, tight blocks and backyards.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">02</span><div class="svc-body"><h3>Drainage & trenching</h3><p>Surface and sub-surface drainage, agi lines and trenching cut to the right falls.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">03</span><div class="svc-body"><h3>Driveways & site cuts</h3><p>Driveway cuts, site levelling and bulk earthworks graded to the plan.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">04</span><div class="svc-body"><h3>Land clearing & retaining</h3><p>Land clearing, retaining walls and property maintenance that finishes the job.</p></div><span class="svc-arrow">&#8599;</span></div></div>
+  <div class="svc-grid"><div class="svc-row rv"><span class="svc-n">01</span><div class="svc-body"><h3>Tight-access excavation</h3><p>Excavation with a compact machine where a full-size digger will not fit, tight blocks and backyards.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">02</span><div class="svc-body"><h3>Drainage & trenching</h3><p>Surface and sub-surface drainage, AG drain lines and trenching cut to the right falls.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">03</span><div class="svc-body"><h3>Driveways & site cuts</h3><p>Driveway cuts, site levelling and bulk earthworks graded to the plan.</p></div><span class="svc-arrow">&#8599;</span></div><div class="svc-row rv"><span class="svc-n">04</span><div class="svc-body"><h3>Land clearing & retaining</h3><p>Land clearing, retaining walls and property maintenance that finishes the job.</p></div><span class="svc-arrow">&#8599;</span></div></div>
 </div></section>
 
 <section class="band" id="process"><div class="wrap">
@@ -421,7 +423,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <section id="work"><div class="wrap">
   <div class="sec-head"><div class="sec-idx">05</div><div><h2 class="rv d1">Recent work.</h2><p class="lead rv d2">Excavation, drainage, retaining and driveways, recent Gippsland jobs.</p></div></div>
 </div>
-<div class="hgal rv"><div class="track"><figure class="hg-item rv"><img src="assets/gal_1.jpg" alt="Excavator & retaining wall — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Excavator & retaining wall</span><span class="mono">/01</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_2.jpg" alt="Site cut & levelling — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Site cut & levelling</span><span class="mono">/02</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_3.jpg" alt="Trenching & drainage — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Trenching & drainage</span><span class="mono">/03</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_4.jpg" alt="Driveway preparation — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Driveway preparation</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_5.jpg" alt="Bulk earthworks — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Bulk earthworks</span><span class="mono">/05</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_6.jpg" alt="Land clearing — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Land clearing</span><span class="mono">/06</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_7.jpg" alt="Finished levels — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Finished levels</span><span class="mono">/07</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_8.jpg" alt="On site — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>On site</span><span class="mono">/08</span></figcaption></figure></div></div>
+<div class="hgal rv"><div class="track"><figure class="hg-item rv"><img src="assets/gal_1.jpg" alt="Excavator & retaining wall — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Excavator & retaining wall</span><span class="mono">/01</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_4.jpg" alt="Driveway preparation — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Driveway preparation</span><span class="mono">/04</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_5.jpg" alt="Bulk earthworks — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Bulk earthworks</span><span class="mono">/05</span></figcaption></figure><figure class="hg-item rv"><img src="assets/gal_7.jpg" alt="Finished levels — Ramcon Earthworks & Property Maintenance" loading="lazy"><figcaption><span>Finished levels</span><span class="mono">/07</span></figcaption></figure></div></div>
 <div class="hgal-nav"><button class="hgal-btn" id="hgPrev" aria-label="Previous photos">&#8592;</button><button class="hgal-btn" id="hgNext" aria-label="Next photos">&#8594;</button></div>
 </section>
 
@@ -550,7 +552,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 </script>
 </section>
 
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_03.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_05.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">Ramcon Earthworks & Property Maintenance &mdash; recent work</div></div></section><footer><div class="wrap">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/work_01.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_02.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"></div><div class="lb-rb__slide"><img src="assets/work_04.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"></div><div class="lb-rb__slide"><img src="assets/work_06.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_07.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work_08.jpg" alt="Ramcon Earthworks & Property Maintenance" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button><button type="button" class="" aria-label="Slide 6"></button><button type="button" class="" aria-label="Slide 7"></button><button type="button" class="" aria-label="Slide 8"></button></div><div class="lb-rb__cap">Ramcon Earthworks & Property Maintenance &mdash; recent work</div></div></section><footer><div class="wrap">
   <div>
     <div class="fbrand"><img src="assets/logo.png" alt="Ramcon Earthworks & Property Maintenance logo"><span class="b-txt"><span class="brand-name" style="font-size:1rem;">Ramcon Earthworks</span><br><span class="brand-sub">Earthworks · Drainage · Property Maintenance</span></span></div>
     <p style="margin-top:16px;font-size:13.5px;max-width:300px;color:var(--ink2);">Earthworks &middot; Drainage &middot; Trenching &middot; Driveways, Gippsland, VIC.<br></p>
@@ -559,10 +561,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
   <div><h4>Contact</h4><a href="tel:0488237917">0488 237 917</a><a href="mailto:ramcon.earthworks@gmail.com">ramcon.earthworks@gmail.com</a><a href="#quote">Free quote</a></div>
 </div>
 <div class="footer-bar mono">
-  <span>&copy; 2026 RAMCON EARTHWORKS & PROPERTY MAINTENANCE &middot; </span>
-  <a href="tel:0488237917">0488 237 917</a><a href="mailto:ramcon.earthworks@gmail.com">ramcon.earthworks@gmail.com</a>
+  <span class="fb-left">&copy; 2026 Ramcon Earthworks &amp; Property Maintenance</span>
+  <span class="fb-right"><a href="tel:0488237917">0488 237 917</a><a href="mailto:ramcon.earthworks@gmail.com">ramcon.earthworks@gmail.com</a></span>
+  <span class="lb-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></span>
 </div>
-<span class="lb-legal"><a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms</a></span></footer>
+<div class="lb-socials"><a class="lb-soc" href="instagram.com/ramcon_earthworks" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a class="lb-soc" href="https://www.instagram.com/ramcon_earthworks" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></div></footer>
 
 <!-- lb: old box-hero engine removed -->
 <script id="lb-motion-js">
@@ -762,6 +765,68 @@ header a[href^="tel"],.site-header a[href^="tel"]{
 }
 .lb-brand__sub:empty{display:none !important}
 </style>
+<!--LB-REPAIR-1022--><style id="lb-repair-1022">
+/* ---- 1. header brand contrast (words were #f5f5f0 on light paper) ---- */
+.nav .lb-brand{--lb-name:#17181a;--lb-subc:#4a4f57}
+.lb-brand__name{color:#17181a!important;font-size:clamp(17px,1.55vw,21px)!important;letter-spacing:.005em!important}
+.lb-brand__sub{color:#4a4f57!important;opacity:1!important;font-size:10px!important;letter-spacing:.15em!important;margin-top:.45em!important}
+.lb-brand__mark{background:#fff!important;border:1px solid rgba(23,24,26,.14)!important;border-radius:7px!important;overflow:hidden}
+.nav-links a{color:#3d424a!important}
+.nav-p{color:#17181a!important}
+
+/* ---- 2. hero: the [class*=hero] rules were turning every hero child into a flex ROW ---- */
+header.hero{position:relative!important;display:block!important;min-height:0!important;max-height:none!important;
+  padding:126px 0 60px!important;overflow:hidden!important;border-bottom:1px solid var(--line)}
+.hero:has(#heroCanvas)::before{background:transparent!important}
+.hero-shade{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,0) 46%,rgba(20,22,24,.05))!important}
+.hero-in{display:grid!important;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)!important;
+  gap:clamp(30px,4vw,64px)!important;align-items:center!important;
+  padding:0 40px!important;min-height:0!important;max-height:none!important;width:100%}
+.hero-copy{display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  max-width:640px!important;width:100%!important;min-height:0!important;max-height:none!important}
+.hero-copy>*{min-height:0!important;max-height:none!important}
+.hero h1{width:100%!important;max-width:19ch!important;font-size:clamp(2.05rem,4.1vw,3.5rem)!important;line-height:1.05!important}
+.hero-sub{display:block!important;max-width:48ch!important;width:100%!important;font-size:1.06rem!important}
+.hero-cta{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;
+  gap:.85rem!important;width:auto!important;min-height:0!important}
+.hero-cta .btn{white-space:nowrap;justify-content:center}
+.hero-strip{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;gap:2.6rem!important;
+  width:100%!important;min-height:0!important;max-height:none!important}
+
+/* ---- 3. photo column: replace the empty outlined box with a solid offset block ---- */
+.hero-visual{position:relative!important;min-height:0!important;max-height:none!important;padding:0 16px 16px 0}
+.hero-visual::before{content:""!important;position:absolute!important;z-index:0!important;
+  right:0!important;bottom:0!important;width:58%!important;height:58%!important;
+  background:var(--paper2)!important;border:0!important;border-radius:14px!important;
+  box-shadow:0 10px 30px -22px rgba(0,0,0,.4)}
+.hero-visual::after{content:""!important;position:absolute!important;z-index:2!important;
+  right:16px!important;bottom:26px!important;width:58px!important;height:3px!important;
+  background:var(--acc)!important;border-radius:2px}
+.hero-visual img{height:min(56vh,500px)!important;border-radius:12px!important;position:relative!important;z-index:1!important}
+.hero-visual .hv-tag{top:auto!important;left:16px!important;bottom:30px!important;z-index:4!important;
+  background:rgba(18,20,23,.9)!important;color:#fff!important;font-size:11.5px!important;
+  letter-spacing:.11em!important;padding:8px 13px!important;border-radius:5px!important;
+  box-shadow:0 6px 18px -8px rgba(0,0,0,.6)}
+
+/* ---- 4. hero -> services transition ---- */
+#services{padding-top:6.6rem!important}
+#services .sec-head{margin-bottom:2.4rem}
+@media (max-width:980px){
+  header.hero{padding:104px 0 44px!important}
+  .hero-in{grid-template-columns:1fr!important;gap:1.6rem!important;padding:0 20px!important}
+  .hero-visual{padding:0 12px 12px 0}
+  .hero-visual::before{display:block!important}
+  .hero-visual img{height:min(42vh,320px)!important}
+  .hero-visual .hv-tag{bottom:22px}
+}
+@media (max-width:700px){
+  .lb-brand__name{font-size:16px!important}
+  .lb-brand__sub{font-size:9px!important}
+  header.hero{padding:96px 0 40px!important}
+}
+</style><!--/LB-REPAIR-1022-->
+
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
 .lb-mq__in,tiny numbered label "01" beside h2 "What we do." (4 on page),tiny numbered label "02" beside h2 "How a job runs." (4 on page),tiny numbered label "03" beside h2 "Asked on every site." (4 on page),tiny numbered label "04" beside h2 "Why Gippsland calls Ramcon." (4 on page){display:none !important}
 letter-spacing: 0.08em on body text{letter-spacing:normal !important}
@@ -780,6 +845,76 @@ small,.small,.meta,.caption,.eyebrow,.kicker{font-size:max(0.82em,13px)}
 p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
+
+/* ==== FINAL REPAIR PASS ==== */
+/* body text contrast: lift muted ink off the 4.4:1 edge */
+:root{--ink2:#4b5058}
+.lead,.svc p,.step p,.tst-a span,.tr-i span,.stat span,#lbq p.lbq-s,#lbq label,#lbq .lbq-st,
+.footer-bar,.fbrand+p,footer a{color:#4b5058}
+/* footer bar: legal links seated in the bar, aligned, not detached */
+.footer-bar{display:flex!important;align-items:center!important;justify-content:space-between!important;
+  gap:18px!important;flex-wrap:wrap!important;padding:22px 40px!important}
+.footer-bar .fb-right{display:inline-flex;gap:20px;align-items:center;flex-wrap:wrap}
+.footer-bar .lb-legal{display:inline-flex;gap:18px;align-items:center;margin-left:auto}
+.footer-bar .lb-legal a{color:var(--ink2);text-decoration:none;padding:0}
+.footer-bar .lb-legal a:hover{color:var(--ink);text-decoration:underline}
+.footer-bar a{color:var(--ink2);text-decoration:none}
+.footer-bar a:hover{color:var(--ink)}
+@media (max-width:820px){
+  .footer-bar{padding:20px!important;gap:14px!important}
+  .footer-bar .lb-legal{margin-left:0}
+}
+
+/* quote form: submit button needed real contrast on the dark fill */
+#lbq button{color:#fff!important;background:var(--acc)!important}
+#lbq button:hover{background:#1b1e23!important}
+/* form breathing room */
+#lbq .lbq-f{gap:18px!important;padding:28px!important}
+#lbq label{font-size:.8rem!important;letter-spacing:.06em!important;margin-bottom:10px!important}
+#lbq .lbq-cons{margin-top:4px!important}
+
+/* work gallery -> an aligned grid, so nothing is clipped at an edge */
+.hgal{scroll-snap-type:none;padding:0 44px}
+.hgal .track{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:22px;padding:0;width:100%}
+.hg-item{width:auto;scroll-snap-align:none}
+.hg-item img{height:260px!important}
+.hg-item figcaption{font-size:14px!important;color:#43474e!important}
+.hgal-nav{display:none}
+@media (max-width:760px){
+  .hgal{padding:0 20px}
+  .hgal .track{grid-template-columns:1fr 1fr;gap:12px}
+  .hg-item img{height:150px!important}
+}
+
+/* the dark full-bleed band read as a black slab: bring it onto the page grid */
+section.lb-rb{background:transparent;padding:0 44px 4.6rem}
+section.lb-rb .lb-rb__track{max-width:1320px;margin:0 auto;aspect-ratio:16/6;border-radius:14px;overflow:hidden;
+  box-shadow:0 20px 50px -30px rgba(0,0,0,.5)}
+section.lb-rb .lb-rb__cap{background:linear-gradient(0deg,rgba(6,7,10,.86),rgba(6,7,10,0));padding-top:44px}
+@media (max-width:760px){section.lb-rb{padding:0 20px 3rem}section.lb-rb .lb-rb__track{aspect-ratio:4/3}}
+
+/* quote form: fields need real separation between label and control */
+#lbq .lbq-g{display:grid;gap:14px}
+/* form labels breathe */
+#lbq input,#lbq textarea,#lbq select{padding-block:13px}
+
+/* stat band: keep the four feature words on one line each, aligned to the grid */
+.stat-band .wrap{align-items:start}
+.stat b{font-size:clamp(24px,2.5vw,35px)!important;white-space:nowrap}
+.stat span{font-size:13.5px!important}
+
+/* footer grid: five columns so Contact stops wrapping under the brand */
+footer .wrap{grid-template-columns:1.6fr 1fr 1fr 1fr 1.1fr!important;align-items:start}
+@media (max-width:900px){footer .wrap{grid-template-columns:1fr 1fr!important}}
+
+/* hero: settle the copy on a clean wash so the grid decoration never clutters text */
+header.hero .hero-shade{background:
+  linear-gradient(90deg,rgba(246,245,242,.92) 0%,rgba(246,245,242,.80) 42%,rgba(246,245,242,.10) 72%,rgba(246,245,242,0) 100%)!important}
+
+/* section rhythm: trim the dead band between blocks */
+section{padding:4.7rem 0}
+#services{padding-top:6.2rem!important}
 
 </style>
 </body>

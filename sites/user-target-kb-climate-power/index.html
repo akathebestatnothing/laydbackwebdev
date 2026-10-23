@@ -327,7 +327,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 
 <!--LB-EMPTY--><style id="lb-empty">[class*=btn]:empty,[class*=button]:empty,.btn:empty,.button:empty,[class*=cta]:empty,[class*=card]:empty>a:empty,[class*=img]:empty,[class*=hero-img]:empty,[class*=media]:empty:not(canvas),div[class*=box]:empty{display:none!important}</style><!--/LB-EMPTY-->
 
-<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.38)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
+<!--LB-HERO-HEIGHT--><style id="lb-heroh">[class*=hero]{min-height:clamp(440px,58vh,600px)!important;max-height:78vh;display:flex;align-items:center}[class*=hero]>*{position:relative;z-index:2}[class*=hero]:has(canvas):before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.26)}canvas.lb-hero-canvas,[class*=hero] canvas{height:100%!important}</style><!--/LB-HERO-HEIGHT-->
 
 <!--LB-RV--><style id="lb-rv">.rv,[class~="rv"],.reveal,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}</style><!--/LB-RV-->
 
@@ -364,7 +364,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .hero{background:#07141F!important;align-items:center!important;padding-top:78px;max-height:none!important}
 #heroCanvas{z-index:0!important}
 .hero-shade{z-index:1!important;background:
-  linear-gradient(94deg,rgba(5,15,24,.965) 0%,rgba(5,15,24,.93) 34%,rgba(5,15,24,.62) 54%,rgba(5,15,24,.24) 72%,rgba(5,15,24,.12) 88%,rgba(5,15,24,.5) 100%)!important}
+  linear-gradient(94deg,rgba(5,15,24,.965) 0%,rgba(5,15,24,.9) 32%,rgba(5,15,24,.55) 52%,rgba(5,15,24,.14) 70%,rgba(5,15,24,.06) 88%,rgba(5,15,24,.34) 100%)!important}
 .hero-in{padding-block:4.4rem 4rem!important;max-width:min(660px,58vw);margin-inline:0 auto}
 .hero-kicker{color:#A9C3D6;font-size:.72rem;letter-spacing:.16em;font-weight:600;margin-bottom:1.1rem}
 .hero-kicker::before{width:28px;background:#F07830}
@@ -406,25 +406,21 @@ section{padding-block:var(--sp-5)}
 </style>
 
 
-<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.42)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
+<!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(0,0,0,.28)}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 
 <!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
-</head>
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+<style id="lb-soc-css">.lb-soc{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;opacity:.85;text-decoration:none}.lb-soc:hover{opacity:1}footer .lb-soc{margin-right:8px}</style><style id="lb-header-rule">nav,header{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(18px,4vw,64px)!important;background:#f07830!important;color:#111111!important;padding:14px clamp(16px,4vw,48px)!important;min-height:0!important;height:auto!important}.lb-brand{display:flex!important;align-items:center!important;gap:clamp(14px,2.5vw,38px)!important;flex:0 1 auto!important;min-width:0!important;text-decoration:none!important}.lb-mark{height:clamp(56px,5vw,72px)!important;width:auto!important;object-fit:contain!important;flex:none!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 74%,transparent 100%)}.lb-word{height:auto!important;max-height:clamp(26px,2.3vw,34px)!important;width:auto!important;object-fit:contain!important;max-width:min(32vw,460px)!important;flex:0 1 auto!important;min-width:0!important;-webkit-mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%);mask-image:radial-gradient(ellipse at center,#000 78%,transparent 100%)}.lb-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}nav ul,nav .nav-links{display:flex!important;align-items:center!important;gap:clamp(12px,2vw,26px)!important;margin:0!important;padding:0!important;list-style:none!important;flex:1 1 auto!important;justify-content:flex-end!important}nav>div,nav>span,nav>.wrap,nav>.container,nav>.nav-in,nav>.nav-links{flex:1 1 auto!important;min-width:0!important;width:auto!important;max-width:none!important;margin-left:auto!important;margin-right:0!important}nav{flex-wrap:nowrap!important}.lb-brand{overflow:hidden!important}nav{min-width:0!important;flex-wrap:wrap!important;row-gap:6px!important}.hdr__in,.nav__in,.nav-inner{min-width:0!important;flex:1 1 auto!important}nav a{color:#111111!important}[class*=hero-copy],[class*=hero__copy],[class*=hero-in],[class*=hero-inner]{flex-wrap:nowrap!important}[class*=hero-copy]>*,[class*=hero__copy]>*,[class*=hero-in]>*,[class*=hero-inner]>*{flex:0 0 auto!important;min-height:0!important}body{background:#f07830!important;color:#111111!important}section,.section{background-color:transparent!important}.nav-cta,.cta{background:#fd7e31!important;color:#fff!important;border-color:#fd7e31!important}a{--lb-accent:#fd7e31}body{padding-top:0!important}[class~=hero],.hero,header#top:not(.hdr),section#top{padding-top:calc(var(--lb-navh,112px) + 20px)!important;padding-bottom:36px!important;min-height:clamp(400px,50vh,540px)!important;max-height:none!important;align-content:center!important;align-items:stretch!important;flex-wrap:wrap!important;gap:14px!important}[class~=hero]:not(.lb-hgrid),.hero:not(.lb-hgrid),header#top:not(.hdr),section#top{display:flex!important;flex-direction:row!important;justify-content:center!important;position:relative!important}[class~=hero]>*,.hero>*,header#top>*,section#top>*{flex:1 1 min(430px,100%)!important;min-width:0!important;max-width:100%!important}[class~=hero]>canvas,.hero>canvas,[class~=hero]>[class*=scrim],[class~=hero]>.lbhf{flex:none!important}[class~=hero] canvas,.hero canvas,header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important}[class~=hero]>.hero-photo,[class~=hero]>.hero-shade,[class~=hero]>[class*=scrim],header#top>canvas,section#top>canvas{position:absolute!important;inset:0!important;margin:0!important}header{overflow:visible!important}.lb-hgrid{justify-items:stretch!important}p,li,.sub,.lede{color:rgba(17,17,17,.7)!important}[class*=hero] p,[class*=hero] li,[class*=hero] .sub,[class*=hero] .lede,.hero p{color:rgba(255,255,255,.88)!important;text-shadow:0 1px 12px rgba(0,0,0,.45)}@media(max-width:820px){nav{flex-wrap:wrap!important;gap:10px!important}}.lb-mark{height:clamp(56px,5vw,76px)!important}.lb-word{height:clamp(38px,4.4vw,62px)!important;max-height:none!important;max-width:min(60vw,900px)!important}</style><style id="lb-ink2">header .brand,header .b-txt,header .b-txt *,nav .brand,nav .lb-brand,header nav a,nav.nav a,.site-head .brand,.brand__name{color:#0a0a0a!important}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <a class="skip" href="#main" style="position:absolute;left:-9999px;top:0;z-index:200;background:#fff;color:#0B1B2B;padding:.8rem 1.2rem;font-weight:700">Skip to content</a>
 <div style="position:absolute;left:-9999px;top:0;height:0;overflow:hidden">
   <img src="images/logo-mark_user-target-kb-climate-power.png" alt="">
 </div>
 
-<nav class="nav" aria-label="Main">
+<nav class="nav" aria-label="Main"><a href="/" class="lb-brand" aria-label="KB Climate & Power, Air Conditioning & Electrical"><img src="assets/logo-flat.png" alt="" class="lb-mark" loading="eager" decoding="async"><img src="assets/logo-word.png" alt="" class="lb-word" loading="eager" decoding="async"><span class="lb-sr">KB Climate & Power, Air Conditioning & Electrical</span></a>
   <div class="wrap nav-in">
-    <a class="lb-brand" href="#top" aria-label="KB Climate &amp; Power, home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#ffffff;--lb-subc:#A9C3D6;--lb-acc:#FF9A4D">
-      <span class="lb-brand__mark"><img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async"></span>
-      <span class="lb-brand__word">
-        <span class="lb-brand__name">KB <span class="lb-acc">Climate & Power</span></span>
-        <span class="lb-brand__sub">Air conditioning &amp; electrical</span>
-      </span>
-    </a>
+    
     <div class="nav-links" id="navlinks">
       <a href="#services">Services</a>
       <a href="#process">How it works</a>
@@ -543,7 +539,7 @@ section{padding-block:var(--sp-5)}
   </div>
 </section>
 </main>
-<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/work_01.jpg" alt="KB Climate &amp; Power" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="images/work_02.jpg" alt="KB Climate &amp; Power" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="images/work_03.jpg" alt="KB Climate &amp; Power" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="images/work_04.jpg" alt="KB Climate &amp; Power" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="images/work_05.jpg" alt="KB Climate &amp; Power" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button></div><div class="lb-rb__cap">KB Climate &amp; Power &mdash; recent work</div></div></section><section id="lbq" class="v3" aria-labelledby="lbq-h">
+<section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="images/work_01.jpg" alt="KB Climate &amp; Power" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="images/work_02.jpg" alt="KB Climate &amp; Power" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="images/work_03.jpg" alt="KB Climate &amp; Power" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="images/work_04.jpg" alt="KB Climate &amp; Power" loading="lazy" decoding="async"></div><div class="lb-rb__slide"><img src="images/work_05.jpg" alt="KB Climate &amp; Power" loading="lazy" decoding="async"></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button><button type="button" class="" aria-label="Slide 4"></button><button type="button" class="" aria-label="Slide 5"></button></div></div><div class="lb-rb__cap">KB Climate &amp; Power &mdash; recent work</div></section><section id="lbq" class="v3" aria-labelledby="lbq-h">
 <style>
 #lbq{--lbq-accent:var(--accent,#F07830);--lbq-ink:var(--ink,#12202E);--lbq-muted:var(--muted,#54687C);--lbq-bg:var(--bg,#0B1B2B);--lbq-panel:rgba(255,255,255,.045);--lbq-line:var(--line,rgba(255,255,255,.14));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
@@ -715,7 +711,7 @@ html,body{overflow-x:hidden}
       <span class="lb-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
     </div>
   </div>
-</footer>
+<div class="lb-socials"><a class="lb-soc" href="https://www.instagram.com/kb_climate" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a><a class="lb-soc" href="https://www.instagram.com/kb_climate" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg></a></div></footer>
 
 
 
@@ -1286,9 +1282,7 @@ html,body{overflow-x:hidden}
   go(0);
 })();
 </script>
-/* KB Climate & Power — hero scene: split-system condenser on a pad, copper pair up the
-   wall, ceiling duct run receding, isolator + conduit, and the tools of the trade in
-   the foreground. Built on heroCanvas.js projection helpers (world space, far-to-near). */
+<style id="kb-scene-note">/* KB Climate & Power hero scene: split-system condenser on a pad, copper pair up the wall, ceiling duct run receding, isolator + conduit, and the tools of the trade in the foreground. */</style>
 <script src="assets/heroCanvas.js"></script>
 <script id="kb-hero-scene">
 (function(){
@@ -1434,8 +1428,8 @@ html,body{overflow-x:hidden}
     ctx.fillStyle = g; ctx.fillRect(0, 0, S.W, S.H);
 
     var glow = ctx.createRadialGradient(S.W*0.62, S.H*0.44, 0, S.W*0.62, S.H*0.44, Math.max(S.W,S.H)*0.62);
-    glow.addColorStop(0, 'rgba(47,168,216,.16)');
-    glow.addColorStop(0.55, 'rgba(240,120,48,.07)');
+    glow.addColorStop(0, 'rgba(47,168,216,.26)');
+    glow.addColorStop(0.55, 'rgba(240,120,48,.1)');
     glow.addColorStop(1, 'rgba(5,18,28,0)');
     ctx.fillStyle = glow; ctx.fillRect(0, 0, S.W, S.H);
 
@@ -1483,7 +1477,7 @@ html,body{overflow-x:hidden}
       var it = list[i], nx = it.n[0], ny = it.n[1], nz = it.n[2];
       var nm = Math.hypot(nx, ny, nz) || 1;
       var d = (nx/nm)*L[0] + (ny/nm)*L[1] + (nz/nm)*L[2];
-      var fill = Projection.mix(shade(it.tone, 0.52 + 0.6*Math.max(0, d)), S.fogCol, S.fog(it.dz) * 0.6);
+      var fill = Projection.mix(shade(it.tone, 0.62 + 0.7*Math.max(0, d)), S.fogCol, S.fog(it.dz) * 0.5);
       ctx.globalAlpha = it.a;
       ctx.beginPath();
       ctx.moveTo(it.m[0][0], it.m[0][1]);
@@ -1562,11 +1556,10 @@ header a[href^="tel"],.site-header a[href^="tel"]{
 </style>
 <style>/* ==== TASTE PASS (anti-slop, from impeccable findings) ==== */
 .lb-mq__in{display:none !important}
-Colored box-shadow glow (#0b1b2b) on dark page{box-shadow:none !important;text-shadow:none !important}
-letter-spacing: 0.08em on body text{letter-spacing:normal !important}
-letter-spacing: 0.13em on body text{letter-spacing:normal !important}
-letter-spacing: 0.16em on body text{letter-spacing:normal !important}
-10.88px body text{font-size:max(15px,1em)}
+/* no navy-tinted glow: neutralise the coloured card shadow on the dark page */
+.svc:hover{box-shadow:0 14px 34px rgba(0,0,0,.34) !important}
+/* body text: no decorative letterspacing, 15px floor */
+body p,body li{letter-spacing:normal !important;font-size:max(15px,1em)}
 
 :root{--lb-disp:"Archivo",system-ui,sans-serif;--lb-sub:"Archivo",system-ui,sans-serif}
 body,h1,h2,h3,h4,h5,h6,p,li,span,a,button,input,blockquote{
@@ -1576,6 +1569,69 @@ p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
+</style>
+<style id="kb-repair-pass">
+/* ============ KB repair pass: contrast + hero grid + rhythm ============ */
+/* 1. header/nav text contrast. The header polish rule paints nav links with
+   var(--lb-name, currentColor); --lb-name was only set inline on the brand, so
+   every other nav link inherited the dark body ink (#12202E) on navy: 1.1:1. */
+nav.nav{--lb-name:#DBE8F3}
+.nav-links a,.nav-links a:visited{color:#DBE8F3 !important;opacity:1 !important}
+.nav-links a:hover{color:#fff !important}
+nav.nav .lb-brand__name,nav.nav .lb-brand__sub{color:#fff !important}
+nav.nav .lb-brand__sub{color:#B7CDDF !important}
+/* the header-polish rule repainted the orange call pill with the light link colour:
+   #DBE8F3 on #F07830 is 1.6:1. Keep the pill's dark ink. */
+nav.nav .nav-links a.nav-cta,nav.nav .nav-links a.nav-cta:visited,
+nav.nav a.nav-cta:not(.btn){color:#10202E !important}
+/* 2. hero copy sits on the page's own grid instead of flush to the left edge.
+   [class*=hero] also matched .hero-in, which turned the copy into a flex row of
+   side-by-side fragments (label / h1 / paragraph / button). Force it back to a
+   single left-aligned column inside the standard wrap. */
+.hero > .hero-in{display:block !important;width:min(1160px,92vw) !important;
+  max-width:min(1160px,92vw) !important;margin-inline:auto !important;
+  max-height:none !important;padding-block:5.4rem 4.6rem !important}
+/* the hero-height rule ([class*=hero]) also hit .hero-kicker/-sub/-cta, giving each a
+   522px min-height + flex centring: a 1930px hero of floating islands. They are
+   grandchildren of .hero (inside .hero-in), so the reset has to reach them.
+   Canvas/shade stay absolute; only the copy column is reset. */
+.hero > .hero-in > *{min-height:0 !important;max-height:none !important;
+  display:block !important;align-items:normal !important;position:relative !important}
+.hero .hero-kicker{display:inline-flex !important}
+.hero h1{max-width:19ch !important}
+.hero .hero-sub{margin-top:1.35rem !important;max-width:52ch !important}
+.hero .hero-cta{margin-top:2.3rem !important;gap:1rem !important;padding-bottom:.2rem}
+/* 3. tick strip: one line of content in a tight band, not a 173px void */
+.tick-band{padding-block:2.4rem !important}
+.tick-band .wrap{gap:.9rem 2.4rem}
+/* 3b. footer legal links had no gap, so they rendered as "PrivacyTerms" */
+.lb-legal{display:inline-flex;gap:1.4rem}
+/* 3c. gallery ran full-bleed at 16/7 (1440x777) and its caption bar sat on the
+   photo. Hold it to the page wrap, calmer ratio, caption on its own strip. */
+.lb-rb{padding:0 0 3.4rem;background:transparent}
+.lb-rb__track{width:min(1160px,92vw);margin-inline:auto;aspect-ratio:16/8.4;
+  border-radius:12px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(8,10,14,.35)}
+.lb-rb__cap{position:static;padding:.95rem clamp(14px,2.2vw,26px);
+  background:#0E2333;color:#CBDCE8;
+  width:min(1160px,92vw);margin-inline:auto;border-radius:0 0 12px 12px}
+@media(max-width:700px){.lb-rb__track{aspect-ratio:4/3}}
+/* 4. quote panel: it hugged a single border with the text crushed inside it.
+   Make it a real panel with even padding, and give the column its share of the width. */
+#lbq.v3 .lbq-sp{grid-template-columns:1fr 1.08fr;gap:2.6rem;align-items:stretch}
+#lbq .lbq-hp2{display:flex;flex-direction:column;gap:.15rem;padding:1.7rem 1.6rem;
+  border-radius:12px;background:rgba(255,255,255,.035);justify-content:flex-start}
+#lbq .lbq-hp2 h2{font-size:1.1rem;margin-bottom:.55rem}
+#lbq .lbq-hp2 p{margin:0 0 14px;line-height:1.6}
+#lbq .lbq-hp2 p:last-child{margin-bottom:0}
+#lbq .lbq-hp2 h2{margin-bottom:.55rem}
+#lbq .lbq-s{margin-bottom:1.4rem !important;line-height:1.6}
+#lbq .lbq-f{gap:.9rem}
+#lbq input,#lbq textarea,#lbq select{padding:.8rem .9rem}
+@media(max-width:760px){#lbq .lbq-hp2{padding:1.3rem}}
+@media(max-width:920px){
+  .hero > .hero-in{padding-block:3.4rem 3rem !important}
+  .hero h1{max-width:20ch !important}
+}
 </style>
 </body>
 </html>
