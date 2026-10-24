@@ -154,7 +154,11 @@ footer{padding:64px 24px 28px;background:#0c1010;border-top:1px solid var(--line
 <style>img{max-width:100%;height:auto}[style*="background-image"]{background-size:cover;background-position:center}</style><style>.lb-logo{height:48px;width:auto;max-width:min(320px,42vw);object-fit:contain}
 header .lb-logo,nav .lb-logo{height:48px}
 @media(max-width:720px){.lb-logo,header .lb-logo,nav .lb-logo{height:38px}}
-</style></head>
+</style><style id="lb-contrast-fix">
+/* contrast stated per element, measured in the browser */
+header div.hdr nav.nav a.cta-btn:nth-of-type(4){color:#0b0b0b !important}
+</style>
+</head>
 <body id="top">
 
 <header role="banner">
