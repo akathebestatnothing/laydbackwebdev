@@ -27,9 +27,8 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(11,11,12,.94);borde
 header.site{opacity:1!important;visibility:visible!important;transform:none!important}
 .bar{display:flex;align-items:center;gap:clamp(14px,3vw,48px);padding:12px 0}
 .brand{display:flex;align-items:center;gap:14px;text-decoration:none;flex:0 1 auto;min-width:0}
-.brand img{height:58px;width:auto;max-width:min(340px,46vw);object-fit:contain}
-.brand .name{font-weight:800;letter-spacing:-.01em;font-size:clamp(15px,1.6vw,21px);color:#ffffff;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand img{height:52px;width:auto;max-width:min(160px,22vw);object-fit:contain;background:#fff;border-radius:50%;padding:3px;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.brand .name{font-weight:800;letter-spacing:-.01em;font-size:clamp(13px,1.35vw,18px);color:#ffffff;line-height:1.18;max-width:min(330px,34vw);white-space:normal}
 .brand .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 nav.main{margin-left:auto;display:flex;align-items:center;gap:clamp(12px,2vw,28px);flex-wrap:wrap}
 nav.main a{color:#ffffff;text-decoration:none;font-size:0.95rem;opacity:.86;white-space:nowrap}
@@ -41,8 +40,8 @@ nav.main a.btn,header .btn{background:var(--accent)!important;color:#0b0b0c!impo
   border:1px solid rgba(255,255,255,.5)!important}
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#101012}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
-.hero .veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.34)}
-.hero .inner{position:relative;z-index:3;padding:32px 32px 32px;max-width:min(780px,92vw)}
+.hero .veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:rgba(0,0,0,.14)}
+.hero .inner{position:relative;z-index:3;padding:clamp(40px,6.5vh,72px) 32px clamp(36px,5.5vh,60px);max-width:min(780px,92vw)}
 .kicker{display:inline-block;font-size:0.82rem;font-weight:700;letter-spacing:0.05em;color:#d6d8db;margin-bottom:14px}
 .hero h1{font-size:clamp(2.3rem,4.6vw,3.7rem);margin-bottom:14px}
 .hero h1 em{font-style:normal;color:#cfd2d6}
@@ -119,7 +118,6 @@ footer a:hover{text-decoration:underline}
     <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="veil" aria-hidden="true"></div>
     <div class="container inner">
-      <span class="kicker">Rendering & Venetian plastering</span>
       <h1>Walls that look solid.<br><em>Finished properly.</em></h1>
       <p class="lede">Cement and acrylic rendering, Venetian plastering and textured finishes for homes around Yarrawonga and the surrounding district.</p>
       <div class="acts"><a class="btn" href="#contact">Get a quote</a><a class="btn ghost" href="#services">See what we do</a></div>
