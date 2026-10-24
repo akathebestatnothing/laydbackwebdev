@@ -28,16 +28,16 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bg);color:var(--ink);
-  font:400 17px/1.62 var(--text);letter-spacing:.005em;
+  font:400 17px/1.62 var(--text);letter-spacing:0.005em;
   overflow-x:hidden;
 }
 img{max-width:100%;display:block}
 a{color:var(--ink);text-decoration:none}
 h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.015em;margin:0;text-wrap:balance}
-h2{font-size:clamp(1.5rem,2.7vw,2.25rem);line-height:1.1}
+h2{font-size:clamp(1.5rem,2.7vw,2.25rem);line-height:1.31}
 p{margin:0}
-.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
-.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;color:var(--dim)}
+.wrap{max-width:1280px;margin:0 auto;padding:32px 32px}
+.mono{font-family:var(--mono);font-size:0.82rem;letter-spacing:0.05em;color:var(--dim)}
 .up{text-transform:uppercase}
 
 /* ---------- bar ---------- */
@@ -45,18 +45,18 @@ header.site-bar{
   position:sticky;top:0;z-index:40;background:var(--bg);
   border-bottom:1px solid var(--line);
   display:flex;align-items:center;gap:clamp(14px,2.4vw,40px);
-  padding:10px var(--pad);min-height:76px;
+  padding:10px 32px;min-height:76px;
 }
 .brand{display:flex;align-items:center;gap:clamp(12px,1.6vw,20px);flex:0 1 auto;min-width:0}
 .brand-sym{height:56px;width:56px;object-fit:contain;flex:none}
-.brand-txt{display:flex;flex-direction:column;line-height:.94;flex:0 1 auto;min-width:0}
-.brand-txt b{font-family:var(--display);font-size:clamp(1.05rem,1.55vw,1.4rem);font-weight:700;letter-spacing:.14em}
-.brand-txt i{font-style:normal;font-family:var(--display);font-size:clamp(.62rem,1vw,.86rem);font-weight:700;letter-spacing:.30em;color:var(--acc)}
+.brand-txt{display:flex;flex-direction:column;line-height:1.3;flex:0 1 auto;min-width:0}
+.brand-txt b{font-family:var(--display);font-size:clamp(1.05rem,1.55vw,1.4rem);font-weight:700;letter-spacing:0.05em}
+.brand-txt i{font-style:normal;font-family:var(--display);font-size:clamp(.62rem,1vw,.86rem);font-weight:700;letter-spacing:0.05em;color:var(--acc)}
 .bar-nav{margin-left:auto;display:flex;align-items:center;gap:clamp(10px,1.7vw,26px);flex-wrap:wrap;justify-content:flex-end}
-.bar-nav a{font-size:.88rem;color:var(--mut);padding:6px 0;border-bottom:1px solid transparent;transition:color .18s}
+.bar-nav a{font-size:0.88rem;color:var(--mut);padding:6px 0;border-bottom:1px solid transparent;transition:color .18s}
 .bar-nav a:hover{color:var(--ink);border-bottom-color:var(--acc)}
 .bar-call{display:inline-flex;align-items:center;gap:8px;background:var(--acc);color:#fff;font-family:var(--mono);
-  font-size:.82rem;letter-spacing:.05em;padding:11px 15px;transition:background .18s}
+  font-size:0.82rem;letter-spacing:0.05em;padding:11px 15px;transition:background .18s}
 .bar-call:hover{background:var(--acc-dk)}
 
 /* ---------- hero ---------- */
@@ -65,30 +65,30 @@ header.site-bar{
 .hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(100deg,rgba(0,0,0,.90) 0%,rgba(0,0,0,.74) 38%,rgba(0,0,0,.28) 72%,rgba(0,0,0,.46) 100%)}
 .hero-in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;
-  gap:22px;padding:15vh var(--pad) 9vh;max-width:900px}
+  gap:22px;padding:32px 32px 32px;max-width:900px}
 .hero-kicker{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.hero-kicker span{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;color:var(--mut)}
+.hero-kicker span{font-family:var(--mono);font-size:0.82rem;letter-spacing:0.05em;color:var(--mut)}
 .hero-kicker i{display:block;width:34px;height:2px;background:var(--acc)}
-h1{font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.04;max-width:20ch}
+h1{font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.34;max-width:20ch}
 h1 em{font-style:normal;color:var(--acc)}
 .hero-sub{max-width:58ch;color:var(--mut);font-size:clamp(1rem,1.16vw,1.14rem)}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .btn{display:inline-block;background:var(--acc);color:#fff;font-family:var(--display);font-weight:700;font-size:1rem;
-  letter-spacing:.02em;padding:15px 26px;border:0;cursor:pointer;transition:background .18s}
+  letter-spacing:0.02em;padding:15px 26px;border:0;cursor:pointer;transition:background .18s}
 .btn:hover{background:var(--acc-dk)}
-.btn-ghost{display:inline-block;border:1px solid var(--line2);color:var(--ink);font-family:var(--mono);font-size:.86rem;
-  letter-spacing:.05em;padding:15px 20px;transition:border-color .18s,color .18s}
+.btn-ghost{display:inline-block;border:1px solid var(--line2);color:var(--ink);font-family:var(--mono);font-size:0.86rem;
+  letter-spacing:0.05em;padding:15px 20px;transition:border-color .18s,color .18s}
 .btn-ghost:hover{border-color:var(--acc);color:var(--acc)}
 
 /* ---------- data rail ---------- */
 .rail{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:1px solid var(--line)}
-.rail div{padding:22px var(--pad);border-right:1px solid var(--line)}
+.rail div{padding:22px 32px;border-right:1px solid var(--line)}
 .rail div:last-child{border-right:0}
 .rail b{display:block;font-family:var(--display);font-size:1rem;margin-top:6px;font-weight:700}
 .rail a{color:var(--ink);border-bottom:1px solid var(--line2)}
 
 /* ---------- sections ---------- */
-section{padding:clamp(58px,7.5vw,110px) 0}
+section{padding:58px 32px}
 .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,3vw,54px);
   align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:0}
 .sec-head p{color:var(--mut);max-width:52ch;justify-self:end}
@@ -98,7 +98,7 @@ section{padding:clamp(58px,7.5vw,110px) 0}
 .row{display:grid;grid-template-columns:78px minmax(220px,1fr) minmax(0,1.25fr);gap:clamp(14px,2.4vw,44px);
   padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
 .row:first-child{border-top:0}
-.row .n{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:var(--acc)}
+.row .n{font-family:var(--mono);font-size:0.82rem;letter-spacing:0.05em;color:var(--acc)}
 .row h3{font-size:clamp(1.12rem,1.7vw,1.45rem)}
 .row p{color:var(--mut);max-width:56ch}
 
@@ -106,14 +106,14 @@ section{padding:clamp(58px,7.5vw,110px) 0}
 .work-lead{margin:34px 0 0}
 .work-lead img{width:100%;height:clamp(300px,48vw,620px);object-fit:cover}
 .cap{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
-.cap span{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--acc)}
-.cap p{color:var(--mut);font-size:.95rem}
+.cap span{font-family:var(--mono);font-size:0.82rem;letter-spacing:0.05em;color:var(--acc)}
+.cap p{color:var(--mut);font-size:0.95rem}
 .work-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);margin-top:clamp(26px,3.4vw,44px)}
 .work-3 figure{margin:0}
 .work-3 img{width:100%;height:clamp(190px,22vw,300px);object-fit:cover}
-.work-3 figcaption{padding-top:12px;color:var(--mut);font-size:.92rem;line-height:1.45}
+.work-3 figcaption{padding-top:12px;color:var(--mut);font-size:0.92rem;line-height:1.345}
 .note{margin-top:clamp(26px,3.4vw,44px);border:1px solid var(--line);background:var(--panel);
-  padding:clamp(20px,2.6vw,34px);display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:clamp(16px,2.6vw,40px);align-items:center}
+  padding:20px;display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:clamp(16px,2.6vw,40px);align-items:center}
 .note b{font-family:var(--display);font-size:clamp(1.1rem,1.6vw,1.4rem);display:block}
 .note p{color:var(--mut);max-width:64ch}
 
@@ -122,7 +122,7 @@ section{padding:clamp(58px,7.5vw,110px) 0}
 .seq div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:clamp(14px,2.4vw,40px);
   padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
 .seq div:first-child{border-top:0}
-.seq b{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:var(--acc);font-weight:400}
+.seq b{font-family:var(--mono);font-size:0.82rem;letter-spacing:0.05em;color:var(--acc);font-weight:400}
 .seq p{color:var(--mut);max-width:62ch}
 
 /* areas + contact */
@@ -132,21 +132,21 @@ section{padding:clamp(58px,7.5vw,110px) 0}
 .area-facts span:last-child{color:var(--mut)}
 form{display:grid;gap:14px;margin-top:22px}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-label{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--dim);margin-bottom:6px}
+label{display:block;font-family:var(--mono);font-size:0.82rem;letter-spacing:0.05em;color:var(--dim);margin-bottom:6px}
 input,select,textarea{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--ink);
   font:400 16px/1.5 var(--text);padding:13px 14px;border-radius:0}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:var(--acc)}
 textarea{min-height:120px;resize:vertical}
-.form-note{color:var(--dim);font-size:.86rem;margin-top:4px}
+.form-note{color:var(--dim);font-size:0.86rem;margin-top:4px}
 
 /* footer */
-footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,66px) 0 30px}
+footer{border-top:1px solid var(--line);padding:40px 32px 30px}
 .foot{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,.8fr);gap:clamp(22px,3vw,54px)}
 .foot h3{font-size:1rem;margin-bottom:12px}
-.foot p,.foot li{color:var(--mut);font-size:.94rem}
+.foot p,.foot li{color:var(--mut);font-size:0.94rem}
 .foot ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
 .foot-bot{margin-top:38px;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:18px;
-  justify-content:space-between;flex-wrap:wrap;color:var(--dim);font-size:.84rem}
+  justify-content:space-between;flex-wrap:wrap;color:var(--dim);font-size:0.84rem}
 .foot-bot a{color:var(--mut)}
 
 @media(max-width:1000px){
@@ -162,7 +162,7 @@ footer{border-top:1px solid var(--line);padding:clamp(40px,5vw,66px) 0 30px}
   .brand-sym{height:48px;width:48px}
   header.site-bar{flex-wrap:wrap;row-gap:8px}
   .bar-nav{margin-left:0;width:100%;justify-content:flex-start;gap:16px}
-  .hero-in{padding:11vh var(--pad) 8vh}
+  .hero-in{padding:32px 32px 32px}
   .row{grid-template-columns:52px minmax(0,1fr);gap:12px}
   .row p{grid-column:2}
   .work-3{grid-template-columns:1fr 1fr}
@@ -223,12 +223,12 @@ header .lb-logo,nav .lb-logo{height:48px}
       <p>Every job starts the same way: levels pegged off your plans, formwork checked for fall, then concrete placed and finished to the surface you asked for.</p>
     </div>
     <div class="ledger">
-      <div class="row"><span class="n">01</span><h3>Shed slabs</h3><p>Slab set-out, formwork, mesh and pour for sheds, workshops and garages, sized off the shed supplier's plan.</p></div>
-      <div class="row"><span class="n">02</span><h3>Driveways and crossovers</h3><p>Exposed aggregate, broomed or plain finish, from the street crossover through to the garage apron.</p></div>
-      <div class="row"><span class="n">03</span><h3>Footpaths and paths</h3><p>Pathways around the house, along the side access and from the driveway to the front entry.</p></div>
-      <div class="row"><span class="n">04</span><h3>Alfresco and patio slabs</h3><p>Slabs for outdoor living areas, screeded to the falls the roof and drainage need.</p></div>
-      <div class="row"><span class="n">05</span><h3>Coloured and decorative concrete</h3><p>Colour through the mix, plus decorative finishes such as exposed aggregate for driveways and entries.</p></div>
-      <div class="row"><span class="n">06</span><h3>Formwork, steel and set-out</h3><p>Boards, pegs and reinforcing placed and checked before the truck is booked.</p></div>
+      <div class="row"><h3>Shed slabs</h3><p>Slab set-out, formwork, mesh and pour for sheds, workshops and garages, sized off the shed supplier's plan.</p></div>
+      <div class="row"><h3>Driveways and crossovers</h3><p>Exposed aggregate, broomed or plain finish, from the street crossover through to the garage apron.</p></div>
+      <div class="row"><h3>Footpaths and paths</h3><p>Pathways around the house, along the side access and from the driveway to the front entry.</p></div>
+      <div class="row"><h3>Alfresco and patio slabs</h3><p>Slabs for outdoor living areas, screeded to the falls the roof and drainage need.</p></div>
+      <div class="row"><h3>Coloured and decorative concrete</h3><p>Colour through the mix, plus decorative finishes such as exposed aggregate for driveways and entries.</p></div>
+      <div class="row"><h3>Formwork, steel and set-out</h3><p>Boards, pegs and reinforcing placed and checked before the truck is booked.</p></div>
     </div>
   </div>
 </section>
