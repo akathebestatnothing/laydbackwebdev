@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.className+=' js';</script>
+<title>Bruce Plumbing — Plumber | Belmont &amp; Lake Macquarie NSW</title>
+<meta name="description" content="Bruce Plumbing — 12+ years' experience. Blocked drains, hot water, renovations and general plumbing across Lake Macquarie and surrounding suburbs. Request a quote online.">
+<meta property="og:title" content="Bruce Plumbing — Plumber | Belmont &amp; Lake Macquarie NSW">
+<meta property="og:description" content="12+ years' experience across Lake Macquarie and surrounding suburbs. Request a quote online.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
+<style>
+:root{
+  --void:#0B0D0F;
+  --panel:#14171A;
+  --panel2:#1B1F23;
+  --cyan:#10C0F0;
+  --cyan-deep:#0B93BA;
+  --ice:#EAF6FA;
+  --steel:#98A5AD;
+  --steel2:#67737B;
+  --line:#22272C;
+  --font-display:'Fjalla One',Impact,sans-serif;
+  --font-sans:'Titillium Web',ui-sans-serif,system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--ice);font-family:var(--font-sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1180px,92vw);margin-inline:auto}
+
+/* reveal — html.js-gated */
+html.js .drop{opacity:0;transform:translateY(22px);transition:opacity .7s ease-out,transform .7s ease-out}
+html.js .drop.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html.js .drop{opacity:1;transform:none;transition:none}
+  *{animation-duration:.001s !important;transition-duration:.001s !important}
+}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(11,13,15,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,192,240,.28)}
+.nav-in{display:flex;align-items:center;gap:1.4rem;height:72px}
+.brand{display:flex;align-items:center;gap:.8rem;color:#fff;text-decoration:none}
+.brand img{display:block;height:32px;width:auto;object-fit:contain;border-radius:6px}
+.brand-name{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.04em;line-height:1;color:#fff}
+.brand-sub{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+.nav-links{display:flex;gap:1.4rem;margin-left:auto;align-items:center}
+.nav-links a{color:#C6D2D8;text-decoration:none;font-size:.86rem;font-weight:600}
+.nav-links a:hover{color:#fff}
+.nav-phone{color:var(--cyan) !important;font-weight:700;white-space:nowrap}
+.nav-cta{background:var(--cyan);color:#062733 !important;padding:.52rem 1.1rem;border-radius:7px;font-weight:700}
+.nav-cta:hover{filter:brightness(1.08)}
+.burger{display:none;margin-left:auto;background:none;border:1px solid rgba(16,192,240,.45);border-radius:7px;padding:.4rem .6rem;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:#fff;margin:4px 0;transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:920px){
+  .nav-links{position:fixed;inset:72px 0 auto 0;background:#0B0D0F;flex-direction:column;padding:1.2rem;gap:1rem;transform:translateY(-140%);transition:transform .35s ease;border-bottom:1px solid rgba(16,192,240,.28)}
+  .nav-links.open{transform:none}
+  .nav-links a{width:100%;text-align:center;padding:.5rem 0}
+  .nav-cta{display:inline-block;margin-top:.3rem}
+  .burger{display:block}
+}
+
+/* hero — dark field, water-flow pipe canvas */
+.hero{position:relative;min-height:94vh;display:flex;align-items:flex-end;background:linear-gradient(180deg,#07090B 0%,#0D1114 55%,#0B0D0F 100%);overflow:hidden;padding-top:72px}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,11,.14) 0%,rgba(7,9,11,.06) 45%,rgba(7,9,11,.86) 100%);pointer-events:none}
+.hero-in{position:relative;z-index:2;padding-block:4.4rem 3.2rem;width:100%}
+.hero-kicker{display:inline-flex;align-items:center;gap:.65rem;color:var(--cyan);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;margin-bottom:.9rem}
+.hero-kicker::before{content:"";width:36px;height:2px;background:var(--cyan)}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.8rem,7.6vw,5.8rem);line-height:1.02;color:#fff;font-weight:400;letter-spacing:.01em;max-width:16ch}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hero-sub{margin-top:1rem;color:#B8C6CD;font-size:clamp(.95rem,1.5vw,1.06rem);max-width:56ch;font-weight:300}
+.hero-cta{display:flex;gap:.9rem;margin-top:1.7rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:7px;text-decoration:none;font-weight:700;font-size:.94rem;transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.btn-primary{background:var(--cyan);color:#062733}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.hero-strip{margin-top:2.4rem;display:flex;gap:2.4rem;flex-wrap:wrap;border-top:1px solid rgba(16,192,240,.32);padding-top:1.15rem}
+.hero-strip p{color:#7E8D96;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.hero-strip strong{display:block;color:#fff;font-family:var(--font-display);font-size:1.3rem;letter-spacing:.03em;margin-top:.1rem;font-weight:400}
+
+/* sections */
+section{padding-block:5.2rem}
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.4rem}
+.sec-head::before{content:"";width:40px;height:3px;background:var(--cyan);flex:none;align-self:center;border-radius:2px}
+.sec-kicker{font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:var(--cyan);font-weight:700}
+.sec-title{font-family:var(--font-display);font-size:clamp(2rem,4.4vw,3.1rem);font-weight:400;line-height:1.06;letter-spacing:.01em;margin-top:.3rem;max-width:24ch;color:#fff}
+.sec-sub{color:var(--steel);max-width:60ch;margin-top:.8rem;font-weight:300}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:1.1rem}
+.svc{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:1.65rem 1.5rem;position:relative;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
+.svc:hover{border-color:rgba(16,192,240,.55);transform:translateY(-3px)}
+.svc::after{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--cyan);transition:width .3s ease}
+.svc:hover::after{width:100%}
+.svc-ico{width:44px;height:44px;border-radius:9px;background:linear-gradient(135deg,var(--cyan-deep),#0A6A87);display:grid;place-items:center;margin-bottom:.95rem}
+.svc-ico svg{width:22px;height:22px;stroke:#EAF6FA;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem;letter-spacing:.02em;color:#fff;margin-bottom:.35rem}
+.svc p{color:var(--steel);font-size:.9rem;line-height:1.64;font-weight:300}
+
+/* gallery — real work */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));grid-auto-rows:clamp(190px,22vw,290px);gap:.9rem}
+.gal-item{border-radius:11px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.gal-item:first-child{grid-column:span 2}
+@media(max-width:640px){.gal-item:first-child{grid-column:span 1}}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.gal-item:hover img{transform:scale(1.04)}
+
+/* process band */
+.flow-band{background:var(--panel);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:1.1rem}
+.step{background:var(--void);border:1px solid var(--line);border-radius:11px;padding:1.55rem 1.45rem}
+.step-n{font-family:var(--font-display);font-size:2.2rem;line-height:1;color:var(--cyan);margin-bottom:.5rem;font-weight:400}
+.step h3{font-family:var(--font-display);font-weight:400;font-size:1.2rem;letter-spacing:.02em;color:#fff;margin-bottom:.35rem}
+.step p{color:var(--steel);font-size:.88rem;line-height:1.62;font-weight:300}
+
+/* why */
+.why{display:grid;grid-template-columns:1.05fr .95fr;gap:3.2rem;align-items:center}
+@media(max-width:880px){.why{grid-template-columns:1fr;gap:2rem}}
+.why-list{display:grid;gap:1.05rem}
+.why-item{display:flex;gap:.95rem;align-items:flex-start}
+.why-tick{flex:none;width:26px;height:26px;border-radius:6px;background:var(--cyan);display:grid;place-items:center;margin-top:.2rem}
+.why-tick svg{width:14px;height:14px;stroke:#062733;fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.why-item h3{font-family:var(--font-display);font-weight:400;font-size:1.25rem;letter-spacing:.02em;color:#fff}
+.why-item p{color:var(--steel);font-size:.9rem;margin-top:.1rem;font-weight:300}
+.why-visual{border-radius:12px;border:1px solid var(--line);background:linear-gradient(135deg,var(--panel2),var(--panel));padding:1.4rem;position:relative;overflow:hidden}
+.why-visual img{width:100%;border-radius:9px;position:relative}
+.why-visual p{color:var(--steel);margin-top:.9rem;position:relative;font-weight:300;font-size:.88rem}
+
+/* coverage */
+.coverage-band{background:var(--panel);border-block:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.3rem}
+.chip{border:1px solid rgba(16,192,240,.4);border-radius:999px;padding:.5rem 1.15rem;font-size:.86rem;color:#BEE8F5;background:rgba(16,192,240,.07);font-weight:600}
+
+/* footer */
+footer{background:#07090B;border-top:1px solid var(--line);color:var(--steel);padding-block:4rem 2rem}
+.foot-grid{display:grid;grid-template-columns:1.25fr .85fr .9fr;gap:2.5rem}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr;gap:2rem}}
+.foot-brand{display:flex;gap:.85rem;align-items:center;margin-bottom:1rem}
+.foot-brand img{width:32px;height:32px;object-fit:contain;border-radius:8px}
+.foot-brand-name{font-family:var(--font-display);color:#fff;font-size:1.4rem;letter-spacing:.03em;font-weight:400;line-height:1}
+.foot-brand-sub{font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+.foot h4{font-family:var(--font-display);font-weight:400;color:#fff;font-size:1.2rem;letter-spacing:.03em;margin-bottom:.75rem}
+.foot p,.foot a{font-size:.88rem;line-height:1.8;color:var(--steel);text-decoration:none;font-weight:300}
+.foot a:hover{color:#fff}
+.foot-bottom{border-top:1px solid var(--line);padding-top:1.5rem;margin-top:3rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.75rem;color:var(--steel2)}
+/* quote-form band tuned to this palette */
+section#lbq{--lbq-bg:#0B0D0F;--lbq-ink:#EAF6FA;--lbq-muted:#98A5AD;--lbq-panel:rgba(255,255,255,.05);--lbq-line:rgba(16,192,240,.32);--lbq-accent:#10C0F0}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Bruce Plumbing home">
+      <img src="assets/logo.png" alt="Bruce Plumbing logo" width="48" height="48">
+      <span>
+        <span class="brand-name">BRUCE PLUMBING</span><br>
+        <span class="brand-sub">Lake Macquarie NSW</span>
+      </span>
+    </a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navlinks">
+      <a href="#services">Services</a>
+      <a href="#work">Our work</a>
+      <a href="#areas">Service areas</a>
+      <a class="nav-phone" href="tel:+61402197720">0402 197 720</a>
+      <a class="nav-cta" href="#quote">Get a quote</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-shade"></div>
+  <div class="wrap hero-in">
+    <p class="hero-kicker">Belmont &amp; Lake Macquarie &middot; 12+ years' experience</p>
+    <h1>Plumbing that <em>flows.</em></h1>
+    <p class="hero-sub">Bruce Plumbing — small local business servicing Lake Macquarie and surrounding suburbs. Blocked drains, hot water, renovations and general plumbing done right.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="tel:+61402197720">Call 0402 197 720</a>
+      <a class="btn btn-ghost" href="#quote">Request a quote</a>
+    </div>
+    <div class="hero-strip">
+      <p><strong>12+ years</strong>on the tools</p>
+      <p><strong>Local</strong>Lake Macquarie based</p>
+      <p><strong>Quote online</strong>in 2 minutes</p>
+    </div>
+  </div>
+</header>
+<section class="svc-intro" id="services">
+  <div class="wrap">
+    <div class="sec-head drop">
+      <div>
+        <p class="sec-kicker">What we do</p>
+        <h2 class="sec-title">General plumbing, done properly.</h2>
+        <p class="sec-sub">Twelve years across Lake Macquarie — residential plumbing work handled by a local who knows the area.</p>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <article class="svc drop">
+        <span class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 3v6"/><path d="M8 9h8"/><path d="M10 9v5a4 4 0 0 0 4 4h0a4 4 0 0 0 4-4v-2"/><path d="M18 12v-2"/><circle cx="18" cy="8" r="2"/></svg></span>
+        <h3>Blocked drains</h3>
+        <p>Fast diagnosis and clearing for blocked drains, sinks and sewer lines.</p>
+      </article>
+      <article class="svc drop">
+        <span class="svc-ico"><svg viewBox="0 0 24 24"><rect x="7" y="6" width="10" height="14" rx="2"/><path d="M10 3h4"/><path d="M12 6V3"/><circle cx="12" cy="13" r="2.5"/></svg></span>
+        <h3>Hot water</h3>
+        <p>Repairs and replacements for hot water systems — get the hot water back.</p>
+      </article>
+      <article class="svc drop">
+        <span class="svc-ico"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/><path d="M4 20h16"/></svg></span>
+        <h3>Renovations</h3>
+        <p>Bathroom and kitchen plumbing for renovations — rough-in to fit-off.</p>
+      </article>
+      <article class="svc drop">
+        <span class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M12 17.5a2.5 2.5 0 0 1-2.5-2.5"/></svg></span>
+        <h3>Leaks &amp; repairs</h3>
+        <p>Taps, toilets, pipes and leaks fixed properly the first time.</p>
+      </article>
+      <article class="svc drop">
+        <span class="svc-ico"><svg viewBox="0 0 24 24"><path d="M4 12h6a2 2 0 0 0 2-2V6"/><path d="M12 4v4"/><path d="M16 12h4"/><path d="M16 8v8"/><path d="M12 12v6a2 2 0 0 0 2 2h6"/></svg></span>
+        <h3>Tap &amp; fixture installs</h3>
+        <p>New tapware, fixtures and appliances installed cleanly.</p>
+      </article>
+      <article class="svc drop">
+        <span class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-4h6v4"/><path d="M12 10v3"/></svg></span>
+        <h3>Residential plumbing</h3>
+        <p>General plumbing maintenance and repairs for homes across the area.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="background:var(--panel);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head drop">
+      <div>
+        <p class="sec-kicker">Our work</p>
+        <h2 class="sec-title">Real jobs, finished clean.</h2>
+        <p class="sec-sub">Recent work — from full bathroom fit-outs to everyday repairs.</p>
+      </div>
+    </div>
+    <div class="gallery">
+      <div class="gal-item drop"><img src="assets/work-01.jpg" alt="Completed modern bathroom renovation with vanity and glass shower" loading="lazy"></div>
+      <div class="gal-item drop"><img src="assets/work-02.jpg" alt="Bruce Plumbing branded work van" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="flow-band" id="process">
+  <div class="wrap">
+    <div class="sec-head drop">
+      <div>
+        <p class="sec-kicker">How it works</p>
+        <h2 class="sec-title">Call, quote, sorted.</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step drop"><p class="step-n">01</p><h3>Get in touch</h3><p>Call or send a quote request — tell us what's going on with the plumbing.</p></div>
+      <div class="step drop"><p class="step-n">02</p><h3>Clear quote</h3><p>A straight-up price for the work before anything starts.</p></div>
+      <div class="step drop"><p class="step-n">03</p><h3>Done right</h3><p>The job handled properly by a local with 12+ years on the tools.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap why">
+    <div class="drop">
+      <p class="sec-kicker">Why Bruce Plumbing</p>
+      <h2 class="sec-title" style="margin-bottom:1.4rem">Local, experienced, easy to deal with.</h2>
+      <div class="why-list">
+        <div class="why-item">
+          <span class="why-tick"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <div><h3>12+ years' experience</h3><p>A dozen years of residential plumbing across Lake Macquarie.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-tick"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <div><h3>Small local business</h3><p>Based in Lake Macquarie, servicing surrounding suburbs — you deal with the plumber.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-tick"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <div><h3>Quote requests online</h3><p>Send the job details through the form and get a response — no phone tag required.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-tick"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+          <div><h3>Renovation capable</h3><p>From blocked drains to full bathroom fit-outs — the range to handle the job.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual drop">
+      <img src="assets/logo.png" alt="Bruce Plumbing logo" width="1200" height="720">
+      <p>Bruce Plumbing — Belmont &amp; Lake Macquarie, servicing surrounding suburbs.</p>
+    </div>
+  </div>
+</section>
+
+<section class="coverage-band" id="areas">
+  <div class="wrap" style="padding-block:3.6rem">
+    <div class="sec-head drop" style="margin-bottom:1rem">
+      <div>
+        <p class="sec-kicker">Where we work</p>
+        <h2 class="sec-title">Lake Macquarie &amp; surrounds.</h2>
+      </div>
+    </div>
+    <div class="chips drop">
+      <span class="chip">Belmont</span>
+      <span class="chip">Lake Macquarie</span>
+      <span class="chip">Newcastle</span>
+      <span class="chip">Surrounding suburbs</span>
+    </div>
+  </div>
+</section>
+<section id="lbq" class="v3" aria-labelledby="lbq-h">
+  <style>
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto}
+#lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
+#lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
+#lbq textarea{min-height:96px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* v1 card */
+#lbq.v1 .lbq-card{background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
+#lbq.v1 .lbq-g{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+#lbq.v1 .lbq-full{grid-column:1/-1}
+@media(max-width:640px){#lbq.v1 .lbq-g{grid-template-columns:1fr}}
+/* v2 band */
+#lbq.v2{background:var(--lbq-panel);border-top:1px solid var(--lbq-line);border-bottom:1px solid var(--lbq-line)}
+#lbq.v2 .lbq-g{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
+#lbq.v2 .lbq-full{grid-column:1/-1}
+#lbq.v2 .lbq-hd{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
+@media(max-width:760px){#lbq.v2 .lbq-g{grid-template-columns:1fr}#lbq.v2 .lbq-hd{display:block}}
+/* v3 split */
+#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+#lbq.v3 .lbq-g{display:grid;gap:12px}
+#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
+@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
+/* v4 minimal */
+#lbq.v4 .lbq-w{max-width:620px}
+#lbq.v4 input,#lbq.v4 textarea{border:0;border-bottom:1px solid var(--lbq-line);border-radius:0;background:transparent;padding:11px 2px}
+#lbq.v4 .lbq-g{display:grid;gap:16px}
+
+/* mobile overflow guard 2026-10-14 */
+html,body{overflow-x:hidden}
+@media (max-width:820px){
+  h1,h2,h3,.h1,.hero h1,.sec-title,.k,.kicker,.kick,.eyebrow,.tag-line,.tag,.hero-kicker,.hero-sub,.lead{
+    white-space:normal!important;overflow-wrap:anywhere;word-break:break-word;max-width:100%!important}
+  .hero-kicker,.k,.kicker,.kick,.eyebrow,.tag{font-size:clamp(10px,3.1vw,13px)!important;letter-spacing:.22em!important}
+  h1,.h1{font-size:clamp(26px,10.5vw,54px)!important;line-height:1.05!important}
+}
+</style>
+  <div class="lbq-w">
+      <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
+      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call, text or email &mdash; we reply fast.</p></div><div><form id="lbq-form" novalidate data-site="bruce-plumbing" data-biz="Bruce Plumbing"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
+  </div>
+  <script>
+(function(){
+  var EP = null;
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;  // honeypot — silently accept bots
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        var url = (B === 'https://grocery-periodically-everyone-wine.trycloudflare.com' ? 'https://grocery-periodically-everyone-wine.trycloudflare.com' : B) + '/functions/v1/quote-request';
+        fetch(url, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--lbq-accent)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/logo.png" alt="Bruce Plumbing logo" width="52" height="52">
+          <span>
+            <span class="foot-brand-name">BRUCE PLUMBING</span><br>
+            <span class="foot-brand-sub">Lake Macquarie NSW</span>
+          </span>
+        </div>
+        <p>Small local business located in Lake Macquarie and servicing surrounding suburbs. 12+ years' plumbing experience.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <p>
+          Blocked drains<br>
+          Hot water<br>
+          Renovations<br>
+          Leaks &amp; repairs<br>
+          Tap &amp; fixture installs
+        </p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>
+          <a href="tel:+61402197720">0402 197 720</a><br>
+          <a href="mailto:ben@bruceplumbing.com.au">ben@bruceplumbing.com.au</a><br>
+          <a href="https://www.facebook.com/benbrucemearns" target="_blank" rel="noopener">Facebook</a><br>
+          Belmont, NSW
+        </p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Bruce Plumbing &middot; Belmont NSW</span>
+      <span>Plumbing done properly</span>
+    </div>
+  </div>
+
+</footer>
+
+<script>
+(function(){
+  var b = document.getElementById('burger'), n = document.getElementById('navlinks');
+  if (b && n){
+    b.addEventListener('click', function(){
+      var open = n.classList.toggle('open');
+      b.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    n.addEventListener('click', function(e){
+      if (e.target.tagName === 'A'){ n.classList.remove('open'); b.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+    });
+  }
+})();
+
+/* reveals — html.js-gated */
+(function(){
+  var els = document.querySelectorAll('.drop');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+
+/* safety net */
+setTimeout(function(){
+  document.querySelectorAll('.drop').forEach(function(el){ el.classList.add('in'); });
+}, 1100);
+
+/* hero: water-flow through pipe network — cyan streams travelling the lines */
+(function(){
+  var c = document.getElementById('heroCanvas');
+  if (!c || !c.getContext) return;
+  var ctx = c.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var px = 0, py = 0;
+
+  /* pipe network: horizontal manifold + vertical drops, water packets travel along */
+  var pipes = [];
+  function seed(){
+    pipes = [];
+    var rows = 5;
+    for (var r = 0; r < rows; r++){
+      pipes.push({ y: 0.18 + r * 0.16, drops: [] });
+    }
+    /* vertical drop positions */
+    for (var i = 0; i < 9; i++){
+      var row = pipes[i % rows];
+      row.drops.push(0.08 + i * 0.105);
+    }
+  }
+
+  function resize(){
+    W = c.clientWidth || c.offsetWidth;
+    H = c.clientHeight || c.offsetHeight;
+    if (!W || !H) return;
+    c.width = Math.round(W * DPR);
+    c.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+
+  window.addEventListener('pointermove', function(e){
+    px = (e.clientX / window.innerWidth - 0.5) * 26;
+    py = (e.clientY / window.innerHeight - 0.5) * 14;
+  }, {passive: true});
+
+  function frame(t){
+    if (!W || !H){ resize(); return; }
+    var time = (t || 0) * 0.001;
+    ctx.clearRect(0, 0, W, H);
+
+    /* ambient glow */
+    var g = ctx.createRadialGradient(W*0.72 + px, H*0.4 + py, 10, W*0.72 + px, H*0.4 + py, W*0.52);
+    g.addColorStop(0, 'rgba(16,192,240,0.13)');
+    g.addColorStop(1, 'rgba(16,192,240,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+
+    /* horizontal manifold pipes */
+    for (var r = 0; r < pipes.length; r++){
+      var p = pipes[r];
+      var y = p.y * H + py * (0.4 + r * 0.1);
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.strokeStyle = 'rgba(120,140,150,0.16)';
+      ctx.lineWidth = 7;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.strokeStyle = 'rgba(16,192,240,0.20)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      /* water packets travelling right-to-left along the pipe */
+      var speed = 0.10 + r * 0.028;
+      for (var k = 0; k < 3; k++){
+        var pos = 1 - (((time * speed) + k / 3 + r * 0.13) % 1);
+        var wx = pos * W;
+        var glow = ctx.createRadialGradient(wx, y, 1, wx, y, 46);
+        glow.addColorStop(0, 'rgba(16,192,240,0.5)');
+        glow.addColorStop(1, 'rgba(16,192,240,0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(wx - 50, y - 16, 100, 32);
+        ctx.beginPath();
+        ctx.arc(wx, y, 3.4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(210,244,255,0.95)';
+        ctx.fill();
+      }
+      /* vertical drops from this pipe */
+      for (var d = 0; d < p.drops.length; d++){
+        var dx = p.drops[d] * W + px * 0.5;
+        ctx.beginPath();
+        ctx.moveTo(dx, y);
+        ctx.lineTo(dx, H);
+        ctx.strokeStyle = 'rgba(120,140,150,0.10)';
+        ctx.lineWidth = 5;
+        ctx.stroke();
+        /* falling droplet packets */
+        for (var k2 = 0; k2 < 2; k2++){
+          var fall = ((time * (0.14 + d * 0.02)) + k2 / 2 + d * 0.17) % 1;
+          var dy = y + fall * (H - y);
+          ctx.beginPath();
+          ctx.arc(dx, dy, 2.6, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(16,192,240,' + (0.75 - fall * 0.5).toFixed(3) + ')';
+          ctx.fill();
+        }
+      }
+    }
+  }
+
+  function loop(t){
+    frame(t || 0);
+    if (!reduce) requestAnimationFrame(loop);
+  }
+  seed();
+  resize();
+  window.addEventListener('resize', resize);
+  loop(0);
+})();
+</script>
+</body>
+</html>

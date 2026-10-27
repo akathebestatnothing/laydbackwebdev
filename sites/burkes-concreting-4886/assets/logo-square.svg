@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title">
+  <title id="title">Burkes Concreting logo</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5f5f4"/>
+      <stop offset="1" stop-color="#ced2d7"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="52" x2="0" y2="204" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2b2d31"/>
+      <stop offset="1" stop-color="#14161a"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="256" height="256" rx="46" fill="url(#tile)"/>
+  <!-- B: stem plus two bowls, cut hard -->
+  <path fill="url(#ink)" d="M74 52 H148 A36 36 0 0 1 148 124 H74 Z"/>
+  <path fill="url(#ink)" d="M74 124 H156 A40 40 0 0 1 156 204 H74 Z"/>
+  <rect x="100" y="74" width="52" height="30" rx="13" fill="url(#tile)"/>
+  <rect x="102" y="142" width="56" height="42" rx="19" fill="url(#tile)"/>
+  <!-- arris line at the foot of the letterform, reading as a poured edge -->
+  <rect x="74" y="204" width="112" height="5" rx="2.5" fill="#8a949e"/>
+</svg>

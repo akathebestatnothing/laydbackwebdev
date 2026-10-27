@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green Reaper | Forestry Mulching &amp; Land Clearing</title>
+<meta name="description" content="Green Reaper — forestry mulching and land clearing. Scrub and lantana removal, fence-line clearing, access tracks and site prep, mulched on site with nothing burnt or trucked away. Call 0419 356 066.">
+<link rel="canonical" href="/index.html">
+<link rel="icon" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-32.png">
+<meta property="og:title" content="Green Reaper | Forestry Mulching &amp; Land Clearing">
+<meta property="og:description" content="Standing scrub and regrowth ground into mulch on your block. Land clearing, lantana removal, fence lines, access tracks and site prep.">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --bg:#0c1007;
+  --panel:#131a0c;
+  --panel-2:#182010;
+  --line:#2a3618;
+  --ink:#f4f7ec;
+  --dim:#a9b795;
+  --acc:#90c000;
+  --accent:#90c000;
+  --brand:#90c000;
+  --primary:#90c000;
+  --brand-deep:#2b5414;
+  --brand-mid:#4d6805;
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;
+  font:17px/1.62 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;letter-spacing:-.02em;font-weight:800;line-height:1.04}
+p{margin:0 0 1em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4.4vw,54px)}
+.eyebrow{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:700;margin:0 0 14px}
+.skip{position:absolute;left:-9999px}
+
+/* ---------- header bar ---------- */
+.site-bar{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:40}
+.bar-in{display:flex;align-items:center;gap:clamp(14px,2vw,26px);padding:11px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;text-decoration:none;flex:0 0 auto}
+.brand img{height:clamp(44px,4.6vw,64px);width:auto}
+.bar-nav{display:flex;gap:clamp(12px,1.6vw,22px);margin-left:auto;flex-wrap:wrap}
+.bar-nav a{text-decoration:none;font-size:15px;color:var(--dim);padding:4px 0}
+.bar-nav a:hover{color:var(--ink)}
+.bar-tel{text-decoration:none;font-weight:800;white-space:nowrap;font-size:15.5px;
+  border:1px solid var(--acc);color:var(--acc);padding:9px 15px}
+.bar-tel:hover{background:var(--acc);color:#0b0f04}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line);
+  perspective:1000px}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:58% 55%}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(96deg,rgba(6,10,2,.9) 0%,rgba(6,10,2,.78) 34%,rgba(6,10,2,.44) 62%,rgba(6,10,2,.62) 100%),
+    linear-gradient(180deg,rgba(6,10,2,.42) 0%,rgba(6,10,2,.1) 38%,rgba(6,10,2,.86) 100%);}
+.hero-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;z-index:-1;pointer-events:none}
+.hero-copy{position:relative;z-index:3;padding:clamp(74px,12vw,150px) 0 clamp(60px,9vw,116px);max-width:min(760px,100%)}
+.hero h1{color:#fff;font-size:clamp(38px,6.4vw,84px);text-shadow:0 2px 24px rgba(0,0,0,.55)}
+.hero h1 em{font-style:normal;color:var(--acc);display:block}
+.hero-lede{color:#e6ecd8;font-size:clamp(16.5px,1.6vw,20px);max-width:46ch;margin:18px 0 28px;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;background:var(--acc);color:#0b0f04;text-decoration:none;font-weight:800;
+  padding:16px 28px;font-size:16px;letter-spacing:.01em}
+.btn:hover{background:#a5d814}
+.btn-ghost{display:inline-block;text-decoration:none;font-weight:700;color:#fff;padding:16px 4px;
+  border-bottom:2px solid var(--acc);white-space:nowrap}
+.hero-facts{display:flex;gap:clamp(16px,3vw,34px);flex-wrap:wrap;margin-top:34px;
+  border-top:1px solid rgba(255,255,255,.22);padding-top:20px;max-width:620px}
+.hero-facts div{min-width:150px}
+.hero-facts b{display:block;color:var(--acc);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+.hero-facts span{color:#dbe3cc;font-size:15px;line-height:1.45;display:block}
+
+/* ---------- generic sections ---------- */
+section{scroll-margin-top:90px}
+.sec{padding:clamp(52px,7vw,96px) 0;border-top:1px solid var(--line)}
+.sec-head{max-width:62ch;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head h2{font-size:clamp(24px,3.2vw,40px)}
+.sec-head p{margin-top:14px;color:var(--dim)}
+
+/* ---------- services ledger ---------- */
+.ledger{width:100%;border-collapse:collapse}
+.ledger tr{border-bottom:1px solid var(--line)}
+.ledger td{padding:20px 6px;vertical-align:top}
+.ledger td.n{width:52px;color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.1em}
+.ledger td.t{width:31%;font-weight:800;font-size:18px;letter-spacing:-.01em}
+.ledger td.d{font-size:15.5px;color:var(--dim)}
+@media(max-width:780px){
+  .ledger td{display:block;padding:0 0 10px}
+  .ledger td.t{width:auto;padding-top:14px}
+  .ledger td.d{width:auto;padding-bottom:20px}
+}
+
+/* ---------- contrast band ---------- */
+.contrast{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin-top:8px}
+.cpanel{padding:clamp(26px,3.4vw,44px);min-height:290px;position:relative}
+.cpanel.before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E %3Crect width='220' height='220' fill='%230a0f06'/%3E %3Cg stroke='%232f4a1a' stroke-width='2.4' fill='none' stroke-linecap='round' opacity='.85'%3E %3Cpath d='M14 210 Q40 150 26 96 Q18 60 40 24'/%3E %3Cpath d='M52 214 Q70 158 58 108 Q50 74 74 40'/%3E %3Cpath d='M96 216 Q112 156 100 104 Q92 68 118 34'/%3E %3Cpath d='M142 214 Q158 150 146 100 Q140 66 166 30'/%3E %3Cpath d='M186 212 Q204 152 192 98 Q186 62 210 28'/%3E %3C/g%3E %3Cg stroke='%233f6320' stroke-width='1.5' fill='none' stroke-linecap='round' opacity='.7'%3E %3Cpath d='M30 200 Q58 186 84 196 Q110 206 138 194 Q166 182 196 192'/%3E %3Cpath d='M22 156 Q56 140 88 152 Q120 164 152 150 Q184 136 208 146'/%3E %3Cpath d='M26 112 Q60 98 92 110 Q124 122 156 108 Q186 96 206 104'/%3E %3Cpath d='M34 68 Q64 54 96 66 Q128 78 160 64 Q188 52 204 60'/%3E %3C/g%3E %3Cg fill='%234d7a24' opacity='.55'%3E %3Ccircle cx='48' cy='62' r='9'/%3E%3Ccircle cx='104' cy='46' r='11'/%3E%3Ccircle cx='164' cy='70' r='10'/%3E %3Ccircle cx='72' cy='128' r='10'/%3E%3Ccircle cx='136' cy='118' r='9'/%3E%3Ccircle cx='196' cy='140' r='11'/%3E %3Ccircle cx='40' cy='182' r='9'/%3E%3Ccircle cx='118' cy='188' r='10'/%3E %3C/g%3E %3C/svg%3E");background-color:#0a0f06}
+.cpanel.after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E %3Crect width='180' height='180' fill='%23121a0b'/%3E %3Cg fill='%2390c000' fill-opacity='.17'%3E %3Crect x='8' y='16' width='30' height='9' rx='4' transform='rotate(-16 23 20)'/%3E %3Crect x='58' y='8' width='34' height='10' rx='4' transform='rotate(11 75 13)'/%3E %3Crect x='112' y='20' width='28' height='8' rx='4' transform='rotate(-28 126 24)'/%3E %3Crect x='146' y='48' width='26' height='9' rx='4' transform='rotate(22 159 52)'/%3E %3Crect x='22' y='58' width='32' height='9' rx='4' transform='rotate(19 38 62)'/%3E %3Crect x='76' y='52' width='30' height='10' rx='4' transform='rotate(-12 91 57)'/%3E %3Crect x='120' y='82' width='34' height='9' rx='4' transform='rotate(-21 137 86)'/%3E %3Crect x='14' y='104' width='28' height='10' rx='4' transform='rotate(24 28 109)'/%3E %3Crect x='62' y='100' width='34' height='9' rx='4' transform='rotate(-8 79 104)'/%3E %3Crect x='104' y='126' width='30' height='10' rx='4' transform='rotate(14 119 131)'/%3E %3Crect x='30' y='146' width='32' height='9' rx='4' transform='rotate(-19 46 150)'/%3E %3Crect x='128' y='158' width='28' height='8' rx='4' transform='rotate(9 142 162)'/%3E %3Crect x='76' y='150' width='26' height='9' rx='4' transform='rotate(-25 89 154)'/%3E %3C/g%3E %3Cg fill='%234d6805' fill-opacity='.22'%3E %3Crect x='44' y='34' width='26' height='8' rx='4' transform='rotate(31 57 38)'/%3E %3Crect x='100' y='70' width='24' height='8' rx='4' transform='rotate(-33 112 74)'/%3E %3Crect x='6' y='78' width='24' height='8' rx='4' transform='rotate(-14 18 82)'/%3E %3Crect x='142' y='116' width='26' height='8' rx='4' transform='rotate(27 155 120)'/%3E %3Crect x='58' y='128' width='24' height='8' rx='4' transform='rotate(17 70 132)'/%3E %3Crect x='96' y='168' width='26' height='8' rx='4' transform='rotate(-21 109 172)'/%3E %3C/g%3E %3C/svg%3E");background-color:#121a0b}
+.cpanel h3{font-size:clamp(18px,2vw,24px);margin-bottom:12px}
+.cpanel p{color:var(--dim);font-size:15.5px;margin:0}
+.tag{display:inline-block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;
+  padding:5px 11px;margin-bottom:16px;border:1px solid var(--line);color:var(--dim);background:rgba(0,0,0,.35)}
+.after .tag{color:#0b0f04;background:var(--acc);border-color:var(--acc)}
+@media(max-width:760px){.contrast{grid-template-columns:1fr}}
+
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,30px)}
+.step{border-top:3px solid var(--acc);padding-top:18px}
+.step b{display:block;font-size:12.5px;letter-spacing:.14em;color:var(--acc);margin-bottom:10px}
+.step h3{font-size:19px;margin-bottom:10px}
+.step p{color:var(--dim);font-size:15px;margin:0}
+@media(max-width:980px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ---------- work photos ---------- */
+.works{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:14px}
+.works figure{margin:0;position:relative;overflow:hidden;background:#0a0f06}
+.works figure:first-child{grid-row:span 2}
+.works img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.works figure:first-child img{aspect-ratio:4/5}
+.works figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-size:13px;
+  letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#fff;
+  background:linear-gradient(180deg,rgba(6,10,2,0) 0%,rgba(6,10,2,.86) 100%)}
+@media(max-width:820px){
+  .works{grid-template-columns:1fr 1fr}
+  .works figure:first-child{grid-column:1/-1;grid-row:auto}
+  .works figure:first-child img{aspect-ratio:16/10}
+}
+
+/* ---------- area + about ---------- */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,60px);align-items:start}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.chips span{border:1px solid var(--line);padding:8px 14px;font-size:14px;color:var(--dim);background:var(--panel)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--acc);padding:22px 24px}
+.note p{margin:0;color:var(--dim);font-size:15.5px}
+
+/* ---------- faq ---------- */
+.faq details{border-bottom:1px solid var(--line);padding:6px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;padding:16px 26px 16px 0;position:relative;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:2px;top:12px;color:var(--acc);font-weight:800;font-size:22px}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{color:var(--dim);font-size:15.5px;margin:0 0 18px;max-width:74ch}
+
+/* ---------- quote form ---------- */
+#quote{display:block}
+#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--dim);--lbq-bg:var(--bg);
+  --lbq-panel:var(--panel);--lbq-line:var(--line);padding:clamp(52px,7vw,96px) 0;
+  border-top:1px solid var(--line);background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4.4vw,54px)}
+#lbq .lbq-sp{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,58px);align-items:start}
+#lbq h2{font-size:clamp(24px,3.2vw,40px);margin:0 0 12px}
+#lbq .lbq-s{color:var(--lbq-muted);max-width:46ch;margin:0}
+#lbq .lbq-hp2{border-left:4px solid var(--lbq-accent);padding-left:18px}
+#lbq .lbq-call{margin-top:22px;font-size:15px;color:var(--lbq-muted)}
+#lbq .lbq-call a{color:var(--lbq-accent);font-weight:800;text-decoration:none;white-space:nowrap}
+#lbq .lbq-card{background:var(--lbq-panel);border:1px solid var(--lbq-line);padding:clamp(20px,2.6vw,32px)}
+#lbq .lbq-g{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#lbq .lbq-full{grid-column:1/-1}
+#lbq label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:6px}
+#lbq input,#lbq textarea{width:100%;padding:12px 13px;border:1px solid var(--lbq-line);background:var(--bg);
+  color:inherit;font:inherit;font-size:15px}
+#lbq textarea{min-height:104px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:16px;padding:15px 26px;border:0;background:var(--lbq-accent);color:#0b0f04;
+  font:inherit;font-weight:800;font-size:15.5px;cursor:pointer}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:14px;font-size:13px;color:var(--lbq-muted);
+  text-transform:none;letter-spacing:0}
+#lbq .lbq-cons label{margin:0;text-transform:none;letter-spacing:0;font-size:13px}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq .lbq-st{margin:12px 0 0;font-size:14px;color:var(--lbq-muted);min-height:1.2em}
+@media(max-width:800px){#lbq .lbq-sp{grid-template-columns:1fr}}
+@media(max-width:560px){#lbq .lbq-g{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+.site-foot{border-top:1px solid var(--line);background:var(--panel);padding:34px 0 28px;margin-top:0}
+.foot-in{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}
+.foot-in strong{display:block;font-size:17px;letter-spacing:-.01em}
+.foot-in small{display:block;color:var(--dim);font-size:13.5px;margin-top:5px;letter-spacing:.02em}
+.foot-tel{color:var(--acc);font-weight:800;text-decoration:none;white-space:nowrap;font-size:17px}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+.foot-links a{color:var(--dim);text-decoration:none;font-size:13.5px}
+.foot-links a:hover{color:var(--ink)}
+.foot-legal{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);color:var(--dim);font-size:12.5px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+.rv.done{transition:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+}
+@media(max-width:640px){
+  .bar-nav{order:3;width:100%;margin-left:0}
+  .bar-tel{padding:8px 12px;font-size:14px}
+}
+</style>
+<!-- LB-3D-HERO -->
+<style id="lb-bar-grow">
+nav{height:auto!important;min-height:0!important}
+nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:76px!important;padding-block:10px!important;flex-wrap:wrap!important}
+</style><style id="lb-hero-noscale">
+/* hero-treework.jpg is 1800x1200. Full-bleed at 1920 it was enlarged; it is held at its own pixel size here so
+   nothing is interpolated, and the bar's own ground fills either side. */
+img[src$="hero-treework.jpg"], .hero-photo, .hero img, .hero__bg, .hero-bg img
+{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+  transform:none!important;width:100%!important;max-width:1800px!important;height:auto!important;max-height:none!important;
+  object-fit:contain!important;display:block!important;margin:0 auto!important}
+</style><style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
+.brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style><style id="lb-gr-head">
+.brand-monogram{display:none!important}
+.site-bar .bar-in{position:relative!important;display:flex!important;align-items:center!important;min-height:126px!important;gap:clamp(16px,2.4vw,34px)!important}
+.site-bar .brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;
+  display:flex!important;align-items:center!important;margin:0!important;z-index:5!important}
+.site-bar .lb-logo-hi{height:clamp(84px,7.6vw,104px)!important;width:auto!important;max-width:none!important;max-height:none!important;
+  display:block!important;background:transparent!important;border:0!important;box-shadow:none!important}
+.site-bar .bar-nav{margin-left:auto!important;display:flex!important;align-items:center!important;gap:clamp(14px,1.8vw,26px)!important}
+@media(max-width:1100px){
+  .site-bar .bar-in{flex-wrap:wrap!important;justify-content:center!important;row-gap:10px!important;padding-block:14px!important;min-height:0!important}
+  .site-bar .brand{position:static!important;transform:none!important;width:100%!important;justify-content:center!important}
+  .site-bar .lb-logo-hi{height:84px!important}
+  .site-bar .bar-nav{margin:0 auto!important;flex-wrap:wrap!important;justify-content:center!important}
+}
+</style></head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+
+<header class="site-bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#top" aria-label="Green Reaper"><img class="lb-logo-hi" src="assets/logo-head.png" alt="Green Reaper"></a>
+    <nav class="bar-nav" aria-label="Main"><a href="#services">Services</a>
+      <a href="#process">How it runs</a>
+      <a href="#work">Work</a>
+      <a href="#faq">FAQ</a>
+      <a href="#quote">Quote</a>
+    </nav>
+    <a class="bar-tel" href="tel:+61419356066">0419 356 066</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="assets/hero-treework.jpg" alt="" width="1800" height="1200">
+    </div>
+    <canvas id="heroCanvas" class="hero-canvas" width="1280" height="760" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Forestry mulching &amp; land clearing</p>
+        <h1>Scrub ground down.<em>Mulch left in place.</em></h1>
+        <p class="hero-lede">Green Reaper takes overgrown country back to walkable ground with a mulching head on tracks. No burn piles, no truckloads of timber leaving your block &mdash; the cut material stays on site as mulch.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#quote">Request a free quote</a>
+          <a class="btn-ghost" href="tel:+61419356066">Call 0419 356 066</a>
+        </div>
+        <div class="hero-facts">
+          <div><b>On site</b><span>Mulched where it stands. Nothing hauled away.</span></div>
+          <div><b>Tracks &amp; head</b><span>Built for scrub, regrowth and steep country.</span></div>
+          <div><b>Quoted from the block</b><span>Walked, measured, then priced.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">What we take on</p>
+        <h2>Mulching and clearing, start to finish</h2>
+        <p>One machine and one operator working the block down to ground level &mdash; scrub, saplings, lantana and regrowth turned into chip as it goes.</p>
+      </div>
+      <table class="ledger">
+        <tr class="rv">
+          <td class="n">01</td>
+          <td class="t">Forestry mulching</td>
+          <td class="d">Standing scrub, sapling and regrowth country ground into mulch in a single pass, so the ground is left covered instead of bare.</td>
+        </tr>
+        <tr class="rv">
+          <td class="n">02</td>
+          <td class="t">Land clearing</td>
+          <td class="d">Whole blocks opened up for building, pasture, firebreaks or fencing, with the timber reduced on site rather than pushed into heaps.</td>
+        </tr>
+        <tr class="rv">
+          <td class="n">03</td>
+          <td class="t">Scrub &amp; lantana removal</td>
+          <td class="d">Dense lantana, privet and thicket country mulched to ground level so the block is open, walkable and usable again.</td>
+        </tr>
+        <tr class="rv">
+          <td class="n">04</td>
+          <td class="t">Fence-line clearing</td>
+          <td class="d">Boundaries and fence lines cut back clean along the full run, so fencing crews and surveyors can work the line properly.</td>
+        </tr>
+        <tr class="rv">
+          <td class="n">05</td>
+          <td class="t">Access tracks</td>
+          <td class="d">Tracks and driveways pushed through scrub and uneven ground, left firm and wide enough to use straight away.</td>
+        </tr>
+        <tr class="rv">
+          <td class="n">06</td>
+          <td class="t">Site prep</td>
+          <td class="d">House pads, shed sites and building envelopes stripped of vegetation and left ready for the next trade to move in.</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ CONTRAST ============ -->
+  <section class="sec" id="contrast">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">The difference on the ground</p>
+        <h2>Overgrown on Friday. Mulched by Sunday.</h2>
+        <p>The same block, before and after a mulching pass: the dense layer is cut down where it stands and the chip is left as a ground cover.</p>
+      </div>
+      <div class="contrast rv">
+        <div class="cpanel before">
+          <span class="tag">Overgrown</span>
+          <h3>Unwalkable country</h3>
+          <p>Lantana, saplings and tangled regrowth chest-high. Nothing under the canopy is accessible, and a slasher will not touch it.</p>
+        </div>
+        <div class="cpanel after">
+          <span class="tag">Mulched</span>
+          <h3>Clear, chipped ground</h3>
+          <p>Cut to ground level with the mulch spread across the surface, holding moisture and keeping the soil from washing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="sec" id="process">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">How a job runs</p>
+        <h2>Four steps from first message to cleared ground</h2>
+      </div>
+      <div class="steps">
+        <div class="step rv"><b>Step one</b><h3>Tell us about the block</h3><p>Send through photos and a rough idea of the size and what is growing on it.</p></div>
+        <div class="step rv"><b>Step two</b><h3>We walk it with you</h3><p>Access, slope, ground condition and what is hiding under the scrub all get checked before a price goes out.</p></div>
+        <div class="step rv"><b>Step three</b><h3>Mulching day</h3><p>The machine works the block to ground level in passes, with the cut material left as mulch on the surface.</p></div>
+        <div class="step rv"><b>Step four</b><h3>Walk the finish</h3><p>We go over the finished ground together and take a second pass on anything worth cleaning up.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">On the tools</p>
+        <h2>Cutting scrub, timber and regrowth</h2>
+        <p>Chainsaw, pole saw and mulching head &mdash; the same work seen from the operator's side of the job.</p>
+      </div>
+      <div class="works rv">
+        <figure>
+          <img src="assets/hero-treework.jpg" alt="Cutting into a vine-covered trunk with a chainsaw" width="1800" height="1200">
+          <figcaption>A job like this</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/job-01.jpg" alt="Reaching a high limb with a pole saw" width="1600" height="1067">
+          <figcaption>A job like this</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/job-02.jpg" alt="Working a chainsaw through a fallen limb on the ground" width="1200" height="1600">
+          <figcaption>A job like this</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/job-03.jpg" alt="Standing on a felled trunk above cleared ground" width="1200" height="1600">
+          <figcaption>A job like this</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AREA + ABOUT ============ -->
+  <section class="sec" id="about">
+    <div class="wrap split">
+      <div class="rv">
+        <p class="eyebrow">Where we work</p>
+        <h2>Mobile crew, servicing South East Queensland</h2>
+        <p>Green Reaper is a mobile mulching and clearing operation. The machine travels to the block, so rural, acreage and hard-to-reach country is the normal day, not the exception.</p>
+        <div class="chips">
+          <span>Rural blocks</span>
+          <span>Acreage</span>
+          <span>Firebreaks</span>
+          <span>Fence lines</span>
+          <span>Building envelopes</span>
+          <span>Access tracks</span>
+          <span>Steep country</span>
+          <span>Lantana thickets</span>
+        </div>
+      </div>
+      <div class="note rv">
+        <p><strong>Straight answers, quoted from the site.</strong> Nothing gets priced off a phone call alone. We look at the ground, the access and the growth, then quote what the job actually takes &mdash; and we tell you if the block is not worth mulching.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="sec faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">Questions</p>
+        <h2>What people ask before a mulching job</h2>
+      </div>
+      <div class="rv">
+        <details open>
+          <summary>Is the timber burnt or trucked away?</summary>
+          <p>Neither, unless you ask for it. Forestry mulching cuts the standing growth and turns it into chip on the spot, so there are no burn piles to manage and no loads leaving the block.</p>
+        </details>
+        <details>
+          <summary>Will it handle dense lantana and thick regrowth?</summary>
+          <p>That is the work the machine is built for. A mulching head takes scrub, saplings and thicket country down to ground level in passes rather than one bite.</p>
+        </details>
+        <details>
+          <summary>What access does the machine need?</summary>
+          <p>Something workable from the road to the block is usually enough. It gets checked on the site walk and we will tell you upfront if the entry is a problem.</p>
+        </details>
+        <details>
+          <summary>What is left behind when you finish?</summary>
+          <p>Ground-level stumps and a layer of mulch across the surface. New growth does come back on cleared country, so a follow-up pass is normal on blocks that are being kept open.</p>
+        </details>
+        <details>
+          <summary>How do I get a price?</summary>
+          <p>Send photos and a rough size through the quote form, or call 0419 356 066. Most jobs are quoted after a walk over the ground.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <span id="quote"></span>
+
+  <!-- ============ QUOTE FORM ============ -->
+  <section id="lbq" aria-labelledby="lbq-h">
+    <div class="lbq-w">
+      <div class="lbq-sp">
+        <div class="lbq-hp2">
+          <h2 id="lbq-h">Request a quote</h2>
+          <p class="lbq-s">Tell us what is on the block and roughly how big it is. Photos help &mdash; we will come back with a price, not a sales pitch.</p>
+          <p class="lbq-call">Prefer to talk? Call or text <a href="tel:+61419356066">0419 356 066</a>.</p>
+        </div>
+        <div>
+          <div class="lbq-card">
+            <form id="lbq-form" novalidate data-site="green-reaper" data-biz="Green Reaper">
+              <div class="lbq-g">
+                <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
+                <div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div>
+                <div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div>
+                <div class="lbq-full"><label for="lbq-s">Service</label><input id="lbq-s" name="service" list="lbq-services"></div>
+                <datalist id="lbq-services">
+                  <option value="Forestry mulching"></option>
+                  <option value="Land clearing"></option>
+                  <option value="Scrub and lantana removal"></option>
+                  <option value="Fence-line clearing"></option>
+                  <option value="Access tracks"></option>
+                  <option value="Site prep"></option>
+                </datalist>
+                <div class="lbq-full"><label for="lbq-m">Tell us about the job</label>
+                  <textarea id="lbq-m" name="message" placeholder="Rough size, what is growing on it, and how soon you need it done" required></textarea></div>
+              </div>
+              <label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
+              <div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+              <button type="submit">Send quote request</button>
+              <p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+(function(){
+  var FB = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+  var PTR = 'https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt';
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){ done=true; cb(FB); } }, 2500);
+    fetch(PTR + '?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : FB);
+      })
+      .catch(function(){ if(!done){ done=true; clearTimeout(t); cb(FB); } });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        fetch(B + '/functions/v1/quote-request', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--lbq-accent)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call 0419 356 066.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+    </script>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <strong>Green Reaper</strong>
+        <small>Forestry mulching &amp; land clearing</small>
+        <small>Servicing South East Queensland</small>
+      </div>
+      <div>
+        <a class="foot-tel" href="tel:+61419356066">0419 356 066</a>
+      </div>
+      <div class="foot-links">
+        <a href="#services">Services</a>
+        <a href="#faq">FAQ</a>
+        <a href="#quote">Request a quote</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="foot-legal">Green Reaper &mdash; forestry mulching and land clearing, servicing South East Queensland.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.rv');
+  if (!els.length) return;
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('on'); });
+  }
+  setTimeout(function(){ document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('on'); el.classList.add('done'); }); }, 900);
+})();
+</script>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</body>
+</html>

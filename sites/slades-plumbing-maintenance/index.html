@@ -1,0 +1,206 @@
+<style id="lb-hdr-clean">
+/* one bar, everything inside it, nothing dim: isolate the mark rather than pasting the boxed plate */
+nav{background:rgba(11,23,41,.97)!important;border-bottom:1px solid rgba(255,255,255,.12)}
+.nav-in{display:flex!important;align-items:center!important;gap:clamp(14px,2vw,30px)!important;height:84px!important;flex-wrap:nowrap!important}
+.nav-in .brand{flex:0 0 auto;display:flex;align-items:center}
+.nav-in .brand img{height:52px!important;width:auto!important;display:block}
+@media(max-width:760px){.nav-in .brand img{height:44px!important}}
+</style><!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slades Plumbing &amp; Maintenance — Plumber, Ballarat</title>
+<meta name="description" content="Slades Plumbing &amp; Maintenance, Ballarat. Leaks, blocked drains, tap and toilet repairs, hot water and bathroom work. Call 0413 221 393.">
+<style>
+:root{--navy:#0d1b33;--navy2:#122544;--ink:#eef2f8;--dim:#9fb0c8;--line:rgba(255,255,255,.12);--acc:#3f7fd0;--acc2:#f0c419}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--ink);font:17px/1.6 "Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+a{color:inherit}
+nav{position:sticky;top:0;z-index:40;background:rgba(13,27,51,.94);border-bottom:2px solid var(--acc);backdrop-filter:blur(8px)}
+.nav-in{display:flex;align-items:center;gap:clamp(12px,2vw,26px);height:78px}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand img{height:46px;width:auto;display:block}
+nav .links{display:flex;gap:clamp(12px,1.8vw,24px);margin-left:auto}
+nav .links a{text-decoration:none;font-size:15px;color:var(--dim)}
+nav .links a:hover{color:#fff}
+.tel{font-weight:800;text-decoration:none;color:#fff;border-bottom:2px solid var(--acc2);padding-bottom:2px;white-space:nowrap}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:#fff;padding:8px 10px;font-size:18px}
+header.hero{position:relative;min-height:min(78vh,660px);display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('assets/hero.jpg') center 40%/cover no-repeat}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,18,34,.72) 0%,rgba(9,18,34,.55) 45%,rgba(9,18,34,.94) 100%)}
+.hero-in{position:relative;z-index:2;padding:clamp(40px,7vw,90px) 0 clamp(34px,5vw,60px);width:100%}
+h1{margin:0 0 18px;font-size:clamp(32px,5.2vw,64px);line-height:1.02;letter-spacing:-.035em;max-width:17ch}
+h1 em{font-style:normal;color:var(--acc2)}
+.hero p{max-width:52ch;color:#cfd9e6;margin:0 0 22px;font-size:clamp(15.5px,1.5vw,18px)}
+.cta{display:inline-flex;gap:10px;align-items:center;background:var(--acc);color:#fff;text-decoration:none;font-weight:800;padding:14px 22px;border-radius:2px}
+.cta:hover{background:#4f8fdd}
+.cta.ghost{background:transparent;border:1px solid var(--line);font-weight:600}
+section{padding:clamp(44px,6vw,80px) 0;border-top:1px solid var(--line)}
+h2{margin:0 0 10px;font-size:clamp(22px,2.8vw,34px);letter-spacing:-.02em}
+.lead{color:var(--dim);margin:0 0 26px;max-width:62ch}
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.svc article{background:var(--navy);padding:22px 20px}
+.svc h3{margin:0 0 6px;font-size:17px}
+.svc p{margin:0;color:var(--dim);font-size:15px}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.why article{border-left:2px solid var(--acc);padding:4px 0 4px 14px}
+.why h3{margin:0 0 6px;font-size:16px}
+.why p{margin:0;color:var(--dim);font-size:14.5px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gal figure{margin:0;position:relative;overflow:hidden;background:var(--navy2)}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{font-size:12.5px;color:var(--dim);padding:8px 2px 0}
+.areas{display:flex;flex-wrap:wrap;gap:8px}
+.areas span{border:1px solid var(--line);padding:7px 13px;font-size:14px;color:var(--dim)}
+details.faq{border-bottom:1px solid var(--line);padding:14px 0}
+details.faq summary{cursor:pointer;font-weight:700;font-size:16px}
+details.faq .a{color:var(--dim);padding-top:8px;font-size:15px}
+form{background:var(--navy2);border:1px solid var(--line);padding:clamp(20px,3vw,30px);display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form .full{grid-column:1/-1}
+label{display:block;font-size:13px;color:var(--dim);margin-bottom:5px}
+input,textarea,select{width:100%;background:#0a1526;border:1px solid var(--line);color:#fff;padding:11px;font:inherit;font-size:15px}
+button{grid-column:1/-1;background:var(--acc);color:#fff;border:0;padding:14px;font:inherit;font-weight:800;cursor:pointer}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--dim);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){
+  nav .links{display:none}nav .links.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:#0b1729;padding:14px;border-bottom:1px solid var(--line)}
+  .burger{display:block}.svc,.why,.gal{grid-template-columns:1fr}form{grid-template-columns:1fr}
+}
+</style><style id="lb-skin">/* skin 1 — editorial serif, hairline rules, left hero */
+ .hero h1, header h1{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-.02em!important;font-weight:600!important;text-transform:none!important}
+ h2{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-.015em!important;text-transform:none!important;font-weight:600!important}
+ h2{border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:.35em}
+ [class*=card],[class*=tile],[class*=item]{border-radius:0!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:none!important;background:transparent!important}
+ section{padding-block:clamp(52px,8vw,104px)!important}
+ </style><style id="lb-skin-guard">@media(max-width:900px){
+ .hero-in,.hero-inner{grid-template-columns:1fr!important;display:block!important}
+ [class*=card]{transform:none!important;margin-bottom:12px!important}
+ [class*=grid]{grid-template-columns:1fr!important;gap:12px!important;overflow-x:clip!important}
+ section,.hero,header{overflow-x:clip!important}
+ img,video,svg{max-width:100%!important;height:auto}
+ h1,h2{overflow-wrap:anywhere!important}
+}</style><style id="lb-hdr-centre">
+/* the brand here is the logo alone: centre it in the bar instead of parking it on one edge */
+nav{position:relative!important;display:flex!important;align-items:center!important;gap:clamp(10px,1.8vw,26px)!important}
+.brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important;z-index:2}
+.brand img{height:clamp(38px,3.4vw,54px)!important;width:auto!important;display:block!important}
+nav > a:not(.brand){margin-left:auto}
+nav > a:not(.brand) ~ a{margin-left:0}
+@media(max-width:900px){
+  .brand{position:static!important;transform:none!important;margin-right:auto!important}
+  .brand img{height:38px!important}
+}
+</style><style id="lb-bar-grow">
+nav{height:auto!important;min-height:0!important}
+nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:76px!important;padding-block:10px!important;flex-wrap:wrap!important}
+</style><style id="lb-hdr-clean3">
+.brand img,.bar .brand img{height:clamp(40px,3.6vw,56px)!important;width:auto!important;display:block!important;
+  filter:none!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
+.brand{display:flex!important;align-items:center!important;gap:10px!important;background:transparent!important}
+</style><style id="lb-slades-hdr">
+.nav-in{min-height:92px!important;display:flex!important;align-items:center!important;gap:clamp(14px,2.2vw,30px)!important}
+.nav-in .brand img{height:clamp(52px,4.4vw,68px)!important;width:auto!important;display:block!important}
+.nav-in a{font-size:15.5px!important;color:#f2f6fb!important}
+.nav-in > a[href^="tel"]{font-weight:800!important;color:#ffd84d!important;text-decoration:none!important;white-space:nowrap!important}
+@media(max-width:900px){.nav-in{flex-wrap:wrap!important;justify-content:center!important;row-gap:8px!important;padding-block:12px!important}}
+</style></head>
+<body>
+<nav><div class="wrap nav-in">
+  <a class="brand" href="#top" aria-label="Slades Plumbing and Maintenance"><img src="assets/logo-header-clean.png" alt=""></a>
+  <div class="links" id="navlinks">
+    <a href="#services">Services</a><a href="#work">Work</a><a href="#why">Why us</a><a href="#areas">Areas</a><a href="#faq">FAQ</a>
+  </div>
+  <a class="tel" href="tel:0413221393">0413 221 393</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+</div></nav>
+
+<header class="hero" id="top"><div class="hero-bg"></div><div class="wrap hero-in">
+  <h1>Ballarat plumbing, <em>sorted properly.</em></h1>
+  <p>Leaks, blocked drains, taps, toilets, hot water and bathroom work — diagnosed, priced and fixed by a
+  plumber who turns up when he says he will.</p>
+  <a class="cta" href="tel:0413221393">Call 0413 221 393</a>
+  <a class="cta ghost" href="#quote" style="margin-left:8px">Send a job</a>
+</div></header>
+
+<main>
+<section id="services"><div class="wrap">
+  <h2>What we take on</h2>
+  <p class="lead">Everyday repairs through to planned work. If it carries water, drains it or heats it, it is our job.</p>
+  <div class="svc">
+    <article><h3>Leaks &amp; burst pipes</h3><p>Traced, isolated and repaired — including under-sink and behind-wall pipework.</p></article>
+    <article><h3>Blocked drains</h3><p>Drain machine and jetter work, plus a camera to find what caused it so it does not come back.</p></article>
+    <article><h3>Taps, toilets &amp; cisterns</h3><p>Washers, cartridges, full tap replacement, cistern and inlet valve repairs.</p></article>
+    <article><h3>Hot water</h3><p>Repairs and replacement across electric, gas and heat-pump units.</p></article>
+    <article><h3>Bathroom &amp; kitchen work</h3><p>Vanity, sink and appliance installs, rough-in and fit-off for renovations.</p></article>
+    <article><h3>Maintenance</h3><p>Rental and property upkeep — the small jobs kept small before they turn into ceilings.</p></article>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <h2>Recent work</h2>
+  <p class="lead">A look at the kind of work that comes through — bathroom fit-offs and valve work.</p>
+  <div class="gal">
+    <figure><img src="assets/work_01.jpg" alt="Bathroom fit-off"><figcaption>Bathroom fit-off</figcaption></figure>
+    <figure><img src="assets/work_02.jpg" alt="Bathroom renovation"><figcaption>Renovation rough-in</figcaption></figure>
+    <figure><img src="assets/work_03.jpg" alt="Valve work"><figcaption>Valve and pipework</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="why"><div class="wrap">
+  <h2>How we work</h2>
+  <div class="why">
+    <article><h3>Turn up, or call</h3><p>You get a time window and a call if it moves. No sitting around a house all day.</p></article>
+    <article><h3>Priced before it starts</h3><p>The job is explained and the price agreed before tools come out.</p></article>
+    <article><h3>Left clean</h3><p>Drop sheets down, offcuts and old parts taken away, the room left as it was found.</p></article>
+  </div>
+</div></section>
+
+<section id="areas"><div class="wrap">
+  <h2>Where we work</h2>
+  <p class="lead">Ballarat and the surrounding towns.</p>
+  <div class="areas">
+    <span>Ballarat Central</span><span>Ballarat East</span><span>Wendouree</span><span>Sebastopol</span><span>Delacombe</span>
+    <span>Alfredton</span><span>Mount Clear</span><span>Buninyong</span><span>Brown Hill</span><span>Golden Point</span>
+    <span>Lake Wendouree</span><span>Canadian</span>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>Questions</h2>
+  <details class="faq"><summary>Do you charge a call-out fee?</summary><div class="a">The attendance and the first part of the job are quoted up front, so you know the number before work starts.</div></details>
+  <details class="faq"><summary>Can you get to a burst pipe today?</summary><div class="a">Bursts and major leaks are prioritised — call rather than message, and shut the water off at the meter if you can.</div></details>
+  <details class="faq"><summary>Do you do rental and property maintenance?</summary><div class="a">Yes. Small repairs, compliance items and turnover work for landlords and agents.</div></details>
+  <details class="faq"><summary>Do you work outside Ballarat?</summary><div class="a">The surrounding towns are covered. Further out, call and ask — it depends on the job.</div></details>
+</div></section>
+
+<section id="quote"><div class="wrap">
+  <h2>Send a job through</h2>
+  <p class="lead">Tell us what is happening and where. For anything urgent, call instead.</p>
+  <form id="lbq-form" data-site="slades-plumbing-maintenance">
+    <div><label for="n">Name</label><input id="n" name="name" required></div>
+    <div><label for="p">Phone</label><input id="p" name="phone" required inputmode="tel"></div>
+    <div class="full"><label for="a">Address or suburb</label><input id="a" name="suburb"></div>
+    <div class="full"><label for="s">What needs doing?</label><select id="s" name="service">
+      <option>Leak or burst pipe</option><option>Blocked drain</option><option>Tap, toilet or cistern</option>
+      <option>Hot water</option><option>Bathroom or kitchen work</option><option>Maintenance</option><option>Something else</option>
+    </select></div>
+    <div class="full"><label for="m">Details</label><textarea id="m" name="message" rows="3"></textarea></div>
+    <button type="submit">Send request</button>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;width:100%">
+  <span>Slades Plumbing &amp; Maintenance — Ballarat</span><a class="tel" href="tel:0413221393">0413 221 393</a>
+</div></footer>
+
+<script>
+document.getElementById('burger').addEventListener('click',function(){var l=document.getElementById('navlinks');
+  var o=l.classList.toggle('open'); this.setAttribute('aria-expanded',o);});
+document.getElementById('lbq-form').addEventListener('submit',function(e){e.preventDefault();var f=e.currentTarget,b=f.querySelector('button');
+  b.textContent='Sending…';b.disabled=true;
+  fetch('https://laydback-hq.tail5b3740.ts.net/rest/v1/quote_requests',{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=minimal'},
+    body:JSON.stringify({site:f.dataset.site,name:f.name.value,phone:f.phone.value,suburb:f.suburb.value,service:f.service.value,message:f.message.value})})
+  .then(function(){b.textContent='Thanks — we will call you back';})
+  .catch(function(){b.textContent='Call 0413 221 393';b.disabled=false;});});
+</script>
+</body></html>

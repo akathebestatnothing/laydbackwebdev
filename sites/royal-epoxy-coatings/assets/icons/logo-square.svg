@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256"><g transform="translate(5.12 -14.08) scale(0.96)">
+  <title id="title">Royal Epoxy Coatings logo</title>
+  <defs>
+    <path id="flake" d="M0 0 L4 0 L4 4 L0 4 Z"/>
+  </defs>
+  <!-- Floor plane in perspective: parallelogram base, larger and centered -->
+  <path fill="#101113" d="M16 144 L240 144 L224 192 L32 192 Z"/>
+  <!-- Flake scatter: geometric flecks as paths -->
+  <g fill="#000000">
+    <use href="#flake" x="48" y="156"/>
+    <use href="#flake" x="88" y="158" transform="scale(0.75)"/>
+    <use href="#flake" x="128" y="154"/>
+    <use href="#flake" x="168" y="160" transform="scale(0.75)"/>
+    <use href="#flake" x="56" y="170" transform="scale(0.75)"/>
+    <use href="#flake" x="104" y="172"/>
+    <use href="#flake" x="144" y="168" transform="scale(0.75)"/>
+    <use href="#flake" x="184" y="174" transform="scale(0.75)"/>
+    <use href="#flake" x="72" y="182" transform="scale(0.5)"/>
+    <use href="#flake" x="136" y="180" transform="scale(0.5)"/>
+  </g>
+  <!-- Roller wet sheen strip: EXACT 15° diagonal highlight (tan 15° = 0.2679) -->
+  <!-- From x=28 to x=228 (run 200), rise = 200 * tan(15°) ≈ 53.6 -->
+  <path fill="#8a8f95" d="M28 128 L228 182 L232 186 L32 132 Z"/>
+  <!-- Expansion line: taped joint at exact horizontal -->
+  <path fill="#8a8f95" d="M16 144 L240 144 L240 148 L16 148 Z"/>
+  <!-- Cove fillet: quarter-round at wall-floor junction (left side) -->
+  <path fill="#101113" d="M32 192 A 16 16 0 0 0 48 176 L32 176 Z"/>
+  <!-- Monogram "RE" as geometric letterforms - constructed from paths -->
+  <!-- R: vertical stem, bowl, diagonal leg -->
+  <path fill="#101113" d="M84 140 L84 104 L108 104 L108 122 L92 122 L92 110 L104 110 L104 140 Z M104 110 L116 110 L116 118 L104 118 Z M104 126 L116 126 L116 134 L104 134 Z M104 140 L116 126"/>
+  <!-- E: vertical stem, three horizontals -->
+  <path fill="#101113" d="M124 140 L124 104 L148 104 L148 108 L128 108 L128 122 L144 122 L144 126 L128 126 L128 140 Z"/>
+</g></svg>

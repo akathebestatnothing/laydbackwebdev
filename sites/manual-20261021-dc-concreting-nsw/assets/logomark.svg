@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="DC Concreting NSW monogram">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7c25e"/><stop offset="1" stop-color="#c99a22"/></linearGradient></defs>
+  <rect x="3" y="3" width="114" height="114" rx="18" fill="none" stroke="url(#g)" stroke-width="3"/>
+  <text x="60" y="80" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="60" fill="url(#g)" letter-spacing="2">DC</text>
+  <rect x="30" y="92" width="60" height="5" rx="2.5" fill="#e7c25e"/>
+</svg>

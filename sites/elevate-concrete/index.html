@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elevate Concrete | Concrete construction | South East QLD</title>
+<meta name="description" content="Elevate Concrete pours driveways, house and shed slabs, footings, exposed aggregate, paths and crossovers in South East QLD. Call 0437 496 677 for a quote.">
+<link rel="icon" href="favicon.png">
+<style>
+:root{
+  --bar:#000000;
+  --bg:#08090b;
+  --bg2:#0c0e11;
+  --panel:#101317;
+  --ink:#f4f5f6;
+  --muted:#a7aeb6;
+  --line:#23272d;
+  --acc:#f90316;          /* logo red - headline accent / text */
+  --acc-soft:#f90316;     /* lighter tint of the same logo hue */
+  --acc-deep:#8c0413;     /* deep shade of the same logo hue - CTA fill */
+  --on-acc:#ffffff;
+  --slab-grid:rgba(255,255,255,.045);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.62 "Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;overflow-x:hidden}
+.wrap{width:100%;max-width:1220px;margin:0 auto;padding:0 clamp(16px,4.2vw,52px)}
+h1,h2,h3{font-weight:800;letter-spacing:-.026em;margin:0}
+h1{font-size:clamp(32px,5.6vw,74px);line-height:1.02}
+h2{font-size:clamp(22px,2.9vw,38px);line-height:1.08}
+p{margin:0 0 1em}
+a{color:inherit}
+.tel{white-space:nowrap;font-weight:800;text-decoration:none}
+.rv{opacity:1}
+html.js .rv{opacity:0;transform:translateY(16px)}
+html.js .rv.on{opacity:1;transform:none}
+.rv{transition:opacity .5s ease,transform .5s ease}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}
+}
+
+/* ---------- header: the client's own lockup artwork, nothing typed ---------- */
+.bar{background:var(--bar);border-bottom:1px solid #1b1d20;position:sticky;top:0;z-index:40}
+.bar-in{display:flex;align-items:center;gap:clamp(12px,2vw,26px);flex-wrap:wrap;padding:10px 0}
+.brand{display:flex;align-items:center;text-decoration:none;min-width:0}
+.brand img{height:clamp(50px,6.4vw,84px);width:auto;display:block}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+nav.tabs{display:flex;gap:clamp(12px,1.7vw,24px);margin-left:auto;flex-wrap:wrap}
+nav.tabs a{font-size:14.5px;color:var(--muted);text-decoration:none;padding:4px 0}
+nav.tabs a:hover{color:var(--ink)}
+.bar .tel{color:var(--ink);border-bottom:2px solid var(--acc);font-size:15px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;perspective:1200px;background:#000;color:#fff;overflow:hidden}
+.hero .shot{position:absolute;inset:0;background:url(assets/work-2.jpg) center 42%/cover no-repeat}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(102deg,rgba(6,6,7,.90) 0%,rgba(6,6,7,.80) 38%,rgba(6,6,7,.50) 66%,rgba(6,6,7,.26) 100%)}
+.hero .wrap{position:relative;z-index:3;padding-top:clamp(44px,6.4vw,88px);padding-bottom:clamp(40px,6vw,80px)}
+.kicker{color:#fff;font-size:15px;font-weight:600;letter-spacing:0;margin:0 0 16px;opacity:.94}
+.hero h1{max-width:19ch;color:#fff}
+.hero h1 em{font-style:normal;color:var(--acc-soft)}
+.hero .sub{max-width:60ch;color:#e2e4e6;margin-top:18px;font-size:clamp(16px,1.5vw,18.5px)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;padding:15px 26px;text-decoration:none;font-weight:800;font-size:15.5px;border-radius:2px;border:1px solid transparent}
+.btn-fill{background:var(--acc-deep);color:var(--on-acc)}
+.btn-ghost{border-color:rgba(255,255,255,.55);color:#fff}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.30);margin-top:clamp(28px,4vw,44px);border:1px solid rgba(255,255,255,.30)}
+.spec div{background:rgba(6,6,7,.62);padding:15px 17px}
+.spec b{display:block;font-size:15px;color:#fff;font-weight:700}
+.spec span{font-size:14px;color:#cfd3d7}
+#heroCanvas{display:none}
+
+/* ---------- sections ---------- */
+section{padding:clamp(48px,6.4vw,92px) 0;border-top:1px solid var(--line)}
+.lead{max-width:62ch;color:var(--muted)}
+.grid-flow{position:relative;background:var(--bg2);
+  background-image:linear-gradient(var(--slab-grid) 1px,transparent 1px),linear-gradient(90deg,var(--slab-grid) 1px,transparent 1px);
+  background-size:86px 86px}
+
+/* ruled scope ledger */
+.ledger{border-top:1px solid var(--line);margin-top:26px}
+.ledger .row{display:grid;grid-template-columns:minmax(0,236px) minmax(0,1fr);gap:clamp(12px,3vw,40px);padding:20px 0;border-bottom:1px solid var(--line)}
+.ledger .row b{font-size:17px}
+.ledger .row p{margin:0;color:var(--muted);font-size:16px}
+.ledger .row span{display:block;color:var(--acc-soft);font-size:13px;font-weight:700;margin-bottom:4px}
+
+/* stages */
+.stages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,26px);margin-top:26px}
+.stage{background:var(--panel);border:1px solid var(--line);padding:20px}
+.stage i{display:block;font-style:normal;color:var(--acc-soft);font-weight:800;font-size:13px;margin-bottom:10px}
+.stage h3{font-size:16.5px;margin-bottom:8px}
+.stage p{margin:0;color:var(--muted);font-size:15px}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(12px,2vw,20px);margin-top:26px}
+.work figure{margin:0;background:var(--panel);border:1px solid var(--line)}
+.work img{display:block;width:100%;height:auto}
+.work figcaption{padding:12px 14px;font-size:14px;color:var(--muted)}
+
+/* faq */
+.faq{margin-top:24px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:16.5px}
+.faq p{margin:12px 0 0;color:var(--muted)}
+
+/* quote */
+#lbq{--lbq-bg:var(--bg2);--lbq-ink:var(--ink);--lbq-muted:var(--muted);--lbq-line:var(--line);--lbq-panel:var(--panel);--lbq-accent:var(--acc-deep)}
+#lbq{background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq .split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(20px,4vw,54px);align-items:start;margin-top:8px}
+#lbq label{display:block;font-size:14px;color:var(--lbq-muted);margin:0 0 6px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 13px;background:var(--lbq-panel);border:1px solid var(--lbq-line);color:inherit;font:inherit;font-size:15px;margin-bottom:14px}
+#lbq textarea{min-height:104px;resize:vertical}
+#lbq button{width:100%;padding:15px;background:var(--lbq-accent);color:#fff;border:0;font:inherit;font-weight:800;font-size:15.5px;cursor:pointer}
+#lbq .st{margin:12px 0 0;font-size:14.5px;color:var(--lbq-muted);min-height:1.3em}
+#lbq .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq .aside{border-left:3px solid var(--acc);padding-left:18px}
+
+footer{background:#05060700;border-top:1px solid var(--line);padding:30px 0;font-size:14.5px;color:var(--muted)}
+footer .fin{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--ink)}
+
+@media (max-width:980px){
+  .spec,.stages{grid-template-columns:1fr 1fr}
+  #lbq .split{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  nav.tabs{order:3;width:100%;margin-left:0;gap:14px}
+  .brand img{height:clamp(44px,11vw,62px)}
+  .spec,.stages{grid-template-columns:1fr}
+  .ledger .row{grid-template-columns:1fr;gap:6px}
+  .hero .sub{font-size:16px}
+}
+</style>
+<style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
+.brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style><style id="lb-brand-split">
+/* the logo's own artwork, pieces separated and sized to the bar instead of one shrunken lockup */
+.bar{--bar-h:104px}
+.wrap.bar-in{min-height:var(--bar-h)!important;align-items:center!important}
+.brand{display:flex!important;align-items:center!important;gap:14px!important;text-decoration:none!important}
+.brand .brand-bull{height:clamp(46px,4.6vw,66px)!important;width:auto!important;display:block!important}
+.brand .brand-words{display:block!important}
+.brand .brand-words img{height:clamp(30px,3vw,44px)!important;width:auto!important;display:block!important}
+.brand .vh{display:none!important}
+@media(max-width:820px){
+  .brand .brand-bull{height:40px!important}
+  .brand .brand-words img{height:26px!important}
+}
+</style></head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#top" aria-label="Elevate Concrete — concrete construction"><img class="brand-bull" src="assets/brand-bull.png" alt="" width="365" height="364"><span class="brand-words"><img src="assets/brand-word.png" alt="Elevate Concrete" width="612" height="177"></span></a>
+    <nav class="tabs" aria-label="Primary"><a href="#scope">Scope</a>
+      <a href="#pour">Pour day</a>
+      <a href="#work">Work</a>
+      <a href="#faq">FAQ</a>
+      <a href="#lbq">Quote</a>
+    </nav>
+    <a class="tel" href="tel:+61437496677">0437 496 677</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <div class="shot" role="img" aria-label="Finished exposed aggregate driveway"></div>
+    <div class="scrim"></div><!-- LB-3D-HERO --><canvas id="heroCanvas" width="1600" height="900" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="kicker rv">Concrete construction &middot; South East QLD</p>
+      <h1 class="rv">Slabs, driveways and crossovers. <em>Poured level, finished clean.</em></h1>
+      <p class="sub rv">Elevate Concrete sets out the job on the ground first, ties the steel and checks the formwork square, then pours. Driveways, house and shed slabs, footings, exposed aggregate, paths and council crossovers are all priced from what is actually there.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-fill" href="#lbq">Get a quote</a>
+        <a class="btn btn-ghost" href="tel:+61437496677">Call 0437 496 677</a>
+      </div>
+      <div class="spec rv">
+        <div><b>Exposed aggregate</b><span>Stone cast in and washed back the same day</span></div>
+        <div><b>Formwork &amp; steel</b><span>Set out, squared and tied before the truck</span></div>
+        <div><b>Paths &amp; crossovers</b><span>Paths, side access and driveway crossovers</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid-flow" id="scope">
+    <div class="wrap">
+      <h2 class="rv">What we pour</h2>
+      <p class="lead rv">Concreters get judged on the finish and the fall. Every job below starts with levels taken off the ground and the finish agreed before the first board goes down.</p>
+      <div class="ledger">
+        <div class="row rv"><b><span>01</span>Driveways &amp; crossovers</b><p>Excavated, formed and steel-reinforced, then poured and finished to an agreed fall so water runs away from the house and not toward it. Crossovers are formed to the right width for the driveway.</p></div>
+        <div class="row rv"><b><span>02</span>House &amp; shed slabs</b><p>Slab height set off the finished floor level, thickness and mesh sized to what is going on top, and the surface left flat enough to build straight off.</p></div>
+        <div class="row rv"><b><span>03</span>Footings &amp; set-out</b><p>Trenches dug to the plan, steel tied and checked for cover, and the set-out string-lined so the building sits square to the boundary.</p></div>
+        <div class="row rv"><b><span>04</span>Exposed aggregate</b><p>Aggregate cast into the surface and washed back evenly while the slab is still green, with the colour and stone mix agreed on a sample panel first.</p></div>
+        <div class="row rv"><b><span>05</span>Paths &amp; side access</b><p>Footpaths, side paths and step treads formed to consistent widths and finished broom or aggregate to suit the wet areas around the house.</p></div>
+        <div class="row rv"><b><span>06</span>Coloured &amp; decorative concrete</b><p>Oxide colours, release and saw-cut patterns chosen from a physical sample before the pour, so the slab that turns up is the slab that was priced.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pour">
+    <div class="wrap">
+      <h2 class="rv">How a pour runs</h2>
+      <p class="lead rv">Same four steps on a garden path and on a shed slab.</p>
+      <div class="stages">
+        <div class="stage rv"><i>STEP 01</i><h3>Set out &amp; levels</h3><p>We mark the extents on the ground, take the levels and confirm the finish and the fall with you on site before anything is cut.</p></div>
+        <div class="stage rv"><i>STEP 02</i><h3>Form &amp; steel</h3><p>Boards are set and pegged, mesh or bar tied and the subgrade compacted. Concrete is ordered once the box is square and true.</p></div>
+        <div class="stage rv"><i>STEP 03</i><h3>Pour day</h3><p>The truck is met on site and the load is placed, screeded and floated. Exposed aggregate is washed back the same day, not left to the next morning.</p></div>
+        <div class="stage rv"><i>STEP 04</i><h3>Finish &amp; cure</h3><p>Control joints are cut where the slab needs them, the formwork is stripped and the site is left swept and ready to use.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2 class="rv">Recent pours</h2>
+      <p class="lead rv">Driveway and slab work from the Elevate Concrete job book.</p>
+      <div class="work">
+        <figure class="rv"><img src="assets/work-1.jpg" alt="Exposed aggregate driveway surface with the aggregate washed back"><figcaption>Aggregate washed back across a driveway apron.</figcaption></figure>
+        <figure class="rv"><img src="assets/work-3.jpg" alt="Close view of a finished exposed aggregate slab with a garage behind"><figcaption>Aggregate finish running up to the garage line.</figcaption></figure>
+        <figure class="rv"><img src="assets/work-4.jpg" alt="Newly poured driveway with the formwork stripped"><figcaption>Driveway poured and formed, formwork stripped.</figcaption></figure>
+        <figure class="rv"><img src="assets/work-5.jpg" alt="Finished concrete driveway and crossover at a house"><figcaption>Driveway and crossover finished to the street.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="rv">Common questions</h2>
+      <div class="faq">
+        <details class="rv"><summary>Do you quote from the site or over the phone?</summary><p>From the site. The extents, access, levels and the finish are what decide the price, and guessing them over the phone is how quotes end up wrong.</p></details>
+        <details class="rv"><summary>How long before I can drive on a new driveway?</summary><p>It stays fenced while it cures and we tell you the day you can put a car on it. Exposed aggregate and coloured slabs are usually the slowest to come up to strength.</p></details>
+        <details class="rv"><summary>Can you match the existing concrete?</summary><p>Often, yes. Bring a photo of the existing slab and the finish and we will work the new pour to sit alongside it, joints lined up where the layout allows.</p></details>
+        <details class="rv"><summary>Do you do crossovers and council requirements?</summary><p>Paths and driveway crossovers are part of the work. Where a crossover needs council approval we build to the approved width and levels.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="lbq" aria-labelledby="lbq-h">
+    <div class="wrap">
+      <div class="split">
+        <div class="aside rv">
+          <h2 id="lbq-h">Get a quote</h2>
+          <p style="color:var(--muted)">Send through the job and we will come back with a price. If it is easier, call <a class="tel" href="tel:+61437496677">0437 496 677</a>.</p>
+        </div>
+        <form id="lbq-form" data-site="elevate-concrete" novalidate>
+          <label for="lbq-n">Name</label>
+          <input id="lbq-n" name="name" autocomplete="name" required>
+          <label for="lbq-p">Phone</label>
+          <input id="lbq-p" name="phone" type="tel" autocomplete="tel" required>
+          <label for="lbq-s">Suburb</label>
+          <input id="lbq-s" name="suburb" autocomplete="address-level2">
+          <label for="lbq-sv">What needs pouring?</label>
+          <select id="lbq-sv" name="service">
+            <option>Driveway or crossover</option>
+            <option>House or shed slab</option>
+            <option>Footings and set-out</option>
+            <option>Exposed aggregate</option>
+            <option>Path or side access</option>
+            <option>Coloured or decorative concrete</option>
+          </select>
+          <label for="lbq-m">Job details</label>
+          <textarea id="lbq-m" name="message" placeholder="Size, access, and when you would like it done"></textarea>
+          <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit">Send quote request</button>
+          <p class="st" id="lbq-st" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var B='https://laydback-hq.tail5b3740.ts.net';
+      var f=document.getElementById('lbq-form');
+      if(!f) return;
+      var st=document.getElementById('lbq-st'), btn=f.querySelector('button[type=submit]');
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        var d={}; new FormData(f).forEach(function(v,k){d[k]=v;});
+        if(d.website) return;
+        if(!d.name || !d.phone || !(d.message||'').trim()){
+          st.textContent='Please add your name, a phone number and a few words about the job.';
+          return;
+        }
+        btn.disabled=true; st.textContent='Sending\u2026';
+        fetch(B+'/functions/v1/quote-request',{
+          method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({site_id:f.dataset.site,business_name:'Elevate Concrete',name:d.name,phone:d.phone,suburb:d.suburb,service:d.service,message:d.message})
+        }).then(function(r){return r.json().catch(function(){return{};});})
+          .then(function(x){
+            if(x && x.success){f.reset();st.textContent="Thanks \u2014 the request is in and Elevate Concrete will be in touch.";}
+            else{throw new Error((x&&x.error)||'Could not send');}
+          })
+          .catch(function(err){st.textContent=(err&&err.message)?err.message:'Could not send \u2014 please call 0437 496 677.';})
+          .finally(function(){btn.disabled=false;});
+      });
+    })();
+    </script>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap fin">
+    <span>Elevate Concrete &middot; Concrete construction &middot; South East QLD</span>
+    <span><a class="tel" href="tel:+61437496677">0437 496 677</a> &middot; <a href="mailto:elevateconc@outlook.com.au">elevateconc@outlook.com.au</a></span>
+    <span><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -10% 0px',threshold:.08});
+    els.forEach(function(e){ io.observe(e); });
+  } else {
+    els.forEach(function(e){ e.classList.add('on'); });
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.rv:not(.on)').forEach(function(e){ e.classList.add('on'); });
+  },1200);
+})();
+</script>
+</body>
+</html>

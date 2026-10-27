@@ -1,0 +1,22 @@
+<svg width="188" height="80" viewBox="0 0 188 80" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="99 Electrical Solutions">
+  <!-- Circuit trace mark: distribution board, breakers, run, light fitting.
+       Same geometry as the 256px original, cropped to the drawing and stroked
+       for legibility at header size. -->
+  <defs>
+    <filter id="tg" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M14 68 H70 V12 H118 V68 H174" stroke="#c09048" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="miter" fill="none"/>
+  <rect x="6" y="60" width="16" height="16" stroke="#c09048" stroke-width="3.2" fill="none" rx="1"/>
+  <line x1="9" y1="65" x2="19" y2="65" stroke="#c09048" stroke-width="3" stroke-linecap="round"/>
+  <line x1="9" y1="71" x2="19" y2="71" stroke="#c09048" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="70" cy="68" r="3.4" fill="#c09048" filter="url(#tg)"/>
+  <circle cx="70" cy="12" r="3.4" fill="#c09048" filter="url(#tg)"/>
+  <circle cx="118" cy="12" r="3.4" fill="#c09048" filter="url(#tg)"/>
+  <circle cx="118" cy="68" r="3.4" fill="#c09048" filter="url(#tg)"/>
+  <circle cx="174" cy="68" r="3.4" fill="#c09048" filter="url(#tg)"/>
+  <ellipse cx="174" cy="52" rx="8" ry="6" stroke="#c09048" stroke-width="3.2" fill="none"/>
+  <line x1="174" y1="48" x2="174" y2="56" stroke="#c09048" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

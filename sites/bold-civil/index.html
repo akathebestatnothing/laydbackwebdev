@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en-AU" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bold Civil — Excavation & Concreting | Lake Macquarie / Newcastle / Hunter NSW</title>
+<meta name="description" content="Bold Civil — site cuts & detailed excavation, trenching & site preparation, concreting footings, slabs & driveways. Lake Macquarie, Newcastle, Hunter NSW. Call 0423 933 982.">
+<link rel="preload" as="image" href="assets/logo.jpg">
+<link rel="icon" href="assets/logo.jpg">
+<style>:root{
+  --bg:#15171a;
+  --ink:#e8e6e1;
+  --line:rgba(232,230,225,.08);
+  --accent:#09b4d0;
+  --accent-strong:#0694aa;
+  --muted:rgba(232,230,225,.55);
+  --card:#1a1d21;
+  --max:1200px;
+  --nav-h:72px;
+  --space-1:8px;
+  --space-2:16px;
+  --space-3:24px;
+  --space-4:40px;
+  --space-5:64px;
+  --space-6:96px;
+  --radius:0;
+}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id],header[id]{scroll-margin-top:calc(var(--nav-h,64px) + 12px)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+}
+@font-face{font-family:system-ui;font-style:normal;font-weight:400;src:local("system-ui")}
+@font-face{font-family:system-ui;font-style:normal;font-weight:700;src:local("system-ui")}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:400 18px/1.55 system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* === REVEAL SYSTEM (JS-gated + no-JS fallback + safety net) === */
+.no-js .rv{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(16px);transition: opacity .45s ease,transform .6s ease}
+.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:0;transform:none;transition:none}
+  .js .rv.on{opacity:1}
+}
+
+/* === LAYOUT PRIMITIVES === */
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--space-3)}
+.grid{display:grid;gap:var(--space-3)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
+.flex{align-items:center;justify-content:space-between;gap:var(--space-2);display:flex;flex-wrap:wrap}
+.section{padding:var(--space-5) 0}
+.section-tight{padding:var(--space-4) 0}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* === NAV === */
+.nav{
+  position:sticky;top:0;z-index:100;
+  height:var(--nav-h);
+  background:rgba(21,23,26,.92);
+  backdrop-filter:saturate(180%) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  height:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--space-3);
+}
+.nav-logo{display:flex;align-items:center;gap:var(--space-2);text-decoration:none}
+.nav-logo img{width:36px;height:36px;object-fit:contain}
+.nav-logo span{font-weight:700;font-size:1.05rem;letter-spacing:-.02em}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:var(--space-1);
+  padding:10px 18px;
+  background:var(--ink);
+  color:var(--bg);
+  border-radius:999px;
+  font-weight:600;font-size:.9rem;
+  text-decoration:none;
+  transition:background .15s ease,transform .15s ease;
+}
+.nav-cta:hover{background:var(--accent);color:#06080a;text-decoration:none;transform:translateY(-1px)}
+@media (max-width:520px){
+  .nav-cta span{display:none}
+}
+
+/* === HERO - CANVAS 3D TOPOGRAPHIC CONTOUR CUT-AND-FILL === */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:flex-start;
+  padding:16vh 4.5vw 8vh;
+  overflow:hidden;
+}
+.hero-canvas{
+  position:absolute;inset:0;z-index:0;
+  width:100%;height:100%;
+  display:block;
+}
+.hero-content{
+  position:relative;z-index:1;
+  max-width:720px;
+}
+.hero-badge{
+  display:inline-block;
+  padding:6px 14px;
+  background:rgba(232,230,225,.06);
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:var(--space-3);
+}
+.hero h1{
+  margin:0 0 var(--space-3);
+  font:700 clamp(2.8rem,5.5vw,4.8rem)/1.05 system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  letter-spacing:-.03em;
+  color:var(--ink);
+}
+.hero p{
+  margin:0;
+  font-size:clamp(1.1rem,2.2vw,1.35rem);
+  line-height:1.6;
+  color:var(--muted);
+  max-width:560px;
+}
+
+/* === SECTION HEADERS === */
+.section-head{
+  display:flex;flex-direction:column;gap:var(--space-1);
+  margin-bottom:var(--space-4);
+}
+.section-label{
+  font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);
+}
+.section-head h2{
+  margin:0;
+  font:700 clamp(1.8rem,3.5vw,2.8rem)/1.1 system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+
+/* === SERVICE CARDS (terraced asymmetric cards) === */
+.service-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:var(--space-4);
+  position:relative;
+  overflow:hidden;
+}
+.service-card::before{
+  content:"";
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--accent),transparent 70%);
+  opacity:0;transition:opacity .3s ease;
+}
+.service-card:hover::before{opacity:1}
+.service-icon{
+  width:48px;height:48px;
+  stroke:var(--accent);
+  stroke-width:1.5;
+  margin-bottom:var(--space-2);
+}
+.service-card h3{
+  margin:0 0 var(--space-1);
+  font:700 1.25rem/1.2 system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  letter-spacing:-.01em;
+}
+.service-card p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* === WHY BOLD === */
+.why-bold{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  padding:var(--space-4) var(--space-4) var(--space-4) calc(var(--space-4) + 16px);
+  position:relative;
+}
+.why-bold::before{
+  content:"";
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--accent);
+}
+.why-bold h3{margin:0 0 var(--space-1);font:700 1.35rem/1.2 system-ui;color:var(--ink)}
+.why-bold p{margin:0;color:var(--muted)}
+
+/* === PROCESS STEPS === */
+.process-step{
+  display:flex;gap:var(--space-3);
+  padding:var(--space-3) 0;
+  border-top:1px solid var(--line);
+}
+.process-step:first-child{border-top:none}
+.process-num{
+  flex:0 0 48px;
+  font:700 2.5rem/1 system-ui;
+  color:var(--line);
+  letter-spacing:-.02em;
+}
+.process-text h4{margin:0 0 4px;font:700 1.1rem/1.3 system-ui;color:var(--ink)}
+.process-text p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* === SERVICE AREA === */
+.service-area{
+  display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2);
+  padding:var(--space-3) 0;
+}
+.service-area-label{
+  font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);
+}
+.service-area-list{
+  display:flex;flex-wrap:wrap;gap:var(--space-1);
+  margin:0;padding:0;list-style:none;
+}
+.service-area-list li{
+  padding:6px 14px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:999px;
+  font-size:.85rem;color:var(--ink);
+}
+
+/* === QUOTE FORM SECTION (injected #lbq) === */
+.quote-section{
+  background:var(--ink);
+  color:#fff;
+}
+.quote-section .section-label{color:var(--accent)}
+.quote-section h2{color:#fff}
+#lbq{width:100%}
+
+/* === FOOTER === */
+.footer{
+  background:var(--ink);
+  color:var(--bg);
+  padding:var(--space-5) 0 var(--space-4);
+}
+.footer-grid{
+  display:grid;gap:var(--space-4);
+  grid-template-columns:2fr 1fr 1fr;
+}
+@media (max-width:700px){
+  .footer-grid{grid-template-columns:1fr}
+}
+.footer-brand img{width:40px;height:40px;object-fit:contain;margin-bottom:var(--space-2)}
+.footer-brand p{margin:0;color:rgba(21,23,26,.6);font-size:.9rem;max-width:280px}
+.footer-title{font:700 1rem/1.3 system-ui;margin:0 0 var(--space-2)}
+.footer-links{display:flex;flex-direction:column;gap:var(--space-1);margin:0;padding:0;list-style:none}
+.footer-links a{color:rgba(21,23,26,.75);font-size:.9rem;transition:color .15s}
+.footer-links a:hover{color:var(--bg);text-decoration:none}
+.footer-bottom{
+  margin-top:var(--space-5);
+  padding-top:var(--space-3);
+  border-top:1px solid rgba(21,23,26,.08);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-2);
+  font-size:.8rem;color:rgba(21,23,26,.45);
+}
+
+/* === UTILITIES === */
+.text-center{text-align:center}
+.mt-1{margin-top:var(--space-1)}
+.mt-2{margin-top:var(--space-2)}
+.mt-3{margin-top:var(--space-3)}
+.mt-4{margin-top:var(--space-4)}
+.mb-1{margin-bottom:var(--space-1)}
+.mb-2{margin-bottom:var(--space-2)}
+.mb-3{margin-bottom:var(--space-3)}
+.mb-4{margin-bottom:var(--space-4)}
+</style>
+</head><body>
+<script>
+// === ENABLE JS REVEAL ===
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
+</script>
+
+<nav class="nav rv" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Bold Civil home">
+      <img src="assets/logo.jpg" alt="" aria-hidden="true">
+      <span>Bold Civil</span>
+    </a>
+    <a class="nav-cta" href="tel:+61423933982" aria-label="Call Bold Civil">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span>0423 933 982</span>
+    </a>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero rv" aria-labelledby="hero-title">
+    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="container hero-content">
+      <span class="hero-badge">Excavation & Concreting</span>
+      <h1 id="hero-title">Cut deep. Build solid.</h1>
+      <p>Site cuts & detailed excavation, trenching & site preparation, concreting footings, slabs & driveways — delivered to grade across Lake Macquarie, Newcastle & the Hunter.</p>
+    </div>
+  </section>
+
+  <section class="section services rv" aria-labelledby="services-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="section-label">What we do</span>
+        <h2 id="services-title">Excavation & concrete works</h2>
+      </header>
+      <div class="grid grid-3" role="list">
+        <article class="service-card rv" role="listitem">
+          <svg class="service-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 52v-36a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4v36" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 52h40" stroke="currentColor" stroke-width="1.5"/><path d="M16 16v36M24 16v36M32 16v36M40 16v36M48 16v36" stroke="currentColor" stroke-width="1"/></svg>
+          <h3>Site Cuts & Detailed Excavation</h3>
+          <p>Precision cut-and-fill for building platforms, split-level homes and retaining wall footings. Laser-levelled set-out, batter trimming, spoil removal or balanced on-site.</p>
+        </article>
+        <article class="service-card rv" role="listitem">
+          <svg class="service-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 36v-12a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4v12" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 36h48" stroke="currentColor" stroke-width="1.5"/><path d="M16 24v12M24 24v12M32 24v12M40 24v12M48 24v12" stroke="currentColor" stroke-width="1"/></svg>
+          <h3>Trenching & Site Preparation</h3>
+          <p>Service trenches, stormwater & sewer runs, footing beams and pad excavations. Shored where required, backfilled and compacted to spec.</p>
+        </article>
+        <article class="service-card rv" role="listitem">
+          <svg class="service-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 44v-28a4 4 0 0 1 4-4h36a4 4 0 0 1 4 4v28" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 44h40" stroke="currentColor" stroke-width="1.5"/><path d="M16 20v24M24 20v24M32 20v24M40 20v24M48 20v24" stroke="currentColor" stroke-width="1"/></svg>
+          <h3>Concreting — Footings, Slabs & Driveways</h3>
+          <p>Strip & pad footings, waffle & raft slabs, drop edge beams, exposed aggregate & broom-finish driveways. Formwork, reinforcement, pour & finish to engineer's marks.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why-bold rv" aria-labelledby="why-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="section-label">Why Bold Civil</span>
+        <h2 id="why-title">One crew. One standard. Every site.</h2>
+      </header>
+      <div class="why-bold rv">
+        <h3>Owner-operated, no subcontracting</h3>
+        <p>Same crew sets out, excavates, forms and pours. You deal with the operator who runs the machine — no handoffs, no blame-shifting. Lake Macquarie, Newcastle and Hunter ground conditions, council requirements and access constraints are known, not guessed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process rv" aria-labelledby="process-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="section-label">How we work</span>
+        <h2 id="process-title">Project flow — ground to slab</h2>
+      </header>
+      <div class="process-step rv">
+        <div class="process-num">01</div>
+        <div class="process-text">
+          <h4>Set-out & inspection</h4>
+          <p>Laser-levelled grid to engineer's marks, penetration sleeves located, formwork inspected before works begin.</p>
+        </div>
+      </div>
+      <div class="process-step rv">
+        <div class="process-num">02</div>
+        <div class="process-text">
+          <h4>Excavation & sub-base</h4>
+          <p>Cut to design level, unsuitable material removed, approved fill placed and compacted in layers. Vapour barrier and sand bed where specified.</p>
+        </div>
+      </div>
+      <div class="process-step rv">
+        <div class="process-num">03</div>
+        <div class="process-text">
+          <h4>Reinforcement & formwork</h4>
+          <p>Mesh and bar chaired and tied to cover specs. Formwork braced, joints sealed, step-downs and thickenings formed for edge beams and internal stiffening.</p>
+        </div>
+      </div>
+      <div class="process-step rv">
+        <div class="process-num">04</div>
+        <div class="process-text">
+          <h4>Pour, finish & cure</h4>
+          <p>Concrete placed to grade, laser-screeded, finished to spec — broom, trowel or exposed aggregate. Seven-day wet cure, control joints cut, site cleaned, paperwork issued.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section service-area rv" aria-labelledby="area-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="section-label">Where we work</span>
+        <h2 id="area-title">Service area</h2>
+      </header>
+      <div class="service-area">
+        <span class="service-area-label">Lake Macquarie · Newcastle · Hunter NSW</span>
+        <ul class="service-area-list" role="list">
+          <li>Lake Macquarie</li>
+          <li>Newcastle</li>
+          <li>Charlestown</li>
+          <li>Belmont</li>
+          <li>Swansea</li>
+          <li>Toronto</li>
+          <li>Morisset</li>
+          <li>Warners Bay</li>
+          <li>Speers Point</li>
+          <li>Cessnock</li>
+          <li>Maitland</li>
+          <li>Hunter Valley</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section quote-section rv" aria-labelledby="quote-title">
+    <div class="container">
+      <header class="section-head">
+        <span class="section-label">Start a project</span>
+        <h2 id="quote-title">Request a quote</h2>
+      </header>
+    </div>
+  </section>
+</main>
+
+<footer class="footer rv" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.jpg" alt="" aria-hidden="true">
+        <p>Bold Civil — Excavation & Concreting. Site cuts, trenching, footings, slabs & driveways. Lake Macquarie | Newcastle | Hunter NSW.</p>
+      </div>
+      <nav aria-label="Contact">
+        <h3 class="footer-title">Contact</h3>
+        <ul class="footer-links">
+          <li><a href="tel:+61423933982">0423 933 982</a></li>
+          <li><a href="mailto:boldcivil@outlook.com">boldcivil@outlook.com</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Social">
+        <h3 class="footer-title">Follow</h3>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/boldcivil/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/boldcivil/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Bold Civil. All rights reserved.</span>
+    </div>
+  </div>
+<section id="lbq" class="v3" aria-labelledby="lbq-h">
+  <style>
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto}
+#lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
+#lbq p.lbq-s{margin:0 0 26px;color:var(--lbq-muted);max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
+#lbq textarea{min-height:96px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#0b0e12;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted);text-transform:none;letter-spacing:0}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* v1 card */
+#lbq.v1 .lbq-card{background:var(--lbq-panel);border:1px solid var(--lbq-line);border-radius:14px;padding:26px}
+#lbq.v1 .lbq-g{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+#lbq.v1 .lbq-full{grid-column:1/-1}
+@media(max-width:640px){#lbq.v1 .lbq-g{grid-template-columns:1fr}}
+/* v2 band */
+#lbq.v2{background:var(--lbq-panel);border-top:1px solid var(--lbq-line);border-bottom:1px solid var(--lbq-line)}
+#lbq.v2 .lbq-g{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
+#lbq.v2 .lbq-full{grid-column:1/-1}
+#lbq.v2 .lbq-hd{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}
+@media(max-width:760px){#lbq.v2 .lbq-g{grid-template-columns:1fr}#lbq.v2 .lbq-hd{display:block}}
+/* v3 split */
+#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+#lbq.v3 .lbq-g{display:grid;gap:12px}
+#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
+@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
+/* v4 minimal */
+#lbq.v4 .lbq-w{max-width:620px}
+#lbq.v4 input,#lbq.v4 textarea{border:0;border-bottom:1px solid var(--lbq-line);border-radius:0;background:transparent;padding:11px 2px}
+#lbq.v4 .lbq-g{display:grid;gap:16px}
+
+/* mobile overflow guard 2026-10-14 */
+html,body{overflow-x:hidden}
+@media (max-width:820px){
+  h1,h2,h3,.h1,.hero h1,.sec-title,.k,.kicker,.kick,.eyebrow,.tag-line,.tag,.hero-kicker,.hero-sub,.lead{
+    white-space:normal!important;overflow-wrap:anywhere;word-break:break-word;max-width:100%!important}
+  .hero-kicker,.k,.kicker,.kick,.eyebrow,.tag{font-size:clamp(10px,3.1vw,13px)!important;letter-spacing:.22em!important}
+  h1,.h1{font-size:clamp(26px,10.5vw,54px)!important;line-height:1.05!important}
+}
+</style>
+  <div class="lbq-w">
+      <div class="lbq-sp"><div class="lbq-hp2"><h2 id="lbq-h">Request a quote</h2>
+      <p class="lbq-s">Tell us a few details and we&#39;ll get back to you with a free, no-obligation quote.</p><p class="lbq-s" style="margin-bottom:0">Prefer to talk? Call, text or email &mdash; we reply fast.</p></div><div><form id="lbq-form" novalidate data-site="bold-civil" data-biz="Bold Civil"><div class="lbq-g"><div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div><div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div><div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div><div class="lbq-full"><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, time frame&#8230;" required></textarea></div></div><label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label><div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Send quote request</button><p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p></form></div></div>
+  </div>
+  <script>
+(function(){
+  var EP = null;
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;  // honeypot — silently accept bots
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        var url = (B === 'https://grocery-periodically-everyone-wine.trycloudflare.com' ? 'https://grocery-periodically-everyone-wine.trycloudflare.com' : B) + '/functions/v1/quote-request';
+        fetch(url, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--lbq-accent)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</section>
+</footer>
+
+<script>
+// === REVEAL INTERSECTION OBSERVER ===
+(function(){
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('on');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{rootMargin:'0px 0px -10% 0px',threshold:0.08});
+  document.querySelectorAll('.rv').forEach(el=>observer.observe(el));
+  // Safety net
+  setTimeout(()=>{
+    document.querySelectorAll('.rv:not(.on)').forEach(el=>el.classList.add('on'));
+  },1100);
+})();
+
+// === HERO CANVAS 3D: TOPOGRAPHIC CONTOUR CUT-AND-FILL ===
+(function(){
+  const canvas = document.querySelector('.hero-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W=0,H=0,raf=0,t0=0;
+  let mouseX=-9999,mouseY=-9999,hasPointer=false;
+
+  // Perspective constants — camera above terrain looking down
+  const fov = 1.15;
+  let horizon = 0.54;
+  const camH = 1.35;
+  const zNear = 0.9;
+  const gridSize = 28;
+  const cellCount = 14;
+
+  // Animation phases
+  const phaseDur = 2200;
+  const phases = 4; // contours -> cut planes -> fill ramp -> shear shimmer
+
+  function resize(){
+    const rect = canvas.getBoundingClientRect();
+    W = Math.round(rect.width * devicePixelRatio);
+    H = Math.round(rect.height * devicePixelRatio);
+    canvas.width = W;
+    canvas.height = H;
+    // Grid must never cross the hero copy on small screens: push the
+    // vanishing region below the text block (text ends ~0.62 of hero H).
+    horizon = rect.width < 520 ? 0.72 : 0.54;
+  }
+
+  // Project floor (x,z) -> screen (sx,sy)
+  // Camera at (0, camH, 0) looking down -XZ plane
+  function project(x, z){
+    const zz = Math.max(z, zNear);
+    const s = (fov * H) / zz;
+    const sx = W * 0.5 + x * s;
+    const sy = H * horizon + camH * s;
+    return {x:sx, y:sy, s:s};
+  }
+
+  // Terrain height function — terraced steps
+  function terrainHeight(x, z, timeOffset){
+    // Base terraced contour field
+    const base = Math.sin(z * 0.35 + timeOffset * 0.2) * 0.25
+               + Math.sin(x * 0.22 - timeOffset * 0.15) * 0.15
+               + Math.sin((x + z) * 0.18 + timeOffset * 0.1) * 0.1;
+    // Step quantization for contour lines
+    const steps = 8;
+    return Math.round(base * steps) / steps;
+  }
+
+  function drawContours(progress){
+    const phase = Math.min(Math.floor(progress * phases), phases - 1);
+    const localProgress = (progress * phases) % 1;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // Colors from CSS vars
+    const lineCol = 'rgba(232,230,225,0.05)';
+    const accentCol = '#09b4d0';
+    const accentStrong = '#0694aa';
+    const inkCol = '#e8e6e1';
+    const bgCol = '#15171a';
+
+    const maxCoord = gridSize;
+    const step = (2 * maxCoord) / cellCount;
+
+    // Phase 0: Contour lines drawing in (topographic map)
+    if(phase >= 0){
+      const drawProg = phase === 0 ? localProgress : 1;
+      const maxIdx = Math.floor(cellCount * drawProg * 1.5);
+
+      ctx.strokeStyle = lineCol;
+      ctx.lineWidth = Math.max(1, W * 0.0005);
+
+      // Draw contour lines as iso-lines of terrain height
+      const contourLevels = [-0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8];
+      contourLevels.forEach((level, li) => {
+        if(li > maxIdx) return;
+        ctx.beginPath();
+        let started = false;
+        for(let zi=-cellCount; zi<=cellCount; zi++){
+          const z = zi * step;
+          for(let xi=-cellCount; xi<=cellCount; xi++){
+            const x = xi * step;
+            const h = terrainHeight(x, z, 0);
+            const nextX = (xi < cellCount) ? terrainHeight(x + step, z, 0) : h;
+            const nextZ = (zi < cellCount) ? terrainHeight(x, z + step, 0) : h;
+
+            // Marching squares approximation - draw line segments where height crosses level
+            if((h - level) * (nextX - level) <= 0 && xi < cellCount){
+              const t = (level - h) / (nextX - h + 1e-6);
+              const ix = x + t * step;
+              const p = project(ix, z);
+              if(!started){ ctx.moveTo(p.x, p.y); started = true; }
+              else { ctx.lineTo(p.x, p.y); }
+            }
+            if((h - level) * (nextZ - level) <= 0 && zi < cellCount){
+              const t = (level - h) / (nextZ - h + 1e-6);
+              const iz = z + t * step;
+              const p = project(x, iz);
+              if(!started){ ctx.moveTo(p.x, p.y); started = true; }
+              else { ctx.lineTo(p.x, p.y); }
+            }
+          }
+        }
+        ctx.stroke();
+      });
+    }
+
+    // Phase 1: Cut planes appear (excavation reveal)
+    if(phase >= 1){
+      const cutProg = phase === 1 ? localProgress : 1;
+
+      // Draw cut faces as vertical planes at contour boundaries
+      const cutLines = [-0.3, 0, 0.3, 0.6];
+      cutLines.forEach((level, ci) => {
+        if(ci > cutLines.length * cutProg) return;
+
+        ctx.strokeStyle = 'rgba(9,180,208,0.15)';
+        ctx.lineWidth = Math.max(1, W * 0.0006);
+        ctx.fillStyle = 'rgba(9,180,208,0.04)';
+
+        ctx.beginPath();
+        let started = false;
+        for(let zi=-cellCount; zi<=cellCount; zi++){
+          const z = zi * step;
+          for(let xi=-cellCount; xi<=cellCount; xi++){
+            const x = xi * step;
+            const h = terrainHeight(x, z, 0);
+            const nextX = (xi < cellCount) ? terrainHeight(x + step, z, 0) : h;
+            const nextZ = (zi < cellCount) ? terrainHeight(x, z + step, 0) : h;
+
+            if((h - level) * (nextX - level) <= 0 && xi < cellCount){
+              const t = (level - h) / (nextX - h + 1e-6);
+              const ix = x + t * step;
+              const p = project(ix, z);
+              // Draw vertical cut face down from contour
+              const pTop = project(ix, z);
+              const pBot = {x: pTop.x, y: pTop.y + H * 0.15};
+              if(!started){ ctx.moveTo(pBot.x, pBot.y); started = true; }
+              else { ctx.lineTo(pBot.x, pBot.y); }
+              ctx.lineTo(pTop.x, pTop.y);
+            }
+          }
+        }
+        ctx.fill();
+        ctx.stroke();
+      });
+    }
+
+    // Phase 2: Fill ramp builds up (material placement)
+    if(phase >= 2){
+      const fillProg = phase === 2 ? localProgress : 1;
+
+      // Draw fill ramps as triangular prisms building from cut zones
+      const fillZones = [
+        {x: -maxCoord * 0.5, z: -maxCoord * 0.3, w: maxCoord * 0.6, d: maxCoord * 0.4},
+        {x: maxCoord * 0.1, z: maxCoord * 0.2, w: maxCoord * 0.5, d: maxCoord * 0.5},
+      ];
+
+      fillZones.forEach((zone, fi) => {
+        const h = fillProg * 0.8;
+        const corners = [
+          {x: zone.x, z: zone.z},
+          {x: zone.x + zone.w, z: zone.z},
+          {x: zone.x + zone.w, z: zone.z + zone.d},
+          {x: zone.x, z: zone.z + zone.d},
+        ];
+
+        const projected = corners.map(c => {
+          const p = project(c.x, c.z);
+          p.y -= h * (fov * H) / Math.max(c.z, zNear);
+          return p;
+        });
+
+        // Fill prism faces
+        const grad = ctx.createLinearGradient(projected[0].x, projected[0].y, projected[2].x, projected[2].y);
+        grad.addColorStop(0, 'rgba(9,180,208,0.08)');
+        grad.addColorStop(0.5, 'rgba(9,180,208,0.18)');
+        grad.addColorStop(1, 'rgba(9,180,208,0.08)');
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(projected[0].x, projected[0].y);
+        ctx.lineTo(projected[1].x, projected[1].y);
+        ctx.lineTo(projected[2].x, projected[2].y);
+        ctx.lineTo(projected[3].x, projected[3].y);
+        ctx.closePath();
+        ctx.fill();
+
+        // Top edge highlight
+        ctx.strokeStyle = accentCol;
+        ctx.lineWidth = Math.max(1.5, W * 0.001);
+        ctx.beginPath();
+        ctx.moveTo(projected[0].x, projected[0].y);
+        ctx.lineTo(projected[1].x, projected[1].y);
+        ctx.lineTo(projected[2].x, projected[2].y);
+        ctx.lineTo(projected[3].x, projected[3].y);
+        ctx.closePath();
+        ctx.stroke();
+
+        // Vertical risers at corners
+        corners.forEach((c, ci) => {
+          const pBase = project(c.x, c.z);
+          const pTop = projected[ci];
+          ctx.strokeStyle = 'rgba(9,180,208,0.3)';
+          ctx.lineWidth = Math.max(1, W * 0.0006);
+          ctx.beginPath();
+          ctx.moveTo(pBase.x, pBase.y);
+          ctx.lineTo(pTop.x, pTop.y);
+          ctx.stroke();
+        });
+      });
+    }
+
+    // Phase 3: Shear shimmer sweep (final grade compaction)
+    if(phase >= 3){
+      const sweepProg = localProgress;
+      const sweepZ = -maxCoord + (2 * maxCoord) * sweepProg;
+
+      // Sheen line across final surface
+      const pFar = project(-maxCoord * 0.9, sweepZ);
+      const pNear = project(maxCoord * 0.9, sweepZ);
+
+      const sheenGrad = ctx.createLinearGradient(pFar.x, pFar.y, pNear.x, pNear.y);
+      sheenGrad.addColorStop(0, 'rgba(255,255,255,0)');
+      sheenGrad.addColorStop(0.5, 'rgba(9,180,208,0.18)');
+      sheenGrad.addColorStop(1, 'rgba(255,255,255,0)');
+
+      ctx.strokeStyle = sheenGrad;
+      ctx.lineWidth = Math.max(2, W * 0.0025);
+      ctx.beginPath();
+      ctx.moveTo(pFar.x, pFar.y);
+      ctx.lineTo(pNear.x, pNear.y);
+      ctx.stroke();
+
+      // Bright cyan edge at sweep front
+      ctx.strokeStyle = accentCol;
+      ctx.lineWidth = Math.max(1.5, W * 0.001);
+      ctx.beginPath();
+      ctx.moveTo(pFar.x, pFar.y);
+      ctx.lineTo(pNear.x, pNear.y);
+      ctx.stroke();
+
+      // Compaction rollers at sweep ends
+      [pFar, pNear].forEach(p=>{
+        ctx.fillStyle = 'rgba(9,180,208,0.9)';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, Math.max(3, W * 0.002), 0, Math.PI*2);
+        ctx.fill();
+      });
+    }
+
+    // Pointer influence: subtle highlight at cursor projection on terrain
+    if(hasPointer && mouseX > -100){
+      const mx = mouseX * devicePixelRatio;
+      const my = mouseY * devicePixelRatio;
+      const highlightRadius = W * 0.12;
+      const grad = ctx.createRadialGradient(mx, my, 0, mx, my, highlightRadius);
+      grad.addColorStop(0, 'rgba(9,180,208,0.1)');
+      grad.addColorStop(1, 'rgba(9,180,208,0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(mx, my, highlightRadius, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  function animate(ts){
+    if(!t0) t0 = ts;
+    if(!isFinite(ts)){ raf = requestAnimationFrame(animate); return; }
+
+    const elapsed = ts - t0;
+    const totalDur = phaseDur * phases;
+    const progress = Math.min(elapsed / totalDur, 1);
+
+    drawContours(progress);
+
+    if(progress < 1){
+      raf = requestAnimationFrame(animate);
+    }else if(!prefersReduced){
+      // Loop the shimmer phase
+      t0 = ts - phaseDur * (phases - 1);
+      raf = requestAnimationFrame(animate);
+    }
+  }
+
+  function handleMove(e){
+    const rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+    hasPointer = true;
+  }
+  function handleLeave(){
+    hasPointer = false;
+    mouseX = -9999;
+    mouseY = -9999;
+  }
+
+  canvas.addEventListener('mousemove', handleMove);
+  canvas.addEventListener('mouseleave', handleLeave);
+  canvas.addEventListener('touchmove', (e)=>{
+    if(e.touches[0]){
+      const rect = canvas.getBoundingClientRect();
+      mouseX = e.touches[0].clientX - rect.left;
+      mouseY = e.touches[0].clientY - rect.top;
+      hasPointer = true;
+    }
+  }, {passive:true});
+  canvas.addEventListener('touchend', handleLeave);
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  if(prefersReduced){
+    drawContours(1);
+    return;
+  }
+
+  raf = requestAnimationFrame(animate);
+
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden && raf) cancelAnimationFrame(raf);
+    else if(!document.hidden && !raf){ t0=0; raf=requestAnimationFrame(animate); }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "lead_id": "fixmy-iphone",
+  "company_name": "FixMy iPhone",
+  "wave": "hotfix-20261020",
+  "built_at": "2026-10-20T11:19:39",
+  "palette": {
+    "accent": "#c07818",
+    "dark": "#604848",
+    "ink": "#141010",
+    "ground": "#f7f2ee",
+    "hairline": "#e3d8d0"
+  },
+  "fonts": {
+    "primary": "Rubik",
+    "primary_weights": [400, 500, 700],
+    "mono": "Chivo Mono",
+    "mono_weights": [400, 700]
+  },
+  "logo": {
+    "type": "isometric_device_stack",
+    "source": "custom_designed",
+    "description": "Exploded isometric phone/tablet stack with chassis, battery, digitizer, glass, suction cup, pick tool, screw - brand colours only",
+    "assets": {
+      "svg": "assets/logo.svg",
+      "png_512": "assets/logo.png",
+      "favicon_128": "assets/favicon.png"
+    },
+    "audit": "svg_audit.py passed"
+  },
+  "layout": {
+    "sections": ["hero", "services", "process", "locality", "footer", "legal", "quote-form"],
+    "hero_style": "canvas_3d_iso_render",
+    "grid_system": "css_grid_flex",
+    "max_width": "1080px",
+    "spacing": "clamp-based fluid"
+  },
+  "motion": {
+    "reveal_system": "intersectionobserver_js_gated",
+    "no_js_fallback": "visible_by_default",
+    "js_safety_net": "setTimeout_1100ms",
+    "reduced_motion": "prefers_reduced_motion_block_present",
+    "hero_3d": "canvas_isometric_render_static"
+  },
+  "quote_form": {
+    "variant": "v2",
+    "endpoint": "/functions/v1/quote-request",
+    "injected": true
+  }
+}

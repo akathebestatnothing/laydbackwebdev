@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ace Construction Services — Excavation &amp; Site Preparation, Perth</title>
+<meta name="description" content="Ace Construction Services, Perth. Excavation, site preparation, trenching, footings and cartage for builders and homeowners. Call 0499 887 415.">
+<style>
+:root{--ink:#0d1114;--paper:#f4f1ea;--panel:#e9e4d8;--line:rgba(13,17,20,.16);--acc:#3b49bd;--dim:#5c5a53}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.62 "Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(18px,4vw,52px)}
+a{color:inherit}
+h1,h2,h3{margin:0;letter-spacing:-.035em;font-weight:800}
+/* ---------- bar ---------- */
+.bar{position:sticky;top:0;z-index:60;background:rgba(244,241,234,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.bar-in{display:flex;align-items:center;gap:clamp(14px,3vw,44px);height:88px}
+.bar img{height:56px;width:auto;display:block}
+.bar .links{display:flex;gap:clamp(12px,2vw,30px);margin-left:auto;font-size:14px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.bar .links a{text-decoration:none;color:var(--dim);padding-bottom:3px;border-bottom:2px solid transparent}
+.bar .links a:hover{color:var(--ink);border-color:var(--acc)}
+.bar .call{text-decoration:none;font-weight:800;background:var(--ink);color:var(--paper);padding:12px 18px;white-space:nowrap;font-size:15px}
+@media(max-width:880px){.bar .links{display:none}.bar img{height:44px}}
+/* ---------- hero ---------- */
+.hero{position:relative;border-bottom:1px solid var(--line);background:var(--paper)}
+.hero-photo{position:absolute;inset:0;background:radial-gradient(120% 90% at 14% 0%,rgba(59,73,189,0.2),transparent 62%),repeating-linear-gradient(115deg,rgba(59,73,189,0.08) 0 2px,transparent 2px 17px),linear-gradient(162deg,#151013 0%,#0b0b0c 58%,#130e11 100%)') center 55%/cover no-repeat;opacity:.20;filter:grayscale(.35) contrast(1.05)}
+.hero-in{position:relative;z-index:2;padding:clamp(64px,9vw,124px) 0 clamp(36px,5vw,60px)}
+.eyebrow{display:block;font:700 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.26em;text-transform:uppercase;color:var(--acc);margin-bottom:22px}
+h1{font-size:clamp(38px,6.6vw,92px);line-height:.94;max-width:17ch}
+h1 span{display:block;color:var(--dim);font-size:.42em;letter-spacing:-.02em;margin-top:.5em;font-weight:600;max-width:30ch;line-height:1.35}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:#fff;text-decoration:none;font-weight:800;padding:16px 24px;font-size:15px;letter-spacing:.02em}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+/* ---------- spec strip ---------- */
+.specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.specs div{padding:20px 0 20px 22px;border-left:1px solid var(--line)}
+.specs div:first-child{border-left:0;padding-left:0}
+.specs dt{font:700 10.5px/1 ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.specs dd{margin:0;font-size:clamp(15px,1.6vw,19px);font-weight:700;letter-spacing:-.01em}
+@media(max-width:820px){.specs{grid-template-columns:1fr 1fr}.specs div:nth-child(odd){border-left:0;padding-left:0}}
+/* ---------- sections ---------- */
+section{padding:clamp(56px,8vw,110px) 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);gap:clamp(18px,4vw,56px);margin-bottom:clamp(30px,4vw,52px)}
+.sec-head h2{font-size:clamp(24px,3.2vw,40px);line-height:1.06}
+.sec-head p{margin:0;color:var(--dim);max-width:56ch}
+@media(max-width:820px){.sec-head{grid-template-columns:1fr}}
+/* scope index — rows, not cards */
+.rows{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,.85fr);gap:clamp(12px,2.5vw,36px);padding:clamp(20px,2.6vw,30px) 0;border-bottom:1px solid var(--line);align-items:start}
+.row .no{font:700 12px/1 ui-monospace,monospace;letter-spacing:.16em;color:var(--acc);padding-top:6px}
+.row h3{font-size:clamp(19px,2.1vw,25px);letter-spacing:-.02em;line-height:1.2}
+.row p{margin:6px 0 0;color:var(--dim);font-size:16px;max-width:52ch}
+.row .tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.row .tags span{font:600 11px/1 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:7px 9px;color:var(--dim)}
+@media(max-width:760px){.row{grid-template-columns:44px minmax(0,1fr)}.row .tags{grid-column:2;justify-content:flex-start}}
+/* timeline */
+.timeline{border-left:2px solid var(--ink);margin-left:10px;padding-left:clamp(22px,3vw,40px);display:grid;gap:clamp(26px,3.4vw,40px)}
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:calc(-1 * clamp(22px,3vw,40px) - 9px);top:6px;width:16px;height:16px;background:var(--acc);border:3px solid var(--paper);border-radius:50%}
+.tl h3{font-size:19px;letter-spacing:-.01em}
+.tl p{margin:6px 0 0;color:var(--dim);max-width:64ch}
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px) clamp(24px,4vw,64px)}
+.faq div{border-top:1px solid var(--ink);padding-top:14px}
+.faq h3{font-size:17.5px;letter-spacing:-.005em}
+.faq p{margin:7px 0 0;color:var(--dim);font-size:15.5px}
+@media(max-width:780px){.faq{grid-template-columns:1fr}}
+/* quote */
+.quote{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.quote .panel{background:var(--ink);color:var(--paper);padding:clamp(26px,3.4vw,44px)}
+.quote .panel h2{font-size:clamp(24px,3vw,34px);color:var(--paper)}
+.quote .panel p{color:rgba(244,241,234,.72);margin:12px 0 22px}
+.quote .panel a{color:#fff;font-weight:800;text-decoration:none;border-bottom:2px solid var(--acc);padding-bottom:2px;font-size:20px}
+form{display:grid;gap:14px}
+label{font:700 11px/1 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:6px}
+input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);background:#fff;font:16px/1.4 inherit;color:var(--ink)}
+textarea{resize:vertical}
+button{background:var(--acc);color:#fff;border:0;padding:16px 22px;font:800 15px/1 inherit;cursor:pointer;letter-spacing:.02em}
+button:hover{filter:brightness(1.08)}
+@media(max-width:820px){.quote{grid-template-columns:1fr}}
+footer{padding:clamp(34px,5vw,60px) 0;border-top:1px solid var(--line);font-size:14px;color:var(--dim)}
+footer .fin{display:flex;flex-wrap:wrap;gap:16px 30px;align-items:center;justify-content:space-between}
+footer img{height:44px;width:auto}
+</style><style id="lb-bar-grow">
+nav{height:auto!important;min-height:0!important}
+nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:76px!important;padding-block:10px!important;flex-wrap:wrap!important}
+</style><style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
+.brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style></head>
+<body>
+
+<div class="bar"><div class="wrap bar-in">
+  <a href="#top" aria-label="Ace Construction Services"><img src="assets/logo-cut.png" alt="Ace Construction Services"></a>
+  <nav class="links"><a class="brand-monogram" href="#top" aria-label="Ace Construction Services"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
+    <a href="#scope">Scope</a><a href="#process">Process</a><a href="#questions">Questions</a><a href="#quote">Quote</a>
+  </nav>
+  <a class="call" href="tel:0499887415">0499 887 415</a>
+</div></div>
+
+<header class="hero" id="top">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow">Excavation &amp; site preparation · Perth</span>
+    <h1>Ground worked to the level the build actually needs.
+      <span>Site cuts, footings, trenching and cartage for builders and homeowners across Perth — measured, set out and left clean.</span>
+    </h1>
+    <div class="hero-actions">
+      <a class="btn" href="tel:0499887415">Call 0499 887 415</a>
+      <a class="btn ghost" href="#quote">Send the site details</a>
+    </div>
+  </div>
+</div></header>
+
+<div class="wrap"><dl class="specs">
+  <div><dt>Plant</dt><dd>Excavator &amp; bobcat</dd></div>
+  <div><dt>Scope</dt><dd>Cut, fill, trench</dd></div>
+  <div><dt>Access</dt><dd>Checked before quote</dd></div>
+  <div><dt>Area</dt><dd>Perth metro</dd></div>
+</dl></div>
+
+<section id="scope"><div class="wrap">
+  <div class="sec-head">
+    <h2>What we move</h2>
+    <p>Every job starts with a look at the block: how the truck gets in, where the spoil goes, and what the levels have to finish at. The scope below is what we are set up to do — if the job sits outside it, we say so before anything is priced.</p>
+  </div>
+  <div class="rows">
+    <div class="row"><div class="no">01</div><div><h3>Site cuts and levelling</h3><p>Cut and fill to the levels the slab or driveway needs, with the batter left stable rather than steep.</p></div><div class="tags"><span>Levels</span><span>Cut &amp; fill</span></div></div>
+    <div class="row"><div class="no">02</div><div><h3>Footings and pier holes</h3><p>Set out from the engineer's plan, dug to depth and left clean for the pour.</p></div><div class="tags"><span>Set out</span><span>Depth</span></div></div>
+    <div class="row"><div class="no">03</div><div><h3>Trenching</h3><p>Services, drainage and stormwater runs at the fall they need to work.</p></div><div class="tags"><span>Fall</span><span>Services</span></div></div>
+    <div class="row"><div class="no">04</div><div><h3>Driveways and hardstand</h3><p>Sub-base prepared and compacted so the surface above it does not move.</p></div><div class="tags"><span>Sub-base</span><span>Compaction</span></div></div>
+    <div class="row"><div class="no">05</div><div><h3>Demolition and removal</h3><p>Old slabs, sheds and paving broken out, loaded and taken away.</p></div><div class="tags"><span>Break out</span><span>Cartage</span></div></div>
+    <div class="row"><div class="no">06</div><div><h3>Spoil and cartage</h3><p>Clean fill in, spoil out, with the load counts agreed before the trucks start.</p></div><div class="tags"><span>Loads</span><span>Tip fees</span></div></div>
+  </div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <div class="sec-head">
+    <h2>How a job runs</h2>
+    <p>Four steps, same order every time. Nothing is ordered or dug until the access has been walked and the levels are agreed.</p>
+  </div>
+  <div class="timeline">
+    <div class="tl"><h3>1 · Walk the block</h3><p>Gate width, overhead lines, slope and where the spoil can sit. This is where most of the surprises get found, not on the day the machine arrives.</p></div>
+    <div class="tl"><h3>2 · Set out and confirm levels</h3><p>String lines and a laser level, checked against the plan, before a bucket goes in the ground.</p></div>
+    <div class="tl"><h3>3 · Dig, trim and compact</h3><p>Cut to level, trim the batters, compact in lifts where it is load-bearing.</p></div>
+    <div class="tl"><h3>4 · Clean up and hand over</h3><p>Spoil gone, access reinstated, and a walk-through of what was done and what comes next.</p></div>
+  </div>
+</div></section>
+
+<section id="questions"><div class="wrap">
+  <div class="sec-head"><h2>Questions we get asked</h2><p>The things that come up most often on Perth residential jobs.</p></div>
+  <div class="faq">
+    <div><h3>Do you need to see the site to quote?</h3><p>Yes for anything with levels or access involved. Photos help, but the quote is only reliable once the block has been walked.</p></div>
+    <div><h3>Can you work around an existing house?</h3><p>Yes, provided the access is there. Narrow side access changes the machine, not the job.</p></div>
+    <div><h3>Who takes the spoil?</h3><p>We do. Load counts and tip fees are agreed before the trucks start so there is no surprise at the end.</p></div>
+    <div><h3>Do you work with builders?</h3><p>Regularly. Set-out is taken from the engineer's plan and the levels are confirmed before the pour date is locked in.</p></div>
+  </div>
+</div></section>
+
+<section id="quote"><div class="wrap quote">
+  <div class="panel">
+    <h2>Send the site details</h2>
+    <p>Suburb, what needs doing and roughly when. If there is a plan or a photo of the access, mention it and we will ask for it.</p>
+    <a href="tel:0499887415">0499 887 415</a>
+  </div>
+  <form data-site="radar-159" id="qform" novalidate>
+    <div><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
+    <div><label for="p">Phone</label><input id="p" name="phone" inputmode="tel" required autocomplete="tel"></div>
+    <div><label for="s">Suburb</label><input id="s" name="suburb" autocomplete="address-level2"></div>
+    <div><label for="w">What is the job</label><input id="w" name="service" placeholder="site cut, footings, trenching, cartage"></div>
+    <div><label for="m">Details</label><textarea id="m" name="message" rows="4" placeholder="Access, levels, timing"></textarea></div>
+    <button type="submit">Send request</button>
+  </form>
+</div></section>
+
+<footer><div class="wrap fin">
+  <img src="assets/logo-cut.png" alt="Ace Construction Services">
+  <span>Ace Construction Services · Excavation &amp; site preparation · Perth</span>
+  <a href="tel:0499887415">0499 887 415</a>
+</div></footer>
+
+<script>
+document.getElementById('qform').addEventListener('submit',function(e){
+  e.preventDefault();var f=e.currentTarget,b=f.querySelector('button;
+  b.textContent='Sending…';b.disabled=true;
+  fetch('https://laydback-hq.tail5b3740.ts.net/rest/v1/quote_requests',{method:'POST',
+    headers:{'Content-Type':'application/json',Prefer:'return=minimal'},
+    body:JSON.stringify({site:f.dataset.site,name:f.name.value,phone:f.phone.value,suburb:f.suburb.value,service:f.service.value,message:f.message.value})})
+  .then(function(){b.textContent='Thanks — we will be in touch';})
+  .catch(function(){b.textContent='Could not send — try again';b.disabled=false;});
+});
+</script>
+</body></html>

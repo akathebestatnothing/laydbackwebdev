@@ -1,0 +1,202 @@
+<section class="sec" id="what">
+  <div class="wl-in pad sec-hd">
+    <div class="gut"><span class="wl">WL 02</span><span class="tick"></span></div>
+    <div>
+      <h2 class="rv">What we do</h2>
+      <p class="note rv">Three lines of work, all under the one trade.</p>
+    </div>
+  </div>
+  <div class="row rv">
+    <div class="gut"><span class="lv">L 01</span></div>
+    <h3>Plumbing maintenance</h3>
+    <p>Ongoing care for the plumbing already in a place: worn fittings, dripping taps, a toilet that will
+    not stop running, and the small jobs that build up over a year.</p>
+  </div>
+  <div class="row rv">
+    <div class="gut"><span class="lv">L 02</span></div>
+    <h3>Gas fitting and servicing</h3>
+    <p>Gas side of the trade: fitting and servicing gas appliances and the connections that feed them,
+    checked and left working the way they should.</p>
+  </div>
+  <div class="row rv" style="border-bottom:0">
+    <div class="gut"><span class="lv">L 03</span></div>
+    <h3>General plumbing repairs</h3>
+    <p>Leaks, blocked or slow drains, taps, cisterns and the general plumbing repairs that come up around
+    a home or a rental.</p>
+  </div>
+</section>
+<section class="run" id="run">
+  <div class="wl-in pad sec-hd">
+    <div class="gut"><span class="wl">WL 03</span><span class="tick"></span></div>
+    <div>
+      <h2 class="rv">How a job runs</h2>
+      <p class="note rv">Each level steps in a little further, the same way a job does.</p>
+    </div>
+  </div>
+  <div class="run-row rv">
+    <div class="lv2">L 01</div>
+    <div>
+      <h3>Get in touch</h3>
+      <p>Ring BTL, or send the quote form below with a few lines about the job. Photos and a rough
+      location help.</p>
+    </div>
+  </div>
+  <div class="run-row rv">
+    <div class="lv2">L 02</div>
+    <div>
+      <h3>Talk it through</h3>
+      <p>Give me a call and I will see what I can do to help with it, and what the job involves before
+      anything is booked in.</p>
+    </div>
+  </div>
+  <div class="run-row rv">
+    <div class="lv2">L 03</div>
+    <div>
+      <h3>The work, then the rundown</h3>
+      <p>The plumbing or gas work is carried out, the area is left tidy, and you get told plainly what
+      was done and anything worth watching.</p>
+    </div>
+  </div>
+</section>
+<section class="area" id="area">
+  <div class="wl-in pad">
+    <div class="gut"><span class="wl">WL 04</span><span class="tick"></span></div>
+    <div>
+      <h2 class="rv">Where the work is</h2>
+      <p class="big rv">Tasmania</p>
+      <p class="rv">That is the patch. There is no town list on this page, so if you are not sure whether
+      your place is in range, ring and ask. Plumbing maintenance, gas work and general repairs, all
+      across Tasmania.</p>
+    </div>
+  </div>
+</section>
+<footer class="ft">
+  <div class="ft-in pad">
+    <div class="gut"><span class="wl">WL 05</span><span class="tick"></span></div>
+    <div>
+      <div class="ft-b"><img src="assets/logo.png" alt="BTL" width="40" height="40">
+      <span class="ft-n">BTL</span></div>
+      <p class="ft-d">Plumbing maintenance and gas work across Tasmania. Ring to talk a job through.</p>
+    </div>
+    <div class="ft-l">
+      <a href="{{TEL}}">{{PHONE}}</a>
+      <a href="https://facebook.com/profile.php?id=100095429028664" rel="noopener" target="_blank">Facebook page</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="ft-bt pad">
+    <span>BTL &middot; Plumbing maintenance and gas &middot; Tasmania</span>
+    <span>Trade work is arranged directly with BTL.</span>
+  </div>
+</footer>
+</main>
+<script>
+(function(){
+ var d=document.documentElement;
+ d.classList.remove('no-js');d.classList.add('js');
+ var rm=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+ var rv=[].slice.call(document.querySelectorAll('.rv'));
+ function showAll(){for(var i=0;i<rv.length;i++){rv[i].classList.add('on');}}
+ if(!rm&&'IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){
+   for(var i=0;i<es.length;i++){if(es[i].isIntersecting){es[i].target.classList.add('on');io.unobserve(es[i].target);}}
+  },{rootMargin:'0px 0px -6% 0px',threshold:0.06});
+  for(var k=0;k<rv.length;k++){io.observe(rv[k]);}
+ } else { showAll(); }
+ setTimeout(function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('on');});},1100);
+
+ var slab=document.querySelector('.slab');
+ var px=0,py=0,tx=0,ty=0,cx=0,cy=0;
+ if(slab&&!rm){
+  slab.addEventListener('pointermove',function(e){
+   var r=slab.getBoundingClientRect();
+   if(!r.width||!r.height){return;}
+   tx=((e.clientX-r.left)/r.width-0.5)*2;ty=((e.clientY-r.top)/r.height-0.5)*2;
+   if(!isFinite(tx)||!isFinite(ty)){tx=0;ty=0;}
+  });
+  slab.addEventListener('pointerleave',function(){tx=0;ty=0;});
+  (function pTick(){
+   cx+= (tx-cx)*0.07; cy+= (ty-cy)*0.07;
+   if(!isFinite(cx)||!isFinite(cy)){cx=0;cy=0;}
+   slab.style.setProperty('--px',cx.toFixed(3));
+   slab.style.setProperty('--py',cy.toFixed(3));
+   requestAnimationFrame(pTick);
+  })();
+ }
+
+ var cv=document.getElementById('wlfield');
+ if(!cv){return;}
+ var ctx=cv.getContext('2d');
+ var W=0,H=0,DPR=1,horizon=0,vx=0,flow=0,last=0,mist=null;
+ function size(){
+  var r=cv.getBoundingClientRect();
+  DPR=Math.min(window.devicePixelRatio||1,2);
+  W=Math.max(300,Math.round(r.width||cv.clientWidth));
+  H=Math.max(110,Math.round(r.height||cv.clientHeight));
+  if(!isFinite(W)||!isFinite(H)){W=300;H=110;}
+  cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  horizon=H*0.60;
+  mist=ctx.createLinearGradient(0,horizon-46,0,horizon+56);
+  mist.addColorStop(0,'rgba(165,222,212,0)');
+  mist.addColorStop(0.5,'rgba(165,222,212,0.15)');
+  mist.addColorStop(1,'rgba(15,34,39,0)');
+ }
+ function draw(){
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='rgba(9,26,31,0.62)';
+  ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=mist;ctx.fillRect(0,horizon-46,W,102);
+  vx=W*(0.5+px*0.05);
+  if(!isFinite(vx)){vx=W*0.5;}
+  var n=13;
+  for(var i=0;i<n;i++){
+   var t=i/(n-1);
+   var y=horizon+Math.pow(t,2.15)*(H-horizon);
+   if(!isFinite(y)){continue;}
+   var a=0.10+0.30*t;
+   ctx.strokeStyle='rgba(165,222,212,'+a.toFixed(3)+')';
+   ctx.lineWidth=(0.6+t*1.5).toFixed(2);
+   ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();
+   var dl=26+t*130, gap=dl*1.55;
+   var off=(flow*(0.35+t*1.5)+i*23)%gap;
+   ctx.strokeStyle='rgba(243,245,244,'+(0.30+0.42*t).toFixed(3)+')';
+   ctx.lineWidth=(0.9+t*1.5).toFixed(2);
+   ctx.beginPath();
+   for(var x=-off;x<W;x+=gap){
+    var x2=x+dl*(0.35+t*0.65);
+    if(!isFinite(x)||!isFinite(x2)){continue;}
+    ctx.moveTo(x,y);ctx.lineTo(x2,y);
+   }
+   ctx.stroke();
+  }
+  ctx.strokeStyle='rgba(165,222,212,0.42)';
+  ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(0,horizon);ctx.lineTo(W,horizon);ctx.stroke();
+ }
+ function animate(ts){
+  if(!last){last=ts;}
+  var dt=Math.min(48,ts-last);last=ts;
+  flow+=(dt*0.048);
+  if(!isFinite(flow)){flow=0;}
+  px=(typeof cx==='number'&&isFinite(cx))?cx:0;
+  py=(typeof cy==='number'&&isFinite(cy))?cy:0;
+  sizeIfNeeded();
+  draw();
+  requestAnimationFrame(animate);
+ }
+ var lw=0;
+ function sizeIfNeeded(){
+  var r=cv.getBoundingClientRect();
+  var w=Math.round(r.width||0);
+  if(Math.abs(w-lw)>2){lw=w;size();}
+ }
+ size();
+ if(rm){draw();}
+ else {requestAnimationFrame(animate);}
+ window.addEventListener('resize',function(){size();if(rm){draw();}},{passive:true});
+})();
+</script>
+</body>
+</html>

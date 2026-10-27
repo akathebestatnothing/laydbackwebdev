@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en-AU">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Allstar Decal House | Decals, Wraps &amp; Signage</title>
+<meta content="Allstar Decal House — boat wraps, vehicle graphics, shop signage and custom decals. See the design index and send through an enquiry." name="description"/>
+<link href="assets/favicon-32.png" rel="icon" sizes="32x32"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="#0f1011" name="theme-color"/>
+<script>document.documentElement.className += ' js';</script>
+<style>
+:root{
+  --bg:#0f1011; --bg2:#141517; --panel:#17181b; --line:rgba(255,255,255,.14); --line2:rgba(255,255,255,.28);
+  --ink:#f4f4f2; --dim:rgba(244,244,242,.66);
+  --acc:#eeff00;          /* the yellow in the client's own star mark */
+  --disp:"Archivo Narrow","Nimbus Sans Narrow","Arial Narrow",Arial,Helvetica,sans-serif;
+  --sans:"Liberation Sans",Arial,Helvetica,system-ui,sans-serif;
+  --mono:"DejaVu Sans Mono","Liberation Mono",Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.58 var(--sans);overflow-x:hidden;max-width:100%}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1280px,100%);margin-inline:auto;padding-inline:clamp(18px,4vw,56px)}
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:-.005em;line-height:.98}
+p{margin:0}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.rule{height:4px;width:44px;background:var(--acc);display:block}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:80;background:var(--bg);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;flex:0 1 auto;min-width:0}
+.brand img{height:58px;width:auto;background:#fff;padding:4px;border-radius:3px;flex:0 0 auto}
+.brand-name{font-family:var(--disp);font-size:21px;text-transform:uppercase;letter-spacing:.01em;line-height:1}
+.brand-name i{font-style:normal;color:var(--acc)}
+.nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 22px;align-items:center}
+.nav a{text-decoration:none;font-size:14.5px;color:var(--dim);padding:4px 0;letter-spacing:.01em}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--acc)}
+.cta{display:inline-flex;align-items:center;background:var(--acc);color:#0d0e0f;text-decoration:none;
+  padding:12px 18px;font-weight:700;font-size:14.5px;letter-spacing:.01em;white-space:nowrap}
+.cta:hover{background:#ffffff}
+.cta.dark{background:#fff;color:#0d0e0f}
+
+/* hero */
+.hero{padding:clamp(28px,3.6vw,52px) 0 clamp(30px,4vw,54px);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(24px,4vw,56px);align-items:start}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--dim);margin-bottom:20px}
+.hero h1{font-size:clamp(2.3rem,6vw,4.6rem)}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.lede{color:var(--dim);font-size:clamp(1rem,1.4vw,1.15rem);margin:22px 0 26px;max-width:46ch}
+.hero-acts{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:28px}
+.kinds{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.kinds li{border-bottom:1px solid var(--line);padding:12px 0;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.kinds b{font-weight:700;font-size:15px}
+.kinds span{color:var(--dim);font-size:14px}
+.shot{margin:0;border:1px solid var(--line2);background:var(--panel);padding:10px}
+.shot img{width:100%;height:clamp(320px,40vw,520px);object-fit:cover;object-position:center}
+.shot figcaption{display:flex;justify-content:space-between;gap:12px;padding-top:10px;color:var(--dim)}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:clamp(22px,3vw,38px)}
+.strip img{width:100%;height:clamp(110px,13vw,180px);object-fit:cover;border:1px solid var(--line)}
+
+/* sections */
+section{padding:clamp(44px,5.2vw,76px) 0;border-bottom:1px solid var(--line)}
+section.alt{background:var(--bg2)}
+.sec-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(18px,3vw,50px);align-items:end;margin-bottom:clamp(26px,3.4vw,44px)}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.7rem)}
+.sec-head p{color:var(--dim);max-width:58ch}
+.printgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.frame{border:1px solid var(--line);background:var(--panel);padding:20px;position:relative}
+.frame:before{content:"";position:absolute;top:-1px;left:20px;width:34px;height:3px;background:var(--acc)}
+.frame .k{font-family:var(--mono);font-size:.72rem;color:var(--dim);letter-spacing:.16em}
+.frame h3{font-size:1.12rem;margin:12px 0 9px;letter-spacing:.01em}
+.frame p{color:var(--dim);font-size:14.5px}
+
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.tile{margin:0;border:1px solid var(--line);background:var(--panel)}
+.tile img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.tile figcaption{padding:13px 14px 15px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.tile b{font-family:var(--disp);text-transform:uppercase;font-size:1.02rem;letter-spacing:.01em}
+.tile span{color:var(--dim)}
+.tile-note{color:var(--dim);margin-top:20px}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+.steps>div{padding:22px;border-right:1px solid var(--line)}
+.steps>div:last-child{border-right:0}
+.steps h3{font-size:1.06rem;margin:12px 0 8px}
+.steps p{color:var(--dim);font-size:14.5px}
+
+.contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,58px);align-items:start}
+.contact h2{font-size:clamp(1.7rem,3.2vw,2.5rem);margin-bottom:16px}
+.contact .dm{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.contact .dm li{border-bottom:1px solid var(--line);padding:13px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.contact .dm b{font-weight:700;font-size:14.5px}
+.contact .dm span{color:var(--dim);font-size:14px}
+.contact .dm a{color:var(--acc);text-decoration:none}
+.contact .dm a:hover{text-decoration:underline}
+form{background:var(--panel);border:1px solid var(--line);padding:clamp(20px,2.6vw,30px)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.fgrid .full{grid-column:1/-1}
+label{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
+input,textarea{width:100%;border:1px solid var(--line2);background:#0c0d0e;color:var(--ink);padding:12px;font:inherit;font-size:15px;margin-bottom:16px}
+input:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+form button{width:100%;background:var(--acc);color:#0d0e0f;border:0;padding:15px;font:inherit;font-weight:700;
+  letter-spacing:.01em;cursor:pointer}
+form button:hover{background:#fff}
+.st{font-size:14px;color:var(--dim);margin-top:12px;min-height:1.2em}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+footer{padding:clamp(30px,3.6vw,48px) 0;background:#0b0c0d}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:clamp(20px,3vw,44px)}
+footer h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 12px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin-bottom:9px;font-size:14.5px;color:var(--dim)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--acc)}
+.fname{font-family:var(--disp);text-transform:uppercase;font-size:1.3rem}
+.foot-bot{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;color:var(--dim);font-size:13.5px}
+
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr}
+  .sec-head{grid-template-columns:1fr;align-items:start}
+  .printgrid{grid-template-columns:1fr 1fr}
+  .contact{grid-template-columns:1fr}
+}
+@media(max-width:820px){
+  .steps{grid-template-columns:1fr 1fr}
+  .steps>div{border-right:0;border-bottom:1px solid var(--line)}
+  .steps>div:nth-child(odd){border-right:1px solid var(--line)}
+  .steps>div:nth-last-child(-n+2){border-bottom:0}
+  .strip{grid-template-columns:1fr 1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .brand img{height:44px}
+  .brand-name{font-size:16px;white-space:normal}
+  .nav{order:3;width:100%;margin-left:0;gap:2px 16px}
+  .nav a{font-size:13.5px}
+  .cta{padding:10px 14px;font-size:12.5px;margin-left:auto}
+  .hero h1{font-size:clamp(1.95rem,9.4vw,2.9rem)}
+  .fgrid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .steps>div:nth-child(odd){border-right:0}
+  .steps>div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+  .steps>div:last-child{border-bottom:0}
+  .foot{grid-template-columns:1fr}
+  .printgrid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+<style id="lb-hdr-vision">nav img{height:52px!important;width:auto!important;display:block!important}nav .lb-brand__word,nav .lb-brand__name,nav .brand-name,nav .nav-b,nav .site-title{display:none!important}</style><style id="lb-skin">/* skin 1 — editorial serif, hairline rules, left hero */
+ .hero h1, header h1{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-.02em!important;font-weight:600!important;text-transform:none!important}
+ h2{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-.015em!important;text-transform:none!important;font-weight:600!important}
+ h2{border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:.35em}
+ [class*=card],[class*=tile],[class*=item]{border-radius:0!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:none!important;background:transparent!important}
+ section{padding-block:clamp(52px,8vw,104px)!important}
+ </style><style id="lb-skin-guard">@media(max-width:900px){
+ .hero-in,.hero-inner{grid-template-columns:1fr!important;display:block!important}
+ [class*=card]{transform:none!important;margin-bottom:12px!important}
+ [class*=grid]{grid-template-columns:1fr!important;gap:12px!important;overflow-x:clip!important}
+ section,.hero,header{overflow-x:clip!important}
+ img,video,svg{max-width:100%!important;height:auto}
+ h1,h2{overflow-wrap:anywhere!important}
+}</style><style id="lb-bar-noname">
+/* the bar shows the client's own logo artwork and nothing typed — the name belongs in the logo, not in a system font */
+.lb-brand__word, .lb-brand__name, .lb-brand__sub, .lb-brand__rule, .lb-acc, .lb-span-word, .brand__name, .brand-name, .lb-name, .logo-name
+{display:none!important}
+.lb-brand{display:flex!important;align-items:center!important;gap:0!important}
+.lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+</style><style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
+.brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style></head>
+<body>
+<header class="hdr" id="top">
+<div class="wrap hdr-in">
+<a aria-label="Allstar Decal House" class="brand" href="#top">
+<img alt="Allstar Decal House logo" height="852" src="assets/logo.png" width="1164"/>
+<span class="brand-name">Allstar <i>Decal House</i></span>
+</a>
+<nav aria-label="Main navigation" class="nav"><a class="brand-monogram" href="#top" aria-label="Allstar Decal House"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
+<a href="#print">What we print</a>
+<a href="#index">Design index</a>
+<a href="#process">Process</a>
+<a href="#enquire">Enquire</a>
+</nav>
+<a class="cta" href="#enquire">Start a design</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<p class="eyebrow mono"><span class="rule"></span>Boat wraps · vehicle graphics · signage · decals</p>
+<h1>Custom decals, <em>built around your rig.</em></h1>
+<p class="lede">Boat wraps and hull graphics, vehicle and trailer decals, shop signage and one-off
+          custom artwork, designed to your hull, panel or frontage, then printed and cut to fit.</p>
+<div class="hero-acts">
+<a class="cta" href="#index">See the design index</a>
+<a class="cta dark" href="#enquire">Send an enquiry</a>
+</div>
+<ul class="kinds">
+<li><b>Boat wraps</b><span>Hull graphics and full wrap kits</span></li>
+<li><b>Vehicle &amp; trailer decals</b><span>Signage, lettering and striping</span></li>
+<li><b>Shop &amp; business signage</b><span>Signwritten panels and window work</span></li>
+<li><b>Custom artwork</b><span>One-off designs and illustration</span></li>
+</ul>
+</div>
+<figure class="shot">
+<img alt="Boat hull wrap in dark artwork with a blue lightning stripe" height="2047" src="assets/hero.jpg" width="2048"/>
+<figcaption><span class="mono">Bone Rider / hull graphic</span><span class="mono">Fig. 01</span></figcaption>
+</figure>
+</div>
+<div class="strip">
+<img alt="Mahi Mahi boat wrap design on a centre console hull" decoding="async" height="1600" loading="lazy" src="assets/work-mahi-madness.jpg" width="1600"/>
+<img alt="Camouflage boat wrap design shown on two hulls" decoding="async" height="1600" loading="lazy" src="assets/work-airborne-ambush.jpg" width="1600"/>
+<img alt="Black and white illustrated decal artwork" decoding="async" height="2048" loading="lazy" src="assets/gal_3.jpg" width="2048"/>
+<img alt="Gold and black boat wrap design on a centre console hull" decoding="async" height="1600" loading="lazy" src="assets/work-sucker-punch.jpg" width="1600"/>
+</div>
+</div>
+</section>
+<section class="alt" id="print">
+<div class="wrap">
+<div class="sec-head">
+<h2>What we print.</h2>
+<p>Vinyl work for anything with a flat or gently curved surface, from a single hull graphic through to
+        kit signage for a whole shopfront.</p>
+</div>
+<div class="printgrid">
+<article class="frame"><h3>Boat wraps &amp; hull graphics</h3><p>Full wrap kits and hull graphics, designed to the hull line so the artwork runs with the boat.</p></article>
+<article class="frame"><h3>Vehicle &amp; trailer graphics</h3><p>Business lettering, striping and decal sets for utes, vans, trailers and 4WDs.</p></article>
+<article class="frame"><h3>Shop &amp; business signage</h3><p>Signwritten panels, window graphics and frontage signage.</p></article>
+<article class="frame"><h3>Custom decals &amp; artwork</h3><p>One-off designs, cut vinyl lettering and illustration work from your brief.</p></article>
+</div>
+</div>
+</section>
+<section id="index">
+<div class="wrap">
+<div class="sec-head">
+<h2>Design index.</h2>
+<p>Artwork from the Allstar catalogue, each shown in the colourway it is named for. Designs are proofed
+        against the hull or panel before anything is printed.</p>
+</div>
+<div class="index-grid">
+<figure class="tile"><img alt="Bone Rider boat wrap design showing the stern with skull graphic" decoding="async" height="1599" loading="lazy" src="assets/work-bone-rider.jpg" width="1600"/><figcaption><b>Bone Rider</b><span class="mono">Hull graphic</span></figcaption></figure>
+<figure class="tile"><img alt="Airborne Ambush camouflage boat wrap in black" decoding="async" height="1600" loading="lazy" src="assets/work-airborne-ambush.jpg" width="1600"/><figcaption><b>Airborne Ambush</b><span class="mono">Black</span></figcaption></figure>
+<figure class="tile"><img alt="Baitstorm baitfish themed boat wrap in yellow" decoding="async" height="1600" loading="lazy" src="assets/work-baitstorm.jpg" width="1600"/><figcaption><b>Baitstorm</b><span class="mono">Yellow</span></figcaption></figure>
+<figure class="tile"><img alt="Barrel Chase dark blue water themed boat wrap" decoding="async" height="1600" loading="lazy" src="assets/work-barrel-chase.jpg" width="1600"/><figcaption><b>Barrel Chase</b><span class="mono">Deep blue</span></figcaption></figure>
+<figure class="tile"><img alt="Captain Castaway tropical chart themed boat wrap" decoding="async" height="1600" loading="lazy" src="assets/work-captain-castaway.jpg" width="1600"/><figcaption><b>Captain Castaway</b><span class="mono">Atlantic</span></figcaption></figure>
+<figure class="tile"><img alt="Dead Helm sepia camouflage boat wrap" decoding="async" height="1600" loading="lazy" src="assets/work-dead-helm.jpg" width="1600"/><figcaption><b>Dead Helm</b><span class="mono">Sepia</span></figcaption></figure>
+<figure class="tile"><img alt="Fracture abstract boat wrap in bright blue" decoding="async" height="1600" loading="lazy" src="assets/work-fracture.jpg" width="1600"/><figcaption><b>Fracture</b><span class="mono">Bright blue</span></figcaption></figure>
+<figure class="tile"><img alt="Jack the Ripper green and teal swirl boat wrap" decoding="async" height="1600" loading="lazy" src="assets/work-jack-the-ripper.jpg" width="1600"/><figcaption><b>Jack the Ripper</b><span class="mono">Green / teal</span></figcaption></figure>
+<figure class="tile"><img alt="Mahi Madness mahi mahi fish artwork boat wrap" decoding="async" height="1600" loading="lazy" src="assets/work-mahi-madness.jpg" width="1600"/><figcaption><b>Mahi Madness</b><span class="mono">Fishing series</span></figcaption></figure>
+<figure class="tile"><img alt="Mako Shark grey boat cabin wrap with shark graphic" decoding="async" height="1600" loading="lazy" src="assets/work-mako-shark.jpg" width="1600"/><figcaption><b>Mako Shark</b><span class="mono">Grey hull</span></figcaption></figure>
+<figure class="tile"><img alt="Sucker Punch gold and black graphic boat wrap" decoding="async" height="1600" loading="lazy" src="assets/work-sucker-punch.jpg" width="1600"/><figcaption><b>Sucker Punch</b><span class="mono">Gold</span></figcaption></figure>
+<figure class="tile"><img alt="Black and white illustrated decal artwork" decoding="async" height="2048" loading="lazy" src="assets/gal_2.jpg" width="2048"/><figcaption><b>Bar Art</b><span class="mono">Illustration</span></figcaption></figure>
+</div>
+<p class="tile-note mono">Designs shown are catalogue artwork. Name, colourway and size are confirmed at the proof stage.</p>
+</div>
+</section>
+<section class="alt" id="process">
+<div class="wrap">
+<div class="sec-head">
+<h2>From artwork to a kit that fits.</h2>
+<p>Four steps, no guesswork on size or colour.</p>
+</div>
+<div class="steps">
+<div><h3>Artwork</h3><p>Send a photo of the hull or panel, plus your logo or the design you want from the index.</p></div>
+<div><h3>Proof</h3><p>Layout, colourway and measurements confirmed on screen before anything is printed.</p></div>
+<div><h3>Print &amp; cut</h3><p>Printed to outdoor vinyl and cut to shape, laminated where the job needs the extra wear.</p></div>
+<div><h3>Kit supplied</h3><p>Cut and packed as a kit so it can be applied straight onto the hull or panel.</p></div>
+</div>
+</div>
+</section>
+<section id="enquire">
+<div class="wrap contact">
+<div>
+<h2>Send it through.</h2>
+<p style="color:var(--dim);max-width:42ch">Tell us the job, the size and the look you are after. Instagram
+        is the fastest way to send examples and photos.</p>
+<ul class="dm">
+<li><b>Instagram</b><span><a href="https://instagram.com/allstar_decal_house" rel="noopener">@allstar_decal_house</a></span></li>
+<li><b>Facebook</b><span><a href="https://www.facebook.com/share/19oFgahLe4/" rel="noopener">Allstar Decal House</a></span></li>
+<li><b>What to send</b><span>Photos of the hull or panel and rough sizes</span></li>
+</ul>
+</div>
+<form data-biz="Allstar Decal House" data-site="allstar-decal-house" id="lbq-form" novalidate="">
+<div class="fgrid">
+<div><label for="lbq-n">Name</label><input autocomplete="name" id="lbq-n" name="name" required=""/></div>
+<div><label for="lbq-p">Phone</label><input autocomplete="tel" id="lbq-p" name="phone" type="tel"/></div>
+<div><label for="lbq-e">Email</label><input autocomplete="email" id="lbq-e" name="email" type="email"/></div>
+<div><label for="lbq-s">What is it for?</label><input id="lbq-s" name="service" placeholder="Boat hull, van, shop window…"/></div>
+<div class="full"><label for="lbq-m">The job</label><textarea id="lbq-m" name="message" placeholder="What you want covered, roughly the size, and any design from the index" required="" rows="4"></textarea></div>
+</div>
+<div aria-hidden="true" class="hp"><label>Website<input autocomplete="off" name="website" tabindex="-1"/></label></div>
+<button type="submit">Send enquiry</button>
+<p aria-live="polite" class="st" id="lbq-st" role="status"></p>
+</form>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="foot">
+<div>
+<p class="fname">Allstar Decal House</p>
+<p style="color:var(--dim);font-size:14.5px;margin-top:10px;max-width:36ch">Boat wraps, vehicle graphics, shop signage and custom decal artwork.</p>
+</div>
+<div>
+<h4>Work</h4>
+<ul>
+<li><a href="#print">Boat wraps</a></li>
+<li><a href="#print">Vehicle graphics</a></li>
+<li><a href="#print">Shop signage</a></li>
+<li><a href="#index">Design index</a></li>
+</ul>
+</div>
+<div>
+<h4>Find us</h4>
+<ul>
+<li><a href="https://instagram.com/allstar_decal_house" rel="noopener">Instagram</a></li>
+<li><a href="https://www.facebook.com/share/19oFgahLe4/" rel="noopener">Facebook</a></li>
+<li><a href="#enquire">Send an enquiry</a></li>
+</ul>
+</div>
+</div>
+<div class="foot-bot">
+<span>© <span id="yr">2026</span> Allstar Decal House</span>
+<span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+</div>
+</div>
+</footer>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+(function(){
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+  }
+  var f = document.getElementById('lbq-form');
+  if (!f) return;
+  var st = document.getElementById('lbq-st');
+  var btn = f.querySelector('button[type=submit]');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = {};
+    new FormData(f).forEach(function(v,k){ d[k]=v; });
+    if (d.website) return;
+    if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+      st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+      return;
+    }
+    btn.disabled = true;
+    st.textContent = 'Sending…';
+    base(function(B){
+      fetch(B + '/functions/v1/quote-request', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
+          name: d.name, phone: d.phone, email: d.email, service: d.service || '',
+          message: d.message, consent: true
+        })
+      })
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(x){
+        if (x && x.success) { f.reset(); st.textContent = "Thanks, your enquiry is in. We'll be in touch."; }
+        else { throw new Error((x && x.error) || 'Could not send'); }
+      })
+      .catch(function(){
+        st.textContent = 'Could not send. Please message us on Instagram @allstar_decal_house.';
+        btn.disabled = false;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

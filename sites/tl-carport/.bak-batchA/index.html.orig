@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TL Carport | Verandahs and Carports, Design and Construction, Melbourne</title>
+<meta name="description" content="TL Carport designs and builds verandahs, carports and outdoor structures across Melbourne. Design, engineering, permits and construction from one crew. Call 0433 857 762.">
+<link rel="icon" href="assets/logo.jpg" sizes="any">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+
+<!--LB-HEROGRID--><style id="lb-herogrid">[class*=hero]{flex-wrap:wrap!important}[class*=hero]>div,[class*=hero-copy],[class*=hero__copy]{flex:1 1 min(720px,90%)!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:none!important;flex:none!important}</style><!--/LB-HEROGRID-->
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <a class="brand" href="#top" aria-label="TL Carport, back to top" style="--lb-name:#f4f2ee;--lb-acc:#d4b88c">
+      <img src="assets/logo.jpg" alt="" width="40" height="40">
+      <span class="brand-txt">
+        <span class="brand-name">TL Carport</span>
+        <span class="brand-sub">Verandahs &amp; carports, Melbourne</span>
+      </span>
+    </a>
+    <nav class="hdr-nav" aria-label="Sections">
+      <a href="#services">What we build</a>
+      <a href="#process">Process</a>
+      <a href="#quote">Quote</a>
+    </nav>
+    <a class="hdr-tel" href="tel:0433857762" aria-label="Call TL Carport on 0433 857 762">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+      <span>0433 857 762</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-in wrap">
+      <div class="hero-copy">
+        <p class="kick">Design and construction &middot; Melbourne</p>
+        <h1 id="hero-title">Verandahs and carports, <em>drawn and built</em> properly.</h1>
+        <p class="hero-lead">Custom outdoor structures with the design, engineering and permits handled before anything is cut.</p>
+        <div class="hero-act">
+          <a class="cta" href="tel:0433857762">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+            <span class="cta-txt">Call 0433 857 762 <small>Talk through your site</small></span>
+          </a>
+          <p class="hero-note">What we build, how we work, and the quote form are below.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec svc" id="services" aria-labelledby="svc-title">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <p class="kick">What we build</p>
+          <h2 id="svc-title">Outdoor structures for Melbourne homes</h2>
+        </div>
+        <p>Every job is designed and built by our own team, from footings to flashings. Steel or timber frames, Colorbond roofing.</p>
+      </div>
+      <div class="svc-list">
+        <article class="svc-row rv">
+          <span class="svc-num">01</span>
+          <h3>Verandah design &amp; construction</h3>
+          <p>Gable, skillion, flat or curved roofs, set out to the line of your house and the way you actually use the space.</p>
+        </article>
+        <article class="svc-row rv">
+          <span class="svc-num">02</span>
+          <h3>Carport design &amp; construction</h3>
+          <p>Single, double and multi-bay carports, with storage worked into the frame where the site allows.</p>
+        </article>
+        <article class="svc-row rv">
+          <span class="svc-num">03</span>
+          <h3>Pergolas, patios &amp; shade</h3>
+          <p>Open pergolas, paved patios and shade structures, detailed to suit the block rather than a catalogue.</p>
+        </article>
+      </div>
+      <p class="svc-foot">Built to an engineer's specification. Council permits arranged where they apply.</p>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Completed verandah">
+    <div class="wrap">
+      <figure>
+        <img src="images/hero-carport.jpg" alt="Finished verandah with a dark steel frame and translucent roof over a timber deck" width="1400" height="1119" loading="lazy" decoding="async">
+        <figcaption>Frame, roof and finish, set out on site.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec proc" id="process" aria-labelledby="proc-title">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <p class="kick">How we work</p>
+          <h2 id="proc-title">From footings to finished</h2>
+        </div>
+        <p>A fixed scope agreed in writing before we start, then four stages in order, with nothing skipped.</p>
+      </div>
+      <div class="steps">
+        <article class="step rv">
+          <span class="step-n">01</span>
+          <h3>Design &amp; permits</h3>
+          <p>Site measure, drawings, engineering and council paperwork. You approve the plans first.</p>
+        </article>
+        <article class="step rv">
+          <span class="step-n">02</span>
+          <h3>Footings &amp; frames</h3>
+          <p>Footings poured to specification, then posts, beams and rafters stood and braced.</p>
+        </article>
+        <article class="step rv">
+          <span class="step-n">03</span>
+          <h3>Roof &amp; flashings</h3>
+          <p>Sheets fixed bay by bay, ridge capping and flashings sealed so the structure is watertight.</p>
+        </article>
+        <article class="step rv">
+          <span class="step-n">04</span>
+          <h3>Handover</h3>
+          <p>Walkthrough, paperwork and warranty documents, then the job is yours.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec quote" id="quote" aria-labelledby="quote-title">
+    <div class="wrap quote-in">
+      <div class="rv">
+        <p class="kick">Start your project</p>
+        <h2 id="quote-title">Send the job details, or call</h2>
+        <p class="quote-lead">Size, suburb and rough timeframe is enough to start. Quotes are free and carry no obligation.</p>
+        <a class="tel-big" href="tel:0433857762">0433 857 762</a>
+        <p class="quote-meta">14/39 Eucumbene Drive<br>Ravenhall VIC 3023<br>Verandahs, carports and outdoor structures across Melbourne.</p>
+      </div>
+      <div class="rv">
+        <form id="lbq-form" novalidate data-site="tl-carport" data-biz="TL Carport">
+          <div class="f-row">
+            <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
+            <div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div>
+          </div>
+          <div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div>
+          <div><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Size, location, timeframe" required></textarea></div>
+          <label class="consent"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
+          <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit">Send quote request</button>
+          <p class="f-status" id="lbq-st" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="legal" aria-label="Privacy and terms">
+  <div class="wrap">
+    <h2>Privacy</h2>
+    <p>We only use the details you send through the quote form to respond to your enquiry. We do not sell or share your information.</p>
+    <h2>Terms</h2>
+    <p>Quotes are free and remain valid for 30 days. Work is carried out to the scope agreed in writing before starting.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ftr">
+      <div class="ftr-brand">
+        <img src="assets/logo.jpg" alt="" width="36" height="36" loading="lazy">
+        <span class="ftr-name">TL Carport<span>Verandahs &amp; carports, Melbourne</span></span>
+      </div>
+      <div class="ftr-col">
+        <h2>Contact</h2>
+        <a href="tel:0433857762">0433 857 762</a>
+        <a href="https://facebook.com/tl.carport" target="_blank" rel="noopener">facebook.com/tl.carport</a>
+        <p>14/39 Eucumbene Drive<br>Ravenhall VIC 3023</p>
+      </div>
+      <div class="ftr-col">
+        <h2>Build</h2>
+        <a href="#services">Verandahs</a>
+        <a href="#services">Carports</a>
+        <a href="#services">Pergolas &amp; patios</a>
+      </div>
+      <div class="ftr-col">
+        <h2>Site</h2>
+        <a href="#process">Process</a>
+        <a href="#quote">Quote</a>
+        <a href="#legal">Privacy &amp; terms</a>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span>&copy; 2025 TL Carport. All rights reserved.</span>
+      <span><a href="privacy.html">Privacy policy</a> &nbsp; <a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/heroCanvas.js"></script>
+<script>
+/* hero: timber frame set out with a gable truss, set-out lines and a saw bench in the foreground */
+(function(){
+  var cv = document.getElementById('heroCanvas');
+  if (!cv || !window.Projection || !Projection.sceneFrame) return;
+  var P = window.Projection;
+  var S = P.create(cv, {focal:1.5, horizon:.60, camY:1.42, fogNear:9, fogFar:46, fogCol:'#12181d'});
+  var scene = Projection.sceneFrame(S, {
+    fogCol:'#12181d',
+    tone:{timber:'#b98a5c', plate:'#8a6540', brass:'#d4b88c', twine:'#d4b88c',
+          steel:'#c3cdd2', slab:'#232d34'}
+  });
+  var baseX = 0;
+  function place(){
+    var wide = window.innerWidth >= 900;
+    baseX = wide ? 0.55 : 0.35;
+    S.camZ = wide ? -9.2 : -6.4;
+    S.camY = wide ? 1.38 : 1.55;
+    S.camX = baseX;
+  }
+  function sky(){
+    var ctx = S.ctx;
+    var g = ctx.createLinearGradient(0,0,0,S.H);
+    g.addColorStop(0,'#0e1418'); g.addColorStop(.52,'#151d22'); g.addColorStop(1,'#1b242a');
+    ctx.fillStyle = g; ctx.fillRect(0,0,S.W,S.H);
+    var hz = S.project(0,0,60);
+    if (hz){
+      var hg = ctx.createLinearGradient(0,hz[1]-S.H*.34,0,hz[1]+S.H*.1);
+      hg.addColorStop(0,'rgba(212,184,140,0)');
+      hg.addColorStop(.6,'rgba(212,184,140,.16)');
+      hg.addColorStop(1,'rgba(212,184,140,0)');
+      ctx.fillStyle = hg; ctx.fillRect(0,hz[1]-S.H*.34,S.W,S.H*.44);
+      var gg = ctx.createLinearGradient(0,hz[1],0,S.H);
+      gg.addColorStop(0,'rgba(24,32,38,.94)'); gg.addColorStop(1,'#1a2329');
+      ctx.fillStyle = gg; ctx.fillRect(0,hz[1],S.W,S.H-hz[1]+1);
+    }
+  }
+  function draw(t){
+    sky();
+    S.camX = baseX + Math.sin(t*0.16)*0.05;
+    scene.render(t);
+    var v = S.ctx.createRadialGradient(S.W*.5,S.H*.52,Math.min(S.W,S.H)*.34,S.W*.5,S.H*.52,Math.max(S.W,S.H)*.82);
+    v.addColorStop(0,'rgba(8,12,15,0)'); v.addColorStop(1,'rgba(8,12,15,.55)');
+    S.ctx.fillStyle = v; S.ctx.fillRect(0,0,S.W,S.H);
+    var eg = Math.min(90, S.W*.18);
+    var lf = S.ctx.createLinearGradient(0,0,eg,0);
+    lf.addColorStop(0,'#161d22'); lf.addColorStop(1,'rgba(22,29,34,0)');
+    S.ctx.fillStyle = lf; S.ctx.fillRect(0,0,eg,S.H);
+    var rf = S.ctx.createLinearGradient(S.W-eg,0,S.W,0);
+    rf.addColorStop(0,'rgba(22,29,34,0)'); rf.addColorStop(1,'#161d22');
+    S.ctx.fillStyle = rf; S.ctx.fillRect(S.W-eg,0,eg,S.H);
+    var tf = S.ctx.createLinearGradient(0,0,0,46);
+    tf.addColorStop(0,'#161d22'); tf.addColorStop(1,'rgba(22,29,34,0)');
+    S.ctx.fillStyle = tf; S.ctx.fillRect(0,0,S.W,46);
+  }
+  place();
+  S.frame(draw);
+  window.addEventListener('resize', function(){
+    S.resize(); place();
+    if (P.reduced()) draw(0);
+  });
+})();
+</script>
+<script>
+(function(){
+  var rv = document.querySelectorAll('.rv');
+  if (!('IntersectionObserver' in window)){ rv.forEach(function(e){e.classList.add('on');}); return; }
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add('on'); io.unobserve(x.target); } });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:.08});
+  rv.forEach(function(e){ io.observe(e); });
+  setTimeout(function(){ rv.forEach(function(e){ e.classList.add('on'); }); }, 1200);
+})();
+</script>
+<script>
+/* quote form -> endpoint */
+(function(){
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https?:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        fetch(B + '/functions/v1/quote-request', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            message: d.message, consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
+            st.style.color = '#d4b88c';
+          } else { throw new Error((x && x.error) || 'Could not send'); }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please call instead.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>

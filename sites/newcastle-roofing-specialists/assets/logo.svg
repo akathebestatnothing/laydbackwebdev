@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <title>Newcastle Roofing Specialists logo</title>
+  <defs>
+    <symbol id="logo" viewBox="0 0 256 256">
+      <!-- Ridge cap - main triangular form (ink) -->
+      <path fill="#100f0e" d="M128 28 L35.62 188 L220.38 188 Z"/>
+      <!-- Ridge capping - metal cap over apex (tangerine), inset by 10px -->
+      <path fill="#f07800" d="M128 38 L45.62 158 L210.38 158 Z"/>
+      <!-- Batten line - filled rectangle instead of stroke -->
+      <path fill="#2a2724" d="M45.62 166 L210.38 166 L210.38 170 L45.62 170 Z"/>
+      <!-- Tile course suggestion - three subtle filled rectangles -->
+      <path fill="#2a2724" d="M45.62 180 L210.38 180 L210.38 182 L45.62 182 Z"/>
+      <path fill="#2a2724" d="M45.62 194 L210.38 194 L210.38 196 L45.62 196 Z"/>
+      <path fill="#2a2724" d="M45.62 208 L210.38 208 L210.38 210 L45.62 210 Z"/>
+      <!-- Flashing fold at gable (left) - exact 60° fold -->
+      <path fill="#f07800" d="M35.62 188 L21.24 208.76 L50 188 Z"/>
+      <!-- Flashing fold at gable (right) - exact 60° fold -->
+      <path fill="#f07800" d="M220.38 188 L234.76 208.76 L206 188 Z"/>
+      <!-- Screw-fix pattern along cap - 5 dots -->
+      <circle fill="#100f0e" cx="86" cy="112" r="3"/>
+      <circle fill="#100f0e" cx="108" cy="100" r="3"/>
+      <circle fill="#100f0e" cx="128" cy="94" r="3"/>
+      <circle fill="#100f0e" cx="148" cy="100" r="3"/>
+      <circle fill="#100f0e" cx="170" cy="112" r="3"/>
+    </symbol>
+  </defs>
+  <!-- Direct rendering for standalone use -->
+  <path fill="#100f0e" d="M128 28 L35.62 188 L220.38 188 Z"/>
+  <path fill="#f07800" d="M128 38 L45.62 158 L210.38 158 Z"/>
+  <path fill="#2a2724" d="M45.62 166 L210.38 166 L210.38 170 L45.62 170 Z"/>
+  <path fill="#2a2724" d="M45.62 180 L210.38 180 L210.38 182 L45.62 182 Z"/>
+  <path fill="#2a2724" d="M45.62 194 L210.38 194 L210.38 196 L45.62 196 Z"/>
+  <path fill="#2a2724" d="M45.62 208 L210.38 208 L210.38 210 L45.62 210 Z"/>
+  <path fill="#f07800" d="M35.62 188 L21.24 208.76 L50 188 Z"/>
+  <path fill="#f07800" d="M220.38 188 L234.76 208.76 L206 188 Z"/>
+  <circle fill="#100f0e" cx="86" cy="112" r="3"/>
+  <circle fill="#100f0e" cx="108" cy="100" r="3"/>
+  <circle fill="#100f0e" cx="128" cy="94" r="3"/>
+  <circle fill="#100f0e" cx="148" cy="100" r="3"/>
+  <circle fill="#100f0e" cx="170" cy="112" r="3"/>
+</svg>

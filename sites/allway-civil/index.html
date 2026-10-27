@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Allway Civil Pty Ltd | Excavation, Plant &amp; Civil Labour Hire — Central Coast, Newcastle &amp; Sydney</title>
+<meta name="description" content="Allway Civil Pty Ltd supplies excavation, wet plant hire and civil labour hire from Woongarrah NSW across the Central Coast, Newcastle and Sydney.">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@700;900&family=Archivo:wght@400;600;700&display=swap">
+<style>
+:root{--paper:#0a0b0b;--panel:#121314;--card:#171819;--ink:#f2f4f4;--muted:#a3a8a8;--line:rgba(255,255,255,.12);--acc:#d72613;--lb-acc:#d72613;--accent:#d72613;--accent-color:#d72613;--brand:#d72613;--primary:#9e271e;--acc-hi:#ff6a52;--acc-ink:#000000;--mark-bg:#ffffff;--disp:'Saira Condensed','Archivo Black',Archivo,system-ui,sans-serif;--body:Archivo,system-ui,-apple-system,'Segoe UI',sans-serif;--gut:clamp(1.2rem,4vw,2.6rem);--pad:clamp(3.6rem,7.5vw,6.6rem);perspective:1000px;--hero-pos:48% 56%;--hero-pos-m:38% 66%}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.62;-webkit-font-smoothing:antialiased;font-size:16px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,100% - 2*var(--gut));margin-inline:auto}
+h1,h2,h3{font-family:var(--disp);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2.15rem,5.6vw,3.9rem)}
+h2{font-size:clamp(1.5rem,3.3vw,2.3rem)}
+h3{font-size:1.05rem}
+p{margin:0}
+.anchor{display:block;position:relative;top:-84px;visibility:hidden;height:0}
+.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{left:16px;top:16px;width:auto;height:auto;padding:.7rem 1rem;background:#111;color:#fff;border-radius:8px;z-index:99}
+.hdr{position:sticky;top:0;z-index:60;background:rgba(9,10,12,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hdr__in{display:flex;align-items:center;gap:1rem;padding:.55rem 0;min-height:66px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.7rem;min-width:0}
+.brand__mark{height:46px;width:46px;border-radius:50%;object-fit:cover;flex:none;background:var(--mark-bg);border:1px solid var(--line)}
+.brand__txt{min-width:0}
+.brand__name{display:block;font-family:var(--disp);font-weight:900;font-size:1.14rem;letter-spacing:.02em;line-height:1.05;color:#fff}
+.brand__sub{display:block;margin-top:.3rem;font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--acc-hi)}
+.nav{display:flex;gap:1.05rem;margin-left:auto;font-size:.9rem;color:var(--muted);flex-wrap:wrap}
+.nav a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;padding:.82rem 1.3rem;border-radius:10px;white-space:nowrap;border:1px solid transparent;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn--acc{background:var(--acc);color:var(--acc-ink)}
+.btn--ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn--ghost:hover{background:rgba(255,255,255,.1)}
+.hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;min-height:clamp(560px,80vh,730px);background:#090a0c}
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--hero-pos,50% 50%);z-index:0}
+.hero__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(6,8,10,.92) 0%,rgba(6,8,10,.76) 34%,rgba(6,8,10,.44) 64%,rgba(6,8,10,.24) 100%)}
+.hero__canvas{display:none}
+.hero__in{position:relative;z-index:2;padding:clamp(2.6rem,6vw,4.6rem) 0 clamp(2.2rem,5vw,3.5rem)}
+.hero h1{color:#fff;max-width:19ch;text-wrap:balance;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+.hero h1 em{font-style:normal;color:var(--acc-hi)}
+.hero__lede{margin-top:1.05rem;max-width:52ch;font-size:clamp(1.03rem,1.5vw,1.18rem);color:#e9eeec}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.5rem}
+.facts{list-style:none;display:flex;flex-wrap:wrap;gap:.45rem 0;margin:1.5rem 0 0;padding:.72rem .9rem;background:rgba(8,9,11,.44);border:1px solid rgba(255,255,255,.2);border-radius:12px;max-width:100%}
+.facts li{font-size:.855rem;font-weight:600;color:#fff;padding:0 .78rem;border-right:1px solid rgba(255,255,255,.22)}
+.facts li:first-child{padding-left:0}
+.facts li:last-child{border-right:0;padding-right:0}
+.hero__thumbs{list-style:none;display:flex;align-items:center;gap:.5rem;margin:1.05rem 0 0;padding:0;flex-wrap:wrap}
+.hero__thumbs-l{font-size:.82rem;font-weight:600;color:#dce4e2;margin-right:.3rem}
+.hero__thumbs li:not(.hero__thumbs-l){width:112px;height:62px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.32);background:#0d0f11}
+.hero__thumbs img{width:100%;height:100%;object-fit:cover}
+.sec{padding:var(--pad) 0}
+.sec--panel{background:var(--panel)}
+.sec__head{max-width:64ch;margin-bottom:2.1rem}
+.sec__head p{margin-top:.8rem;color:var(--muted);font-size:1.02rem}
+.cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(238px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.25rem}
+.card h3{margin-bottom:.45rem;font-family:var(--disp)}
+.card p{color:var(--muted);font-size:.93rem}
+.card ul{margin:.5rem 0 0;padding-left:1.1rem;color:var(--muted);font-size:.92rem}
+.card li{margin:.25rem 0}
+.gal{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.gal figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gal img{width:100%;height:236px;object-fit:cover}
+.gal figcaption{padding:.72rem .9rem;font-size:.845rem;color:var(--muted)}
+.steps{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(228px,1fr))}
+.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.2rem}
+.step .n{font-family:var(--disp);font-weight:900;font-size:1.35rem;color:var(--acc-hi);display:block;margin-bottom:.35rem}
+.step b{display:block;font-family:var(--disp);font-size:1.03rem;margin-bottom:.35rem;color:#fff}
+.step p{color:var(--muted);font-size:.92rem}
+.band{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.5rem;display:grid;gap:1.3rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.courses{height:132px;border-radius:12px;border:1px solid var(--line);position:relative;overflow:hidden;background:repeating-linear-gradient(180deg,rgba(255,255,255,.07) 0 25px,rgba(255,255,255,.018) 25px 30px),linear-gradient(180deg,#232830,#11151a)}
+.courses::before{content:"";position:absolute;left:0;right:0;top:0;height:13px;background:var(--acc);opacity:.62}
+.courses::after{content:"";position:absolute;left:14px;right:14px;bottom:14px;height:2px;background:rgba(255,255,255,.28)}
+.note{color:var(--muted);font-size:.88rem;margin-top:.6rem}
+.foot{background:#07080a;border-top:1px solid var(--line);padding:2.5rem 0;color:var(--muted);font-size:.9rem}
+.foot__in{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.foot strong{display:block;color:#fff;font-family:var(--disp);font-size:1.02rem;margin-bottom:.5rem}
+.foot a{color:var(--acc-hi)}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot li{margin:.3rem 0}
+.foot__bar{margin-top:1.8rem;padding-top:1.1rem;border-top:1px solid var(--line);font-size:.82rem;display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between}
+.rv{transition:opacity .6s ease,transform .6s ease}
+.js .rv{opacity:0;transform:translateY(16px)}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv{transition:none}
+  .js .rv{opacity:1;transform:none}
+}
+@media (max-width:900px){
+  .hdr__in{gap:.6rem}
+  .nav{order:3;flex-basis:100%;margin-left:0;gap:.85rem;font-size:.85rem}
+  .brand__name{white-space:normal}
+  .brand__sub{display:none}
+  .hero{min-height:clamp(540px,88vh,720px)}
+  .hero__bg{object-position:var(--hero-pos-m,var(--hero-pos,50% 50%))}
+  .hero h1{max-width:100%}
+}
+@media (max-width:600px){
+  .gal img{height:206px}
+  h1{font-size:clamp(1.95rem,10vw,2.7rem)}
+}
+
+</style>
+<style id="lb-bar-noname">
+/* the bar shows the client's own logo artwork and nothing typed — the name belongs in the logo, not in a system font */
+.lb-brand__word, .lb-brand__name, .lb-brand__sub, .lb-brand__rule, .lb-acc, .lb-span-word, .brand__name, .brand-name, .lb-name, .logo-name
+{display:none!important}
+.lb-brand{display:flex!important;align-items:center!important;gap:0!important}
+.lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+</style></head>
+<body>
+<a class="skip" href="#quote">Skip to quote request</a>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#top">
+      <img class="brand__mark" src="assets/logo.jpg" alt="Allway Civil Pty Ltd logo" width="92" height="92">
+      <span class="brand__txt"><span class="brand__name">Allway Civil Pty Ltd</span><span class="brand__sub">Excavation · Plant hire · Central Coast</span></span>
+    </a>
+    <nav class="nav"><a href="#services">Services</a><a href="#plant">Plant & hire</a><a href="#work">Recent work</a><a href="#process">How we work</a><a href="#areas">Service area</a><a href="#quote">Quote</a></nav>
+    <a class="btn btn--acc" href="tel:+61402652181">Call 0402 652 181</a>
+  </div>
+</header>
+<main>
+  <section class="hero" id="top">
+    <img class="hero__bg" src="assets/hero-excavator-plant.jpg" alt="An excavator working beside a retaining wall on a civil site" width="2000" height="1125">
+    <span class="hero__scrim"></span>
+    <!-- LB-3D-HERO -->
+    <canvas id="heroCanvas" class="hero__canvas" width="1600" height="900" aria-hidden="true"></canvas>
+    <div class="wrap hero__in">
+      <h1>Excavation, plant hire <em>&amp; civil labour hire</em></h1>
+      <p class="hero__lede">Allway Civil runs excavators, tippers and civil crews on wet hire out of Woongarrah — across the Central Coast, Newcastle and Sydney.</p>
+      <div class="hero__cta">
+        <a class="btn btn--acc" href="#quote">Request a quote</a>
+        <a class="btn btn--ghost" href="tel:+61402652181">Call 0402 652 181</a>
+      </div>
+      <ul class="facts"><li>Woongarrah NSW</li><li>Central Coast · Newcastle · Sydney</li><li>Excavation</li><li>Wet hire</li><li>Civil labour hire</li></ul>
+      <ul class="hero__thumbs">
+        <li class="hero__thumbs-l">A job like this</li>
+        <li><img src="assets/exc-1.jpg" alt="Excavator levelling a site" width="224" height="124"></li><li><img src="assets/exc-2.jpg" alt="Excavator working beside a retaining wall" width="224" height="124"></li><li><img src="assets/exc-3.jpg" alt="Retaining wall and site works with plant on site" width="224" height="124"></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="rv">Excavation and civil work</h2>
+        <p class="rv">Plant, operators and labour on site — site preparation through to civil construction.</p>
+      </div>
+      <div class="cards rv"><article class="card"><h3>Excavation</h3><p>Detailed excavation, trenching and site cut for residential and civil jobs.</p><ul><li>Site cut and bulk excavation</li><li>Trenching and drainage runs</li><li>Detailed excavation around services</li></ul></article><article class="card"><h3>Wet plant hire</h3><p>Machines supplied with an operator and ready to work on your start date.</p><ul><li>P</li><li>l</li><li>a</li><li>n</li><li>t</li><li> </li><li>s</li><li>u</li><li>p</li><li>p</li><li>l</li><li>i</li><li>e</li><li>d</li><li> </li><li>w</li><li>i</li><li>t</li><li>h</li><li> </li><li>a</li><li>n</li><li> </li><li>e</li><li>x</li><li>p</li><li>e</li><li>r</li><li>i</li><li>e</li><li>n</li><li>c</li><li>e</li><li>d</li><li> </li><li>o</li><li>p</li><li>e</li><li>r</li><li>a</li><li>t</li><li>o</li><li>r</li></ul></article><article class="card"><h3>Civil labour hire</h3><p>Extra hands for civil crews — labour hire for the duration of the job, not just a day.</p></article><article class="card"><h3>Site works &amp; drainage</h3><p>Site preparation, drainage runs and retaining work on built-up blocks.</p></article><article class="card"><h3>Cartage &amp; spoil</h3><p>Spoil carted off site and material delivered with our own trucks.</p></article></div>
+    </div>
+  </section>
+
+
+  <section class="sec sec--panel" id="plant">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="rv">Plant, wet hire and civil labour</h2>
+        <p class="rv">Machines and crews on wet hire out of Woongarrah — an operator comes with the plant, and the tipper comes with the excavator when spoil has to leave site.</p>
+      </div>
+      <div class="cards rv">
+        <article class="card"><h3>Excavators</h3><p>Site cut, trenching and detailed excavation for residential blocks and civil work.</p></article>
+        <article class="card"><h3>Tipper trucks</h3><p>Spoil carted off site and material delivered, using our own trucks.</p></article>
+        <article class="card"><h3>Posi track &amp; bobcat combos</h3><p>Excavator and truck combinations for tighter access and driveway jobs.</p></article>
+        <article class="card"><h3>Wet hire</h3><p>Plant supplied with an experienced operator, booked for your start date.</p></article>
+        <article class="card"><h3>Civil labour hire</h3><p>Extra hands for civil crews — labour on site for as long as the job runs.</p></article>
+        <article class="card"><h3>Attachments</h3><p>Buckets, augers and breaking attachments for the job in front of the machine.</p></article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec sec--panel" id="work">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="rv">A job like this</h2>
+        <p class="rv">Earthmoving, retaining and site preparation — the kind of ground work a civil crew handles every week.</p>
+      </div>
+      <div class="gal rv"><figure><img src="assets/exc-1.jpg" alt="An excavator clearing and levelling a site" width="1400" height="1050"><figcaption>Excavator clearing and levelling a site before construction.</figcaption></figure><figure><img src="assets/exc-2.jpg" alt="An excavator working beside a retaining wall" width="1400" height="1050"><figcaption>Machine on a batter excavating beside a new retaining wall.</figcaption></figure><figure><img src="assets/exc-3.jpg" alt="A civil site with retaining wall works and plant on site" width="1400" height="1050"><figcaption>Retaining wall and site works with a machine on site.</figcaption></figure><figure><img src="assets/civil-slab.jpg" alt="A finished concrete slab with prepared ground beside it" width="1400" height="1050"><figcaption>Finished slab and prepared ground on a residential civil job.</figcaption></figure></div>
+    </div>
+  </section>
+
+  <section class="sec" id="process">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="rv">How we work</h2>
+        <p class="rv">From the first call to the machine on site — clear scope, clear timing.</p>
+      </div>
+      <div class="steps rv"><div class="step"><span class="n">01</span><b>Scope &amp; price</b><p>Send the site address, access and what needs doing. You get a price for the machine and the hours.</p></div><div class="step"><span class="n">02</span><b>Machine &amp; crew booked</b><p>Plant and operator scheduled for your start date, with a tipper if spoil leaves site.</p></div><div class="step"><span class="n">03</span><b>Dig &amp; cart</b><p>Site cut, trenching and detailed excavation — spoil loaded out as the job runs.</p></div><div class="step"><span class="n">04</span><b>Handover</b><p>Levels checked, site left tidy and ready for the next trade.</p></div></div>
+    </div>
+  </section>
+
+  <section class="sec sec--panel" id="areas">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="rv">Areas we cover</h2>
+        <p class="rv">Woongarrah based — working across the Central Coast, Newcastle and Sydney.</p>
+      </div>
+      <div class="cards rv"><article class="card"><h3>Central Coast</h3><p>Woongarrah base. Excavation and plant hire across the coast, from residential blocks to civil sites.</p></article><article class="card"><h3>Newcastle</h3><p>Machine and crew availability for excavation, cartage and civil labour hire in the Newcastle area.</p></article><article class="card"><h3>Sydney</h3><p>Plant and labour hire for civil work further down the coast — ask about scheduling.</p></article></div>
+    </div>
+  </section>
+</main>
+
+<span id="quote" class="anchor" aria-hidden="true"></span>
+<section id="lbq" class="v3" aria-labelledby="lbq-h">
+  <style>
+#lbq{--lbq-accent:var(--acc);--lbq-ink:var(--ink);--lbq-muted:var(--muted);--lbq-bg:var(--panel);--lbq-panel:var(--paper);--lbq-line:var(--line);padding:76px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto}
+#lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em;font-family:var(--disp);color:#fff}
+#lbq p.lbq-s{margin:0 0 22px;color:var(--lbq-muted);max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.82rem;color:var(--lbq-muted);margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid var(--lbq-line);border-radius:8px;background:var(--lbq-panel);color:inherit;font:inherit;font-size:.95rem}
+#lbq textarea{min-height:96px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--acc);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--acc);color:var(--acc-ink);font:inherit;font-weight:700;font-size:.95rem;cursor:pointer}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:var(--lbq-muted);min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:var(--lbq-muted)}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+#lbq.v3 .lbq-g{display:grid;gap:12px}
+@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
+  </style>
+  <div class="lbq-w">
+    <div class="lbq-sp">
+      <div>
+        <h2 id="lbq-h">Request a quote</h2>
+        <p class="lbq-s">Tell us the site, the machine you need and the dates — you get a price for the plant and the hours.</p>
+        <li><a href="mailto:allwaycivil@outlook.com.au">allwaycivil@outlook.com.au</a></li>
+      </div>
+      <div>
+        <form id="lbq-form" novalidate data-site="allway-civil" data-biz="Allway Civil Pty Ltd">
+          <div class="lbq-g">
+            <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
+            <div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel"></div>
+            <div><label for="lbq-e">Email</label><input id="lbq-e" name="email" type="email" autocomplete="email"></div>
+            <div><label for="lbq-svc">What do you need?</label><select id="lbq-svc" name="service"><option>Excavation</option><option>Wet hire</option><option>Plant hire</option><option>Civil labour hire</option><option>Cartage &amp; spoil</option><option>Other</option></select></div>
+            <div><label for="lbq-m">Tell us about the job</label><textarea id="lbq-m" name="message" placeholder="Site address, access, size, timing" required></textarea></div>
+          </div>
+          <label class="lbq-cons"><input type="checkbox" name="consent" value="1" checked> I agree to be contacted about this request.</label>
+          <div class="lbq-hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit">Send quote request</button>
+          <p class="lbq-st" id="lbq-st" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+(function(){
+  var EP = null;
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;
+      if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
+        st.style.color = '#ff9d8a';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending...';
+      st.style.color = '';
+      base(function(B) {
+        var url = B + '/functions/v1/quote-request';
+        fetch(url, {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email,
+            service: d.service || '', message: d.message,
+            consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = "Thanks, your request is in. We'll be in touch shortly.";
+            st.style.color = 'var(--acc)';
+          } else {
+            throw new Error((x && x.error) || 'Could not send');
+          }
+        })
+        .catch(function(err){
+          st.textContent = (err && err.message) ? err.message : 'Could not send, please try again or email.';
+          st.style.color = '#ff9d8a';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div>
+      <strong>Allway Civil Pty Ltd</strong>
+      <p>Excavation, wet plant hire and civil labour hire. Woongarrah NSW — Central Coast, Newcastle and Sydney.</p>
+    </div>
+    <div>
+      <strong>Contact</strong>
+      <ul><li><a href="tel:+61402652181">0402 652 181</a></li><li><a href="mailto:allwaycivil@outlook.com.au">allwaycivil@outlook.com.au</a></li></ul>
+    </div>
+    <div>
+      <strong>Site</strong>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Recent work</a></li>
+        <li><a href="#quote">Request a quote</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot__bar">
+    <span>&copy; 2026 Allway Civil Pty Ltd. Woongarrah, NSW.</span>
+    <span>Preview site built for Allway Civil Pty Ltd.</span>
+  </div>
+</footer>
+
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var els = [].slice.call(document.querySelectorAll('.rv'));
+  function all(){ els.forEach(function(el){ el.classList.add('on'); }); }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .06 });
+    els.forEach(function(el){ io.observe(el); });
+  } else { all(); }
+  setTimeout(function(){ [].slice.call(document.querySelectorAll('.rv')).forEach(function(el){ el.classList.add('on'); }); }, 1100);
+})();
+</script>
+</body>
+</html>

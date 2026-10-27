@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#48d8d8" stop-opacity="0.2"/>
+      <stop offset="40%" stop-color="#48d8d8" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#48d8d8" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#48d8d8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#48d8d8" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="bead" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#48d8d8" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#144449" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a1013" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e2c31"/>
+      <stop offset="50%" stop-color="#101a1e"/>
+      <stop offset="100%" stop-color="#0a1013"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Vehicle panel section (dark ground) -->
+  <rect x="64" y="160" width="384" height="192" rx="8" fill="url(#panel)"/>
+  
+  <!-- Masked-off edge line with tape lift -->
+  <path d="M64 160 L448 160" stroke="#48d8d8" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+  <!-- Tape lift triangle -->
+  <polygon points="448,155 458,160 448,165" fill="#48d8d8" opacity="0.8"/>
+  
+  <!-- Specular sheen band sweeping diagonally -->
+  <path d="M80 320 L432 128" stroke="url(#sheen)" stroke-width="24" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Water-bead cluster sitting proud of surface -->
+  <g fill="url(#bead)">
+    <circle cx="180" cy="280" r="16"/>
+    <circle cx="220" cy="250" r="12"/>
+    <circle cx="255" cy="275" r="10"/>
+    <circle cx="200" cy="240" r="7"/>
+    <circle cx="235" cy="260" r="6"/>
+    <circle cx="165" cy="265" r="8"/>
+  </g>
+  
+  <!-- Additional smaller beads -->
+  <g fill="#48d8d8" opacity="0.6">
+    <circle cx="290" cy="230" r="5"/>
+    <circle cx="310" cy="255" r="4"/>
+    <circle cx="330" cy="240" r="3.5"/>
+    <circle cx="350" cy="265" r="4"/>
+  </g>
+  
+  <!-- Subtle highlight on panel edge -->
+  <path d="M64 352 L448 352" stroke="#1e2c31" stroke-width="1" opacity="0.5"/>
+</svg>

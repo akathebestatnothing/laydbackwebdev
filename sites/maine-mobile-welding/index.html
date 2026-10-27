@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en-AU" class="nojs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maine Mobile Welding | Mobile Welding in Wamuran QLD</title>
+<meta name="description" content="Maine Mobile Welding is a mobile welding service in Wamuran QLD. On-site welding, gate and trailer repairs, structural steel, machinery repair and aluminium welding, brought to your place. Call 0456 707 538 for a quote.">
+<meta name="theme-color" content="#0E1113">
+<link rel="icon" href="assets/favicon.png">
+<link rel="canonical" href="https://maine-mobile-welding.surge.sh/">
+<style>
+:root{
+  --bg:#0E1113; --bar:#07090A; --panel:#15191D; --panel-2:#1B2126;
+  --ink:#F3F5F6; --dim:#A9B3B8; --line:#252C31;
+  --acc:#E0A32B; --accent:#E0A32B; --brand:#E0A32B; --primary:#E0A32B;
+  --spark:#2E86D6; --spark-raw:#2474C2; --rust:#7A4E2A; --deep:#694D01;
+  --disp:"Archivo Narrow","Roboto Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(38px,6.4vw,78px);line-height:.98}
+h2{font-size:clamp(25px,3.1vw,40px);line-height:1.05}
+h3{font-size:20px;line-height:1.2}
+p{margin:0 0 14px;color:var(--dim)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(18px,4.5vw,54px)}
+.eyebrow{font:700 12.5px/1 var(--disp);letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin:0 0 14px}
+.seam{height:3px;border:0;margin:0;background-image:repeating-linear-gradient(90deg,var(--acc) 0 11px,transparent 11px 19px);opacity:.65}
+.btn{display:inline-block;background:var(--acc);color:#141007;font:700 15.5px/1 var(--disp);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:16px 26px;border:0;cursor:pointer}
+.btn:hover{background:#F0B740}
+.btn-ghost{display:inline-block;text-decoration:none;font:700 15.5px/1 var(--disp);letter-spacing:.06em;text-transform:uppercase;padding:16px 22px;border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--acc);color:var(--acc)}
+.nojs .rv{opacity:1}
+.rv{transition:opacity .6s ease,transform .6s ease}
+html.js .rv{opacity:0;transform:translateY(18px)}
+.rv.on{opacity:1;transform:none}
+html.js .rv.on{opacity:1;transform:none}
+
+/* ---------- header bar ---------- */
+header.bar{position:sticky;top:0;z-index:40;background:var(--bar);border-bottom:1px solid var(--line)}
+.lb-brand{display:flex;align-items:center;gap:14px;text-decoration:none;padding:8px 0}
+.lb-brand .brand-mark{height:clamp(44px,4.4vw,58px);width:auto;border-radius:4px}
+.lb-brand .brand-word{height:clamp(30px,2.8vw,38px);width:auto}
+.nav{display:flex;align-items:center;gap:clamp(12px,1.7vw,26px);margin-left:auto;flex-wrap:wrap}
+.nav a{text-decoration:none;font:600 14.5px/1 var(--disp);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.nav a:hover{color:var(--ink)}
+.nav a.call{color:var(--acc);white-space:nowrap;font-weight:700}
+.nav a.cta-btn{background:var(--acc);color:#141007!important;padding:12px 18px;white-space:nowrap}
+.nav a.cta-btn:hover{background:#F0B740}
+@media(max-width:900px){
+  .lb-brand{gap:10px}
+  .lb-brand .brand-mark{height:40px}
+  .lb-brand .brand-word{height:24px}
+  .nav{order:3;width:100%;margin:0 0 8px;justify-content:space-between;gap:6px}
+  .nav a{font-size:12.5px;letter-spacing:.06em}
+  .nav a.cta-btn{padding:10px 12px}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;isolation:isolate;perspective:1200px}
+.hero .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 42%;z-index:0;filter:saturate(1.06) contrast(1.04)}
+.hero .scrim{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,rgba(7,9,10,.90) 0%,rgba(7,9,10,.66) 46%,rgba(7,9,10,.34) 100%),
+  linear-gradient(180deg,rgba(7,9,10,.52) 0%,rgba(7,9,10,.30) 40%,var(--bg) 100%)}
+.hero .inner{position:relative;z-index:3;padding:clamp(76px,13vw,150px) 0 clamp(58px,9vw,104px);max-width:min(760px,92%)}
+.hero h1{color:#fff;text-shadow:0 2px 22px rgba(0,0,0,.55)}
+.hero h1 .hl{color:var(--acc);display:block}
+.hero .lead{color:#E4E9EB;font-size:clamp(16.5px,1.5vw,19.5px);max-width:56ch;margin:18px 0 26px;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .tag{margin:22px 0 0;font:700 13px/1.5 var(--disp);letter-spacing:.14em;text-transform:uppercase;color:#C9D2D6}
+.hero .tag b{color:var(--acc)}
+#heroCanvas{display:none}
+@media(max-width:900px){
+  .hero{min-height:min(88svh,720px);display:flex;align-items:center}
+  .hero .wrap{width:100%}
+  .hero .inner{padding:clamp(38px,7vw,86px) 0 clamp(42px,7vw,78px)}
+  .hero .hero-img{object-position:56% 38%}
+  .hero .lead{font-size:16.5px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .rv,html.js .rv{opacity:1!important;transform:none!important;transition:none!important}
+  .btn,.btn-ghost,.btn:hover,.btn-ghost:hover{transition:none}
+}
+
+/* ---------- generic sections ---------- */
+section{padding:clamp(52px,7vw,92px) 0;border-top:1px solid var(--line)}
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:start}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);padding:clamp(20px,3vw,32px)}
+
+.svc{width:100%;border-collapse:collapse}
+.svc tr{border-bottom:1px solid var(--line);display:block;padding:20px 0}
+.svc td{display:block;padding:0}
+.svc .n{font:700 12.5px/1 var(--disp);letter-spacing:.16em;color:var(--acc);margin-bottom:7px}
+.svc .t{font:700 clamp(19px,2.1vw,25px)/1.15 var(--disp);color:var(--ink);margin-bottom:8px}
+.svc .d{color:var(--dim);font-size:16.5px;max-width:74ch}
+@media(min-width:820px){
+  .svc tr{display:grid;grid-template-columns:64px minmax(210px,300px) 1fr;gap:18px;align-items:baseline;padding:22px 0}
+  .svc td{display:table-cell}
+  .svc .n{margin:0}
+}
+
+/* ---------- gallery ---------- */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr;gap:10px}.gal figure:first-child{grid-column:1/-1}}
+.gal figure{margin:0;border:1px solid var(--line);background:var(--panel);overflow:hidden}
+.gal img{width:100%;height:clamp(210px,26vw,320px);object-fit:cover}
+.gal figcaption{padding:11px 14px;font:700 12.5px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+
+/* ---------- quote form ---------- */
+#lbq{background:linear-gradient(180deg,var(--bg),var(--panel-2) 140%)}
+#lbq .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+#lbq .full{grid-column:1/-1}
+#lbq label{display:block;font:700 12px/1 var(--disp);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 7px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:13px 14px;border:1px solid var(--line);background:#0B0E10;color:var(--ink);font:inherit;font-size:16px}
+#lbq textarea{min-height:108px;resize:vertical}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--acc);outline-offset:1px}
+#lbq button{width:100%;margin-top:6px}
+#lbq .st{margin:12px 0 0;font-size:15px;color:var(--dim);min-height:1.3em}
+#lbq .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq .side ul{margin:0;padding:0;list-style:none}
+#lbq .side li{border-top:1px solid var(--line);padding:13px 0;font-size:15.5px;color:var(--dim)}
+#lbq .side li b{color:var(--ink);display:block;font-family:var(--disp);font-size:17px;letter-spacing:.01em}
+
+/* ---------- faq / areas / footer ---------- */
+.faq{max-width:900px}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font:700 clamp(17px,1.8vw,21px)/1.3 var(--disp);color:var(--ink)}
+.faq summary::marker{color:var(--acc)}
+.faq p{margin:12px 0 0;font-size:16.5px;max-width:80ch}
+.areas{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.areas span{border:1px solid var(--line);padding:9px 15px;font:600 14px/1 var(--disp);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.areas span.k{border-color:var(--acc);color:var(--acc)}
+footer{border-top:1px solid var(--line);background:var(--bar);padding:46px 0 34px}
+footer .fg{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:26px}
+@media(max-width:780px){footer .fg{grid-template-columns:1fr}}
+footer h3{font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:12px}
+footer p,footer a{font-size:15px;color:var(--dim);text-decoration:none}
+footer a:hover{color:var(--acc)}
+footer .call{font:700 22px/1 var(--disp);color:var(--acc);text-decoration:none;white-space:nowrap;display:inline-block;margin-top:6px}
+footer .fine{border-top:1px solid var(--line);margin-top:30px;padding-top:20px;display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;font-size:13.5px;color:#8B959A}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}
+.hero .hero-img{position:relative;height:auto}</style></noscript>
+<style id="lb-hero-noscale">
+/* hero.jpg is 1014x1080. Full-bleed at 1920 it was enlarged; it is held at its own pixel size here so
+   nothing is interpolated, and the bar's own ground fills either side. */
+img[src$="hero.jpg"], .hero-photo, .hero img, .hero__bg, .hero-bg img
+{position:relative!important;inset:auto!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+  transform:none!important;width:100%!important;max-width:1014px!important;height:auto!important;max-height:none!important;
+  object-fit:contain!important;display:block!important;margin:0 auto!important}
+</style><style id="lb-bar-noname">
+/* the bar shows the client's own logo artwork and nothing typed — the name belongs in the logo, not in a system font */
+.lb-brand__word, .lb-brand__name, .lb-brand__sub, .lb-brand__rule, .lb-acc, .lb-span-word, .brand__name, .brand-name, .lb-name, .logo-name
+{display:none!important}
+.lb-brand{display:flex!important;align-items:center!important;gap:0!important}
+.lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+</style><style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
+.brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style></head>
+<body>
+<!-- LB-3D-HERO -->
+<canvas id="heroCanvas" aria-hidden="true"></canvas>
+
+<header class="bar">
+  <div class="wrap" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <a class="lb-brand" href="#top" aria-label="Maine Mobile Welding, Wamuran">
+      <img class="brand-mark" src="assets/logo-mark.png" alt="Maine Mobile Welding badge: a welder on a ladder welding a pipe">
+      <img class="brand-word" src="assets/logo-word.png" alt="Maine Mobile Welding Service">
+    </a>
+    <nav class="nav" aria-label="Main"><a class="brand-monogram" href="#top" aria-label="Maine Mobile Welding"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#area">Area</a>
+      <a href="#faq">FAQ</a>
+      <a class="cta-btn" href="#quote">Get a quote</a>
+      <a class="call" href="tel:+61456707538">0456 707 538</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="hero-h">
+  <img class="hero-img" src="assets/hero.jpg" alt="A welder in a helmet and gloves running an arc along a steel beam, sparks coming off the joint">
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="inner">
+      <p class="eyebrow">Mobile welding &middot; Wamuran QLD</p>
+      <h1 id="hero-h">The welder comes to you.<span class="hl">Steel fixed where it stands.</span></h1>
+      <p class="lead">Maine Mobile Welding is a mobile welding service working out of Wamuran. Gates, trailers, structural steel, machinery and anything else that has cracked, snapped or needs building properly: welded on your place, not dragged into a workshop.</p>
+      <div class="acts">
+        <a class="btn" href="#quote">Get a quote</a>
+        <a class="btn-ghost" href="tel:+61456707538">Call 0456 707 538</a>
+      </div>
+      <p class="tag"><b>On-site</b> welding &middot; <b>Gate and trailer</b> repairs &middot; <b>Rural</b> call-outs</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <p class="eyebrow rv">What I take on</p>
+    <h2 id="svc-h" class="rv">Welding jobs that come to your place</h2>
+    <hr class="seam" style="margin:22px 0 8px">
+    <table class="svc">
+      <tr class="rv">
+        <td class="n">01</td>
+        <td class="t">On-site welding</td>
+        <td class="d">The welder, leads, gas and grinder come with me, so a cracked gate frame or a broken bracket is repaired in place instead of being cut out and carted away.</td>
+      </tr>
+      <tr class="rv">
+        <td class="n">02</td>
+        <td class="t">Gate and trailer repairs</td>
+        <td class="d">Hinges torn out of posts, cracked trailer frames, worn drawbars, broken latches and tailgate catches: welded, braced and squared back up on site.</td>
+      </tr>
+      <tr class="rv">
+        <td class="n">03</td>
+        <td class="t">Structural steel</td>
+        <td class="d">Columns, beams, brackets, base plates and roof members welded and cut into existing steelwork, including welding steel that is already standing or under a shed.</td>
+      </tr>
+      <tr class="rv">
+        <td class="n">04</td>
+        <td class="t">Machinery and equipment repair</td>
+        <td class="d">Cracked loader arms, bucket wear plates, mower decks, augers, post drivers and farm gear welded back to working order so the job can keep moving.</td>
+      </tr>
+      <tr class="rv">
+        <td class="n">05</td>
+        <td class="t">Aluminium welding</td>
+        <td class="d">Aluminium treadplate, trays, toolboxes, gates, ramps and boat fittings welded with the right filler and heat control so the repair holds under load.</td>
+      </tr>
+      <tr class="rv">
+        <td class="n">06</td>
+        <td class="t">Rural and after-hours call-outs</td>
+        <td class="d">Acreage, farm and shed jobs around the district, including early starts and Saturday work when something breaks down and cannot wait until Monday.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <p class="eyebrow rv">In the arc</p>
+    <h2 id="work-h" class="rv">A job like this</h2>
+    <hr class="seam" style="margin:22px 0 26px">
+    <div class="gal">
+      <figure class="rv">
+        <img src="assets/gal_1.jpg" alt="Bright welding arc and a shower of sparks at a steel joint">
+        <figcaption>A job like this</figcaption>
+      </figure>
+      <figure class="rv">
+        <img src="assets/gal_2.jpg" alt="A steel beam being lifted into place on a building frame">
+        <figcaption>A job like this</figcaption>
+      </figure>
+      <figure class="rv">
+        <img src="assets/gal_3.jpg" alt="A welded steel portal frame standing on a concrete slab">
+        <figcaption>A job like this</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-h">
+  <div class="wrap two">
+    <div class="rv">
+      <p class="eyebrow">Who turns up</p>
+      <h2 id="about-h">One welder, one rig, straight answers</h2>
+      <p>Maine Mobile Welding is a one-welder mobile service based at Wamuran. That means you deal with the same person from the first phone call to the last bead: the one who looks at the job, prices it and does the welding.</p>
+      <p>Jobs get quoted off the actual steel, not off a photo and a guess. If a repair is not worth doing, you will be told that instead of being sold a new gate. If it is a quick fix, it stays a quick fix.</p>
+      <p>Work is welded to hold: dressed back where it shows, braced where it carries load, and left tidy enough that the next person who looks at it cannot tell where the repair starts.</p>
+    </div>
+    <div class="panel rv">
+      <h3 style="margin-bottom:14px">How a call-out runs</h3>
+      <ul style="margin:0;padding:0;list-style:none">
+        <li style="border-top:1px solid var(--line);padding:13px 0;color:var(--dim)"><b style="color:var(--ink);font-family:var(--disp);font-size:17px;display:block">1. You send the job details</b>What it is, roughly how big, and where it sits on the property.</li>
+        <li style="border-top:1px solid var(--line);padding:13px 0;color:var(--dim)"><b style="color:var(--ink);font-family:var(--disp);font-size:17px;display:block">2. I price it honestly</b>A fixed price for the job, or an hourly rate for repairs where the damage is not clear until it is opened up.</li>
+        <li style="border-top:1px solid var(--line);padding:13px 0;color:var(--dim)"><b style="color:var(--ink);font-family:var(--disp);font-size:17px;display:block">3. I come to you</b>Ute, welder and tools on site, rigged up where the job is, with the area cleaned down afterwards.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<span id="quote" aria-hidden="true"></span>
+<section id="lbq" aria-labelledby="lbq-h">
+  <div class="wrap two">
+    <div>
+      <p class="eyebrow">Request a quote</p>
+      <h2 id="lbq-h">Send the job through</h2>
+      <p>Tell me what needs welding and where you are, and I will come back with a price or a call-out time. If the job is urgent, ring <a class="call" style="color:var(--acc);text-decoration:none;white-space:nowrap;font-weight:700" href="tel:+61456707538">0456 707 538</a>.</p>
+      <form id="lbq-form" data-site="maine-mobile-welding" data-biz="Maine Mobile Welding" novalidate>
+        <div class="grid">
+          <div>
+            <label for="lbq-name">Your name</label>
+            <input id="lbq-name" name="name" type="text" autocomplete="name" placeholder="Name" required>
+          </div>
+          <div>
+            <label for="lbq-phone">Phone</label>
+            <input id="lbq-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="04XX XXX XXX" required>
+          </div>
+          <div>
+            <label for="lbq-email">Email (optional)</label>
+            <input id="lbq-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div>
+            <label for="lbq-suburb">Suburb</label>
+            <input id="lbq-suburb" name="suburb" type="text" autocomplete="address-level2" placeholder="Wamuran">
+          </div>
+          <div class="full">
+            <label for="lbq-service">What needs doing?</label>
+            <select id="lbq-service" name="service">
+              <option value="">Choose the closest one</option>
+              <option>On-site welding</option>
+              <option>Gate or trailer repair</option>
+              <option>Structural steel</option>
+              <option>Machinery or equipment repair</option>
+              <option>Aluminium welding</option>
+              <option>Rural or after-hours call-out</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="lbq-msg">Describe the job</label>
+            <textarea id="lbq-msg" name="message" placeholder="e.g. the top hinge has torn out of a 4m steel farm gate and the post is cracked" required></textarea>
+          </div>
+          <div class="full" style="display:flex;gap:10px;align-items:flex-start;color:var(--dim);font-size:14.5px">
+            <input id="lbq-consent" name="consent" type="checkbox" value="yes" style="width:auto;margin-top:3px">
+            <label for="lbq-consent" style="margin:0;text-transform:none;letter-spacing:0;font:400 14.5px/1.5 var(--body)">Send me a reply about this job by phone or email.</label>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="lbq-web">Website</label>
+            <input id="lbq-web" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="full">
+            <button class="btn" type="submit">Send my request</button>
+            <p class="st" id="lbq-st" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="side panel">
+      <h3 style="margin-bottom:10px">Mobile welding, Wamuran</h3>
+      <ul>
+        <li><b>Phone</b><a style="color:var(--acc);text-decoration:none;white-space:nowrap" href="tel:+61456707538">0456 707 538</a></li>
+        <li><b>Based at</b>Wamuran, Queensland</li>
+        <li><b>Covers</b>Wamuran and surrounding areas</li>
+        <li><b>Hours</b>Weekdays, with early starts and Saturday work for breakdowns</li>
+        <li><b>Quotes</b>Priced off the actual job, on site where it needs a look</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+(function(){
+  var EP = null;
+  function base(cb){
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function(){ if(!done){done=true;cb('https://laydback-hq.tail5b3740.ts.net');} }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
+      .then(function(r){ return r.text(); })
+      .then(function(txt){
+        var b = (txt||'').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://laydback-hq.tail5b3740.ts.net');
+      })
+      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://laydback-hq.tail5b3740.ts.net');} });
+  }
+  function init(){
+    var f = document.getElementById('lbq-form');
+    if (!f) return;
+    var st = document.getElementById('lbq-st');
+    var btn = f.querySelector('button[type=submit]');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = {};
+      new FormData(f).forEach(function(v,k){ d[k]=v; });
+      if (d.website) return;
+      if (!d.name || !d.phone || !(d.message||'').trim()) {
+        st.textContent = 'Please add your name, a phone number and a few words about the job.';
+        st.style.color = '#FF9D8A';
+        return;
+      }
+      btn.disabled = true;
+      st.textContent = 'Sending\u2026';
+      st.style.color = '';
+      base(function(B){
+        fetch(B + '/functions/v1/quote-request', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            site_id: f.dataset.site || '',
+            business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email || '',
+            suburb: d.suburb || '', service: d.service || '',
+            message: d.message, consent: !!d.consent
+          })
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(x){
+          if (x && x.success) {
+            f.reset();
+            st.textContent = 'Thanks \u2014 your request is in. I will be in touch shortly.';
+            st.style.color = 'var(--acc)';
+          } else { throw new Error((x && x.error) || 'Could not send'); }
+        })
+        .catch(function(err){
+          st.textContent = 'Could not send that. Please try again or call 0456 707 538.';
+          st.style.color = '#FF9D8A';
+        })
+        .finally(function(){ btn.disabled = false; });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</section>
+
+<section id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="eyebrow rv">Questions</p>
+    <h2 id="faq-h" class="rv" style="margin-bottom:22px">Before you ring</h2>
+    <div class="faq">
+      <details class="rv"><summary>Do you come to me, or do I bring the job in?</summary>
+        <p>Everything on this page is a mobile job. The welder, leads and gas go on the ute and get rigged up at your place, whether that is a farm gate at the front boundary or a shed at the back of the block. There is no workshop to drop anything off to.</p></details>
+      <details class="rv"><summary>What do you need on site?</summary>
+        <p>Room to get the ute close, and a power point within reach of the job. Where power is not available, the welder runs off the ute. Steel that is going to be welded needs to be clean, dry and clear of anything that will catch a spark, so the area around the joint gets swept back first.</p></details>
+      <details class="rv"><summary>Can you weld steel that is already standing or bolted down?</summary>
+        <p>Yes. Structural steel, shed columns, roof members, gate posts and frames are commonly welded in place. Anything carrying load gets braced before it is cut, and the weld is sized to what it is holding up rather than to what looks neat.</p></details>
+      <details class="rv"><summary>How quickly can you get out?</summary>
+        <p>Booked work is usually scheduled within a few days. Breakdowns on a farm or a trailer that cannot move get priority, and weekend or early-morning call-outs are fine when something has to be back working.</p></details>
+      <details class="rv"><summary>What does a repair cost?</summary>
+        <p>Small gate and trailer repairs are quoted as a fixed price once the damage is seen. Larger fabrication or structural jobs are quoted per job, and where the damage is hidden until the joint is opened up, it is done at an hourly rate agreed before the welder starts.</p></details>
+      <details class="rv"><summary>Which areas do you cover?</summary>
+        <p>Wamuran and the surrounding areas. If you are just outside that, send the details through anyway and you will get a straight answer on whether the trip is worth it.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="area" aria-labelledby="area-h">
+  <div class="wrap">
+    <p class="eyebrow rv">Service area</p>
+    <h2 id="area-h" class="rv">Based in Wamuran, on the road around it</h2>
+    <p class="rv" style="max-width:70ch">The ute runs out of Wamuran, so most jobs are a short drive: farm and acreage repairs, gate and trailer fixes, shed and structural steel work, and machinery that has stopped mid-job.</p>
+    <div class="areas rv">
+      <span class="k">Wamuran</span>
+      <span>Surrounding areas</span>
+      <span>On-site call-outs</span>
+      <span>Farm and acreage</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <h3>Maine Mobile Welding</h3>
+        <p>Mobile welding service based at Wamuran, Queensland. On-site welding, gate and trailer repairs, structural steel, machinery repair and aluminium welding, brought to your place.</p>
+        <a class="call" href="tel:+61456707538">0456 707 538</a>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <p><a href="#services">On-site welding</a><br>
+        <a href="#services">Gate and trailer repairs</a><br>
+        <a href="#services">Structural steel</a><br>
+        <a href="#services">Machinery and equipment repair</a><br>
+        <a href="#services">Aluminium welding</a><br>
+        <a href="#services">Rural call-outs</a></p>
+      </div>
+      <div>
+        <h3>Get a price</h3>
+        <p><a href="#quote">Request a quote</a><br>
+        <a href="tel:+61456707538">Call 0456 707 538</a><br>
+        <a href="#faq">Common questions</a><br>
+        <a href="#area">Service area</a></p>
+      </div>
+    </div>
+    <div class="fine">
+      <span>Maine Mobile Welding &middot; Mobile welding &middot; Wamuran QLD</span>
+      <span><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.className = 'js';
+(function(){
+  var els = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+      });
+    }, {rootMargin: '0px 0px -6% 0px', threshold: 0.05});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('on'); });
+  }
+  setTimeout(function(){ document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('on'); }); }, 1200);
+})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Maine Mobile Welding","description":"Mobile welding service in Wamuran QLD: on-site welding, gate and trailer repairs, structural steel, machinery repair and aluminium welding.","telephone":"+61456707538","areaServed":"Wamuran and surrounding areas","address":{"@type":"PostalAddress","addressLocality":"Wamuran","addressRegion":"QLD","addressCountry":"AU"},"knowsAbout":["mobile welding","on-site welding","structural steel welding","gate repair","trailer repair","aluminium welding"]}
+</script>
+</body>
+</html>

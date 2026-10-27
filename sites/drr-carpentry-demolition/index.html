@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D&bull;R&bull;R carpentry and demolition | Carpentry &amp; demolition | Sunshine Coast</title>
+<meta name="description" content="D&bull;R&bull;R carpentry and demolition does strip-outs, house demolition, framing, decks, renovations and rubbish removal on the Sunshine Coast. Call 0413 478 503.">
+<link rel="icon" href="assets/logo-mark.png">
+<style>
+:root{
+  --bar:#0d0e10;
+  --bg:#0d0e10;
+  --bg2:#111214;
+  --panel:#15161a;
+  --ink:#f2eeee;
+  --muted:#b0a9ab;
+  --line:#2b272a;
+  --acc:#e0566f;      /* lighter tint of the logo's rose-copper hue */
+  --acc-deep:#6b1729; /* deep shade of the same hue - CTA fill */
+  --acc-dim:#4f3135;  /* the logo's own dark rose, used for rules */
+  --on-acc:#ffffff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.62 "Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;overflow-x:hidden}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,4.2vw,54px)}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;margin:0;letter-spacing:-.012em}
+h1{font-size:clamp(31px,5.2vw,68px);line-height:1.06}
+h2{font-size:clamp(23px,3vw,40px);line-height:1.14}
+h3{font-size:19px}
+p{margin:0 0 1em}
+a{color:inherit}
+.tel{white-space:nowrap;font-weight:800;text-decoration:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.rv{opacity:1;transition:opacity .5s ease,transform .5s ease}
+html.js .rv{opacity:0;transform:translateY(16px)}
+html.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1!important;transform:none!important}
+}
+
+/* bar - the client's lockup artwork only */
+.bar{background:var(--bar);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+.bar-in{display:flex;align-items:center;gap:clamp(12px,2vw,26px);flex-wrap:wrap;padding:9px 0}
+.brand{display:flex;align-items:center;min-width:0;text-decoration:none}
+.brand img{height:clamp(48px,6.2vw,82px);width:auto;display:block}
+nav.tabs{display:flex;gap:clamp(11px,1.6vw,22px);margin-left:auto;flex-wrap:wrap}
+nav.tabs a{font-size:14.5px;color:var(--muted);text-decoration:none;padding:4px 0}
+.bar .tel{font-size:15px;border-bottom:2px solid var(--acc)}
+
+/* hero */
+.hero{position:relative;perspective:1100px;background:#000;color:#fff;border-bottom:1px solid var(--line)}
+.hero .shot{position:absolute;inset:0;background:radial-gradient(120% 90% at 14% 0%,rgba(107,23,41,0.2),transparent 62%),repeating-linear-gradient(115deg,rgba(107,23,41,0.08) 0 2px,transparent 2px 17px),linear-gradient(162deg,#151013 0%,#0b0b0c 58%,#130e11 100%),}
+.hero .scrim{position:absolute;inset:0;background:linear-gradient(96deg,rgba(8,8,9,.90) 0%,rgba(8,8,9,.78) 40%,rgba(8,8,9,.46) 70%,rgba(8,8,9,.24) 100%)}
+.hero .wrap{position:relative;z-index:3;padding-top:clamp(42px,6vw,86px);padding-bottom:clamp(40px,5.6vw,78px)}
+.kicker{color:#fff;font-size:14.5px;font-weight:700;margin:0 0 14px;opacity:.95;letter-spacing:0}
+.hero h1{max-width:22ch}
+.hero h1 em{font-style:italic;color:var(--acc)}
+.hero .sub{max-width:62ch;margin-top:16px;color:#e3dedf;font-size:clamp(16px,1.5vw,18.5px)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;padding:15px 26px;text-decoration:none;font-weight:800;font-size:15.5px}
+.btn-fill{background:var(--acc-deep);color:var(--on-acc)}
+.btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,3.4vw,38px);padding:14px 16px;background:rgba(8,8,9,.55);border:1px solid rgba(255,255,255,.22)}
+.facts span{font-size:14.5px;color:#fff;font-weight:600}
+.facts span::after{content:"/";color:var(--acc);margin-left:10px}
+.facts span:last-child::after{content:""}
+#heroCanvas{display:none}
+
+section{padding:clamp(48px,6.4vw,92px) 0;border-top:1px solid var(--line)}
+.lead{max-width:62ch;color:var(--muted)}
+
+/* spec table */
+.spec{margin-top:26px;border-top:1px solid var(--line)}
+.spec .r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(12px,3vw,38px);padding:19px 0;border-bottom:1px solid var(--line)}
+.spec .r b{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:19px}
+.spec .r p{margin:0;color:var(--muted)}
+
+/* strip gallery */
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.8vw,18px);margin-top:26px}
+.strip figure{margin:0;position:relative;border:1px solid var(--line);background:var(--panel)}
+.strip img{display:block;width:100%;height:auto}
+.strip figcaption{padding:11px 13px;font-size:13.5px;color:var(--muted)}
+.strip .tag{position:absolute;top:10px;left:10px;background:var(--acc-deep);color:#fff;font-size:12px;font-weight:700;padding:5px 9px}
+
+/* vertical timeline */
+.rail{margin-top:28px;border-left:1px solid var(--acc-dim);padding-left:clamp(16px,3vw,34px);display:grid;gap:clamp(20px,3vw,36px)}
+.rail .step{position:relative}
+.rail .step::before{content:"";position:absolute;left:calc(-1 * clamp(16px,3vw,34px) - 5px);top:9px;width:9px;height:9px;background:var(--acc);border-radius:50%}
+.rail .step b{display:block;font-size:13px;font-weight:800;color:var(--acc);margin-bottom:6px}
+.rail .step h3{margin-bottom:7px}
+.rail .step p{margin:0;color:var(--muted);max-width:62ch}
+
+/* areas + faq */
+.areas{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.areas span{border:1px solid var(--line);background:var(--panel);padding:8px 14px;font-size:14.5px;color:var(--muted)}
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);margin-top:24px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:17px 0}
+.faq summary{cursor:pointer;font-family:Georgia,"Times New Roman",serif;font-size:18px}
+.faq p{margin:11px 0 0;color:var(--muted);font-size:15.5px}
+
+/* quote */
+#lbq{background:var(--bg2)}
+#lbq .card{max-width:780px;margin-top:8px;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--acc);padding:clamp(20px,3.4vw,36px)}
+#lbq label{display:block;font-size:14px;color:var(--muted);margin:0 0 6px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 13px;background:#0d0e10;border:1px solid var(--line);color:inherit;font:inherit;font-size:15px;margin-bottom:14px}
+#lbq textarea{min-height:104px;resize:vertical}
+#lbq .two{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+#lbq button{width:100%;padding:15px;background:var(--acc-deep);color:#fff;border:0;font:inherit;font-weight:800;font-size:15.5px;cursor:pointer}
+#lbq .st{margin:12px 0 0;font-size:14.5px;color:var(--muted);min-height:1.3em}
+#lbq .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq button[disabled]{opacity:.65;cursor:wait}
+
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:14.5px;color:var(--muted)}
+footer .fin{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--ink)}
+
+@media (max-width:980px){
+  .strip{grid-template-columns:1fr 1fr}
+  .faq{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  nav.tabs{order:3;width:100%;margin-left:0;gap:14px}
+  .brand img{height:clamp(42px,11vw,58px)}
+  .strip{grid-template-columns:1fr}
+  .spec .r{grid-template-columns:1fr;gap:6px}
+  #lbq .two{grid-template-columns:1fr}
+}
+</style>
+<style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
+.brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style></head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#top" aria-label="D R R carpentry and demolition"><img src="assets/logo-lockup.png" alt="D R R carpentry and demolition"><span class="vh">D&bull;R&bull;R carpentry and demolition</span></a>
+    <nav class="tabs" aria-label="Primary"><a class="brand-monogram" href="#top" aria-label="D•R•R carpentry and demolition"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
+      <a href="#work">What we do</a>
+      <a href="#site">On site</a>
+      <a href="#how">How it runs</a>
+      <a href="#area">Area</a>
+      <a href="#lbq">Quote</a>
+    </nav>
+    <a class="tel" href="tel:+61413478503">0413 478 503</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="shot" role="img" aria-label="Excavator working on a residential site"></div>
+    <div class="scrim"></div><!-- LB-3D-HERO --><canvas id="heroCanvas" width="1600" height="900" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="kicker rv">Carpentry and demolition &middot; Sunshine Coast</p>
+      <h1 class="rv">Strip it out, knock it down, <em>then build it back properly.</em></h1>
+      <p class="sub rv">D&bull;R&bull;R takes on the whole job: the strip-out and the demolition, the rubbish gone from site, and the framing, decks and renovations that go back in afterwards. One crew on the tools from the first bin to the last fixing.</p>
+      <div class="cta-row rv">
+        <a class="btn btn-fill" href="#lbq">Request a quote</a>
+        <a class="btn btn-ghost" href="tel:+61413478503">Call 0413 478 503</a>
+      </div>
+      <div class="facts rv">
+        <span>Strip-outs</span><span>House demolition</span><span>Framing</span><span>Decks</span><span>Renovations</span><span>Rubbish removal</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2 class="rv">What we do</h2>
+      <p class="lead rv">Demolition and carpentry on the same ticket, so nothing sits half finished waiting on a second trade to turn up.</p>
+      <div class="spec">
+        <div class="r rv"><b>Strip-out</b><p>Internal strip-outs ahead of a renovation: lining, joinery, wet-area tiles, flooring and services made safe, taken out and sorted for disposal.</p></div>
+        <div class="r rv"><b>House demolition</b><p>Houses and outbuildings brought down, footings and slabs broken out, materials separated and the block left clear and swept.</p></div>
+        <div class="r rv"><b>Framing</b><p>Wall and roof framing set out and stood square, bracing and tie-downs done to the plan, and the frame left straight for the sheeting trade.</p></div>
+        <div class="r rv"><b>Decks</b><p>Bearers and joists fixed back to the house, decking laid with consistent gaps and the edges finished off so the boards stay tight.</p></div>
+        <div class="r rv"><b>Renovations</b><p>Second-fix carpentry, doors, architraves, skirtings and shelving, working in behind the other trades and keeping the house liveable where we can.</p></div>
+        <div class="r rv"><b>Rubbish removal</b><p>Bins arranged, the load sorted so the green waste and the hard waste do not go out together, and the site left tidy at the end of each day.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="site" style="background:var(--bg2)">
+    <div class="wrap">
+      <h2 class="rv">What the work actually is</h2>
+      <p class="lead rv">No borrowed photos on this page &mdash; the scope below is what a strip-out, breakout and structural demo involve, start to finish.</p>
+      <div class="scope">
+        <article><b>Strip-outs</b><p>Interiors taken back to the framing — linings, joinery, floors and ceilings out, rubbish gone.</p></article>
+        <article><b>Structural demo</b><p>Load-bearing walls, extensions and outbuildings brought down with the frame left safe and propped.</p></article>
+        <article><b>Concrete break-out</b><p>Slabs, footings and paths cut and broken out, steel separated, rubble carted.</p></article>
+        <article><b>Making good</b><p>Frames, trims and linings reinstated so the next trade has something straight to work to.</p></article>
+      </div>
+      <style id="drr-scope">
+      .scope{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:8px}
+      .scope article{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:12px;padding:22px}
+      .scope b{display:block;font-size:17px;margin-bottom:8px;color:var(--ink)}
+      .scope p{margin:0;color:var(--muted);font-size:15px;line-height:1.55}
+      </style>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2 class="rv">How a job runs</h2>
+      <div class="rail">
+        <div class="step rv"><b>01 &mdash; WALK THE SITE</b><h3>Look at it before we price it</h3><p>What is load bearing, what is inside the wall, where the trucks can get to and where the bins sit. The quote comes off that, not off a description over the phone.</p></div>
+        <div class="step rv"><b>02 &mdash; STRIP AND DEMOLISH</b><h3>Controlled, not smash and grab</h3><p>Anything being kept is protected or taken out clean, services are isolated, and the demolition is worked so the rest of the house and the neighbours are not damaged.</p></div>
+        <div class="step rv"><b>03 &mdash; REBUILD</b><h3>Carpentry straight behind the demolition</h3><p>Framing, decks and the fit-out go in while the job is still fresh, so the site is not left opened up waiting for another crew.</p></div>
+        <div class="step rv"><b>04 &mdash; CLEAR UP</b><h3>Bins gone, site swept</h3><p>Rubbish is loaded out as the job goes, and the last pass is a sweep and a walk-through with you before we call it done.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="area">
+    <div class="wrap">
+      <h2 class="rv">Service area</h2>
+      <p class="lead rv">Sunshine Coast and the surrounding areas.</p>
+      <div class="areas">
+        <span>Sunshine Coast</span><span>Surrounding areas</span>
+      </div>
+      <div class="faq" style="margin-top:34px">
+        <details class="rv"><summary>Can you take the house down and rebuild it?</summary><p>That is the usual job. Strip-out, demolition and the carpentry that follows come off the one crew, so the gap between the demolition and the rebuild is as short as it can be.</p></details>
+        <details class="rv"><summary>Do you organise the bins?</summary><p>Yes. Bins are arranged as part of the job and the load is sorted so hard waste and green waste do not go out together.</p></details>
+        <details class="rv"><summary>Will the quote change once you start?</summary><p>Not for the scope we priced. If you add work, or something is found behind the lining that nobody could see, we stop and price that change before doing it.</p></details>
+        <details class="rv"><summary>Are you on site every day of the job?</summary><p>On the demolition and carpentry stages, yes. We will tell you in advance when nothing is happening on site, such as while material is on order.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="lbq" aria-labelledby="lbq-h">
+    <div class="wrap">
+      <h2 id="lbq-h" class="rv">Request a quote</h2>
+      <p class="lead rv">Send the details through and D&bull;R&bull;R will come back with a price. Prefer to talk it through? Call <a class="tel" href="tel:+61413478503">0413 478 503</a>.</p>
+      <div class="card">
+        <form id="lbq-form" data-site="drr-carpentry-demolition" novalidate>
+          <div class="two">
+            <div><label for="lbq-n">Name</label><input id="lbq-n" name="name" autocomplete="name" required></div>
+            <div><label for="lbq-p">Phone</label><input id="lbq-p" name="phone" type="tel" autocomplete="tel" required></div>
+          </div>
+          <div class="two">
+            <div><label for="lbq-s">Suburb</label><input id="lbq-s" name="suburb" autocomplete="address-level2"></div>
+            <div><label for="lbq-sv">Job type</label>
+              <select id="lbq-sv" name="service">
+                <option>Strip-out</option>
+                <option>House demolition</option>
+                <option>Framing</option>
+                <option>Deck</option>
+                <option>Renovation</option>
+                <option>Rubbish removal</option>
+              </select>
+            </div>
+          </div>
+          <label for="lbq-m">Tell us about the job</label>
+          <textarea id="lbq-m" name="message" placeholder="What needs to come out or go in, and roughly when"></textarea>
+          <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button type="submit">Send quote request</button>
+          <p class="st" id="lbq-st" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <script>
+    (function(){
+      var B='https://laydback-hq.tail5b3740.ts.net';
+      var f=document.getElementById('lbq-form');
+      if(!f) return;
+      var st=document.getElementById('lbq-st'), btn=f.querySelector('button[type=submit]');
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        var d={}; new FormData(f).forEach(function(v,k){d[k]=v;});
+        if(d.website) return;
+        if(!d.name || !d.phone || !(d.message||'').trim()){
+          st.textContent='Please add your name, a phone number and a few words about the job.';
+          return;
+        }
+        btn.disabled=true; st.textContent='Sending\u2026';
+        fetch(B+'/functions/v1/quote-request',{
+          method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({site_id:f.dataset.site,business_name:'D R R carpentry and demolition',name:d.name,phone:d.phone,suburb:d.suburb,service:d.service,message:d.message})
+        }).then(function(r){return r.json().catch(function(){return{};});})
+          .then(function(x){
+            if(x && x.success){f.reset();st.textContent="Thanks \u2014 the request is in and D\u2022R\u2022R will be in touch.";}
+            else{throw new Error((x&&x.error)||'Could not send');}
+          })
+          .catch(function(err){st.textContent=(err&&err.message)?err.message:'Could not send \u2014 please call 0413 478 503.';})
+          .finally(function(){btn.disabled=false;});
+      });
+    })();
+    </script>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap fin">
+    <span>D&bull;R&bull;R carpentry and demolition &middot; Sunshine Coast</span>
+    <span><a class="tel" href="tel:+61413478503">0413 478 503</a></span>
+    <span><a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -10% 0px',threshold:.08});
+    els.forEach(function(e){ io.observe(e); });
+  } else {
+    els.forEach(function(e){ e.classList.add('on'); });
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.rv:not(.on)').forEach(function(e){ e.classList.add('on'); });
+  },1200);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="wdlogo-title">
+  <title id="wdlogo-title">WD Mowing Service logo</title>
+  <defs>
+    <clipPath id="wdlawn"><path d="M74 54 H182 L218 202 H38 Z"/></clipPath>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#13180f"/>
+  <g clip-path="url(#wdlawn)">
+    <path d="M74 54 H182 L218 202 H38 Z" fill="#e4eecf"/>
+    <path d="M60 88 H196 L199 112 H57 Z" fill="#5f8b27"/>
+    <path d="M53 128 H203 L207 158 H49 Z" fill="#5f8b27"/>
+    <path d="M44 176 H212 L218 208 H38 Z" fill="#3f5f1c"/>
+    <path d="M112 54 L104 202" stroke="#13180f" stroke-opacity=".38" stroke-width="7"/>
+    <path d="M150 54 L160 202" stroke="#13180f" stroke-opacity=".38" stroke-width="7"/>
+  </g>
+  <path d="M74 54 H182" stroke="#9dc45f" stroke-width="7" stroke-linecap="round"/>
+</svg>

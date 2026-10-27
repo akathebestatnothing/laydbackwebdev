@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Akuna pool co — Pool &amp; hot tub service, Newcastle NSW</title>
+<meta name="description" content="Pool and hot tub cleaning, water testing, equipment repair and renovations across Newcastle, Lake Macquarie and the Hunter. Licensed, insured, same-day callback.">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#04222F; --ink:#082430; --ink-2:#20495A; --muted:#4A7484;
+  --paper:#F4FBFC; --paper-2:#E7F5F9; --card:#FFFFFF;
+  --line:#C4E2EB; --line-2:#9FCFDC;
+  --brand:#0077B6; --brand-dk:#005C8C; --cyan:#00B4D8; --cyan-lt:#8FE1F2;
+  --fs-hero:clamp(2.35rem,4.9vw,4.05rem);
+  --fs-h2:clamp(1.85rem,3.3vw,2.85rem);
+  --fs-h3:1.06rem;
+  --fs-lead:clamp(1.02rem,1.35vw,1.18rem);
+  --fs-body:1rem;
+  --fs-sm:.84rem;
+  --fs-num:.76rem;
+  --max:1160px;
+  --pad:clamp(1.15rem,4.4vw,2.5rem);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-body);line-height:1.6;letter-spacing:normal;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;font-weight:800;line-height:1.06;letter-spacing:-.015em}
+p{margin:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.skip{position:absolute;left:1rem;top:-4rem;z-index:90;background:var(--ink);color:#fff;padding:.7rem 1rem;border-radius:0 0 6px 6px;font-weight:700}
+.skip:focus{top:0}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;justify-content:center;
+  border:1px solid transparent;border-radius:3px;cursor:pointer;
+  font:700 .95rem/1 "Archivo",sans-serif;padding:.95rem 1.35rem;
+  transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.btn svg{width:16px;height:16px;flex:none}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.18) inset}
+.btn-primary:hover{background:var(--brand-dk);transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--brand);color:var(--brand)}
+
+/* ---------- header ---------- */
+.bar{position:sticky;top:0;z-index:60;background:#F8FDFE;border-bottom:1px solid var(--line)}
+.bar-in{max-width:var(--max);margin:0 auto;padding:.55rem var(--pad);display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:66px}
+.brand{display:inline-flex;align-items:center;gap:.65rem;min-width:0;--lb-name:#082430}
+.brand-mark{flex:none;width:38px;height:38px;border-radius:7px;overflow:hidden}
+.brand-mark img{width:38px;height:38px;object-fit:contain}
+.brand-txt{display:flex;flex-direction:column;min-width:0;line-height:1.05}
+.brand-name{font-size:1.16rem;font-weight:800;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--lb-name)}
+.brand-sub{font-size:.72rem;font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.1rem}
+.bar-cta{display:inline-flex;align-items:center;gap:.55rem;flex:none}
+.bar-tel{font-size:.9rem;font-weight:700;color:var(--ink);white-space:nowrap;display:none}
+@media (min-width:900px){.bar-tel{display:inline}}
+@media (max-width:620px){
+  .brand-mark,.brand-mark img{width:32px;height:32px}
+  .brand-name{font-size:1rem}
+  .brand-sub{display:none}
+  .bar-cta .btn{padding:.7rem .85rem;font-size:.84rem}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--deep);color:#fff;
+  min-height:min(88vh,780px);display:flex;align-items:flex-end}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(3,26,36,.88) 0%,rgba(3,26,36,.60) 36%,rgba(4,30,40,.10) 62%,rgba(3,26,36,.26) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;
+  padding:clamp(4.5rem,13vh,7rem) var(--pad) clamp(2.6rem,6vh,3.6rem)}
+.hero-copy{max-width:36rem}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:var(--fs-num);font-weight:700;
+  text-transform:uppercase;letter-spacing:.13em;color:var(--cyan-lt)}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--cyan)}
+.hero h1{font-size:var(--fs-hero);font-weight:800;letter-spacing:-.028em;margin:1.1rem 0 0;text-wrap:balance}
+.hero p{font-size:var(--fs-lead);color:#D5EAF1;max-width:33rem;margin:1.15rem 0 0;line-height:1.6}
+.hero-act{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin-top:1.9rem}
+.hero-act .btn{padding:1.05rem 1.6rem}
+.hero-note{color:#A9CDD9;font-size:var(--fs-sm);margin-top:1.9rem;display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}
+.hero-note span+span::before{content:"·";margin:0 .55rem;color:#5C8E9E}
+
+/* ---------- services ---------- */
+.svc{padding:clamp(3.4rem,8vh,5.6rem) 0;background:var(--paper);border-bottom:1px solid var(--line)}
+.svc-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr);gap:clamp(1.6rem,4vw,4rem)}
+.svc-head h2{font-size:var(--fs-h2);text-wrap:balance}
+.svc-head p{color:var(--ink-2);margin-top:1rem;max-width:24rem}
+.svc-head .tag{margin-top:1.6rem;font-size:var(--fs-sm);color:var(--muted);max-width:22rem;border-left:2px solid var(--cyan);padding-left:.85rem}
+.svc-list{list-style:none;margin:0;padding:0}
+.svc-list li{border-top:1px solid var(--line);padding:1.35rem 0;display:grid;grid-template-columns:auto 1fr;gap:1rem 1.15rem}
+.svc-list li:last-child{border-bottom:1px solid var(--line)}
+.svc-n{font-size:var(--fs-num);font-weight:700;letter-spacing:.06em;color:var(--brand);padding-top:.28rem}
+.svc-list h3{font-size:var(--fs-h3);font-weight:700;letter-spacing:-.01em}
+.svc-list p{color:var(--ink-2);margin-top:.4rem;font-size:.97rem;max-width:34rem}
+.svc-list li:first-child h3{font-size:clamp(1.2rem,2.2vw,1.5rem)}
+@media (max-width:820px){
+  .svc-grid{grid-template-columns:1fr}
+  .svc-head p,.svc-head .tag{max-width:none}
+}
+
+/* ---------- visit band ---------- */
+.visit{background:var(--deep);color:#fff;padding:clamp(3rem,7vh,4.6rem) 0}
+.visit-top{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;
+  border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:1.5rem}
+.visit h2{font-size:var(--fs-h2);max-width:22ch}
+.visit-top p{color:#A9CDD9;max-width:26rem;font-size:.97rem}
+.steps{display:grid;grid-template-columns:1.25fr 1fr .9fr;gap:clamp(1rem,3vw,2.6rem);padding-top:1.9rem}
+.steps div{border-left:1px solid rgba(255,255,255,.16);padding-left:1.15rem}
+.steps b{display:block;font-size:var(--fs-num);font-weight:700;letter-spacing:.13em;color:var(--cyan);text-transform:uppercase}
+.steps h3{font-size:1.02rem;margin:.6rem 0 .35rem;font-weight:700}
+.steps p{color:#9FC4D1;font-size:.92rem}
+@media (max-width:760px){.steps{grid-template-columns:1fr}.steps div{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem}
+  .steps b{grid-row:1/3;padding-top:.15rem}.steps h3{margin:0}}
+
+/* ---------- areas ---------- */
+.areas{padding:clamp(2.6rem,6vh,3.8rem) 0;background:var(--paper-2);border-bottom:1px solid var(--line)}
+.areas .wrap{display:flex;gap:1.5rem 3rem;align-items:baseline;flex-wrap:wrap}
+.areas h2{font-size:1rem;font-weight:700}
+.areas ul{list-style:none;display:flex;gap:1.5rem;flex-wrap:wrap;margin:0;padding:0;color:var(--ink-2);font-size:.95rem}
+.areas li{display:flex;align-items:center;gap:.5rem}
+.areas li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--cyan)}
+
+/* ---------- quote ---------- */
+.quote{padding:clamp(3.2rem,7vh,4.8rem) 0}
+.quote-in{max-width:44rem;margin:0 auto;background:var(--card);border:1px solid var(--line);
+  border-top:3px solid var(--brand);border-radius:5px;padding:clamp(1.4rem,3.6vw,2.4rem)}
+.quote h2{font-size:var(--fs-h2)}
+.quote .sub{color:var(--ink-2);margin-top:.7rem;margin-bottom:1.7rem}
+.field{margin-bottom:1.05rem}
+.field label{display:block;font-size:var(--fs-sm);font-weight:600;color:var(--ink-2);margin-bottom:.35rem}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:.97rem;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line-2);border-radius:3px;padding:.78rem .85rem}
+.field textarea{resize:vertical;min-height:5.4rem}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand);background:#fff;box-shadow:0 0 0 3px rgba(0,119,182,.12)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:600px){.two{grid-template-columns:1fr}}
+.consent{display:flex;gap:.6rem;align-items:flex-start;font-size:var(--fs-sm);color:var(--ink-2);margin:.3rem 0 1.3rem}
+.consent input{width:16px;height:16px;margin:.18rem 0 0;flex:none;accent-color:var(--brand)}
+.consent a{color:var(--brand);text-decoration:underline}
+.quote .btn{width:100%}
+.status{min-height:1.3rem;margin-top:.85rem;font-size:.9rem;color:var(--brand-dk)}
+
+/* ---------- footer ---------- */
+.foot{background:var(--deep);color:#fff;padding:clamp(2.4rem,6vh,3.4rem) 0 1.6rem}
+.foot-in{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start}
+.foot .brand-mark{width:34px;height:34px}
+.foot .brand-name{color:#fff;font-size:1.02rem}
+.foot .brand-sub{color:#8FB9C6}
+.foot p{color:#9FC4D1;font-size:.9rem;max-width:24rem;margin-top:.9rem}
+.foot-right{display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
+.foot-right a{color:#CFE7EE;font-size:.92rem}
+.foot-right a:hover{color:#fff}
+.foot-base{border-top:1px solid rgba(255,255,255,.14);margin-top:2rem;padding-top:1.2rem;
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:#7FA8B6;font-size:.8rem}
+.foot-base a{color:#9FC4D1;margin-right:1rem}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<!--LB-RM--><style id="lb-rm">@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}canvas{opacity:1!important}}</style><!--/LB-RM-->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top" aria-label="Akuna pool co — home">
+      <span class="brand-mark"><img src="assets/logo.svg" alt="Akuna pool co logo" width="38" height="38"></span>
+      <span class="brand-txt">
+        <span class="brand-name">Akuna pool co</span>
+        <span class="brand-sub">Pool &amp; hot tub service</span>
+      </span>
+    </a>
+    <div class="bar-cta">
+      <a class="bar-tel" href="#quote">Get a quote</a>
+      <a class="btn btn-primary" href="tel:0418616384">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1Z"/></svg>
+        <span>0418 616 384</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <span class="eyebrow">Newcastle &middot; Lake Mac &middot; Hunter</span>
+      <h1>Swim-ready water, handled before you notice.</h1>
+      <p>Cleaning, water chemistry and equipment repair for pools and hot tubs. A licensed tech on site, dosed to the numbers, with a written note on what changed.</p>
+      <div class="hero-act">
+        <a class="btn btn-primary" href="tel:0418616384">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h4l2 5-2.5 1.5a12 12 0 0 0 6 6L15 14l5 2v4a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1Z"/></svg>
+          <span>Call 0418 616 384</span>
+        </a>
+        <a class="btn btn-line" style="color:#fff;border-color:rgba(255,255,255,.34)" href="#quote">Send details instead</a>
+      </div>
+      <p class="hero-note"><span>Licensed</span><span>Insured</span><span>Same-day callback</span><span>10 Facebook reviews</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="svc" id="services">
+  <div class="wrap svc-grid">
+    <div class="svc-head">
+      <h2>Four things we do properly.</h2>
+      <p>No package tiers to decode. Tell us what the pool is doing and we quote the work it actually needs.</p>
+      <p class="tag">Weekly, fortnightly or one-off visits, same crew each time.</p>
+    </div>
+    <ol class="svc-list">
+      <li>
+        <span class="svc-n">01</span>
+        <div>
+          <h3>Pool cleaning &amp; maintenance</h3>
+          <p>Vacuum, skim, brush the walls and waterline, empty the baskets, clean the filter. The full routine, not a quick dip of the net.</p>
+        </div>
+      </li>
+      <li>
+        <span class="svc-n">02</span>
+        <div>
+          <h3>Water testing &amp; chemical balancing</h3>
+          <p>Digital analysis on site, then dosing to suit. Algae treatment and green pool recovery when it has already turned.</p>
+        </div>
+      </li>
+      <li>
+        <span class="svc-n">03</span>
+        <div>
+          <h3>Equipment repair &amp; replacement</h3>
+          <p>Pumps, filters, heaters, chlorinators and automation, diagnosed and fixed on the spot. Parts priced before we order.</p>
+        </div>
+      </li>
+      <li>
+        <span class="svc-n">04</span>
+        <div>
+          <h3>Renovations &amp; upgrades</h3>
+          <p>Resurfacing, tiling, lighting and automation retrofits, plus spa additions. Bring an old backyard back to usable.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="visit">
+  <div class="wrap">
+    <div class="visit-top">
+      <h2>What a visit actually looks like.</h2>
+      <p>Every call runs in the same order, so nothing gets skipped and you know what happened.</p>
+    </div>
+    <div class="steps">
+      <div>
+        <b>01 &mdash; Test</b>
+        <h3>Water analysed first</h3>
+        <p>Chlorine, pH, alkalinity and stabiliser read before anything is dosed.</p>
+      </div>
+      <div>
+        <b>02 &mdash; Correct</b>
+        <h3>Clean, then dose</h3>
+        <p>Skim, brush, vacuum, baskets and filter, then chemicals to the numbers.</p>
+      </div>
+      <div>
+        <b>03 &mdash; Report</b>
+        <h3>Plain-English note</h3>
+        <p>What we found, what we changed, and a price before any part is ordered.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="areas">
+  <div class="wrap">
+    <h2>Serving</h2>
+    <ul>
+      <li>Newcastle</li>
+      <li>Lake Macquarie</li>
+      <li>Hunter Valley</li>
+      <li>Surrounding suburbs</li>
+    </ul>
+  </div>
+</section>
+
+<section class="quote" id="quote">
+  <div class="wrap">
+    <div class="quote-in">
+      <h2>Get a quote.</h2>
+      <p class="sub">Tell us what the pool is doing. We call back the same day.</p>
+      <form id="quote-form" data-site="akuna-pool-co" data-biz="Akuna pool co" novalidate>
+        <div class="two">
+          <div class="field">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="04XX XXX XXX">
+          </div>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="suburb">Suburb *</label>
+            <input type="text" id="suburb" name="suburb" required autocomplete="address-level2" placeholder="e.g. New Lambton">
+          </div>
+        </div>
+        <div class="field">
+          <label for="service">Service *</label>
+          <select id="service" name="service" required>
+            <option value="">Choose a service</option>
+            <option value="pool-cleaning">Pool cleaning &amp; maintenance</option>
+            <option value="chemical-balancing">Water testing &amp; chemical balancing</option>
+            <option value="equipment-repair">Equipment repair &amp; replacement</option>
+            <option value="renovations">Renovations &amp; upgrades</option>
+            <option value="hot-tub">Hot tub service</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="details">Details</label>
+          <textarea id="details" name="details" rows="4" placeholder="Pool size, type, what it is doing, preferred timing"></textarea>
+        </div>
+        <div class="consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent" style="margin:0">I agree to be contacted about this enquiry. <a href="privacy.html">Privacy Policy</a></label>
+        </div>
+        <button type="submit" class="btn btn-primary">Send request</button>
+        <p class="status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <a class="brand" href="#top">
+          <span class="brand-mark"><img src="assets/logo.svg" alt="" width="34" height="34"></span>
+          <span class="brand-txt">
+            <span class="brand-name">Akuna pool co</span>
+            <span class="brand-sub">Pool &amp; hot tub service</span>
+          </span>
+        </a>
+        <p>Pool and spa care across Newcastle, Lake Mac and the Hunter. Licensed, insured, same-day callback.</p>
+      </div>
+      <div class="foot-right">
+        <a class="btn btn-primary" href="tel:0418616384">Call 0418 616 384</a>
+        <a href="#quote">Get a quote</a>
+        <a href="https://www.facebook.com/people/Akuna-pool-co/61594234130666/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>&copy; 2026 Akuna pool co</span>
+      <span><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/heroCanvas.js"></script>
+<script>
+/* Hero scene: a dusk pool deck — basin and water, coping, skimmer net on the pole,
+   test kit and reagent, hose coil, filter tank and pump, brush, hedge line.
+   One projection for everything so occlusion, fog and scale come from the maths. */
+(function () {
+  var cv = document.getElementById('scene');
+  if (!cv || !window.Projection) return;
+  var P = Projection, mix = P.mix;
+  var FOG = '#0B3341';
+  var S = P.create(cv, { focal: 1.30, horizon: 0.45, camY: 1.38, fogNear: 9, fogFar: 48, fogCol: FOG });
+  var ctx = S.ctx;
+
+  var T = {
+    deck: '#A8BCC2', deck2: '#8CA3AC', joint: '#7A919B',
+    coping: '#DCE4E2', copingD: '#B7C3C3',
+    tile: '#1E7F9C', tileD: '#13627B', tileL: '#2FA0BE',
+    water: '#12B6D6', waterD: '#0A85A4', waterL: '#86E3F0',
+    steel: '#CBD8DB', steelD: '#93A5AA',
+    cyan: '#12B4D4', cyanD: '#0A7C93', dark: '#10242C',
+    kit: '#E7EEF0', kitD: '#C2D0D4', glass: '#BFE6EE',
+    hose: '#2C8FA5', hedge: '#12453C', hedgeL: '#1C6455', brush: '#D9C7A4', timber: '#A57B4C'
+  };
+  var L = (function () { var v = [-0.52, 0.79, -0.30], m = Math.hypot(v[0], v[1], v[2]); return [v[0] / m, v[1] / m, v[2] / m]; })();
+  function sh(c, k) { return k >= 1 ? mix(c, '#ffffff', (k - 1) * 0.5) : mix(c, '#0A2029', (1 - k) * 0.42); }
+
+  var faces = [];
+  var seed = 907;
+  function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
+  function face(p, c, n, t0) { faces.push({ p: p, c: c, n: n || [0, 1, 0], t: t0 || 0 }); }
+  function box(cx, cy, cz, w, h, d, c, t0) {
+    var x0 = cx - w / 2, x1 = cx + w / 2, y0 = cy, y1 = cy + h, z0 = cz - d / 2, z1 = cz + d / 2;
+    face([[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]], sh(c, .98), [0, 0, 1], t0);
+    face([[x0, y0, z0], [x1, y0, z0], [x1, y1, z0], [x0, y1, z0]], sh(c, .74), [0, 0, -1], t0);
+    face([[x1, y0, z0], [x1, y0, z1], [x1, y1, z1], [x1, y1, z0]], sh(c, .88), [1, 0, 0], t0);
+    face([[x0, y0, z1], [x0, y0, z0], [x0, y1, z0], [x0, y1, z1]], sh(c, 1.14), [-1, 0, 0], t0);
+    face([[x0, y1, z0], [x1, y1, z0], [x1, y1, z1], [x0, y1, z1]], sh(c, 1.18), [0, 1, 0], t0);
+  }
+  function cyl(cx, cy, cz, r, h, seg, c, t0) {
+    for (var s = 0; s < seg; s++) {
+      var a0 = (s / seg) * Math.PI * 2, a1 = ((s + 1) / seg) * Math.PI * 2;
+      var n = [Math.cos((a0 + a1) / 2), 0, Math.sin((a0 + a1) / 2)];
+      face([[cx + Math.cos(a0) * r, cy, cz + Math.sin(a0) * r], [cx + Math.cos(a1) * r, cy, cz + Math.sin(a1) * r],
+            [cx + Math.cos(a1) * r, cy + h, cz + Math.sin(a1) * r], [cx + Math.cos(a0) * r, cy + h, cz + Math.sin(a0) * r]],
+        sh(c, .70 + .52 * Math.max(0, n[0] * L[0] + n[2] * L[2])), n, t0);
+    }
+    var pts = [];
+    for (var i = 0; i < seg; i++) { var a = (i / seg) * Math.PI * 2; pts.push([cx + Math.cos(a) * r, cy + h, cz + Math.sin(a) * r]); }
+    face(pts, sh(c, 1.15), [0, 1, 0], t0);
+  }
+  /* vertical disc in the Y/Z plane */
+  function discX(x, cy, cz, r, c, t0, seg, sq) {
+    var pts = [], n = seg || 16;
+    for (var i = 0; i < n; i++) { var a = (i / n) * Math.PI * 2; pts.push([x, cy + Math.sin(a) * r * (sq || 1), cz + Math.cos(a) * r]); }
+    face(pts, c, [-1, 0, 0], t0);
+  }
+  /* flat ellipse on the ground plane */
+  function ring(cx, cz, r, y, c, t0, seg) {
+    var pts = [], n = seg || 18;
+    for (var i = 0; i < n; i++) { var a = (i / n) * Math.PI * 2; pts.push([cx + Math.cos(a) * r, y, cz + Math.sin(a) * r]); }
+    face(pts, c, [0, 1, 0], t0);
+  }
+
+  /* ---- deck ---- */
+  (function deck() {
+    face([[-16, 0, 0.6], [16, 0, 0.6], [16, 0, 30], [-16, 0, 30]], T.deck, [0, 1, 0], 0);
+    var x, z;
+    for (z = 1.2; z < 26; z += 0.9) face([[-15, 0.002, z], [15, 0.002, z], [15, 0.002, z + 0.03], [-15, 0.002, z + 0.03]], T.joint, [0, 1, 0], .05);
+    for (x = -14; x < 14; x += 1.1) face([[x, 0.002, 1.0], [x + 0.03, 0.002, 1.0], [x + 0.03, 0.002, 26], [x, 0.002, 26]], T.joint, [0, 1, 0], .05);
+    /* damp patches and a wet spill near the coping */
+    for (var k = 0; k < 12; k++) ring(1.0 + rnd() * 7, 3.1 + rnd() * 4.2, .28 + rnd() * .8, 0.004, T.deck2, .1 + rnd() * .2, 12);
+  })();
+
+  /* ---- pool: recessed basin, coping, water ---- */
+  var POOL = { x0: 0.7, x1: 10.1, z0: 3.0, z1: 12.2, floor: -1.6 };
+  (function pool() {
+    var p = POOL;
+    /* inner walls: near, far, left tinted tiled */
+    face([[p.x0, p.floor, p.z0], [p.x1, p.floor, p.z0], [p.x1, 0, p.z0], [p.x0, 0, p.z0]], sh(T.tile, .78), [0, 0, 1], .3);
+    face([[p.x0, p.floor, p.z1], [p.x1, p.floor, p.z1], [p.x1, 0, p.z1], [p.x0, 0, p.z1]], sh(T.tile, .62), [0, 0, -1], .3);
+    face([[p.x0, p.floor, p.z0], [p.x0, p.floor, p.z1], [p.x0, 0, p.z1], [p.x0, 0, p.z0]], sh(T.tile, .95), [-1, 0, 0], .32);
+    face([[p.x1, p.floor, p.z0], [p.x1, p.floor, p.z1], [p.x1, 0, p.z1], [p.x1, 0, p.z0]], sh(T.tile, .70), [1, 0, 0], .32);
+    /* waterline tile band, then the coping shadow falling on the water */
+    face([[p.x0, -.02, p.z0 - .005], [p.x1, -.02, p.z0 - .005], [p.x1, .16, p.z0 - .005], [p.x0, .16, p.z0 - .005]], sh(T.tileD, 1.1), [0, 0, 1], .28);
+    face([[p.x0, -.02, p.z1 + .005], [p.x1, -.02, p.z1 + .005], [p.x1, .16, p.z1 + .005], [p.x0, .16, p.z1 + .005]], sh(T.tileD, .95), [0, 0, -1], .28);
+    /* tile courses on the near wall */
+    for (var y = -1.35; y < 0; y += .28) face([[p.x0, y, p.z0 - .004], [p.x1, y, p.z0 - .004], [p.x1, y + .018, p.z0 - .004], [p.x0, y + .018, p.z0 - .004]], T.tileD, [0, 0, 1], .36);
+    /* floor + shallow-step shelf */
+    face([[p.x0, p.floor, p.z0], [p.x1, p.floor, p.z0], [p.x1, p.floor, p.z1], [p.x0, p.floor, p.z1]], sh(T.waterD, .6), [0, 1, 0], .3);
+    box(p.x0 + 1.6, p.floor, p.z0 + .9, 2.6, .5, 1.5, sh(T.tileL, .8), .34);
+    /* coping band, mitred at the corners */
+    var cw = .42, y2 = .07;
+    function cope(pts) { face(pts, sh(T.coping, 1.0), [0, 1, 0], .22); }
+    cope([[p.x0 - cw, y2, p.z0 - cw], [p.x1 + cw, y2, p.z0 - cw], [p.x1 + cw, y2, p.z0], [p.x0 - cw, y2, p.z0]]);
+    cope([[p.x0 - cw, y2, p.z1], [p.x1 + cw, y2, p.z1], [p.x1 + cw, y2, p.z1 + cw], [p.x0 - cw, y2, p.z1 + cw]]);
+    cope([[p.x0 - cw, y2, p.z0], [p.x0, y2, p.z0], [p.x0, y2, p.z1], [p.x0 - cw, y2, p.z1]]);
+    cope([[p.x1, y2, p.z0], [p.x1 + cw, y2, p.z0], [p.x1 + cw, y2, p.z1], [p.x1, y2, p.z1]]);
+    /* coping edges: front faces so the lip reads as a slab */
+    face([[p.x0 - cw, 0, p.z0 - cw], [p.x1 + cw, 0, p.z0 - cw], [p.x1 + cw, y2, p.z0 - cw], [p.x0 - cw, y2, p.z0 - cw]], sh(T.copingD, .82), [0, 0, 1], .22);
+    face([[p.x0 - cw, 0, p.z0 - cw], [p.x0, 0, p.z0], [p.x0, y2, p.z0], [p.x0 - cw, y2, p.z0 - cw]], sh(T.copingD, .92), [-1, 0, 0], .22);
+    /* water: layered translucent bands, brightest where it catches the sky */
+    S.waterY = -0.10;
+    var w = 0;
+    for (var b = 0; b < 8; b++) {
+      var za = p.z0 + (p.z1 - p.z0) * (b / 8), zb = p.z0 + (p.z1 - p.z0) * ((b + 1) / 8);
+      var col = b < 3 ? T.waterD : (b > 5 ? T.waterL : T.water);
+      face([[p.x0, S.waterY - b * .002, za], [p.x1, S.waterY - b * .002, za], [p.x1, S.waterY - b * .002, zb], [p.x0, S.waterY - b * .002, zb]], col, [0, 1, 0], .42 + w);
+      w += .05;
+    }
+    face([[p.x0, S.waterY + .002, p.z0], [p.x1, S.waterY + .002, p.z0], [p.x1, S.waterY + .002, p.z0 + .5], [p.x0, S.waterY + .002, p.z0 + .5]], '#0C6C88', [0, 1, 0], .55);
+  })();
+
+  /* ---- skimmer net on its pole, dipping toward the water ---- */
+  S.net = null;
+  (function net() {
+    var base = [0.35, 0, 2.55], tip = [3.35, 0.5, 5.15];
+    var dx = tip[0] - base[0], dy = tip[1] - base[1], dz = tip[2] - base[2], len = Math.hypot(dx, dy, dz);
+    var ux = dx / len, uy = dy / len, uz = dz / len;
+    var rx = -uz * .022, rz = ux * .022;
+    face([[base[0] - rx, base[1], base[2] - rz], [tip[0] - rx, tip[1], tip[2] - rz],
+          [tip[0] + rx, tip[1], tip[2] + rz], [base[0] + rx, base[1], base[2] + rz]], sh(T.steel, 1.06), [0, 1, 0], .62);
+    /* moulded grip near the base */
+    box(base[0] + .16, .02, base[2] + .2, .06, .07, .06, T.cyan, .66);
+    /* frame: flattened hoop at the tip, then mesh */    var cx = tip[0], cy = tip[1], cz = tip[2], fr = .34;
+    var hoop = [], i, a;
+    for (i = 0; i < 18; i++) { a = (i / 18) * Math.PI * 2; hoop.push([cx + Math.cos(a) * fr, cy + Math.sin(a) * fr * .42, cz - Math.sin(a) * fr * .34]); }
+    var rim = [];
+    for (i = 0; i < 18; i++) { var pp = S.project ? null : null; rim.push(hoop[i]); }
+    face(hoop, sh(T.glass, 1.0), [0, 1, 0], .78);
+    for (i = 0; i <= 6; i++) {
+      var t = -fr + i * (fr * 2 / 6);
+      face([[cx + t, cy - .005, cz - .02], [cx + t, cy - .005, cz + .02], [cx + t, cy + .005, cz + .02], [cx + t, cy + .005, cz - .02]], T.steelD, [0, 1, 0], .8);
+      face([[cx - .02, cy - .005, cz + t * .6], [cx + .02, cy - .005, cz + t * .6], [cx + .02, cy + .005, cz + t * .6], [cx - .02, cy + .005, cz + t * .6]], T.steelD, [0, 1, 0], .8);
+    }
+    S.net = { x: cx, y: cy, z: cz, r: fr };
+  })();
+
+  /* ---- test kit, reagent bottle, brush ---- */
+  (function kit() {
+    var X = 1.45, Z = 1.95;
+    box(X, 0, Z, .62, .26, .42, T.kit, .86);
+    box(X, .26, Z, .62, .05, .42, T.kitD, .9);
+    box(X + .12, .31, Z, .03, .2, .16, T.kitD, .94);
+    /* sample vials in a row */
+    for (var i = 0; i < 3; i++) cyl(X - .18 + i * .12, .31, Z + .1, .035, .16, 8, i % 2 ? T.glass : '#D8EBEF', .96 + i * .02);
+    /* reagent bottle, cyan cap */
+    cyl(X - .38, 0, Z + .12, .085, .3, 12, '#E9F2F3', 1.0);
+    cyl(X - .38, .3, Z + .12, .055, .05, 10, T.cyan, 1.04);
+    /* brush leaning off the coping */
+    var b0 = [1.05, .07, 3.9], b1 = [1.5, .95, 4.06];
+    face([[b0[0] - .02, b0[1], b0[2]], [b1[0] - .02, b1[1], b1[2]], [b1[0] + .02, b1[1], b1[2]], [b0[0] + .02, b0[1], b0[2]]], T.timber, [0, 1, 0], 1.08);
+    box(b0[0], b0[1], b0[2], .22, .06, .1, T.brush, 1.12);
+    for (var q = 0; q < 6; q++) box(b0[0] - .09 + q * .036, b0[1] - .05, b0[2], .018, .055, .09, T.steelD, 1.15);
+  })();
+
+  /* ---- hose coil ---- */
+  (function hose() {
+    var X = 2.55, Z = 1.55;
+    for (var c = 0; c < 4; c++) {
+      var r = .34 - c * .06;
+      for (var s = 0; s < 14; s++) {
+        var a0 = (s / 14) * Math.PI * 2, a1 = ((s + 1) / 14) * Math.PI * 2;
+        face([[X + Math.cos(a0) * r, .03 + c * .045, Z + Math.sin(a0) * r], [X + Math.cos(a1) * r, .03 + c * .045, Z + Math.sin(a1) * r],
+              [X + Math.cos(a1) * r, .072 + c * .045, Z + Math.sin(a1) * r], [X + Math.cos(a0) * r, .072 + c * .045, Z + Math.sin(a0) * r]],
+          sh(T.hose, .95 + .12 * (c % 2)), [0, 1, 0], .9 + c * .04);
+      }
+    }
+  })();
+
+  /* ---- filter tank, pump and pipework ---- */
+  (function plant() {
+    var X = 8.6, Z = 3.15;
+    cyl(X, 0, Z, .34, .82, 18, T.kit, .74);
+    cyl(X, .82, Z, .24, .1, 14, T.dark, .8);
+    box(X, .92, Z, .5, .06, .5, T.steelD, .84);
+    box(X + .55, 0, Z + .1, .34, .3, .34, T.dark, .88);
+    box(X + .55, .3, Z + .1, .3, .06, .3, T.cyanD, .92);
+    cyl(X + .55, .36, Z + .1, .1, .14, 10, T.steel, .95);
+    /* pipe run back to the pool */
+    face([[X, .2, Z - .3], [X, .2, 2.2], [X, .32, 2.2], [X, .32, Z - .3]], sh(T.steel, 1.0), [0, 0, -1], .97);
+    face([[X, .2, 2.2], [X - .9, .2, 2.2], [X - .9, .32, 2.2], [X, .32, 2.2]], sh(T.steel, 1.1), [0, 1, 0], .99);
+  })();
+
+  /* ---- ladder, planters, caddy, floating leaves ---- */
+  (function ladder() {
+    var X = 1.05, Z = 11.6;
+    [X - .28, X + .28].forEach(function (x) {
+      face([[x - .022, -1.15, Z], [x + .022, -1.15, Z], [x + .022, .78, Z], [x - .022, .78, Z]], sh(T.steel, 1.05), [0, 0, 1], 1.02);
+      face([[x - .022, .78, Z], [x + .022, .78, Z], [x + .022, .84, Z + .18], [x - .022, .84, Z + .18]], sh(T.steel, 1.12), [0, 1, 0], 1.06);
+    });
+    for (var r = 0; r < 3; r++) face([[X - .3, -.62 + r * .3, Z], [X + .3, -.62 + r * .3, Z], [X + .3, -.58 + r * .3, Z], [X - .3, -.58 + r * .3, Z]], sh(T.steel, .95), [0, 0, 1], 1.08);
+  })();
+
+  (function planters() {
+    [[10.35, 2.35, 1.0], [11.15, 6.15, .82]].forEach(function (pt, idx) {
+      var x = pt[0], z = pt[1], k = pt[2], t0 = 1.1 + idx * .08;
+      box(x, 0, z, .58 * k, .46 * k, .58 * k, '#7C8B8E', t0);
+      box(x, .46 * k, z, .52 * k, .04 * k, .52 * k, '#3B4A4C', t0 + .03);
+      for (var f = 0; f < 7; f++) {
+        var a = (f / 7) * Math.PI * 2 + idx;
+        var tipx = x + Math.cos(a) * .85 * k, tipz = z + Math.sin(a) * .85 * k;
+        var tipy = .95 * k + Math.abs(Math.sin(f * 1.7)) * .55 * k;
+        face([[x + Math.cos(a) * .06, .5 * k, z + Math.sin(a) * .06], [tipx, tipy, tipz],
+              [x + Math.cos(a + .16) * .06, .5 * k, z + Math.sin(a + .16) * .06]], f % 2 ? T.hedge : T.hedgeL, [0, 1, 0], t0 + .06 + f * .02);
+      }
+    });
+  })();
+
+  (function caddy() {
+    var X = 2.12, Z = 2.25;
+    box(X, 0, Z, .3, .34, .22, T.cyanD, 1.16);
+    cyl(X - .08, .34, Z, .05, .18, 8, '#EFF6F7', 1.2);
+    cyl(X + .07, .34, Z + .02, .045, .14, 8, '#E4EFF1', 1.24);
+    /* leafy basket */
+    cyl(X + .48, 0, Z - .1, .2, .17, 14, T.dark, 1.2);
+    for (var b = 0; b < 5; b++) box(X + .42 + b * .03, .17, Z - .1 + (b % 2) * .04, .022, .05 + (b % 3) * .02, .022, T.hedgeL, 1.26);
+  })();
+
+  (function leaves() {
+    for (var i = 0; i < 9; i++) {
+      var lx = POOL.x0 + .7 + rnd() * (POOL.x1 - POOL.x0 - 1.4);
+      var lz = POOL.z0 + .6 + rnd() * (POOL.z1 - POOL.z0 - 1.2);
+      var y = S.waterY + .004, r = .07 + rnd() * .06;
+      face([[lx - r, y, lz], [lx, y, lz + r * .6], [lx + r, y, lz], [lx, y, lz - r * .6]], rnd() > .5 ? '#5E8A4A' : '#7FA55E', [0, 1, 0], 1.3 + rnd() * .3);
+    }
+  })();
+
+  /* ---- backdrop: hedge line and fence ---- */
+  function backdrop() {
+    var z = 22;
+    face([[-16, 0, z + .3], [16, 0, z + .3], [16, 2.2, z + .3], [-16, 2.2, z + .3]], T.hedge, [0, 0, -1], .12);
+    for (var y = .5; y < 2.2; y += .4) face([[-16, y, z + .28], [16, y, z + .28], [16, y + .03, z + .28], [-16, y + .03, z + .28]], T.hedgeL, [0, 0, -1], .14);
+    /* rounded hedge tops */
+    for (var x = -15; x < 16; x += 1.1) {
+      var h = 2.2 + Math.abs(Math.sin(x * .5)) * .5 + Math.abs(Math.sin(x * .17)) * .35;
+      ring(x, z + .1, .55, h, T.hedgeL, .16, 10);
+    }
+  }
+
+  /* ---- live water: shimmer bands and drifting highlights ---- */
+  var motes = [];
+  for (var i = 0; i < 26; i++) motes.push({ x: rnd(), z: rnd(), s: .5 + rnd(), o: rnd() });
+
+  function waterQuad() {
+    var p = POOL, y = S.waterY, q = [
+      S.project(p.x0, y, p.z0), S.project(p.x1, y, p.z0),
+      S.project(p.x1, y, p.z1), S.project(p.x0, y, p.z1)];
+    if (!q[0] || !q[1] || !q[2] || !q[3]) return null;
+    return q;
+  }
+
+  function water(time) {
+    var p = POOL, y = S.waterY, q = waterQuad();
+    if (!q) return;
+    ctx.save();
+    ctx.beginPath(); ctx.moveTo(q[0][0], q[0][1]);
+    for (var c = 1; c < 4; c++) ctx.lineTo(q[c][0], q[c][1]);
+    ctx.closePath(); ctx.clip();
+
+    /* mirrored sky inside the pool: the far hedge line reads as a reflection */
+    var ref = ctx.createLinearGradient(0, q[0][1], 0, q[2][1]);
+    ref.addColorStop(0, 'rgba(126,206,222,.26)');
+    ref.addColorStop(.35, 'rgba(40,132,152,.34)');
+    ref.addColorStop(1, 'rgba(6,52,68,.42)');
+    ctx.fillStyle = ref; ctx.fillRect(q[3][0], q[0][1], q[1][0] - q[3][0], q[2][1] - q[0][1]);
+    ctx.fillStyle = 'rgba(20,84,70,.22)';
+    for (var hx = -14; hx < 16; hx += 1.4) {
+      var hp = S.project(hx, y, p.z1 - 1.4), hq = S.project(hx + .9, y, p.z1 - 1.4);
+      if (!hp || !hq) continue;
+      ctx.beginPath(); ctx.moveTo(hp[0], hp[1]); ctx.lineTo(hq[0], hq[1]);
+      ctx.lineTo(hq[0], hq[1] + 12); ctx.lineTo(hp[0], hp[1] + 12); ctx.closePath(); ctx.fill();
+    }
+
+    /* caustics: wandering bright filaments, denser toward the shallow end */
+    ctx.lineCap = 'round';
+    for (var s = 0; s < 14; s++) {
+      var ph = Math.sin(time * .9 + s * 1.7);
+      var a = .06 + .16 * Math.max(0, ph);
+      ctx.strokeStyle = 'rgba(214,248,255,' + a.toFixed(3) + ')';
+      var x0 = p.x0 + ((s * 1.37) % (p.x1 - p.x0));
+      ctx.beginPath();
+      for (var seg = 0; seg <= 6; seg++) {
+        var zz = p.z0 + .8 + seg * 1.05;
+        var xx = x0 + Math.sin(time * .7 + s + seg * .9) * .55;
+        var pt = S.project(xx, y, zz);
+        if (!pt) continue;
+        var wob = Math.max(.8, S.focal / pt[2] * .03);
+        if (seg === 0) ctx.moveTo(pt[0], pt[1]); else ctx.lineTo(pt[0], pt[1] + Math.sin(seg + time) * wob);
+      }
+      ctx.lineWidth = Math.max(1, S.focal / 8 * .022);
+      ctx.stroke();
+    }
+    ctx.restore();
+    /* drifting highlights */
+    for (var m = 0; m < motes.length; m++) {
+      var d = motes[m];
+      var mx = p.x0 + .5 + ((d.x + time * 0.012 * d.s) % 1) * (p.x1 - p.x0 - 1);
+      var mz = p.z0 + .4 + ((d.z + time * 0.008 * d.s) % 1) * (p.z1 - p.z0 - .8);
+      var q = S.project(mx, y, mz);
+      if (!q) continue;
+      var al = .12 + .22 * Math.max(0, Math.sin(time * 1.6 + d.o * 6.28));
+      var rr = Math.max(.7, S.focal / q[2] * .018);
+      ctx.fillStyle = 'rgba(226,250,255,' + al.toFixed(3) + ')';
+      ctx.beginPath(); ctx.ellipse(q[0], q[1], rr * 2.4, rr, 0, 0, 6.2832); ctx.fill();
+    }
+    /* drips off the net head */
+    if (S.net) {
+      for (var k = 0; k < 5; k++) {
+        var ph2 = (time * .9 + k * .2) % 1;
+        var dp = S.project(S.net.x - .2 + k * .1, S.net.y - ph2 * 1.0, S.net.z + .18);
+        if (!dp) continue;
+        ctx.fillStyle = 'rgba(222,248,255,' + ((1 - ph2) * .5).toFixed(3) + ')';
+        ctx.fillRect(dp[0], dp[1], 1.7, 2.2);
+      }
+    }
+  }
+
+  function draw(time) {
+    var sky = ctx.createLinearGradient(0, 0, 0, S.H);
+    sky.addColorStop(0, '#0A3040');
+    sky.addColorStop(.30, '#125163');
+    sky.addColorStop(.48, '#21798F');
+    sky.addColorStop(.60, '#3FA1B2');
+    sky.addColorStop(1, '#1B5E6E');
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, S.W, S.H);
+
+    var glow = ctx.createRadialGradient(S.W * .74, S.horizon * .96, 0, S.W * .74, S.horizon * .96, S.W * .55);
+    glow.addColorStop(0, 'rgba(120,214,232,.30)');
+    glow.addColorStop(.55, 'rgba(90,190,215,.10)');
+    glow.addColorStop(1, 'rgba(90,190,215,0)');
+    ctx.fillStyle = glow; ctx.fillRect(0, 0, S.W, S.H);
+
+    backdrop();
+    waterBack(time);
+
+    var list = [], i, j, p, sum, map, miss;
+    for (i = 0; i < faces.length; i++) {
+      var f = faces[i];
+      if (time < f.t) continue;
+      map = []; sum = 0; miss = false;
+      for (j = 0; j < f.p.length; j++) {
+        p = S.project(f.p[j][0], f.p[j][1], f.p[j][2]);
+        if (!p) { miss = true; break; }
+        map.push(p); sum += p[2];
+      }
+      if (miss) continue;
+      var n = f.n, nm = Math.hypot(n[0], n[1], n[2]) || 1;
+      var dl = (n[0] / nm) * L[0] + (n[1] / nm) * L[1] + (n[2] / nm) * L[2];
+      var dz = sum / map.length;
+      var alpha = 1;
+      var col = f.c;
+      if (f.n && f.n[1] === 1 && (f.c === T.water || f.c === T.waterL || f.c === T.waterD)) {
+        col = mix(f.c, FOG, S.fog(dz) * .45);
+        alpha = dz > POOL.z0 + 1 ? .90 : .82;
+      } else {
+        col = mix(mix(f.c, '#0A2029', (1 - (0.70 + 0.46 * Math.max(0, dl))) * .38), FOG, S.fog(dz) * .5);
+      }
+      list.push({ p: map, dz: dz, fill: col, a: Math.min(1, (time - f.t) / .5) * alpha });
+    }
+    list.sort(function (a, b) { return b.dz - a.dz; });
+    for (i = 0; i < list.length; i++) {
+      var it = list[i];
+      ctx.globalAlpha = it.a;
+      ctx.beginPath(); ctx.moveTo(it.p[0][0], it.p[0][1]);
+      for (j = 1; j < it.p.length; j++) ctx.lineTo(it.p[j][0], it.p[j][1]);
+      ctx.closePath(); ctx.fillStyle = it.fill; ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    water(time);
+
+    var vg = ctx.createLinearGradient(0, 0, S.W * .62, S.H * .9);
+    vg.addColorStop(0, 'rgba(3,22,30,.20)');
+    vg.addColorStop(.6, 'rgba(3,22,30,.02)');
+    vg.addColorStop(1, 'rgba(3,22,30,.18)');
+    ctx.fillStyle = vg; ctx.fillRect(0, 0, S.W, S.H);
+  }
+
+  /* far pool wall seen through the water before the surface is filled */
+  function waterBack(time) {
+    var p = POOL;
+    var g = ctx.createLinearGradient(0, S.horizon, 0, S.H);
+    g.addColorStop(0, 'rgba(24,120,148,.55)');
+    g.addColorStop(1, 'rgba(10,70,90,.20)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, S.horizon, S.W, S.H - S.horizon);
+  }
+
+  S.frame(draw);
+  if (S.unwatch) window.addEventListener('pagehide', S.unwatch);
+})();
+</script>
+<script>
+/* quote form: gist-resolved API base, same contract as the rest of the fleet */
+(function () {
+  var f = document.getElementById('quote-form');
+  if (!f) return;
+  var st = document.getElementById('form-status');
+  var btn = f.querySelector('button[type=submit]');
+  var FB = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+  function base(cb) {
+    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
+    var done = false;
+    var t = setTimeout(function () { if (!done) { done = true; cb(FB); } }, 2500);
+    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_' + Date.now())
+      .then(function (r) { return r.text(); })
+      .then(function (txt) {
+        var b = (txt || '').trim().replace(/\/+$/, '');
+        if (done) return;
+        done = true; clearTimeout(t);
+        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : FB);
+      })
+      .catch(function () { if (!done) { done = true; clearTimeout(t); cb(FB); } });
+  }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var d = {};
+    new FormData(f).forEach(function (v, k) { d[k] = v; });
+    if (!d.name || !d.phone || !d.suburb || !d.service) {
+      st.textContent = 'Add your name, phone, suburb and the service you need.';
+      return;
+    }
+    if (!d.consent) { st.textContent = 'Please tick the consent box so we can call you back.'; return; }
+    btn.disabled = true; st.textContent = 'Sending…';
+    base(function (B) {
+      fetch(B + '/functions/v1/quote-request', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
+          name: d.name, phone: d.phone, email: d.email || '',
+          service: d.service, message: (d.details || '') + (d.suburb ? ' — ' + d.suburb : ''), consent: true
+        })
+      })
+        .then(function (r) { return r.json().catch(function () { return {}; }); })
+        .then(function (x) {
+          if (x && x.success) { f.reset(); st.textContent = 'Thanks, that is in. We call back the same day.'; }
+          else throw new Error((x && x.error) || 'Could not send');
+        })
+        .catch(function (err) {
+          st.textContent = (err && err.message ? err.message : 'Could not send') + ' — or call 0418 616 384.';
+        })
+        .finally(function () { btn.disabled = false; });
+    });
+  });
+})();
+</script>
+</body>
+</html>

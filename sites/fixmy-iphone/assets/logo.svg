@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" id="logo">
+  <title>FixMy iPhone logo</title>
+  <!-- Exploded device stack - geometric isometric, brand colours only -->
+  <defs>
+    <style><![CDATA[
+      .ink { fill: #141010; }
+      .accent { fill: #c07818; }
+      .dark { fill: #604848; }
+      .hairline { fill: none; stroke: #e3d8d0; stroke-width: 1.5; stroke-linecap: round; }
+    ]]></style>
+  </defs>
+  
+  <!-- Isometric grid unit: 30° angles, consistent spacing -->
+  <!-- Center the stack properly: center at 128, 144 -->
+  
+  <!-- Chassis base (dark brown) - bottom layer -->
+  <path class="dark" d="M40 160 L88 128 L184 128 L232 160 L232 200 L88 224 L40 200 Z"/>
+  <path class="dark" d="M88 128 L88 224 L40 200 Z" opacity="0.6"/>
+  
+  <!-- Battery layer (accent orange) -->
+  <path class="accent" d="M52 152 L92 124 L172 124 L204 152 L204 172 L92 188 L52 172 Z"/>
+  <path class="accent" d="M92 124 L92 188 L52 172 Z" opacity="0.6"/>
+  <rect x="156" y="132" width="14" height="18" rx="2" class="accent" opacity="0.8"/>
+  
+  <!-- Digitizer layer (ink) -->
+  <path class="ink" d="M60 144 L88 120 L168 120 L196 144 L196 160 L88 180 L60 160 Z"/>
+  <path class="ink" d="M88 120 L88 180 L60 160 Z" opacity="0.6"/>
+  
+  <!-- Screen glass (top) -->
+  <path class="ink" d="M68 136 L84 124 L164 124 L180 136 L180 148 L84 164 L68 148 Z"/>
+  
+  <!-- Suction cup on screen (enlarged for small-size legibility) -->
+  <circle cx="132" cy="136" r="12" class="hairline"/>
+  <circle cx="132" cy="136" r="7" class="accent"/>
+  <circle cx="132" cy="136" r="3.5" class="ink"/>
+  
+  <!-- Pick tool (accent) - positioned to the right -->
+  <path class="accent" d="M196 156 L212 132 L228 156 L224 156 L224 140 L208 140 L208 156 Z"/>
+  <path class="accent" d="M212 132 L224 140 L208 140 Z"/>
+  
+  <!-- Screw head (hairline) -->
+  <circle cx="220" cy="132" r="8" class="hairline"/>
+  <path class="hairline" d="M220 122 L220 142 M210 132 L230 132" stroke-width="1.5"/>
+  
+  <!-- Subtle mat corner (hairline) bottom right -->
+  <g class="hairline" opacity="0.4" transform="translate(216, 216)">
+    <path d="M0 0 L24 0 M0 0 L0 24 M8 0 L8 24 M16 0 L16 24 M0 8 L24 8 M0 16 L24 16"/>
+  </g>
+</svg>
