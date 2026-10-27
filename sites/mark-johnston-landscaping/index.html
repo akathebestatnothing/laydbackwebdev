@@ -77,9 +77,21 @@ div.wrap .brand img{height:clamp(40px,3.6vw,58px)!important;width:auto!important
 </style><style id="lb-bar-grow">
 nav{height:auto!important;min-height:0!important}
 nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:76px!important;padding-block:10px!important;flex-wrap:wrap!important}
+</style><style id="mj-logo-size">
+/* the mark was capped at 58px in a 131px bar and read as a thumbnail. The source is 1000px, so it is shown at
+   its own detail level (2x asset, ~0.05 display scale) — bigger and still sharp */
+nav .brand{flex:0 0 100%!important;display:flex!important;justify-content:center!important;width:100%!important;margin:0 auto!important}
+nav .brand img.lb-logo-unlock,nav .brand img{height:clamp(78px,7.2vw,112px)!important;width:auto!important;max-width:none!important;
+  display:block!important;margin:0 auto!important;border:0!important;box-shadow:none!important;background:none!important;border-radius:0!important}
+nav .nav-in{height:auto!important;min-height:0!important;padding-block:10px!important;flex-wrap:wrap!important;row-gap:6px!important;justify-content:center!important}
+nav .links{margin-left:0!important;justify-content:center!important;flex-wrap:wrap!important}
+nav .tel{margin-left:0!important}
+@media(max-width:760px){
+  nav .brand img.lb-logo-unlock,nav .brand img{height:72px!important}
+}
 </style></head><body>
 <nav><div class="wrap nav-in">
-  <a class="brand" href="#top" aria-label="Mark Johnston Landscaping"><img src="assets/logo-cut.png" alt="Mark Johnston Landscaping" class="lb-logo-unlock"></a>
+  <a class="brand" href="#top" aria-label="Mark Johnston Landscaping"><img src="assets/logo-head.png" alt="Mark Johnston Landscaping" class="lb-logo-unlock"></a>
   <div class="links" id="navlinks"><a href="#services">Services</a><a href="#why">Process</a><a href="#areas">Areas</a><a href="#faq">FAQ</a></div>
   <a class="tel" href="tel:0439281460">0439 281 460</a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>

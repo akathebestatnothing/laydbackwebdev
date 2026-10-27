@@ -339,7 +339,11 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 </style><style id="lb-bar-noname-x">SPAN.lb-brand__name{display:none!important}
-</style></head>
+</style><style id="lb-header-fault-fix">
+:is(header,nav,[class*=topbar],[class*=navbar],[class*=bar],[class*=hdr]) *:has(> img.lb-logo-unlock){width:auto!important;max-width:none!important;flex:none!important;min-width:0!important}
+img.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;object-fit:contain!important}
+</style>
+</head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#services">Skip to content</a>
@@ -809,10 +813,6 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
-</style>
-<style id="lb-header-fault-fix">
-:is(header,nav,[class*=topbar],[class*=navbar],[class*=bar],[class*=hdr]) *:has(> img.lb-logo-unlock.lb-logo-unlock){width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:visible!important}
-img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
 </style>
 </body>
 </html>
