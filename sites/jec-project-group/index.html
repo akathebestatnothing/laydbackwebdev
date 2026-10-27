@@ -152,9 +152,9 @@ figcaption{margin-top:.7rem;font-size:var(--t-micro);color:var(--mut);letter-spa
 <header class="hdr">
   <div class="hdr__in">
     <a class="brand" href="#top" aria-label="JEC Project Group — home">
-      <img src="assets/logo.svg" alt="" class="lb-logo" loading="eager" decoding="async">
+      <img src="assets/logo.svg" alt="" class="lb-logo lb-logo-unlock" loading="eager" decoding="async">
       <span>
-        <b>JEC Project Group</b>
+        <b class="lb-sr-only">JEC Project Group</b>
         <small>Sydney &middot; construction</small>
       </span>
     </a>
@@ -555,5 +555,9 @@ figcaption{margin-top:.7rem;font-size:var(--t-micro);color:var(--mut);letter-spa
   });
 })();
 </script>
+<style id="lb-header-fault-fix">
+.lb-sr-only.lb-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+</style>
 </body>
 </html>
