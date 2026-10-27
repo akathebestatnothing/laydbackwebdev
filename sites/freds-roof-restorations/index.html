@@ -288,7 +288,14 @@ header.hero{min-height:clamp(520px,68vh,720px)!important;max-height:none!importa
 .tile-band svg{display:block;width:100%;height:100%}
 </style>
 <style id="lb-bar-noname-x">SPAN.brand-name,SPAN.brand-txt{display:none!important}
-</style></head>
+</style><style id="lb-bar-fits-logo">
+/* the logo is sized to be read, so the bar grows to hold it instead of clipping or spilling */
+header:has(img.lb-logo-unlock),nav:has(img.lb-logo-unlock),.bar:has(img.lb-logo-unlock),.hdr:has(img.lb-logo-unlock),.site-header:has(img.lb-logo-unlock),.navbar:has(img.lb-logo-unlock){
+  height:auto!important;min-height:0!important;max-height:none!important;padding-block:8px!important;align-items:center!important}
+.bar > *,.hdr > *,.site-header > *,.navbar > *{min-width:0}
+img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center!important}
+</style>
+</head>
 <body>
 <a class="sr" href="#services">Skip to content</a>
 

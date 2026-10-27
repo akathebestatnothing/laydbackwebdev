@@ -160,6 +160,13 @@ footer{background:#040507;border-top:1px solid var(--line);color:var(--steel);pa
 /* quote-form band tuned to this palette */
 section#lbq{--lbq-bg:#07080A;--lbq-ink:#E9EDF4;--lbq-muted:#98A2B3;--lbq-panel:rgba(255,255,255,.05);--lbq-line:rgba(7,71,229,.35);--lbq-accent:#3D74FF}
 </style>
+<style id="lb-bar-fits-logo">
+/* the logo is sized to be read, so the bar grows to hold it instead of clipping or spilling */
+header:has(img.lb-logo-unlock),nav:has(img.lb-logo-unlock),.bar:has(img.lb-logo-unlock),.hdr:has(img.lb-logo-unlock),.site-header:has(img.lb-logo-unlock),.navbar:has(img.lb-logo-unlock){
+  height:auto!important;min-height:0!important;max-height:none!important;padding-block:8px!important;align-items:center!important}
+.bar > *,.hdr > *,.site-header > *,.navbar > *{min-width:0}
+img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center!important}
+</style>
 </head>
 <body>
 <nav class="nav" aria-label="Main">

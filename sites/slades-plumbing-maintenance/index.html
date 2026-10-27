@@ -102,7 +102,14 @@ nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:
 .nav-in a{font-size:15.5px!important;color:#f2f6fb!important}
 .nav-in > a[href^="tel"]{font-weight:800!important;color:#ffd84d!important;text-decoration:none!important;white-space:nowrap!important}
 @media(max-width:900px){.nav-in{flex-wrap:wrap!important;justify-content:center!important;row-gap:8px!important;padding-block:12px!important}}
-</style></head>
+</style><style id="lb-bar-fits-logo">
+/* the logo is sized to be read, so the bar grows to hold it instead of clipping or spilling */
+header:has(img.lb-logo-unlock),nav:has(img.lb-logo-unlock),.bar:has(img.lb-logo-unlock),.hdr:has(img.lb-logo-unlock),.site-header:has(img.lb-logo-unlock),.navbar:has(img.lb-logo-unlock){
+  height:auto!important;min-height:0!important;max-height:none!important;padding-block:8px!important;align-items:center!important}
+.bar > *,.hdr > *,.site-header > *,.navbar > *{min-width:0}
+img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center!important}
+</style>
+</head>
 <body>
 <nav><div class="wrap nav-in">
   <a class="brand" href="#top" aria-label="Slades Plumbing and Maintenance"><img src="assets/logo-header-clean.png" alt="" class="lb-logo-unlock"></a>

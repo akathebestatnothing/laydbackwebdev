@@ -260,7 +260,14 @@ h1,h2,h3{letter-spacing:-.01em!important;line-height:1.16!important;text-shadow:
   .bar .nav{width:100%!important;justify-content:center!important;flex-wrap:wrap!important;gap:10px 22px!important;
     margin:0!important;font-size:15px!important}
 }
-</style></head>
+</style><style id="lb-bar-fits-logo">
+/* the logo is sized to be read, so the bar grows to hold it instead of clipping or spilling */
+header:has(img.lb-logo-unlock),nav:has(img.lb-logo-unlock),.bar:has(img.lb-logo-unlock),.hdr:has(img.lb-logo-unlock),.site-header:has(img.lb-logo-unlock),.navbar:has(img.lb-logo-unlock){
+  height:auto!important;min-height:0!important;max-height:none!important;padding-block:8px!important;align-items:center!important}
+.bar > *,.hdr > *,.site-header > *,.navbar > *{min-width:0}
+img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center!important}
+</style>
+</head>
 <body id="top">
 <a class="skip" href="#lbq">Skip to quote form</a>
 <header class="bar"><div class="wrap bar__in">
