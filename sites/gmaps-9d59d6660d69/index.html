@@ -195,7 +195,7 @@ section{position:relative}
 <header class="strip" id="strip">
   <div class="in">
     <a class="brand" href="#top" aria-label="Paradise Coatings home">
-      <img src="assets/logo.svg" width="30" height="30" alt="">
+      <img src="assets/logo.svg" width="30" height="30" alt="" class="lb-logo-unlock">
       Paradise Coatings
     </a>
     <span class="sp"></span>
@@ -607,5 +607,8 @@ document.documentElement.className=document.documentElement.className.replace('n
 })();
 </script>
 
+<style id="lb-header-fault-fix">
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+</style>
 </body>
 </html>

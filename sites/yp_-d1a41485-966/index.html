@@ -163,8 +163,8 @@
   <header class="nav" role="banner">
     <div class="container nav-inner">
       <a href="/" class="nav-logo" aria-label="Peter Viney Electrical home">
-        <img src="assets/logo.svg" alt="" aria-hidden="true" width="32" height="32">
-        <span>Peter Viney Electrical</span>
+        <img src="assets/logo.svg" alt="" aria-hidden="true" width="32" height="32" class="lb-logo-unlock">
+        <span class="lb-sr-only">Peter Viney Electrical</span>
       </a>
       <nav aria-label="Primary navigation"><a class="brand-monogram" href="#top" aria-label="Peter Viney Electrical"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
         <ul class="nav-links">
@@ -622,5 +622,9 @@
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+<style id="lb-header-fault-fix">
+.lb-sr-only.lb-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+</style>
 </body>
 </html>

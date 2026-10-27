@@ -288,7 +288,7 @@ nav a:hover {color:#ffffff!important;opacity:.85!important}
 <!-- lb: old box-hero engine removed -->
 <header class="top"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>
   <div class="wrap">
-    <a class="lb-brand" href="#top" aria-label="Vic Welding - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#f07800;--lb-subc:#f07800;--lb-acc:#f07800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Vic Welding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+    <a class="lb-brand" href="#top" aria-label="Vic Welding - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#f07800;--lb-subc:#f07800;--lb-acc:#f07800;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async" class="lb-logo-unlock"></span><span class="lb-brand__word"><span class="lb-brand__name">Vic Welding</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
     <nav class="links" aria-label="Sections"><a class="brand-monogram" href="#top" aria-label="Vic Welding Pty Ltd"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
       <a href="#fabrication">Fabrication</a>
       <a href="#method">Method</a>
@@ -747,6 +747,10 @@ header a[href^="tel"],.site-header a[href^="tel"]{
   opacity:1 !important;
 }
 .lb-brand__sub:empty{display:none !important}
+</style>
+<style id="lb-header-fault-fix">
+:is(header,nav,[class*=topbar],[class*=navbar],[class*=bar],[class*=hdr]) *:has(> img.lb-logo-unlock.lb-logo-unlock){width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:visible!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
 </style>
 </body>
 </html>

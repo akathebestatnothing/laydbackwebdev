@@ -133,7 +133,7 @@ nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:
 <a class="skip" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
 <header class="hdr">
   <div class="hdr-in">
-    <a href="#top" class="brand" aria-label="Rumcity Handyman home"><img src="assets/logo.png" alt="Rumcity Handyman logo" loading="eager" decoding="async"></a>
+    <a href="#top" class="brand" aria-label="Rumcity Handyman home"><img src="assets/logo.png" alt="Rumcity Handyman logo" loading="eager" decoding="async" class="lb-logo-unlock"></a>
     <nav class="nav" aria-label="Main">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
@@ -418,5 +418,9 @@ nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:
   setTimeout(all, 1100);
 })();
 </script>
+<style id="lb-header-fault-fix">
+:is(header,nav,[class*=topbar],[class*=navbar],[class*=bar],[class*=hdr]) *:has(> img.lb-logo-unlock.lb-logo-unlock){width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:visible!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+</style>
 </body>
 </html>

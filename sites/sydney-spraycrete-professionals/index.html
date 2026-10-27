@@ -298,7 +298,7 @@ img[src$="hero-resurfaced.jpg"], .hero-photo, .hero img, .hero__bg, .hero-bg img
 <header class="site">
   <div class="wrap bar">
     <a class="lb-brand" href="#top" aria-label="Sydney Spraycrete Professionals — home">
-      <img src="assets/logo.png" alt="Sydney Spraycrete Professionals" width="1179" height="1089">
+      <img src="assets/logo.png" alt="Sydney Spraycrete Professionals" width="1179" height="1089" class="lb-logo-unlock">
     </a>
     <nav class="main" aria-label="Sections"><a class="brand-monogram" href="#top" aria-label="Sydney Spraycrete Professionals"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
       <a href="#Services">Services</a>
@@ -628,5 +628,9 @@ img[src$="hero-resurfaced.jpg"], .hero-photo, .hero img, .hero__bg, .hero-bg img
   setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');});},1100);
 })();
 </script>
+<style id="lb-header-fault-fix">
+:is(header,nav,[class*=topbar],[class*=navbar],[class*=bar],[class*=hdr]) *:has(> img.lb-logo-unlock.lb-logo-unlock){width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:visible!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+</style>
 </body>
 </html>
