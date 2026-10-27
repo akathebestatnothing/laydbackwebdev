@@ -182,7 +182,7 @@ nav a:hover {color:#101418!important;opacity:.85!important}
 <body>
 <header class="site">
 <div class="container bar">
-<a aria-label="Valente Finishes" class="lb-brand lb-brand--lockup lb-brand--square" href="#top" style="--lb-name:#101014"><img alt="" class="lb-mark" decoding="async" loading="eager" src="assets/logo-cut.png"/><span class="lb-sr">Valente Finishes</span></a><nav aria-label="Main" class="main"><a class="brand-monogram" href="#top" aria-label="Valente Finishes"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
+<a aria-label="Valente Finishes" class="lb-brand lb-brand--lockup lb-brand--square" href="#top" style="--lb-name:#101014"><img alt="" class="lb-mark lb-logo-unlock" decoding="async" loading="eager" src="assets/logo-cut.png"/><span class="lb-sr">Valente Finishes</span></a><nav aria-label="Main" class="main"><a class="brand-monogram" href="#top" aria-label="Valente Finishes"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
 <a href="#services">Services</a>
 <a href="#process">Our process</a>
 <a href="#about">About</a>
@@ -314,5 +314,9 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 })();
 </script>
 <script id="lb-bar-bg">(function(){var b=document.querySelector(".lb-brand");if(!b)return;var p=b.closest("header,nav,.bar,.nav")||b.parentElement;if(!p)return;p.classList.add("lb-bar");p.style.setProperty("background-color","#e2bf97","important");})();</script>
+<style id="lb-header-fault-fix">
+:is(header,nav,[class*=topbar],[class*=navbar],[class*=bar],[class*=hdr]) *:has(> img.lb-logo-unlock.lb-logo-unlock){width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:visible!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+</style>
 </body>
 </html>
