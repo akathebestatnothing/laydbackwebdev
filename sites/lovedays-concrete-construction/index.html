@@ -128,9 +128,8 @@ header,.site-header,.lb-brand,.lb-brand *{opacity:1;visibility:visible}
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 </style><style id="lb-hdr-centre">
-.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
 .brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
-@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+@media(max-width:900px){}
 </style><style id="ld-one-logo">
 /* the bar held the client's logo on the left AND an auto-drawn brand-mark.svg pinned dead centre,
    so two marks showed at once. One logo now, sized to be read. */
@@ -140,8 +139,7 @@ header,.site-header,.lb-brand,.lb-brand *{opacity:1;visibility:visible}
 .site-header .lb-brand{display:flex!important;align-items:center!important;position:static!important;flex:0 0 auto!important}
 img.lb-logo-unlock.lb-logo-unlock,.site-header .lb-brand img,.site-header img.lb-logo-unlock{height:clamp(64px,6vw,86px)!important;width:auto!important;max-width:none!important;
   display:block!important;border:0!important;box-shadow:none!important;background:none!important;border-radius:0!important}
-.site-header .brand-monogram{display:none!important}
-.site-header .nav{display:flex!important;align-items:center!important;gap:clamp(12px,1.8vw,26px)!important;flex-wrap:wrap!important;
+.site-header .site-header .nav{display:flex!important;align-items:center!important;gap:clamp(12px,1.8vw,26px)!important;flex-wrap:wrap!important;
   position:static!important;transform:none!important;margin-left:auto!important}
 .site-header .lb-sr-only{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important}
 @media(max-width:760px){
