@@ -153,16 +153,10 @@ img[src$="hero-carport.jpg"], .hero-photo, .hero img, .hero__bg, .hero-bg img
   transform:none!important;width:100%!important;max-width:1400px!important;height:auto!important;max-height:none!important;
   object-fit:contain!important;display:block!important;margin:0 auto!important}
 </style><style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
 .brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
-@media(max-width:900px){}
-</style><style id="lb-bar-fits-logo">
-/* the logo is sized to be read, so the bar grows to hold it instead of clipping or spilling */
-header:has(img.lb-logo-unlock),nav:has(img.lb-logo-unlock),.bar:has(img.lb-logo-unlock),.hdr:has(img.lb-logo-unlock),.site-header:has(img.lb-logo-unlock),.navbar:has(img.lb-logo-unlock){
-  height:auto!important;min-height:0!important;max-height:none!important;padding-block:8px!important;align-items:center!important}
-.bar > *,.hdr > *,.site-header > *,.navbar > *{min-width:0}
-img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center!important}
-</style>
-</head>
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style></head>
 <body>
 <!-- LB-3D-HERO -->
 <div class="lb3d" aria-hidden="true"><canvas id="heroCanvas" width="1200" height="700"></canvas></div>
@@ -174,7 +168,8 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
       <img src="assets/logo.jpg" alt="TL Carport logo" width="32" height="32" class="lb-logo-unlock">
       <span class="brand-name lb-sr-only">TL Carport<span class="brand-sub">Carports, verandahs &amp; patios</span></span>
     </a>
-    <nav class="nav" aria-label="Main"><a href="#carports">Carports</a>
+    <nav class="nav" aria-label="Main"><a class="brand-monogram" href="#top" aria-label="TL Carport"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
+      <a href="#carports">Carports</a>
       <a href="#verandahs">Verandahs</a>
       <a href="#patios">Patios</a>
       <a href="#build">Design &amp; permits</a>
@@ -212,7 +207,7 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
       <p>Getting a carport right is mostly about the details before the first post goes in: how the cars sit, how much clearance the bonnet needs, where the posts can land without wrecking the driveway, and how the roof ties back into the house.</p>
     </div>
     <div class="split rv">
-      
+      <img src="assets/deck-house.jpg" alt="Timber framed structure with posts and beams attached to a house" width="1200" height="1600">
       <div>
         <h3>Posts and beams that do the job</h3>
         <p>We set the posts where they need to be so a car door opens and a driver does not have to squeeze past. Beams run the span the roof actually needs, and the carport is tied back into the house line properly instead of relying on the posts alone.</p>
@@ -244,7 +239,7 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
           <li>Ceiling and trim options discussed up front</li>
         </ul>
       </div>
-      
+      <img src="assets/decks.jpg" alt="Outdoor covered structure with posts, beams and decking in a backyard" width="1199" height="1599">
     </div>
   </div>
 </section>
@@ -306,8 +301,14 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
       <p>Posts, beams and roof lines from carport, verandah and outdoor builds — send us a photo of the space you have and we can tell you what will fit.</p>
     </div>
     <div class="gal">
-      <div class="imgstub"><b>Work photo</b><span>Withheld - this image also appears on another business's site.</span></div>
-      <div class="imgstub"><b>Work photo</b><span>Withheld - this image also appears on another business's site.</span></div>
+      <figure class="rv">
+        <img src="assets/deck-house.jpg" alt="Framed outdoor structure with posts and beams against a house" width="1200" height="1600">
+        <figcaption>A build like this — posts and beams set out so the space under the roof works.</figcaption>
+      </figure>
+      <figure class="rv">
+        <img src="assets/decks.jpg" alt="Covered outdoor area with posts and roof over a backyard" width="1199" height="1599">
+        <figcaption>A build like this — cover off the back of the house for the yard and the table.</figcaption>
+      </figure>
       <figure class="rv">
         <img src="assets/patio.jpg" alt="Patio structure with visible posts and roof" width="1400" height="1119">
         <figcaption>A build like this — an outdoor area with the roof pitched away from the house.</figcaption>
@@ -443,7 +444,7 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
 </script>
 <style id="lb-header-fault-fix">
 .lb-sr-only.lb-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
-img.lb-logo-unlock.lb-logo-unlock{height:clamp(58px,5.2vw,78px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
 </style>
 </body>
 </html>

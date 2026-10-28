@@ -221,16 +221,10 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 </style><style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
 .brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
-@media(max-width:900px){}
-</style><style id="lb-bar-fits-logo">
-/* the logo is sized to be read, so the bar grows to hold it instead of clipping or spilling */
-header:has(img.lb-logo-unlock),nav:has(img.lb-logo-unlock),.bar:has(img.lb-logo-unlock),.hdr:has(img.lb-logo-unlock),.site-header:has(img.lb-logo-unlock),.navbar:has(img.lb-logo-unlock){
-  height:auto!important;min-height:0!important;max-height:none!important;padding-block:8px!important;align-items:center!important}
-.bar > *,.hdr > *,.site-header > *,.navbar > *{min-width:0}
-img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center!important}
-</style>
-</head>
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style></head>
 <body id="top">
 <header class="header" role="banner">
   <div class="container header__inner">
@@ -265,7 +259,10 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
           </a>
         </div>
       </div>
-      <div class="imgstub"><b>Work photo</b><span>Withheld - this image also appears on another business's site.</span></div>
+      <figure class="hero__media rv">
+        <img src="assets/roof-hero.jpg" alt="Roofer re-bedding ridge caps on a tiled roof" width="1400" height="817" loading="eager" decoding="async">
+        <figcaption>Cinder Tiling &amp; Waterproofing — Central Coast</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -366,9 +363,9 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
 
 <section class="lb-rb" aria-label="Recent work">
   <div class="lb-rb__track">
-    <div class="lb-rb__slide is-on"><div class="lb-rb__cap">Tiled roof repairs</div></div>
-    <div class="lb-rb__slide"><div class="lb-rb__cap">Re-bedding &amp; ridge capping</div></div>
-    <div class="lb-rb__slide"><div class="lb-rb__cap">Waterproofing &amp; leak repairs</div></div>
+    <div class="lb-rb__slide is-on"><img src="assets/roof-hero.jpg" alt="Roofer working on a tiled roof" loading="lazy" decoding="async" style="object-position:50% 30%"><div class="lb-rb__cap">Tiled roof repairs</div></div>
+    <div class="lb-rb__slide"><img src="assets/roof-hero.jpg" alt="Roofer working on a tiled roof" loading="lazy" decoding="async" style="object-position:20% 60%"><div class="lb-rb__cap">Re-bedding &amp; ridge capping</div></div>
+    <div class="lb-rb__slide"><img src="assets/roof-hero.jpg" alt="Roofer working on a tiled roof" loading="lazy" decoding="async" style="object-position:80% 45%"><div class="lb-rb__cap">Waterproofing &amp; leak repairs</div></div>
     <button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous work photo">&#8249;</button>
     <button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next work photo">&#8250;</button>
     <div class="lb-rb__dots">
@@ -824,7 +821,8 @@ section,header,footer,.wrap,.container,.inner,[class*="section"]{
 </style>
 <style id="lb-header-fault-fix">
 :is(header,nav,[class*=topbar],[class*=navbar],[class*=bar],[class*=hdr]) *:has(> img.lb-logo-unlock.lb-logo-unlock){width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:visible!important}
-aimg.lb-logo-unlock.lb-logo-unlock{height:clamp(58px,5.2vw,78px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+a.brand-monogram{display:none!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
 </style>
 </body>
 </html>

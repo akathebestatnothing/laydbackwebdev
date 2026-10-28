@@ -105,7 +105,7 @@ ul{margin:0;padding:0;list-style:none}
 #heroCanvas{display:none!important}
 .hero__ph{
   position:absolute;inset:0;z-index:0;
-  background:#14110f url('') 58% 42%/cover no-repeat;
+  background:#14110f url('assets/hero-roof.jpg') 58% 42%/cover no-repeat;
   filter:saturate(1.05) contrast(1.03) brightness(1.02);
 }
 .hero::after{
@@ -222,16 +222,10 @@ footer{background:#141211;color:var(--on-dark);padding:clamp(48px,6vw,72px) 0 26
 }
 </style>
 <style id="lb-hdr-centre">
+.brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
 .brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
-@media(max-width:900px){}
-</style><style id="lb-bar-fits-logo">
-/* the logo is sized to be read, so the bar grows to hold it instead of clipping or spilling */
-header:has(img.lb-logo-unlock),nav:has(img.lb-logo-unlock),.bar:has(img.lb-logo-unlock),.hdr:has(img.lb-logo-unlock),.site-header:has(img.lb-logo-unlock),.navbar:has(img.lb-logo-unlock){
-  height:auto!important;min-height:0!important;max-height:none!important;padding-block:8px!important;align-items:center!important}
-.bar > *,.hdr > *,.site-header > *,.navbar > *{min-width:0}
-img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center!important}
-</style>
-</head>
+@media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
+</style></head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#main">Skip to content</a>
@@ -245,7 +239,8 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
         <span class="brand__sb">Roofing · Newcastle NSW</span>
       </span>
     </a>
-    <nav class="nav" aria-label="Primary"><a class="lnk" href="#services">Services</a>
+    <nav class="nav" aria-label="Primary"><a class="brand-monogram" href="#top" aria-label="Newcastle Roofing Specialists"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
+      <a class="lnk" href="#services">Services</a>
       <a class="lnk" href="#work">Work</a>
       <a class="lnk" href="#approach">Approach</a>
       <a class="tel" href="tel:+61431731882"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h4l2 5-3 2a13 13 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 2 5a2 2 0 0 1 2-2z"/></svg><span>0431 731 882</span></a>
@@ -321,9 +316,18 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
         <p>Capping re-bedded, courses straightened, ridges pointed. The photos below are jobs like the ones we quote.</p>
       </div>
       <div class="gal">
-        <div class="imgstub"><b>Work photo</b><span>Withheld - this image also appears on another business's site.</span></div>
-        <div class="imgstub"><b>Work photo</b><span>Withheld - this image also appears on another business's site.</span></div>
-        <div class="imgstub"><b>Work photo</b><span>Removed rather than shown — this image also appears on another business's site.</span></div>
+        <figure class="rv">
+          <img src="assets/work-01.jpg" alt="Tiled roof with re-bedded ridge capping and straight tile courses" width="1600" height="1202" loading="eager" decoding="async">
+          <figcaption>Ridge capping re-bedded and pointed — a job like this</figcaption>
+        </figure>
+        <figure class="rv">
+          <img src="assets/work-02.jpg" alt="Terracotta tile courses and ridge capping on a restored roof" width="1200" height="904" loading="lazy" decoding="async">
+          <figcaption>Tile courses and capping — a job like this</figcaption>
+        </figure>
+        <figure class="rv">
+          <img src="assets/work-03.jpg" alt="Roof restoration in progress with cleared tile courses" width="1600" height="900" loading="lazy" decoding="async">
+          <figcaption>Restoration work — a job like this</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -501,7 +505,7 @@ img.lb-logo-unlock{display:block!important;flex:none!important;align-self:center
 <style id="lb-header-fault-fix">
 .lb-sr-only.lb-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
 :is(header,nav,[class*=topbar],[class*=navbar],[class*=bar],[class*=hdr]) *:has(> img.lb-logo-unlock.lb-logo-unlock){width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;flex:none!important;overflow:visible!important}
-img.lb-logo-unlock.lb-logo-unlock{height:clamp(58px,5.2vw,78px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
+img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
 </style>
 </body>
 </html>
