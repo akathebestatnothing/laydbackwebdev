@@ -209,6 +209,9 @@ nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:
 <a class="call" href="tel:0422858263"><span>Call</span>0422 858 263</a>
 </div>
 </header>
+
+<div class="krb-ticker" aria-hidden="true"><div class="krb-ticker__track" id="krbTick"></div></div>
+
 <main>
 <section class="hero">
 <div class="wrap">
@@ -305,6 +308,26 @@ nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:
 </div>
 </div>
 </section>
+<!-- KRB-EXTRAS-START -->
+<section id="what-we-do"><div class="wrap">
+  <p class="mono" style="color:var(--dim)">What we do</p>
+  <h2 style="margin-top:10px">Concreting and landscaping, one crew</h2>
+  <p style="color:var(--dim);max-width:70ch;margin-top:12px">Both halves of the job: the pour that has to be right for years, and the garden around it that has to look right the day it is handed over.</p>
+  <div class="krb-chips">
+    <span>Driveways</span><span>Concrete slabs</span><span>Shed &amp; house slabs</span><span>Paths &amp; footpaths</span>
+    <span>Exposed aggregate</span><span>Decorative &amp; stencil finish</span><span>Coloured concrete</span><span>Crossovers</span>
+    <span>Retaining walls</span><span>Paving</span><span>Turf laying</span><span>Garden beds</span>
+    <span>Mulch &amp; rock</span><span>Edging &amp; garden trims</span><span>Drainage behind walls</span><span>Site levelling</span>
+    <span>Concrete removal</span><span>Garden builds</span>
+  </div>
+  <div class="krb-band">
+    <div class="cap"><span>What we do — rotating</span><em id="krbAreaCount">01 / 06</em></div>
+    <div class="row" id="krbAreaRow"></div>
+    <div class="prog"><i></i></div>
+  </div>
+</div></section>
+<!-- KRB-EXTRAS-END -->
+
 <section id="quote">
 <div class="wrap contact">
 <div>
@@ -419,5 +442,88 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 .lb-sr-only.lb-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
 img.lb-logo-unlock.lb-logo-unlock{height:clamp(48px,4.4vw,72px)!important;width:auto!important;max-width:none!important;max-height:none!important;flex:none!important;object-fit:contain!important}
 </style>
+<style id="krb-extras">
+/* ==== header: logo only, centred + added features, in this site's own ink/paper palette (#16181a / #f8f8f5) ==== */
+
+/* the bar showed the logo with the words "Concreting & Landscaping" typed beside it. The typed name is gone
+   (the accessible name stays on the link) and the logo now sits centred in the bar. */
+.hdr-in{position:relative!important}
+.hdr .hdr-in .brand,body .hdr .brand{position:absolute!important;left:50%!important;right:auto!important;top:50%!important;
+  transform:translate(-50%,-50%)!important;z-index:3!important;display:flex!important;align-items:center!important;
+  justify-content:center!important;gap:0!important;flex:0 0 auto!important}
+.brand .brand-name,.brand span:not(.lb-sr-only),.brand p,.brand small{display:none!important}
+.brand img,img.lb-big,img.lb-big.lb-big,img.lb-big.lb-big.lb-logo-unlock{
+  height:clamp(48px,5vw,62px)!important;width:auto!important;max-height:none!important;max-width:min(32vw,120px)!important;object-fit:contain!important;display:block!important}
+.hdr{padding-left:0!important}
+@media(max-width:1080px){.brand img,img.lb-big.lb-big,img.lb-big.lb-big.lb-logo-unlock{height:clamp(44px,7vw,56px)!important}}
+@media(max-width:820px){.hdr .hdr-in .brand,body .hdr .brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important}}
+
+/* showcase photos: the two portrait shots (1536x2048) were being cropped into landscape boxes. Each tile now shows
+   the whole photograph at its own ratio, at 0.3x of native size. */
+.detail{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(240px,400px))!important;gap:1rem!important;justify-content:start!important;align-items:start!important}
+.detail figure{margin:0!important}
+.detail figure img{width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;border-radius:8px;display:block!important}
+.hero-shot img{max-width:100%!important;height:auto!important;object-fit:contain!important}
+
+/* rotating services ticker */
+.krb-ticker{position:relative;overflow:hidden;background:#16181a;border-top:1px solid rgba(248,248,245,.16);border-bottom:1px solid rgba(248,248,245,.16)}
+.krb-ticker:before,.krb-ticker:after{content:"";position:absolute;top:0;bottom:0;width:70px;z-index:2;pointer-events:none}
+.krb-ticker:before{left:0;background:linear-gradient(90deg,#16181a,transparent)}
+.krb-ticker:after{right:0;background:linear-gradient(270deg,#16181a,transparent)}
+.krb-ticker__track{display:flex;gap:clamp(20px,3vw,40px);white-space:nowrap;padding:13px 0;width:max-content;animation:krbSlide 46s linear infinite;will-change:transform}
+.krb-ticker:hover .krb-ticker__track{animation-play-state:paused}
+.krb-ticker span{display:inline-flex;align-items:center;gap:clamp(14px,2vw,26px);color:#f8f8f5;font-weight:700;font-size:clamp(11px,1.15vw,13.5px);letter-spacing:.16em;text-transform:uppercase}
+.krb-ticker span i{font-style:normal;color:#9aa0a6}
+@keyframes krbSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* what we do: chips + rotating band */
+.krb-chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.krb-chips span{border:1px solid var(--rule,#d6d6d1);background:#fff;border-radius:999px;padding:8px 15px;font-size:.86rem;color:var(--ink,#16181a);transition:.2s}
+.krb-chips span:hover{border-color:#16181a;background:#f2f2ef}
+.krb-band{margin-top:22px;border:1px solid var(--rule,#d6d6d1);background:#16181a;overflow:hidden;border-radius:10px}
+.krb-band .cap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:11px 15px;border-bottom:1px solid rgba(248,248,245,.16);
+  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#c9ccc9;font-weight:700}
+.krb-band .cap em{font-style:normal;color:#8b8f8b}
+.krb-band .row{position:relative;height:68px;overflow:hidden}
+.krb-band .row ul{list-style:none;margin:0;padding:0;position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:translateY(12px);transition:opacity .7s ease,transform .7s ease}
+.krb-band .row ul.on{opacity:1;transform:none}
+.krb-band .row li{font-size:clamp(1.05rem,2.2vw,1.5rem);font-weight:700;color:#f8f8f5;text-align:center;line-height:1.12}
+.krb-band .row li small{display:block;font-weight:400;font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:#9aa0a6;margin-top:8px}
+.krb-band .prog{height:2px;background:rgba(248,248,245,.16)}
+.krb-band .prog i{display:block;height:100%;width:0;background:#f8f8f5;animation:krbFill 4s linear infinite}
+@keyframes krbFill{from{width:0}to{width:100%}}
+
+@media (prefers-reduced-motion:reduce){.krb-ticker__track,.krb-band .prog i{animation:none}.krb-band .row ul{transition:none}}
+</style>
+
+<script id="krb-extras-js">
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var T=['Driveways','Slabs','Exposed aggregate','Paths','Retaining walls','Turf','Garden beds','Paving','Crossovers',
+         'Stencil finish','Coloured concrete','Drainage','Levels','Mulch & rock','Edging','Concrete removal'];
+  var tk=document.getElementById('krbTick');
+  if (tk) tk.innerHTML=T.concat(T).map(function(s){return '<span>'+s+'<i>&#9670;</i></span>';}).join('');
+  var AR=[['Driveways & slabs','Poured, levelled and finished to the fall'],
+          ['Exposed aggregate','Washed to reveal the stone, then sealed'],
+          ['Paths & crossovers','Formed and poured to suit the site'],
+          ['Retaining walls','Levels set, drainage behind, trimmed off'],
+          ['Turf & garden beds','Prepped, laid and finished with mulch'],
+          ['Landscaping','Garden builds, paving, rock and planting']];
+  var row=document.getElementById('krbAreaRow'), cnt=document.getElementById('krbAreaCount');
+  if (row){
+    AR.forEach(function(a,k){
+      var u=document.createElement('ul'), li=document.createElement('li');
+      if(!k) u.className='on';
+      li.innerHTML=a[0]+'<small>'+a[1]+'</small>';
+      u.appendChild(li); row.appendChild(u);
+    });
+    var rows=[].slice.call(row.children), i=0;
+    if(!reduce){ setInterval(function(){ i=(i+1)%AR.length;
+      rows.forEach(function(u,k){ u.classList.toggle('on', k===i); });
+      if(cnt) cnt.textContent=('0'+(i+1)).slice(-2)+' / 0'+AR.length; },4000); }
+  }
+})();
+</script>
+
 </body>
 </html>
