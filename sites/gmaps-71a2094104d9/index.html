@@ -692,7 +692,7 @@ html,body{overflow-x:hidden}
         resize(); window.addEventListener('resize',resize);
       }
       function reveal(){
-        var els=document.querySelectorAll('.rv');
+        var els=document.querySelectorAll('.rv, .rise');
         var io=new IntersectionObserver(function(entries){
           entries.forEach(function(e){
             if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
@@ -721,7 +721,7 @@ html,body{overflow-x:hidden}
         heroCanvas(); processTrace(); reveal(); mobileNav();
         setTimeout(function(){
           document.documentElement.classList.add('loaded');
-          document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('on'); });
+          document.querySelectorAll('.rv, .rise').forEach(function(el){ el.classList.add('on'); });
         },1100);
       }
       if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
