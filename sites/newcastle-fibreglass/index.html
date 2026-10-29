@@ -10,9 +10,9 @@
 
 :root{
   --bg:#0e3a7e; --bg-2:#123a78; --ink:#ffffff; --mut:#c3d4ec;
-  --acc:#1020d8; --acc-lite:#8fe0fb; --acc-2:#2ba3c4; --line:rgba(255,255,255,.20); --line-2:rgba(60,200,240,.45);
-  --panel:#1c4a94; --lo:#e8f2fb;
-  --nav-h:64px;
+  --acc:#1626db; --acc-lite:#9fb4ff; --acc-2:#2ba3c4; --line:rgba(255,255,255,.20); --line-2:rgba(60,200,240,.45);
+  --panel:#1c4a94; --lo:#eef2fa;
+  --nav-h:96px;
   --font-d:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --font-m:ui-monospace,Menlo,Consolas,monospace;
 }
@@ -245,7 +245,28 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 </style><style id="lb-bar-noname-x">SPAN.lb-brand__name{display:none!important}
-</style></head>
+</style><style id="lb-bar-logo3">
+/* Header bar: the client's own NFB monogram (assets/logo-cut.png, transparent, #1626db) with no typed
+   name. It was sitting on a #f5f5f0 chip over a navy bar - a white card. The chip is gone; the bar is
+   now the mark's own light ground so the vivid blue artwork reads at full strength. */
+nav.nav{background:#eef2fa!important;border-bottom:1px solid rgba(22,38,219,.22)!important;
+  min-height:96px!important;height:auto!important;display:flex!important;align-items:center!important;
+  gap:clamp(12px,2vw,26px)!important;padding:10px clamp(16px,3vw,34px)!important}
+nav.nav .lb-brand__mark{background:none!important;padding:0!important;border-radius:0!important;
+  height:auto!important;display:inline-flex!important;align-items:center!important}
+nav.nav .lb-brand__mark img, nav.nav img.lb-logo-unlock.lb-logo-unlock{
+  height:clamp(46px,4.6vw,58px)!important;width:auto!important;max-height:none!important;max-width:none!important;
+  display:block!important;background:none!important;border-radius:0!important;object-fit:contain!important}
+nav.nav .lb-brand__word{display:none!important}
+nav.nav .nav__links a{color:#132a63!important;opacity:1!important}
+nav.nav .nav__links a:hover{color:#1626db!important}
+nav.nav #burger span{background:#132a63!important}
+nav.nav .nav__cta a{background:#1626db!important;color:#fff!important;border-radius:999px!important;padding:12px 18px!important}
+@media(max-width:860px){
+  nav.nav{min-height:78px!important;gap:10px!important;padding:8px 16px!important}
+  nav.nav .lb-brand__mark img{height:42px!important}
+}
+</style><style id="lb-rb-cap">.lb-rb{max-width:1160px!important;margin-inline:auto!important}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 
 <a class="skip" href="#services">Skip to content</a>

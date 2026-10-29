@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/logo-header.png">
 <style>
-:root{--bg:#FFF3E8;--ink:#1A1A1A;--acc:#e8a020;--acc-2:#FF8C00;--acc-dark:#B34700;--mid:#FFB366;--mid-dark:#FF9F43;--card:#FFFFFF;--line:#FFB366;--shadow:rgba(230,92,0,.08);--shadow-strong:rgba(230,92,0,.14);--bg-2:#FFE0C2;--ink-2:#333333;--panel:#FFFFFF}
+:root{--bg:#FFF3E8;--ink:#1A1A1A;--acc:#d99a1e;--acc-2:#FF8C00;--acc-dark:#B34700;--mid:#FFB366;--mid-dark:#FF9F43;--card:#FFFFFF;--line:#F0B25C;--shadow:rgba(230,92,0,.08);--shadow-strong:rgba(230,92,0,.14);--bg-2:#FFE0C2;--ink-2:#333333;--panel:#FFFFFF}
 html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*, *::before, *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
@@ -140,7 +140,25 @@ nav a:hover {color:#101418!important;opacity:.85!important}
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 </style><style id="lb-bar-noname-x">SPAN.lb-brand__name{display:none!important}
-</style></head><body><a class="skip" href="#main">Skip to content</a>
+</style><style id="lb-bar-logo3">
+/* Header bar: the client's own badge lockup (assets/logo-header.png, already alpha-keyed, #d99a1e gold
+   on black) and nothing typed. The badge's wordmark is baked in, so it is sized to read. */
+nav{min-height:98px!important;padding:10px clamp(16px,3vw,34px)!important;display:flex!important;
+  align-items:center!important;gap:clamp(12px,2vw,26px)!important;background:var(--bg)!important;
+  border-bottom:1px solid var(--line)!important}
+nav .lb-brand{display:flex!important;align-items:center!important;flex:none!important;min-height:0!important}
+nav .lb-brand__mark{height:auto!important;max-width:none!important;display:inline-flex!important;align-items:center!important}
+nav .lb-brand__mark img, nav .lb-brand img.lb-logo-unlock{
+  height:clamp(52px,5vw,70px)!important;width:auto!important;max-height:none!important;max-width:none!important;
+  display:block!important;object-fit:contain!important;background:none!important}
+nav .lb-brand__word{display:none!important}
+nav .nav-cta{margin-left:auto!important;display:flex!important;align-items:center!important;gap:12px!important}
+@media(max-width:900px){
+  nav{min-height:82px!important;gap:10px!important}
+  nav .lb-brand__mark img{height:50px!important}
+  nav .nav-cta .btn-ghost{display:none!important}
+}
+</style><style id="lb-rb-cap">.lb-rb{max-width:980px!important;margin-inline:auto!important}</style></head><body><a class="skip" href="#main">Skip to content</a>
 <nav><a class="lb-brand" href="#top" aria-label="Springfield Retaining & Earthmoving - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#e8a020;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo-header.png" alt="" loading="eager" decoding="async" class="lb-logo-unlock" width="667" height="701"></span><span class="lb-brand__word"><span class="lb-brand__name">Springfield Retaining & Earthmoving</span><span class="lb-brand__sub"><span class="lb-acc">Retaining</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a><div class="nav-cta"><a class="btn btn-ghost" href="#quote">Get a quote</a><a class="btn btn-primary magnetic" data-ux="magnetic" href="tel:+61412676130">Call 0412 676 130</a></div></nav><header class="hero" style="position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:var(--bg)">
   <canvas id="heroCanvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0"></canvas>
   <div class="rv" style="position:relative;z-index:1;margin-bottom:1.5rem"><span style="font:600 .8rem/1 Montserrat,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);background:rgba(230,92,0,.1);padding:.4rem 1rem;border-radius:999px">Brisbane QLD · Up to 250km radius</span></div>
@@ -340,9 +358,9 @@ nav a:hover {color:#101418!important;opacity:.85!important}
   <p class="footer-copyright">© 2026 Springfield Retaining & Earthmoving pty ltd. All rights reserved.</p>
 </footer><main id="main">
 </main>
-<!-- lb: old box-hero engine removed --><script>document.documentElement.setAttribute("data-debug","PS-check:"+typeof window.PS+","+typeof window.PS.setup+","+(window.PS?Object.keys(window.PS).join(","):"none"));</script><script>document.documentElement.setAttribute("data-debug","PS-after-proscene:"+typeof window.PS+","+typeof window.PS.setup);</script>
+<!-- lb: old box-hero engine removed -->
 
-<script>!function(){try{ document.documentElement.setAttribute("data-debug3d","1-script-start"); var canvas=document.getElementById("heroCanvas"); if(!canvas){document.documentElement.setAttribute("data-debug3d","2-no-canvas");return} document.documentElement.setAttribute("data-debug3d","3-canvas-found"); if(typeof window.PS==="undefined"){document.documentElement.setAttribute("data-debug3d","4-PS-undefined");return} document.documentElement.setAttribute("data-debug3d","5-PS-ok"); document.documentElement.setAttribute("data-debug3d","6-calling-setup"); var scene=window.PS.setup(canvas,{ sun:"left",seed:42,p:0,reduce:false, sky:["#fff3e8","#ffe0c2","#ffb366"], glow:"#e65c00",fogNear:2,fogFar:28,horizon:.45,focal:1.15,camH:1.55,progress:null, onFrame:function(S,p,time){ document.documentElement.setAttribute("data-debug3d","7-onFrame:"+S.W+","+S.H); try{ if(S.sky){ document.documentElement.setAttribute("data-debug3d","7b-calling-sky"); S.sky(0); document.documentElement.setAttribute("data-debug3d","7c-sky-done"); document.documentElement.setAttribute("data-debug3d","7d-sky-rendered"); } }catch(e){ document.documentElement.setAttribute("data-debug3d","7e-onFrame-error:"+e) } } }); document.documentElement.setAttribute("data-debug3d","8-scene-returned"); scene.start(); document.documentElement.setAttribute("data-debug3d","9-started"); }catch(e){ document.documentElement.setAttribute("data-debug3d","0-outer-error:"+e) }}();document.documentElement.setAttribute("data-debug3d","PS-check:"+typeof window.PS+","+typeof window.PS.setup);</script>
+<script>!function(){try{ document.documentElement.setAttribute("data-debug3d","1-script-start"); var canvas=document.getElementById("heroCanvas"); if(!canvas){document.documentElement.setAttribute("data-debug3d","2-no-canvas");return} document.documentElement.setAttribute("data-debug3d","3-canvas-found"); if(typeof window.PS==="undefined"){document.documentElement.setAttribute("data-debug3d","4-PS-undefined");return} document.documentElement.setAttribute("data-debug3d","5-PS-ok"); document.documentElement.setAttribute("data-debug3d","6-calling-setup"); var scene=window.PS.setup(canvas,{ sun:"left",seed:42,p:0,reduce:false, sky:["#fff3e8","#ffe0c2","#ffb366"], glow:"#e65c00",fogNear:2,fogFar:28,horizon:.45,focal:1.15,camH:1.55,progress:null, onFrame:function(S,p,time){ document.documentElement.setAttribute("data-debug3d","7-onFrame:"+S.W+","+S.H); try{ if(S.sky){ document.documentElement.setAttribute("data-debug3d","7b-calling-sky"); S.sky(0); document.documentElement.setAttribute("data-debug3d","7c-sky-done"); document.documentElement.setAttribute("data-debug3d","7d-sky-rendered"); } }catch(e){ document.documentElement.setAttribute("data-debug3d","7e-onFrame-error:"+e) } } }); document.documentElement.setAttribute("data-debug3d","8-scene-returned"); scene.start(); document.documentElement.setAttribute("data-debug3d","9-started"); }catch(e){ document.documentElement.setAttribute("data-debug3d","0-outer-error:"+e) }}();</script>
 
 <script>!function(){if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("reduce-motion");setTimeout(function revealAll(){var e=document.querySelectorAll(".rv,[data-ux=\"words\"],[data-ux=\"fadein\"]");for(var t=0;t<e.length;t++){e[t].classList.add("revealed"),e[t].style.opacity="1",e[t].style.transform="none";for(var n=0;n<e[t].children.length;n++)e[t].children[n].style.opacity="1",e[t].children[n].style.transform="none"}},1200)}();</script><script>document.documentElement.setAttribute("data-debug","body-script-ran");</script>
 <script id="lb-motion-js">

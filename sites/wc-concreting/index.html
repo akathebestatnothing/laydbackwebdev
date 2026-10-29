@@ -12,18 +12,20 @@
 <link rel="icon" href="assets/logo.png">
 <style>
 :root {
-  --bg: #0d0d0d;
-  --bg-2: #141414;
-  --panel: #1a1a1a;
-  --panel-2: #222222;
+  --bg: #0b0c0e;
+  --bg-2: #131519;
+  --panel: #181a1e;
+  --panel-2: #202329;
   --ink: #fdfdfd;
-  --ink-2: #d0d5db;
-  --ink-3: #5d656c;
+  --ink-2: #ccd3da;
+  --ink-3: #626d78;
   --acc:#005890;
-  --acc-2: #005e94;
-  --acc-3: #004d7a;
-  --line: rgba(13,97,148,.15);
-  --line-acc: rgba(11,97,148,.4);
+  --acc-2: #006ea8;
+  --acc-3: #004a78;
+  --line: rgba(0,88,144,.28);
+  --line-acc: rgba(0,136,208,.55);
+  --lb-bar: #0b0c0e;
+  --lb-bar-line: rgba(0,136,208,.4);
   --nav-h: 72px;
   --font-d: 'Anton', 'Arial Narrow', sans-serif;
   --font-m: system-ui, ui-sans-serif, system-ui, sans-serif;
@@ -384,7 +386,28 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 </style><style id="lb-bar-noname-x">SPAN.lb-brand__name{display:none!important}
-</style></head>
+</style><style id="lb-hdr-final">
+html{overflow-x:hidden}
+nav.nav{height:auto!important;min-height:clamp(86px,7.2vw,104px)!important;
+  padding:10px clamp(1rem,3vw,2.5rem)!important;background:var(--lb-bar)!important;
+  border-bottom:1px solid var(--lb-bar-line)!important;align-items:center!important}
+nav.nav .lb-brand{display:flex!important;align-items:center!important;gap:clamp(12px,1.4vw,20px)!important;flex:0 0 auto!important;
+  background:transparent!important;padding:0!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+nav.nav .lb-brand .lb-brand__mark{display:flex!important;align-items:center!important;gap:clamp(10px,1.2vw,18px)!important;
+  height:auto!important;max-width:min(46vw,420px)!important}
+nav.nav .lb-brand .lb-brand__mark img.wc-mark{height:clamp(38px,4.4vw,54px)!important;width:auto!important;max-width:100%!important;display:block!important}
+nav.nav .lb-brand .lb-brand__mark img.wc-word{height:clamp(26px,2.95vw,36px)!important;width:auto!important;max-width:100%!important;display:block!important;align-self:center!important}
+nav.nav .lb-brand .lb-brand__word{display:none!important}
+nav.nav .nav__links{margin-left:auto!important}
+nav.nav .nav__cta a{border:1px solid var(--line-acc)!important;background:rgba(0,88,144,.22)!important;
+  color:#fff!important;white-space:nowrap!important}
+nav.nav .nav__cta a:hover{background:var(--acc)!important}
+@media(max-width:820px){
+  nav.nav{min-height:80px!important}
+  nav.nav .lb-brand .lb-brand__mark img.wc-mark{height:clamp(32px,8vw,42px)!important}
+  nav.nav .lb-brand .lb-brand__mark img.wc-word{height:clamp(22px,5.4vw,28px)!important}
+}
+</style><style id="lb-rb-cap">.lb-rb{max-width:1990px!important;margin-inline:auto!important}</style></head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#services">Skip to content</a>

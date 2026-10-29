@@ -316,7 +316,18 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 {display:none!important}
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
-</style></head>
+</style><style id="lb-logohead">
+/* logo-first header bar - the client's own artwork only, no typed brand text */
+.nav{height:auto!important;min-height:104px!important;padding-block:10px!important}
+.nav .lb-brand{display:none!important}
+.nav .nav__b{display:flex!important;align-items:center!important;gap:14px!important;text-decoration:none!important;min-width:0}
+.nav .nav__b>span{display:none!important}
+.nav img.lb-hl{display:block!important;height:clamp(40px,3.6vw,52px)!important;width:auto!important;max-height:none!important;max-width:none!important;object-fit:contain!important}
+@media (max-width:860px){.nav{min-height:84px!important}.nav img.lb-hl{height:40px!important}}
+@media (max-width:520px){.nav{min-height:76px!important}.nav img.lb-hl{height:36px!important}}
+</style>
+<style id="lb-logopal">:root{--bg:#f8f9fa; --bg2:#ffffff; --sky1:#e8eaef; --sky2:#f5f6f8; --ink:#222737; --ink2:#646873; --acc:#3f4f7a; --acc2:#697697; --blue:#3f4f7a; --blue2:#b6bccc; --line:rgba(34,39,55,.14); --nav-h:104px;}</style>
+<style id="lb-rb-cap">.lb-rb{max-width:810px!important;margin-inline:auto!important}</style></head>
 <body>
 
 <a class="skip" href="#services">Skip to content</a>
@@ -324,8 +335,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 <nav class="nav" aria-label="Main">
 <a class="lb-brand" href="#top" aria-label="Done Right - Home" style="--lb-disp:Roboto Slab;--lb-sub:Inter;--lb-acc:#3c5484;--lb-name:#3c5484;--lb-subc:#3c5484;"><span class="lb-brand__word"><span class="lb-brand__name">Done <span class="lb-acc">Right</span></span><span class="lb-brand__sub"><span class="lb-acc">Roof</span> & Restoration &middot; —Done Right The First Time—</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   <a class="nav__b" href="#top" aria-label="Done Right Roof and Restoration home">
-    <img src="assets/logo.png" alt="Done Right Roof &amp; Restoration logo" class="lb-logo-unlock">
-    <span><span class="nb-s">Repairs · Restoration · Gutters</span></span>
+    <img src="assets/lb-lockup.png" alt="Done Right Roof &amp; Restoration" class="lb-hl" width="450" height="104">
   </a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>

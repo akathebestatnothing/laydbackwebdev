@@ -15,13 +15,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton:wght@400;700;800;900&family=Barlow:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #F0F8F2;
-  --bg-2: #E6F2E9;
+  --bg: #f2f8f3;
+  --bg-2: #e6f0e9;
   --ink: #2A6A37;
   --ink-2: #4A5D52;
-  --acc:#388848;
-  --acc-2: #245C31;
-  --acc-hi: #4ADE4A;
+  --acc:#3f9350;
+  --acc-2: #2f743d;
+  --acc-hi: #63b874;
   --line: rgba(42,106,55,.12);
   --line-acc: rgba(46,112,59,.35);
   --panel: #fff;
@@ -314,12 +314,18 @@ nav a:hover {color:#101418!important;opacity:.85!important}
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 </style><style id="lb-bar-noname-x">SPAN.lb-brand__name{display:none!important}
-</style></head><body><script>document.documentElement.classList.add('js');</script>
+</style><style id="lb-hdr-a">
+.nav .lb-hdr-brand{gap:0!important;min-height:0!important;height:auto!important}
+.nav .lb-hdr-brand img.lb-hdr-logo{height:clamp(44px,4.6vw,52px)!important;width:auto!important;max-width:none!important;max-height:none!important;display:block!important;object-fit:contain!important;-webkit-mask-image:none!important;mask-image:none!important}
+.nav .lb-brand__word,.nav .lb-brand__name,.nav .lb-brand__sub,.nav .lb-brand__rule{display:none!important}
+.nav .nav__links{flex:1 1 auto;justify-content:center}
+@media(max-width:680px){.nav .lb-hdr-brand img.lb-hdr-logo{height:clamp(36px,9.5vw,44px)!important}}
+</style><style id="lb-hdr-cap">.lb-rb__track{max-width:1150px;margin-left:auto;margin-right:auto}</style><style id="lb-rb-cap">.lb-rb{max-width:2030px!important;margin-inline:auto!important}</style></head><body><script>document.documentElement.classList.add('js');</script>
 
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-  <a class="lb-brand" href="#top" aria-label="Gowling Plasterboard Linings - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#14161a;--lb-subc:#14161a;--lb-acc:#388848;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" loading="eager" decoding="async" class="lb-logo-unlock"></span><span class="lb-brand__word"><span class="lb-brand__name">Gowling Plasterboard Linings</span><span class="lb-brand__sub"><span class="lb-acc">Plasterboard</span></span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand lb-hdr-brand" href="#top" aria-label="Gowling Plasterboard Linings - Home"><img class="lb-hdr-logo" src="assets/brand-header.png" alt="Gowling Plasterboard Linings" width="1166" height="283"></a>
   <ul class="nav__links">
     <li><a href="#services">What We Do</a></li>
     <li><a href="#finish">How We Finish</a></li>
