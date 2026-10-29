@@ -330,7 +330,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 }
 </style>
 <!--LB-HERO-REPAIR--><style id="lb-hero-repair">/* LB-HERO-HEIGHT pack caps every [class*=hero] at 78vh and floors its children at clamp(440px,58vh,600px)!important; where the hero stack is taller than the cap the last line gets chopped mid-glyph - drop the cap and the floors so the hero fits its content */[class*=hero]:not(img){max-height:none!important}[class*=hero-sub],[class*=hero-cta],[class*=hero-ctas],[class*=hero-in],[class*=hero-inner],[class*=hero-copy],[class*=hero-kicker],[class*=hero-kick],[class*=hero-content],[class*=hero-strip],[class*=hero-trust],[class*=hero-fin],[class*=hero-title],[class*=hero__in],[class*=hero__inner],[class*=hero__k],[class*=hero__ttl],[class*=hero__d],[class*=hero__sub],[class*=hero__cta],[class*=hero__copy],[class*=hero__strip],[class*=hero-media],[class*=hero-photo],[class*=hero-stats],[class*=hero-stat],[class*=hero-feats],[class*=hero-bg],[class*=hero-scrim],[class*=hero-shade]{min-height:0!important}</style><!--/LB-HERO-REPAIR-->
-</head>
+<style id="lb-hero-mobile">@media (max-width:820px){[class~=hero] [class~=hero-in],[class*=hero-copy],[class*=hero-in],[class*=hero-inner]{flex-direction:column!important;flex-wrap:wrap!important;align-items:stretch!important}[class~=hero-in]>*,[class*=hero-copy]>*,[class*=hero-in]>*,[class*=hero-inner]>*{flex:1 1 100%!important;width:100%!important;max-width:100%!important;min-width:0!important}[class*=hero] h1{width:100%!important;max-width:100%!important;flex:none!important;min-width:0!important}}</style></head>
 <body>
 <nav class="nav mc-nav" aria-label="Main">
   <div class="mc-brand-row">
