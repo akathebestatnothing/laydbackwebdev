@@ -73,10 +73,31 @@ div.wrap .brand img{height:clamp(40px,3.6vw,58px)!important;width:auto!important
 </style><style id="lb-bar-grow">
 nav{height:auto!important;min-height:0!important}
 nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:76px!important;padding-block:10px!important;flex-wrap:wrap!important}
-</style></head>
+</style><style id="pc-lockup">
+/* the bar carried ONE exported image at 80x86: assets/logo-cut.png is the lockup sitting on its own dark
+   vignette plate, so no matter the size it read as a small murky tile. The artwork is cut out properly now -
+   the symbol and the wordmark are separate transparent PNGs (keyed off the original, symbol cropped from the
+   mark band and the words from the text band) and they sit side by side across the bar. */
+.brand,.lb-brand{display:flex!important;align-items:center!important;justify-content:center!important;gap:0!important}
+.brand .pc-lock,.pc-lock{display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  gap:clamp(10px,1.2vw,18px)!important;background:none!important}
+.brand img,.brand .pc-lock img,.lb-brand img{height:auto!important;width:auto!important;background:none!important;
+  border:0!important;box-shadow:none!important;border-radius:0!important;display:block!important;margin:0!important;max-width:none!important}
+.brand img.pc-sym,.pc-lock img.pc-sym{height:clamp(42px,4.4vw,56px)!important}
+.brand img.pc-txt,.pc-lock img.pc-txt{height:clamp(36px,3.9vw,50px)!important}
+@media(max-width:760px){
+  .brand img.pc-sym,.pc-lock img.pc-sym{height:40px!important}
+  .brand img.pc-txt,.pc-lock img.pc-txt{height:34px!important}
+}
+@media(max-width:430px){
+  .brand img.pc-sym,.pc-lock img.pc-sym{height:34px!important}
+  .brand img.pc-txt,.pc-lock img.pc-txt{height:28px!important}
+}
+</style>
+</head>
 <body>
 <nav><div class="wrap nav-in">
-  <a class="brand" href="#top" aria-label="Precision Site Cleaning"><img src="assets/logo-cut.png" alt="Precision Site Cleaning" class="lb-logo-unlock"></a>
+  <a class="brand" href="#top" aria-label="Precision Site Cleaning"><span class="pc-lock"><img class="pc-sym" src="assets/logo-symbol.png" alt="" width="433" height="366" loading="eager" decoding="async"><img class="pc-txt" src="assets/logo-text.png" alt="Precision Site Cleaning" width="738" height="139" loading="eager" decoding="async"></span></a>
   <div class="links" id="navlinks"><a href="#services">Services</a><a href="#process">Process</a><a href="#faq">FAQ</a></div>
   <a class="cta" href="#quote">Request a clean</a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
