@@ -10,13 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500;600;700;800&family=Libre+Franklin:wght@400;500;600&family=Victor+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root{
-      --field:#eef1f2;
+      --field:#eef2f9;
       --panel:#ffffff;
-      --ink:#14212b;
-      --muted:#5d6b74;
-      --col-prim:#2c5d7c;
-      --col-deep:#16394f;
-      --accent:#3f88a8;
+      --ink:#0f1b2e;
+      --muted:#4f6079;
+      --col-prim:#1c4fd6;
+      --col-deep:#0f2a63;
+      --accent:#2050e0;
+      --lb-bar:#0f2a63;
+      --lb-bar-ink:#ffffff;
+      --lb-bar-muted:rgba(255,255,255,.78);
+      --lb-bar-line:rgba(255,255,255,.18);
       --hair:rgba(20,33,43,.14);
       --font-display:'Darker Grotesque',sans-serif;
       --font-body:'Libre Franklin',sans-serif;
@@ -78,32 +82,60 @@
       .mobile-menu { display: none !important; }
     }
   </style>
-<style id="lb-hdr-centre">
-/* the brand here is the logo alone: centre it in the bar instead of parking it on one edge */
-nav{position:relative!important;display:flex!important;align-items:center!important;gap:clamp(10px,1.8vw,26px)!important}
-.logo{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important;z-index:2}
-.logo img{height:clamp(38px,3.4vw,54px)!important;width:auto!important;display:block!important}
-nav > a:not(.logo){margin-left:auto}
-nav > a:not(.logo) ~ a{margin-left:0}
+<style id="lb-hdr-bar">
+html{overflow-x:hidden}
+/* LB brand bar — logo artwork only, lockup left, nav right */
+nav.nav.lb-bar{position:sticky!important;top:0;left:0;right:0;z-index:200;
+  display:flex!important;align-items:center!important;gap:clamp(12px,2vw,28px)!important;
+  height:auto!important;min-height:clamp(84px,7.2vw,104px)!important;padding:10px clamp(16px,4vw,40px)!important;
+  background:var(--lb-bar)!important;border-bottom:1px solid var(--lb-bar-line)!important;
+  flex-wrap:nowrap!important;transform:none!important;opacity:1!important}
+nav.nav.lb-bar .wrap{height:auto!important;min-height:0!important;max-width:none!important;width:100%!important;
+  padding:0!important;display:flex!important;align-items:center!important;gap:clamp(12px,2vw,28px)!important;flex-wrap:nowrap!important}
+nav.nav.lb-bar .logo{position:static!important;transform:none!important;margin:0!important;flex:0 0 auto!important;
+  display:flex!important;align-items:center!important;line-height:0}
+nav.nav.lb-bar .logo img{height:clamp(36px,3.6vw,48px)!important;width:auto!important;max-width:none!important;
+  max-height:none!important;display:block!important;filter:none!important;-webkit-mask-image:none!important;
+  border-radius:0!important;box-shadow:none!important;object-fit:contain!important}
+nav.nav.lb-bar .nav-links{margin-left:auto!important;align-items:center!important;gap:clamp(14px,2vw,30px)!important}
+nav.nav.lb-bar .nav-links a{color:var(--lb-bar-muted)!important}
+nav.nav.lb-bar .nav-links a:hover{color:#fff!important}
+nav.nav.lb-bar .pill{border-color:rgba(255,255,255,.55)!important;color:#fff!important;background:transparent!important;
+  white-space:nowrap!important}
+nav.nav.lb-bar .pill:hover{background:#fff!important;color:var(--lb-bar)!important;border-color:#fff!important}
+nav.nav.lb-bar .pill svg{stroke:#fff!important}
+nav.nav.lb-bar .pill:hover svg{stroke:var(--lb-bar)!important}
+nav.nav.lb-bar .burger{color:#fff!important;flex:none!important;position:relative;z-index:9}
+nav.nav.lb-bar .burger svg{stroke:#fff!important}
+nav.nav.lb-bar .mobile-menu{background:var(--lb-bar)!important;border-top:1px solid var(--lb-bar-line)!important}
+nav.nav.lb-bar .mobile-menu a{color:var(--lb-bar-ink)!important;border-bottom-color:var(--lb-bar-line)!important}
 @media(max-width:900px){
-  .logo{position:static!important;transform:none!important;margin-right:auto!important}
-  .logo img{height:38px!important}
+  nav.nav.lb-bar{min-height:80px!important}
+  nav.nav.lb-bar .logo img{height:clamp(34px,8.6vw,42px)!important}
 }
-</style><style id="lb-bar-grow">
-nav{height:auto!important;min-height:0!important}
-nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:76px!important;padding-block:10px!important;flex-wrap:wrap!important}
+@media(max-width:768px){
+  nav.nav.lb-bar .nav-links{display:none!important}
+  nav.nav.lb-bar .burger{display:flex!important}
+}
+@media(max-width:520px){
+  nav.nav.lb-bar .pill{display:none!important}
+  nav.nav.lb-bar .mobile-menu .lb-call{display:block!important;padding:.75rem 0;font:600 1rem/1 var(--font-body);color:var(--lb-bar-ink)!important;border-bottom:1px solid var(--lb-bar-line)}
+}
+@media(max-width:480px){
+  nav.nav.lb-bar{gap:10px!important;padding-inline:14px!important}
+}
 </style></head>
 <body>
-  <nav class="nav rv" role="navigation" aria-label="Main navigation">
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;height:var(--nav-h)">
+  <nav class="nav lb-bar" role="navigation" aria-label="Main navigation">
+    <div class="wrap">
       <a href="#" class="logo" aria-label="Young Plumbing home">
-        <img src="assets/logo.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/logo-header.png" alt="Young Plumbing" width="1398" height="439" loading="eager" decoding="async">
       </a>
       <div class="nav-links" style="display:flex;align-items:center;gap:2rem">
-        <a href="#services" style="font:500 .9375rem/1 var(--font-body);color:var(--muted);transition:color .2s">Services</a>
-        <a href="#process" style="font:500 .9375rem/1 var(--font-body);color:var(--muted);transition:color .2s">Process</a>
-        <a href="#areas" style="font:500 .9375rem/1 var(--font-body);color:var(--muted);transition:color .2s">Areas</a>
-        <a href="#contact" style="font:500 .9375rem/1 var(--font-body);color:var(--muted);transition:color .2s">Contact</a>
+        <a href="#services" style="font:500 .9375rem/1 var(--font-body);color:var(--lb-bar-muted);transition:color .2s">Services</a>
+        <a href="#process" style="font:500 .9375rem/1 var(--font-body);color:var(--lb-bar-muted);transition:color .2s">Process</a>
+        <a href="#areas" style="font:500 .9375rem/1 var(--font-body);color:var(--lb-bar-muted);transition:color .2s">Areas</a>
+        <a href="#contact" style="font:500 .9375rem/1 var(--font-body);color:var(--lb-bar-muted);transition:color .2s">Contact</a>
       </div>
       <a href="tel:+61418490316" class="pill" aria-label="Call Young Plumbing">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -114,10 +146,11 @@ nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:
       </button>
     </div>
     <div id="mobile-menu" class="mobile-menu" style="display:none;padding:1rem 24px;border-top:1px solid var(--hair)">
-      <a href="#services" style="display:block;padding:.75rem 0;font:500 1rem/1 var(--font-body);color:var(--ink);border-bottom:1px solid var(--hair)">Services</a>
-      <a href="#process" style="display:block;padding:.75rem 0;font:500 1rem/1 var(--font-body);color:var(--ink);border-bottom:1px solid var(--hair)">Process</a>
-      <a href="#areas" style="display:block;padding:.75rem 0;font:500 1rem/1 var(--font-body);color:var(--ink);border-bottom:1px solid var(--hair)">Areas</a>
-      <a href="#contact" style="display:block;padding:.75rem 0;font:500 1rem/1 var(--font-body);color:var(--ink);border-bottom:1px solid var(--hair)">Contact</a>
+      <a class="lb-call" href="tel:+61418490316" style="display:none">Call 0418 490 316</a>
+      <a href="#services" style="display:block;padding:.75rem 0;font:500 1rem/1 var(--font-body);color:var(--lb-bar-ink);border-bottom:1px solid var(--lb-bar-line)">Services</a>
+      <a href="#process" style="display:block;padding:.75rem 0;font:500 1rem/1 var(--font-body);color:var(--lb-bar-ink);border-bottom:1px solid var(--lb-bar-line)">Process</a>
+      <a href="#areas" style="display:block;padding:.75rem 0;font:500 1rem/1 var(--font-body);color:var(--lb-bar-ink);border-bottom:1px solid var(--lb-bar-line)">Areas</a>
+      <a href="#contact" style="display:block;padding:.75rem 0;font:500 1rem/1 var(--font-body);color:var(--lb-bar-ink);border-bottom:1px solid var(--lb-bar-line)">Contact</a>
       <a href="tel:+61418490316" class="pill" style="display:inline-flex;margin-top:1rem;width:100%;justify-content:center">Call 0418 490 316</a>
     </div>
   </nav>

@@ -102,7 +102,7 @@ img,svg{display:block;max-width:100%}
 .tel-hero{font-family:'Manrope',sans-serif;font-weight:300;font-size:clamp(1.5rem,3vw,2.3rem);letter-spacing:-.01em;white-space:nowrap;flex-shrink:0}
 .ghost{
   font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--blue-deep);text-decoration:none;border-bottom:1px solid rgba(68,96,122,.4);
+  color:var(--blue-deep);text-decoration:none;border-bottom:1px solid rgba(38,40,42,.4);
   padding-bottom:.35rem;
 }
 .ghost:hover{color:var(--ink);border-color:var(--ink)}
@@ -187,41 +187,20 @@ img,svg{display:block;max-width:100%}
   .hero .meta{gap:1.2rem 2rem}
   .ghost-word{font-size:clamp(4rem,26vw,7rem)}
 }</style>
+<style id="lb-logo6">
+/* header logo artwork + palette derived from the client logo */
+:root{--field:#f7f5f1;--ink:#26282a;--blue:#4d4f50;--blue-deep:#26282a;--blue-light:#a9abac}
+/* palette sampled from the logo pixels: ink #26282a (mark + SALIBA wordmark), accent #4d4f50 (INTERIOR LININGS subline) */
+.top .brand img{height:clamp(34px,3.6vw,46px)!important;width:auto!important;display:block!important}
+@media(max-width:820px){.top .brand img{height:34px!important}}
+</style>
 </head>
-<body><section class="hero rv" aria-labelledby="hero-title" style="position:relative;min-height:100vh;display:flex;align-items:flex-start;justify-content:flex-start;overflow:hidden;background:linear-gradient(180deg,var(--field) 0%,#fff 100%)">
-      <canvas id="hero-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
-      <div class="hero-content" style="position:relative;z-index:1;text-align:left;padding:clamp(3rem,10vh,6rem) 24px 0;max-width:720px">
-        <h1 id="hero-title" style="font:800 clamp(2.5rem,6vw,4.5rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink);margin-bottom:1rem">Young Plumbing</h1>
-        <p style="font:500 clamp(1.125rem,2.5vw,1.375rem)/1.4 var(--font-body);color:var(--muted);margin-bottom:2rem">Cardiff · Lake Macquarie, NSW</p>
-        <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:flex-start">
-          <a href="tel:+61418490316" class="btn" style="padding:1rem 2rem;font-size:1.0625rem">Call 0418 490 316</a>
-          <a href="#contact" class="btn ghost">Request a quote</a>
-        </div>
-      </div>
-      <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:min(38vh,340px);pointer-events:none;display:flex;align-items:flex-end;justify-content:space-between;padding:0 clamp(20px,5vw,88px);overflow:hidden">
-        <div style="width:clamp(8px,1.2vw,16px);height:22%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:34%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:26%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:52%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:40%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:68%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.6"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:30%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:84%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.6"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:48%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:36%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:60%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:28%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:44%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:72%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.6"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:32%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-        <div style="width:clamp(8px,1.2vw,16px);height:20%;background:linear-gradient(180deg,var(--col-prim),var(--col-deep));border-radius:4px 4px 0 0;opacity:.45"></div>
-      </div>
-    </section>
+<body>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="top">
   <div class="wrap top-in">
-    <a class="brand" href="#main">Saliba Interior Linings</a>
+    <a class="brand" href="#main" aria-label="Saliba Interior Linings home"><img src="assets/lb-logo.svg" alt="Saliba Interior Linings"></a>
     <div class="top-right">
       <span class="top-loc">Plasterer &middot; Wyong NSW</span>
       <a class="top-tel" href="tel:0417698109">0417 698 109</a>
@@ -397,7 +376,7 @@ img,svg{display:block;max-width:100%}
   </div>
 <section id="lbq" class="v1" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#111111))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

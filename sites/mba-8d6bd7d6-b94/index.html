@@ -309,12 +309,24 @@
       .hero-course:nth-child(odd) { transform: translateX(-50%); }
     }
   </style>
+<style id="lb4-logo-palette">
+:root{--clay:#e82020;--mortar:#f4f1ec;--ink:#262220;--bond-line:#ddd6cb;--warm-sand:#e6d9bd;--bg:#f4f1ec}
+.lb4-bar{position:sticky;top:0;z-index:120;background:#f4f1ec;border-bottom:1px solid var(--bond-line)}
+.lb4-bar__in{max-width:var(--max-width,1200px);margin:0 auto;height:92px;padding:0 24px;
+display:flex;align-items:center;justify-content:space-between;gap:18px}
+.lb4-brand{display:flex;align-items:center;text-decoration:none;min-width:0}
+.lb4-logo{display:block;height:46px;width:auto;max-width:64vw;object-fit:contain}
+.lb4-tel{font-family:inherit;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none;
+border-bottom:2px solid var(--clay);padding-bottom:2px;white-space:nowrap}
+@media(max-width:760px){.lb4-bar__in{height:78px;padding:0 16px}.lb4-logo{height:36px}.lb4-tel{font-size:13.5px}}
+</style>
 </head>
 <body>
   <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
   <!-- HERO -->
-  <header class="hero" role="banner">
+  <div class="lb4-bar" role="banner"><div class="lb4-bar__in"><a class="lb4-brand" href="#top" aria-label="Perram & Toohey Builders P/L"><img class="lb4-logo" src="assets/perram-logo.png" alt="Perram &amp; Toohey Builders P/L" width="1077" height="322" decoding="async"></a><a class="lb4-tel" href="tel:0265712721">(02) 6571 2721</a></div></div>
+<header class="hero" role="banner">
     <div class="hero-wall" id="heroWall" aria-hidden="true"></div>
     <div class="hero-content reveal">
       <h1>Perram & Toohey Builders PTY LTD</h1>
@@ -476,7 +488,7 @@
     <p style="margin-top:0.5rem;">Builder • Singleton NSW</p>
   <section id="lbq" class="v1" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#486878))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

@@ -344,7 +344,21 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 </style><style id="lb-bar-noname-x">SPAN.lb-brand__name{display:none!important}
-</style></head>
+</style><style id="lb4-logo-palette">
+:root{--acc:#9cf81c;--acc-up:#b8ff5c;--focus:#b8ff5c;--acc-dim:#7d9a3c;--ink:#f7f8f3;
+--bg:#0f1210;--ground:#12150f;--ground-lighter:#1d2318;--card:#161a14;--card-border:#33401f;
+--sky-top:#181d14;--sky-mid:#232a18;--sky-low:#333c22;--line:rgba(156,248,28,.18)}
+.nav{height:92px}
+.lb-brand__mark img,.lb-brand .lb-logo,.lb-logo{height:46px!important;max-width:none!important;
+max-height:none!important;width:auto!important;display:block!important;object-fit:contain!important;
+border-radius:0!important}
+.lb-brand__mark{height:46px!important;max-width:none!important;display:flex!important;align-items:center!important}
+.lb-brand--logoonly .lb-brand__mark,.lb-brand--logoonly .lb-brand__mark img{height:46px!important;max-width:none!important}
+@media(max-width:760px){.nav{height:78px}.lb-brand__mark img,.lb-brand .lb-logo,.lb-logo{height:38px!important}}
+</style>
+<style id="lb4-imgcap">img[src="assets/work-1.jpg"],img[src="assets/work-2.jpg"]{transform:none!important;scale:none!important;max-width:1600px!important;margin-left:auto!important;margin-right:auto!important}</style>
+<!--LB-HERO-REPAIR--><style id="lb-hero-repair">/* LB-HERO-HEIGHT pack caps every [class*=hero] at 78vh and floors its children at clamp(440px,58vh,600px)!important; where the hero stack is taller than the cap the last line gets chopped mid-glyph - drop the cap and the floors so the hero fits its content */[class*=hero]:not(img){max-height:none!important}[class*=hero-sub],[class*=hero-cta],[class*=hero-ctas],[class*=hero-in],[class*=hero-inner],[class*=hero-copy],[class*=hero-kicker],[class*=hero-kick],[class*=hero-content],[class*=hero-strip],[class*=hero-trust],[class*=hero-fin],[class*=hero-title],[class*=hero__in],[class*=hero__inner],[class*=hero__k],[class*=hero__ttl],[class*=hero__d],[class*=hero__sub],[class*=hero__cta],[class*=hero__copy],[class*=hero__strip],[class*=hero-media],[class*=hero-photo],[class*=hero-stats],[class*=hero-stat],[class*=hero-feats],[class*=hero-bg],[class*=hero-scrim],[class*=hero-shade]{min-height:0!important}</style><!--/LB-HERO-REPAIR-->
+<style id="lb-rb-cap">.lb-rb{max-width:1450px!important;margin-inline:auto!important}</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <!-- LB-3D-HERO (retained, hidden 2026-10-14): 3D hero system kept as hidden marker; visible scroll-canvas removed -->
 <canvas id="heroCanvas" class="LB-3D-HERO" aria-hidden="true" tabindex="-1" width="1440" height="760"></canvas>
@@ -352,7 +366,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" role="navigation" aria-label="Primary">
-<a class="lb-brand" href="#top" aria-label="Cyclone Earthworks - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f0e8;--lb-subc:#0080e8;--lb-acc:#689E2D;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/logo.png" alt="" class="lb-logo" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Cyclone Earthworks</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+<a class="lb-brand" href="#top" aria-label="Cyclone Earthworks - Home" style="--lb-disp:system-ui;--lb-sub:system-ui;--lb-name:#f5f0e8;--lb-subc:#0080e8;--lb-acc:#689E2D;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/cyclone-logo.png" alt="Cyclone Earthworks" class="lb-logo" width="646" height="108" loading="eager" decoding="async"></span></a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>
     <li><a href="#waste">Quarry Products</a></li>
@@ -608,7 +622,7 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas{
 <section class="lb-rb" aria-label="Recent work and services"><div class="lb-rb__track"><div class="lb-rb__slide is-on"><img src="assets/hero-work.jpg" alt="Cyclone Earthworks" loading="eager" decoding="async"></div><div class="lb-rb__slide"><img src="assets/work-1.jpg" alt="A job like this - excavator on site" loading="lazy" decoding="async"><span class="lb-rb__cap">A job like this - excavator on site</span></div><div class="lb-rb__slide"><img src="assets/work-2.jpg" alt="A job like this - site cut and cartage" loading="lazy" decoding="async"><span class="lb-rb__cap">A job like this - site cut and cartage</span></div><button class="lb-rb__nav lb-rb__nav--prev" type="button" aria-label="Previous">&#8249;</button><button class="lb-rb__nav lb-rb__nav--next" type="button" aria-label="Next">&#8250;</button><div class="lb-rb__dots"><button type="button" class="is-on" aria-label="Slide 1"></button><button type="button" class="" aria-label="Slide 2"></button><button type="button" class="" aria-label="Slide 3"></button></div><div class="lb-rb__cap">Cyclone Earthworks &mdash; recent work</div></div></section><footer><div class="wrap">
   <div>
     <div class="footer__brand">
-      <img src="assets/logo.png" alt="Cyclone Earthworks logo" loading="lazy" width="48" height="48" style="display:none;">
+      
       <svg viewBox="0 0 36 36" fill="none" aria-hidden="true" style="width:48px;height:48px;"><circle cx="18" cy="18" r="16" stroke="currentColor" stroke-width="2"/><path d="M18 6a12 12 0 0 1 0 24M18 6a12 12 0 0 0 0 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 6c-6 0-10 4-10 8s4 8 10 8 10-4 10-8-4-8-10-8z" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/><circle cx="18" cy="18" r="4" fill="currentColor"/></svg>
       <span class="footer__brand-text">Cyclone Earthworks</span>
     </div>

@@ -90,10 +90,38 @@ noscript .rv{opacity:1;transform:none}
   .cap .idx{font-size:11px}
 }
 </style>
-</head>
+<style id="lb-hdr-c">
+.lb-bar{position:sticky;top:0;z-index:400;display:flex;align-items:center;justify-content:flex-end;min-height:74px;padding:10px clamp(20px,5vw,44px);background:var(--bone);border-bottom:1px solid var(--rule)}
+.lb-bar__tel{display:inline-flex;align-items:center;gap:9px;font:600 13px/1 'IBM Plex Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--bone);background:var(--tar);border-radius:999px;padding:13px 20px;text-decoration:none;white-space:nowrap}
+.lb-bar__tel span{opacity:.72}
+.lb-bar__tel:hover{background:var(--tar)}
+@media(max-width:520px){.lb-bar{min-height:66px}}
+</style><style id="lb-hdr-e">@media(max-width:560px){.stat-pill{display:block!important;max-width:100%!important;white-space:normal!important;line-height:1.8;overflow-wrap:anywhere}
+.hero h1,.stat-pill{max-width:100%}}</style><style id="lb-hdr-f">.areas{display:flex;flex-wrap:wrap;justify-content:center}
+.areas span{white-space:normal!important;max-width:100%!important;overflow-wrap:anywhere}
+@media(max-width:600px){main.wrap,.wrap{padding-left:16px!important;padding-right:16px!important}
+.stat-pill{display:block!important;max-width:100%!important;white-space:normal!important}
+.stat-pill *{white-space:normal!important;overflow-wrap:anywhere;max-width:100%}}
+</style><style id="lb-hdr-g">@media(max-width:640px){section.cta .eyebrow,section.cta p{white-space:normal!important;max-width:100%!important;overflow-wrap:anywhere}}</style><style id="lb-logo-b2">
+/* lb-logo-b2 - palette sampled from assets/logo-header.png */
+:root{--accent:#B5673A;--paper:#F3EFE6;--ink:#1D241C}
+.lb-bar{justify-content:space-between;gap:clamp(10px,2vw,26px);min-height:90px;background:var(--bone)}
+.lb-bar .lb-brand{display:flex;align-items:center;gap:clamp(9px,1.1vw,14px);flex:0 1 auto;min-width:0;text-decoration:none}
+.lb-brand .lb-mark{height:clamp(34px,4vw,44px);width:auto;display:block;flex:none}
+.lb-brand .lb-word{height:clamp(12px,1.5vw,19px);width:auto;display:block;flex:none}
+/* horizontal-overflow fix: the decorative hero canvas kept its JS-measured desk
+   width after a resize and pushed documentElement to 1180px at a 390px viewport */
+#hero-canvas{width:100%!important;max-width:100%!important;height:100%!important;left:0!important;right:0!important}
+@media(max-width:560px){.lb-brand .lb-word{display:none}}
+@media(max-width:640px){.lb-bar{min-height:74px}}
+@media(max-width:460px){.lb-brand .lb-mark{height:36px}}
+</style></head>
 <body>
 <div class="sheet">
-  <div class="ann tl"><span class="tick" aria-hidden="true"></span>GRF — FENCING <a class="m-tel" href="tel:0408025769">· 0408 025 769</a></div>
+  <header class="lb-bar" role="banner">
+<a class="lb-brand" href="#" aria-label="Grace Rural Fencing"><img class="lb-mark" src="assets/logo-mark.svg" alt=""><img class="lb-word" src="assets/logo-word.svg" alt=""></a>    <a class="lb-bar__tel" href="tel:0408025769"><span>Call</span> 0408 025 769</a>
+  </header>
+  <div class="ann tl"><span class="tick" aria-hidden="true"></span><a class="m-tel" href="tel:0408025769">0408 025 769</a></div>
   <div class="ann tr"><a href="tel:0408025769">0408 025 769</a></div>
   <div class="ann bl">SHEET 01 — MELVILLE NSW 2320</div>
   <div class="ann br"><a href="tel:0408025769">CALL 0408 025 769</a></div>

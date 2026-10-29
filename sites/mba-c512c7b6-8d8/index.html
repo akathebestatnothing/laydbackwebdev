@@ -13,13 +13,13 @@
   --limestone:#e8e2d4;
   --panel:#f4f0e4;
   --masonry:#8b8578;
-  --slate:#2f3a40;
-  --slate-deep:#252e33;
-  --terra:#b0563a;
-  --terra-deep:#9a4830;
-  --terra-pale:#d9a08a;
-  --ink:#2f3a40;
-  --muted:#5c564a;
+  --slate:#232528;
+  --slate-deep:#16181a;
+  --terra:#242424;
+  --terra-deep:#131313;
+  --terra-pale:#cdbc8f;
+  --ink:#1f1f1f;
+  --muted:#5a554d;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -162,12 +162,18 @@ footer.site{background:var(--slate-deep);color:#b4b3ab;border-top:1px solid rgba
 .js .rv.d1{animation-delay:.08s}.js .rv.d2{animation-delay:.16s}.js .rv.d3{animation-delay:.24s}
 @media (prefers-reduced-motion: reduce){.js .rv{opacity:1;animation:none}}
 </style>
-</head>
+<style id="lb-hdr-a">
+header.site .wrap.nav{padding-block:12px}
+header.site .lb-hdr-brand{display:flex!important;align-items:center!important;text-decoration:none!important}
+header.site .lb-hdr-brand img.lb-hdr-logo{height:clamp(42px,4.6vw,50px)!important;width:auto!important;max-width:none!important;max-height:none!important;display:block!important;object-fit:contain!important;-webkit-mask-image:none!important;mask-image:none!important}
+@media(max-width:520px){header.site .lb-hdr-brand img.lb-hdr-logo{height:clamp(34px,9vw,42px)!important}}
+</style><style id="lb-hdr-e">.arch{max-width:100%;overflow:hidden}
+@media(max-width:520px){header.site .wrap.nav{gap:10px}.nav-tel{padding:7px 12px;font-size:.82rem}}</style></head>
 <body>
 
 <header class="site">
   <div class="wrap nav">
-    <a class="wordmark" href="#top">Grace Build <span class="keystone-w">Port Stephens</span></a>
+    <a class="wordmark lb-hdr-brand" href="#top" aria-label="Grace Build Port Stephens"><img class="lb-hdr-logo" src="assets/brand-header.png" alt="Grace Build Port Stephens" width="1418" height="467"></a>
     <nav aria-label="Primary">
       <ul class="navlinks">
         <li><a href="#services">Services</a></li>
@@ -294,7 +300,7 @@ footer.site{background:var(--slate-deep);color:#b4b3ab;border-top:1px solid rgba
     </div>
   <section id="lbq" class="v2" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#111111))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}
@@ -425,6 +431,7 @@ html,body{overflow-x:hidden}
 <script>/* reveal safety net (golden standard section 6): reveal all after load so content never sticks hidden */
 (function(){var es=[].slice.call(document.querySelectorAll('.rv'));function all(){for(var i=0;i<es.length;i++){es[i].classList.add('on');}}setTimeout(all,1100);})();
 </script>
+<script>
 (function() {
       'use strict';
       document.documentElement.classList.add('js');
@@ -558,5 +565,6 @@ html,body{overflow-x:hidden}
       if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
       else init();
     })();
+</script>
 </body>
 </html>

@@ -238,10 +238,33 @@ canvas#heroCanvas, canvas.hero-canvas, canvas.lb3d-canvas, header canvas{
 {display:none!important}
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
-</style></head>
+</style><style id="lb4-logo-palette">
+:root{--bg:#efe8dc;--ink:#180c02;--accent:#402000;--muted:#6f6046}
+nav{padding:20px 5vw;min-height:86px}
+nav .lb-brand__mark,nav .lb-brand__mark img,nav .lb4-logo{height:46px!important;width:auto!important;
+max-height:46px!important;max-width:none!important;display:block!important;object-fit:contain!important}
+nav .lb-brand{gap:0!important;min-height:46px!important}
+@media(max-width:760px){nav{padding:14px 5vw;min-height:74px}
+nav .lb-brand__mark img,nav .lb4-logo{height:38px!important;max-height:38px!important}}
+</style>
+<style id="lb4-imgcap">img[src="assets/elite-mark.png"]{transform:none!important;scale:none!important;max-width:672px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="assets/ig_1.jpg"]{transform:none!important;scale:none!important;max-width:2200px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="assets/ig_2.jpg"]{transform:none!important;scale:none!important;max-width:2200px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="assets/ig_3.jpg"]{transform:none!important;scale:none!important;max-width:2200px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="assets/ig_4.jpg"]{transform:none!important;scale:none!important;max-width:2200px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="images/work_01.jpg"]{transform:none!important;scale:none!important;max-width:1440px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="images/work_02.jpg"]{transform:none!important;scale:none!important;max-width:1519px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="images/work_03.jpg"]{transform:none!important;scale:none!important;max-width:1440px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="images/work_04.jpg"]{transform:none!important;scale:none!important;max-width:1440px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="images/work_05.jpg"]{transform:none!important;scale:none!important;max-width:1193px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="images/work_06.jpg"]{transform:none!important;scale:none!important;max-width:1206px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="images/work_07.jpg"]{transform:none!important;scale:none!important;max-width:825px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+img[src="images/work_08.jpg"]{transform:none!important;scale:none!important;max-width:720px!important;height:auto!important;margin-left:auto!important;margin-right:auto!important}
+</style>
+</head>
 <body>
 <nav>
-  <a class="lb-brand" href="#top" aria-label="Elite Concrete FNQ - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#402000;--lb-subc:#402000;--lb-acc:#402000;"><span class="lb-brand__mark" aria-hidden="true"><img src="assets/lb-mark_user-target-elite-concrete-fnq.png" alt="" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Elite Concrete FNQ</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
+  <a class="lb-brand" href="#top" aria-label="Elite Concrete FNQ - Home" style="--lb-disp:Inter;--lb-sub:Inter;--lb-name:#402000;--lb-subc:#402000;--lb-acc:#402000;"><span class="lb-brand__mark" aria-hidden="true"><img class="lb4-logo" src="assets/elite-mark.png" alt="Elite Concrete FNQ" width="672" height="294" loading="eager" decoding="async"></span><span class="lb-brand__word"><span class="lb-brand__name">Elite Concrete FNQ</span><span class="lb-brand__rule" aria-hidden="true"></span></span></a>
   
 </nav>
 <header class="hero" id="top"><canvas class="lb-hero-canvas" aria-hidden="true"></canvas>

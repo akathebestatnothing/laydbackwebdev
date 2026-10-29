@@ -10,14 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --zinc: #c8ccd0;
-      --charcoal: #23282c;
-      --off-white: #f4f5f4;
-      --rust: #c24e2e;
-      --zinc-rgb: 200, 204, 208;
-      --charcoal-rgb: 35, 40, 44;
-      --off-white-rgb: 244, 245, 244;
-      --rust-rgb: 194, 78, 46;
+      --zinc: #c4ced6;
+      --charcoal: #1e242a;
+      --off-white: #f2f5f7;
+      --rust: #006ea8;
+      --rust-lit: #38b6f0;
+      --lb-bar: #171c21;
+      --lb-bar-line: rgba(56,182,240,.34);
+      --zinc-rgb: 196, 206, 214;
+      --charcoal-rgb: 30, 36, 42;
+      --off-white-rgb: 242, 245, 247;
+      --rust-rgb: 0, 110, 168;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -573,9 +576,50 @@
       .rib-line::before { animation: none; opacity: 1; }
     </style>
   </noscript>
-</head>
+<style id="lb-hdr-bar">
+html{overflow-x:hidden}
+.lb-bar{display:flex;align-items:center;gap:clamp(12px,2.4vw,30px);flex-wrap:nowrap;
+  min-height:clamp(86px,7.2vw,104px);padding:12px clamp(16px,4vw,44px);
+  background:var(--lb-bar);border-bottom:1px solid var(--lb-bar-line);
+  position:sticky;top:0;z-index:200}
+.lb-bar .lb-lock{display:flex;align-items:center;gap:clamp(8px,1vw,14px);flex:0 0 auto;text-decoration:none;line-height:0}
+.lb-bar .lb-lock img{display:block;width:auto;max-width:none;max-height:none;object-fit:contain}
+.lb-bar .lb-mark{height:clamp(38px,4vw,48px)}
+.lb-bar .lb-word{height:clamp(22px,2.3vw,29px);align-self:flex-end;margin-bottom:4px}
+.lb-bar .lb-nav{display:flex;align-items:center;gap:clamp(12px,1.8vw,26px);margin-left:auto}
+.lb-bar .lb-nav a{font-family:'Work Sans',sans-serif;font-size:clamp(.76rem,.95vw,.88rem);
+  letter-spacing:.09em;text-transform:uppercase;color:var(--zinc);white-space:nowrap}
+.lb-bar .lb-nav a:hover{color:var(--rust-lit)}
+.lb-bar .lb-tel{display:inline-flex;align-items:center;padding:10px 18px;border:1px solid var(--lb-bar-line);
+  font-family:'IBM Plex Mono',monospace;font-size:clamp(.74rem,.92vw,.85rem);font-weight:500;
+  color:#fff;white-space:nowrap;letter-spacing:.06em}
+.lb-bar .lb-tel:hover{background:var(--rust-lit);color:#10161a;border-color:var(--rust-lit)}
+@media(max-width:900px){
+  .lb-bar .lb-nav{display:none}
+  .lb-bar .lb-tel{margin-left:auto;padding:9px 14px}
+}
+@media(max-width:560px){
+  .lb-bar{padding:10px 14px;min-height:80px}
+  .lb-bar .lb-mark{height:clamp(32px,8vw,40px)}
+  .lb-bar .lb-word{height:clamp(19px,5vw,24px)}
+}
+</style></head>
 <body>
   <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+
+<header class="lb-bar" id="top" role="banner">
+  <a class="lb-lock" href="#top" aria-label="Razor Edge Metal Roofing, home">
+    <img class="lb-mark" src="assets/logo-mark.png" alt="Razor Edge Metal Roofing emblem" width="548" height="481" loading="eager" decoding="async">
+    <img class="lb-word" src="assets/logo-word.png" alt="Razor Edge Metal Roofing" width="651" height="115" loading="eager" decoding="async">
+  </a>
+  <nav class="lb-nav" aria-label="Primary">
+    <a href="#about-title">Standing seam</a>
+    <a href="#flashings-title">Flashings</a>
+    <a href="#repairs-title">Repairs</a>
+    <a href="#contact-title">Contact</a>
+  </nav>
+  <a class="lb-tel" href="tel:0402482034">0402 482 034</a>
+</header>
 
   <header class="hero" role="banner">
     <canvas class="rain-canvas" aria-hidden="true"></canvas>
@@ -611,7 +655,7 @@
           <span class="annotation-item">Weather-Tight Detail</span>
         <section id="lbq" class="v4" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#08a8f8))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

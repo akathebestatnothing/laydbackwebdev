@@ -10,8 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@600;700;800&family=Mukta:wght@400;500;600&family=Reddit+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root{
-      --field:#171a1d; --plate:#1f242a; --raised:#262c33; --ink:#edf0f2;
-      --muted:#9fa8af; --porcelain:#f4f2ec; --meter-red:#c2482f;
+      --field:#14181c; --plate:#1f242a; --raised:#262c33; --ink:#eef2f5;
+      --muted:#9fa8af; --porcelain:#f4f2ec; --meter-red:#d08828;
+      --accent:#d08828;
+      /* aliases so the injected quote-form block adopts the mark palette */
+      --bg:#14181c; --panel:#1b2126; --line:rgba(255,255,255,.14);
       --hairline:rgba(255,255,255,.09);
       --font-display:'Wix Madefor Display',system-ui,sans-serif;
       --font-body:'Mukta',system-ui,sans-serif;
@@ -65,7 +68,11 @@
     .section-marker .meter-ring,.section-marker .meter-ticks{display:none}
     .section-marker .meter-numeral{font-size:1.6rem;bottom:auto;top:50%;transform:translate(-50%,-50%)}
     .section-title{font-family:var(--font-display);font-weight:700;font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.01em;line-height:1.1}
-    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.75rem clamp(1rem,3vw,2rem);background:rgba(23,26,29,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:.75rem;min-height:84px;padding:.75rem clamp(1rem,3vw,2rem);background:rgba(20,24,28,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
+    .nav-brand{display:inline-flex;align-items:center;flex:0 1 auto;min-width:0}
+    .nav-brand img{display:block;height:46px;width:auto}
+    @media (max-width:600px){.nav{min-height:72px;padding:.6rem clamp(.75rem,3vw,1.25rem)}.nav-brand img{height:34px}}
+    @media (max-width:400px){.nav-brand img{height:29px}.btn-call{padding:.45rem .6rem;font-size:.68rem;letter-spacing:.08em}}
     .nav-links{display:flex;gap:clamp(1rem,3vw,2rem);list-style:none}
     .nav-links a{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:color .2s}
     .nav-links a:hover,.nav-links a:focus-visible{color:var(--ink)}
@@ -130,7 +137,7 @@
 <body>
   <div class="cabinet-grid" aria-hidden="true"></div>
   <nav class="nav" role="navigation" aria-label="Main">
-    <a href="#top" class="wordmark" aria-label="Staples Plumbing & Gas home">Staples Plumbing & Gas</a>
+    <a href="#top" class="nav-brand" aria-label="Staples Plumbing &amp; Gas — home"><img src="assets/logo-header.svg" alt="Staples Plumbing &amp; Gas" width="575" height="128"></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>

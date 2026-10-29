@@ -9,12 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@500;600;700&family=Mulish:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{ /* lbq-contrast */ --bg:#24262b;--line:rgba(244,242,236,.16);--accent:#ff4d9d;
-  --field:#24262b;
-  --panel:#2b2e34;
+:root{ /* lbq-contrast */ --bg:#17181c;--line:rgba(244,242,236,.16);--accent:#b8728a;
+  --field:#17181c;
+  --panel:#22242a;
   --text:#eceae4;
   --chalk:#f4f2ec;
-  --hivis:#ff4d9d;
+  --hivis:#b8728a;
   --muted:#9aa0a8;
   --hair:rgba(244,242,236,.14);
   --radius:4px;
@@ -298,13 +298,17 @@ a:focus-visible{outline:2px solid var(--hivis);outline-offset:2px;border-radius:
   stroke:var(--chalk);stroke-width:.4;stroke-linecap:round;opacity:.15;
 }
 </style>
+<style id="lb-logo7">
+/* logo-first header: client logo artwork only, no typed name (rebuilt SVG from the IG avatar) */
+.nav{min-height:88px;padding-top:14px;padding-bottom:14px}
+.nav-brand{display:flex;align-items:center;text-decoration:none;flex:none;min-width:0}
+.lb-savi-logo{display:block;height:clamp(40px,3.8vw,50px);width:auto;max-width:none;object-fit:contain}
+@media(max-width:640px){.nav{padding-top:11px;padding-bottom:11px;min-height:0}.lb-savi-logo{height:clamp(32px,8.4vw,40px)}}
+</style>
 </head>
 <body><a href="#main" class="skip-link">Skip to main content</a>
 <nav class="nav" role="navigation" aria-label="Main">
-  <div class="nav-wordmark">
-    <span class="nav-peg" aria-hidden="true"></span>
-    Savi Developments
-  </div>
+  <a class="nav-brand" href="#top" aria-label="Savi Developments - Home"><img src="assets/logo-mark.svg" alt="" width="590" height="100" class="lb-savi-logo"></a>
   <ul class="nav-links">
     <li><a href="#scope">01 Scope</a></li>
     <li><a href="#stations">02 Stations</a></li>

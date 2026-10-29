@@ -502,7 +502,19 @@ h1{overflow-wrap:anywhere}
 {display:none!important}
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
-</style></head>
+</style><style id="lb4-logo-palette">
+:root{--gold-glint:#e0bd77;--gold-text:#e0bd77;--accent:#e0bd77;--gold:#8b6830;--gold-band:#a37f3c;
+--line:rgba(224,189,119,.24);--joint:rgba(224,189,119,.36)}
+.nav .wrap{height:88px}
+.lb-brand .lb-mark,.lb-brand--square .lb-mark,.lb-brand img{height:46px!important;max-height:46px!important;
+width:auto!important;max-width:none!important;-webkit-mask-image:none!important;mask-image:none!important;
+object-fit:contain!important}
+.lb-brand{gap:0!important;overflow:visible!important}
+@media(max-width:900px){.nav .wrap{height:76px}.lb-brand .lb-mark,.lb-brand img{height:38px!important;max-height:38px!important}}
+</style>
+<style id="lb4-barfix">.nav{padding-top:0!important;padding-bottom:0!important}</style>
+<style id="lb4-imgcap">img.hero-bg,.hero>.hero-bg{inset:auto!important;top:0!important;left:50%!important;transform:translateX(-50%)!important;width:min(100vw,1600px)!important;max-width:1600px!important;height:100%!important;object-fit:cover!important;object-position:center!important}img[src="assets/work_01.jpg"],img[src="assets/work_02.jpg"],img[src="assets/work_03.jpg"]{transform:none!important;scale:none!important;max-width:640px!important;margin-left:auto!important;margin-right:auto!important}@media(max-width:900px){.nav .wrap{height:auto!important;min-height:70px;padding-block:6px}.nav{padding-left:14px!important;padding-right:14px!important}}</style>
+</head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 
@@ -510,7 +522,7 @@ h1{overflow-wrap:anywhere}
 <div class="plumb-rule" aria-hidden="true"></div>
 
 <!-- NAV -->
-<nav class="nav" role="navigation" aria-label="Main navigation"><a class="lb-brand lb-brand--lockup lb-brand--square" style="--lb-name:#ffffff" href="#top" aria-label="Cliffside Construction"><img class="lb-mark" src="assets/logo-isolated.png" alt="" loading="eager" decoding="async"><span class="lb-sr">Cliffside Construction</span></a><div class="wrap">
+<nav class="nav" role="navigation" aria-label="Main navigation"><a class="lb-brand lb-brand--lockup lb-brand--square" style="--lb-name:#ffffff" href="#top" aria-label="Cliffside Construction"><img class="lb-mark" src="assets/cliff-logo.png" alt="Cliffside Construction" width="414" height="120" loading="eager" decoding="async"></a><div class="wrap">
     
     <div class="nav-links">
       <a href="#services">Services</a>
@@ -1336,10 +1348,9 @@ h1{overflow-wrap:anywhere}
    ============================================================ */
 (function() {
   'use strict';
-  // Verify tel:'a[href^="tel:"]').forEach(a => {
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
     const href = a.getAttribute('href');
-    if (href && !href.match(/^tel:'[tel] Unexpected format:', href);
-    }
+    if (href && !/^tel:\+?[0-9()\s-]{5,}$/.test(href)) { console.warn('[tel] Unexpected format:', href); }
   });
 })();
 </script>

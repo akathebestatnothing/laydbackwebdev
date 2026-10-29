@@ -15,10 +15,12 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%232F6F92%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2230%22%20font-weight%3D%22700%22%20fill%3D%22%23FFFFFF%22%20text-anchor%3D%22middle%22%3ERP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=F:wght@r&family=M:wght@a&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "PaintingContractor", "name": "Robert's Painting Services", "description": "Expert Painting services in Central Coast.", "telephone": "0417 413 050", "email": null, "url": "https://laydbackapps.juno.page/robert.painting/", "address": {"@type": "PostalAddress", "addressRegion": "Central Coast"}, "areaServed": [{"@type": "Place", "name": "Central Coast"}], "priceRange": "$$"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does Painting cost in Central Coast?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the size and complexity of the job. We provide free quotes — call 0417413050 if available."}}, {"@type": "Question", "name": "Are you licensed and insured for Painting work?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we are fully licensed and insured for all Painting work in Central Coast."}}, {"@type": "Question", "name": "How long does a typical Painting job take?", "acceptedAnswer": {"@type": "Answer", "text": "Most Painting jobs are completed within [timeframe] depending on the scope."}}, {"@type": "Question", "name": "Do you provide a warranty on your Painting work?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we stand behind our work with a satisfaction guarantee."}}]}]</script>
 <style>
-:root{--ink:#16374A;--muted:#4a6070;--bg:#F2F7F9;--panel:#ffffff;--tile:#EDF3F6;--line:#e1e5e7;--brand:#2F6F92;--brand2:#245A79;--deep:#16374A;--acc:#8FC7E0;--foot:#0e2430;--footink:rgba(255,255,255,0.7);--onbrand:#FFFFFF;--onbrand2:#FFFFFF;--head:'Fraunces',Georgia,serif;--body:'Manrope',system-ui,sans-serif;--radius:22px;--motif:rgba(22,55,74,0.080)}
+:root{/* palette sampled from assets/logo-header@2x.png (see mklogo.py) */
+--paper:#F2F7F9;--accent:#2F6F92;--accent-sky:#8FC7E0;--ink-sampled:#16374A;
+--ink:#16374A;--muted:#4a6070;--bg:var(--paper);--panel:#ffffff;--tile:#EDF3F6;--line:#e1e5e7;--brand:var(--accent);--brand2:#245A79;--deep:var(--ink-sampled);--acc:var(--accent-sky);--foot:#0e2430;--footink:rgba(255,255,255,0.7);--onbrand:#FFFFFF;--onbrand2:#FFFFFF;--head:'Fraunces',Georgia,serif;--body:'Manrope',system-ui,sans-serif;--radius:22px;--motif:rgba(22,55,74,0.080)}
     .js .rv{opacity:0;transform:translateY(24px);transition: opacity .45s ease,transform .6s ease}
     .js .rv.on{opacity:1;transform:none}
 
@@ -455,7 +457,7 @@ header.site.over.scrolled{border-bottom:1px solid var(--line)}
 </noscript></head>
 <body id="page" class="a3"><div class="sa-progress" id="sa-progress"></div><header class="site solid" id="site-hdr">
 <div class="wrap bar">
-<a class="logo" href="#top"><span class="mark">RP</span><span>Robert's Painting Services</span></a>
+<a class="brand" href="#top" aria-label="Robert&rsquo;s Painting Services &mdash; back to top"><img class="brand-mark" src="assets/logo-mark.svg" alt="Robert&rsquo;s Painting Services" width="44" height="44"><img class="brand-word" src="assets/logo-word.svg" alt="" aria-hidden="true"></a>
 <nav><a href="#services">Services</a> <a href="#work">How we work</a> <a href="#reviews">Reviews</a> <a href="#faq">FAQ</a> <a href="#contact">Contact</a></nav>
 <a class="btn p sm tel" href="tel:0417413050"> 0417 413 050</a>
 <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false"></button>
@@ -483,6 +485,7 @@ header.site.over.scrolled{border-bottom:1px solid var(--line)}
 @media (prefers-reduced-motion:reduce){.lb3d-stage{display:none}}
 </style>
 
+  <div class="lb3d-stage" aria-hidden="true">
   <div class="lb3d-shape s2"></div>
   <div class="lb3d-shape s3"></div>
   <div class="lb3d-shape s4"></div>
@@ -717,4 +720,21 @@ header.site.over.scrolled{border-bottom:1px solid var(--line)}
 .sa-sticky-panel{position:sticky;top:84px}
 @media(prefers-reduced-motion:reduce){.sa-fade,.sa-left,.sa-right,.sa-scale,.sa-tilt,.sa-clip,.sa-mask>span{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}}
 @media(max-width:960px){.sa-sticky-panel{position:static!important}}</style>
+<style id="lb-logo7">
+/* header bar: client logo artwork (paint-chip badge + brush swipe, "ROBERT'S PAINTING SERVICES") */
+header.site .bar{min-height:84px;height:auto;padding:8px 0;gap:16px}
+header.site .brand{display:flex;align-items:center;gap:13px;margin-right:auto;min-width:0;flex:0 1 auto;text-decoration:none}
+header.site .brand img{display:block}
+header.site .brand .brand-mark{height:46px;width:46px;flex:0 0 auto}
+header.site .brand .brand-word{height:37px;width:auto;max-width:100%}
+header.site nav{margin-left:0}
+@media(max-width:920px){
+  header.site .bar{justify-content:space-between;min-height:76px}
+}
+@media(max-width:640px){
+  header.site .bar{min-height:66px;gap:10px}
+  header.site .brand .brand-mark{height:40px;width:40px}
+  header.site .brand img.brand-word{display:none}
+}
+</style>
 </body></html>

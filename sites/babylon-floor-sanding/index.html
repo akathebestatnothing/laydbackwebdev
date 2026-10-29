@@ -113,13 +113,35 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript></head>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript><style id="lb-logo6">
+/* header logo artwork + palette derived from the client logo */
+:root{--bg:#faf6ee;--bg-2:#f0e9da;--ink:#231c14;--mut:#6a6154;--acc:#8a5f2a;--acc-2:#6d4a1f;
+      --cream:#faf6ee;--lo:#ffffff;--line:rgba(35,28,20,.18);--line-2:rgba(138,95,42,.45);--nav-h:96px}
+.nav{height:var(--nav-h)!important;background:#1c1610!important;border-bottom:2px solid #c09048!important}
+.nav .brand .brand-mark{height:clamp(40px,4.2vw,54px)!important;width:auto!important;max-height:none!important;display:block!important;object-fit:contain!important}
+.nav__links a{color:#eadcc4!important}
+.nav__links a:hover{color:#e0ac55!important}
+.nav #burger{color:#eadcc4!important;border-color:rgba(234,220,196,.4)!important}
+@media(max-width:640px){:root{--nav-h:78px}.nav .brand .brand-mark{height:40px!important}}
+#lbq{--lbq-accent:#8a5f2a!important;--lbq-ink:#231c14!important;--lbq-muted:#6a6154!important;
+     --lbq-bg:#faf6ee!important;--lbq-panel:#ffffff!important;--lbq-line:#e4d7c1!important}
+</style>
+<style id="lb-noupscale">
+/* NO-UPSCALE FIX: the hero photo (1080px source) was cover-scaled x1.33 at 1440. From 1121px viewport up it is
+   capped at native width; its edges fade into the hero backdrop so there is no seam and no upscale. */
+@media (min-width:1121px){
+  .lbhf{background:#140d08}
+  .lbhf img{max-width:1080px;margin-inline:auto;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+}
+</style>
+</head>
 <body>
 
 <nav class="nav" role="navigation" aria-label="Primary">
   <a class="brand" href="#top" aria-label="Babylon Floor Sanding - Home">
-    <img class="brand-mark" src="assets/logo-mark_babylon-floor-sanding.png" alt="" aria-hidden="true" loading="eager">
-    <span class="brand-txt"><b class="brand-name">Babylon</b><i class="brand-sub"><em>Floor</em> Sanding</i></span>
+    <img class="brand-mark" src="assets/logo-mark_babylon-floor-sanding.png" alt="Babylon Floor Sanding">
   </a>
   <ul class="nav__links">
     <li><a href="#services">Services</a></li>

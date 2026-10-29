@@ -329,8 +329,39 @@
       .services-list { grid-template-columns: 1fr; }
     }
   </style>
+<style id="lb-logohead">
+/* logo-first header bar (page previously had no bar at all) */
+.lb-bar{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;width:100%;box-sizing:border-box;padding:12px clamp(16px,4vw,40px);
+  min-height:92px;background:var(--sunlit-cream);border-bottom:1px solid var(--slot-border)}
+.lb-bar__brand{display:flex;align-items:center;text-decoration:none;min-width:0}
+.lb-bar__brand img{display:block;height:54px;width:auto;max-height:none;max-width:none;object-fit:contain}
+.lb-bar__links{display:flex;align-items:center;gap:clamp(12px,2vw,26px);flex-wrap:nowrap}
+.lb-bar__links a{color:var(--text-primary);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.lb-bar__links a:hover{text-decoration:underline}
+.lb-bar__tel{color:var(--text-primary)!important;border:1px solid var(--slot-border);padding:10px 14px;border-radius:2px}
+@media (max-width:760px){
+  .lb-bar{min-height:78px;padding:10px 16px}
+  .lb-bar__brand img{height:46px}
+  .lb-bar__links a:not(.lb-bar__tel){display:none}
+}
+@media (max-width:420px){.lb-bar__brand img{height:42px}}
+</style>
+<style id="lb-logopal">:root{--field:#f5f5f4; --shadow-ink:#1c1c1c; --sunlit-cream:#ffffff; --glass-blue:#1c1c1c; --text-primary:#1c1c1c; --focus-ring:#1c1c1c; --beam-start:rgba(255,255,255,.9); --beam-end:rgba(255,255,255,0); --soffit:rgba(28,28,28,.10); --slot-glass:rgba(28,28,28,.14); --slot-border:rgba(28,28,28,.30); --text-muted:rgba(28,28,28,.62);}</style>
 </head>
 <body>
+<nav class="lb-bar" aria-label="Main">
+  <a class="lb-bar__brand" href="#top" aria-label="Nique Building — home">
+    <img src="assets/lb-lockup.png" alt="Nique Building" width="102" height="84">
+  </a>
+  <div class="lb-bar__links">
+    <a href="#about-title">About</a>
+    <a href="#services-title">Work</a>
+    <a href="#approach-title">Approach</a>
+    <a href="#contact-title">Contact</a>
+    <a class="lb-bar__tel" href="tel:0432808535">0432 808 535</a>
+  </div>
+</nav>
   <div class="page">
     <main>
       <!-- Hero Section -->
@@ -422,7 +453,7 @@
       <p class="footer__copyright">© 2026 Nique Building. All rights reserved.</p>
     <section id="lbq" class="v4" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#111111))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

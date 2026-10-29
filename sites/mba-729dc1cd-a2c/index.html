@@ -15,7 +15,28 @@
       .js .rv { opacity: 0; }
     </style>
   </noscript>
-</head>
+<style id="lb-bar-logo3">
+/* Header bar: the client's own artwork (assets/logo-kinetic.png = their Instagram profile picture, the
+   only artwork that exists - a navy #1d2a42 card carrying the KB monogram and the name). Nothing typed.
+   Palette re-derived from that artwork's own pixels: navy ground + its pale sage foreground. */
+:root{--field-arc-blue:#a9b49b;--field-steel-body:#b3bcac;--field-sparks:#f2f4ee;--field-rules:#6c7a63;
+  --field-gunmetal:#131a26;--field-deep:#0e1420}
+.site-header{height:auto!important;min-height:96px!important;background:var(--bg-primary)!important;
+  display:flex!important;align-items:center!important;border-bottom:1px solid var(--rule)!important}
+.header-inner{height:auto!important;min-height:96px!important;display:flex!important;align-items:center!important;
+  gap:18px!important;padding:10px var(--container-pad)!important}
+.site-brand{display:flex!important;align-items:center!important;flex:none!important;text-decoration:none!important}
+.site-brand img, .site-brand img.lb-logo-unlock{height:clamp(46px,4.6vw,58px)!important;width:auto!important;
+  max-height:none!important;max-width:none!important;display:block!important;object-fit:contain!important;
+  border-radius:8px!important;background:none!important}
+.header-phone{margin-left:auto!important;font-size:.875rem!important;color:var(--accent)!important;
+  border:1px solid var(--rule)!important;padding:10px 16px!important;border-radius:2px!important;white-space:nowrap!important}
+.site-id{display:none!important}
+@media(max-width:640px){
+  .site-header,.header-inner{min-height:78px!important}
+  .site-brand img{height:42px!important}
+}
+</style></head>
 <body><section class="hero rv" aria-labelledby="hero-title" style="position:relative;min-height:100vh;display:flex;align-items:flex-start;justify-content:flex-start;overflow:hidden;background:linear-gradient(180deg,var(--field) 0%,#fff 100%)">
       <canvas id="hero-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
       <div class="hero-content" style="position:relative;z-index:1;text-align:left;padding:clamp(3rem,10vh,6rem) 24px 0;max-width:720px">
@@ -49,7 +70,7 @@
 
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <p class="site-id" aria-hidden="true">KINETIC BUILDING PTY LTD</p>
+      <a class="site-brand" href="#main" aria-label="Kinetic Building Pty Ltd - home"><img src="assets/logo-kinetic.png" alt="Kinetic Building Pty Ltd" width="100" height="100" class="lb-logo-unlock"></a>
       <a href="tel:0428330910" class="header-phone" aria-label="Call Kinetic Building">0428 330 910</a>
     </div>
   </header>

@@ -115,13 +115,19 @@ footer .soc a:hover{color:#fff}
   .wrap{padding:0 18px}
 }
 </style>
+<style id="lb-logohead">
+/* logo-first header bar - the client's own badge only, no typed brand text */
+nav .wrap{height:auto!important;min-height:92px!important;align-items:center}
+.brand img.lb-hl{display:block!important;height:clamp(42px,4vw,54px)!important;width:auto!important;max-height:none!important;max-width:none!important;border-radius:0!important;object-fit:contain!important}
+@media (max-width:640px){nav .wrap{min-height:78px!important}.brand img.lb-hl{height:40px!important}}
+</style>
+<style id="lb-logopal">:root{--paper:#ffffff; --ink:#0d0c0c; --panel:#ffffff; --dark:#161414; --red:#de1e18; --grey:#6b6b6b; --line:rgba(13,12,12,.14); --red-deep:#a01611;}</style>
 </head>
 <body>
 <nav>
   <div class="wrap">
     <a class="brand" href="#top">
-      <img src="assets/mcf-logo-v1.jpg" alt="Maitland Concrete and Formwork logo">
-      <span class="lb-sr-only">Maitland Concrete &amp; Formwork</span>
+      <img src="assets/mcf-logo.png" alt="Maitland Concrete &amp; Formwork" class="lb-hl" width="144" height="98">
     </a>
     <div class="navlinks">
       <a href="#services">Services</a>
@@ -239,7 +245,7 @@ footer .soc a:hover{color:#fff}
   </div>
 <section id="lbq">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#a01611))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

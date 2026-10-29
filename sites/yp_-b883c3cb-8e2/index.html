@@ -82,8 +82,18 @@ noscript .rv{opacity:1;transform:none}
   .areas{padding:20px 5vw clamp(40px,6vh,60px)}
   .cta{margin:0 5vw clamp(44px,7vh,70px);padding:44px 26px;flex-direction:column;align-items:flex-start;gap:22px}
 }
-</style></head><body>
-<div class="nav"><div class="brand">Extreme <b>Blasting & Protective Coatings</b></div><a class="tel" href="tel:+61249871904">(02) 4987 1904</a></div>
+</style><style id="lb-logo-a2">
+/* header logo artwork = assets/logo-extreme.png with its baked background matted out, 2x.
+   Palette sampled from the logo pixels: accent #BF5A4E (EXTREME letter orange, darkest saturated
+   tone of the gradient); plate yellow #C5BF5D. Accent darkened to #A84A24 for >=4.5:1 on the CTAs.
+   --acc is defined so the decorative .lb3d-shape layer stops falling back to the Laydback lime. */
+:root{--bg:#EFE7DA;--ink:#2A211A;--accent:#A84A24;--acc:var(--accent)}
+.nav .brand{display:flex;align-items:center;padding:0;border:0;font-size:0;letter-spacing:0}
+.nav .brand img{height:clamp(34px,3.4vw,44px);width:auto;display:block}
+@media(max-width:760px){.nav{padding:16px 5vw}.nav .brand img{height:30px}}
+</style>
+</head><body>
+<div class="nav"><a class="brand" href="#" aria-label="Extreme Blasting and Protective Coatings home"><img src="assets/logo-extreme-header.png" alt="Extreme Blasting &amp; Protective Coatings"></a><a class="tel" href="tel:+61249871904">(02) 4987 1904</a></div>
 <section class="hero">
 
 <style>

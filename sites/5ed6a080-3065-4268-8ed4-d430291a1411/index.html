@@ -196,11 +196,19 @@ img{max-width:100%;height:auto;display:block}
   .jointseq__label{margin:0;text-align:left;max-width:none;font-size:.95rem}
 }
 </style>
+<style id="lb4-logo-palette">
+:root{--bg:#f1f2f2;--field:#f1f2f2;--panel:#ffffff;--ink:#101315;--muted:#68716f;
+--accent:#12809c;--volt:#12809c;--keyway:#8b9195;--hairline:rgba(16,19,21,.14);--line:rgba(16,19,21,.16)}
+.nav{min-height:88px;padding:12px 20px;gap:16px}
+.nav__brand{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;min-width:0}
+.nav__brand .lb4-logo{display:block;height:44px;width:auto;max-width:58vw;object-fit:contain}
+@media(max-width:760px){.nav__brand .lb4-logo{height:36px}}
+</style>
 </head>
 <body>
 <script>document.documentElement.classList.add('js')</script>
 <nav class="nav" role="navigation" aria-label="Main">
-  <div class="nav__wordmark"><span class="nav__keyway"></span>DWA Concrete</div>
+  <a class="nav__brand" href="#top" aria-label="DWA Concrete Constructions Pty Ltd"><img class="lb4-logo" src="assets/dwa-logo.png" alt="DWA Concrete Constructions Pty Ltd" width="150" height="86" decoding="async"></a>
   <div class="nav__links">
     <a href="#cutlist">Cut list</a>
     <a href="#jointseq">Sequence</a>
@@ -318,7 +326,7 @@ img{max-width:100%;height:auto;display:block}
   </div>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#12809c))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

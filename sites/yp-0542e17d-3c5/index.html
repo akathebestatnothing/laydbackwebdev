@@ -231,14 +231,53 @@
       .pipe-section:nth-child(odd) .section-content { direction: ltr; }
       nav ul { display: none; }
     }
+
+    /* --- brand bar: client lockup artwork only, no typed name --- */
+    .logo { gap: 12px; min-width: 0; }
+    .logo .logo-mark { width: auto; height: 42px; background: none; border-radius: 0; max-width: none; max-height: none; flex: none; }
+    .logo .logo-mark::after { display: none; content: none; }
+    .logo .logo-word { height: 38px; width: auto; max-width: none; display: block; flex: none; }
+    .header-inner { gap: 14px; }
+    @media (max-width: 640px) {
+      .logo .logo-mark { height: 36px; }
+      .logo .logo-word { height: 32px; }
+      .cta-btn { padding: 9px 14px; font-size: 0.8125rem; }
+    }
+    @media (max-width: 480px) {
+      .logo .logo-mark { height: 34px; }
+      .logo .logo-word { display: none; }
+      .cta-btn { padding: 8px 12px; font-size: 0.75rem; }
+    }
+    /* --- palette sampled from assets/logo-mark.svg + assets/logo-word.svg --- */
+    :root {
+      --copper-500: #b06a2e;  /* logo mark, most common opaque pixel (badge) */
+      --copper-400: #c89970;  /* accent tinted toward the logo's paper */
+      --bone-50: #f5f1eb;     /* logo mark, 2nd most common (pipe glyph) */
+      --ink-900: #0b100f;     /* lockup rendered on its own bar, darkest */
+    }
+    /* --- 390px overflow fix ---
+       The base rule `.pipe-section:nth-child(even) .section-content` is (0,3,0)
+       and out-specified the mobile `.pipe-section .section-content` (0,2,0), so
+       the even sections kept two columns on a 390 screen: two ~117px columns
+       pushed the annotation to x=439 (documentElement.scrollWidth 439 > 390).
+       Restating it at equal specificity, later in the sheet, wins. */
+    @media (max-width: 768px) {
+      .pipe-section .section-content,
+      .pipe-section:nth-child(odd) .section-content,
+      .pipe-section:nth-child(even) .section-content {
+        grid-template-columns: 1fr;
+        padding-left: 60px;
+        direction: ltr;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="container header-inner">
       <a href="./" class="logo" aria-label="Warren Ellis Plumbing Pty Ltd — Home">
-        <span class="logo-mark" aria-hidden="true"></span>
-        Warren Ellis Plumbing
+        <img class="logo-mark" src="assets/logo-mark.svg" alt="" width="96" height="96">
+        <img class="logo-word" src="assets/logo-word.svg" alt="Warren Ellis Plumbing" width="710" height="140">
       </a>
       <nav aria-label="Main navigation">
         <ul>

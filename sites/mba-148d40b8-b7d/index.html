@@ -375,13 +375,20 @@ nav > a:not(.mast-brand) ~ a{margin-left:0}
 </style><style id="lb-bar-grow">
 nav{height:auto!important;min-height:0!important}
 nav .nav-in, nav .wrap, nav .bar-in, nav > div{height:auto!important;min-height:76px!important;padding-block:10px!important;flex-wrap:wrap!important}
-</style></head>
+</style><style id="lb-logo6">
+/* header logo artwork + palette derived from the client logo */
+:root{--ground:#f7f7f6;--tint:#f0f0ee;--hair:#e0e0dd;--hair-strong:#c6c6c2;
+      --ink:#141414;--dim:#5f5f5c;--accent:#3a3a38;--accent-deep:#1c1c1b;--accent-wash:#eeeeec}
+.mast-brand img{height:clamp(42px,4.2vw,56px)!important;width:auto!important;max-height:none!important;display:block!important}
+@media(max-width:760px){.mast-brand img{height:38px!important}}
+</style>
+</head>
 <body>
 
 <nav class="mast" aria-label="Primary">
   <div class="mast-in">
     <a class="mast-brand" href="#top">
-      <img src="assets/logo.png" alt="Vestbuilt Pty Ltd logo" width="200" height="75">
+      <img src="assets/lb-logo.png" alt="Vestbuilt Pty Ltd logo">
     </a>
     <a class="mast-tel" href="tel:0423298517">0423&nbsp;298&nbsp;517</a>
   </div>

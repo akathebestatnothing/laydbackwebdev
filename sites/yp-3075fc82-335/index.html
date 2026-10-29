@@ -11,12 +11,14 @@
 <link rel="icon" href="images/logo.svg">
 <style>
 :root {
-  --paper: #eeeef0;
-  --paper2: #e3e3e6;
-  --ink: #161618;
-  --ink2: #636366;
-  --acc: #181830;
-  --acc2: #515163;
+  --paper: #f2f0ef;
+  --paper2: #e6e2e0;
+  --ink: #191111;
+  --ink2: #6a6260;
+  --acc: #880000;
+  --acc2: #5c1a1a;
+  --lb-bar: #f2f0ef;
+  --lb-bar-line: rgba(136,0,0,.22);
   --line: rgba(22,22,24,.16);
   --chip: #e3e3e6;
   --fluid: clamp(44px, 9vw, 118px);
@@ -42,7 +44,7 @@ a { color: inherit; }
 .nav { position: sticky; top: 0; z-index: 50; background: rgba(238,238,240,.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .nav .wrap { max-width: 1360px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; gap: 28px; }
 .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
-.brand img { height: 64px; object-fit: contain; }
+.brand img { height: clamp(36px,3.8vw,50px); width: auto; max-width: none; object-fit: contain; }
 .brand .b-txt { line-height: 1.1; }
 .brand .bizname { font-weight: 900; font-size: 22px; letter-spacing: .05em; line-height: 1; }
 .brand .bizsub { font-size: 11px; letter-spacing: .18em; color: var(--acc); text-transform: uppercase; font-weight: 800; }
@@ -199,14 +201,42 @@ footer a:hover { color: var(--acc); }
 }
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
-</head>
-<body id="top"><section class="hero rv" aria-labelledby="hero-title" style="position:relative;min-height:100vh;display:flex;align-items:flex-start;justify-content:flex-start;overflow:hidden;background:linear-gradient(180deg,var(--field) 0%,#fff 100%)">
+<style id="lb-hdr-bar">
+html{overflow-x:hidden}
+.nav .wrap{min-height:clamp(84px,7vw,102px);padding:12px clamp(16px,3vw,40px);align-items:center}
+.nav .brand{flex:0 0 auto}
+.nav .brand .b-txt{display:none!important}
+@media(max-width:560px){
+  .nav .wrap{padding:10px 16px;gap:12px}
+  .nav .brand img{height:clamp(30px,7.8vw,40px)}
+  .nav-cta .btn-ghost{display:none}
+}
+</style></head>
+<body id="top">
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <img src="assets/logo-header.png" alt="Hopton Accountants" width="1000" height="270" loading="eager" decoding="async">
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#builders">About</a>
+      <a href="#areas">Areas</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:0249291414" class="btn btn-ghost btn-sm">(02) 4929 1414</a>
+      <a href="#quote" class="btn btn-acc btn-sm">Free quote</a>
+    </div>
+  </div>
+</nav>
+<section class="hero rv" aria-labelledby="hero-title" style="position:relative;min-height:100vh;display:flex;align-items:flex-start;justify-content:flex-start;overflow:hidden;background:linear-gradient(180deg,var(--field) 0%,#fff 100%)">
       <canvas id="hero-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
       <div class="hero-content" style="position:relative;z-index:1;text-align:left;padding:clamp(3rem,10vh,6rem) 24px 0;max-width:720px">
-        <h1 id="hero-title" style="font:800 clamp(2.5rem,6vw,4.5rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink);margin-bottom:1rem">Young Plumbing</h1>
-        <p style="font:500 clamp(1.125rem,2.5vw,1.375rem)/1.4 var(--font-body);color:var(--muted);margin-bottom:2rem">Cardiff · Lake Macquarie, NSW</p>
+        <h1 id="hero-title" style="font:800 clamp(2.5rem,6vw,4.5rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink);margin-bottom:1rem">Hopton Accountants</h1>
+        <p style="font:500 clamp(1.125rem,2.5vw,1.375rem)/1.4 var(--font-body);color:var(--muted);margin-bottom:2rem">53 King Street · Newcastle, NSW</p>
         <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:flex-start">
-          <a href="tel:+61418490316" class="btn" style="padding:1rem 2rem;font-size:1.0625rem">Call 0418 490 316</a>
+          <a href="tel:0249291414" class="btn" style="padding:1rem 2rem;font-size:1.0625rem">Call (02) 4929 1414</a>
           <a href="#contact" class="btn ghost">Request a quote</a>
         </div>
       </div>
@@ -231,27 +261,7 @@ footer a:hover { color: var(--acc); }
     </section>
 <div class="sa-progress" id="sa-progress"></div>
 
-<nav class="nav">
-  <div class="wrap">
-    <a href="#top" class="brand">
-      <img src="images/logo.svg" alt="Hopton John W logo">
-      <span class="b-txt">
-        <span class="bizname">HOPTON JOHN W</span><br>
-        <span class="bizsub">Bookkeeping, BAS & payroll</span>
-      </span>
-    </a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#builders">About</a>
-      <a href="#areas">Areas</a>
-      <a href="#faq">FAQ</a>
-    </div>
-    <div class="nav-cta">
-      <a href="tel:0249291414" class="btn btn-ghost btn-sm">(02) 4929 1414</a>
-      <a href="#quote" class="btn btn-acc btn-sm">Free quote</a>
-    </div>
-  </div>
-</nav>
+
 
 <header class="hero">
 
@@ -392,7 +402,7 @@ footer a:hover { color: var(--acc); }
   </div>
 <section id="lbq" class="v4" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#880000))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

@@ -247,10 +247,17 @@ h1, h2, h3 { text-transform: uppercase; }
 
 <!--LB-HEROFIX2--><style id="lb-herofix2">[class*=hero]:has([class*=hero-bg])::before,[class*=hero]:has([class*=hero-scrim])::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.28))}[class*=hero-copy] h1{width:100%!important;max-width:none!important;display:block!important}</style><!--/LB-HEROFIX2-->
 <style id="lb-bar-noname-x">SPAN.b-txt,SPAN.brand-name{display:none!important}
-</style></head>
+</style><style id="lb-logohead">
+/* logo-first header bar - the client's own FB lockup only, no typed brand text */
+.nav .wrap{padding:14px 40px!important;min-height:92px}
+.brand .mark img.lb-hl{display:block!important;height:clamp(38px,3.4vw,48px)!important;width:auto!important;max-width:none!important;max-height:none!important;object-fit:contain!important}
+@media (max-width:640px){.nav .wrap{padding:12px 20px!important;min-height:76px}.brand .mark img.lb-hl{height:36px!important}}
+</style>
+<style id="lb-logopal">:root{--paper:#f9f9fb; --paper2:#f0f0f5; --ink:#101218; --ink2:#707174; --acc:#2b2a6b; --acc2:#1f1e4d; --line:#bfbfd3; --chip:#f0f0f5; --acc-text:#ffffff; --acc-on-dark:#aaaac4; --text:#f0f0f5; --lbq-ink:#f0f0f5;}</style>
+</head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="#top"><span class="mark" aria-hidden="true"><img src="assets/logo.svg" alt=""></span><span class="b-txt"><span class="brand-name">Xtreme Fencing</span><br><span class="brand-sub">Fence contractor · Earthworks</span></span></a>
+  <a class="brand" href="#top" aria-label="Xtreme Fencing and Earthworx"><span class="mark" aria-hidden="true"><img src="assets/lb-lockup.png" alt="Xtreme Fencing" class="lb-hl" width="580" height="211"></span><span class="b-txt"><span class="brand-name">Xtreme Fencing</span><br><span class="brand-sub">Fence contractor · Earthworks</span></span></a>
   <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span><span></span></button>
   <div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#ground-works">Ground works</a><a href="#process">Process</a><a href="#coverage">Coverage</a></div>
   <div class="nav-cta"><a href="tel:+61422400813" class="btn btn-ghost btn-sm nav-phone">0422 400 813</a><a href="#quote" class="btn btn-acc btn-sm">Get a quote</a></div>
@@ -274,11 +281,11 @@ h1, h2, h3 { text-transform: uppercase; }
 /* 3D hero layer - floating geometric depth */
 .lb3d-stage { position: absolute; inset: 0; overflow: hidden; pointer-events: none; perspective: 1200px; z-index: 1; }
 .lb3d-stage .lb3d-shape { position: absolute; border-radius: 0; animation: lb3dFloat 12s ease-in-out infinite; transform-style: preserve-3d; backface-visibility: hidden; }
-.lb3d-shape.s1 { width: 60px; height: 60px; background: var(--acc, #c4fb24); opacity: .08; top: 12%; left: 8%; animation: lb3dFloat1 14s ease-in-out infinite; transform: rotateY(15deg) translateZ(40px); }
-.lb3d-shape.s2 { width: 90px; height: 90px; border: 2px solid var(--acc, #c4fb24); opacity: .06; top: 60%; right: 12%; border-radius: 50%; animation: lb3dFloat2 18s ease-in-out infinite; transform: rotateY(-25deg) translateZ(80px); }
-.lb3d-shape.s3 { width: 40px; height: 40px; background: var(--acc, #c4fb24); opacity: .05; bottom: 20%; left: 55%; animation: lb3dFloat3 10s ease-in-out infinite; transform: rotateY(45deg) translateZ(20px); }
-.lb3d-shape.s4 { width: 120px; height: 2px; background: var(--acc, #c4fb24); opacity: .07; top: 30%; right: 30%; animation: lb3dFloat4 22s ease-in-out infinite; transform: translateZ(60px) rotateY(20deg); }
-.lb3d-shape.s5 { width: 50px; height: 50px; border: 1.5px solid var(--acc, #c4fb24); opacity: .05; top: 75%; left: 20%; transform: rotate(45deg) translateZ(100px); animation: lb3dFloat5 16s ease-in-out infinite; }
+.lb3d-shape.s1 { width: 60px; height: 60px; background: var(--acc, #2b2a6b); opacity: .08; top: 12%; left: 8%; animation: lb3dFloat1 14s ease-in-out infinite; transform: rotateY(15deg) translateZ(40px); }
+.lb3d-shape.s2 { width: 90px; height: 90px; border: 2px solid var(--acc, #2b2a6b); opacity: .06; top: 60%; right: 12%; border-radius: 50%; animation: lb3dFloat2 18s ease-in-out infinite; transform: rotateY(-25deg) translateZ(80px); }
+.lb3d-shape.s3 { width: 40px; height: 40px; background: var(--acc, #2b2a6b); opacity: .05; bottom: 20%; left: 55%; animation: lb3dFloat3 10s ease-in-out infinite; transform: rotateY(45deg) translateZ(20px); }
+.lb3d-shape.s4 { width: 120px; height: 2px; background: var(--acc, #2b2a6b); opacity: .07; top: 30%; right: 30%; animation: lb3dFloat4 22s ease-in-out infinite; transform: translateZ(60px) rotateY(20deg); }
+.lb3d-shape.s5 { width: 50px; height: 50px; border: 1.5px solid var(--acc, #2b2a6b); opacity: .05; top: 75%; left: 20%; transform: rotate(45deg) translateZ(100px); animation: lb3dFloat5 16s ease-in-out infinite; }
 @keyframes lb3dFloat1 { 0%,100% { transform: translateY(0) rotateY(15deg) translateZ(40px); } 50% { transform: translateY(-30px) rotateY(180deg) translateZ(80px); } }
 @keyframes lb3dFloat2 { 0%,100% { transform: translateY(0) rotateY(-25deg) translateZ(80px); } 50% { transform: translateY(24px) rotateY(25deg) translateZ(40px); } }
 @keyframes lb3dFloat3 { 0%,100% { transform: translateY(0) rotateY(45deg) translateZ(20px); } 50% { transform: translateY(-18px) rotateY(-45deg) translateZ(60px); } }
@@ -368,7 +375,7 @@ h1, h2, h3 { text-transform: uppercase; }
 </div>
 <section id="lbq" class="v4" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--text,#eae7e0);--lbq-muted:var(--muted,#9aa8b3);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#2b2a6b))));--lbq-ink:var(--text,#eae7e0);--lbq-muted:var(--muted,#9aa8b3);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

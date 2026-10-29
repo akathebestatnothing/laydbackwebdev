@@ -11,14 +11,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#26221d;
-  --ink-soft:#575046;
-  --paper:#f6f3ec;
-  --paper-deep:#efe9dd;
-  --tan:#b3854a;
-  --tan-deep:#8f6836;
+  /* palette sampled from assets/logo-header.png (Toronto Fencing mark) */
+  --ink:#282018;        /* ink — wordmark glyphs */
+  --ink-soft:#57493c;
+  --paper:#f5f0e6;      /* paper — logo knock-out */
+  --paper-deep:#ece4d6;
+  --tan:#8f4522;        /* accent — badge */
+  --tan-deep:#6d3218;
   --panel:#221f1a;
-  --rule:#d8d0c0;
+  --rule:#d9d0bf;
+  /* aliases so the injected quote-form block adopts the mark palette */
+  --accent:#8f4522;
+  --bg:#f5f0e6;
+  --line:#d9d0bf;
+  --muted:#57493c;
   --serif:'Playfair Display', Georgia, 'Times New Roman', serif;
   --sans:'Source Sans 3', -apple-system, 'Segoe UI', Arial, sans-serif;
   --maxw:1160px;
@@ -229,6 +235,21 @@ h1 em{font-style:italic;font-weight:500;color:var(--tan-deep)}
   .contents .hint{display:none}
 }
 </style>
+<style id="lb-logo7">
+/* client logo artwork (built by mklogo.py) in the masthead bar; no typed brand name */
+.masthead{padding-top:0}
+.mast-nav{display:flex;align-items:center;justify-content:space-between;gap:clamp(10px,2vw,28px);flex-wrap:wrap;min-height:80px;padding:12px 0;border-top:4px solid var(--ink);border-bottom:1px solid var(--ink)}
+.mast-nav a{font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
+.mast-nav a:hover{color:var(--tan-deep)}
+.mast-nav .mast-tel{border:1px solid var(--tan);padding:9px 16px}
+.mast-nav .mast-tel:hover{background:var(--paper-deep);color:var(--tan-deep)}
+.mast-logo{margin-right:auto;display:inline-flex;align-items:center;line-height:0}
+.mast-logo img{display:block;height:44px;width:auto}
+.mast-links{display:flex;align-items:center;gap:clamp(10px,2vw,28px);flex-wrap:wrap}
+@media(max-width:700px){.mast-nav{min-height:70px}.mast-logo img{height:38px}}
+@media(max-width:560px){.mast-nav{gap:10px;padding:10px 0}.mast-nav a{font-size:.9rem}.mast-nav .mast-tel{padding:7px 12px;font-size:.86rem}.mast-links{gap:10px;width:100%;justify-content:space-between}}
+@media(max-width:400px){.mast-logo img{height:32px}.mast-nav a{font-size:.82rem}.mast-nav .mast-tel{padding:6px 9px;font-size:.78rem}.mast-links{gap:6px}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -247,7 +268,15 @@ h1 em{font-style:italic;font-weight:500;color:var(--tan-deep)}
       <span>Est. ABN 82 102 475 258</span>
     </div>
     <div class="mast-rules" aria-hidden="true"></div>
-    <p class="wordmark">Toronto Fencing <span class="ltd">Direct Sales</span> Pty Ltd</p>
+    <nav class="mast-nav" aria-label="Primary">
+      <a class="mast-logo" href="#main" aria-label="Toronto Fencing Direct Sales Pty Ltd — home"><img src="assets/logo-header.svg" alt="Toronto Fencing Direct Sales Pty Ltd" width="628" height="128"></a>
+      <span class="mast-links">
+        <a href="#services">Services</a>
+        <a href="#approach">How it works</a>
+        <a href="#areas">Where we work</a>
+        <a class="mast-tel" href="tel:0249504733">(02) 4950 4733</a>
+      </span>
+    </nav>
     <p class="mast-sub">Fencing &middot; Gates &middot; Repairs &mdash; Lake Macquarie &amp; Newcastle</p>
     <div class="mast-rules-b" aria-hidden="true"></div>
   </div>

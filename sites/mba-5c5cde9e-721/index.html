@@ -11,11 +11,11 @@
   <style>
     /* ===== CSS Custom Properties ===== */
     :root {
-      --chalk: #efeee9;
-      --ink: #24272b;
-      --plumb-brass: #9c7a3c;
-      --level-green: #6f9e57;
-      --line-grey: #c9c7bf;
+      --chalk: #f1f0ec;
+      --ink: #2f3235;
+      --plumb-brass: #a84d38;
+      --level-green: #3b3839;
+      --line-grey: #c6c3ba;
       --white: #ffffff;
       --black: #000000;
       
@@ -562,8 +562,19 @@
       .level-reading { font-size: 10px; }
     }
   </style>
-</head>
+<style id="lb-hdr-c">
+.lb-bar{position:sticky;top:0;z-index:900;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:88px;padding:10px clamp(20px,5vw,64px);background:var(--chalk);border-bottom:1px solid var(--line-grey)}
+.lb-bar__brand{display:flex!important;align-items:center!important;text-decoration:none!important}
+.lb-bar__brand img{height:clamp(46px,4.6vw,54px)!important;width:auto!important;max-width:none!important;max-height:none!important;display:block!important;object-fit:contain!important}
+.lb-bar__tel{font-family:var(--font-annotations),monospace;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border:1px solid var(--line-grey);border-radius:999px;padding:10px 16px;text-decoration:none;white-space:nowrap}
+.lb-bar__tel:hover{border-color:var(--plumb-brass)}
+@media(max-width:520px){.lb-bar{min-height:76px}.lb-bar__brand img{height:clamp(38px,10vw,46px)!important}}
+</style></head>
 <body>
+<header class="lb-bar" role="banner">
+  <a class="lb-bar__brand" href="#" aria-label="RDW Constructions - home"><img src="assets/logo-header.svg" alt="RDW Constructions" width="300" height="220"></a>
+  <a class="lb-bar__tel" href="tel:0402644141">0402 644 141</a>
+</header>
   <!-- ===== Plumb Line (Continuous Full-Page) ===== -->
   <div class="plumb-line" aria-hidden="true">
     <div class="plumb-bob">
@@ -716,7 +727,7 @@
     </div>
   <section id="lbq" class="v4" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#b36659))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

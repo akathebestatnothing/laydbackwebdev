@@ -583,8 +583,27 @@
   .hero-print .hero-meta { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid rgba(var(--charcoal-rgb), 0.15); justify-content: space-between; }
 }
 </style>
-</head>
+<style id="lb-hdr-c">
+.lb-bar{position:sticky;top:0;z-index:400;display:flex;align-items:center;justify-content:flex-end;min-height:74px;padding:10px clamp(20px,5vw,44px);background:var(--charcoal);border-bottom:1px solid rgba(239,234,224,.16)}
+.lb-bar__tel{display:inline-flex;align-items:center;gap:9px;font-family:'Space Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--charcoal);background:var(--amber);border-radius:999px;padding:13px 20px;text-decoration:none;white-space:nowrap}
+.lb-bar__tel span{opacity:.68}
+.lb-bar__tel:hover{filter:brightness(1.08)}
+@media(max-width:520px){.lb-bar{min-height:66px}}
+</style><style id="lb-logo-b2">
+/* lb-logo-b2 - palette sampled from assets/logo-header.png */
+:root{--accent:#D9A441}
+.lb-bar{justify-content:space-between;gap:clamp(10px,2vw,22px);min-height:90px;background:var(--charcoal)}
+.lb-bar .lb-brand{display:flex;align-items:center;gap:clamp(9px,1.1vw,14px);flex:0 1 auto;min-width:0;text-decoration:none}
+.lb-brand .lb-mark{height:clamp(36px,4.2vw,46px);width:auto;display:block;flex:none}
+.lb-brand .lb-word{height:clamp(16px,1.9vw,23px);width:auto;display:block;flex:none}
+@media(max-width:520px){.lb-brand .lb-word{display:none}}
+@media(max-width:640px){.lb-bar{min-height:74px}}
+@media(max-width:460px){.lb-brand .lb-mark{height:36px}}
+</style></head>
 <body>
+  <header class="lb-bar" role="banner">
+<a class="lb-brand" href="#" aria-label="Wayde Thomas Photography"><img class="lb-mark" src="assets/logo-mark.svg" alt=""><img class="lb-word" src="assets/logo-word.svg" alt=""></a>    <a class="lb-bar__tel" href="tel:0449716626"><span>Call</span> 0449 716 626</a>
+  </header>
   <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
 
   <header class="hero" role="banner">

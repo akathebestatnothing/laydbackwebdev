@@ -10,18 +10,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,500&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
 :root{
-  --board:#1b4434;
-  --board-deep:#14362a;
-  --board-edge:#0f2b21;
+  --board:#241a16;
+  --board-deep:#17100d;
+  --board-edge:#100b09;
   --paper:#f7f2e5;
   --paper-dim:rgba(247,242,229,.74);
   --note:#fbf7ea;
-  --sun:#e9c46a;
-  --sun-deep:#d9ad4b;
-  --rust:#b34f1e;
-  --rust-deep:#93400f;
+  --sun:#d87820;
+  --sun-deep:#b7611a;
+  --rust:#d82018;
+  --rust-deep:#a8160f;
   --ink:#2b3630;
-  --note-muted:#61695f;
+  --note-muted:#6a5f58;
+  --lb-bar:#17100d;
+  --lb-bar-ink:#f7f2e5;
+  --lb-bar-line:rgba(216,120,32,.42);
   --cork:rgba(233,196,106,.075);
   --cork2:rgba(247,242,229,.05);
 }
@@ -292,11 +295,25 @@ a{color:inherit;text-decoration:none}
   
 
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
-</head>
+<style id="lb-hdr-bar">
+html{overflow-x:hidden}
+.topbar{align-items:center;gap:clamp(14px,3vw,28px);min-height:clamp(84px,7vw,102px);
+  padding:14px 28px;background:var(--lb-bar);border-bottom:1px solid var(--lb-bar-line);
+  max-width:none;margin:0;flex-wrap:nowrap}
+.topbar .lb-brand{display:flex;align-items:center;flex:0 0 auto;line-height:0}
+.topbar .lb-brand img{height:clamp(40px,4.2vw,52px);width:auto;max-width:none;max-height:none;display:block;object-fit:contain}
+.topbar .chip-tel{margin-left:auto;box-shadow:none;background:var(--sun);color:#17100d;
+  display:inline-flex;align-items:center;gap:8px}
+@media(max-width:560px){
+  .topbar{padding:12px 16px;min-height:80px}
+  .topbar .lb-brand img{height:clamp(34px,9vw,42px)}
+  .topbar .chip-tel{padding:9px 13px;font-size:13.5px}
+}
+</style></head>
 <body id="top">
 <div class="taperule" role="presentation"></div>
 <header class="topbar">
-  <a class="wordmark" href="#top">Design 2 Build <small>Construction</small></a>
+  <a class="wordmark lb-brand" href="#top" aria-label="Design 2 Build Construction home"><img src="assets/logo-header.png" alt="Design 2 Build Construction" width="100" height="100" loading="eager" decoding="async" style="height:clamp(40px,4.2vw,52px);width:auto;display:block"></a>
   <a class="chip-tel" href="tel:0468413178">0468 413 178</a>
 </header>
 
@@ -346,7 +363,7 @@ setTimeout(function() {
 </main>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#d87820))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

@@ -104,11 +104,43 @@ footer.drift-foot .brand { color: var(--field); }
 footer.drift-foot .brand:hover { color: var(--accent); }
 footer.drift-foot .foot-note { font-size: 0.875rem; opacity: 0.6; }
 .quote-form-wrap { margin-top: var(--space-3); }
-</style>
-</head><body>
+
+/* --- header bar spans the viewport: this template caps .container at
+   72ch, which left the brand ~400px in from the bar's left edge --- */
+header.drift-header .container{max-width:none;padding-inline:clamp(20px,4vw,56px)}
+
+/* --- brand lockup in the bar: artwork only, no typed name --- */
+header.drift-header .brand{display:inline-flex;align-items:center;gap:10px;min-width:0;flex:0 1 auto}
+.brand .brand-mark{height:42px;width:auto;max-width:none;display:block;flex:none}
+.brand .brand-word{height:38px;width:auto;max-width:none;display:block;flex:none}
+@media (max-width:760px){
+  .brand .brand-mark{height:34px}
+  .brand .brand-word{height:30px}
+  nav.drift-nav a{margin-left:14px;font-size:.875rem}
+}
+@media (max-width:560px){
+  .brand .brand-mark{height:32px}
+  .brand .brand-word{display:none}
+  nav.drift-nav a{margin-left:12px;font-size:.8125rem}
+}
+/* --- palette sampled from assets/logo-mark.svg + assets/logo-word.svg --- */
+:root{
+  --header-h:76px;
+  --field:#ece7dd;    /* logo lockup background */
+  --bg:#ece7dd;       /* logo lockup background (this page had no --bg, so the
+                         injected quote block rendered #0f1115 with slate text) */
+  --panel:#e6e0d3;    /* panel tint taken from the same paper */
+  --ink:#1c3641;      /* lockup rendered on its own paper, darkest (slate) */
+  --accent:#b0663c;   /* logo mark, 2nd most common opaque pixel (rust) */
+  --muted:#52626a;    /* mid-tone of the logo slate for >=4.5:1 form wording */
+}
+</style></head><body>
 <header class="drift-header" role="banner">
   <div class="container">
-    <a href="./" class="brand" aria-label="O'Hara's Fencing home">O'Hara's Fencing</a>
+    <a href="./" class="brand" aria-label="O&#39;Hara&#39;s Fencing home">
+      <img class="brand-mark" src="assets/logo-mark.svg" alt="" width="96" height="96">
+      <img class="brand-word" src="assets/logo-word.svg" alt="O&#39;Hara&#39;s Fencing" width="526" height="153">
+    </a>
     <nav class="drift-nav" aria-label="Primary navigation">
       <a href="#services">Services</a>
       <a href="#about">About</a>

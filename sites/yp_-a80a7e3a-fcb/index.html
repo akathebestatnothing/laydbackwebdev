@@ -244,18 +244,40 @@ footer{background:var(--ink-2);color:rgba(250,250,250,.7);border-top:1px solid v
 .foot-bottom a{color:rgba(250,250,250,.55)}
 .foot-bottom a:hover{color:var(--paper)}
 </style>
-</head></head>
+<style id="lb-hdr-d">
+/* --- brand bar: the client's own lockup only, no typed name --- */
+.nav .brand{display:flex!important;align-items:center;gap:.7rem;flex:0 0 auto;min-width:0}
+.nav .brand-mark{height:44px;width:auto;max-width:none;max-height:none;object-fit:contain;display:block}
+.nav .brand-word{height:38px;width:auto;max-width:none;max-height:none;object-fit:contain;display:block}
+.nav-links{margin-left:auto!important}
+@media(max-width:880px){
+  .nav .brand-mark{height:38px}
+  .nav .brand-word{height:30px}
+}
+@media(max-width:360px){
+  .nav .brand-mark{height:32px}
+  .nav .brand-word{height:24px}
+}
+/* --- palette sampled from assets/logo-mark.svg + assets/logo-word.svg --- */
+:root{
+  --paper:#fafafa;      /* logo lockup background */
+  --ink:#1a1a1a;        /* logo wordmark, darkest common pixel */
+  --accent:#8a5527;     /* logo mark, most common opaque pixel (copper hex) */
+  --conductor-brown:#8a5527;
+}
+/* this page declares no --bg/--panel, so the injected quote block fell back to
+   #0f1115 with near-black text + the lime accent; give it the client's tones */
+html #lbq{--lbq-accent:var(--accent);--lbq-ink:#f2f2ef;--lbq-muted:#a5a5a0;--lbq-bg:#191919;--lbq-panel:rgba(255,255,255,.05);--lbq-line:rgba(255,255,255,.16)}
+html #lbq button{color:#fafafa}
+/* UX-kit scroll bar defaults to the Lay'dback lime - repaint in the accent */
+body > div[style*="196, 251, 36"],body > div[style*="c4fb24"]{background:var(--accent)!important}
+</style></head>
 <body><!-- sigSplashGuard --><script>setTimeout(function(){var s=document.getElementById('sigSplash');if(s){s.style.transition='opacity .4s';s.style.opacity='0';s.style.pointerEvents='none';setTimeout(function(){s.remove();},450);}},2000);</script>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Trent Lantry Electrical home">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg>
-      </span>
-      <span>
-        <span class="brand-name">Trent Lantry Electrical</span><br>
-        <span class="brand-tag">Electrician</span>
-      </span>
+      <img class="brand-mark" src="assets/logo-mark.svg" alt="" width="96" height="96">
+      <img class="brand-word" src="assets/logo-word.svg" alt="Trent Lantry Electrical" width="786" height="144">
     </a>
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>

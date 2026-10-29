@@ -259,14 +259,21 @@ footer a:hover{color:var(--rust)}
   
 
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<style id="lb-logohead">
+/* logo-first header bar - the client's own lockup only, no typed brand text */
+.brand .brand-name,.brand small{display:none!important}
+.pegboard{padding-block:10px!important}
+.brand img.lb-hl{display:block!important;height:clamp(40px,4vw,50px)!important;width:auto!important;max-height:none!important;max-width:none!important;object-fit:contain!important}
+@media (max-width:760px){.brand img.lb-hl{height:38px!important}}
+</style>
+<style id="lb-logopal">:root{--ply:#fde9d6; --ink:#1f1b17; --rust:#f3821b; --rust-ink:#a55812; --label:#aa5b13; --paper:#fffcf9; --ply-deep:#fbdabb; --ply-pale:#fef4ea;}</style>
 </head>
 <body>
 
 <nav class="pegboard">
   <div class="peg-inner">
     <a class="brand" href="#top">
-      <img src="assets/logo-avatar.jpg" alt="Kealy Building Solutions logo" class="lb-logo-unlock">
-      <span class="brand-name">Kealy Building<br>Solutions<small>Builder · Maitland &amp; the Hunter</small></span>
+      <img src="assets/lb-lockup.png" alt="Kealy Building Solutions" class="lb-hl" width="528" height="184">
     </a>
     <div class="peg-links">
       <a href="#services">Services</a>
@@ -325,7 +332,7 @@ setTimeout(function() {
 </main>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#f3821b))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

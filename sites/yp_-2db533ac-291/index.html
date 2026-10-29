@@ -182,10 +182,19 @@ img{max-width:100%;height:auto;display:block}
   .hero{background:linear-gradient(180deg,var(--panel),var(--field))}
 }
 </style>
+<style id="lb-logo6">
+/* header logo artwork + palette derived from the client logo */
+:root{--bg:#faf7f0;--field:#faf7f0;--panel:#efe9dc;--ink:#141b21;--muted:#5a6469;
+      --accent:#b8800f;--amber:#b8800f;--asphalt:#101418;--line:rgba(20,27,33,.18);--hairline:rgba(20,27,33,.16)}
+.nav{align-items:center!important}
+.nav__logo{display:block;line-height:0;flex:0 0 auto}
+.nav__logo img{height:clamp(42px,4.2vw,54px)!important;width:auto!important;max-width:none!important;display:block!important}
+@media(max-width:760px){.nav__logo img{height:40px!important}}
+</style>
 </head>
 <body>
 <nav class="nav" aria-label="Main">
-  <div class="nav__word">Asphalt<span>Man</span></div>
+  <a class="nav__logo" href="#top" aria-label="The Asphalt Man home"><img src="assets/lb-logo.png" alt="The Asphalt Man"></a>
   <div class="nav__links">
     <a href="#work">Services</a>
     <a href="#area">Coverage</a>

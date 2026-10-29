@@ -452,10 +452,22 @@ header.site.over.scrolled{border-bottom:1px solid var(--line)}
     .rv { opacity: 1 !important; transform: none !important; }
     .rv.on { opacity: 1 !important; }
   </style>
-</noscript></head>
+</noscript><style id="lb-logo6">
+/* header logo artwork + palette derived from the client logo */
+:root{--ink:#16181a;--muted:#5b6167;--bg:#f6f6f5;--panel:#ffffff;--tile:#eeeeec;--line:#e2e2e0;
+      --brand:#3d4043;--brand2:#2a2d30;--deep:#16181a;--acc:#82878c;--foot:#141618;
+      --onbrand:#ffffff;--onbrand2:#ffffff}
+header.site{background:rgba(246,246,245,.94)!important;border-bottom:1px solid var(--line)}
+header.site .bar{height:auto!important;min-height:88px}
+header.site .logo .mark{background:var(--brand)}
+header.site .logo img{height:clamp(42px,4.2vw,54px)!important;width:auto!important;max-width:none!important;
+  max-height:none!important;object-fit:contain!important;display:block!important;border-radius:0!important}
+@media(max-width:920px){header.site .bar{min-height:74px}header.site .logo img{height:40px!important}}
+</style>
+</head>
 <body id="page" class="a0"><div class="sa-progress" id="sa-progress"></div><header class="site solid" id="site-hdr">
 <div class="wrap bar">
-<a class="logo" href="#top"><span class="mark">MC</span><span>McKinley Carpentry</span></a>
+<a class="logo" href="#top" aria-label="McKinley Carpentry home"><img src="assets/lb-logo.png" alt="McKinley Carpentry"></a>
 <nav><a href="#services">Services</a> <a href="#work">How we work</a> <a href="#reviews">Reviews</a> <a href="#faq">FAQ</a> <a href="#contact">Contact</a></nav>
 <a class="btn p sm tel" href="tel:0422443595"> 0422443595</a>
 <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false"></button>

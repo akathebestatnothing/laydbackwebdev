@@ -13,12 +13,12 @@
   --field:#e7e4de;
   --panel:#dcd8d0;
   --ink:#1a1c1d;
-  --muted:#585c61;
+  --muted:#57595d;
   --hairline:rgba(26,28,29,.14);
   --speckle-1:#2e2f31;
-  --speckle-2:#8a8478;
-  --speckle-3:#bdb7aa;
-  --oxide:#8a4a2b;
+  --speckle-2:#7f8186;
+  --speckle-3:#b9b8b4;
+  --oxide:#2f3237;
   --radius:0;
 }
 *, *::before, *::after{box-sizing:border-box}
@@ -155,11 +155,16 @@ footer{background:var(--ink); color:var(--field); padding:3rem 0 2rem}
   .footer__inner{flex-direction:column; gap:1.5rem}
 }
 </style>
-</head>
+<style id="lb-hdr-a">
+.nav__inner{height:80px!important}
+.nav .lb-hdr-brand{display:flex!important;align-items:center!important;text-decoration:none!important}
+.nav .lb-hdr-brand img.lb-hdr-logo{height:clamp(40px,4.6vw,48px)!important;width:auto!important;max-width:none!important;max-height:none!important;display:block!important;object-fit:contain!important;-webkit-mask-image:none!important;mask-image:none!important}
+@media(max-width:520px){.nav .lb-hdr-brand img.lb-hdr-logo{height:clamp(34px,9vw,40px)!important}}
+</style></head>
 <body>
 <nav class="nav" role="navigation" aria-label="Main">
   <div class="nav__inner">
-    <a href="./" class="wordmark" aria-label="WJS Concrete home">WJS Concrete</a>
+    <a href="./" class="wordmark lb-hdr-brand" aria-label="WJS Concrete home"><img class="lb-hdr-logo" src="assets/logo-header.svg" alt="WJS Concrete" width="360" height="150"></a>
     <div class="nav__links">
       <a href="#scope" class="nav__link">Scope</a>
       <a href="#pour-day" class="nav__link">Pour day</a>
@@ -283,7 +288,7 @@ footer{background:var(--ink); color:var(--field); padding:3rem 0 2rem}
   </div>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#111111))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

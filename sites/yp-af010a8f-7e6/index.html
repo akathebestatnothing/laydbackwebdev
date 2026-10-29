@@ -369,18 +369,58 @@
   .hero-content > .hero__contact { grid-column: 2; grid-row: 3; justify-self: end; align-self: start; }
 }
 </style>
-</head>
+<style id="lb-hdr-bar">
+html{overflow-x:hidden}
+.lb-bar{display:flex;align-items:center;gap:clamp(12px,3vw,34px);flex-wrap:wrap;
+  min-height:clamp(84px,7vw,98px);padding:14px clamp(16px,4vw,44px);
+  background:rgba(26,46,26,.94);border-bottom:1px solid rgba(143,179,143,.34);
+  position:sticky;top:0;z-index:90;backdrop-filter:blur(8px)}
+.lb-bar .lb-nav{display:flex;align-items:center;gap:clamp(14px,2vw,30px)}
+.lb-bar .lb-nav a{font-size:clamp(.78rem,1vw,.9rem);letter-spacing:.05em;text-transform:uppercase;
+  font-weight:500;color:var(--text-muted);white-space:nowrap}
+.lb-bar .lb-nav a:hover{color:var(--cream)}
+.lb-bar .lb-tel{display:inline-flex;align-items:center;margin-left:auto;padding:10px 18px;border:1px solid rgba(143,179,143,.55);
+  border-radius:999px;font-size:clamp(.78rem,1vw,.9rem);font-weight:500;color:var(--cream);
+  white-space:nowrap;letter-spacing:.03em}
+.lb-bar .lb-tel:hover{background:var(--accent);color:#16281a;border-color:var(--accent)}
+@media(max-width:700px){
+  .lb-bar{padding:12px 16px;gap:10px}
+  .lb-bar .lb-nav{display:none}
+  .lb-bar .lb-tel{margin-left:auto;padding:9px 14px}
+}
+</style><style id="lb-logo-b2">
+/* lb-logo-b2 - @palette sampled from assets/logo-header.png */
+:root{--field:#22401D;--hedge:#2A4A23;--cream:#F4EFDF;--text:#F4EFDF;
+      --text-muted:rgba(244,239,223,.74);--accent:#5C8F3A;--focus-ring:#5C8F3A}
+.lb-bar{gap:clamp(12px,1.6vw,24px);background:rgba(34,64,29,.96);border-bottom:1px solid rgba(92,143,58,.38)}
+.lb-bar .lb-brand{display:flex;align-items:center;gap:clamp(9px,1.1vw,15px);flex:0 1 auto;min-width:0;text-decoration:none}
+.lb-brand .lb-mark{height:clamp(34px,4vw,46px);width:auto;max-height:none;display:block;flex:none}
+.lb-brand .lb-word{height:clamp(11px,1.3vw,19px);width:auto;display:block;flex:none}
+.lb-bar .lb-nav a{color:rgba(244,239,223,.88)}
+.lb-bar .lb-nav a:hover{color:#F4EFDF}
+@media(max-width:860px){.lb-brand .lb-word{display:none}}
+@media(max-width:460px){.lb-brand .lb-mark{height:36px}}
+</style></head>
 <body>
+<header class="lb-bar" role="banner"><a class="lb-brand" href="#hero-title" aria-label="Ray's Garden Works"><img class="lb-mark" src="assets/logo-mark.svg" alt=""><img class="lb-word" src="assets/logo-word.svg" alt=""></a>
+  <nav class="lb-nav" aria-label="Main navigation">
+    <a href="#services-title">What we do</a>
+    <a href="#about-title">About</a>
+    <a href="#approach-title">How we work</a>
+    <a href="#contact-title">Contact</a>
+  </nav>
+  <a class="lb-tel" href="tel:0249504749">(02) 4950 4749</a>
+</header>
   <div class="page">
     <main>
           <!-- Hero Section -->
           <section class="hero rv" aria-labelledby="hero-title" style="position:relative;min-height:100vh;display:flex;align-items:flex-start;justify-content:flex-start;overflow:hidden;background:linear-gradient(180deg,var(--field) 0%,#fff 100%)">
       <canvas id="hero-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
       <div class="hero-content" style="position:relative;z-index:1;text-align:left;padding:clamp(3rem,10vh,6rem) 24px 0;max-width:720px">
-        <h1 id="hero-title" style="font:800 clamp(2.5rem,6vw,4.5rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink);margin-bottom:1rem">Young Plumbing</h1>
-        <p style="font:500 clamp(1.125rem,2.5vw,1.375rem)/1.4 var(--font-body);color:var(--muted);margin-bottom:2rem">Cardiff · Lake Macquarie, NSW</p>
+        <h1 id="hero-title" style="font:800 clamp(2.5rem,6vw,4.5rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink);margin-bottom:1rem">Ray's Garden Works</h1>
+        <p style="font:500 clamp(1.125rem,2.5vw,1.375rem)/1.4 var(--font-body);color:var(--muted);margin-bottom:2rem">6 Dora Street · Fassifern, NSW</p>
         <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:flex-start">
-          <a href="tel:+61418490316" class="btn" style="padding:1rem 2rem;font-size:1.0625rem">Call 0418 490 316</a>
+          <a href="tel:0249504749" class="btn" style="padding:1rem 2rem;font-size:1.0625rem">Call (02) 4950 4749</a>
           <a href="#contact" class="btn ghost">Request a quote</a>
         </div>
       </div>

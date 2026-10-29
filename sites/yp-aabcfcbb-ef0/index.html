@@ -45,8 +45,16 @@ body{background:var(--bg);color:var(--ink);font-family:'Saira',sans-serif}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 @media (max-width:760px){.row{grid-template-columns:44px 1fr}.row .ok{display:none}.plate{grid-template-columns:44px 1fr}}
 @media (max-width:560px){.top{flex-wrap:wrap;row-gap:6px;padding:12px 6vw}.top .tel{font-size:14px}.hero{padding:6vh 6vw 5vh}.cta{padding:5vh 6vw;margin:0 6vw 7vh}}
-</style></head><body>
-<div class="top"><div class='brand'>Temp Fence Kings</div><a class="tel" href="tel:0400866267">0400 866 267</a></div>
+</style><style id="lb-logo6">
+/* header logo artwork + palette derived from the client logo */
+:root{--bg:#151310;--ink:#efeee9;--accent:#f2c80f;--muted:#9c9a92;--deep:#211f19;--paper:#fbf7e9}
+.top{align-items:center!important}
+.top .lb-logo-link{display:block;line-height:0;flex:0 0 auto}
+.top .lb-logo{height:clamp(44px,4.4vw,58px)!important;width:auto!important;max-width:none!important;display:block!important}
+@media(max-width:560px){.top .lb-logo{height:42px!important}}
+</style>
+</head><body>
+<div class="top"><a class="lb-logo-link" href="#top" aria-label="Temp Fence Kings home"><img class="lb-logo" src="assets/lb-logo.png" alt="Temp Fence Kings"></a><a class="tel" href="tel:0400866267">0400 866 267</a></div>
 <section class="hero">
       <canvas id="hero-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:1;"></canvas>
 

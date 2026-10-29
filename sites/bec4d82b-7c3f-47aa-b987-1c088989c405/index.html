@@ -11,10 +11,15 @@
 <style>
 :root{
   --bond:#fbfaf7;
-  --ink:#23272e;
-  --muted:#6a7076;
-  --rule-blue:#46586b;
-  --acct-red:#a63c2e;
+  --ink:#1b1f26;
+  --muted:#5c636c;
+  --rule-blue:#3d4854;
+  --acct-red:#8a6300;
+  --lb-gold:#e0a810;
+  --lb-bar:#171b22;
+  --lb-bar-ink:#ffffff;
+  --lb-bar-muted:rgba(255,255,255,.76);
+  --lb-bar-line:rgba(224,168,16,.45);
   --panel:#f3f1ea;
   --hair:rgba(35,39,46,.16);
   --max:1200px;
@@ -333,11 +338,39 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   .hero-canvas{display:none}
 }
 </style>
-</head>
+<style id="lb-hdr-bar">
+html{overflow-x:hidden}
+/* LB brand bar — the firm's own logo artwork only */
+.topbar{min-height:clamp(84px,7vw,102px);padding:12px var(--space);
+  background:var(--lb-bar);border-top:0;border-bottom:1px solid var(--lb-bar-line);
+  gap:clamp(14px,3vw,34px);flex-wrap:nowrap}
+.topbar .lb-brand{display:flex;align-items:center;flex:0 0 auto;line-height:0}
+.topbar .lb-brand img{height:clamp(30px,3.6vw,48px);width:auto;max-width:100%;max-height:none;display:block;object-fit:contain}
+.topbar .nav{margin-left:auto;gap:clamp(.8rem,1.6vw,2rem)}
+.topbar .nav a{font-size:clamp(.68rem,1vw,.85rem)}
+.topbar .phone-topbar{font-size:clamp(.72rem,1vw,.85rem)}
+.topbar .nav a{color:var(--lb-bar-muted)}
+.topbar .nav a:hover{color:var(--lb-bar-ink)}
+.topbar .phone-topbar{color:var(--lb-bar-muted);white-space:nowrap}
+.topbar .phone-topbar a{color:var(--lb-bar-ink);border-bottom:1px solid var(--lb-bar-line);padding-bottom:2px}
+.topbar .burger span{background:var(--lb-bar-ink)}
+@media(max-width:900px){
+  .topbar .nav{gap:.7rem}
+  .topbar .nav a{font-size:.7rem}
+  .topbar .phone-topbar{font-size:.72rem}
+}
+@media(max-width:640px){
+  .topbar{padding:12px 14px 14px;min-height:0;flex-wrap:wrap;row-gap:10px}
+  .topbar .lb-brand{flex:1 1 100%}
+  .topbar .lb-brand img{height:clamp(30px,8.4vw,42px);max-width:100%}
+  .topbar .phone-topbar{margin-left:0}
+  .topbar .burger{margin-left:auto}
+}
+</style></head>
 <body>
 <div class="page">
 <header class="topbar" role="banner">
-  <a href="#" class="wordmark" aria-label="McCosker Partners home">McCosker Partners</a>
+  <a href="#" class="lb-brand" aria-label="McCosker Partners home"><img src="assets/logo-header.png" alt="McCosker Partners Chartered Accountants" width="559" height="64" loading="eager" decoding="async"></a>
   <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
     <a href="#services">Services</a>
     <a href="#approach">Approach</a>
@@ -479,7 +512,7 @@ footer a:hover{color:var(--ink);text-decoration:underline}
   <small>© 2026 McCosker Partners</small>
 <section id="lbq" class="v3" aria-labelledby="lbq-h">
   <style>
-#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#c4fb24))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq{--lbq-accent:var(--accent,var(--brand,var(--lime,var(--color-lime,#e8a808))));--lbq-ink:var(--ink,var(--text,#e9eef4));--lbq-muted:var(--muted,#9aa6b2);--lbq-bg:var(--bg,var(--bg-0,#0f1115));--lbq-panel:var(--panel,rgba(255,255,255,.045));--lbq-line:var(--line,var(--border,rgba(255,255,255,.14)));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
 #lbq *{box-sizing:border-box}
 #lbq .lbq-w{max-width:1060px;margin:0 auto}
 #lbq h2{font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em}

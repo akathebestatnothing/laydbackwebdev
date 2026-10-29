@@ -215,14 +215,37 @@ img{max-width:100%;height:auto;display:block}
 @media (prefers-reduced-motion:reduce){
   .rows::before,.season::before,.statement::before,.quote::before{animation:none}
 }
+
+/* --- brand bar: client lockup artwork only --- */
+.nav__brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;min-width:0;flex:0 1 auto}
+.nav__brand .nav__logo{height:42px;width:auto;max-width:none;display:block;flex:none}
+.nav__brand .nav__word{height:40px;width:auto;max-width:none;display:block;flex:none}
+@media (max-width:760px){
+  .nav__brand .nav__logo{height:38px}
+  .nav__brand .nav__word{height:30px}
+}
+@media (max-width:400px){
+  .nav__brand .nav__logo{height:36px}
+  .nav__brand .nav__word{height:24px}
+}
+/* --- palette sampled from assets/logo-mark.svg + assets/logo-word.svg --- */
+:root{
+  --field:#eef1e7;    /* logo lockup background */
+  --bg:#eef1e7;       /* logo lockup background */
+  --ink:#1e261e;      /* logo wordmark, darkest common pixel */
+  --deep:#24513a;     /* logo mark, most common opaque pixel (terraces) */
+  --blossom:#cf8ea6;  /* logo mark, 2nd most common (blossom terrace) */
+  --accent:#cf8ea6;   /* logo mark, 2nd most common */
+  --muted:#5d6557;    /* darkened from the logo green for >=4.5:1 nav text */
+}
 </style>
 <script>document.documentElement.classList.add('js');setTimeout(function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('on')})},1100)</script>
 </head>
 <body><nav class="nav rv" aria-label="Primary">
-  <div class="nav__mark" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M12 2C8 5 4 10 4 14c0 3.5 2 6.5 5 8 3-1.5 5-4.5 5-8 0-4-4-9-8-9z"/></svg>
-  </div>
-  <span class="nav__wordmark">Newcastle Landscapes</span>
+  <a class="nav__brand" href="#top" aria-label="Newcastle Landscapes home">
+    <img class="nav__logo" src="assets/logo-mark.svg" alt="" width="96" height="96">
+    <img class="nav__word" src="assets/logo-word.svg" alt="Newcastle Landscapes" width="729" height="198">
+  </a>
   <ul class="nav__links">
     <li><a class="nav__link" href="#rows">Rows</a></li>
     <li><a class="nav__link" href="#season">Season</a></li>
