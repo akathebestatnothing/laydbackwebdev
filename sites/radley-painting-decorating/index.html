@@ -6,7 +6,7 @@
 <style>
 
 
-:root{--ink:#141018;--paper:#f7f4f8;--deep:#2a1733;--plum:#6000a8;--plum2:#8a2be2;--line:rgba(20,16,24,.14);--dim:#5f5566}
+:root{--ink:#141018;--paper:#f7f4f8;--deep:#2a1733;--plum:#6400aa;--plum2:#8a2be2;--plum-soft:#d2aafa;--line:rgba(20,16,24,.14);--dim:#5f5566}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.62 "Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -147,12 +147,18 @@ footer .rail-logo{height:40px!important;width:auto!important}
 .rail nav a{border-bottom:1px solid rgba(247,244,248,.12)!important;font-size:14px!important;letter-spacing:.06em!important}
 .rail nav a:hover{color:#fff!important;padding-left:6px!important;transition:padding .18s ease,color .18s ease!important}
 .rail .sub{color:rgba(247,244,248,.72)!important;line-height:1.55!important;margin:16px 0 18px!important;display:block!important}
-.rail .call{background:#6000a8!important;color:#fff!important;text-decoration:none!important;font-weight:800!important;
+.rail .call{background:var(--plum)!important;color:#fff!important;text-decoration:none!important;font-weight:800!important;
   padding:13px 16px!important;border-radius:2px!important;text-align:center!important;display:block!important;letter-spacing:.02em!important}
-.rail .call:hover{background:#7a1cc4!important}
+.rail .call:hover{background:#7c1cc9!important}
 .rail::after{content:"";display:block;margin-top:22px;height:3px;width:56px;background:#c9a6ff;opacity:.9}
 
-</style></head>
+</style><style id="lb-logo7">
+/* brand bar (rail layout retained): client logo artwork, sized to the bar */
+.rail .rail-logo{height:clamp(52px,4.6vw,70px)!important;width:auto!important;display:block!important;max-width:100%!important;filter:none!important;-webkit-mask-image:none!important;mask-image:none!important}
+.rail>a:first-child{display:block;line-height:0}
+@media(max-width:820px){.rail .rail-logo{height:clamp(38px,10vw,48px)!important}}
+</style>
+</head>
 <body>
 <div class="shell">
 <aside class="rail">

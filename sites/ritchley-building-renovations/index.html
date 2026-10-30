@@ -16,12 +16,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#17161a;
-  --bg-2:#1e1d22;
-  --panel:#242329;
-  --ink:#f4f4f6;
-  --mut:#aaaeb6;
-  --red:#ed2d33;
+  --bg:#151418;
+  --bg-2:#1c1b20;
+  --panel:#212026;
+  --ink:#f6f6f8;
+  --mut:#a9adb6;
+  --red:#e83030;
+  --lb-bar:#131215;
+  --lb-bar-line:rgba(246,246,248,.14);
   --line:rgba(244,244,246,.14);
   --line-soft:rgba(244,244,246,.08);
   --disp:"Barlow Condensed","Segoe UI",sans-serif;
@@ -40,9 +42,8 @@ section[id],div[id]{scroll-margin-top:calc(var(--nav-h) + 16px)}
 .wrap{width:min(1180px,92vw);margin:0 auto}
 
 /* ---------- header ---------- */
-.nav{position:fixed;inset:0 0 auto;height:var(--nav-h);display:flex;align-items:center;gap:clamp(1rem,2vw,2.2rem);padding:0 clamp(1rem,4vw,2.6rem);background:#141317;border-bottom:2px solid var(--red);z-index:60}
-.lb-brand{display:flex;align-items:center;gap:.7rem;color:#f5f5f7;background:#141317;flex:0 0 auto}
-.lb-brand img{height:46px;width:auto;border-radius:2px}
+.nav{position:fixed;inset:0 0 auto;height:auto;min-height:clamp(86px,7.4vw,104px);display:flex;align-items:center;gap:clamp(1rem,2vw,2.2rem);padding:10px clamp(1rem,4vw,2.6rem);background:var(--lb-bar);border-bottom:2px solid var(--red);z-index:60}
+.lb-brand{display:flex;align-items:center;gap:.7rem;color:#f5f5f7;background:transparent;flex:0 0 auto;line-height:0}
 .brand-name{font-family:var(--disp);font-size:1.32rem;font-weight:600;letter-spacing:.01em;white-space:nowrap}
 .brand-name b{color:#fff;font-weight:700}
 .nav__links{display:flex;gap:clamp(.9rem,1.8vw,1.8rem);list-style:none;margin:0 0 0 auto;padding:0}
@@ -168,14 +169,28 @@ footer{background:#101014;border-top:2px solid var(--red);padding:3.2rem 0 2.4re
 {display:none!important}
 .lb-brand{display:flex!important;align-items:center!important;gap:0!important}
 .lb-brand__mark img, .lb-logo{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
+</style><style id="lb-hdr-bar">
+html{overflow-x:hidden}
+.nav .lb-brand img{height:clamp(38px,3.8vw,50px);width:auto;max-width:none;max-height:none;display:block;object-fit:contain;border-radius:0}
+.nav .brand-name{display:none!important}
+.nav__links{margin-left:auto}
+.nav .nav__tel,.nav .btn{white-space:nowrap}
+@media(max-width:900px){
+  .nav__links{display:none!important}
+  .nav .lb-brand img{height:clamp(34px,8.4vw,42px)}
+}
+@media(max-width:620px){
+  .nav{gap:.7rem}
+  .nav .lb-brand img{height:clamp(30px,7.4vw,38px)}
+  .nav .btn{padding:.55rem .8rem;font-size:.85rem}
+}
 </style></head>
 <body>
 <a class="skip" href="#services">Skip to content</a>
 
 <nav class="nav" aria-label="Primary">
   <a class="lb-brand" href="#top" aria-label="Ritchley Building and Renovations, home" style="--lb-name:#f5f5f7">
-    <img src="assets/logo-mark.png" alt="Ritchley Building & Renovations logo" width="428" height="440" loading="eager" decoding="async" class="lb-logo-unlock">
-    <span class="brand-name">Ritchley Building & Renovations</span>
+    <img src="assets/logo-header.png" alt="Ritchley Building &amp; Renovations" width="643" height="253" loading="eager" decoding="async">
   </a>
   <ul class="nav__links">
     <li><a href="#services">What we build</a></li>

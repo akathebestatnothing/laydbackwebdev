@@ -8,10 +8,10 @@
 <link rel="icon" href="assets/novo-logo-v1.jpg">
 <style>
 :root{
-  --ink:#0b0d10; --panel:#12151a; --panel2:#171b21;
-  --silver:#c9ced6; --silver-dim:#8a919c; --line:rgba(201,206,214,.14);
-  --accent:#d8a24a; /* warm metal-bronze accent — mixed palette, not logo-3-colour */
-  --accent-soft:rgba(216,162,74,.14);
+  --ink:#07100f; --panel:#0e1a19; --panel2:#12211f;
+  --silver:#dce6e3; --silver-dim:#7f9a97; --line:rgba(120,190,186,.16);
+  --accent:#4fb3b3; /* sampled from the logo panel (teal #004e4e) */
+  --accent-soft:rgba(79,179,179,.14);
   --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
   --display:'Archivo',system-ui,sans-serif;
   --body:'Inter',system-ui,sans-serif;
@@ -26,14 +26,14 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,13,16,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:88px}
 .brand{display:flex;align-items:center;gap:12px}
-.brand img{display:block;height:32px;width:auto;object-fit:contain;border-radius:6px}
+.brand img{display:block;height:clamp(38px,3.6vw,50px);width:auto;object-fit:contain;border-radius:3px}
 .brand span{font-family:var(--display);font-weight:800;letter-spacing:-.02em;color:#fff;font-size:17px}
 .navlinks{display:flex;gap:28px;align-items:center}
 .navlinks a{font-size:13.5px;color:var(--silver-dim);transition:color .2s}
 .navlinks a:hover{color:#fff}
-.navtel{font-family:var(--mono);font-size:12.5px;color:var(--accent);border:1px solid rgba(216,162,74,.4);padding:8px 14px;border-radius:4px;transition:background .2s}
+.navtel{font-family:var(--mono);font-size:12.5px;color:var(--accent);border:1px solid rgba(79,179,179,.45);padding:8px 14px;border-radius:4px;transition:background .2s}
 .navtel:hover{background:var(--accent-soft)}
 /* HERO — fullbleed image + oversized stacked type */
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;padding-top:110px}
@@ -80,7 +80,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .process{padding:110px 0;background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .process h2{font-family:var(--display);font-weight:800;font-size:40px;color:#fff;letter-spacing:-.025em;margin-top:14px}
 .tl{margin-top:56px;position:relative;padding-left:36px}
-.tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--accent),rgba(216,162,74,.06))}
+.tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:linear-gradient(180deg,var(--accent),rgba(79,179,179,.06))}
 .tl .step{position:relative;padding-bottom:44px}
 .tl .step:last-child{padding-bottom:0}
 .tl .step::before{content:'';position:absolute;left:-36px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--accent)}
@@ -99,7 +99,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .contact .accent{color:var(--accent)}
 .contact-row{margin-top:44px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 28px;border-radius:4px;transition:transform .2s,background .2s}
-.btn-primary{background:var(--accent);color:#151006;font-weight:600}
+.btn-primary{background:var(--accent);color:#06110f;font-weight:600}
 .btn-primary:hover{transform:translateY(-2px)}
 .btn-ghost{border:1px solid var(--line);color:var(--silver)}
 .btn-ghost:hover{border-color:var(--silver-dim)}
@@ -127,12 +127,18 @@ footer .soc a:hover{color:#fff}
   .wrap{padding:0 20px}
 }
 </style>
+<style id="lb-logo7-narrow">
+@media(max-width:620px){.svc{grid-template-columns:1fr!important;gap:10px!important;padding:24px 0!important}
+.svc .tag{white-space:normal!important;justify-self:start}
+.rail{position:static!important}
+.mono,.svc .idx,.tag{font-size:11px!important}}
+</style>
 </head>
 <body>
 <nav>
   <div class="wrap">
     <a class="brand" href="#top">
-      <img src="assets/novo-logo-v1.jpg" alt="Novo Metal Roofing logo">
+      <img src="assets/novo-logo.png" alt="Novo Metal Roofing logo" width="314" height="356">
       <span class="lb-sr-only">NOVO METAL ROOFING</span>
     </a>
     <div class="navlinks">
