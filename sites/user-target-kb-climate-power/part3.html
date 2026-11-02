@@ -1,0 +1,143 @@
+
+<section id="lbq" class="v3" aria-labelledby="lbq-h">
+<style>
+#lbq{--lbq-accent:var(--accent,#F07830);--lbq-ink:var(--ink,#12202E);--lbq-muted:var(--muted,#54687C);--lbq-bg:var(--bg,#0B1B2B);--lbq-panel:rgba(255,255,255,.045);--lbq-line:var(--line,rgba(255,255,255,.14));padding:72px 20px;background:var(--lbq-bg);color:var(--lbq-ink)}
+#lbq *{box-sizing:border-box}
+#lbq .lbq-w{max-width:1060px;margin:0 auto;color:#EAF2F8}
+#lbq h2{font-family:var(--font-display);font-size:clamp(1.5rem,3.4vw,2.2rem);margin:0 0 8px;letter-spacing:-.02em;color:#fff}
+#lbq p.lbq-s{margin:0 0 26px;color:#9DB5C8;max-width:56ch}
+#lbq .lbq-f{display:grid;gap:12px}
+#lbq label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#9DB5C8;margin-bottom:5px}
+#lbq input,#lbq textarea,#lbq select{width:100%;padding:12px 14px;border:1px solid rgba(124,199,232,.3);border-radius:8px;background:rgba(255,255,255,.05);color:#EAF2F8;font:inherit;font-size:.95rem}
+#lbq input:focus,#lbq textarea:focus,#lbq select:focus{outline:2px solid var(--lbq-accent);outline-offset:1px;border-color:transparent}
+#lbq button{margin-top:6px;padding:13px 22px;border:0;border-radius:8px;background:var(--lbq-accent);color:#fff;font:inherit;font-weight:700;font-size:.95rem;cursor:pointer;letter-spacing:.02em}
+#lbq button:disabled{opacity:.6;cursor:wait}
+#lbq .lbq-st{margin:10px 0 0;font-size:.9rem;color:#9DB5C8;min-height:1.2em}
+#lbq .lbq-cons{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:.82rem;color:#9DB5C8;text-transform:none;letter-spacing:0}
+#lbq .lbq-cons input{width:auto}
+#lbq .lbq-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+#lbq.v3 .lbq-sp{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+#lbq.v3 .lbq-hp2{border-left:3px solid var(--lbq-accent);padding-left:16px}
+#lbq.v3 .lbq-hp2 p{color:#9DB5C8;font-size:.95rem}
+#lbq.v3 .lbq-hp2 strong{color:#fff}
+@media(max-width:760px){#lbq.v3 .lbq-sp{grid-template-columns:1fr}}
+</style>
+<div class="lbq-w">
+  <div class="lbq-sp">
+    <div class="lbq-hp2">
+      <h2 id="lbq-h">Request a free quote</h2>
+      <p class="lbq-s">Tell us about the job — air conditioning, electrical, refrigeration or repairs — and we will get back to you.</p>
+      <p><strong>Prefer to talk?</strong><br>Call <a href="tel:+61499317948" style="color:#FF9A4D">0499 317 948</a></p>
+      <p><strong>Follow the work</strong><br><a href="https://www.instagram.com/kb_climate" target="_blank" rel="noopener" style="color:#FF9A4D">@kb_climate on Instagram</a></p>
+    </div>
+    <form id="lbq-form" class="lbq-f" data-site="user-target-kb-climate-power" data-biz="KB Climate & Power">
+      <label for="lbq-name">Name</label>
+      <input id="lbq-name" name="name" type="text" autocomplete="name" required>
+      <label for="lbq-phone">Phone</label>
+      <input id="lbq-phone" name="phone" type="tel" autocomplete="tel">
+      <label for="lbq-email">Email</label>
+      <input id="lbq-email" name="email" type="email" autocomplete="email">
+      <label for="lbq-service">Service needed</label>
+      <select id="lbq-service" name="service">
+        <option value="">Select a service…</option>
+        <option>Air conditioning</option>
+        <option>Electrical</option>
+        <option>Refrigeration</option>
+        <option>Electrical repairs</option>
+        <option>Something else</option>
+      </select>
+      <label for="lbq-msg">Tell us about the job</label>
+      <textarea id="lbq-msg" name="message" rows="4" required></textarea>
+      <div class="lbq-cons">
+        <input id="lbq-consent" name="consent" type="checkbox" required>
+        <label for="lbq-consent" style="text-transform:none;letter-spacing:0;color:#9DB5C8">I agree to be contacted about my enquiry</label>
+      </div>
+      <input class="lbq-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit">Send quote request</button>
+      <p class="lbq-st" id="lbq-st" role="status"></p>
+    </form>
+  </div>
+</div>
+</section>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'), n=document.getElementById('navlinks');
+  if(b&&n){b.addEventListener('click',function(){b.classList.toggle('open');n.classList.toggle('open');var ex=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!ex));});}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n&&n.classList.contains('open')){b.classList.remove('open');n.classList.remove('open');b.setAttribute('aria-expanded','false');}});
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('on');io.unobserve(en.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(function(el){el.classList.add('on');}); }
+  setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');});},1100);
+})();
+</script>
+<script>
+/* HERO 3D: HVAC duct corridor in perspective + cool-air ribbons + energy pulses */
+(function(){
+  var c=document.getElementById('heroCanvas'); if(!c||!c.getContext) return;
+  var ctx=c.getContext('2d'); var DPR=Math.min(window.devicePixelRatio||1,2);
+  var W=0,H=0,reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function resize(){W=c.clientWidth;H=c.clientHeight;c.width=W*DPR;c.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+  resize(); window.addEventListener('resize',resize);
+  var f=Math.min(W||1280,H||800)*1.05, horizon=H*0.52, camH=1.4;
+  function proj(x,z){var sc=f/z;return {x:W/2+x*sc, y:horizon+camH*H*sc};}
+  function frame(t){
+    t=t||0;
+    ctx.clearRect(0,0,W,H);
+    var grad=ctx.createLinearGradient(0,0,0,H);
+    grad.addColorStop(0,'#071420');grad.addColorStop(0.55,'#0B1B2B');grad.addColorStop(1,'#071420');
+    ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+    /* receding duct floor grid (perspective ribs) */
+    var zmin=0.9, zmax=9;
+    ctx.lineWidth=1;
+    for(var z=zmin;z<zmax;z+=0.45){
+      var a=proj(0,z), b=proj(W*0.8,z);
+      ctx.strokeStyle='rgba(47,168,216,'+(0.05+0.10*(1-z/zmax))+')';
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+    }
+    for(var i=-6;i<=6;i++){
+      var p1=proj(i*40,0.9), p2=proj(i*80,zmax);
+      ctx.strokeStyle='rgba(47,168,216,0.06)';
+      ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);ctx.stroke();
+    }
+    /* duct surface: two converging channel walls */
+    for(var w2=0;w2<3;w2++){
+      var off=(w2-1)*W*0.16, zwt=0.9+ w2*0.22;
+      var p1=proj(off,0.9), p2=proj(off*0.28,8);
+      ctx.strokeStyle='rgba(240,120,48,'+(0.16-w2*0.04)+')';
+      ctx.lineWidth=1.6;
+      ctx.beginPath();ctx.moveTo(p1.x,p1.y);ctx.lineTo(p2.x,p2.y);ctx.stroke();
+    }
+    /* cool-air ribbons sweeping along the floor grid */
+    for(var r=0;r<3;r++){
+      var phase=(t*0.00028)*(1+r*0.4)+r*2.1;
+      var zz=1.1+((phase%1)+1)%1*7.5;
+      var ybase=proj(0,zz).y;
+      ctx.strokeStyle='rgba(124,199,232,'+(0.20-r*0.05)+')';
+      ctx.lineWidth=1.3;
+      ctx.beginPath();
+      for(var x2=0;x2<=W;x2+=16){
+        var yy=ybase+Math.sin(x2*0.006+phase*3)*10*(1-zz/9);
+        if(x2===0)ctx.moveTo(x2,yy);else ctx.lineTo(x2,yy);
+      }
+      ctx.stroke();
+    }
+    /* energy pulses travelling the ducts */
+    for(var p3=0;p3<4;p3++){
+      var ph2=((t*0.0004+p3*0.25)%1+1)%1;
+      var zz2=0.95+ph2*7.2;
+      var pt=proj(W*0.08*(p3%2===0?1:-1)*0.6,zz2);
+      var gl=ctx.createRadialGradient(pt.x,pt.y,1,pt.x,pt.y,16);
+      gl.addColorStop(0,'rgba(255,154,77,0.8)');gl.addColorStop(1,'rgba(240,120,48,0)');
+      ctx.fillStyle=gl;ctx.fillRect(pt.x-18,pt.y-18,36,36);
+      ctx.fillStyle='#FF9A4D';ctx.beginPath();ctx.arc(pt.x,pt.y,2.4,0,Math.PI*2);ctx.fill();
+    }
+  }
+  function loop(ts){ if(!isFinite(ts)) ts=0; frame(ts); if(!reduce) requestAnimationFrame(loop); }
+  if(reduce){frame(16);} else {requestAnimationFrame(loop);}
+})();
+</script>
+</body>
+</html>
