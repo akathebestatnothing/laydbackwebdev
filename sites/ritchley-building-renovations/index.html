@@ -184,7 +184,78 @@ html{overflow-x:hidden}
   .nav .lb-brand img{height:clamp(30px,7.4vw,38px)}
   .nav .btn{padding:.55rem .8rem;font-size:.85rem}
 }
-</style></head>
+</style><style id="lb-argon-standard">
+/* ==== LB ARGON EXCELLENCE PASS ==== */
+/* 1. Instant first-paint visibility: never leave any section or reveal element at opacity:0 */
+html.js .rv, html.js .rv.on, html.js .rv:not(.on),
+.rv, .rv.on, .rv-d0, .rv-d1, .rv-d2, .lb-rv, .lb-rv.is-in, .reveal, [data-reveal], [data-rv],
+section, header, main, footer, .hero, .hero-in, .hero__in, .hero-copy, .hero__copy, .hero-grid {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  transition: none !important;
+}
+/* 2. Header Brand Lockup Law: logo artwork only, hide any typed name or drawn monogram in bar */
+a.brand-monogram, .brand-monogram,
+header .lb-brand__name, header .lb-brand__word, header .lb-brand__sub, header .lb-brand__rule,
+header .brand-name, header .brand__name, header .bname, header .brand-txt,
+nav .lb-brand__name, nav .lb-brand__word, nav .brand-name, nav .brand__name, nav .bname, nav .nav-b,
+.site-header .lb-brand__name, .site-header .brand-name, .site-header .bname {
+  display: none !important;
+}
+/* 3. Mobile 390px overflow & crushed H1 protection */
+html, body {
+  overflow-x: clip !important;
+  max-width: 100% !important;
+}
+@media (max-width: 860px) {
+  header, nav, .hdr-in, .nav-in, .header-inner, .bar, .bar__in, .wrap {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  header img, nav img, .brand img, .lb-brand img, .brand__word, img.word, .lb-word {
+    max-width: min(52vw, 200px) !important;
+    height: auto !important;
+  }
+  .stack, .plate, .card, .hero, .hero-in, .hero__in, .hero-grid, .hero-copy, .hero__copy {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  header.hero, .hero, .hero-in, .hero__in, .hero-grid, .wrap.hero__in {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-copy, .hero__copy, [class*="hero-copy"], [class*="hero__copy"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+  .hero h1, [class*="hero"] h1, h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+  }
+  .sjn-ticker, .asap-ticker, .tt-ticker, .lb-mq {
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+}
+/* 4. Anti-slop typography & polish */
+:root {
+  --lb-disp: "Archivo", system-ui, -apple-system, sans-serif !important;
+  --lb-sub: "Archivo", system-ui, -apple-system, sans-serif !important;
+}
+body, h1, h2, h3, h4, h5, h6, p, li, a, button, input, select, textarea {
+  font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+small, .small, .meta, .caption, .eyebrow, .kicker, .mono {
+  font-size: max(0.82em, 12px) !important;
+}
+p, li {
+  line-height: 1.55 !important;
+}
+</style>
+</head>
 <body>
 <a class="skip" href="#services">Skip to content</a>
 
@@ -316,15 +387,15 @@ html{overflow-x:hidden}
     <h2 class="h2">Recent work, photographed mid-build.</h2>
     <div class="shots">
       <figure class="shot s1">
-        <img src="assets/hero-work.jpg" alt="Timber frame and roof structure standing on a new residential build" loading="lazy" width="2200" height="2933">
+        <img src="assets/hero-work.jpg" alt="Timber frame and roof structure standing on a new residential build" loading="eager" width="2200" height="2933">
         <figcaption><b>New home, frame stage</b>Frame, trusses and bracing before the roof covering goes on.</figcaption>
       </figure>
       <figure class="shot s2">
-        <img src="assets/gal_2.jpg" alt="Structural works for a second storey addition to an existing home" loading="lazy" width="2200" height="1878">
+        <img src="assets/gal_2.jpg" alt="Structural works for a second storey addition to an existing home" loading="eager" width="2200" height="1878">
         <figcaption><b>Second storey addition</b>New floor structure tied into the existing dwelling.</figcaption>
       </figure>
       <figure class="shot s3">
-        <img src="assets/gal_3.jpg" alt="Structural carpentry and new load-bearing framing during a renovation" loading="lazy" width="2200" height="2933">
+        <img src="assets/gal_3.jpg" alt="Structural carpentry and new load-bearing framing during a renovation" loading="eager" width="2200" height="2933">
         <figcaption><b>Structural renovation</b>Load-bearing wall opened up, beams and lintels fixed in.</figcaption>
       </figure>
     </div>
@@ -339,7 +410,7 @@ html{overflow-x:hidden}
       <p>Send the suburb, the type of work and where you are up to with plans or approvals. If a phone call is quicker, ring and leave the details.</p>
       <a class="hero__tel" href="tel:0417979301">0417 979 301</a>
     </div>
-    <form id="quote-form" novalidate>
+    <form data-site="ritchley-building-renovations" id="quote-form" novalidate>
       <div class="f2">
         <div><label for="q-name">Name</label><input id="q-name" name="name" autocomplete="name" required></div>
         <div><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
@@ -372,7 +443,7 @@ html{overflow-x:hidden}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__id">
-        <img src="assets/logo.png" alt="Ritchley Building &amp; Renovations" width="700" height="367" loading="lazy">
+        <img src="assets/logo.png" alt="Ritchley Building &amp; Renovations" width="700" height="367" loading="eager">
         <div>
           <strong>Ritchley Building &amp; Renovations</strong>
           <span>New builds, renovations, extensions and structural work</span>
@@ -405,7 +476,7 @@ html{overflow-x:hidden}
 </script>
 <script>
 (function () {
-  var EP = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+  var EP = 'https://laydback-hq.tail5b3740.ts.net';
   function base(cb) {
     if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
     var done = false;

@@ -223,7 +223,78 @@ footer{background:#1b1512;color:var(--on-dark);padding:clamp(48px,6vw,72px) 0 26
 .brand-monogram{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:2}
 .brand-monogram img{height:clamp(38px,3.2vw,54px)!important;width:auto!important;display:block!important}
 @media(max-width:900px){.brand-monogram{position:static!important;transform:none!important;margin-right:auto!important}}
-</style></head>
+</style><style id="lb-argon-standard">
+/* ==== LB ARGON EXCELLENCE PASS ==== */
+/* 1. Instant first-paint visibility: never leave any section or reveal element at opacity:0 */
+html.js .rv, html.js .rv.on, html.js .rv:not(.on),
+.rv, .rv.on, .rv-d0, .rv-d1, .rv-d2, .lb-rv, .lb-rv.is-in, .reveal, [data-reveal], [data-rv],
+section, header, main, footer, .hero, .hero-in, .hero__in, .hero-copy, .hero__copy, .hero-grid {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  transition: none !important;
+}
+/* 2. Header Brand Lockup Law: logo artwork only, hide any typed name or drawn monogram in bar */
+a.brand-monogram, .brand-monogram,
+header .lb-brand__name, header .lb-brand__word, header .lb-brand__sub, header .lb-brand__rule,
+header .brand-name, header .brand__name, header .bname, header .brand-txt,
+nav .lb-brand__name, nav .lb-brand__word, nav .brand-name, nav .brand__name, nav .bname, nav .nav-b,
+.site-header .lb-brand__name, .site-header .brand-name, .site-header .bname {
+  display: none !important;
+}
+/* 3. Mobile 390px overflow & crushed H1 protection */
+html, body {
+  overflow-x: clip !important;
+  max-width: 100% !important;
+}
+@media (max-width: 860px) {
+  header, nav, .hdr-in, .nav-in, .header-inner, .bar, .bar__in, .wrap {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  header img, nav img, .brand img, .lb-brand img, .brand__word, img.word, .lb-word {
+    max-width: min(52vw, 200px) !important;
+    height: auto !important;
+  }
+  .stack, .plate, .card, .hero, .hero-in, .hero__in, .hero-grid, .hero-copy, .hero__copy {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  header.hero, .hero, .hero-in, .hero__in, .hero-grid, .wrap.hero__in {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-copy, .hero__copy, [class*="hero-copy"], [class*="hero__copy"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+  .hero h1, [class*="hero"] h1, h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+  }
+  .sjn-ticker, .asap-ticker, .tt-ticker, .lb-mq {
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+}
+/* 4. Anti-slop typography & polish */
+:root {
+  --lb-disp: "Archivo", system-ui, -apple-system, sans-serif !important;
+  --lb-sub: "Archivo", system-ui, -apple-system, sans-serif !important;
+}
+body, h1, h2, h3, h4, h5, h6, p, li, a, button, input, select, textarea {
+  font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+small, .small, .meta, .caption, .eyebrow, .kicker, .mono {
+  font-size: max(0.82em, 12px) !important;
+}
+p, li {
+  line-height: 1.55 !important;
+}
+</style>
+</head>
 <body>
 <script>document.documentElement.className+=' js';</script>
 <a class="skip" href="#main">Skip to content</a>
@@ -237,7 +308,7 @@ footer{background:#1b1512;color:var(--on-dark);padding:clamp(48px,6vw,72px) 0 26
         <span class="brand__sb">Landscaping · Renovation · Canberra ACT</span>
       </span>
     </a>
-    <nav class="nav" aria-label="Primary"><a class="brand-monogram" href="#top" aria-label="KB Landscaping and Renovation"><img src="assets/brand-mark.svg" alt="" width="48" height="48"></a>
+    <nav class="nav" aria-label="Primary">
       <a class="lnk" href="#landscaping">Landscaping</a>
       <a class="lnk" href="#renovation">Renovation</a>
       <a class="lnk" href="#work">Work</a>
@@ -317,11 +388,11 @@ footer{background:#1b1512;color:var(--on-dark);padding:clamp(48px,6vw,72px) 0 26
           <figcaption>Pavers, retaining and planting — a job like this</figcaption>
         </figure>
         <figure class="rv">
-          <img src="assets/work-01.jpg" alt="Timber retaining wall seating around a fire pit with gravel paving" width="1600" height="1200" loading="lazy" decoding="async">
+          <img src="assets/work-01.jpg" alt="Timber retaining wall seating around a fire pit with gravel paving" width="1600" height="1200" loading="eager" decoding="async">
           <figcaption>Timber retaining and seating — a job like this</figcaption>
         </figure>
         <figure class="rv">
-          <img src="assets/work-03.jpg" alt="Curved concrete slab path stepping through a garden past established trees" width="1459" height="1600" loading="lazy" decoding="async">
+          <img src="assets/work-03.jpg" alt="Curved concrete slab path stepping through a garden past established trees" width="1459" height="1600" loading="eager" decoding="async">
           <figcaption>Slab path through the garden — a job like this</figcaption>
         </figure>
       </div>
@@ -357,7 +428,7 @@ footer{background:#1b1512;color:var(--on-dark);padding:clamp(48px,6vw,72px) 0 26
         </ul>
       </div>
       <div class="pic rv">
-        <img src="assets/hero-landscape.jpg" alt="Finished paving and lawn in front of a home" width="2000" height="1500" loading="lazy" decoding="async">
+        <img src="assets/hero-landscape.jpg" alt="Finished paving and lawn in front of a home" width="2000" height="1500" loading="eager" decoding="async">
       </div>
     </div>
   </section>
@@ -398,7 +469,7 @@ footer{background:#1b1512;color:var(--on-dark);padding:clamp(48px,6vw,72px) 0 26
       <script>
       /* quote form — POSTs to the first-party quote endpoint */
       (function(){
-        var EP = 'https://grocery-periodically-everyone-wine.trycloudflare.com';
+        var EP = 'https://laydback-hq.tail5b3740.ts.net';
         function base(cb){
           if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
           var done = false;
@@ -465,7 +536,7 @@ footer{background:#1b1512;color:var(--on-dark);padding:clamp(48px,6vw,72px) 0 26
   <div class="wrap foot">
     <div>
       <a class="brand" href="#top">
-        <span class="brand__mark"><img src="assets/logo.png" alt="" width="40" height="40" loading="lazy" decoding="async"></span>
+        <span class="brand__mark"><img src="assets/logo.png" alt="" width="40" height="40" loading="eager" decoding="async"></span>
         <span class="brand__txt"><span class="brand__nm">KB Landscaping and Renovation</span></span>
       </a>
       <p>Landscaping and renovation in Canberra ACT: paving, retaining walls, turf and planting, decks, pergolas and renovation carpentry.</p>
