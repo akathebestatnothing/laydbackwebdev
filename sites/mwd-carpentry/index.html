@@ -462,20 +462,7 @@ footer a:hover { color: var(--acc); }
 <script>
 (function(){
   var EP = null;
-  function base(cb){
-    if (window.__LAYDBACK_API_BASE) return cb(window.__LAYDBACK_API_BASE);
-    var done = false;
-    var t = setTimeout(function(){ if(!done){done=true;cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} }, 2500);
-    fetch('https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt?_=' + Date.now())
-      .then(function(r){ return r.text(); })
-      .then(function(txt){
-        var b = (txt||'').trim().replace(/\/+$/, '');
-        if (done) return;
-        done = true; clearTimeout(t);
-        cb(/^https:\/\/[a-z0-9.\-]+(:\d+)?$/i.test(b) ? b : 'https://grocery-periodically-everyone-wine.trycloudflare.com');
-      })
-      .catch(function(){ if(!done){done=true;clearTimeout(t);cb('https://grocery-periodically-everyone-wine.trycloudflare.com');} });
-  }
+  function base(cb){ cb(window.__LAYDBACK_API_BASE || 'https://laydback-hq.tail5b3740.ts.net'); }
   function init(){
     var f = document.getElementById('lbq-form');
     if (!f) return;
@@ -488,39 +475,22 @@ footer a:hover { color: var(--acc); }
       if (d.website) return;
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
-        st.style.color = '#ff9d8a';
-        return;
+        st.style.color = '#ff9d8a'; return;
       }
-      btn.disabled = true;
-      st.textContent = 'Sending\u2026';
-      st.style.color = '';
+      btn.disabled = true; st.textContent = 'Sending\u2026'; st.style.color = '';
       base(function(B){
-        var url = B + '/functions/v1/quote-request';
-        fetch(url, {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({
-            site_id: f.dataset.site || '',
-            business_name: f.dataset.biz || '',
-            name: d.name, phone: d.phone, email: d.email,
-            service: d.service || '', message: d.message,
-            consent: !!d.consent
-          })
+        fetch(B + '/functions/v1/quote-request', {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ site_id: f.dataset.site || '', business_name: f.dataset.biz || '',
+            name: d.name, phone: d.phone, email: d.email, service: d.service || '',
+            message: d.message, consent: !!d.consent })
         })
         .then(function(r){ return r.json().catch(function(){ return {}; }); })
         .then(function(x){
-          if (x && x.success) {
-            f.reset();
-            st.textContent = "Thanks \u2014 your request is in. We'll be in touch shortly.";
-            st.style.color = 'var(--lbq-accent)';
-          } else {
-            throw new Error((x && x.error) || 'Could not send');
-          }
+          if (x && x.success) { f.reset(); st.textContent = "Thanks \u2014 your request is in. MWD Carpentry will be in touch shortly."; st.style.color = ''; }
+          else { throw new Error((x && x.error) || 'Could not send'); }
         })
-        .catch(function(err){
-          st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.';
-          st.style.color = '#ff9d8a';
-        })
+        .catch(function(err){ st.textContent = (err && err.message) ? err.message : 'Could not send \u2014 please try again or call.'; st.style.color = '#ff9d8a'; })
         .finally(function(){ btn.disabled = false; });
       });
     });
@@ -529,6 +499,7 @@ footer a:hover { color: var(--acc); }
   else init();
 })();
 </script>
+
 </section>
 
 <footer><div class="wrap">
