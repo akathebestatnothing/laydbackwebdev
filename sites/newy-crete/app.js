@@ -39,14 +39,81 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
   revealItems.forEach(item => item.classList.add('is-visible'));
 }
 
+// Background pour reel controls & reduced-motion compliance
+const heroVideo = document.getElementById('hero-video');
+const reelToggle = document.getElementById('reelToggle');
 const heroImage = document.getElementById('hero-image');
+
+if (heroVideo && reelToggle) {
+  const syncReelButton = () => {
+    const paused = heroVideo.paused;
+    reelToggle.setAttribute('aria-pressed', String(paused));
+    reelToggle.textContent = paused ? 'Play reel' : 'Pause reel';
+  };
+  if (reducedMotion.matches) {
+    heroVideo.pause();
+    syncReelButton();
+  } else {
+    const playPromise = heroVideo.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => syncReelButton());
+    }
+  }
+  reelToggle.addEventListener('click', () => {
+    if (heroVideo.paused) {
+      heroVideo.play().catch(() => {});
+    } else {
+      heroVideo.pause();
+    }
+    syncReelButton();
+  });
+}
+
+// Subtle 3D mineral-aggregate flow-field canvas in hero
+const heroCanvas = document.getElementById('hero-canvas');
+if (heroCanvas && !reducedMotion.matches) {
+  const ctx = heroCanvas.getContext('2d');
+  let width = 0, height = 0, rafId = 0;
+  const particles = Array.from({ length: 36 }, (_, i) => ({
+    x: (i * 0.29) % 1,
+    y: (i * 0.61) % 1,
+    r: 1.1 + (i % 3) * 0.65,
+    vx: 0.00018 + (i % 5) * 0.00004,
+    vy: -0.00012 - (i % 4) * 0.00003,
+    alpha: 0.14 + (i % 4) * 0.06
+  }));
+  const resize = () => {
+    const rect = heroCanvas.getBoundingClientRect();
+    width = heroCanvas.width = Math.max(1, Math.floor(rect.width * Math.min(window.devicePixelRatio || 1, 2)));
+    height = heroCanvas.height = Math.max(1, Math.floor(rect.height * Math.min(window.devicePixelRatio || 1, 2)));
+  };
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  const draw = () => {
+    if (window.scrollY < window.innerHeight * 1.1) {
+      ctx.clearRect(0, 0, width, height);
+      for (const p of particles) {
+        p.x = (p.x + p.vx + 1) % 1;
+        p.y = (p.y + p.vy + 1) % 1;
+        ctx.beginPath();
+        ctx.arc(p.x * width, p.y * height, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(233, 232, 223, ${p.alpha})`;
+        ctx.fill();
+      }
+    }
+    rafId = window.requestAnimationFrame(draw);
+  };
+  rafId = window.requestAnimationFrame(draw);
+}
+
 let scrollTicking = false;
 function frame() {
-  if (window.scrollY < window.innerHeight && window.innerWidth > 760) {
+  const mediaTarget = heroVideo || heroImage;
+  if (mediaTarget && window.scrollY < window.innerHeight && window.innerWidth > 760) {
     const y = Math.min(window.scrollY * 0.035, 28);
-    heroImage.style.transform = `translate3d(0,${y}px,0) scale(1.025)`;
-  } else {
-    heroImage.style.removeProperty('transform');
+    mediaTarget.style.transform = `translate3d(0,${y}px,0) scale(1.04)`;
+  } else if (mediaTarget) {
+    mediaTarget.style.removeProperty('transform');
   }
   scrollTicking = false;
 }
@@ -56,6 +123,51 @@ window.addEventListener('scroll', () => {
     window.requestAnimationFrame(frame);
   }
 }, { passive: true });
+
+// Horizontal project gallery: arrow buttons + mouse-wheel + click-and-drag
+const track = document.getElementById('projectTrack');
+const prevBtn = document.getElementById('galleryPrev');
+const nextBtn = document.getElementById('galleryNext');
+if (track) {
+  const stepSize = () => {
+    const firstCard = track.querySelector('.project-card');
+    return firstCard ? firstCard.getBoundingClientRect().width + 28 : 420;
+  };
+  if (prevBtn) prevBtn.addEventListener('click', () => track.scrollBy({ left: -stepSize(), behavior: 'smooth' }));
+  if (nextBtn) nextBtn.addEventListener('click', () => track.scrollBy({ left: stepSize(), behavior: 'smooth' }));
+
+  track.addEventListener('wheel', event => {
+    if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+      const atStart = track.scrollLeft <= 0 && event.deltaY < 0;
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2 && event.deltaY > 0;
+      if (!atStart && !atEnd) {
+        event.preventDefault();
+        track.scrollLeft += event.deltaY;
+      }
+    }
+  }, { passive: false });
+
+  let isDown = false, startX = 0, scrollStart = 0;
+  track.addEventListener('pointerdown', event => {
+    if (event.button !== 0) return;
+    isDown = true;
+    startX = event.clientX;
+    scrollStart = track.scrollLeft;
+    track.classList.add('is-dragging');
+    track.setPointerCapture(event.pointerId);
+  });
+  track.addEventListener('pointermove', event => {
+    if (!isDown) return;
+    const dx = event.clientX - startX;
+    track.scrollLeft = scrollStart - dx;
+  });
+  const stopDrag = () => {
+    isDown = false;
+    track.classList.remove('is-dragging');
+  };
+  track.addEventListener('pointerup', stopDrag);
+  track.addEventListener('pointercancel', stopDrag);
+}
 
 // Existing Lay'd Back / Supabase quote pathway. Never silently substitute mailto.
 const LB_POINTER = 'https://gist.githubusercontent.com/laydbackapps-beep/48ff985c786b72a1637d7875f4df79b8/raw/api-base.txt';
@@ -87,9 +199,11 @@ const submitButton = form.querySelector('button[type="submit"]');
 form.addEventListener('submit', async event => {
   event.preventDefault();
   status.className = 'form-status';
+  status.hidden = true;
   if (!form.reportValidity()) {
     status.textContent = 'Please complete the required fields so we can get back to you.';
     status.classList.add('error');
+    status.hidden = false;
     return;
   }
   const data = new FormData(form);
@@ -120,9 +234,11 @@ form.addEventListener('submit', async event => {
     form.reset();
     status.textContent = 'Thanks — your enquiry has been sent to Newy Crete. We’ll be in touch about your project.';
     status.classList.add('success');
+    status.hidden = false;
   } catch (error) {
     status.innerHTML = 'Your enquiry couldn’t be sent just now. Please try again or call <a href="tel:+61436486214"><strong>0436 486 214</strong></a>.';
     status.classList.add('error');
+    status.hidden = false;
   } finally {
     submitButton.disabled = false;
     submitButton.querySelector('span').textContent = 'Send my enquiry';
