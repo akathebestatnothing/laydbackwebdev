@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://laydbackapps.com/sites/sensify-me/sitemap.xml

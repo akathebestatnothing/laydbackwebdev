@@ -1,0 +1,23 @@
+wide {"fontSize":"87px","heroHeight":197,"viewport":1920,"actualPageWidth":1920,"controls":[{"tag":"INPUT","text":"consent","w":20,"h":20},{"tag":"A","text":"Back to wonder ↑","w":92,"h":18}]}
+narrow-desktop {"fontSize":"84px","heroHeight":191,"viewport":1100,"actualPageWidth":1100,"controls":[{"tag":"INPUT","text":"consent","w":20,"h":20},{"tag":"A","text":"Back to wonder ↑","w":92,"h":18}]}
+tablet {"fontSize":"74px","heroHeight":170,"viewport":768,"actualPageWidth":768,"controls":[{"tag":"INPUT","text":"consent","w":20,"h":20},{"tag":"A","text":"Back to wonder ↑","w":92,"h":18}]}
+tiny {"fontSize":"42px","heroHeight":102,"viewport":320,"actualPageWidth":320,"controls":[{"tag":"INPUT","text":"consent","w":21,"h":21},{"tag":"A","text":"Back to wonder ↑","w":83,"h":17}]}
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
+    explicit: 'https://example.invalid/custom',
+    fallback: 'https://laydback-hq.tail5b3740.ts.net',
+    invalidPointer: 'https://laydback-hq.tail5b3740.ts.net',
++   validPointer: 'https://laydback-hq.tail5b3740.ts.net'
+-   validPointer: 'https://pointer.example.invalid/path'
+  }
+
+    at /home/oem/sensify-me/tests/supplemental.cjs:62:9 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

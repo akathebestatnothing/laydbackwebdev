@@ -1,0 +1,175 @@
+[
+  {
+    "index": 1,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/513488659_23907654152217141_3558909984205685171_n.jpg?stp=cp6_dst-jpg_fb50_s320x320_tt6&_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=TS1ukTymbTAQ7kNvwFapFdA&_nc_oc=AdpbzsBswW6vndzrZ10MkZf7arU70WJiyA5ZUI3RVZ63NpH3_AxQns1eaRQav6OARdt1E54-tj0xJd1JKKzZhqjf&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQQu89jQadg_9bZ6jaC0l5hLnvhQUjAhsGpy-8EZ031yQQ&oe=6AFA26AC",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/513488659_23907654152217141_3558909984205685171_n.jpg?stp=cp6_dst-jpg_fb50_s320x320_tt6&_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=TS1ukTymbTAQ7kNvwFapFdA&_nc_oc=AdpbzsBswW6vndzrZ10MkZf7arU70WJiyA5ZUI3RVZ63NpH3_AxQns1eaRQav6OARdt1E54-tj0xJd1JKKzZhqjf&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQQu89jQadg_9bZ6jaC0l5hLnvhQUjAhsGpy-8EZ031yQQ&oe=6AFA26AC",
+    "file": "research/originals/01-513488659_23907654152217141_3558909984205685171_n.jpg.jpg",
+    "http_status": 200,
+    "content_type": "image/jpeg",
+    "width": 320,
+    "height": 240,
+    "bytes": 3299,
+    "sha256": "43e6dc297fdd695adfd6d1de9a10b1c80c41f4df3c0179fc79bfa02f4855a651",
+    "status": "downloaded"
+  },
+  {
+    "index": 2,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/513488659_23907654152217141_3558909984205685171_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=TS1ukTymbTAQ7kNvwFapFdA&_nc_oc=AdpbzsBswW6vndzrZ10MkZf7arU70WJiyA5ZUI3RVZ63NpH3_AxQns1eaRQav6OARdt1E54-tj0xJd1JKKzZhqjf&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQTpfVdLEqtQ3XrkRYu05ng-boaYOdiyF9DeJB959Re3mg&oe=6AFA26AC",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/513488659_23907654152217141_3558909984205685171_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx2048x1536&ctp=s960x960&_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=TS1ukTymbTAQ7kNvwFapFdA&_nc_oc=AdpbzsBswW6vndzrZ10MkZf7arU70WJiyA5ZUI3RVZ63NpH3_AxQns1eaRQav6OARdt1E54-tj0xJd1JKKzZhqjf&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQTpfVdLEqtQ3XrkRYu05ng-boaYOdiyF9DeJB959Re3mg&oe=6AFA26AC",
+    "file": "research/originals/02-513488659_23907654152217141_3558909984205685171_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 3,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/894744773_122184516008662454_4155114922674285207_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=8a6525&_nc_ohc=o1tfsA9OrU0Q7kNvwHHO8tQ&_nc_oc=Adqto56ymYaE7B0YJP3cPKxEdJEMXbbba2pYej9DBsgSYZQbQZUgxUA-Fjqhbik_xGzpfuRvHdQH1Ytfa2YxGywm&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQQWwLzpH3Le6bsiies5XhYBHIVyj7C8MPHYqciLQRx_4Q&oe=6AFA0C08",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/894744773_122184516008662454_4155114922674285207_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=100&ccb=1-7&_nc_sid=8a6525&_nc_ohc=o1tfsA9OrU0Q7kNvwHHO8tQ&_nc_oc=Adqto56ymYaE7B0YJP3cPKxEdJEMXbbba2pYej9DBsgSYZQbQZUgxUA-Fjqhbik_xGzpfuRvHdQH1Ytfa2YxGywm&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQQWwLzpH3Le6bsiies5XhYBHIVyj7C8MPHYqciLQRx_4Q&oe=6AFA0C08",
+    "file": "research/originals/03-894744773_122184516008662454_4155114922674285207_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 4,
+    "source_url": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-6/897085520_122184515978662454_8918603338270906962_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=8a6525&_nc_ohc=_x_ZgPYr6S8Q7kNvwHro0Dm&_nc_oc=Adq8xJBCqKwDtgzhmJJcsaEs2ULl3-Xtrvjj4aThFlCX7oZoWjIILU4GlBhBIxDaPQDIhwKSTcj7OHJpLEDWQa72&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQTj11OGQaPY_SPyQHgW6xFZmZStATgpWpZ0eAwAJTH0sA&oe=6AFA42A9",
+    "retrieved_url": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-6/897085520_122184515978662454_8918603338270906962_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=109&ccb=1-7&_nc_sid=8a6525&_nc_ohc=_x_ZgPYr6S8Q7kNvwHro0Dm&_nc_oc=Adq8xJBCqKwDtgzhmJJcsaEs2ULl3-Xtrvjj4aThFlCX7oZoWjIILU4GlBhBIxDaPQDIhwKSTcj7OHJpLEDWQa72&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQTj11OGQaPY_SPyQHgW6xFZmZStATgpWpZ0eAwAJTH0sA&oe=6AFA42A9",
+    "file": "research/originals/04-897085520_122184515978662454_8918603338270906962_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 5,
+    "source_url": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/897719946_122184515966662454_2843878770048566687_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=8a6525&_nc_ohc=V0-634F_B1sQ7kNvwFAR9Xw&_nc_oc=AdolzQ0jeujQFXlik15fMwAetUTwSlrTfquFG8oJ09oCiWUI2zRt2HmrFkXLxzWZFGIdmSg4VWK_rIJ_L-V-K9N5&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQR7Wf-tnOBD8sntyySXZtIxejgECMAgp9MoP1M422TT3A&oe=6AFA21BF",
+    "retrieved_url": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/897719946_122184515966662454_2843878770048566687_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=103&ccb=1-7&_nc_sid=8a6525&_nc_ohc=V0-634F_B1sQ7kNvwFAR9Xw&_nc_oc=AdolzQ0jeujQFXlik15fMwAetUTwSlrTfquFG8oJ09oCiWUI2zRt2HmrFkXLxzWZFGIdmSg4VWK_rIJ_L-V-K9N5&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQR7Wf-tnOBD8sntyySXZtIxejgECMAgp9MoP1M422TT3A&oe=6AFA21BF",
+    "file": "research/originals/05-897719946_122184515966662454_2843878770048566687_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 6,
+    "source_url": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/895364159_122184515948662454_57961529135282122_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=8a6525&_nc_ohc=sP3q7W3Rw98Q7kNvwEx8n3z&_nc_oc=AdoIENngbArZNCYX3XXYZp9bGeiF0bon4rdMz3PseiJZqWaq1GiXVe-YXJMa6mrKrlp_ZfKDWVHhCxCTOfZYwuwC&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQSFnJRsDa6G8IFgQubKQ4RqRqgYMdjyAhabT7BeRAi6-A&oe=6AFA176F",
+    "retrieved_url": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/895364159_122184515948662454_57961529135282122_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=102&ccb=1-7&_nc_sid=8a6525&_nc_ohc=sP3q7W3Rw98Q7kNvwEx8n3z&_nc_oc=AdoIENngbArZNCYX3XXYZp9bGeiF0bon4rdMz3PseiJZqWaq1GiXVe-YXJMa6mrKrlp_ZfKDWVHhCxCTOfZYwuwC&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQSFnJRsDa6G8IFgQubKQ4RqRqgYMdjyAhabT7BeRAi6-A&oe=6AFA176F",
+    "file": "research/originals/06-895364159_122184515948662454_57961529135282122_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 7,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/898720471_122184515936662454_6980729372634778447_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=8a6525&_nc_ohc=tapWHFNjfC8Q7kNvwEIGRN3&_nc_oc=AdqdBcIINNHtQOSGhJInv79GmUQXtU1cwIf1rYNbz5OCjLy9E3nzt7Y2JT_xWFHjoPrtI_CecimLLmCAAS5amt5-&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQRNykS5WG0j4iWnwvZrvNnyUVKlKLoFrFfdlsQUc4tGdQ&oe=6AFA2555",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/898720471_122184515936662454_6980729372634778447_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=104&ccb=1-7&_nc_sid=8a6525&_nc_ohc=tapWHFNjfC8Q7kNvwEIGRN3&_nc_oc=AdqdBcIINNHtQOSGhJInv79GmUQXtU1cwIf1rYNbz5OCjLy9E3nzt7Y2JT_xWFHjoPrtI_CecimLLmCAAS5amt5-&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQRNykS5WG0j4iWnwvZrvNnyUVKlKLoFrFfdlsQUc4tGdQ&oe=6AFA2555",
+    "file": "research/originals/07-898720471_122184515936662454_6980729372634778447_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 8,
+    "source_url": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-6/895364078_122184515924662454_3725126244248200553_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=8a6525&_nc_ohc=8KbYwRIZ5poQ7kNvwHbyzUR&_nc_oc=Adq5MlpHELTZD_JMxq-oljX3UeTZVPmnmN6G_WmaTOfycKn-yGMiPU644cSybPWaiAg7LsDPXVcG_Ksn0SUZfXF8&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQTBOQAgxcV3AC-roByYtDSI1V6NX3SnhdqJeL3oPuMHvQ&oe=6AFA2C06",
+    "retrieved_url": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-6/895364078_122184515924662454_3725126244248200553_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=109&ccb=1-7&_nc_sid=8a6525&_nc_ohc=8KbYwRIZ5poQ7kNvwHbyzUR&_nc_oc=Adq5MlpHELTZD_JMxq-oljX3UeTZVPmnmN6G_WmaTOfycKn-yGMiPU644cSybPWaiAg7LsDPXVcG_Ksn0SUZfXF8&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQTBOQAgxcV3AC-roByYtDSI1V6NX3SnhdqJeL3oPuMHvQ&oe=6AFA2C06",
+    "file": "research/originals/08-895364078_122184515924662454_3725126244248200553_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 9,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/897876523_122184515906662454_1116245254505076872_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=8a6525&_nc_ohc=ZvG2FDOlZigQ7kNvwEg2goY&_nc_oc=AdqV51tXgsmPORbeJrAgV8z3yNJnO-RBRntShkbbV6aJuu0Ay34gWM6T0w3UKSL3EB_23VO9DkBYN9IrCkN8MoEQ&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQQFFQPC78A6XfNRB-ir7f_2MS5xPrp2oqgUAG_XbSbqXA&oe=6AFA3910",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/897876523_122184515906662454_1116245254505076872_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=107&ccb=1-7&_nc_sid=8a6525&_nc_ohc=ZvG2FDOlZigQ7kNvwEg2goY&_nc_oc=AdqV51tXgsmPORbeJrAgV8z3yNJnO-RBRntShkbbV6aJuu0Ay34gWM6T0w3UKSL3EB_23VO9DkBYN9IrCkN8MoEQ&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQQFFQPC78A6XfNRB-ir7f_2MS5xPrp2oqgUAG_XbSbqXA&oe=6AFA3910",
+    "file": "research/originals/09-897876523_122184515906662454_1116245254505076872_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 10,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/897039909_122184515888662454_532006184112444206_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=8a6525&_nc_ohc=gdNX4I9D27oQ7kNvwFx7G7u&_nc_oc=AdpTx7JNvWVzaEwfzjviBXLFY26GHtNAcGv4QkwDGA0GRrAZa4A2AUrKf0w9uvNHbAMZKj3z0XOTUBt7AZgNMDeD&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQTixqHj6hBZim4qnBhesld3KiMtMdqVJJVg15vL8J6BtA&oe=6AFA2640",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/897039909_122184515888662454_532006184112444206_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=104&ccb=1-7&_nc_sid=8a6525&_nc_ohc=gdNX4I9D27oQ7kNvwFx7G7u&_nc_oc=AdpTx7JNvWVzaEwfzjviBXLFY26GHtNAcGv4QkwDGA0GRrAZa4A2AUrKf0w9uvNHbAMZKj3z0XOTUBt7AZgNMDeD&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQTixqHj6hBZim4qnBhesld3KiMtMdqVJJVg15vL8J6BtA&oe=6AFA2640",
+    "file": "research/originals/10-897039909_122184515888662454_532006184112444206_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 11,
+    "source_url": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-6/897937327_122184515870662454_4016393360360611300_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=8a6525&_nc_ohc=yGelmlIY1uEQ7kNvwEa6GxJ&_nc_oc=AdpDTNocRDXLlt4MQbq5KdXb86TgSbvm8dK-iwcLkG00qb9xrH0BAwdYeBkLkz8kB5XHVc4QMAfse2gK5A6TlKf5&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQSg8YITa2Mfg-9WgPQxcxN7OlB7lOl-L6Rtxoo9BbnunQ&oe=6AFA3A9E",
+    "retrieved_url": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-6/897937327_122184515870662454_4016393360360611300_n.jpg?stp=c0.169.1536.1536a_dst-jpg_tt6&cstp=mx1536x1536&ctp=s160x160&_nc_cat=110&ccb=1-7&_nc_sid=8a6525&_nc_ohc=yGelmlIY1uEQ7kNvwEa6GxJ&_nc_oc=AdpDTNocRDXLlt4MQbq5KdXb86TgSbvm8dK-iwcLkG00qb9xrH0BAwdYeBkLkz8kB5XHVc4QMAfse2gK5A6TlKf5&_nc_zt=23&_nc_ht=scontent-dfw6-2.xx&_nc_gid=bO5HQU2Oot-2U0b6un1Dhg&_nc_ss=7b289&oh=00_AQSg8YITa2Mfg-9WgPQxcxN7OlB7lOl-L6Rtxoo9BbnunQ&oe=6AFA3A9E",
+    "file": "research/originals/11-897937327_122184515870662454_4016393360360611300_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 12,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/899772949_122184515132662454_5300240595244847405_n.jpg?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Bv2fwQ4uSKkQ7kNvwFJBOwi&_nc_oc=AdpX9wf7_VMJ0OHLqwDj6bqpY-fXxsRe-iehzqvK_1oGXxo738f7lvtTev7KTpA2tORVUtA_3_xUmbVxKWMVKVcg&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQSLhki0wnt5b0uEo8yPeTvNR9fSS-bNEnKpUmNRyG7MuQ&oe=6AFA2C7C",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/899772949_122184515132662454_5300240595244847405_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Bv2fwQ4uSKkQ7kNvwFJBOwi&_nc_oc=AdpX9wf7_VMJ0OHLqwDj6bqpY-fXxsRe-iehzqvK_1oGXxo738f7lvtTev7KTpA2tORVUtA_3_xUmbVxKWMVKVcg&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQSLhki0wnt5b0uEo8yPeTvNR9fSS-bNEnKpUmNRyG7MuQ&oe=6AFA2C7C",
+    "file": "research/originals/12-899772949_122184515132662454_5300240595244847405_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 13,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/898720535_122184515552662454_1988102305080549827_n.jpg?stp=dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=QBspBPe17OEQ7kNvwE5T6vv&_nc_oc=AdrBNxzJgi5txvDXJd-VNjjW3lztUrhDNiIWr14G5N_nGLufs372PM_8yRKok85wN0QYu9X_leluG5z6KeD-Wnz1&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQTFYSrZC4CzKHzNhJk5g-eGLmYiztEVUGftOWQwdfuD6Q&oe=6AFA0EC6",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/898720535_122184515552662454_1988102305080549827_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=QBspBPe17OEQ7kNvwE5T6vv&_nc_oc=AdrBNxzJgi5txvDXJd-VNjjW3lztUrhDNiIWr14G5N_nGLufs372PM_8yRKok85wN0QYu9X_leluG5z6KeD-Wnz1&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQTFYSrZC4CzKHzNhJk5g-eGLmYiztEVUGftOWQwdfuD6Q&oe=6AFA0EC6",
+    "file": "research/originals/13-898720535_122184515552662454_1988102305080549827_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 14,
+    "source_url": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/896980457_122184515570662454_2787982467479521131_n.jpg?stp=dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=BVx5q7WE98YQ7kNvwER0Obp&_nc_oc=Adq7G0PzHrCoFIOHXo2GTBoQIYNd2QWEJ2Pqee_cnjq6NKm9cjp7MjEU50ZI8nqwBKxq-yogzDjR4_SF1G4GgcdO&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQQZ7ZAEx40RxcdzUcHrhBTMaZVSgqp4AZDHs5GWTvehPA&oe=6AFA34F6",
+    "retrieved_url": "https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/896980457_122184515570662454_2787982467479521131_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=BVx5q7WE98YQ7kNvwER0Obp&_nc_oc=Adq7G0PzHrCoFIOHXo2GTBoQIYNd2QWEJ2Pqee_cnjq6NKm9cjp7MjEU50ZI8nqwBKxq-yogzDjR4_SF1G4GgcdO&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQQZ7ZAEx40RxcdzUcHrhBTMaZVSgqp4AZDHs5GWTvehPA&oe=6AFA34F6",
+    "file": "research/originals/14-896980457_122184515570662454_2787982467479521131_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 15,
+    "source_url": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/898082286_122184515336662454_6218623773511912079_n.jpg?stp=dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=f9sI0HkUvOwQ7kNvwFn4yr6&_nc_oc=AdqFDoFY-b6bl2NKD8z0DnSC24IE6e-_hp2ZeX3X0fM2qqe0HaTTytzzwpkWWsSaNigrPuXe83dMUGtI6EDIoDPB&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQSd5cwg_UIuEpk9YGL2AkZoxQ7WjCLu4_GhHV0Nc0PtYQ&oe=6AFA3EE9",
+    "retrieved_url": "https://scontent-dfw6-1.xx.fbcdn.net/v/t39.30808-6/898082286_122184515336662454_6218623773511912079_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=f9sI0HkUvOwQ7kNvwFn4yr6&_nc_oc=AdqFDoFY-b6bl2NKD8z0DnSC24IE6e-_hp2ZeX3X0fM2qqe0HaTTytzzwpkWWsSaNigrPuXe83dMUGtI6EDIoDPB&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQSd5cwg_UIuEpk9YGL2AkZoxQ7WjCLu4_GhHV0Nc0PtYQ&oe=6AFA3EE9",
+    "file": "research/originals/15-898082286_122184515336662454_6218623773511912079_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 16,
+    "source_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/894744773_122184516008662454_4155114922674285207_n.jpg?stp=dst-jpg_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=o1tfsA9OrU0Q7kNvwHHO8tQ&_nc_oc=Adqto56ymYaE7B0YJP3cPKxEdJEMXbbba2pYej9DBsgSYZQbQZUgxUA-Fjqhbik_xGzpfuRvHdQH1Ytfa2YxGywm&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQTrVIPvPCoknH7RpKF7SEs57gAeFzrnX5DxxiEXn-PJkQ&oe=6AFA0C08",
+    "retrieved_url": "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/894744773_122184516008662454_4155114922674285207_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s590x590&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=o1tfsA9OrU0Q7kNvwHHO8tQ&_nc_oc=Adqto56ymYaE7B0YJP3cPKxEdJEMXbbba2pYej9DBsgSYZQbQZUgxUA-Fjqhbik_xGzpfuRvHdQH1Ytfa2YxGywm&_nc_zt=23&_nc_ht=scontent-dfw5-2.xx&_nc_gid=aW-YXe6mUs9IIystgzTkcw&_nc_ss=7b289&oh=00_AQTrVIPvPCoknH7RpKF7SEs57gAeFzrnX5DxxiEXn-PJkQ&oe=6AFA0C08",
+    "file": "research/originals/16-894744773_122184516008662454_4155114922674285207_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 17,
+    "source_url": "https://scontent.ftuc1-1.fna.fbcdn.net/v/t15.5256-10/482566042_1384817496008735_3163115430283010412_n.jpg?stp=dst-jpg_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c44d43&_nc_ohc=LyviaYpQHXYQ7kNvwFfnr7W&_nc_oc=AdqPCSwiYqUFq6AO4goe77bsvGKykAy_IIp2oiR_PAgYmqqSG90oVc98RB4W8iyMkVM&_nc_zt=23&_nc_ht=scontent.ftuc1-1.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQTLb1M-6t4aqD-iU1N3uSWSJobbKLkXhzRRgOiZ5_ga4w&oe=6AFA1EE2",
+    "retrieved_url": "https://scontent.ftuc1-1.fna.fbcdn.net/v/t15.5256-10/482566042_1384817496008735_3163115430283010412_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c44d43&_nc_ohc=LyviaYpQHXYQ7kNvwFfnr7W&_nc_oc=AdqPCSwiYqUFq6AO4goe77bsvGKykAy_IIp2oiR_PAgYmqqSG90oVc98RB4W8iyMkVM&_nc_zt=23&_nc_ht=scontent.ftuc1-1.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQTLb1M-6t4aqD-iU1N3uSWSJobbKLkXhzRRgOiZ5_ga4w&oe=6AFA1EE2",
+    "file": "research/originals/17-482566042_1384817496008735_3163115430283010412_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 18,
+    "source_url": "https://scontent.ftuc1-2.fna.fbcdn.net/v/t15.5256-10/483134644_1723809058176453_4992561365617539412_n.jpg?stp=dst-jpg_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=BIj52PfqYewQ7kNvwG-swxm&_nc_oc=AdoxmoMOZCayBgWBbmMFq0LCdJAlIQ9zzJv_vw5izJIxPQvVQGmvjZrs_3SPKFtvjnk&_nc_zt=23&_nc_ht=scontent.ftuc1-2.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQSUROTg-muhoJ3PmcnQh-kYeUbV-NmZwQMEvRsvZKnKbw&oe=6AFA3D0F",
+    "retrieved_url": "https://scontent.ftuc1-2.fna.fbcdn.net/v/t15.5256-10/483134644_1723809058176453_4992561365617539412_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1442&ctp=s960x960&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=5fad0e&_nc_ohc=BIj52PfqYewQ7kNvwG-swxm&_nc_oc=AdoxmoMOZCayBgWBbmMFq0LCdJAlIQ9zzJv_vw5izJIxPQvVQGmvjZrs_3SPKFtvjnk&_nc_zt=23&_nc_ht=scontent.ftuc1-2.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQSUROTg-muhoJ3PmcnQh-kYeUbV-NmZwQMEvRsvZKnKbw&oe=6AFA3D0F",
+    "file": "research/originals/18-483134644_1723809058176453_4992561365617539412_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 19,
+    "source_url": "https://scontent.ftuc1-1.fna.fbcdn.net/v/t15.5256-10/899468425_2407956080007841_2307608240052945888_n.avif?stp=dst-jpg_tt6&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c44d43&_nc_ohc=XtWMM7T8yBkQ7kNvwHwrix_&_nc_oc=AdpNUePZDAk2Y1EeuvSYLRX8rr9Ghmj8BPsZiVuUAWoQyttCnGLGn-zvaFBiSPVQqE8&_nc_zt=23&_nc_ht=scontent.ftuc1-1.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQQRS0hI-JWfMy7w9jJHr-CgJXIj1eLcli90xY-v8KUrOQ&oe=6AFA1B84",
+    "retrieved_url": "https://scontent.ftuc1-1.fna.fbcdn.net/v/t15.5256-10/899468425_2407956080007841_2307608240052945888_n.avif?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c44d43&_nc_ohc=XtWMM7T8yBkQ7kNvwHwrix_&_nc_oc=AdpNUePZDAk2Y1EeuvSYLRX8rr9Ghmj8BPsZiVuUAWoQyttCnGLGn-zvaFBiSPVQqE8&_nc_zt=23&_nc_ht=scontent.ftuc1-1.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQQRS0hI-JWfMy7w9jJHr-CgJXIj1eLcli90xY-v8KUrOQ&oe=6AFA1B84",
+    "file": "research/originals/19-899468425_2407956080007841_2307608240052945888_n.avif.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 20,
+    "source_url": "https://scontent.ftuc1-2.fna.fbcdn.net/v/t15.5256-10/470269342_9710219325661319_2873331676063824739_n.jpg?stp=dst-jpg_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c44d43&_nc_ohc=KZb9m1vePDQQ7kNvwGsMH5w&_nc_oc=Adoh96e6kuQt4uRxDWDHuclaWrwM9LxQfEv2GWIB8i1SfKKBcEauabcWWjRWBX-xih8&_nc_zt=23&_nc_ht=scontent.ftuc1-2.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQRF46JJvXrHkG20OuAkoBN0ue-6K9UFxMXt0dNmI3cfyQ&oe=6AFA138A",
+    "retrieved_url": "https://scontent.ftuc1-2.fna.fbcdn.net/v/t15.5256-10/470269342_9710219325661319_2873331676063824739_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c44d43&_nc_ohc=KZb9m1vePDQQ7kNvwGsMH5w&_nc_oc=Adoh96e6kuQt4uRxDWDHuclaWrwM9LxQfEv2GWIB8i1SfKKBcEauabcWWjRWBX-xih8&_nc_zt=23&_nc_ht=scontent.ftuc1-2.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQRF46JJvXrHkG20OuAkoBN0ue-6K9UFxMXt0dNmI3cfyQ&oe=6AFA138A",
+    "file": "research/originals/20-470269342_9710219325661319_2873331676063824739_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "index": 21,
+    "source_url": "https://scontent.ftuc1-1.fna.fbcdn.net/v/t15.5256-10/469187442_1687823291950729_969025847104857794_n.jpg?stp=dst-jpg_tt6&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c44d43&_nc_ohc=M4Uy_Kpmg3EQ7kNvwHiR35p&_nc_oc=AdpopbUundzJplxK1aZiHiN2PridPDAnQ043cXioQPtPgX6HC7FnmwDAFV60bSyJyIA&_nc_zt=23&_nc_ht=scontent.ftuc1-1.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQRaEH3_f7gMnc7JEU7QyIw6RLBzigcXfV6rRXWT9HAarA&oe=6AFA3618",
+    "retrieved_url": "https://scontent.ftuc1-1.fna.fbcdn.net/v/t15.5256-10/469187442_1687823291950729_969025847104857794_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=c44d43&_nc_ohc=M4Uy_Kpmg3EQ7kNvwHiR35p&_nc_oc=AdpopbUundzJplxK1aZiHiN2PridPDAnQ043cXioQPtPgX6HC7FnmwDAFV60bSyJyIA&_nc_zt=23&_nc_ht=scontent.ftuc1-1.fna&_nc_gid=UZR2OwNq5R3Mr20Xdy-X2g&_nc_ss=7b289&oh=00_AQRaEH3_f7gMnc7JEU7QyIw6RLBzigcXfV6rRXWT9HAarA&oe=6AFA3618",
+    "file": "research/originals/21-469187442_1687823291950729_969025847104857794_n.jpg.jpg",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]
