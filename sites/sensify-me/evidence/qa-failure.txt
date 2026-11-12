@@ -1,5 +1,0 @@
-AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
-
-true !== false
-
-    at /home/oem/sensify-me/tests/qa.cjs:137:11
