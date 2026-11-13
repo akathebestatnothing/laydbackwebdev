@@ -514,34 +514,55 @@ p, li {
 <body>
 <header class="header" role="banner">
   <div class="container header__inner">
-    <a class="lb-brand lb-brand--centred" href="#top" aria-label="ASAP Roof Restorations"><img class="lb-logo-hi" src="assets/logo-header-hi.png" alt="ASAP Roof Restorations" width="636" height="520"></a>
+    <a class="asap-brand" href="#top" aria-label="ASAP Roof Restorations — Home">
+      <svg class="asap-brand__mark" viewBox="0 0 64 46" width="48" height="35" aria-hidden="true">
+        <polygon points="4,42 32,4 32,16 14,42" fill="#13294B"/>
+        <polygon points="60,42 32,4 32,16 50,42" fill="#C41E2A"/>
+        <rect x="25" y="24" width="6" height="6" fill="#13294B"/>
+        <rect x="33" y="24" width="6" height="6" fill="#13294B"/>
+        <rect x="25" y="32" width="6" height="6" fill="#13294B"/>
+        <rect x="33" y="32" width="6" height="6" fill="#13294B"/>
+      </svg>
+      <span class="asap-brand__word">
+        <strong>ASAP</strong>
+        <small>ROOF RESTORATIONS</small>
+      </span>
+    </a>
     <div class="header__end">
-      <nav class="nav" role="navigation" aria-label="Main navigation"><a href="#services">Services</a>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#work">Recent Roofs</a>
         <a href="#process">Process</a>
         <a href="#quote">Contact</a>
       </nav>
-      <a class="lb-tel" href="tel:+61425470406">0425 470 406</a>
+      <a class="lb-tel" href="tel:+614****0406">0425 470 406</a>
+      <a class="header__cta" href="#quote">Free Quote</a>
     </div>
   </div>
 </header>
 
 <main id="main" role="main">
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="container hero__inner">
       <div class="hero__copy">
-        <span class="hero__badge rv">Tiled roofs &middot; Servicing the East Coast of Australia</span>
-        <h1 id="hero-title" class="rv">East Coast Roof<br>Restoration</h1>
-        <p class="hero__lead rv">Cracked tiles, crumbling ridge caps, moss and a faded coating &mdash; re-bedded, re-pointed, cleaned and re-coated by the same crew that quotes it. Free quotes, no obligation.</p>
-        <ul class="hero__proof rv">
-          <li>Free quote after the roof is looked at</li>
-          <li>Photos of the findings shared with you</li>
-          <li>Tiles matched from what is already on the roof</li>
+        <span class="hero__badge">Tiled &amp; Metal Roofs &middot; Newcastle, Central Coast &amp; East Coast NSW</span>
+        <h1 id="hero-title">East Coast Roof<br>Restoration</h1>
+        <p class="hero__lead">Cracked tiles, weathered ridge caps, moss build-up and faded coatings — re-bedded, re-pointed, high-pressure cleaned and membrane-coated by the same experienced crew that quotes your roof.</p>
+        <ul class="hero__proof">
+          <li>Free on-site roof inspection &amp; itemised written quote</li>
+          <li>Same-day condition photos shared directly with you</li>
+          <li>Broken tiles matched &amp; replaced before any coating begins</li>
         </ul>
-        <a href="#quote" class="hero__cta rv">Request a Quote</a>
+        <div class="hero__actions">
+          <a href="#quote" class="hero__cta">Request a Free Quote &rarr;</a>
+          <a href="tel:+614****0406" class="hero__cta-ghost">Call 0425 470 406</a>
+        </div>
       </div>
-      <figure class="hero__shot rv">
-        <img src="assets/photo_3.jpg" alt="Restored tiled roof on an East Coast home" width="1200" height="800" loading="eager">
-        <figcaption>Ridges, hips and tile face done in one run.</figcaption>
+      <figure class="hero__shot">
+        <div class="hero__shot-frame">
+          <img src="assets/photo_1.jpg" alt="Freshly restored and membrane-coated charcoal concrete tile roof with re-pointed ridge capping" width="1200" height="800" loading="eager" fetchpriority="high">
+        </div>
+        <figcaption>Re-bedded, re-pointed ridge caps and high-build charcoal tile membrane.</figcaption>
       </figure>
     </div>
   </section>
@@ -583,6 +604,30 @@ p, li {
           <p>High-build membrane coatings formulated for Australian conditions — UV resistant, heat reflective, 10-year durability.</p>
         </div>
       </article>
+    </div>
+  </section>
+
+  
+  <section id="work" class="asap-work section" aria-labelledby="work-title">
+    <div class="container">
+      <header class="asap-work__head">
+        <h2 id="work-title">Tile &amp; Colorbond Roof Work</h2>
+        <p>From full tiled roof restorations and ridge re-pointing to Colorbond metal re-sheeting and precision brickwork flashing.</p>
+      </header>
+      <div class="asap-work__grid">
+        <figure class="asap-work__card">
+          <img src="assets/photo_1.jpg" alt="Completed concrete tile roof restoration with re-pointed ridge caps in charcoal" width="1200" height="800" loading="lazy">
+          <figcaption><strong>Tiled Roof Restoration</strong><span>High-pressure clean, ridge re-pointing &amp; UV membrane finish</span></figcaption>
+        </figure>
+        <figure class="asap-work__card">
+          <img src="assets/photo_3.jpg" alt="Aerial view of completed residential corrugated Colorbond metal roof" width="1200" height="800" loading="lazy">
+          <figcaption><strong>Colorbond &amp; Metal Roofing</strong><span>Full residential hip-and-valley metal roof finish</span></figcaption>
+        </figure>
+        <figure class="asap-work__card">
+          <img src="assets/photo_4.jpg" alt="Close-up of dark corrugated metal roof step and apron flashing against brick wall" width="1200" height="800" loading="lazy">
+          <figcaption><strong>Flashing &amp; Leak Waterproofing</strong><span>Custom step &amp; apron flashing sealed tight to brickwork</span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -1154,6 +1199,226 @@ p,li{line-height:1.55}
 section,header,footer,.wrap,.container,.inner,[class*="section"]{
   scroll-margin-top:24px}
 
+
+/* === LAYDBACK BRAND & CONTRAST HARDENING === */
+:root {
+  --ink: #0f1724 !important;
+  --ground: #101926 !important;
+  --mist: #f1f4f8 !important;
+  --hairline: rgba(15, 23, 36, 0.16) !important;
+  --accent: #c41e2a !important;
+  --lb-name: #0f1724 !important;
+}
+html, body { overflow-x: clip; }
+.js .rv { opacity: 1 !important; transform: none !important; }
+
+.header {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-bottom: 1px solid rgba(15, 23, 36, 0.12) !important;
+}
+.header__inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 74px !important;
+}
+.asap-brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  text-decoration: none !important;
+}
+.asap-brand__mark { flex-shrink: 0; display: block; }
+.asap-brand__word {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+.asap-brand__word strong {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #13294B;
+}
+.asap-brand__word small {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #C41E2A;
+}
+.header .nav a { color: #0f1724 !important; font-weight: 600 !important; }
+.header .lb-tel {
+  color: #0f1724 !important;
+  border-bottom: 2px solid #C41E2A !important;
+  font-weight: 700 !important;
+}
+.header__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.15rem;
+  border-radius: 4px;
+  background: #C41E2A !important;
+  color: #ffffff !important;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+.header__cta:hover { background: #a31621 !important; color: #ffffff !important; }
+@media (max-width: 640px) { .header__cta { display: none; } }
+
+.hero {
+  background: #101926 !important;
+  color: #f1f4f8 !important;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0 !important;
+}
+.hero__badge {
+  color: #ff858d !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+.hero__proof {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0.75rem;
+  display: grid;
+  gap: 0.55rem;
+}
+.hero__proof li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: #e3e9f0;
+}
+.hero__proof li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 8px;
+  height: 8px;
+  background: #C41E2A;
+  border-radius: 2px;
+}
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+  margin-top: 0.65rem;
+}
+.hero__cta {
+  background: #C41E2A !important;
+  border: 1px solid #C41E2A !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  padding: 0.9rem 1.65rem !important;
+  font-weight: 700 !important;
+}
+.hero__cta:hover {
+  background: #a31621 !important;
+  border-color: #a31621 !important;
+  color: #ffffff !important;
+}
+.hero__cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid rgba(241, 244, 248, 0.35);
+  border-radius: 4px;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+.hero__cta-ghost:hover { border-color: #ffffff; }
+
+.hero__shot {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid rgba(241, 244, 248, 0.16) !important;
+  border-left: 1px solid rgba(241, 244, 248, 0.16) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: #162233 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.hero__shot-frame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.hero__shot img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+}
+.hero__shot figcaption {
+  padding: 0.85rem 1.1rem !important;
+  margin: 0 !important;
+  font-size: 0.85rem !important;
+  color: #d6e0eb !important;
+  background: #162233 !important;
+  border-top: 1px solid rgba(241, 244, 248, 0.1) !important;
+}
+
+.asap-ticker {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+.asap-work {
+  background: #ffffff;
+  border-top: 1px solid rgba(15, 23, 36, 0.1);
+  border-bottom: 1px solid rgba(15, 23, 36, 0.1);
+}
+.asap-work__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.asap-work__head p {
+  max-width: 48ch;
+  color: #465362;
+  margin: 0;
+}
+.asap-work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.asap-work__card {
+  margin: 0;
+  border: 1px solid rgba(15, 23, 36, 0.12);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+}
+.asap-work__card img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.asap-work__card figcaption {
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.asap-work__card figcaption strong {
+  color: #0f1724;
+  font-size: 1rem;
+}
+.asap-work__card figcaption span {
+  color: #465362;
+  font-size: 0.875rem;
+}
+@media (max-width: 820px) {
+  .asap-work__grid { grid-template-columns: 1fr; }
+}
 </style>
 <script id="asap-extras-js">
 (function(){
