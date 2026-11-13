@@ -63,3 +63,86 @@
   .project-track{grid-auto-columns:minmax(275px,82vw);gap:18px}
   .instagram-pill{margin-left:0}
 }
+
+/* === VERTEX VISION & ARTISANAL RENDER ENGINE POLISH === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.032;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.site-header {
+  position: fixed;
+  height: 86px;
+  background: rgba(233, 232, 223, 0.90);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid rgba(37, 43, 42, 0.14);
+  box-shadow: 0 4px 24px rgba(37, 43, 42, 0.05);
+  z-index: 50;
+}
+.desktop-nav a {
+  color: var(--ink);
+  font-weight: 600;
+}
+.header-phone {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: background 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.header-phone > span:first-child {
+  opacity: 0.82;
+}
+.header-phone:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+.brand img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: transparent;
+}
+@media (min-width: 761px) {
+  .hero-media {
+    inset: 106px var(--edge) 68px 39%;
+    border-radius: 8px;
+    box-shadow: 0 28px 64px rgba(20, 24, 23, 0.22);
+    border: 1px solid rgba(37, 43, 42, 0.16);
+  }
+  .hero-wash {
+    background: linear-gradient(90deg, rgba(233, 232, 223, 1) 0%, rgba(233, 232, 223, 0.99) 37%, rgba(233, 232, 223, 0.18) 44%, rgba(233, 232, 223, 0) 54%);
+  }
+  .hero-wash::after {
+    display: none;
+  }
+  .hero-topline {
+    top: 102px;
+  }
+  .hero-topline span:last-child {
+    background: rgba(37, 43, 42, 0.82);
+    color: var(--paper);
+    padding: 5px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .image-credit {
+    right: calc(var(--edge) + 18px);
+    bottom: 84px;
+    background: rgba(25, 30, 29, 0.78);
+    padding: 6px 14px 6px 8px;
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-corner {
+    right: calc(var(--edge) + 22px);
+    bottom: 132px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  }
+}

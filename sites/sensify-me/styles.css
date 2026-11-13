@@ -29,3 +29,103 @@
 /* Phones */
 @media(max-width:580px){.page-width{width:calc(100% - 40px)}.section{padding:70px 0}.header-inner{width:calc(100% - 40px);gap:10px}.header-cta{font-size:12px;padding:9px 15px;min-height:44px}.header-cta svg{width:17px}.hero{padding-top:16px}.hero-copy{padding-top:22px}.hero-copy .eyebrow{font-size:10px;margin-bottom:18px}.hero h1{font-size:clamp(43px,11.5vw,62px);line-height:1.09}.hero-lead{margin-top:22px;font-size:15px;line-height:1.75}.hero-actions{gap:18px;margin-top:26px;align-items:flex-start;flex-direction:column}.hero-actions .button{width:100%;font-size:14px}.micro-note{font-size:10px;margin-top:22px}.hero-layout{padding-bottom:40px}.discovery-scene{height:425px;margin-top:10px}.photo-table{height:290px;width:87%;right:8%;bottom:64px;transform:rotateX(5deg) rotateY(-7deg) rotateZ(2deg)}.scene-plane{box-shadow:0 14px 0 #ae896b,0 22px 0 #83634b,0 27px 0 var(--ink),20px 30px 35px #68653b20}.scene-rainbow{height:132px;top:10px;width:68%;right:9%}.scene-photo{padding:6px 6px 0}.scene-photo img{height:calc(100% - 30px)}.scene-photo figcaption{height:30px;font-size:9px;padding:5px 1px 5px}.scene-photo figcaption span{font-size:5px}.scene-photo-back{top:23px}.scene-photo-main{top:-10px}.scene-photo-mini{top:55px;right:-7%}.scene-front-edge{top:calc(100% + 15px);height:20px;font-size:7px}.scene-spark{font-size:36px}.spark-a{left:3%;top:41px}.spark-b{font-size:27px;top:270px}.scene-note{font-size:17px;bottom:0;right:7%}.scene-note span{font-size:24px}.rainbow-ticker{height:50px}.rainbow-ticker>div{font-size:24px;gap:25px}.rainbow-ticker b{font-size:18px}.parties{padding-top:88px}.section-heading{margin-bottom:35px}.section-heading h2{font-size:43px;line-height:1.02}.split-heading{display:block}.split-heading>p{font-size:14px;margin-top:25px}.split-heading .eyebrow{margin-bottom:17px}.tabs{margin-top:20px}.tab-list{display:flex;gap:8px;flex-direction:column}.service-tab{display:grid;grid-template-columns:28px 1fr 25px;align-items:center;min-height:90px;padding:16px}.service-tab>span:last-child{align-self:center;margin-top:0}.service-tab strong{font-size:23px}.service-tab small{font-size:11px;margin-top:3px}.service-panel{grid-template-columns:1fr}.service-photo{height:350px}.service-copy{padding:28px 22px}.service-copy h3{font-size:39px}.service-copy .button{font-size:13px;width:100%}.photo-stamp{width:max-content;max-width:calc(100% - 40px);left:18px;bottom:17px;right:auto}.service-tabs{margin-top:32px}.pack-layout{grid-template-columns:1fr;gap:55px}.pack-art{height:480px;order:0}.pack-card{width:210px;height:385px;border-width:8px}.pack-card figcaption{padding:15px}.pack-card figcaption strong{font-size:28px}.pack-tag{right:1%;font-size:18px;top:3%}.orbit-one{width:290px;height:290px}.orbit-two{width:355px;height:355px}.pack-copy h2{font-size:46px}.large-copy{font-size:15px}.info-block p{font-size:14px}.info-block{margin-block:25px}.price-line{flex-direction:row;align-items:center}.question-list{font-size:14px}.pack-copy>.button{font-size:13px;width:100%;padding:14px 15px}.pack-copy>.fine-print{font-size:11px}.result-count{margin-top:18px}.idea-grid{grid-template-columns:1fr;gap:24px}.idea-card{display:grid;grid-template-columns:40% 60%}.idea-card>img{height:100%;min-height:228px;border-bottom:0;border-right:1px solid var(--line);object-position:center}.idea-copy{padding:16px}.idea-type{font-size:7px;line-height:1.6;display:block}.idea-card h3{font-size:24px;margin-top:5px;margin-bottom:8px}.idea-card p{font-size:11px;min-height:0;line-height:1.65}.card-link{font-size:10px;margin-top:8px;gap:6px;line-height:1.5}.filter-group{gap:6px}.filter-button{font-size:11px;padding:9px 13px;min-height:44px}.explorer-controls{margin-top:32px;gap:18px}.search-label{height:48px}.search-label input{height:43px;font-size:14px}.steps{grid-template-columns:1fr;gap:25px;margin-top:32px}.steps li{padding:10px 18px 10px 24px;position:relative;min-height:110px}.steps h3{font-size:28px;margin-top:15px}.step-number{position:absolute;right:20px;top:20px;font-size:36px}.steps p{font-size:13px;max-width:420px}.honesty-note{padding:18px;gap:12px;margin-top:36px}.honesty-note p{font-size:12px}.honesty-note svg{align-self:flex-start;margin-top:2px}.split-heading>div:last-child:not(:first-child){margin-top:24px}.photo-gallery{gap:14px;grid-template-columns:repeat(2,1fr)}.gallery-tile>img{height:245px}.gallery-large{grid-column:span 2;grid-row:auto}.gallery-large img{height:340px}.gallery-tile figcaption{font-size:14px;padding:12px 10px;min-height:48px;line-height:1.3}.gallery-tile>a>img{height:230px}.reel-tile figcaption{min-height:100px;padding:11px 10px}.reel-tile figcaption span{font-size:7px;line-height:1.5}.reel-tile figcaption strong{font-size:17px}.reel-play{height:36px;width:36px;font-size:12px;bottom:103px;right:10px}.gallery-note{font-size:10px}.faq-layout{grid-template-columns:1fr;gap:35px}.faq-intro h2{font-size:43px}.faq-intro>p:not(.eyebrow){font-size:14px}.faq-list summary{font-size:14px;line-height:1.6;min-height:44px}.faq-list details{padding:15px 0}.faq-list details p{font-size:13px;padding-right:0}.enquiry-section{padding-block:72px}.enquiry-intro h2{font-size:58px}.enquiry-intro>p:not(.eyebrow){font-size:15px;margin-top:22px}.alternate-contact{align-items:flex-start;margin-top:27px}.alternate-contact>span{font-size:11px}.alternate-contact>a{font-size:22px;line-height:1.5}.enquiry-logo{display:none}.enquiry-layout{gap:34px}.form-card{padding:24px 19px;border-radius:15px;box-shadow:5px 5px 0 var(--ink)}.form-heading h3{font-size:32px}.form-row{grid-template-columns:1fr;gap:16px}.form-heading{margin-bottom:23px}form{gap:15px}label{font-size:12px}.form-row>div{gap:8px}input,select,textarea{min-height:48px;font-size:16px}textarea{font-size:14px}.consent-label input{margin-top:3px;width:21px;height:21px}.form-success h3{font-size:34px}.form-success{padding-inline:0}.footer-top{grid-template-columns:1fr 1fr;gap:30px 26px;padding-bottom:40px}.footer-brand{grid-column:span 2}.footer-brand img{width:111px;height:80px}.footer-brand p{font-size:24px}.footer-note{grid-column:span 2;font-size:13px;padding-top:8px}.footer-column{font-size:12px}.footer-bottom{gap:12px;font-size:10px;padding-block:18px}.footer-bottom>span:first-child{width:100%}.text-only{font-size:9px}.site-footer{padding-top:40px}.site-footer .footer-bottom>a{margin-left:auto}}
 @media(max-width:360px){.hero h1{font-size:42px}.hero-actions .button{font-size:12px}.discovery-scene{height:395px}.photo-table{height:260px}.idea-card{grid-template-columns:37% 63%}.idea-copy{padding:13px}.idea-card h3{font-size:22px}.idea-card p{font-size:10px}.card-link{font-size:9px}.pack-copy h2{font-size:40px}.form-card{padding:20px 15px}.form-heading h3{font-size:28px}.gallery-tile>img{height:210px}.gallery-tile>a>img{height:220px}}
+
+/* === VERTEX VISION & ARTISANAL RENDER ENGINE POLISH === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.032;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.brand, .brand img, .footer-brand img, .enquiry-logo {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.brand img {
+  height: 68px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(31, 61, 53, 0.08));
+}
+.discovery-scene {
+  position: relative;
+}
+.sensory-canvas {
+  position: absolute;
+  inset: -16px;
+  width: calc(100% + 32px);
+  height: calc(100% + 32px);
+  pointer-events: none;
+  z-index: 1;
+}
+.photo-table {
+  position: relative;
+  z-index: 2;
+  background: radial-gradient(circle at 50% 42%, rgba(255, 250, 243, 0.94), rgba(235, 224, 206, 0.72)) !important;
+  border-radius: 36px !important;
+  border: 1.5px solid rgba(31, 61, 53, 0.16) !important;
+  box-shadow: 0 28px 60px rgba(31, 61, 53, 0.12) !important;
+}
+/* Stagger Hero Polaroids cleanly so "Scoop. Pour. Discover." is 100% visible */
+.scene-photo-back {
+  left: -4% !important;
+  top: 4% !important;
+  width: 44% !important;
+  transform: rotate(-7deg) !important;
+  z-index: 3 !important;
+}
+.scene-photo-main {
+  left: 28% !important;
+  top: 6% !important;
+  width: 48% !important;
+  z-index: 4 !important;
+}
+.scene-photo-mini {
+  right: -3% !important;
+  bottom: 10% !important;
+  width: 38% !important;
+  transform: rotate(6deg) !important;
+  z-index: 5 !important;
+}
+.scene-photo figcaption {
+  white-space: normal !important;
+  overflow: visible !important;
+}
+.gallery-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.gallery-step-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink, #1f3d35);
+  background: rgba(255, 250, 243, 0.9);
+  color: var(--ink, #1f3d35);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.gallery-step-btn:hover {
+  background: var(--ink, #1f3d35);
+  color: #fffaf3;
+  transform: translateY(-2px);
+}
+.gallery-tile figcaption span {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  margin-bottom: 2px;
+}

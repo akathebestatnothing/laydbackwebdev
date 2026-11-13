@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Newy Crete Newcastle Concreting">
+  <defs>
+    <clipPath id="badgeClip">
+      <circle cx="120" cy="120" r="110"/>
+    </clipPath>
+    <linearGradient id="skyStone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2f0e6"/>
+      <stop offset="100%" stop-color="#dfddd1"/>
+    </linearGradient>
+    <linearGradient id="slabPour" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#334a42"/>
+      <stop offset="100%" stop-color="#222827"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer architectural ring -->
+  <circle cx="120" cy="120" r="114" fill="#252b2a"/>
+  <circle cx="120" cy="120" r="110" fill="url(#skyStone)"/>
+  <g clip-path="url(#badgeClip)">
+    <!-- Warm terracotta sun / Newcastle coastal horizon -->
+    <circle cx="156" cy="84" r="38" fill="#d46f45" opacity="0.92"/>
+    <!-- Nobbys Headland & coastal horizon silhouette -->
+    <path d="M8 134 L62 118 L92 124 L118 134 L232 134 L232 152 L8 152 Z" fill="#9daf9e" opacity="0.55"/>
+    <!-- Freshly poured concrete driveway slab in perspective -->
+    <path d="M0 142 L240 132 L240 240 L0 240 Z" fill="url(#slabPour)"/>
+    <!-- Screeded vs fresh concrete texture lines & formwork edge -->
+    <path d="M12 156 L228 145" stroke="#9daf9e" stroke-width="2" stroke-opacity="0.35"/>
+    <path d="M6 178 L168 164" stroke="#e9e8df" stroke-width="2.5" stroke-opacity="0.28"/>
+    <path d="M0 202 L145 186" stroke="#d46f45" stroke-width="3" stroke-opacity="0.55"/>
+    <!-- Concreter figure actively screeding (forward working stance, hard-brim cap) -->
+    <!-- Back leg & boot -->
+    <path d="M98 118 L114 148 L112 166 L124 166 L124 146 L110 116 Z" fill="#252b2a"/>
+    <!-- Front leg & gumboot braced on slab -->
+    <path d="M84 116 L68 146 L64 168 L77 168 L80 148 L96 118 Z" fill="#252b2a"/>
+    <!-- Torso leaning forward into the screed pull -->
+    <path d="M78 78 C84 72, 102 74, 108 84 L102 120 L78 118 Z" fill="#293d36"/>
+    <!-- Hi-vis terracotta shoulder/vest stripe -->
+    <path d="M83 78 L98 80 L94 108 L80 106 Z" fill="#d46f45"/>
+    <!-- Head & brimmed cap -->
+    <circle cx="78" cy="64" r="10.5" fill="#252b2a"/>
+    <path d="M63 62 L88 58 L89 64 L62 66 Z" fill="#d46f45"/>
+    <!-- Arms gripping the twin T-handle of the screed -->
+    <path d="M82 86 L58 104 L68 112 L90 94 Z" fill="#252b2a"/>
+    <!-- Trade-accurate aluminium bull-screed: long straightedge bar + twin riser posts + separate handle -->
+    <!-- Screed straightedge bar resting on concrete slab -->
+    <path d="M18 176 L154 152 L156 161 L20 185 Z" fill="#e9e8df" stroke="#252b2a" stroke-width="2.5"/>
+    <path d="M20 183 L156 159" stroke="#d46f45" stroke-width="3.5"/>
+    <!-- Twin riser posts -->
+    <path d="M56 106 L48 172" stroke="#e9e8df" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M72 110 L68 168" stroke="#e9e8df" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M56 106 L48 172" stroke="#252b2a" stroke-width="2" stroke-linecap="round"/>
+    <path d="M72 110 L68 168" stroke="#252b2a" stroke-width="2" stroke-linecap="round"/>
+    <!-- Separate crossbar handle at top of riser posts -->
+    <path d="M46 104 L80 110" stroke="#d46f45" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- Inner architectural rim -->
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#d46f45" stroke-width="2.5" opacity="0.85"/>
+</svg>

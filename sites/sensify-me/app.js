@@ -285,3 +285,83 @@ $('#another-enquiry').addEventListener('click', () => {
   serviceSelect.focus();
 });
 $('#year').textContent = String(new Date().getFullYear());
+
+// Interactive 3D-shaded tactile sensory beads & floating rings canvas in hero
+const sensoryCanvas = document.getElementById('sensory-canvas');
+if (sensoryCanvas && !motionDisabled) {
+  const ctx = sensoryCanvas.getContext('2d');
+  const palette = ['#f26b5b', '#43b0a8', '#f5b841', '#9b7ede', '#6ec498'];
+  const beads = Array.from({ length: 18 }, (_, i) => ({
+    x: ((i * 0.37) % 0.88) + 0.06,
+    y: ((i * 0.53) % 0.86) + 0.07,
+    r: 7 + (i % 4) * 4.5,
+    vx: (i % 2 === 0 ? 1 : -1) * (0.00022 + (i % 3) * 0.00007),
+    vy: (i % 3 === 0 ? -1 : 1) * (0.00018 + (i % 4) * 0.00006),
+    color: palette[i % palette.length],
+    ring: i % 4 === 0
+  }));
+  let cw = 0, ch = 0, pointerX = 0.5, pointerY = 0.5;
+  const resizeCanvas = () => {
+    const rect = sensoryCanvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cw = sensoryCanvas.width = Math.max(1, Math.floor(rect.width * dpr));
+    ch = sensoryCanvas.height = Math.max(1, Math.floor(rect.height * dpr));
+  };
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas, { passive: true });
+  window.addEventListener('pointermove', e => {
+    const rect = sensoryCanvas.getBoundingClientRect();
+    if (rect.width > 0 && rect.height > 0) {
+      pointerX = (e.clientX - rect.left) / rect.width;
+      pointerY = (e.clientY - rect.top) / rect.height;
+    }
+  }, { passive: true });
+  const renderBeads = () => {
+    if (!motionDisabled && window.scrollY < window.innerHeight * 1.1) {
+      ctx.clearRect(0, 0, cw, ch);
+      for (const b of beads) {
+        b.x += b.vx + (pointerX - 0.5) * 0.00025;
+        b.y += b.vy + (pointerY - 0.5) * 0.00025;
+        if (b.x < 0.04 || b.x > 0.96) b.vx *= -1;
+        if (b.y < 0.04 || b.y > 0.96) b.vy *= -1;
+        const px = b.x * cw, py = b.y * ch;
+        ctx.save();
+        ctx.globalAlpha = 0.34;
+        if (b.ring) {
+          ctx.beginPath();
+          ctx.arc(px, py, b.r * 1.35, 0, Math.PI * 2);
+          ctx.strokeStyle = b.color;
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        } else {
+          const grad = ctx.createRadialGradient(px - b.r * 0.3, py - b.r * 0.3, b.r * 0.1, px, py, b.r);
+          grad.addColorStop(0, '#ffffff');
+          grad.addColorStop(0.35, b.color);
+          grad.addColorStop(1, '#1f3d35');
+          ctx.beginPath();
+          ctx.arc(px, py, b.r, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+    }
+    window.requestAnimationFrame(renderBeads);
+  };
+  window.requestAnimationFrame(renderBeads);
+}
+
+// 3-input Play Table Gallery navigation (Prev/Next buttons + wheel + click-and-drag)
+const playTrack = document.getElementById('play-table-track');
+const smPrev = document.getElementById('smGalleryPrev');
+const smNext = document.getElementById('smGalleryNext');
+if (playTrack) {
+  const cards = [...playTrack.querySelectorAll('.gallery-tile')];
+  let activeIdx = 0;
+  const highlightCard = idx => {
+    activeIdx = (idx + cards.length) % cards.length;
+    cards[activeIdx].scrollIntoView({ behavior: motionDisabled ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
+  };
+  if (smPrev) smPrev.addEventListener('click', () => highlightCard(activeIdx - 1));
+  if (smNext) smNext.addEventListener('click', () => highlightCard(activeIdx + 1));
+}
