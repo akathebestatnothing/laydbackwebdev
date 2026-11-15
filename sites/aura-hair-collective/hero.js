@@ -2,7 +2,7 @@
   const hero = document.querySelector(".hero--aura");
   if (!hero) return;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const desktop = window.innerWidth >= 960;
+  const desktop = window.innerWidth >= 680;
   if (reduced || !desktop) return;
 
   const loadScript = (src) => new Promise((resolve, reject) => {

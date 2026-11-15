@@ -166,7 +166,7 @@
   .hero--cinema .hero__title { font-size: clamp(3.6rem, 7.2vw, 6rem) !important; }
   .hero--cinema .hero__bottom { gap: 2rem; }
 }
-@media (max-width: 959px) {
+@media (max-width: 679px) {
   .hero--cinema .hero__canvas,
   .hero--cinema .hero__scroll { display: none; }
   .hero--cinema .hero__shade {
