@@ -118,7 +118,9 @@ if (media && !reduced && !mobile) {
     const resize = () => { const width = canvas.clientWidth || innerWidth; const height = canvas.clientHeight || innerHeight; renderer.setSize(width, height, false); camera.aspect = width / height; camera.updateProjectionMatrix(); };
     new ResizeObserver(resize).observe(canvas); resize();
     let raf;
+    let visible = true;
     const render = (now) => {
+      if (!visible) return;
       uniforms.uTime.value = now * 0.001;
       toolGroup.rotation.y += (pointer.x * 0.22 - toolGroup.rotation.y) * 0.05;
       toolGroup.rotation.x += (-pointer.y * 0.1 - toolGroup.rotation.x) * 0.05;
@@ -127,6 +129,11 @@ if (media && !reduced && !mobile) {
       renderer.render(scene, camera);
       raf = requestAnimationFrame(render);
     };
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && !raf) raf = requestAnimationFrame(render);
+      if (!visible && raf) { cancelAnimationFrame(raf); raf = 0; }
+    }, { threshold: 0.01 }).observe(hero);
     canvas.classList.add('is-live');
     raf = requestAnimationFrame(render);
     addEventListener('pagehide', () => cancelAnimationFrame(raf), { once: true });
