@@ -226,6 +226,14 @@
   .hero--cinema .hero__actions { gap: 0.85rem; }
   .hero--cinema .hero__actions .btn { padding-inline: 1.25rem; }
 }
+/* Final QA polish: stable headline rhythm and aligned salon facts. */
+.hero--cinema .hero__title{line-height:.98!important}
+.hero--cinema .hero__caption{padding-bottom:clamp(.8rem,2vh,1.5rem)}
+.hero--cinema .hero__facts{align-self:stretch}
+.hero--cinema .hero__facts>div{display:flex;flex-direction:column;min-height:4.8rem}
+.hero--cinema .hero__facts dd{max-width:18ch}
+@media (max-width:1100px){.hero--cinema .hero__facts dd{max-width:14ch}}
+@media (max-width:679px){.hero--cinema .hero__facts>div{min-height:0}.hero--cinema .hero__facts dd{max-width:none}}
 @media (prefers-reduced-motion: reduce) {
   .hero--cinema .hero__canvas,
   .hero--cinema .hero__scroll { display: none; }
