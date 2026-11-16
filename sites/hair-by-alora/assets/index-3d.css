@@ -31,3 +31,13 @@
   /* A mobile hero must remain complete if its decorative split-text JS races. */
   .hero--cinema .hero-char{opacity:1!important;transform:none!important}
 }
+
+/* Hairdresser-first hero: keep the result visible, move the booking card into the composition. */
+.hero--cinema .hero__media { background:#2a1b16; }
+.hero--cinema .hero__img { object-position:58% 38%; transform:scale(1.035); }
+.hero--cinema .hero__content { padding-block:clamp(7rem,13vh,10rem) clamp(2rem,5vh,4rem); }
+.hero--cinema .hero__ledger { align-self:end; margin-top:clamp(1rem,3vh,2.5rem); max-width:26rem; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; padding:1.05rem 1.2rem; border-radius:.35rem; background:rgba(38,23,17,.78); backdrop-filter:blur(10px); }
+.hero--cinema .hero__ledger > * { min-width:0; }
+.hero--cinema .hero__ledger p { font-size:.72rem; line-height:1.35; }
+.hero--cinema .hero__ledger strong { display:block; margin-bottom:.35rem; color:#d9b079; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; }
+@media (max-width:720px){ .hero--cinema .hero__img{object-position:58% 32%;}.hero--cinema .hero__content{padding-block:7rem 2rem}.hero--cinema .hero__ledger{grid-template-columns:1fr 1fr;max-width:100%;}.hero--cinema .hero__ledger>*:last-child{grid-column:1/-1;} }
