@@ -1,0 +1,16 @@
+/* Alora header: one centred, legible brand mark instead of mixed lockups. */
+.head{background:#fffbee!important;border-bottom:1px solid rgba(33,26,21,.14)!important}
+.head__inner{position:relative;min-height:78px;display:flex;align-items:center;justify-content:space-between!important}
+.head__left{display:contents}
+.head__brand{position:absolute;left:50%;top:50%;z-index:4;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:154px;height:66px;overflow:hidden;background:#75604d;border-radius:0}
+.head__brand-logo{display:block;width:154px!important;height:66px!important;object-fit:cover!important;object-position:center!important}
+.head__sister{margin-right:auto!important;max-width:230px;color:#75604d!important;font-size:.7rem!important;letter-spacing:.06em}
+.head__nav{margin-left:auto!important;margin-right:1rem!important;color:#211a15!important}
+.head__nav a{color:#211a15!important}
+.head__cta{background:#211a15!important;color:#fffbee!important;border-color:#211a15!important}
+.head__toggle{color:#211a15!important}
+@media(max-width:900px){.head__nav,.head__cta{display:none!important}.head__sister{font-size:.62rem!important;max-width:125px;line-height:1.25}.head__brand{width:142px;height:61px}.head__brand-logo{width:142px!important;height:61px!important}.head__toggle{display:flex!important;margin-left:auto;position:relative;z-index:5}}
+@media(max-width:480px){.head__inner{min-height:76px;padding-inline:16px!important}.head__sister{visibility:hidden;width:40px}.head__brand{width:136px;height:58px}.head__brand-logo{width:136px!important;height:58px!important}}
+/* Tools of the trade remain visible around the hair lock on desktop. */
+.hero__spatial-canvas{z-index:2!important;opacity:0!important}.hero__spatial-canvas.is-live{opacity:.92!important}.hero--cinema .hero__shade{z-index:3!important}.hero--cinema .hero__content{z-index:5!important}
+@media(max-width:679px){.hero__spatial-canvas{display:none!important}.hero--cinema .hero__img{object-position:58% 26%!important;filter:saturate(.98) contrast(1.04) sepia(.01)!important}}

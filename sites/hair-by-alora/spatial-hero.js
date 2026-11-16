@@ -89,6 +89,24 @@ if (media && !reduced && !mobile) {
     }
 
 
+    const toolGroup = new THREE.Group();
+    toolGroup.position.set(-1.5, 0.2, 0.2);
+    toolGroup.rotation.z = -0.12;
+    lock.add(toolGroup);
+    const bronze = new THREE.MeshStandardMaterial({ color: 0x8d6332, roughness: .22, metalness: .55 });
+    const ivory = new THREE.MeshStandardMaterial({ color: 0xf0e4d6, roughness: .3, metalness: .08 });
+    const dark = new THREE.MeshStandardMaterial({ color: 0x211a15, roughness: .25, metalness: .25 });
+    const tool = (geometry, material, position, rotation = [0, 0, 0]) => { const mesh = new THREE.Mesh(geometry, material); mesh.position.set(...position); mesh.rotation.set(...rotation); toolGroup.add(mesh); return mesh; };
+    // A deliberate trade silhouette: shears, dryer and comb — the tools clients recognise.
+    tool(new THREE.TorusGeometry(.22, .055, 12, 32), bronze, [-.55, .25, .15], [Math.PI/2, 0, .35]);
+    tool(new THREE.TorusGeometry(.22, .055, 12, 32), bronze, [-.55, -.25, .15], [Math.PI/2, 0, -.35]);
+    tool(new THREE.BoxGeometry(.06, 1.55, .045), ivory, [-.02, .08, .15], [0, 0, .35]);
+    tool(new THREE.BoxGeometry(.06, 1.55, .045), ivory, [-.02, -.08, .15], [0, 0, -.35]);
+    tool(new THREE.SphereGeometry(.27, 20, 12), bronze, [.62, .18, .28]);
+    tool(new THREE.CylinderGeometry(.2, .25, .75, 24), dark, [1.02, .18, .28], [0, Math.PI/2, 0]);
+    tool(new THREE.BoxGeometry(.08, 1.45, .04), bronze, [-1.12, -.05, .12], [0, 0, Math.PI/2]);
+    for (let i = 0; i < 8; i++) tool(new THREE.BoxGeometry(.025, .28, .035), ivory, [-1.75 + i*.17, -.05, -.04]);
+
     const pointer = new THREE.Vector2();
     hero.addEventListener('pointermove', (event) => {
       const box = hero.getBoundingClientRect();
