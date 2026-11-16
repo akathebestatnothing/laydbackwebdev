@@ -34,7 +34,9 @@
 
 /* Hairdresser-first hero: keep the result visible, move the booking card into the composition. */
 .hero--cinema .hero__media { background:#2a1b16; }
-.hero--cinema .hero__img { object-position:58% 38%; transform:scale(1.035); }
+.hero--cinema .hero__img{object-position:58% 38%;transform:scale(1.035)}
+.alora-gloss-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;opacity:0;mix-blend-mode:screen;transition:opacity .7s ease}.alora-gloss-canvas.is-live{opacity:.72}.hero--cinema .hero__shade{z-index:3}.hero--cinema .hero__content{z-index:4}
+@media (max-width:679px),(prefers-reduced-motion:reduce){.alora-gloss-canvas{display:none!important}}
 .hero--cinema .hero__content { padding-block:clamp(7rem,13vh,10rem) clamp(2rem,5vh,4rem); }
 .hero--cinema .hero__ledger { align-self:end; margin-top:clamp(1rem,3vh,2.5rem); max-width:26rem; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; padding:1.05rem 1.2rem; border-radius:.35rem; background:rgba(38,23,17,.78); backdrop-filter:blur(10px); }
 .hero--cinema .hero__ledger > * { min-width:0; }
