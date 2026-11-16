@@ -79,18 +79,7 @@ if (media && !reduced && !mobile) {
     });
     const coreRoot = new THREE.MeshStandardMaterial({ color: 0x2a1007, roughness: 0.3, metalness: 0.05, emissive: 0x140500, emissiveIntensity: 0.25 });
     const coreHoney = new THREE.MeshStandardMaterial({ color: 0xd99a4d, roughness: 0.22, metalness: 0.04, emissive: 0x3b1704, emissiveIntensity: 0.32 });
-    for (let i = 0; i < 11; i++) {
-      const lane = (i - 5) / 5;
-      const points = [];
-      for (let p = 0; p < 13; p++) {
-        const t = p / 12;
-        points.push(new THREE.Vector3(lane * (.18 + t * .95) + Math.sin(t * 7 + i) * .045, 2.72 - t * 5.45, Math.cos(t * 6 + i) * .12));
-      }
-      const tube = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 32, .034 + (i % 3) * .006, 7), i < 6 ? coreRoot : coreHoney);
-      lock.add(tube);
-    }
-
-
+    // Alora's hero is the working kit, not abstract decorative ribbons.
     const toolGroup = new THREE.Group();
     toolGroup.position.set(-1.5, 0.2, 0.2);
     toolGroup.rotation.z = -0.12;
