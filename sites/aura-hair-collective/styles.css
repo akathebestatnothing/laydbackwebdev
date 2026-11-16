@@ -1329,5 +1329,9 @@ h1, h2, h3, h4, .mast__title, .foot__mark {
 .hero--cinema .hero__spatial-canvas.is-live{opacity:1}
 .hero--cinema .hero__shade{z-index:1!important}.hero--cinema .hero__content{z-index:3!important}
 .hero--cinema .hero__title,.hero--cinema .hero__eyebrow,.hero--cinema .hero__bottom{position:relative;z-index:6;text-shadow:0 2px 18px rgba(0,0,0,.75)}
-.hero--cinema .hero__ledger{position:relative;z-index:7;background:rgba(22,12,7,.42);padding:1rem;border-radius:1rem;backdrop-filter:blur(8px)}
+.hero--cinema .hero__title,.hero--cinema .hero__title span,.hero--cinema .hero__title em,.hero--cinema .hero__title.is-complete{color:#fffbee!important;-webkit-text-fill-color:#fffbee!important;-webkit-text-stroke:0!important;background:none!important;background-image:none!important;filter:none!important;text-shadow:0 2px 22px rgba(17,12,9,.95),0 0 3px rgba(17,12,9,.95)!important}
+.hero--cinema .hero__intro{position:relative;z-index:7;max-width:43rem;padding:clamp(1rem,2vw,1.45rem) clamp(1rem,2vw,1.5rem);border-left:2px solid #c5a675;background:linear-gradient(90deg,rgba(25,15,10,.78),rgba(25,15,10,.3));border-radius:0 .3rem .3rem 0}
+.hero--cinema .hero__intro .hero__lead{color:#fff8ec!important;text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.hero--cinema .hero__facts{position:relative;z-index:7;padding:1.1rem 1.2rem 0;background:rgba(25,15,10,.62);border-radius:.35rem}
+.hero--cinema .hero__facts dd{color:#fff8ec!important}
 @media (max-width:679px),(prefers-reduced-motion:reduce){.hero--cinema .hero__spatial-canvas{display:none!important}}
