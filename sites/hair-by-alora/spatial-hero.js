@@ -27,7 +27,8 @@ if (media && !reduced && !mobile) {
     const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 50);
     camera.position.set(0, 0, 9);
     const lock = new THREE.Group();
-    lock.position.set(1.65, -0.05, 0);
+    lock.position.set(1.35, -0.05, 0);
+    lock.scale.setScalar(1.28);
     lock.rotation.z = -0.13;
     scene.add(lock);
     scene.add(new THREE.HemisphereLight(0xfff3df, 0x1a0c07, 2.2));

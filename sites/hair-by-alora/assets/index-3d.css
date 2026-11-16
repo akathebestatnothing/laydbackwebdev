@@ -5,7 +5,8 @@
 .hero--cinema .hero__ledger{position:relative;z-index:7;margin-left:auto;max-width:20rem;background:rgba(22,12,7,.46);padding:1rem;border-radius:1rem;backdrop-filter:blur(8px)}
 .hero__spatial-fallback{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;overflow:hidden}.hero__spatial-fallback i{position:absolute;width:18vw;height:72vh;left:calc(48% + (var(--i) - 4)*4vw);top:14%;border-radius:50%;border:1px solid rgba(222,193,169,.45);transform:rotate(calc((var(--i) - 4)*7deg));box-shadow:0 0 34px rgba(197,166,117,.2)}.hero__spatial-fallback.is-live{opacity:.72}
 .hero__shade{z-index:1!important}
-.hero__content{z-index:3!important}
+.hero--cinema .hero__content{z-index:3!important}.hero--cinema .hero__title,.hero--cinema .hero__eyebrow,.hero--cinema .hero__bottom{position:relative;z-index:6;text-shadow:0 2px 18px rgba(0,0,0,.75)}
+.hero--cinema .hero__ledger{position:relative;z-index:7;background:rgba(22,12,7,.42);padding:1rem;border-radius:1rem;backdrop-filter:blur(8px)}
 @media (max-width:679px),(prefers-reduced-motion:reduce){.hero__spatial-canvas{display:none!important}}
 /* Final hero polish: retain editorial type while protecting it from photographic detail. */
 .hero--cinema .hero__title,
