@@ -1247,11 +1247,18 @@ html { overflow-x: clip; max-width: 100%; }
   .hero__title { font-size: clamp(2.65rem, 10.5vw, 3.6rem) !important; max-width: 15ch !important; }
 }
 
-/* ---------- Declared brand-fallback refinements --------------------- */
-h1, h2, h3, h4, .mast__title, .foot__mark {
-  font-weight: 400;
-  font-synthesis: none;
-}
+/* Final centred Aura header lockup. */
+.mast__inner{position:relative;justify-content:space-between;min-height:76px}
+.mast__brand{position:absolute;left:50%;top:50%;z-index:3;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;gap:.65rem;width:260px;height:60px;white-space:nowrap}
+.mast__roundel{width:48px;height:48px;flex:0 0 48px}
+.mast__title{font-size:1.35rem;letter-spacing:.015em}
+.mast__loc{display:none}
+.mast__nav{margin-left:auto;margin-right:0}
+@media(max-width:1120px){.mast__brand{width:230px}.mast__title{font-size:1.15rem}.mast__nav{gap:1rem;font-size:.78rem}}
+@media(max-width:880px){.mast__inner{min-height:70px}.mast__brand{width:190px}.mast__roundel{width:42px;height:42px;flex-basis:42px}.mast__title{font-size:1rem}.mast__toggle{margin-left:auto}}
+@media(max-width:480px){.mast__brand{width:174px}.mast__title{font-size:.92rem}.mast__roundel{width:38px;height:38px;flex-basis:38px}}
+
+h1,h2,h3,h4,.mast__title,.foot__mark{font-weight:400;font-synthesis:none}
 .mast__inner { gap: 1rem; }
 .mast__loc { display: none; }
 .mast__title { font-size: 1.7rem; }
@@ -1335,3 +1342,16 @@ h1, h2, h3, h4, .mast__title, .foot__mark {
 .hero--cinema .hero__facts{position:relative;z-index:7;padding:1.1rem 1.2rem 0;background:rgba(25,15,10,.62);border-radius:.35rem}
 .hero--cinema .hero__facts dd{color:#fff8ec!important}
 @media (max-width:679px),(prefers-reduced-motion:reduce){.hero--cinema .hero__spatial-canvas{display:none!important}}
+
+/* Final pass: one centred Aura lockup; do not let legacy masthead rules win. */
+.mast{background:#211a15!important;border-bottom:1px solid rgba(255,251,238,.18)!important;padding-block:.55rem!important}
+.mast__inner{position:relative!important;min-height:76px!important;display:flex!important;align-items:center!important;justify-content:space-between!important}
+.mast__brand{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:90!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:.65rem!important;width:270px!important;height:58px!important;margin:0!important;white-space:nowrap!important}
+.mast__roundel{width:48px!important;height:48px!important;flex:0 0 48px!important;object-fit:cover!important;opacity:1!important}
+.mast__title{display:block!important;color:#fffbee!important;font-family:var(--display)!important;font-size:1.25rem!important;font-weight:400!important;line-height:1!important;letter-spacing:.01em!important}
+.mast__loc{display:none!important}
+.mast__nav{margin-left:auto!important;margin-right:0!important;z-index:91!important}
+.mast__book{z-index:91!important}
+@media(max-width:1120px){.mast__brand{width:230px!important}.mast__title{font-size:1.05rem!important}.mast__nav{gap:1rem!important;font-size:.78rem!important}}
+@media(max-width:880px){.mast__inner{min-height:70px!important}.mast__brand{width:200px!important}.mast__roundel{width:42px!important;height:42px!important;flex-basis:42px!important}.mast__title{font-size:1rem!important}.mast__nav,.mast__book{display:none!important}.mast__toggle{display:inline-flex!important;margin-left:auto!important;z-index:91!important}}
+@media(max-width:480px){.mast__brand{width:184px!important}.mast__title{font-size:.9rem!important}.mast__roundel{width:38px!important;height:38px!important;flex-basis:38px!important}}
