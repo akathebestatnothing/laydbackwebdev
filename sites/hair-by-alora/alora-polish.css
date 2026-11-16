@@ -24,3 +24,10 @@
 @media(max-width:900px){.head__nav,.head__cta{display:none!important}.head__sister{font-size:.62rem!important;max-width:125px;line-height:1.25}.head__brand{width:176px;height:76px}.head__brand-logo{width:176px!important;max-height:76px!important}.head__toggle{display:flex!important;margin-left:auto;position:relative;z-index:11}}
 @media(max-width:480px){.head__inner{min-height:80px;padding-inline:16px!important}.head__sister{visibility:hidden;width:40px}.head__brand{width:160px;height:70px}.head__brand-logo{width:160px!important;max-height:70px!important}}
 @media(max-width:679px){.hero__spatial-canvas,.alora-gloss-canvas{display:none!important}.hero--cinema .hero__img{object-position:58% 26%!important;filter:saturate(.98) contrast(1.04) sepia(.01)!important}}
+
+
+/* Header identity guard: the header uses the Alora lockup, never the Aura roundel. */
+.head .head__brand-logo[src*="aura-roundel"]{display:none!important}
+.head .head__brand-logo{content:url("./img/alora-mark.png")!important}
+.head .head__brand{background:#211a15!important}
+.head .head__brand-logo{width:min(210px,38vw)!important;height:auto!important;max-height:82px!important;object-fit:contain!important}
