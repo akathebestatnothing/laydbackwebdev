@@ -1,209 +1,60 @@
 (() => {
-  const hero = document.querySelector(".hero--aura");
-  if (!hero) return;
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const desktop = window.innerWidth >= 680;
-  if (reduced || !desktop) return;
+  const hero = document.querySelector('.hero--aura');
+  if (!hero || matchMedia('(prefers-reduced-motion: reduce)').matches || innerWidth < 680) return;
 
-  const loadScript = (src) => new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = new URL(src, document.baseURI).href;
-    script.onload = resolve;
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-
-  const title = hero.querySelector(".hero__title");
-  if (title) {
-    loadScript("./vendor/gsap.min.js")
-      .then(() => loadScript("./vendor/SplitText.min.js"))
-      .then(() => {
-        const { gsap, SplitText } = window;
-        if (!gsap || !SplitText) return;
-        gsap.registerPlugin(SplitText);
-        const originalLines = Array.from(title.querySelectorAll(".hero__line")).map((line) => line.textContent || "");
-        const split = new SplitText(title.querySelectorAll(".hero__line"), {
-          type: "words,chars",
-          wordsClass: "hero-word",
-          charsClass: "hero-char",
-        });
-        gsap.fromTo(
-          split.chars,
-          { yPercent: 112, opacity: 0, rotateX: -58 },
-          {
-            yPercent: 0,
-            opacity: 1,
-            rotateX: 0,
-            duration: 1.15,
-            stagger: 0.034,
-            ease: "expo.out",
-            onComplete: () => {
-              split.revert();
-              title.innerHTML = originalLines.join("<br>");
-              title.classList.add("is-complete");
-            },
-          },
-        );
-      })
-      .catch(() => {});
-  }
-
-  const canvas = hero.querySelector(".hero__canvas");
-  const image = hero.querySelector(".hero__img");
+  const canvas = hero.querySelector('.hero__canvas');
+  const image = hero.querySelector('.hero__img');
   if (!canvas || !image) return;
 
-  const init = async () => {
-    try {
-      const THREE = await import(new URL("./vendor/three.module.js", document.baseURI).href);
-      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: "high-performance" });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
-      const scene = new THREE.Scene();
-      const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-      const loader = new THREE.TextureLoader();
-      const tex1 = loader.load(image.currentSrc || image.src);
-      const tex2 = loader.load(new URL("./img/Dd0sfqUFKw2-1440.jpg", document.baseURI).href);
-      [tex1, tex2].forEach((tex) => {
-        tex.colorSpace = THREE.SRGBColorSpace;
-        tex.minFilter = THREE.LinearFilter;
-        tex.magFilter = THREE.LinearFilter;
-        tex.generateMipmaps = false;
-      });
+  const load = (src) => new Promise((resolve, reject) => {
+    const s = document.createElement('script'); s.src = new URL(src, document.baseURI).href;
+    s.onload = resolve; s.onerror = reject; document.head.appendChild(s);
+  });
 
-      const uniforms = {
-        uTexture1: { value: tex1 },
-        uTexture2: { value: tex2 },
-        uPlaneResolution: { value: new THREE.Vector2(1, 1) },
-        uImageResolution1: { value: new THREE.Vector2(1440, 1600) },
-        uImageResolution2: { value: new THREE.Vector2(1440, 1621) },
-        uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-        uMouseStrength: { value: 0 },
-        uProgress: { value: 0 },
-        uTime: { value: 0 },
-        uFocal: { value: new THREE.Vector2(0.72, 0.34) },
-        uGrade: { value: new THREE.Vector3(0.72, 0.55, 0.36) },
-      };
+  const reveal = load('./vendor/gsap.min.js').then(() => load('./vendor/SplitText.min.js')).then(() => {
+    const title = hero.querySelector('.hero__title');
+    if (!title || !window.gsap || !window.SplitText) return;
+    window.gsap.registerPlugin(window.SplitText);
+    const split = new window.SplitText(title.querySelectorAll('.hero__line'), { type: 'lines', linesClass: 'hero-line-mask' });
+    window.gsap.fromTo(split.lines, { yPercent: 100 }, { yPercent: 0, duration: 1.1, stagger: .12, ease: 'cubic-bezier(.22,1,.36,1)', onComplete: () => { split.revert(); title.classList.add('is-complete'); } });
+  }).catch(() => {});
 
-      const material = new THREE.ShaderMaterial({
-        uniforms,
-        vertexShader: `
-          varying vec2 vUv;
-          void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }
-        `,
-        fragmentShader: `
-          uniform sampler2D uTexture1;
-          uniform sampler2D uTexture2;
-          uniform vec2 uPlaneResolution;
-          uniform vec2 uImageResolution1;
-          uniform vec2 uImageResolution2;
-          uniform vec2 uMouse;
-          uniform float uMouseStrength;
-          uniform float uProgress;
-          uniform float uTime;
-          uniform vec2 uFocal;
-          uniform vec3 uGrade;
-          varying vec2 vUv;
-          float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
-          float noise(vec2 p) {
-            vec2 i = floor(p), f = fract(p), u = f * f * (3.0 - 2.0 * f);
-            return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
-          }
-          vec2 coverUv(vec2 uv, vec2 screen, vec2 image) {
-            float screenA = screen.x / screen.y, imageA = image.x / image.y;
-            vec2 s = screenA > imageA ? vec2(1.0, imageA / screenA) : vec2(screenA / imageA, 1.0);
-            return (uv - uFocal) * s + uFocal;
-          }
-          void main() {
-            vec2 uv1 = coverUv(vUv, uPlaneResolution, uImageResolution1);
-            vec2 uv2 = coverUv(vUv, uPlaneResolution, uImageResolution2);
-            vec2 d = vUv - uMouse;
-            d.x *= uPlaneResolution.x / max(uPlaneResolution.y, 1.0);
-            float dist = length(d);
-            float influence = exp(-dist * 7.0) * uMouseStrength;
-            float ripple = sin(dist * 42.0 - uTime * 4.0) * 0.007 * influence;
-            vec2 displacement = normalize(d + vec2(0.0001)) * ripple;
-            float n = noise(vUv * 7.0 + vec2(uTime * 0.025, -uTime * 0.012));
-            float n2 = noise(vUv * 14.0 + 8.3);
-            vec2 warp = vec2(n - 0.5, n2 - 0.5) * uProgress * 0.14;
-            float wipe = smoothstep(n * 0.85, 0.15 + n * 0.85, uProgress);
-            vec3 a = texture2D(uTexture1, uv1 + displacement + warp).rgb;
-            vec3 b = texture2D(uTexture2, uv2 - displacement - warp * 0.65).rgb;
-            vec3 col = mix(a, b, wipe);
-            col = mix(col, uGrade, 0.045);
-            float vig = smoothstep(0.92, 0.24, length(vUv - 0.5));
-            col *= mix(0.82, 1.0, vig);
-            gl_FragColor = vec4(col, 1.0);
-          }
-        `,
-      });
-      const geometry = new THREE.PlaneGeometry(2, 2);
-      scene.add(new THREE.Mesh(geometry, material));
+  import('./vendor/three.module.js').then((THREE) => {
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: false, powerPreference: 'high-performance' });
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    const texture = new THREE.TextureLoader().load(image.currentSrc || image.src);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.minFilter = texture.magFilter = THREE.LinearFilter;
+    const uniforms = {
+      uTexture: { value: texture }, uResolution: { value: new THREE.Vector2() },
+      uPointer: { value: new THREE.Vector2(.5, .5) }, uPointerSpring: { value: new THREE.Vector2(.5, .5) },
+      uScroll: { value: 0 }, uTime: { value: 0 }, uImageScale: { value: 1.08 }
+    };
+    const material = new THREE.ShaderMaterial({ uniforms, vertexShader: `varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}`, fragmentShader: `
+      uniform sampler2D uTexture; uniform vec2 uResolution,uPointer,uPointerSpring; uniform float uScroll,uTime,uImageScale; varying vec2 vUv;
+      float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+      float noise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);}
+      void main(){vec2 uv=(vUv-.5)/uImageScale+.5;float n=noise(uv*3.2+uTime*.018)+noise(uv*7.-uTime*.012)*.35;vec2 p=uPointerSpring-.5;float wave=sin((uv.x+uv.y)*12.+n*5.-uTime*.35)*.012;uv+=p*.018+normalize(p+vec2(.0001))*wave*(.4+length(p));vec3 photo=texture2D(uTexture,uv).rgb;float silk=noise(uv*5.+vec2(uTime*.025,-uTime*.018));float caustic=smoothstep(.45,.82,sin(uv.x*9.+n*4.+uTime*.18)*.5+.5)*.18;vec3 pearl=vec3(.937,.902,.847),champ=vec3(.969,.953,.933),honey=vec3(.875,.769,.608);vec3 liquid=mix(pearl,champ,silk);liquid=mix(liquid,honey,smoothstep(.58,.95,n));liquid+=caustic*vec3(1.,.72,.35);float veil=.16+silk*.12;gl_FragColor=vec4(mix(photo,liquid,veil),1.);}` });
+    scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
+    let visible = true, raf = 0, last = 0, targetScroll = 0;
+    const spring = { x: .5, y: .5 };
+    const resize = () => { const w = canvas.clientWidth || innerWidth, h = canvas.clientHeight || innerHeight; renderer.setSize(w, h, false); uniforms.uResolution.value.set(w, h); };
+    const pointer = (e) => { const r = hero.getBoundingClientRect(); uniforms.uPointer.value.set((e.clientX-r.left)/r.width, 1-(e.clientY-r.top)/r.height); };
+    const scroll = () => { const r = hero.getBoundingClientRect(); targetScroll = THREE.MathUtils.clamp(-r.top/Math.max(1,r.height),0,1); };
+    const io = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }); io.observe(hero);
+    new ResizeObserver(resize).observe(canvas); resize(); scroll();
+    hero.addEventListener('pointermove', pointer, { passive: true }); addEventListener('scroll', scroll, { passive: true });
+    const frame = (now) => { raf = requestAnimationFrame(frame); if (!visible || document.hidden || now-last < 1000/45) return; last=now; spring.x += (uniforms.uPointer.value.x-spring.x)*.075; spring.y += (uniforms.uPointer.value.y-spring.y)*.075; uniforms.uPointerSpring.value.set(spring.x,spring.y); uniforms.uScroll.value += (targetScroll-uniforms.uScroll.value)*.06; uniforms.uTime.value=now*.001; renderer.render(scene,camera); };
+    renderer.render(scene,camera); canvas.classList.add('is-live'); raf=requestAnimationFrame(frame);
+    addEventListener('pagehide', () => { cancelAnimationFrame(raf); io.disconnect(); material.dispose(); texture.dispose(); renderer.dispose(); }, { once: true });
+  }).catch(() => canvas.classList.remove('is-live'));
 
-      const targetMouse = new THREE.Vector2(0.5, 0.5);
-      let targetStrength = 0;
-      let targetProgress = 0;
-      let visible = true;
-      let raf = 0;
-      let last = 0;
-      const t0 = performance.now();
-
-      const resize = () => {
-        const w = canvas.clientWidth;
-        const h = canvas.clientHeight;
-        renderer.setSize(w, h, false);
-        uniforms.uPlaneResolution.value.set(w, h);
-      };
-      const ro = new ResizeObserver(resize);
-      ro.observe(canvas);
-      resize();
-
-      const onPointerMove = (event) => {
-        const r = hero.getBoundingClientRect();
-        targetMouse.set((event.clientX - r.left) / Math.max(1, r.width), 1 - (event.clientY - r.top) / Math.max(1, r.height));
-        targetStrength = 1;
-      };
-      const onPointerLeave = () => { targetStrength = 0; };
-      const onScroll = () => {
-        const r = hero.getBoundingClientRect();
-        targetProgress = THREE.MathUtils.clamp(-r.top / Math.max(1, r.height * 0.82), 0, 1);
-      };
-      const io = new IntersectionObserver((entries) => { visible = entries[0]?.isIntersecting ?? true; });
-      io.observe(hero);
-      hero.addEventListener("pointermove", onPointerMove, { passive: true });
-      hero.addEventListener("pointerleave", onPointerLeave, { passive: true });
-      window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-
-      const frame = (now) => {
-        raf = requestAnimationFrame(frame);
-        if (!visible || document.hidden || now - last < 1000 / 45) return;
-        last = now;
-        if (tex1.image?.width) uniforms.uImageResolution1.value.set(tex1.image.width, tex1.image.height);
-        if (tex2.image?.width) uniforms.uImageResolution2.value.set(tex2.image.width, tex2.image.height);
-        uniforms.uTime.value = (now - t0) / 1000;
-        uniforms.uMouse.value.lerp(targetMouse, 0.075);
-        uniforms.uMouseStrength.value += (targetStrength - uniforms.uMouseStrength.value) * 0.06;
-        uniforms.uProgress.value += (targetProgress - uniforms.uProgress.value) * 0.065;
-        renderer.render(scene, camera);
-      };
-      renderer.render(scene, camera);
-      canvas.classList.add("is-live");
-      raf = requestAnimationFrame(frame);
-
-      window.addEventListener("pagehide", () => {
-        cancelAnimationFrame(raf);
-        ro.disconnect();
-        io.disconnect();
-        geometry.dispose();
-        material.dispose();
-        tex1.dispose();
-        tex2.dispose();
-        renderer.dispose();
-      }, { once: true });
-    } catch {
-      canvas.classList.remove("is-live");
-    }
-  };
-
-  if (image.complete) init();
-  else image.addEventListener("load", init, { once: true });
+  const button = hero.querySelector('a[href*="booking"], a[href*="Book"], .btn--gold');
+  if (button && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    button.addEventListener('pointermove', (e) => { const r=button.getBoundingClientRect(); button.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px)`; });
+    button.addEventListener('pointerleave', () => { button.style.transform=''; });
+    button.addEventListener('pointerdown', () => { button.style.transform='scale(.97)'; });
+  }
 })();

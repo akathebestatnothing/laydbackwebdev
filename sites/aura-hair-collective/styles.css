@@ -1323,7 +1323,8 @@ h1, h2, h3, h4, .mast__title, .foot__mark {
 .hero__spatial-fallback.is-live { opacity:.72; }
 .hero--cinema .hero__shade { z-index:1!important; }
 .hero--cinema .hero__content { z-index:3!important; }
-/* Salon-specific hero geometry above photo, below copy. */
+.hero__canvas{position:absolute;inset:0;width:100%;height:100%;z-index:2;opacity:0;transition:opacity .8s ease}.hero__canvas.is-live{opacity:1}.hero--cinema .hero__img{transform:scale(1.08);transform-origin:center center}.hero--cinema .hero__media{overflow:hidden}.hero--cinema .hero__content{z-index:3!important}.hero--cinema .hero__title,.hero--cinema .hero__eyebrow,.hero--cinema .hero__bottom{position:relative;z-index:6;text-shadow:0 2px 18px rgba(0,0,0,.75)}
+@media (max-width:679px),(prefers-reduced-motion:reduce){.hero__canvas{display:none!important}.hero--cinema .hero__img{transform:none}}
 .hero--cinema .hero__spatial-canvas{z-index:2;opacity:0;pointer-events:none;position:absolute;inset:0;width:100%;height:100%;transition:opacity .8s ease}
 .hero--cinema .hero__spatial-canvas.is-live{opacity:1}
 .hero--cinema .hero__shade{z-index:1!important}.hero--cinema .hero__content{z-index:3!important}
