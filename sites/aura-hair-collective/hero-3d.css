@@ -69,16 +69,21 @@
 .hero--cinema .hero__line { display: block; overflow: hidden; white-space: nowrap; }
 .hero--cinema .hero__title .hero-word { white-space: nowrap; }
 .hero--cinema .hero__title.is-complete {
-  background-image:
-    linear-gradient(rgba(255, 251, 238, 0.52), rgba(222, 193, 169, 0.38)),
-    url("./img/DGJ7jvBTowB-1440.jpg");
-  background-blend-mode: screen;
-  background-size: cover;
-  background-position: 50% 58%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent !important;
-  -webkit-text-fill-color: transparent;
+  color: #FFFBEE !important;
+  -webkit-text-fill-color: #FFFBEE;
+  text-shadow: 0 2px 18px rgba(20, 12, 8, 0.82);
+}
+.hero--cinema .hero__intro {
+  max-width: 43rem;
+  padding: clamp(1rem, 2vw, 1.45rem) clamp(1rem, 2vw, 1.5rem);
+  border-left: 2px solid #C5A675;
+  background: linear-gradient(90deg, rgba(25, 15, 10, 0.62), rgba(25, 15, 10, 0.14));
+}
+.hero--cinema .hero__lead { color: #FFF8EC; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.hero--cinema .hero__facts { padding: 1.1rem 1.2rem 0; background: rgba(25, 15, 10, 0.48); border-radius: .35rem; }
+.hero--cinema .hero__facts dd { color: #FFF8EC; }
+@media (max-width: 679px) {
+  .hero--cinema .hero__intro { padding-inline: .85rem; }
 }
 .hero--cinema .hero__bottom {
   display: grid;
