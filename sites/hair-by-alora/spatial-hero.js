@@ -106,8 +106,14 @@ if (media && !reduced && !mobile) {
     tool(new THREE.BoxGeometry(.06, 1.55, .045), ivory, [-.02, -.08, .15], [0, 0, -.35]);
     tool(new THREE.SphereGeometry(.27, 20, 12), bronze, [.62, .18, .28]);
     tool(new THREE.CylinderGeometry(.2, .25, .75, 24), dark, [1.02, .18, .28], [0, Math.PI/2, 0]);
-    tool(new THREE.BoxGeometry(.08, 1.45, .04), bronze, [-1.12, -.05, .12], [0, 0, Math.PI/2]);
-    for (let i = 0; i < 8; i++) tool(new THREE.BoxGeometry(.025, .28, .035), ivory, [-1.75 + i*.17, -.05, -.04]);
+    // Dryer body, nozzle and handle — keep the silhouette readable at hero scale.
+    tool(new THREE.CylinderGeometry(.34, .42, .9, 24), ivory, [.7, -.72, .28], [Math.PI / 2, 0, 0]);
+    tool(new THREE.CylinderGeometry(.16, .16, .55, 20), bronze, [.7, -1.18, .28], [Math.PI / 2, 0, 0]);
+    tool(new THREE.CylinderGeometry(.12, .12, .22, 16), dark, [.7, -.28, .28], [Math.PI / 2, 0, 0]);
+    tool(new THREE.BoxGeometry(.2, .58, .25), dark, [.7, -1.5, .28], [0, 0, -.12]);
+    // Round brush: barrel plus short bristles, distinct from the comb.
+    tool(new THREE.CylinderGeometry(.25, .25, .64, 24), bronze, [-1.05, -.72, .28], [Math.PI / 2, 0, 0]);
+    for (let i = 0; i < 7; i++) tool(new THREE.BoxGeometry(.035, .18, .035), ivory, [-1.32 + i * .09, -.72, .52]);
 
     const pointer = new THREE.Vector2();
     hero.addEventListener('pointermove', (event) => {
