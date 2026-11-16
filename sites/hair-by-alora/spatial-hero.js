@@ -34,6 +34,8 @@ if (media && !reduced && !mobile) {
     scene.add(new THREE.HemisphereLight(0xfff3df, 0x1a0c07, 2.2));
     const key = new THREE.DirectionalLight(0xffd6a1, 5); key.position.set(-3, 5, 6); scene.add(key);
     const rim = new THREE.PointLight(0xfff0cf, 35, 14); rim.position.set(3, -1, 4); scene.add(rim);
+    const toolFill = new THREE.PointLight(0xffd6a1, 18, 9); toolFill.position.set(-2, 1, 3); scene.add(toolFill);
+    const toolRim = new THREE.PointLight(0xfff4dc, 24, 10); toolRim.position.set(-1, -2, 4); scene.add(toolRim);
 
     const uniforms = { uMelt: { value: 0.54 }, uTime: { value: 0 } };
 
@@ -93,9 +95,9 @@ if (media && !reduced && !mobile) {
     toolGroup.position.set(-1.5, 0.2, 0.2);
     toolGroup.rotation.z = -0.12;
     lock.add(toolGroup);
-    const bronze = new THREE.MeshStandardMaterial({ color: 0x8d6332, roughness: .22, metalness: .55 });
-    const ivory = new THREE.MeshStandardMaterial({ color: 0xf0e4d6, roughness: .3, metalness: .08 });
-    const dark = new THREE.MeshStandardMaterial({ color: 0x211a15, roughness: .25, metalness: .25 });
+    const bronze = new THREE.MeshStandardMaterial({ color: 0xc5a675, roughness: .16, metalness: .65, emissive: 0x2a1305, emissiveIntensity: .18 });
+    const ivory = new THREE.MeshStandardMaterial({ color: 0xfff4df, roughness: .22, metalness: .12, emissive: 0x3a2010, emissiveIntensity: .12 });
+    const dark = new THREE.MeshStandardMaterial({ color: 0x3b2d22, roughness: .24, metalness: .38, emissive: 0x160b04, emissiveIntensity: .18 });
     const tool = (geometry, material, position, rotation = [0, 0, 0]) => { const mesh = new THREE.Mesh(geometry, material); mesh.position.set(...position); mesh.rotation.set(...rotation); toolGroup.add(mesh); return mesh; };
     // A deliberate trade silhouette: shears, dryer and comb — the tools clients recognise.
     tool(new THREE.TorusGeometry(.22, .055, 12, 32), bronze, [-.55, .25, .15], [Math.PI/2, 0, .35]);
@@ -118,6 +120,8 @@ if (media && !reduced && !mobile) {
     let raf;
     const render = (now) => {
       uniforms.uTime.value = now * 0.001;
+      toolGroup.rotation.y += (pointer.x * 0.22 - toolGroup.rotation.y) * 0.05;
+      toolGroup.rotation.x += (-pointer.y * 0.1 - toolGroup.rotation.x) * 0.05;
       lock.rotation.y += (pointer.x * 0.32 - lock.rotation.y) * 0.035;
       lock.rotation.x += (-pointer.y * 0.12 - lock.rotation.x) * 0.035;
       renderer.render(scene, camera);
