@@ -1,60 +1,88 @@
 (() => {
   const hero = document.querySelector('.hero--aura');
-  if (!hero || matchMedia('(prefers-reduced-motion: reduce)').matches || innerWidth < 680) return;
-
-  const canvas = hero.querySelector('.hero__canvas');
+  if (!hero) return;
   const image = hero.querySelector('.hero__img');
-  if (!canvas || !image) return;
+  const canvas = hero.querySelector('.hero__canvas');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const title = hero.querySelector('.hero__title');
+  if (title && !reduced.matches) {
+    [...title.querySelectorAll('.hero__line')].forEach((line, i) => line.animate(
+      [{ transform: 'translateY(100%)' }, { transform: 'translateY(0)' }],
+      { duration: 1050, delay: i * 130, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' }
+    ));
+  }
 
-  const load = (src) => new Promise((resolve, reject) => {
-    const s = document.createElement('script'); s.src = new URL(src, document.baseURI).href;
-    s.onload = resolve; s.onerror = reject; document.head.appendChild(s);
-  });
+  const button = hero.querySelector('.hero__actions .btn--gold');
+  if (button && !reduced.matches) {
+    button.addEventListener('pointermove', (e) => {
+      const r = button.getBoundingClientRect();
+      button.style.transform = `translate(${(e.clientX-r.left-r.width/2)*.11}px, ${(e.clientY-r.top-r.height/2)*.11}px)`;
+    }, { passive: true });
+    button.addEventListener('pointerleave', () => { button.style.transform = ''; });
+    button.addEventListener('pointerdown', () => { button.style.transform = 'scale(.97)'; });
+    button.addEventListener('pointerup', () => { button.style.transform = ''; });
+  }
+  if (!canvas || !image || reduced.matches || matchMedia('(max-width: 679px)').matches) return;
 
-  const reveal = load('./vendor/gsap.min.js').then(() => load('./vendor/SplitText.min.js')).then(() => {
-    const title = hero.querySelector('.hero__title');
-    if (!title || !window.gsap || !window.SplitText) return;
-    window.gsap.registerPlugin(window.SplitText);
-    const split = new window.SplitText(title.querySelectorAll('.hero__line'), { type: 'lines', linesClass: 'hero-line-mask' });
-    window.gsap.fromTo(split.lines, { yPercent: 100 }, { yPercent: 0, duration: 1.1, stagger: .12, ease: 'cubic-bezier(.22,1,.36,1)', onComplete: () => { split.revert(); title.classList.add('is-complete'); } });
-  }).catch(() => {});
-
+  // One quad, transparent above the hair photograph. Its source is 5KB;
+  // the existing Three module is shared with the other salon hero layer.
   import('./vendor/three.module.js').then((THREE) => {
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: false, powerPreference: 'high-performance' });
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'low-power' });
     renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const texture = new THREE.TextureLoader().load(image.currentSrc || image.src);
-    texture.colorSpace = THREE.SRGBColorSpace;
-    texture.minFilter = texture.magFilter = THREE.LinearFilter;
     const uniforms = {
-      uTexture: { value: texture }, uResolution: { value: new THREE.Vector2() },
-      uPointer: { value: new THREE.Vector2(.5, .5) }, uPointerSpring: { value: new THREE.Vector2(.5, .5) },
-      uScroll: { value: 0 }, uTime: { value: 0 }, uImageScale: { value: 1.08 }
+      uPointer: { value: new THREE.Vector2(.5, .5) },
+      uTime: { value: 0 },
+      uAspect: { value: 1 }
     };
-    const material = new THREE.ShaderMaterial({ uniforms, vertexShader: `varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}`, fragmentShader: `
-      uniform sampler2D uTexture; uniform vec2 uResolution,uPointer,uPointerSpring; uniform float uScroll,uTime,uImageScale; varying vec2 vUv;
-      float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
-      float noise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);}
-      void main(){vec2 uv=(vUv-.5)/uImageScale+.5;float n=noise(uv*3.2+uTime*.018)+noise(uv*7.-uTime*.012)*.35;vec2 p=uPointerSpring-.5;float wave=sin((uv.x+uv.y)*12.+n*5.-uTime*.35)*.012;uv+=p*.018+normalize(p+vec2(.0001))*wave*(.4+length(p));vec3 photo=texture2D(uTexture,uv).rgb;float silk=noise(uv*5.+vec2(uTime*.025,-uTime*.018));float caustic=smoothstep(.45,.82,sin(uv.x*9.+n*4.+uTime*.18)*.5+.5)*.18;vec3 pearl=vec3(.937,.902,.847),champ=vec3(.969,.953,.933),honey=vec3(.875,.769,.608);vec3 liquid=mix(pearl,champ,silk);liquid=mix(liquid,honey,smoothstep(.58,.95,n));liquid+=caustic*vec3(1.,.72,.35);float veil=.16+silk*.12;gl_FragColor=vec4(mix(photo,liquid,veil),1.);}` });
-    scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
-    let visible = true, raf = 0, last = 0, targetScroll = 0;
-    const spring = { x: .5, y: .5 };
-    const resize = () => { const w = canvas.clientWidth || innerWidth, h = canvas.clientHeight || innerHeight; renderer.setSize(w, h, false); uniforms.uResolution.value.set(w, h); };
-    const pointer = (e) => { const r = hero.getBoundingClientRect(); uniforms.uPointer.value.set((e.clientX-r.left)/r.width, 1-(e.clientY-r.top)/r.height); };
-    const scroll = () => { const r = hero.getBoundingClientRect(); targetScroll = THREE.MathUtils.clamp(-r.top/Math.max(1,r.height),0,1); };
-    const io = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }); io.observe(hero);
-    new ResizeObserver(resize).observe(canvas); resize(); scroll();
-    hero.addEventListener('pointermove', pointer, { passive: true }); addEventListener('scroll', scroll, { passive: true });
-    const frame = (now) => { raf = requestAnimationFrame(frame); if (!visible || document.hidden || now-last < 1000/45) return; last=now; spring.x += (uniforms.uPointer.value.x-spring.x)*.075; spring.y += (uniforms.uPointer.value.y-spring.y)*.075; uniforms.uPointerSpring.value.set(spring.x,spring.y); uniforms.uScroll.value += (targetScroll-uniforms.uScroll.value)*.06; uniforms.uTime.value=now*.001; renderer.render(scene,camera); };
-    renderer.render(scene,camera); canvas.classList.add('is-live'); raf=requestAnimationFrame(frame);
-    addEventListener('pagehide', () => { cancelAnimationFrame(raf); io.disconnect(); material.dispose(); texture.dispose(); renderer.dispose(); }, { once: true });
-  }).catch(() => canvas.classList.remove('is-live'));
-
-  const button = hero.querySelector('a[href*="booking"], a[href*="Book"], .btn--gold');
-  if (button && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    button.addEventListener('pointermove', (e) => { const r=button.getBoundingClientRect(); button.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.12}px,${(e.clientY-r.top-r.height/2)*.12}px)`; });
-    button.addEventListener('pointerleave', () => { button.style.transform=''; });
-    button.addEventListener('pointerdown', () => { button.style.transform='scale(.97)'; });
-  }
+    const material = new THREE.ShaderMaterial({
+      uniforms, transparent: true, depthWrite: false,
+      vertexShader: 'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
+      fragmentShader: `precision mediump float;uniform vec2 uPointer;uniform float uTime,uAspect;varying vec2 vUv;
+        void main(){vec2 p=vUv-.5; p.x*=uAspect;vec2 mouse=(uPointer-.5)*vec2(uAspect,1.);
+        float d=length(p-mouse); float bend=exp(-d*4.)*.11;
+        float waves=sin(p.x*8.+sin(p.y*8.+uTime*.21)*1.8+uTime*.16+bend);
+        float folds=smoothstep(.58,.95,waves*.5+.5);
+        float caustics=pow(max(0.,sin(p.y*14.-p.x*5.+uTime*.22+bend*5.)),6.);
+        vec3 champagne=vec3(.969,.953,.933),pearl=vec3(.937,.902,.847),honey=vec3(.875,.769,.608);
+        vec3 col=mix(champagne,pearl,folds*.72);col=mix(col,honey,caustics*.45);
+        gl_FragColor=vec4(col,.06+folds*.065+caustics*.035);}`
+    });
+    const quad = new THREE.Mesh(new THREE.PlaneGeometry(2,2), material);
+    scene.add(quad);
+    let raf = 0, visible = true, desiredX = .5, desiredY = .5, velocityX = 0, velocityY = 0, last = 0;
+    let pointerX = .5, pointerY = .5, scrollProgress = 0;
+    const resize = () => {
+      const w=canvas.clientWidth, h=canvas.clientHeight;
+      if (!w || !h) return;
+      renderer.setSize(w,h,false);
+      uniforms.uAspect.value=w/h;
+    };
+    const updateScroll = () => {
+      const r=hero.getBoundingClientRect();
+      scrollProgress=Math.max(0,Math.min(1,-r.top/Math.max(1,r.height)));
+      image.style.transform=`translate3d(0,${(-scrollProgress*18).toFixed(1)}px,0) scale(${(1.08-scrollProgress*.08).toFixed(3)})`;
+    };
+    const frame=(now)=>{
+      if (!visible || document.hidden || reduced.matches) { raf=0;return; }
+      const dt=Math.min(.04,Math.max(.001,(now-last)/1000||.016));last=now;
+      const k=90,d=25;
+      velocityX+=((desiredX-pointerX)*k-velocityX*d)*dt;
+      velocityY+=((desiredY-pointerY)*k-velocityY*d)*dt;
+      pointerX+=velocityX*dt;pointerY+=velocityY*dt;
+      uniforms.uPointer.value.set(pointerX,pointerY);
+      uniforms.uTime.value=now*.001;
+      renderer.render(scene,camera);
+      raf=requestAnimationFrame(frame);
+    };
+    const start=()=>{if(!raf&&visible&&!document.hidden&&!reduced.matches){last=performance.now();raf=requestAnimationFrame(frame);}};
+    hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();desiredX=(e.clientX-r.left)/r.width;desiredY=1-(e.clientY-r.top)/r.height;},{passive:true});
+    addEventListener('scroll',updateScroll,{passive:true});
+    document.addEventListener('visibilitychange',start);
+    new ResizeObserver(resize).observe(canvas);
+    const io=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;if(visible)start();else{cancelAnimationFrame(raf);raf=0;}},{threshold:.01});
+    io.observe(hero);resize();updateScroll();renderer.render(scene,camera);canvas.classList.add('is-live');start();
+    addEventListener('pagehide',()=>{cancelAnimationFrame(raf);io.disconnect();quad.geometry.dispose();material.dispose();renderer.dispose();},{once:true});
+  }).catch((error)=>{window.__auraShaderError=String(error);canvas.classList.remove('is-live');});
 })();

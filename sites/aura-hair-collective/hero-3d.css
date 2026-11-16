@@ -30,9 +30,9 @@
   display: block;
   opacity: 0;
   pointer-events: none;
-  mix-blend-mode: normal;
+  mix-blend-mode: screen;
 }
-.hero--cinema .hero__canvas.is-live { opacity: 1; }
+.hero--cinema .hero__canvas.is-live { opacity: .7; }
 .hero--cinema .hero__shade {
   background:
     linear-gradient(90deg, rgba(33, 26, 21, 0.82) 0%, rgba(33, 26, 21, 0.28) 58%, rgba(33, 26, 21, 0.34) 100%),
