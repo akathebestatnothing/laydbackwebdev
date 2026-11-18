@@ -50,14 +50,14 @@
   .alora-kit-stage{right:2%;top:auto;bottom:1%;width:96%;height:34%}.alora-kit-hint{display:none}
 }
 @media(max-width:480px){
-  .head__inner{min-height:92px;padding-inline:16px!important}.head__brand{left:12px;width:150px;height:74px}.head__brand-logo{width:140px!important;height:98px!important}
-  .hero--alora,.hero--alora .hero__media,.hero--alora .hero__content{min-height:880px}
-  .hero--alora .hero__content{padding:48px 22px 390px!important}.hero--alora .hero__studio{font-size:.6rem!important;letter-spacing:.13em!important;margin-bottom:1.1rem!important}
-  .hero--alora .hero__title{font-size:clamp(3.3rem,15vw,4.4rem)!important;line-height:.98!important}
-  .hero--alora .hero__bottom{width:100%;margin-top:1.25rem}.hero--alora .hero__sub{font-size:.84rem!important;line-height:1.6!important;max-width:350px!important}
-  .hero--alora .hero__actions{gap:10px;margin-top:1.3rem}.hero--alora .hero__actions .btn--dark{padding:.78rem 1.05rem!important;font-size:.78rem}.hero--alora .hero__link{font-size:.75rem}
-  .hero--alora .hero__media picture{top:47%;height:45%}
-  .alora-kit-stage{bottom:1%;height:32%;width:98%;right:1%}
+  .head__inner{min-height:120px;padding:12px 16px 0!important}.head__brand{left:12px;width:150px;height:74px}.head__brand-logo{width:140px!important;height:98px!important}
+  .hero--alora,.hero--alora .hero__media,.hero--alora .hero__content{min-height:calc(100svh - 120px)}
+  .hero--alora .hero__content{padding:30px 22px 340px!important}.hero--alora .hero__studio{font-size:.6rem!important;letter-spacing:.13em!important;margin-bottom:.8rem!important}
+  .hero--alora .hero__title{font-size:clamp(3rem,13vw,3.7rem)!important;line-height:.98!important}
+  .hero--alora .hero__bottom{width:100%;margin-top:1.25rem}.hero--alora .hero__sub{font-size:.84rem!important;line-height:1.6!important;max-width:350px!important;color:#fffbee!important;font-weight:500!important}
+  .hero--alora .hero__actions{gap:10px;margin-top:1.3rem}.hero--alora .hero__actions .btn--dark{padding:.78rem 1.05rem!important;font-size:.78rem}.hero--alora .hero__link{font-size:.75rem;font-weight:600!important;color:#fffbee!important}
+  .hero--alora .hero__media picture{top:60%;height:30%}
+  .alora-kit-stage{bottom:4%;height:25%;width:92%;right:4%}
 }
 @media(prefers-reduced-motion:reduce){
   .alora-kit-poster,.alora-kit-canvas{transition:none!important}.alora-kit-canvas{display:none!important}.alora-kit-hint{display:none!important}
