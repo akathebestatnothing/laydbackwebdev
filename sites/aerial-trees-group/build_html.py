@@ -1,370 +1,125 @@
 #!/usr/bin/env python3
-"""Build the Aerial Trees Group one-pager."""
-import os, re
-SITE = "/home/ogheesus/laydback-site/sites/aerial-trees-group"
-A = os.path.join(SITE, "assets")
+"""Generate the Aerial Trees Group preview from verified DB/profile facts and owned artwork."""
+from pathlib import Path
 
-def inline(svg):
-    s = svg.strip()
-    s = re.sub(r'(<svg\b[^>]*?)\s+width="[^"]*"', r'\1', s, count=1)
-    s = re.sub(r'(<svg\b[^>]*?)\s+height="[^"]*"', r'\1', s, count=1)
-    return s
-
-BRANDW = inline(open(os.path.join(A, "logo-word.svg")).read()).replace(
-    'role="img" aria-label="Aerial Trees Group — tree services &amp; stump grinding"', 'class="brand__word" aria-hidden="true"')
-
-PHONE = "(02) 4358 2000"; TEL = "tel:0243582000"
-EMAIL = "aerialtrees@hotmail.com"
-FB = "https://www.facebook.com/aerialtreesgroup/"
-YEAR = "2026"
-
-WORK = [
-    ("w1_before.jpg", 448, 380, "Before — a large gum overhanging the roof."),
-    ("w2_after.jpg", 448, 380, "After — the overhanging limbs removed."),
-    ("reel.jpg", 540, 960, "Sectioning a log on site."),
-    ("w4_after.jpg", 456, 370, "Stump ground out, area cleared."),
-]
-
-SERVICES = [
-    ("Tree removal", "Whole-tree removals, sectioned down safely where access is tight or the tree sits over a roof, fence or shed."),
-    ("Trimming & pruning", "Deadwooding, canopy lifting and pruning to take the weight out of overhanging limbs and make the property safer."),
-    ("Stump grinding", "Stumps ground out below ground level and the site cleared, so the area can be replanted or covered."),
-    ("Chipping & mulch", "Branches chipped on site, with mulch left for the garden or taken away."),
-    ("Aerial / elevated access", "An elevated work platform for trees that can't be climbed or that sit near buildings and powerlines."),
-    ("Green waste removal", "Everything cut on site cleared away, leaving the yard tidy."),
-]
-
-PROCESS = [
-    ("Free quote", "Call or email with the address — free quotes, all areas."),
-    ("Assess the tree", "The tree, the access and what's around it are looked at before anything is cut."),
-    ("The work", "Climbed, platform or ground-worked — the tree is sectioned down safely."),
-    ("Stump & clean up", "The stump is ground out and the site cleared and chipped."),
-]
-
-FAQ = [
-    ("What areas do you cover?", "The Central Coast, Lake Macquarie, Newcastle and the wider Hunter Valley."),
-    ("How long have you been in business?", "The business has been established, experienced and insured for over 20 years."),
-    ("Do you grind stumps as well?", "Yes — stump grinding is part of the service; stumps are ground out below ground level."),
-    ("Can you remove trees near houses or powerlines?", "Yes. Trees are sectioned down and an elevated work platform is used where a tree can't be climbed or sits close to a building."),
-    ("How do I get a quote?", "Call (02) 4358 2000 or email aerialtrees@hotmail.com for a free quote."),
-    ("Do you take the green waste away?", "Branches are chipped on site — mulch can be left for the garden or removed with the rest of the green waste."),
-]
-
-work_html = "\n".join(
-    f'''        <figure class="work__item">
-          <img src="assets/{f}" alt="{cap}" width="{w}" height="{h}" decoding="async">
-          <figcaption>{cap}</figcaption>
-        </figure>''' for f, w, h, cap in WORK)
-
-services_html = "\n".join(
-    f'''        <article class="svc">
-          <span class="svc__n">{i:02d}</span>
-          <h3>{t}</h3>
-          <p>{d}</p>
-        </article>''' for i, (t, d) in enumerate(SERVICES, 1))
-
-process_html = "\n".join(
-    f'''          <li><span class="step__n">{i:02d}</span><div><h3>{t}</h3><p>{d}</p></div></li>'''
-    for i, (t, d) in enumerate(PROCESS, 1))
-
-faq_html = "\n".join(
-    f'''        <details class="faq__item"><summary>{q}</summary><p>{a}</p></details>'''
-    for q, a in FAQ)
-
-HTML = f'''<!doctype html>
+HTML = r'''<!doctype html>
 <html lang="en-AU">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aerial Trees Group — Tree Services &amp; Stump Grinding, Lake Munmorah NSW</title>
-<meta name="description" content="Aerial Trees Group — tree removal, trimming, stump grinding, chipping and green waste removal. Established, experienced and insured for over 20 years. Free quotes across the Central Coast, Lake Macquarie, Newcastle and the Hunter Valley.">
-<link rel="icon" href="assets/favicon.png" type="image/png">
-<meta property="og:title" content="Aerial Trees Group — Tree Services &amp; Stump Grinding, Lake Munmorah">
-<meta property="og:description" content="Tree removal, trimming and stump grinding. Insured, 20+ years. Free quotes across the Central Coast, Lake Macquarie, Newcastle and the Hunter Valley. (02) 4358 2000.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="assets/logo-round.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {{
-    --paper: #f7f6f3; --card: #ffffff; --ink: #1b1a17; --ink-2: #4c4a44; --ink-3: #7c7972;
-    --line: #e4e1da; --line-2: #d2cdc2; --acc: #d97a0e; --acc-ink: #a85806; --gold: #fdbd06;
-    --green: #4c8a1e; --dark: #17240f; --wrap: 1180px; --r: 6px;
-    --shadow: 0 1px 2px rgba(27,26,23,.06), 0 14px 34px -18px rgba(27,26,23,.3);
-  }}
-  * {{ box-sizing: border-box; }}
-  body {{ margin: 0; background: var(--paper); color: var(--ink);
-    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }}
-  h1, h2, h3, .brand__word, .eyebrow, .btn, .chip, .svc__n, .step__n, .foot__name {{
-    font-family: "Sora", "Inter", system-ui, sans-serif; }}
-  h1, h2, h3 {{ margin: 0; letter-spacing: -0.02em; line-height: 1.06; font-weight: 700; }}
-  p {{ margin: 0; }}
-  img {{ display: block; max-width: 100%; height: auto; }}
-  .wrap {{ max-width: var(--wrap); margin: 0 auto; padding: 0 28px; }}
-  .eyebrow {{ display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: 12.5px;
-    letter-spacing: .13em; text-transform: uppercase; color: var(--acc-ink); }}
-  .eyebrow::before {{ content: ""; width: 26px; height: 2px; background: var(--acc); display: inline-block; }}
-
-  .nav {{ position: sticky; top: 0; z-index: 30; background: rgba(247,246,243,.9);
-    backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--line); }}
-  .nav__in {{ display: flex; align-items: center; gap: 24px; height: 90px; }}
-  .brand {{ display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }}
-  .brand__mark {{ height: 52px; width: 52px; flex: none; border-radius: 50%; }}
-  .brand__word {{ height: 34px; width: 162px; flex: none; }}
-  .nav__links {{ display: flex; gap: 24px; margin-left: auto; }}
-  .nav__links a {{ text-decoration: none; font-size: 15px; font-weight: 500; color: var(--ink-2); padding: 6px 0; }}
-  .nav__links a:hover {{ color: var(--ink); }}
-  .btn {{ display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
-    font-weight: 600; font-size: 15px; border-radius: var(--r); padding: 12px 20px; border: 1.5px solid transparent;
-    transition: transform .15s ease, background .15s ease, color .15s ease; }}
-  .btn--solid {{ background: var(--dark); color: #fff; }}
-  .btn--solid:hover {{ background: #000; transform: translateY(-1px); }}
-  .btn--ghost {{ border-color: var(--line-2); color: var(--ink); }}
-  .btn--ghost:hover {{ border-color: var(--ink); }}
-  .btn--acc {{ background: var(--acc); color: #fff; }}
-  .btn--acc:hover {{ background: var(--acc-ink); transform: translateY(-1px); }}
-  .nav__cta {{ margin-left: 6px; padding: 11px 18px; }}
-
-  .hero {{ position: relative; padding: 72px 0 82px; overflow: hidden; }}
-  .hero::before {{ content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    background-image: radial-gradient(rgba(27,26,23,.05) 1px, transparent 1.5px); background-size: 24px 24px;
-    mask-image: linear-gradient(180deg, #000, transparent 74%); }}
-  .hero__in {{ position: relative; z-index: 1; display: grid; grid-template-columns: 1.08fr .92fr; gap: 46px; align-items: center; }}
-  .hero h1 {{ font-size: clamp(36px, 4.8vw, 58px); margin: 20px 0 18px; font-weight: 800; }}
-  .hero p.lead {{ color: var(--ink-2); font-size: 18.5px; max-width: 35ch; }}
-  .hero__cta {{ display: flex; gap: 12px; margin: 28px 0 30px; flex-wrap: wrap; }}
-  .chips {{ display: flex; flex-wrap: wrap; gap: 9px; }}
-  .chip {{ font-size: 13px; font-weight: 600; color: var(--ink-2); background: #fff; border: 1px solid var(--line);
-    border-radius: 999px; padding: 7px 13px; }}
-  .chip b {{ color: var(--acc-ink); font-weight: 700; }}
-  .hero__card figure {{ margin: 0 auto 0 auto; max-width: 448px; background: #fff; border: 1px solid var(--line);
-    border-radius: 10px; padding: 12px 12px 0; box-shadow: var(--shadow); }}
-  .hero__card img {{ border-radius: 4px; width: 100%; }}
-  .hero__card figcaption {{ font-size: 13px; color: var(--ink-3); padding: 12px 4px 14px; display: flex; align-items: center; gap: 8px; }}
-  .hero__card figcaption::before {{ content: ""; width: 18px; height: 2px; background: var(--acc); }}
-
-  section {{ scroll-margin-top: 100px; }}
-  .band {{ padding: 84px 0; }}
-  .band--tint {{ background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }}
-  .head {{ max-width: 640px; margin-bottom: 42px; }}
-  .head h2 {{ font-size: clamp(28px, 3.4vw, 40px); margin: 16px 0 12px; }}
-  .head p {{ color: var(--ink-2); }}
-
-  .svc-grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }}
-  .svc {{ background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 26px 24px 28px; }}
-  .svc__n {{ display: inline-block; font-weight: 700; font-size: 13px; letter-spacing: .12em; color: var(--acc); margin-bottom: 14px; }}
-  .svc h3 {{ font-size: 19px; margin-bottom: 9px; }}
-  .svc p {{ color: var(--ink-2); font-size: 15.5px; }}
-
-  .process {{ background: var(--dark); color: #eaf0e2; }}
-  .process .eyebrow {{ color: var(--gold); }}
-  .process h2 {{ color: #fff; }}
-  .process .head p {{ color: #a7b39a; }}
-  .steps {{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }}
-  .steps li {{ border-top: 2px solid #33452a; padding-top: 18px; }}
-  .step__n {{ display: block; font-weight: 700; font-size: 14px; color: var(--gold); letter-spacing: .1em; margin-bottom: 12px; }}
-  .steps h3 {{ font-size: 17px; margin-bottom: 8px; color: #fff; }}
-  .steps p {{ color: #a7b39a; font-size: 14.5px; }}
-
-  .wrap--narrow {{ max-width: 940px; }}
-  .work-grid {{ columns: 2; column-gap: 22px; }}
-  .work__item {{ margin: 0 0 22px; break-inside: avoid; }}
-  .work__item img {{ width: 100%; border-radius: 10px; border: 1px solid var(--line); background: #fff; }}
-  .work__item figcaption {{ font-size: 13.5px; color: var(--ink-3); margin-top: 10px; }}
-
-  .faq {{ max-width: 820px; }}
-  .faq__item {{ border-bottom: 1px solid var(--line); }}
-  .faq__item summary {{ list-style: none; cursor: pointer; padding: 20px 34px 20px 0; position: relative;
-    font-family: "Sora", sans-serif; font-weight: 600; font-size: 18px; }}
-  .faq__item summary::-webkit-details-marker {{ display: none; }}
-  .faq__item summary::after {{ content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
-    color: var(--acc); font-weight: 700; font-size: 22px; }}
-  .faq__item[open] summary::after {{ content: "–"; }}
-  .faq__item p {{ color: var(--ink-2); padding: 0 34px 22px 0; margin-top: -6px; }}
-
-  .contact {{ background: #fff; border-top: 1px solid var(--line); }}
-  .contact__card {{ display: grid; grid-template-columns: 1.1fr .9fr; gap: 46px; align-items: center;
-    border: 1px solid var(--line); border-radius: 14px; padding: 44px 46px; background: var(--paper); }}
-  .contact h2 {{ font-size: clamp(28px, 3.4vw, 40px); margin: 16px 0 14px; }}
-  .contact p {{ color: var(--ink-2); }}
-  .contact__meta {{ display: grid; gap: 16px; margin-top: 26px; }}
-  .contact__meta div {{ display: flex; gap: 12px; align-items: flex-start; }}
-  .contact__meta .k {{ font-family: "Sora", sans-serif; font-weight: 600; font-size: 12.5px; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--ink-3); min-width: 96px; padding-top: 3px; }}
-  .contact__meta .v {{ font-weight: 500; }}
-  .contact__meta a {{ color: var(--acc-ink); text-decoration: none; border-bottom: 1.5px solid rgba(168,88,6,.3); }}
-  .contact__cta {{ display: flex; flex-direction: column; gap: 14px; }}
-  .contact__cta .btn {{ justify-content: center; font-size: 16px; padding: 15px 22px; }}
-  .contact__cta small {{ color: var(--ink-3); text-align: center; }}
-
-  footer {{ padding: 40px 0 52px; }}
-  .foot {{ display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: space-between; }}
-  .foot__brand {{ display: flex; align-items: center; gap: 13px; }}
-  .foot__mark {{ height: 44px; width: 44px; border-radius: 50%; }}
-  .foot__name {{ font-family: "Sora", sans-serif; font-weight: 700; font-size: 16px; }}
-  .foot__meta {{ color: var(--ink-3); font-size: 14px; text-align: right; }}
-  .foot__rule {{ border-top: 1px solid var(--line); margin: 26px 0 22px; }}
-
-  @media (max-width: 980px) {{
-    .hero__in {{ grid-template-columns: 1fr; gap: 40px; }}
-    .svc-grid {{ grid-template-columns: repeat(2, 1fr); }}
-    .steps {{ grid-template-columns: repeat(2, 1fr); }}
-    .contact__card {{ grid-template-columns: 1fr; padding: 34px 28px; gap: 30px; }}
-    .nav__links {{ display: none; }}
-  }}
-  @media (max-width: 560px) {{
-    body {{ font-size: 16px; }}
-    .wrap {{ padding: 0 20px; }}
-    .band {{ padding: 62px 0; }}
-    .svc-grid, .steps {{ grid-template-columns: 1fr; }}
-    .work-grid {{ columns: 1; }}
-    .hero h1 {{ font-size: 33px; }}
-    .brand__word {{ height: 27px; width: 128px; }}
-    .brand__mark {{ height: 44px; width: 44px; }}
-    .nav__cta {{ padding: 10px 14px; font-size: 14px; }}
-    .foot__meta {{ text-align: left; }}
-  }}
-  @media (prefers-reduced-motion: reduce) {{ * {{ transition: none !important; }} }}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aerial Trees Group — Tree Services &amp; Stump Grinding | Lake Munmorah NSW</title>
+  <meta name="description" content="Aerial Trees Group: tree trimming, tree removal, stump grinding, chipping and mulch at Lake Munmorah NSW. Request a free quote.">
+  <link rel="canonical" href="https://laydbackapps.com/sites/aerial-trees-group/">
+  <meta property="og:title" content="Aerial Trees Group — Tree Services &amp; Stump Grinding">
+  <meta property="og:description" content="Tree work from canopy to stump at Lake Munmorah NSW. Request a free quote.">
+  <meta property="og:url" content="https://laydbackapps.com/sites/aerial-trees-group/">
+  <link rel="icon" href="assets/favicon.png">
+  <style>
+    :root{--ink:#1b1a17;--forest:#23331e;--green:#3c701b;--orange:#d97a0e;--hero-acc:#ffb454;--paper:#f4f1e8;--white:#fff;--line:#c9c5b8;--lb-hero-perspective:1200px;perspective:1200px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit}img{display:block;max-width:100%}button,input,select,textarea{font:inherit}button,a,input,select,textarea{outline-offset:4px}:focus-visible{outline:3px solid var(--orange)}.skip{position:fixed;left:12px;top:-100px;z-index:99;background:#fff;padding:12px}.skip:focus{top:12px}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.wrap{width:min(1180px,calc(100% - 48px));margin:auto}
+    .topbar{height:96px;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;position:relative;z-index:5}.nav{display:flex;align-items:center;gap:28px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}.brand-badge{display:block;flex:none;width:64px;height:64px;object-fit:contain}.brand-word{display:block;flex:none;width:235px;height:auto;aspect-ratio:495/104;object-fit:contain}.links{display:flex;align-items:center;gap:26px;list-style:none;padding:0;margin:0}.links a{font-size:14px;font-weight:750;text-decoration:none}.links a:not(.button):hover{color:var(--green)}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 21px;background:var(--orange);color:#17120b;border:2px solid var(--orange);font-weight:850;text-decoration:none;cursor:pointer}.button:hover{background:#f39a35}.button.ghost{background:transparent;color:var(--white);border-color:#8e9386}.button.ghost:hover{border-color:var(--hero-acc);color:var(--hero-acc)}
+    .hero{background:var(--ink);color:var(--white);position:relative;overflow:hidden;border-bottom:10px solid var(--orange)}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(76,138,30,.17),transparent 55%);pointer-events:none}.hero-grid{min-height:590px;display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:center;padding:64px 0;position:relative}.eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 18px;color:var(--hero-acc);font-size:13px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.eyebrow:before{content:"";width:36px;height:4px;background:var(--orange)}h1,h2,h3,p{max-width:100%}h1{font-size:clamp(48px,5.6vw,80px);line-height:.98;letter-spacing:-.055em;margin:0 0 24px;font-weight:900}h1 span{color:var(--hero-acc)}.hero-copy>p:not(.eyebrow){max-width:630px;color:#e2e2d9;font-size:19px;line-height:1.6;margin:0 0 28px}.actions{display:flex;gap:12px;flex-wrap:wrap}.hero-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:36px 0 0;padding:20px 0 0;border-top:1px solid #505047;list-style:none}.hero-facts li{padding:0 14px;border-left:1px solid #505047;font-size:13px;line-height:1.4;color:#d7dacd}.hero-facts li:first-child{padding-left:0;border:0}.hero-facts strong{display:block;color:#fff;font-size:15px;margin-bottom:3px}
+    .work-figure{margin:0;max-width:480px;width:100%;justify-self:end;background:var(--paper);color:var(--ink);border:1px solid #65665c;box-shadow:12px 12px 0 var(--green)}.work-photo{aspect-ratio:480/260;background-image:url('assets/hero-arborist.jpg');background-size:cover;background-position:center;min-height:0}.work-caption{padding:15px 18px;border-bottom:1px solid var(--line);font-size:13px;line-height:1.45}.work-caption strong{display:block;font-size:15px}.work-tags{display:grid;grid-template-columns:1fr 1fr}.work-tags span{padding:14px 16px;font-size:12px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.work-tags span+span{border-left:1px solid var(--line);color:var(--green)}
+    .section{padding:84px 0}.section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:50px;align-items:start;margin-bottom:38px}.section h2{font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-.04em;margin:0;font-weight:900}.section-intro{margin:0;max-width:680px;color:#51544b}.job-board{border-top:5px solid var(--green)}.job-row{display:grid;grid-template-columns:64px 1fr 1.35fr;gap:24px;align-items:center;padding:24px 12px;border-bottom:1px solid var(--line)}.job-row:nth-child(even){background:#ece9df}.job-num{font:900 28px/1 monospace;color:#a65400}.job-row h3{font-size:22px;line-height:1.2;margin:0}.job-row p{margin:0;color:#55584f;font-size:15px}.job-row small{display:block;color:var(--green);font-weight:800;margin-top:4px}
+    .planner{background:var(--forest);color:#fff}.planner .section-intro{color:#d9dfd2}.planner-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #64715d}.plan-step{padding:28px 24px;min-height:225px}.plan-step+.plan-step{border-left:1px solid #64715d}.plan-step b{display:inline-grid;place-items:center;width:40px;height:40px;background:var(--orange);color:var(--ink);font:900 20px/1 monospace;margin-bottom:24px}.plan-step h3{font-size:20px;margin:0 0 10px}.plan-step p{font-size:14px;color:#d9dfd2;margin:0}.profile-note{margin-top:28px;padding-left:18px;border-left:4px solid var(--orange);color:#d9dfd2;font-size:14px}
+    .quote-section{padding:84px 0;background:#fff}.quote-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:70px;align-items:start}.quote-copy{position:sticky;top:24px}.quote-copy h2{font-size:clamp(38px,4vw,56px);line-height:1.03;letter-spacing:-.04em;margin:0 0 20px}.quote-copy p{color:#575a51}.quote-note{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px}.quote-form{border:2px solid var(--ink);padding:30px;background:var(--paper)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:13px;font-weight:850}.field input,.field select,.field textarea{width:100%;border:1px solid #85887d;background:#fff;color:var(--ink);padding:13px 14px;border-radius:0;min-height:48px}.field textarea{min-height:135px;resize:vertical}.form-foot{display:flex;align-items:center;gap:18px;margin-top:22px}.form-foot p{font-size:12px;color:#5f6259;margin:0;max-width:250px;line-height:1.4}#form-status{margin:16px 0 0;font-weight:700;font-size:14px}
+    footer{background:var(--ink);color:#d8d9d1;padding:42px 0}.footer-grid{display:flex;align-items:center;gap:30px}.footer-brand{display:flex;align-items:center;gap:12px;margin-right:auto}.footer-brand .brand-badge{width:54px;height:54px}.footer-brand .brand-word{width:210px;filter:invert(1) brightness(2)}footer p{font-size:13px;margin:4px 0}.footer-area{text-align:right}.footer-area strong{color:#fff}.rv{transition:border-color .35s}.rv.on{border-top-color:var(--orange)}#lb3d-hero{display:none!important}
+    @media(max-width:960px){.links{gap:16px}.links li:nth-child(2){display:none}.brand-word{width:200px}.hero-grid{gap:35px}.section-head{grid-template-columns:1fr 1.4fr}.planner-grid{grid-template-columns:1fr 1fr}.plan-step:nth-child(3){border-left:0;border-top:1px solid #64715d}.plan-step:nth-child(4){border-top:1px solid #64715d}.quote-grid{gap:35px}}
+    @media(max-width:760px){.wrap{width:min(100% - 32px,600px)}.topbar{height:86px}.brand-badge{width:52px;height:52px}.brand-word{width:180px}.links{gap:10px}.links li{display:none}.links .nav-cta{display:block}.nav .button{font-size:12px;min-height:42px;padding:9px 12px}.hero-grid{grid-template-columns:1fr;padding:48px 0;gap:40px}.hero h1{font-size:52px}.work-figure{justify-self:start;box-shadow:8px 8px 0 var(--green)}.section,.quote-section{padding:58px 0}.section-head,.quote-grid{grid-template-columns:1fr;gap:20px}.job-row{grid-template-columns:44px 1fr;gap:12px;padding:20px 6px}.job-row p{grid-column:2}.quote-copy{position:static}.footer-grid{align-items:flex-start;flex-wrap:wrap}.footer-area{text-align:left;width:100%}}
+    @media(max-width:480px){body{font-size:16px}.brand{gap:7px}.brand-badge{width:46px;height:46px}.brand-word{width:139px}.nav{gap:5px}.nav .button{font-size:11px;padding:8px;min-height:40px}.hero h1{font-size:45px}.hero-copy>p:not(.eyebrow){font-size:17px}.hero-facts{grid-template-columns:1fr;gap:12px}.hero-facts li{border:0;padding:0}.actions .button{width:100%}.planner-grid{grid-template-columns:1fr}.plan-step+.plan-step{border-left:0;border-top:1px solid #64715d}.plan-step{min-height:0}.form-grid{grid-template-columns:1fr}.quote-form{padding:20px 16px}.form-foot{align-items:stretch;flex-direction:column}.form-foot .button{width:100%}.footer-brand .brand-word{width:170px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
 </head>
-<body>
-  <header class="nav">
-    <div class="wrap nav__in">
-      <a class="brand" href="#top" aria-label="Aerial Trees Group — home">
-        <img class="brand__mark" src="assets/logo-round.png" width="720" height="720" alt="Aerial Trees Group logo">
-        {BRANDW}
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Aerial Trees Group home">
+        <img class="brand-badge" src="assets/logo-round.png" width="720" height="720" alt="Aerial Trees Group logo">
+        <img class="brand-word" src="assets/logo-word.svg" width="495" height="104" alt="Aerial Trees Group — tree services and stump grinding">
       </a>
-      <nav class="nav__links" aria-label="Sections">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#work">Our work</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a class="btn btn--acc nav__cta" href="{TEL}">Call {PHONE}</a>
-    </div>
+      <ul class="links">
+        <li><a href="#services">Tree services</a></li>
+        <li><a href="#planner">Job planner</a></li>
+        <li class="nav-cta"><a class="button" href="#quote">Request a free quote</a></li>
+      </ul>
+    </nav>
   </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="wrap hero__in">
-        <div>
-          <span class="eyebrow">Tree Services &amp; Stump Grinding · Lake Munmorah</span>
-          <h1>Tree removal, pruning and stump grinding, done safely.</h1>
-          <p class="lead">All tree services and stump grinding across the Central Coast, Lake Macquarie, Newcastle and the Hunter Valley — established, experienced and insured for over 20 years.</p>
-          <div class="hero__cta">
-            <a class="btn btn--acc" href="{TEL}">Call for a free quote</a>
-            <a class="btn btn--ghost" href="#services">See services</a>
-          </div>
-          <div class="chips">
-            <span class="chip"><b>20+ years</b> established</span>
-            <span class="chip">Insured</span>
-            <span class="chip">Free quotes — all areas</span>
-            <span class="chip">Stump grinding</span>
-          </div>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div id="lb3d-hero" aria-hidden="true">LB-3D-HERO<canvas width="1" height="1"></canvas></div>
+      <div class="hero-grid wrap">
+        <div class="hero-copy">
+          <p class="eyebrow">Tree services · Lake Munmorah NSW</p>
+          <h1 id="hero-title">Tree work, from <span>canopy to stump.</span></h1>
+          <p>Aerial Trees Group takes enquiries for tree trimming, tree removal, stump grinding, chipping and mulch. Show us the tree, the access and the timing — then request a free quote.</p>
+          <div class="actions"><a class="button" href="#quote">Plan my tree work</a><a class="button ghost" href="#services">See tree services</a></div>
+          <ul class="hero-facts" aria-label="Core services">
+            <li><strong>Canopy</strong>Trimming &amp; tree removal</li>
+            <li><strong>Below ground</strong>Stump grinding</li>
+            <li><strong>Timber</strong>Chipping &amp; mulch</li>
+          </ul>
         </div>
-        <div class="hero__card">
-          <figure>
-            <img src="assets/w3_before.jpg" alt="Tree assessed beside a fence line before removal" width="450" height="370">
-            <figcaption>A tree assessed before removal, Lake Munmorah</figcaption>
-          </figure>
-        </div>
+        <figure class="work-figure">
+          <div class="work-photo" role="img" aria-label="An arborist in safety equipment working on a large tree trunk beside an elevated work platform"></div>
+          <figcaption class="work-caption"><strong>Arborist at work</strong>Cropped from Aerial Trees Group’s supplied social artwork.</figcaption>
+          <div class="work-tags"><span>Tree services</span><span>Stump grinding</span></div>
+        </figure>
       </div>
     </section>
 
-    <section id="services" class="band band--tint">
+    <section class="section" id="services" aria-labelledby="services-title">
       <div class="wrap">
-        <div class="head">
-          <span class="eyebrow">What we do</span>
-          <h2>All tree services &amp; stump grinding</h2>
-          <p>From a single overhanging limb to a full removal and stump grind — one crew, one job.</p>
-        </div>
-        <div class="svc-grid">
-{services_html}
+        <div class="section-head"><h2 id="services-title">Put the right job on the board.</h2><p class="section-intro">These services appear in Aerial Trees Group’s own supplied branding. Choose the closest fit in the quote form; the exact scope and price can then be discussed for your property.</p></div>
+        <div class="job-board rv">
+          <article class="job-row"><span class="job-num">01</span><h3>Tree trimming<small>Canopy &amp; deadwood</small></h3><p>Note the branches or canopy area you want assessed, including anything close to a roof or access path.</p></article>
+          <article class="job-row"><span class="job-num">02</span><h3>Tree removal<small>Whole-tree enquiries</small></h3><p>Include the tree’s location on the property, nearby structures and how equipment could reach the work area.</p></article>
+          <article class="job-row"><span class="job-num">03</span><h3>Stump grinding<small>Reclaim the space</small></h3><p>An approximate stump diameter, a photo and access details will help frame the conversation.</p></article>
+          <article class="job-row"><span class="job-num">04</span><h3>Chipping &amp; mulch<small>Timber processing</small></h3><p>Select this service to discuss chipping and mulch as part of your tree-work enquiry.</p></article>
+          <article class="job-row"><span class="job-num">05</span><h3>Tree inspections<small>Assessment enquiries</small></h3><p>Describe what you have noticed and where it is on the tree. Photos can be requested when the team follows up.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="process" class="band process">
+    <section class="section planner" id="planner" aria-labelledby="planner-title">
       <div class="wrap">
-        <div class="head">
-          <span class="eyebrow">How it runs</span>
-          <h2>From a phone call to a cleared site</h2>
-          <p>Free quotes, careful work, and the site left clean.</p>
+        <div class="section-head"><h2 id="planner-title">A useful quote starts on the ground.</h2><p class="section-intro">Use this checklist to prepare your enquiry. It is a planning guide, not a substitute for an on-site assessment or an agreed scope.</p></div>
+        <div class="planner-grid">
+          <article class="plan-step"><b>1</b><h3>Show the tree</h3><p>Have a clear photo ready, plus a wider view showing its position on the property.</p></article>
+          <article class="plan-step"><b>2</b><h3>Mark the access</h3><p>Note gates, slopes and the route from the street to the work area.</p></article>
+          <article class="plan-step"><b>3</b><h3>Name the scope</h3><p>Trimming, removal, stump grinding, chipping, mulch or an inspection — select the closest fit.</p></article>
+          <article class="plan-step"><b>4</b><h3>Request the quote</h3><p>Send your details and preferred timing through the form below for a direct response.</p></article>
         </div>
-        <ol class="steps">
-{process_html}
-        </ol>
+        <p class="profile-note">“All Tree Services &amp; Stump Grinding” — the service wording carried in Aerial Trees Group’s own logo.</p>
       </div>
     </section>
 
-    <section id="work" class="band">
-      <div class="wrap wrap--narrow">
-        <div class="head">
-          <span class="eyebrow">Recent work</span>
-          <h2>On the job around Lake Munmorah</h2>
-          <p>A removal, a stump grind and pruning from recent jobs.</p>
-        </div>
-        <div class="work-grid">
-{work_html}
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="band band--tint">
-      <div class="wrap">
-        <div class="head">
-          <span class="eyebrow">Questions</span>
-          <h2>Before you book</h2>
-        </div>
-        <div class="faq">
-{faq_html}
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="band contact">
-      <div class="wrap">
-        <div class="contact__card">
-          <div>
-            <span class="eyebrow">Get in touch</span>
-            <h2>Free quotes, all areas</h2>
-            <p>Call or email with the address and what needs doing, and a free quote comes back.</p>
-            <div class="contact__meta">
-              <div><span class="k">Phone</span><span class="v"><a href="{TEL}">{PHONE}</a></span></div>
-              <div><span class="k">Email</span><span class="v"><a href="mailto:{EMAIL}">{EMAIL}</a></span></div>
-              <div><span class="k">Address</span><span class="v">295 Pacific Highway, Lake Munmorah NSW</span></div>
-              <div><span class="k">Service area</span><span class="v">Central Coast · Lake Macquarie · Newcastle · Hunter Valley</span></div>
-            </div>
+    <section class="quote-section" id="lbq" aria-labelledby="quote-title">
+      <div class="quote-grid wrap" id="quote">
+        <div class="quote-copy"><p class="eyebrow" style="color:var(--green)">Free quote</p><h2 id="quote-title">Start with your tree.</h2><p>Send the property suburb, the service you need and a short description. Your phone number is for the business to respond to this enquiry.</p><p class="quote-note"><strong>Service location:</strong><br>Lake Munmorah NSW</p></div>
+        <form class="quote-form" action="/functions/v1/quote-request" method="post" data-site="manual-20261102-aerial-trees-group">
+          <input type="hidden" name="site" value="manual-20261102-aerial-trees-group">
+          <div class="form-grid">
+            <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="phone">Best contact number</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+            <div class="field"><label for="suburb">Property suburb</label><input id="suburb" name="suburb" autocomplete="address-level2" required></div>
+            <div class="field"><label for="service">Tree service</label><select id="service" name="service" required><option value="">Choose one</option><option>Tree trimming</option><option>Tree removal</option><option>Stump grinding</option><option>Chipping &amp; mulch</option><option>Tree inspection</option><option>Not sure — please discuss</option></select></div>
+            <div class="field full"><label for="message">Tree, access and preferred timing</label><textarea id="message" name="message" placeholder="Example: gum tree near the rear fence; side gate access; photos available on request."></textarea></div>
           </div>
-          <div class="contact__cta">
-            <a class="btn btn--acc" href="{TEL}">Call {PHONE}</a>
-            <a class="btn btn--ghost" href="mailto:{EMAIL}">Email a free quote</a>
-            <small>Established, insured, 20+ years</small>
-          </div>
-        </div>
+          <div class="form-foot"><button class="button" type="submit">Request my free quote</button><p>Scope and pricing are confirmed with the business.</p></div>
+          <p id="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
   </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="foot__rule"></div>
-      <div class="foot">
-        <div class="foot__brand">
-          <img class="foot__mark" src="assets/logo-round.png" width="720" height="720" alt="">
-          <div>
-            <div class="foot__name">Aerial Trees Group</div>
-            <div class="foot__meta">Lake Munmorah, NSW</div>
-          </div>
-        </div>
-        <div class="foot__meta">Tree services &amp; stump grinding · Central Coast &amp; the Hunter, NSW · {PHONE}<br>© {YEAR} Aerial Trees Group</div>
-      </div>
-    </div>
-  </footer>
+  <footer><div class="footer-grid wrap"><div class="footer-brand"><img class="brand-badge" src="assets/logo-round.png" width="720" height="720" alt=""><img class="brand-word" src="assets/logo-word.svg" width="495" height="104" alt="Aerial Trees Group"></div><div class="footer-area"><strong>Tree services &amp; stump grinding</strong><p>Lake Munmorah NSW · <a href="#quote">Request a free quote</a></p><p>© 2026 Aerial Trees Group</p></div></div></footer>
+  <script>
+    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('on');io.unobserve(entry.target)}}));
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
 '''
-open(os.path.join(SITE, "index.html"), "w").write(HTML)
-print("wrote index.html", len(HTML), "bytes")
+
+Path(__file__).with_name('index.html').write_text(HTML, encoding='utf-8')
+print('Wrote index.html')
