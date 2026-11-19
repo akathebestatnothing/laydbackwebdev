@@ -690,5 +690,16 @@ document.documentElement.className += ' js';
 </script>
 
 <script>(function(){var b=document.querySelector('.callbar');if(!b)return;var h=document.querySelector('.hero');function up(){var on=window.scrollY>((h?h.offsetHeight:420)-140);b.classList.toggle('on',on);document.body.classList.toggle('bar-on',on);}up();addEventListener('scroll',up,{passive:true});addEventListener('resize',up);})();</script>
+<style id="lb-mobile-hd">/* the wordmark image is 2137px wide and clipped on phones; scale it and keep the menu reachable */
+@media(max-width:640px){
+  .hd-in{flex-wrap:wrap!important;align-items:center!important;min-height:60px!important;gap:.4rem .6rem!important}
+  .brand{flex:1 1 auto!important;min-width:0!important;overflow:hidden!important}
+  .brand-txt{min-width:0!important;overflow:hidden!important}
+  .brand-word{max-width:min(62vw,320px)!important;width:auto!important;height:auto!important;display:block!important}
+  .brand-sub,.bs-long{display:none!important}
+  .mnav{display:block!important;margin-left:auto!important}
+  .mnav>summary{display:inline-flex!important;visibility:visible!important;opacity:1!important;min-height:42px!important;padding:0 .6rem!important}
+}
+</style>
 </body>
 </html>
