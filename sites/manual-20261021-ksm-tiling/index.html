@@ -176,7 +176,7 @@ footer a:hover{color:#fff}
 .foot-base{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;margin-top:clamp(28px,5vw,44px);padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:.95rem;color:#d3e2e5}
 
 /* reveal */
-.js .rv{opacity:0;transform:translateY(14px);transition:opacity .65s ease,transform .65s ease}
+.js .rv{opacity:1;transform:none}
 .js .rv.on{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
 
@@ -219,7 +219,8 @@ footer a:hover{color:#fff}
 /* ---------- gate pass: type, contrast, caption weight, mobile hero ---------- */
 .hero-media{margin-left:0;border-left:0}
 .btn{font-size:1rem;padding:15px 24px}
-.hdr .btn{padding:13px 20px}
+.hdr .btn{padding:13px 20px;background:transparent;color:var(--teal-deep);border-color:var(--teal-deep)}
+.hdr .btn:hover{background:var(--teal-deep);color:#f6f8f8}
 .sec-head p,.tcell p,.step p,.faq p{color:var(--ink-2)}
 .sec-head p{font-size:1.06rem}
 .faq p{font-size:1.06rem}
@@ -253,6 +254,7 @@ label{font-size:.88rem;letter-spacing:.07em}
 .kicker .nw{white-space:nowrap}
 .grout-bg{display:none}
 .hero-media{min-height:0;max-height:min(660px,calc(100vh - 150px))}
+.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(6,24,29,.22),inset 0 -80px 110px -70px rgba(6,24,29,.55)}
 .hero-media img{max-height:min(660px,calc(100vh - 150px))}
 .hero-copy{padding-bottom:clamp(26px,3.4vw,44px)}
 @media (max-width:680px){
@@ -372,6 +374,10 @@ footer .foot-base{color:#c9d9db}
 .contact-block .quote-start p{font-size:1.06rem;line-height:1.62;color:#e6f1f2}
 @media (max-width:860px){.quote-grid{grid-template-columns:1fr}.quote-media img{aspect-ratio:4/3}}
 @media (max-width:680px){.nav a{font-size:1rem;padding:9px 2px}}
+/* pass: CTA micro-copy + mobile nav tap targets */
+.cta-micro{flex-basis:100%;font-size:.95rem;color:var(--ink-2);margin-top:-4px}
+@media (max-width:360px){.cta-micro{font-size:.9rem}}
+@media (max-width:980px){.nav{justify-content:space-between}.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 2px}}
 </style>
 </head>
 <body>
@@ -406,7 +412,8 @@ footer .foot-base{color:#c9d9db}
       <h1 id="h1">Salon fit-outs and wet areas tiled to a true, even grout line.</h1>
       <p class="hero-lede">Membrane prep, substrate levelling and set-out done before the first tile goes down &mdash; then large-format floors, hexagon mosaic and wet areas set level and grouted straight.</p>
       <div class="hero-cta">
-        <a class="btn btn-acc" href="#quote">Send photos, get a quote</a>
+        <a class="btn btn-acc" href="#quote">Get a quote</a>
+        <span class="cta-micro">Send a photo of the room &mdash; quotes are free.</span>
         <a class="link" href="#work">See the work &rarr;</a>
       </div>
     </div>
@@ -422,7 +429,7 @@ footer .foot-base{color:#c9d9db}
     <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">Services</p>
     <div class="sec-head rv">
       <h2 id="svc-h">What we tile</h2>
-      <p>Bathrooms, laundries, kitchens and full fit-outs &mdash; walls, floors, wet areas, mosaic features, splashbacks and re-grout work.</p>
+      <p>Walls, floors, wet areas, mosaic features, splashbacks and re-grout &mdash; measured, set out and levelled first.</p>
     </div>
     <div class="tilegrid rv">
       <div class="tcell w2"><span class="tno">01</span><h3>Wall tiling</h3><p>Porcelain, ceramic and stone-look wall tiles set plumb and level, with even grout lines and clean cuts around outlets.</p></div>
