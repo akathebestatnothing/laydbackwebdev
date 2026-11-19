@@ -50,7 +50,7 @@ ul{margin:0;padding:0;list-style:none}
 .brand{display:flex;align-items:center;gap:12px;flex:none;min-width:0}
 .brand img{height:86px;width:86px;object-fit:contain;border-radius:50%;box-shadow:0 0 0 1px rgba(6,24,29,.18),0 0 0 5px #fff}
 .brand-name{font-family:var(--disp);font-weight:700;font-size:1.68rem;letter-spacing:-.02em;white-space:nowrap}
-.brand-sub{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-deep);font-weight:700;margin-top:2px}
+.brand-sub{display:block;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-deep);font-weight:700;margin-top:4px}
 .nav{display:flex;align-items:center;gap:clamp(14px,2vw,26px);margin-left:auto}
 .nav a{font-size:.9rem;font-weight:600;color:var(--muted);white-space:nowrap}
 .nav a:hover{color:var(--ink)}
@@ -65,7 +65,7 @@ ul{margin:0;padding:0;list-style:none}
 .hero{position:relative;border-bottom:1px solid var(--grout);overflow:hidden}
 .hero-grid{max-width:1440px;margin:0 auto;padding:0 0 0 max(clamp(18px,4vw,40px),calc((100vw - var(--wrap))/2 + 18px));display:grid;grid-template-columns:minmax(0,1.28fr) minmax(0,.72fr);gap:0;align-items:stretch}
 .hero-copy{padding:clamp(44px,6vw,80px) clamp(24px,4vw,56px) clamp(38px,5vw,64px) 0;position:relative;z-index:2;max-width:660px;align-self:center}
-.kicker{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:20px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:20px}
 .kicker::before{content:"";width:26px;height:1px;background:currentColor}
 .hero h1{font-size:clamp(2.3rem,4.9vw,3.85rem);font-weight:600;max-width:18ch}
 .hero h1 i{font-style:italic;color:var(--teal);font-weight:400}
@@ -247,10 +247,11 @@ label{font-size:.88rem;letter-spacing:.07em}
 .hero-lede,.sec-head p,.tcell p,.step p,.faq p,label,.consent,.form-note{color:#22363d}
 .quote-lede{color:#d3e4e6}
 .faq p{font-size:1.08rem}
-.tcell p,.step p{font-size:1.07rem}
+.tcell p,.step p{font-size:1.12rem;line-height:1.62}
 .hero-lede{font-size:1.13rem}
 .brand-name{font-size:1.5rem;line-height:1.05}
 .eyebrow img{display:none}
+.eyebrow::before{content:"";width:22px;height:22px;flex:none;background:url(assets/logomark.svg) center/22px 22px no-repeat}
 .kicker .nw{white-space:nowrap}
 .grout-bg{display:none}
 .hero-media{min-height:0;max-height:min(660px,calc(100vh - 150px))}
@@ -320,7 +321,7 @@ body{font-size:18px}
 }
 /* ---------- pass 4: nav tap targets, brand lockup, form + footer contrast ---------- */
 .brand-name{font-size:2.15rem}
-.brand-sub{font-size:.78rem;color:#0f3d47}
+.brand-sub{font-size:.88rem;color:#0f3d47}
 .svc-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:26px}
 .svc-cta span{font-size:1.02rem;color:var(--ink-2)}
 @media (max-width:980px){
@@ -377,7 +378,26 @@ footer .foot-base{color:#c9d9db}
 /* pass: CTA micro-copy + mobile nav tap targets */
 .cta-micro{flex-basis:100%;font-size:.95rem;color:var(--ink-2);margin-top:-4px}
 @media (max-width:360px){.cta-micro{font-size:.9rem}}
-@media (max-width:980px){.nav{justify-content:space-between}.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 2px}}
+/* mobile: collapse secondary nav into a single header row */
+.navt{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.navbtn{display:none}
+@media (max-width:980px){
+  .hdr-in{flex-wrap:wrap;align-items:center}
+  .nav{display:none}
+  .nav{order:3;flex-basis:100%;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:10px 20px;
+    margin-left:0;padding:12px 0 8px;border-top:1px solid var(--grout)}
+  .nav a{font-size:1rem;padding:7px 0}
+  .navt:checked~.nav{display:flex}
+  .hdr .btn{margin-left:auto}
+  .navbtn{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;margin-left:6px;
+    border:1.5px solid rgba(6,24,29,.3);border-radius:999px;font-weight:700;font-size:.95rem;
+    color:var(--ink);background:#fff;cursor:pointer}
+  .navt:focus-visible~.navbtn{outline:3px solid var(--teal-deep);outline-offset:2px}
+}
+@media (max-width:680px){
+  .hero-media figcaption{position:static;background:#0a2a31;font-size:.86rem;letter-spacing:.05em;padding:11px 14px}
+  .hero-media{overflow:visible}
+}
 </style>
 </head>
 <body>
@@ -399,6 +419,8 @@ footer .foot-base{color:#c9d9db}
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-acc" href="#quote">Get a quote</a>
+    <input type="checkbox" id="navt" class="navt" aria-label="Show menu">
+    <label for="navt" class="navbtn">&#9776; Menu</label>
   </div>
 </header>
 
@@ -409,7 +431,7 @@ footer .foot-base{color:#c9d9db}
   <div class="hero-grid">
     <div class="hero-copy">
       <p class="kicker">Bathrooms &middot; laundries &middot; kitchens &middot; <span class="nw">fit-outs</span></p>
-      <h1 id="h1">Salon fit-outs and wet areas tiled to a true, even grout line.</h1>
+      <h1 id="h1">Commercial fit-outs, salons and wet areas tiled to a true, even grout line.</h1>
       <p class="hero-lede">Membrane prep, substrate levelling and set-out done before the first tile goes down &mdash; then large-format floors, hexagon mosaic and wet areas set level and grouted straight.</p>
       <div class="hero-cta">
         <a class="btn btn-acc" href="#quote">Get a quote</a>
@@ -448,13 +470,13 @@ footer .foot-base{color:#c9d9db}
   <div class="wrap">
     <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">how a job runs</p>
     <div class="sec-head rv">
-      <h2 id="proc-h">From quote to clean-down</h2>
+      <h2 id="proc-h">How a KSM job actually runs</h2>
       <p>You know what happens at each stage, when we need a decision from you, and when the room is out of action.</p>
     </div>
     <div class="steps rv">
-      <div class="step"><b>01</b><h3>Measure and quote</h3><p>Send room sizes or a couple of photos. We confirm tile size, layout and exactly what is being tiled before pricing.</p></div>
-      <div class="step"><b>02</b><h3>Strip, prep and membrane</h3><p>Old covering removed, substrate levelled, and wet areas prepped and membraned before a single tile is laid.</p></div>
-      <div class="step"><b>03</b><h3>Set, grout, clean down</h3><p>Tiles set, joints grouted, silicone applied, and the site cleaned and left ready to use.</p></div>
+      <div class="step"><b>01</b><h3>Measure, set out, quote</h3><p>Send room sizes or two photos. We confirm tile size, where the set-out lines land, which surfaces are being tiled and what the substrate is doing before we price it.</p></div>
+      <div class="step"><b>02</b><h3>Strip, level, membrane</h3><p>Old covering out, substrate levelled, screed falls run to the waste and the membrane down in wet areas &mdash; checked before a single tile is laid.</p></div>
+      <div class="step"><b>03</b><h3>Set, grout, silicone, clean down</h3><p>Large-format floors and mosaic sheets set to a true line, joints grouted, junctions siliconed, the room cleaned and handed back usable.</p></div>
     </div>
   </div>
 </section>
@@ -469,7 +491,7 @@ footer .foot-base{color:#c9d9db}
     <div class="plates rv">
       <figure class="plate wide">
         <img src="assets/gal_2.jpg" alt="Hexagon mosaic feature floor with a black border and brass inlay lettering" width="1200" height="1600" loading="lazy" decoding="async">
-        <figcaption>Hexagon mosaic feature floor with brass inlay</figcaption>
+        <figcaption>Hexagon mosaic floor with a brass inlay band &mdash; every sheet set to the same line, border mitred into the inlay.</figcaption>
       </figure>
       <figure class="plate tall">
         <img src="assets/gal_1.jpg" alt="Grey tiled wall and white tiled floor beside a glass sauna" width="900" height="1600" loading="lazy" decoding="async">
@@ -530,6 +552,10 @@ footer .foot-base{color:#c9d9db}
     </div>
     <div class="quote-grid">
       <div class="rv">
+        <figure style="margin:0 0 20px;border-radius:12px;overflow:hidden;background:var(--stone,#e8e3da)">
+          <img src="assets/hero-mosaic.jpg" alt="Hexagon mosaic feature floor with a black border and a brass inlay" width="1080" height="630" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+          <figcaption style="font-size:.85rem;line-height:1.45;padding:10px 2px 0;color:#3f4442">Hexagon mosaic feature floor, black border and brass inlay.</figcaption>
+        </figure>
         <div class="contact-block">
           <a href="https://www.instagram.com/ksm_tiling" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
