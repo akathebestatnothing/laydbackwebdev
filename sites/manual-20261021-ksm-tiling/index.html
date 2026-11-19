@@ -15,8 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --porcelain:#f3f4f2;
-  --porcelain-2:#e8ebe7;
+  --porcelain:#f7f3ec;
+  --porcelain-2:#ece4d8;
   --tile:#ffffff;
   --ink:#06181d;
   --ink-2:#17333a;
@@ -148,7 +148,7 @@ ul{margin:0;padding:0;list-style:none}
 .lbl{display:block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:2px;font-weight:700}
 form{display:grid;gap:13px;background:var(--tile);color:var(--ink);padding:clamp(20px,3vw,28px)}
 .field{display:grid;gap:6px}
-label{font-size:.88rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+label{font-size:.98rem;font-weight:700;letter-spacing:0;text-transform:none;color:var(--ink)}
 input,textarea,select{width:100%;font-family:inherit;font-size:1rem;color:var(--ink);background:#f7f8f7;border:1px solid rgba(6,24,29,.24);border-radius:2px;padding:12px 13px}
 input:focus,textarea:focus,select:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal)}
 textarea{min-height:110px;resize:vertical}
@@ -267,27 +267,20 @@ label{font-size:.88rem;letter-spacing:.07em}
   .kicker{font-size:.76rem;letter-spacing:.14em;row-gap:4px;flex-wrap:wrap}
 }
 /* ---------- pass 3: brand lockup, timeline process, dark CTA, form UI ---------- */
-.brand-mark{width:74px;height:74px}
-.brand-mark::before{width:28px;height:28px;background:
-  linear-gradient(#fff,#fff) 0 0/12px 12px no-repeat,
-  linear-gradient(#fff,#fff) 16px 0/12px 12px no-repeat,
-  linear-gradient(#fff,#fff) 0 16px/12px 12px no-repeat,
-  linear-gradient(#fff,#fff) 16px 16px/12px 12px no-repeat}
+.brand-mark{width:92px;height:92px}
+.brand-mark::before{width:60px;height:60px;background:url(assets/logomark.svg) center/60px 60px no-repeat}
+.foot-brand .brand-mark{width:46px;height:46px;border-radius:3px}
+.foot-brand .brand-mark::before{width:30px;height:30px;background-size:30px 30px}
 .brand-txt{display:grid;gap:4px;min-width:0}
 .brand-name{font-size:1.72rem;letter-spacing:-.025em;line-height:1}
-.brand-sub{display:block;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal-deep);font-weight:800;white-space:nowrap}
+.brand-sub{display:block;font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal-deep);font-weight:800;white-space:nowrap}
 
-/* process: vertical shift timeline, not a card row */
-.steps{display:block;position:relative;border-top:0;padding-left:0}
-.steps::before{content:"";position:absolute;left:36px;top:8px;bottom:8px;width:1px;background:var(--grout)}
-.step{display:grid;grid-template-columns:74px minmax(0,1fr);column-gap:clamp(14px,3vw,36px);row-gap:6px;align-items:start;
-  padding:clamp(20px,3vw,30px) 0;border-right:0;border-bottom:1px solid var(--grout-soft)}
-.step:first-child{padding-top:0}
-.step:last-child{border-bottom:0;padding-bottom:0}
-.step b{grid-column:1;grid-row:1/span 2;display:grid;place-items:center;width:72px;height:72px;margin:0;border-radius:50%;
-  background:var(--porcelain-2);border:1px solid var(--grout);color:var(--teal-deep);font-size:1.02rem;letter-spacing:.05em;position:relative;z-index:1}
-.step h3{grid-column:2;grid-row:1;font-size:clamp(1.16rem,2vw,1.4rem);margin:0}
-.step p{grid-column:2;grid-row:2;max-width:62ch}
+/* process: prose rows, no numbered template */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(18px,3vw,34px);border-top:1px solid var(--grout);padding-top:clamp(20px,3vw,30px)}
+.step{padding:0 18px 0 0;border:0}
+.step b{display:none}
+.step h3{font-size:clamp(1.14rem,1.8vw,1.32rem);margin:0 0 8px}
+.step p{max-width:46ch}
 
 /* CTA band: full-width dark banner, not a bordered box */
 .cta-band{background:var(--ink);border:0;border-left:6px solid var(--teal);color:#eef4f4;padding:clamp(26px,4vw,42px)}
@@ -324,8 +317,8 @@ body{font-size:18px}
   .hero-lede,.sec-head p,.tcell p,.step p,.faq p,.quote-lede{font-size:1.06rem;line-height:1.62}
 }
 /* ---------- pass 4: nav tap targets, brand lockup, form + footer contrast ---------- */
-.brand-name{font-size:1.9rem}
-.brand-sub{font-size:.74rem;color:#0f3d47}
+.brand-name{font-size:2.15rem}
+.brand-sub{font-size:.78rem;color:#0f3d47}
 .svc-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:26px}
 .svc-cta span{font-size:1.02rem;color:var(--ink-2)}
 @media (max-width:980px){
@@ -351,9 +344,34 @@ input[type=file]{border:1px solid var(--teal-deep);background:#fff;padding:14px 
 .form-note{font-size:.92rem;color:#17333a}
 .quote .lbl{color:#dcebed}
 .contact-block a{font-size:1.04rem}
+/* cron pass: caption + contact-block legibility, faq measure, work grid fill */
+.quote-media figcaption{font-size:1rem;line-height:1.45;padding:12px 14px;color:#fff;background:rgba(0,0,0,.55)}
+.contact-block .quote-start{border-top-color:rgba(255,255,255,.38)}
+.contact-block .quote-start p{font-size:1.02rem;line-height:1.6;color:#dbe9ea}
+.contact-block .lbl{font-size:.86rem;color:#e3eef0}
+.faq p{font-size:1.1rem;line-height:1.62}
+.plates .plate:nth-child(3){grid-column:1/-1}
+.plates .plate:nth-child(3) img{aspect-ratio:16/9}
+@media (max-width:600px){.plates .plate:nth-child(3) img{aspect-ratio:4/3}}
 footer{color:#dce7e8}
 footer h4{color:#cfe0e2}
 footer .foot-base{color:#c9d9db}
+/* ---------- cron pass: quote band + contact card hierarchy ---------- */
+.quote-head{max-width:54ch;margin-bottom:clamp(20px,3vw,32px)}
+.quote-head .quote-lede{margin-top:12px}
+.quote-media{max-width:none;margin:0 0 clamp(24px,3.2vw,38px);border:0;overflow:hidden;border-radius:3px}
+.quote-media img{aspect-ratio:21/9;min-height:200px}
+.quote-media figcaption{padding:13px 16px}
+.quote-grid{grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);align-items:start}
+.contact-block{margin-top:0;gap:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.24);border-radius:3px;padding:20px 20px 22px}
+.contact-block .lbl{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#b6d3d8;margin-bottom:3px}
+.contact-block a{font-size:1.06rem;padding-bottom:14px}
+.contact-block > div{font-size:1.06rem;color:#eaf3f3}
+.contact-block .quote-start{padding-top:16px;margin-top:2px}
+.contact-block .quote-start b{font-size:1.42rem;line-height:1.15}
+.contact-block .quote-start p{font-size:1.06rem;line-height:1.62;color:#e6f1f2}
+@media (max-width:860px){.quote-grid{grid-template-columns:1fr}.quote-media img{aspect-ratio:4/3}}
+@media (max-width:680px){.nav a{font-size:1rem;padding:9px 2px}}
 </style>
 </head>
 <body>
@@ -369,9 +387,9 @@ footer .foot-base{color:#c9d9db}
       </span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#services">What we tile</a>
-      <a href="#process">How a job runs</a>
-      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Our work</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-acc" href="#quote">Get a quote</a>
@@ -388,23 +406,23 @@ footer .foot-base{color:#c9d9db}
       <h1 id="h1">Salon fit-outs and wet areas tiled to a true, even grout line.</h1>
       <p class="hero-lede">Membrane prep, substrate levelling and set-out done before the first tile goes down &mdash; then large-format floors, hexagon mosaic and wet areas set level and grouted straight.</p>
       <div class="hero-cta">
-        <a class="btn btn-acc" href="#quote">Get a quote</a>
+        <a class="btn btn-acc" href="#quote">Send photos, get a quote</a>
         <a class="link" href="#work">See the work &rarr;</a>
       </div>
     </div>
     <figure class="hero-media">
       <img src="assets/hero-mosaic.jpg" alt="Hexagon mosaic feature floor with a black border and a brass inlay" width="1080" height="630" fetchpriority="high" decoding="async">
-      <figcaption>Salon fit-out &mdash; hexagon mosaic floor set on a true line</figcaption>
+      <figcaption>Hexagon mosaic feature floor &mdash; black border, brass inlay</figcaption>
     </figure>
   </div>
 </section>
 
 <section class="sec" id="services" aria-labelledby="svc-h">
   <div class="wrap">
-    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">KSM Tiling &middot; what we tile</p>
+    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">Services</p>
     <div class="sec-head rv">
       <h2 id="svc-h">What we tile</h2>
-      <p>Tiling is only as good as what is underneath it. The job runs from substrate prep and wet-area membrane work through to grouting and clean-down.</p>
+      <p>Bathrooms, laundries, kitchens and full fit-outs &mdash; walls, floors, wet areas, mosaic features, splashbacks and re-grout work.</p>
     </div>
     <div class="tilegrid rv">
       <div class="tcell w2"><span class="tno">01</span><h3>Wall tiling</h3><p>Porcelain, ceramic and stone-look wall tiles set plumb and level, with even grout lines and clean cuts around outlets.</p></div>
@@ -421,7 +439,7 @@ footer .foot-base{color:#c9d9db}
 
 <section class="sec sec--alt" id="process" aria-labelledby="proc-h">
   <div class="wrap">
-    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">KSM Tiling &middot; how a job runs</p>
+    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">how a job runs</p>
     <div class="sec-head rv">
       <h2 id="proc-h">From quote to clean-down</h2>
       <p>You know what happens at each stage, when we need a decision from you, and when the room is out of action.</p>
@@ -436,7 +454,7 @@ footer .foot-base{color:#c9d9db}
 
 <section class="sec" id="work" aria-labelledby="work-h">
   <div class="wrap">
-    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">KSM Tiling &middot; recent work</p>
+    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">recent work</p>
     <div class="sec-head rv">
       <h2 id="work-h">Commercial fit-outs and wet areas</h2>
       <p>Commercial fit-out work and wet-area tiling, from hexagon mosaic floors through to large walls and sauna surrounds.</p>
@@ -467,9 +485,9 @@ footer .foot-base{color:#c9d9db}
 
 <section class="sec sec--alt" id="faq" aria-labelledby="faq-h">
   <div class="wrap">
-    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">KSM Tiling &middot; questions</p>
+    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">Tiling FAQ</p>
     <div class="sec-head rv">
-      <h2 id="faq-h">The things people ask before they book a tiler</h2>
+      <h2 id="faq-h">Bathroom and wet-area tiling: waterproofing, timelines and tiling over old floors</h2>
     </div>
     <div class="faq rv">
       <details open>
@@ -498,12 +516,14 @@ footer .foot-base{color:#c9d9db}
 
 <section class="sec quote" id="quote" aria-labelledby="quote-h">
   <div class="wrap">
-    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">KSM Tiling &middot; request a quote</p>
+    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">request a quote</p>
+    <div class="quote-head rv">
+      <h2 id="quote-h">Get a no-obligation quote for your tiling</h2>
+      <p class="quote-lede">Tell us what needs tiling and KSM Tiling will come back with a free, fixed-scope price.</p>
+    </div>
+    <figure class="quote-media rv"><img src="assets/gal_1.jpg" alt="Grey wall tile and white floor tile beside a glass sauna" width="900" height="1600" loading="lazy" decoding="async"><figcaption>Sauna surround &mdash; grey wall tile, white floor tile</figcaption></figure>
     <div class="quote-grid">
       <div class="rv">
-        <h2 id="quote-h">Send a few details and a photo of the room</h2>
-        <p class="quote-lede">Tell us what needs tiling and KSM Tiling will come back with a free, no-obligation price.</p>
-        <figure class="quote-media"><img src="assets/gal_1.jpg" alt="Grey wall tile and white floor tile beside a glass sauna" width="900" height="1600" loading="lazy" decoding="async"><figcaption>Sauna surround &mdash; grey wall tile, white floor tile</figcaption></figure>
         <div class="contact-block">
           <a href="https://www.instagram.com/ksm_tiling" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
@@ -515,10 +535,10 @@ footer .foot-base{color:#c9d9db}
       </div>
       <form class="rv" method="post" action="/api/lead" data-lead="manual-20261021-ksm-tiling" novalidate>
         <div class="row2">
-          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="0400 000 000"></div>
         </div>
-        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com"></div>
         <div class="field"><label for="job">What needs tiling?</label>
           <select id="job" name="job">
             <option>Bathroom / wet area</option>
@@ -547,7 +567,7 @@ footer .foot-base{color:#c9d9db}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async"><b>KSM Tiling</b></div>
+        <div class="foot-brand"><span class="brand-mark" aria-hidden="true"></span><b>KSM Tiling</b></div>
         <p style="max-width:36ch">Wall and floor tiling, mosaic feature work and wet-area preparation across Newcastle and Lake Macquarie.</p>
       </div>
       <div>
