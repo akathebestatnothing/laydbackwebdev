@@ -15,8 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --porcelain:#f7f3ec;
-  --porcelain-2:#ece4d8;
+  --porcelain:#fbfcfc;
+  --porcelain-2:#eef1f2;
   --tile:#ffffff;
   --ink:#06181d;
   --ink-2:#17333a;
@@ -219,8 +219,8 @@ footer a:hover{color:#fff}
 /* ---------- gate pass: type, contrast, caption weight, mobile hero ---------- */
 .hero-media{margin-left:0;border-left:0}
 .btn{font-size:1rem;padding:15px 24px}
-.hdr .btn{padding:13px 20px;background:transparent;color:var(--teal-deep);border-color:var(--teal-deep)}
-.hdr .btn:hover{background:var(--teal-deep);color:#f6f8f8}
+.hdr .btn{padding:13px 20px;background:var(--teal-deep);color:#f6f8f8;border-color:var(--teal-deep)}
+.hdr .btn:hover{background:var(--teal);color:#fff}
 .sec-head p,.tcell p,.step p,.faq p{color:var(--ink-2)}
 .sec-head p{font-size:1.06rem}
 .faq p{font-size:1.06rem}
@@ -236,14 +236,10 @@ label{font-size:.88rem;letter-spacing:.07em}
   .plate figcaption{padding:56px 14px 13px;font-size:1rem}
 }
 /* ---------- pass 2: crisp wordmark, mobile type + CTA stack, hero height ---------- */
-.brand-mark{display:grid;place-items:center;flex:none;width:62px;height:62px;background:var(--teal-deep);color:#fff;
-  font-family:var(--disp);font-weight:700;font-size:1.16rem;letter-spacing:.04em;line-height:1;border-radius:2px;
-  box-shadow:0 0 0 4px #fff,0 0 0 5px rgba(6,24,29,.24)}
-.brand-mark::before{content:"";width:24px;height:24px;background:
-  linear-gradient(#fff,#fff) 0 0/10px 10px no-repeat,
-  linear-gradient(#fff,#fff) 14px 0/10px 10px no-repeat,
-  linear-gradient(#fff,#fff) 0 14px/10px 10px no-repeat,
-  linear-gradient(#fff,#fff) 14px 14px/10px 10px no-repeat}
+.brand-mark{display:block;flex:none;width:62px;height:62px;background:url(assets/logo-ksm-badge.png) center/contain no-repeat;
+  font-family:var(--disp);font-weight:700;font-size:0;letter-spacing:.04em;line-height:1;border-radius:0;
+  box-shadow:none}
+.brand-mark::before{content:"";display:none}
 .hero-lede,.sec-head p,.tcell p,.step p,.faq p,label,.consent,.form-note{color:#22363d}
 .quote-lede{color:#d3e4e6}
 .faq p{font-size:1.08rem}
@@ -251,7 +247,7 @@ label{font-size:.88rem;letter-spacing:.07em}
 .hero-lede{font-size:1.13rem}
 .brand-name{font-size:1.5rem;line-height:1.05}
 .eyebrow img{display:none}
-.eyebrow::before{content:"";width:22px;height:22px;flex:none;background:url(assets/logomark.svg) center/22px 22px no-repeat}
+.eyebrow::before{content:"";width:22px;height:22px;flex:none;background:url(assets/logo-ksm-badge.png) center/contain no-repeat}
 .kicker .nw{white-space:nowrap}
 .grout-bg{display:none}
 .hero-media{min-height:0;max-height:min(660px,calc(100vh - 150px))}
@@ -359,6 +355,14 @@ input[type=file]{border:1px solid var(--teal-deep);background:#fff;padding:14px 
 footer{color:#dce7e8}
 footer h4{color:#cfe0e2}
 footer .foot-base{color:#c9d9db}
+/* ---------- cron pass: bespoke form container + portfolio crop ---------- */
+.form-head{display:flex;flex-direction:column;gap:3px;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid rgba(6,24,29,.16)}
+.form-head b{font-family:var(--disp);font-size:1.12rem;line-height:1.2;color:#0a2a31}
+.form-head span{font-size:.9rem;line-height:1.4;color:#3c555c}
+.quote form .btn{width:100%;justify-content:center}
+.plate{background:#0a2a31}
+.plate img{object-position:center 34%}
+.plate figcaption{background:linear-gradient(to top,rgba(6,24,29,.96) 0%,rgba(6,24,29,.86) 55%,rgba(6,24,29,0) 100%);border-top:0}
 /* ---------- cron pass: quote band + contact card hierarchy ---------- */
 .quote-head{max-width:54ch;margin-bottom:clamp(20px,3vw,32px)}
 .quote-head .quote-lede{margin-top:12px}
@@ -398,6 +402,47 @@ footer .foot-base{color:#c9d9db}
   .hero-media figcaption{position:static;background:#0a2a31;font-size:.86rem;letter-spacing:.05em;padding:11px 14px}
   .hero-media{overflow:visible}
 }
+/* recent work: asymmetric 2-up, captions ruled underneath instead of overlaid */
+.plates{grid-template-columns:1.5fr .85fr;align-items:start;gap:clamp(14px,2.4vw,32px)}
+.plate.wide,.plate.tall{grid-column:auto}
+.plate:nth-child(2){margin-top:clamp(24px,6vw,86px)}
+.plate:nth-child(2) img{aspect-ratio:4/5}
+.plates .plate figcaption{position:static;background:none;color:var(--ink-2);padding:11px 0 0;margin-top:10px;
+  border-top:2px solid var(--teal);font-size:1rem;font-weight:600;line-height:1.4}
+@media (max-width:760px){
+  .plates{grid-template-columns:1fr}
+  .plate:nth-child(2){margin-top:0}
+  .plate:nth-child(2) img{aspect-ratio:4/3}
+}
+/* cron: header lockup scale + clean palette */
+.brand-mark{width:104px;height:104px}
+.brand-name{font-size:2.45rem}
+.brand-sub{font-size:.95rem;letter-spacing:.11em;color:#0f3d47}
+@media (max-width:680px){.brand-mark{width:62px;height:62px}.brand-name{font-size:1.45rem}}
+/* cron 0707: portfolio caption contrast, feet crop, quote brand lockup */
+.plates .plate{background:transparent}
+.plates .plate{background:#fff;border:1px solid var(--grout)}
+.plates .plate figcaption{position:static;background:#fff;color:#0a2a31;border-top:3px solid var(--teal);padding:12px 12px 14px;margin:0;font-size:1.02rem;font-weight:700;letter-spacing:0;text-shadow:none}
+.plates .plate:first-child img{aspect-ratio:1/1;object-position:center 48%}
+/* cron 0720: single-column intake card, contact meta strip, paper work cards */
+.quote .eyebrow{font-size:1.02rem;letter-spacing:.13em;color:#fff}
+.quote-grid{grid-template-columns:1fr;gap:clamp(14px,2vw,20px)}
+.row2{grid-template-columns:1fr}
+.quote .contact-block{display:flex;flex-wrap:wrap;align-items:center;gap:8px 30px;padding:12px 16px}
+.quote .contact-block .lbl{margin-bottom:0;margin-right:6px;display:inline}
+.quote form{background:#fff;border-radius:3px;padding:clamp(18px,2.6vw,26px);box-shadow:0 1px 0 rgba(6,24,29,.08)}
+.plates .plate{overflow:hidden}
+/* pass 6: legible monogram, clean section markers, services proof strip */
+.brand-mark{background:var(--teal-deep);border-radius:5px;display:grid;place-items:center;box-shadow:none}
+.brand-mark::before{content:"KSM";display:block;width:auto;height:auto;background:none;color:#fff;font-family:var(--disp);font-weight:800;font-size:1.3rem;letter-spacing:.06em;line-height:1}
+.foot-brand .brand-mark::before{font-size:.86rem}
+.eyebrow img,.eyebrow::before{display:none}
+.quote .quote-lede{color:#f4fbfb;font-weight:500}
+.svc-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+.svc-strip figure{margin:0;border:0;background:none;box-shadow:none}
+.svc-strip img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 60%;border-radius:4px;display:block}
+.svc-strip figcaption{margin-top:9px;font-size:.92rem;line-height:1.45;color:var(--ink-2);font-weight:600}
+@media (max-width:760px){.svc-strip{grid-template-columns:1fr 1fr}.svc-strip figure:last-child{display:none}}
 </style>
 </head>
 <body>
@@ -417,6 +462,7 @@ footer .foot-base{color:#c9d9db}
       <a href="#process">Process</a>
       <a href="#work">Our work</a>
       <a href="#faq">FAQ</a>
+      <a href="#quote">Contact</a>
     </nav>
     <a class="btn btn-acc" href="#quote">Get a quote</a>
     <input type="checkbox" id="navt" class="navt" aria-label="Show menu">
@@ -431,11 +477,11 @@ footer .foot-base{color:#c9d9db}
   <div class="hero-grid">
     <div class="hero-copy">
       <p class="kicker">Bathrooms &middot; laundries &middot; kitchens &middot; <span class="nw">fit-outs</span></p>
-      <h1 id="h1">Commercial fit-outs, salons and wet areas tiled to a true, even grout line.</h1>
+      <h1 id="h1">Salons, bathrooms and wet areas tiled to a true, even grout line.</h1>
       <p class="hero-lede">Membrane prep, substrate levelling and set-out done before the first tile goes down &mdash; then large-format floors, hexagon mosaic and wet areas set level and grouted straight.</p>
       <div class="hero-cta">
         <a class="btn btn-acc" href="#quote">Get a quote</a>
-        <span class="cta-micro">Send a photo of the room &mdash; quotes are free.</span>
+        <span class="cta-micro">Send a photo or a set of plans &mdash; quotes are free.</span>
         <a class="link" href="#work">See the work &rarr;</a>
       </div>
     </div>
@@ -448,7 +494,7 @@ footer .foot-base{color:#c9d9db}
 
 <section class="sec" id="services" aria-labelledby="svc-h">
   <div class="wrap">
-    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">Services</p>
+    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">Tiling scope</p>
     <div class="sec-head rv">
       <h2 id="svc-h">What we tile</h2>
       <p>Walls, floors, wet areas, mosaic features, splashbacks and re-grout &mdash; measured, set out and levelled first.</p>
@@ -462,7 +508,11 @@ footer .foot-base{color:#c9d9db}
       <div class="tcell w2"><span class="tno">06</span><h3>Re-grout, reseal &amp; repairs</h3><p>Cracked, drummy or dated tiles replaced and grout renewed to freshen a sound tiled surface.</p></div>
       
     </div>
-    <p class="svc-cta rv"><a class="btn btn-acc" href="#quote">Get a quote for your job</a> <span>Not sure which one applies? Send a photo &mdash; quotes are free.</span></p>
+    <div class="svc-strip rv">
+      <figure><img src="assets/gal_3.jpg" alt="Mosaic tiling around pedicure basins in a salon fit-out" width="1600" height="1199" loading="lazy" decoding="async"><figcaption>Salon fit-out &mdash; basin and step mosaic off one centre line</figcaption></figure>
+      <figure><img src="assets/gal_2-detail.jpg" alt="Hexagon mosaic floor detail, black border and brass inlay band" width="1200" height="992" loading="lazy" decoding="async"><figcaption>Hexagon floor, mitred border into a brass inlay</figcaption></figure>
+    </div>
+    <p class="svc-cta rv"><a class="btn btn-acc" href="#quote">Get a quote for your job</a> <span>Not sure which one applies? Send a photo or a site plan &mdash; quotes are free.</span></p>
   </div>
 </section>
 
@@ -471,7 +521,7 @@ footer .foot-base{color:#c9d9db}
     <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">how a job runs</p>
     <div class="sec-head rv">
       <h2 id="proc-h">How a KSM job actually runs</h2>
-      <p>You know what happens at each stage, when we need a decision from you, and when the room is out of action.</p>
+      <p>You know what happens at each stage, when we need a decision from you, and how many days the room is out of use.</p>
     </div>
     <div class="steps rv">
       <div class="step"><b>01</b><h3>Measure, set out, quote</h3><p>Send room sizes or two photos. We confirm tile size, where the set-out lines land, which surfaces are being tiled and what the substrate is doing before we price it.</p></div>
@@ -485,21 +535,17 @@ footer .foot-base{color:#c9d9db}
   <div class="wrap">
     <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">recent work</p>
     <div class="sec-head rv">
-      <h2 id="work-h">Commercial fit-outs and wet areas</h2>
-      <p>Commercial fit-out work and wet-area tiling, from hexagon mosaic floors through to large walls and sauna surrounds.</p>
+      <h2 id="work-h">Installs from the last few months, photographed on the day we finished</h2>
+      <p>Two jobs that show the set-out: a hexagon mosaic floor with a brass band, and a salon fit-out where the mosaic had to run true around basins and a step.</p>
     </div>
     <div class="plates rv">
       <figure class="plate wide">
-        <img src="assets/gal_2.jpg" alt="Hexagon mosaic feature floor with a black border and brass inlay lettering" width="1200" height="1600" loading="lazy" decoding="async">
+        <img src="assets/gal_2-detail.jpg" alt="Hexagon mosaic floor detail, black border and brass inlay band" width="1200" height="992" loading="lazy" decoding="async">
         <figcaption>Hexagon mosaic floor with a brass inlay band &mdash; every sheet set to the same line, border mitred into the inlay.</figcaption>
-      </figure>
-      <figure class="plate tall">
-        <img src="assets/gal_1.jpg" alt="Grey tiled wall and white tiled floor beside a glass sauna" width="900" height="1600" loading="lazy" decoding="async">
-        <figcaption>Sauna surround &mdash; grey wall tile, white floor tile</figcaption>
       </figure>
       <figure class="plate wide">
         <img src="assets/gal_3.jpg" alt="Mosaic tiling around pedicure basins in a salon fit-out" width="1600" height="1199" loading="lazy" decoding="async">
-        <figcaption>Salon fit-out &mdash; mosaic step and basin tiling</figcaption>
+        <figcaption>Salon fit-out &mdash; mosaic step and basin tiling, sheets set off the same centre line</figcaption>
       </figure>
     </div>
     <div class="cta-band rv">
@@ -545,32 +591,31 @@ footer .foot-base{color:#c9d9db}
 
 <section class="sec quote" id="quote" aria-labelledby="quote-h">
   <div class="wrap">
-    <p class="eyebrow rv"><img src="assets/logo-ksm-badge.png" alt="" width="750" height="750" loading="lazy" decoding="async">request a quote</p>
+    <p class="eyebrow rv">KSM Tiling &middot; Newcastle</p>
     <div class="quote-head rv">
-      <h2 id="quote-h">Get a no-obligation quote for your tiling</h2>
-      <p class="quote-lede">Tell us what needs tiling and KSM Tiling will come back with a free, fixed-scope price.</p>
+      <h2 id="quote-h">Fixed-scope quotes for bathrooms, wet areas and tiling fit-outs</h2>
+      <p class="quote-lede">Send room sizes or two photos. KSM Tiling prices the set-out, membrane prep and tiling &mdash; free, in writing, before any tile is laid.</p>
     </div>
+    <figure class="quote-media rv">
+      <img src="assets/hero-mosaic.jpg" alt="Hexagon mosaic feature floor with a black border and a brass inlay" width="1080" height="630" loading="lazy" decoding="async">
+      <figcaption>Hexagon mosaic feature floor &mdash; black border, brass inlay, set out and laid by KSM Tiling.</figcaption>
+    </figure>
     <div class="quote-grid">
       <div class="rv">
-        <figure style="margin:0 0 20px;border-radius:12px;overflow:hidden;background:var(--stone,#e8e3da)">
-          <img src="assets/hero-mosaic.jpg" alt="Hexagon mosaic feature floor with a black border and a brass inlay" width="1080" height="630" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
-          <figcaption style="font-size:.85rem;line-height:1.45;padding:10px 2px 0;color:#3f4442">Hexagon mosaic feature floor, black border and brass inlay.</figcaption>
-        </figure>
         <div class="contact-block">
           <a href="https://www.instagram.com/ksm_tiling" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
             <span><span class="lbl">Instagram DM</span>@ksm_tiling</span>
           </a>
           <div><span class="lbl">Where we work</span>Newcastle and Lake Macquarie, NSW</div>
-          <div class="quote-start"><b>Free quotes, no obligation</b><p>Room sizes and a photo are enough to price the job. Leave a number and KSM Tiling will call you back.</p></div>
         </div>
       </div>
       <form class="rv" method="post" action="/api/lead" data-lead="manual-20261021-ksm-tiling" novalidate>
+        <div class="form-head"><b>KSM Tiling &mdash; quote request</b><span>Name and a phone number is enough. Room sizes or a photo get you a sharper price.</span></div>
         <div class="row2">
           <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required></div>
-          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="0400 000 000"></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your mobile number" required></div>
         </div>
-        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com"></div>
         <div class="field"><label for="job">What needs tiling?</label>
           <select id="job" name="job">
             <option>Bathroom / wet area</option>
@@ -583,7 +628,6 @@ footer .foot-base{color:#c9d9db}
           </select>
         </div>
         <div class="field"><label for="photo">Photo of the room (optional)</label><div class="dropzone"><b>Drop a photo here</b><span>or click to choose one from your phone</span><input id="photo" name="photo" type="file" accept="image/*"></div></div>
-        <div class="field"><label for="msg">Tell us about the job</label><textarea id="msg" name="message" placeholder="Room, tile size if you know it, and when you need it done."></textarea></div>
         <label class="consent"><input type="checkbox" name="consent" required> I agree to be contacted about this request.</label>
         <div class="hp"><label for="hp">Website</label><input id="hp" name="website" type="text" tabindex="-1" autocomplete="off"></div>
         <button class="btn btn-acc" type="submit">Request a free quote</button>
