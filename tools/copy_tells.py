@@ -29,23 +29,30 @@ def fix_attrs(s):
 
 
 def fix_prose(c):
-    if '—' not in c and '·' not in c:
+    if '—' not in c and '·' not in c and '&middot;' not in c:
         return c
     c = re.sub(r'\s+—\s+(?=[A-Z])', '. ', c)
     c = re.sub(r'\s+—\s+', ', ', c)
     c = re.sub(r'\s+·\s+', ', ', c)
+    c = re.sub(r'\s*&middot;\s*', ', ', c)
     c = c.replace(' ·', ',').replace('— ', ', ')
     # dash-only node (<i>—</i> between marquee segments) and tight word—word
     if re.fullmatch(r'\s*—\s*', c):
+        return ', '
+    if re.fullmatch(r'(?:\s|&nbsp;)*·(?:\s|&nbsp;)*', c):
         return ', '
     c = re.sub(r'(?<=[A-Za-z])—(?=[A-Za-z])', ', ', c)
     return c
 
 
+def strip_css_dots(src):
+    return re.sub(r'content:\s*([\"\'])\s*·\s*\1', 'content:""', src)
+
+
 def fix(src):
     parts = TAG.split(src)
     parts = [fix_attrs(p) if p.startswith('<') else fix_prose(p) for p in parts]
-    return TITLE.sub(fix_title, ''.join(parts))
+    return strip_css_dots(TITLE.sub(fix_title, ''.join(parts)))
 
 
 def main(argv):

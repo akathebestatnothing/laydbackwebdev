@@ -133,7 +133,13 @@ h2{max-width:26ch}
 
 /* cta */
 .cta{background:var(--ochre);color:#160f08;padding:clamp(44px,6.4vw,80px) 0}
-.cta .wrap{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.55fr);gap:clamp(24px,4vw,56px);align-items:center}
+.cta .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:start;max-width:820px}
+.cta-lock{display:inline-flex;align-items:center;gap:14px;margin-bottom:22px}
+.cta-lock svg{width:46px;height:46px;flex:none}
+.cta-lock-txt{display:flex;flex-direction:column;line-height:1.05}
+.cta-lock-txt b{font-family:var(--disp);font-weight:800;font-size:clamp(1.35rem,2.4vw,1.75rem);letter-spacing:-.02em;text-transform:none}
+.cta-lock-txt i{font-style:normal;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4a2a10;margin-top:6px}
+.cta-note{margin-top:12px;font-size:.86rem;line-height:1.5;max-width:44ch;color:#3a2410}
 .cta h2{max-width:22ch}
 .cta p{margin-top:16px;max-width:46ch;color:rgba(22,15,8,.92)}
 .cta .btn{margin-top:28px;background:#f4f2ec;color:#160f08;border:2px solid #160f08;font-size:clamp(1.05rem,1.3vw,1.15rem);font-weight:800;padding:21px 40px;letter-spacing:.01em;box-shadow:0 8px 0 rgba(22,15,8,.22)}
@@ -189,7 +195,7 @@ footer a{color:#f4f2ec;border-bottom:1px solid rgba(244,242,236,.35)}
       </svg>
       <span class="brand-txt">
         <span class="brand-name" aria-hidden="true">Glasgow Grader Hire</span>
-        <span class="brand-sub">Final trim &middot; Owner operated</span>
+        <span class="brand-sub">Final trim, Owner operated</span>
       </span>
     </a>
     <nav class="nav" aria-label="Primary">
@@ -269,7 +275,7 @@ footer a{color:#f4f2ec;border-bottom:1px solid rgba(244,242,236,.35)}
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="kicker">Scope &middot; Glasgow Grader Hire</p>
+          <p class="kicker">Scope, Glasgow Grader Hire</p>
           <h2 id="scope-h">Where final trim decides whether the next trade has an easy day.</h2>
         </div>
         <p class="lede">If a pad is 40mm out, the concretor fixes it with concrete or the landscaper fixes it with soil. Trim done properly removes both problems before they are poured.</p>
@@ -357,15 +363,19 @@ footer a{color:#f4f2ec;border-bottom:1px solid rgba(244,242,236,.35)}
   <section class="cta" id="quote" aria-labelledby="quote-h">
     <div class="wrap">
       <div>
-        <p class="kicker" style="color:#4a2a10">Get a quote &middot; Glasgow Grader Hire</p>
+        <span class="cta-lock">
+          <svg viewBox="0 0 44 44" aria-hidden="true" focusable="false">
+            <rect width="44" height="44" fill="#160f08"/>
+            <path d="M8 30 L34 20 L36 25 L10 35 Z" fill="#c96f26"/>
+            <path d="M8 15 L36 15" stroke="#f4f2ec" stroke-width="2.5"/>
+            <path d="M14 9 L14 21 M22 9 L22 21 M30 9 L30 21" stroke="#f4f2ec" stroke-width="2"/>
+          </svg>
+          <span class="cta-lock-txt"><b>Glasgow Grader Hire</b><i>Final trim, Owner operated</i></span>
+        </span>
         <h2 id="quote-h">Send the address, the level and what goes on top.</h2>
-        <p>Include the site address, whether levels are set, and the date the pad needs to be ready. Quotes and site questions come back from the operator, not an office.</p>
-        <a class="btn" href="https://facebook.com/profile.php?id=61574052767856" target="_blank" rel="noopener">Get a trim quote &rarr;</a>
-        <p style="margin-top:10px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(22,15,8,.78)">Replies from the operator, usually same day</p>
-      </div>
-      <div class="cta-figure">
-        <span class="n">100mm</span>
-        <p>Everything above the last 100mm is dirt. Everything below it is the next trade's problem if the trim is not right.</p>
+        <p>The job is judged on the last 100mm, so include the site address, whether levels are set, and the date the pad needs to be ready. Quotes and site questions come back from the operator, not an office.</p>
+        <a class="btn" href="https://facebook.com/profile.php?id=61574052767856" target="_blank" rel="noopener">Message the operator on Facebook &rarr;</a>
+        <p class="cta-note">Opens Facebook Messenger. There is no phone line, so quotes and availability come back by message, usually same day.</p>
       </div>
     </div>
   </section>
@@ -375,10 +385,10 @@ footer a{color:#f4f2ec;border-bottom:1px solid rgba(244,242,236,.35)}
   <div class="wrap">
     <div class="foot-brand">
       <span class="brand-name">Glasgow Grader Hire</span>
-      <span class="brand-sub">Final trim &middot; Owner operated</span>
+      <span class="brand-sub">Final trim, Owner operated</span>
     </div>
     <p class="foot-line">Grader hire and final trim across Glasgow and surrounding areas. Quotes, availability and site questions are answered on Facebook by the operator.</p>
-    <p class="foot-line"><a href="https://facebook.com/profile.php?id=61574052767856" target="_blank" rel="noopener">Message the operator on Facebook</a> &middot; &copy; 2026 Glasgow Grader Hire</p>
+    <p class="foot-line"><a href="https://facebook.com/profile.php?id=61574052767856" target="_blank" rel="noopener">Message the operator on Facebook</a>, &copy; 2026 Glasgow Grader Hire</p>
   </div>
 </footer>
 </body>
