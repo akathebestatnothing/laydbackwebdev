@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xclusive Rendering — Cement &amp; Acrylic Render, Sydney</title>
+<meta name="description" content="Cement and acrylic rendering, texture coating and remedial re-render across Sydney. Quoted after a site inspection.">
+<meta property="og:title" content="Xclusive Rendering — Cement &amp; Acrylic Render, Sydney">
+<meta property="og:description" content="Cement and acrylic rendering, texture coating and remedial works — Sydney.">
+<style>
+:root{--ink:#060c13;--navy:#182038;--dim:#565b64;--line:rgba(6,12,19,.16);--paper:#fff;--sand:#dadbe4;--warm:#b4643a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,52px)}
+a{color:inherit}
+img{display:block;max-width:100%}
+
+/* header + brand lockup */
+.site-head{border-bottom:1px solid var(--line);background:var(--paper)}
+.head-in{display:flex;align-items:center;gap:14px;padding:14px 0;flex-wrap:wrap}
+.head-in .nav-cta{order:3;margin-left:0}
+.head-in .nav{order:2}.head-in .lock{order:1}
+.lock{display:flex;align-items:center;gap:12px;text-decoration:none}
+.lock img{height:76px;width:76px;object-fit:contain;border-radius:8px;background:#fff;padding:4px;border:1px solid var(--line)}
+.lock-txt{display:grid;line-height:1.05}
+.lock-txt b{font-size:1.62rem;letter-spacing:-.02em;font-weight:900;color:var(--ink)}
+.lock-txt span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#3c4353;font-weight:800;margin-top:6px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:clamp(12px,1.8vw,26px);flex-wrap:wrap}
+.nav a.n{text-decoration:none;font-size:.92rem;font-weight:600;color:var(--dim)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;padding:13px 22px;border:1px solid var(--navy);font-size:1rem;cursor:pointer}
+.btn.warm{background:#9a4f2b;border-color:#9a4f2b;color:#fff;box-shadow:0 10px 26px rgba(6,12,19,.35)}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+
+/* hero: the lead's own render photo, full-bleed, light scrim so the texture reads */
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden}
+.hero,.hero h1,.hero p{color:#fff}
+.hero h1 em{color:#e6c9b4}
+.hero .kick{color:#e6c9b4}
+
+.hero-ph{position:absolute;inset:0;opacity:1;background:url("assets/hero.jpg") center 32%/cover no-repeat,linear-gradient(150deg,#3d352b 0%,#12100e 100%)}
+.hero-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,8,7,.92) 0%,rgba(9,8,7,.80) 34%,rgba(9,8,7,.30) 62%,rgba(9,8,7,.06) 100%)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);gap:clamp(20px,4vw,60px);align-items:end;padding:clamp(56px,9vw,110px) 0 clamp(40px,6vw,70px)}
+.kick{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:800;color:#e6c9b4;margin-bottom:18px}
+.kick::before{content:"";width:34px;height:2px;background:var(--warm)}
+.hero h1{margin:0;font-size:clamp(2.2rem,4.9vw,4rem);line-height:1.03;letter-spacing:-.025em;font-weight:900;max-width:20ch}
+.hero h1 em{font-style:normal;color:#e6c9b4}
+.hero p{margin:18px 0 0;max-width:52ch;color:rgba(255,255,255,.9);font-size:1.06rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.hero-cta .btn.line{color:#fff;border-color:rgba(255,255,255,.6)}
+.hero-facts{display:grid;gap:14px;border-top:1px solid rgba(255,255,255,.28);padding-top:18px;font-size:.95rem;color:rgba(255,255,255,.82)}
+.hero-facts b{display:block;color:#fff;font-size:1.5rem;letter-spacing:-.02em;font-weight:800;margin-bottom:2px}
+.hero-in{grid-template-columns:minmax(0,1fr)!important}
+.hero-note{margin:14px 0 0;padding-top:0;border-top:0;font-size:.92rem;letter-spacing:.03em;color:rgba(255,255,255,.76);max-width:54ch}
+@media(max-width:560px){.hero h1{font-size:clamp(1.85rem,8.4vw,2.4rem);line-height:1.1}.lock img{height:48px;width:48px}.lock-txt span{font-size:.6rem}.hero-ph::after{background:linear-gradient(180deg,rgba(6,12,19,.45),var(--ink))}}
+
+section{padding:clamp(44px,6vw,86px) 0;border-top:1px solid var(--line)}
+h2{margin:0 0 8px;font-size:clamp(1.55rem,2.6vw,2.3rem);letter-spacing:-.02em;font-weight:800}
+.lede{color:var(--dim);max-width:62ch;margin:0 0 30px}
+
+/* services: four rows, each with its own copy */
+.svc{display:grid;gap:0;border-top:1px solid var(--line)}
+.svc-row{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,1fr);gap:clamp(12px,3vw,48px);padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.svc-row h3{margin:0;font-size:1.14rem;font-weight:800;letter-spacing:-.01em}
+.svc-row p{margin:0;color:var(--dim)}
+@media(max-width:720px){.svc-row{grid-template-columns:1fr;gap:6px}}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,34px)}
+.step{border-top:2px solid var(--navy);padding-top:14px}
+.step b{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
+.step h3{margin:0 0 6px;font-size:1.06rem;font-weight:800}
+.step p{margin:0;color:var(--dim);font-size:.98rem}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* work */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid figure{margin:0;overflow:hidden;background:var(--sand)}
+.grid img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
+.grid figure:first-child{grid-column:span 2;grid-row:span 2}
+.grid figcaption{background:var(--ink);color:#fff;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;padding:9px 11px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.grid figure:first-child{grid-column:span 2;grid-row:auto}}
+
+/* quote */
+.quote{background:var(--ink);color:#fff}
+.quote .lede{color:rgba(255,255,255,.8)}
+.q-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:clamp(24px,4vw,56px)}
+.q-tel{display:block;text-decoration:none;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px}
+.q-small{color:rgba(255,255,255,.7);font-size:.95rem;margin:0}
+form{background:#fff;color:var(--ink);padding:clamp(20px,3vw,30px)}
+label{display:block;font-size:.95rem;font-weight:600;color:var(--dim);margin:0 0 5px}
+input,textarea{width:100%;border:1px solid var(--line);background:#fff;padding:12px;font:inherit;font-size:1rem;margin-bottom:14px}
+input:focus,textarea:focus{outline:2px solid var(--navy);outline-offset:1px}
+form button{width:100%;background:var(--warm);color:#fff;border:0;padding:15px;font:inherit;font-size:1.02rem;font-weight:800;cursor:pointer}
+@media(max-width:860px){.q-grid{grid-template-columns:1fr}}
+.nav-cta{margin-left:auto;display:flex;align-items:center}
+.head-tel{text-decoration:none;font-weight:800;font-size:.95rem;color:#fff;background:var(--navy);padding:10px 16px;white-space:nowrap}
+@media(max-width:760px){.nav{display:none!important}.head-tel{padding:9px 12px;font-size:.85rem}.lock img{height:54px;width:54px}.lock-txt b{font-size:1.15rem}}
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:.9rem;color:var(--dim)}
+.foot-in{display:flex;gap:10px 22px;flex-wrap:wrap;align-items:center}
+.foot-in a{text-decoration:none;font-weight:700;color:var(--ink)}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="lock" href="#top" aria-label="Xclusive Rendering — home">
+      <img src="assets/logo-clear.png" alt="Xclusive Rendering logo">
+      <span class="lock-txt"><b>Xclusive Rendering</b><span>Cement · Acrylic · Texture</span></span>
+    </a>
+    <div class="nav-cta">
+      <a href="tel:61403322861" class="head-tel">0403 322 861</a>
+    </div>
+    <nav class="nav">
+      <a class="n" href="#services">Services</a>
+      <a class="n" href="#process">Process</a>
+      <a class="n" href="#quote">Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top:0">
+    <div class="hero-ph" role="img" aria-label="Finished render on a Sydney wall, Xclusive Rendering"></div>
+    <div class="wrap hero-in">
+      <div>
+        <span class="kick">Sydney</span>
+        <h1>Render done off a site walk, <em>not a phone estimate.</em></h1>
+        <p>Sand and cement or acrylic, ruled and floated over brick, block and blueboard across Sydney. The wall is measured and the price is written down before anyone books a start date.</p>
+        <div class="hero-cta">
+          <a class="btn warm" href="#quote">Get a site quote</a>
+          <a class="btn line" href="tel:61403322861">0403 322 861</a>
+        </div>
+        <p class="hero-note">Cement and acrylic systems &middot; wall measured on site &middot; priced in writing before a start date</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What gets rendered</h2>
+      <p class="lede">Four jobs cover nearly every wall we are called to. If yours is not listed, describe it in the quote form.</p>
+      <div class="svc">
+        <div class="svc-row"><h3>Cement rendering</h3><p>Sand and cement over brick or block — ruled, floated and sponged to the finish you pick, with corners set before the float goes on.</p></div>
+        <div class="svc-row"><h3>Acrylic rendering</h3><p>Pre-bagged acrylic over blueboard or foam, meshed and cut in tight at reveals, sills and control joints.</p></div>
+        <div class="svc-row"><h3>Texture coating</h3><p>Rolled and sprayed texture coats, applied evenly so the wall still reads flat in raking afternoon light.</p></div>
+        <div class="svc-row"><h3>Remedial re-render</h3><p>Cracked, drummy or blown render cut back to sound substrate and patched, rather than skimmed over the top of the failure.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <h2>How a job runs</h2>
+      <p class="lede">Three steps, same order every time.</p>
+      <div class="steps">
+        <div class="step"><b>Look</b><h3>We walk the wall</h3><p>Substrate, moisture, existing coating and access checked on site before anything is priced.</p></div>
+        <div class="step"><b>Quote</b><h3>Written price</h3><p>Scope and finish written down — what gets rendered, what gets prepped, what is excluded.</p></div>
+        <div class="step"><b>Render</b><h3>One crew through</h3><p>The crew that quoted the job does the job, start to clean-up.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent work removed: the photo set carried another firm's watermark/phone number,
+       and no verifiable Xclusive job photos are on file. Nothing invented in its place. -->
+
+  <section id="quote" class="quote">
+    <div class="wrap">
+      <div class="q-grid">
+        <div>
+          <h2>Get a quote</h2>
+          <p class="lede">Send the address and what needs doing. We come out, measure, and send a written price.</p>
+          <a class="q-tel" href="tel:61403322861">0403 322 861</a>
+          <p class="q-small">Sydney</p>
+        </div>
+        <form id="quote-form" data-site="user-target-xclusive-rendering">
+          <label for="n">Name</label>
+          <input id="n" name="name" required placeholder="Your name">
+          <label for="p">Phone</label>
+          <input id="p" name="phone" required inputmode="tel" placeholder="04xx xxx xxx">
+          <label for="s">Suburb</label>
+          <input id="s" name="suburb" placeholder="Suburb">
+          <label for="m">What needs rendering?</label>
+          <textarea id="m" name="message" rows="3" placeholder="Wall type, roughly how many square metres"></textarea>
+          <button type="submit">Get my quote</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>Xclusive Rendering</span>
+    <a href="tel:61403322861">0403 322 861</a>
+    <span>Sydney, NSW</span>
+  </div>
+</footer>
+<script>
+document.getElementById('quote-form').addEventListener('submit',function(e){e.preventDefault();
+var f=e.currentTarget,b=f.querySelector('button');b.textContent='Sending…';b.disabled=true;
+fetch('https://laydback-hq.tail5b3740.ts.net/rest/v1/quote_requests',{method:'POST',
+headers:{'Content-Type':'application/json',Prefer:'return=minimal'},
+body:JSON.stringify({site:f.dataset.site,name:f.name.value,phone:f.phone.value,suburb:f.suburb.value,message:f.message.value})})
+.then(function(){b.textContent='Thanks — we will call you back';})
+.catch(function(){b.textContent='Call 0403 322 861';b.disabled=false;});});
+</script>
+</body>
+</html>
