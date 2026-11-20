@@ -13,7 +13,7 @@
     <style>
     .js .rv{opacity:0;transform:translateY(24px);transition: opacity .45s ease,transform .6s ease}
     .js .rv.on{opacity:1;transform:none}
-      /* No-JS Fallback — all reveal content visible without JavaScript */
+      /* No-JS Fallback, all reveal content visible without JavaScript */
       .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
       .hero__swash { animation: none !important; transform: translateY(-100%) scaleX(1) !important; }
       .rubric-plate { animation: none !important; opacity: 1 !important; transform: none !important; }
@@ -27,7 +27,7 @@
   <header class="hero" id="hero">
 
 <style>
-/* 3D hero layer — floating geometric depth */
+/* 3D hero layer, floating geometric depth */
 .lb3d-stage { position: absolute; inset: 0; overflow: hidden; pointer-events: none; perspective: 1200px; z-index: 1; }
 .lb3d-stage .lb3d-shape { position: absolute; border-radius: 0; animation: lb3dFloat 12s ease-in-out infinite; transform-style: preserve-3d; backface-visibility: hidden; }
 .lb3d-shape.s1 { width: 60px; height: 60px; background: var(--acc, #3f88a8); opacity: .08; top: 12%; left: 8%; animation: lb3dFloat1 14s ease-in-out infinite; transform: rotateY(15deg) translateZ(40px); }
@@ -303,7 +303,7 @@
     <div class="footer__grid">
       <div class="footer__brand">
         <p class="footer__name">Tahbony Training & Assessment PTY LTD</p>
-        <p class="footer__category">Association / Organisation — Training & Assessment</p>
+        <p class="footer__category">Association / Organisation. Training & Assessment</p>
       </div>
       <address class="footer__contact">
         <p class="footer__address">5 Park St, Teralba NSW 2284</p>
@@ -380,7 +380,7 @@
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';

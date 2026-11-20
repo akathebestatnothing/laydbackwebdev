@@ -175,12 +175,12 @@ img[src$="hero.jpg"], .hero-photo, .hero img, .hero__bg, .hero-bg img
   <div class="wrap rv">
     <h2>What we do</h2>
     <p class="lede">Carpentry and lining work from set-out through to the final fix, measured, square and finished clean.</p>
-    <div class="grid g3">      <article class="card"><div class="num">01</div><h3>Framing &amp; structural carpentry</h3><p>Wall and roof framing, floor joists, trusses and structural timber, set out from the drawings.</p></article>
-      <article class="card"><div class="num">02</div><h3>Plasterboard &amp; linings</h3><p>Sheet, set and finish on walls, ceilings, wet areas and bulkheads.</p></article>
-      <article class="card"><div class="num">03</div><h3>Internal fit-outs</h3><p>Joinery installs, cabinetry, doors, jambs and trim for renovation and fit-out work.</p></article>
-      <article class="card"><div class="num">04</div><h3>Doors, windows &amp; trim</h3><p>Hanging doors, architraves, skirting, cornice and the detail work that finishes a room.</p></article>
-      <article class="card"><div class="num">05</div><h3>Decks, pergolas &amp; external timber</h3><p>Decking, screening and outdoor timber structures, built to suit the site.</p></article>
-      <article class="card"><div class="num">06</div><h3>Ceilings &amp; bulkheads</h3><p>Suspended ceilings, dropped bulkheads and flush finishes for living areas.</p></article></div>
+    <div class="grid g3">      <article class="card"><h3>Framing &amp; structural carpentry</h3><p>Wall and roof framing, floor joists, trusses and structural timber, set out from the drawings.</p></article>
+      <article class="card"><h3>Plasterboard &amp; linings</h3><p>Sheet, set and finish on walls, ceilings, wet areas and bulkheads.</p></article>
+      <article class="card"><h3>Internal fit-outs</h3><p>Joinery installs, cabinetry, doors, jambs and trim for renovation and fit-out work.</p></article>
+      <article class="card"><h3>Doors, windows &amp; trim</h3><p>Hanging doors, architraves, skirting, cornice and the detail work that finishes a room.</p></article>
+      <article class="card"><h3>Decks, pergolas &amp; external timber</h3><p>Decking, screening and outdoor timber structures, built to suit the site.</p></article>
+      <article class="card"><h3>Ceilings &amp; bulkheads</h3><p>Suspended ceilings, dropped bulkheads and flush finishes for living areas.</p></article></div>
   </div>
 </section>
 
@@ -308,7 +308,7 @@ img[src$="hero.jpg"], .hero-photo, .hero img, .hero__bg, .hero-bg img
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';

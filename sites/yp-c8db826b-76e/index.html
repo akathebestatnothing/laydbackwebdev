@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Wayde Thomas Photography — Photography services in Boolaroo NSW 2284">
+  <meta name="description" content="Wayde Thomas Photography. Photography services in Boolaroo NSW 2284">
   <title>Wayde Thomas Photography</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@
     }
 
     html.js body {
-      /* JS-dependent hide — never applies without JS */
+      /* JS-dependent hide, never applies without JS */
     }
 
     .js .rv {
@@ -719,7 +719,7 @@ html,body{overflow-x:hidden}
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';
@@ -775,9 +775,9 @@ html,body{overflow-x:hidden}
           <h2 id="services-title" class="panel-title">Services</h2>
         </header>
         <div class="panel-body">
-          <p>Portrait photography — individual, family, and professional headshots.</p>
-          <p>Event coverage — weddings, functions, and corporate events.</p>
-          <p>Commercial photography — product, branding, and architectural imagery.</p>
+          <p>Portrait photography, individual, family, and professional headshots.</p>
+          <p>Event coverage, weddings, functions, and corporate events.</p>
+          <p>Commercial photography, product, branding, and architectural imagery.</p>
         </div>
         <footer class="annotation-strip" aria-label="Technical annotations">
           <span class="annotation-item">Portraits</span>
@@ -813,7 +813,7 @@ html,body{overflow-x:hidden}
 
   <footer class="footer" role="contentinfo">
     <p class="footer-text">
-      Wayde Thomas Photography — <a href="tel:0449716626">0449 716 626</a> — Boolaroo NSW 2284
+      Wayde Thomas Photography, <a href="tel:0449716626">0449 716 626</a>. Boolaroo NSW 2284
     </p>
   </footer>
 
@@ -884,7 +884,7 @@ html,body{overflow-x:hidden}
 
       rvElements.forEach(el => observer.observe(el));
 
-      // JS safety net — reveal all after ~1100ms
+      // JS safety net, reveal all after ~1100ms
       setTimeout(() => {
         rvElements.forEach(el => el.classList.add('on'));
       }, 1100);

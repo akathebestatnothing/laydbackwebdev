@@ -200,7 +200,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:4rem 0 2r
 <footer role="contentinfo">
   <div class="container footer-grid">
     <div class="footer-brand">TERRA <em>Landscaping</em></div>
-    <div class="footer-meta">Cessnock NSW 2325 · <a href="tel:+61451061663">0451 061 663</a></div>
+    <div class="footer-meta">Cessnock NSW 2325, <a href="tel:+61451061663">0451 061 663</a></div>
     <nav class="footer-links" aria-label="Footer">
       <a href="#services-heading">Services</a>
       <a href="#process-heading">Process</a>
@@ -329,14 +329,14 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:4rem 0 2r
 
 <script>
 /* ===== PRO SCENE RUNTIME (canonical pro_scene.js re-inlined by parent repair 2026-10-12b) ===== */
-/* pro_scene.js — PRO SCENE STANDARD for Laydback lead-site canvas animations.
+/* pro_scene.js. PRO SCENE STANDARD for Laydback lead-site canvas animations.
  * Copy this INTO the site's script block (sites are single-file). ~8KB.
  * Goal: make a canvas scene read like a rendered illustration, not a diagram.
  *
  * The seven rules (a scene that breaks any of these reads amateur):
  *  1. LIGHTING: one sun direction for the whole scene. Sky = vertical gradient with a warm
  *     glow near the sun side; every form has a lit face and a shaded face (lit = toward sun).
- *  2. DEPTH: atmospheric perspective — far geometry blends toward the haze colour, near
+ *  2. DEPTH: atmospheric perspective, far geometry blends toward the haze colour, near
  *     geometry is darkest/most saturated. Draw far layers first.
  *  3. CONTACT: nothing floats. Every object gets a soft elliptical ground shadow whose
  *     alpha grows as it settles; airborne objects get a small, tight shadow.
@@ -404,7 +404,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:4rem 0 2r
    *   opts.sky      : [topHex, horizonHex, hazeHex]  (haze = colour far geometry fades to)
    *   opts.reduce   : bool (respect prefers-reduced-motion)
    *   opts.progress : function() -> 0..1 (scroll progress; omit for a fixed p)
-   *   opts.onFrame  : function(S, p, time)  — your draw code
+   *   opts.onFrame  : function(S, p, time), your draw code
    * S = state: {ctx,W,H,DPR,project(x,y,z),projectAt(yaw,x,y,z),shadow(...),sun,sky,rng}
    */
   PS.setup = function (canvas, opts) {
@@ -540,7 +540,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:4rem 0 2r
     };
 
 
-    /* mottling: tonal patches + edge rim + contact AO — what makes a flat fill read as a material */
+    /* mottling: tonal patches + edge rim + contact AO, what makes a flat fill read as a material */
     S.mottle = function (pts, baseCol, amount, patches) {
       amount = amount === undefined ? .10 : amount;
       patches = patches || 22;

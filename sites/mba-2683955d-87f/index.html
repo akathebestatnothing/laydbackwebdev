@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Avard Building Pty Ltd — Home Builder, Metford NSW</title>
-<meta name="description" content="Avard Building Pty Ltd is a home builder based in Metford NSW — new homes, renovations, extensions and project management across the Hunter region. Call 0417 496 596.">
+<title>Avard Building Pty Ltd. Home Builder, Metford NSW</title>
+<meta name="description" content="Avard Building Pty Ltd is a home builder based in Metford NSW, new homes, renovations, extensions and project management across the Hunter region. Call 0417 496 596.">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -219,7 +219,7 @@ a{color:var(--amber)}
 .step p{max-width:62ch}
 
 /* ---------- ground band ---------- */
-/* (dissolved into contact lead-in — no standalone region band) */
+/* (dissolved into contact lead-in, no standalone region band) */
 
 /* ---------- contact ---------- */
 .contact{padding:96px 0 90px;border-top:1px solid var(--slate-line);background:var(--dusk-deep)}
@@ -322,7 +322,7 @@ footer{border-top:1px solid var(--slate-line);background:var(--dusk-deep);paddin
 
 <header class="site-head">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Avard Building Pty Ltd — home">
+    <a class="brand" href="#top" aria-label="Avard Building Pty Ltd, home">
       <img src="assets/logo-badge.png" alt="Avard Building Pty Ltd logo" width="80" height="40">
       <span class="bt"><b class="lb-sr-only">AVARD BUILDING</b><span>HOME BUILDER &middot; METFORD NSW</span></span>
     </a>
@@ -336,7 +336,7 @@ footer{border-top:1px solid var(--slate-line);background:var(--dusk-deep);paddin
   <section class="hero">
 
 <style>
-/* 3D hero layer — floating geometric depth */
+/* 3D hero layer, floating geometric depth */
 .lb3d-stage { position: absolute; inset: 0; overflow: hidden; pointer-events: none; perspective: 1200px; z-index: 1; }
 .lb3d-stage .lb3d-shape { position: absolute; border-radius: 0; animation: lb3dFloat 12s ease-in-out infinite; transform-style: preserve-3d; backface-visibility: hidden; }
 .lb3d-shape.s1 { width: 60px; height: 60px; background: var(--acc, var(--amber)); opacity: .08; top: 12%; left: 8%; animation: lb3dFloat1 14s ease-in-out infinite; transform: rotateY(15deg) translateZ(40px); }
@@ -617,7 +617,7 @@ footer{border-top:1px solid var(--slate-line);background:var(--dusk-deep);paddin
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';

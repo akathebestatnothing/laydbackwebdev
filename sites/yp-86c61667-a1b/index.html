@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maitland Concrete &amp; Formwork — Residential, Commercial &amp; Civil Concreting</title>
+<title>Maitland Concrete &amp; Formwork. Residential, Commercial &amp; Civil Concreting</title>
 <meta name="description" content="Concrete construction for residential, commercial and civil projects across Maitland and the Lower Hunter. Formwork, driveways, slabs and decorative finishes.">
 <link rel="icon" href="assets/mcf-logo-v1.jpg">
 <style>
@@ -22,7 +22,7 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .mono{font-family:var(--body);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);font-weight:600}
 .wrap{max-width:1280px;margin:0 auto;padding:0 28px}
-/* NAV — white bar, red rule */
+/* NAV, white bar, red rule */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,243,240,.94);backdrop-filter:blur(10px);border-bottom:3px solid var(--red)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
 .brand{display:flex;align-items:center;gap:12px}
@@ -33,7 +33,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .navlinks a:hover{color:var(--red)}
 .navtel{font-family:var(--display);font-size:14px;color:#fff;background:var(--red-deep);padding:9px 16px;border-radius:2px;letter-spacing:.04em}
 .navtel:hover{background:var(--red-deep)}
-/* HERO — photo mosaic grid + type block */
+/* HERO, photo mosaic grid + type block */
 .hero{padding:110px 0 0}
 .hero-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:10px}
 .hero-grid .main{grid-row:span 2}
@@ -54,7 +54,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .marquee span::after{content:'\2022';color:var(--red);margin-left:48px}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee .track{animation:none}}
-/* services — bold blocks */
+/* services, bold blocks */
 .services{padding:90px 0}
 .services h2{font-family:var(--display);font-weight:600;font-size:clamp(34px,4.5vw,54px);text-transform:uppercase;letter-spacing:-.005em;margin-top:12px}
 .svc-grid{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -65,7 +65,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .svc-card p{margin-top:10px;font-size:14.5px;color:var(--grey)}
 .svc-card::after{content:'';position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--red);transition:width .35s ease}
 .svc-card:hover::after{width:100%}
-/* work wall — masonry */
+/* work wall, masonry */
 .work{padding:90px 0;background:var(--dark)}
 .work .mono{color:rgba(255,255,255,.5)}
 .work h2{font-family:var(--display);font-weight:600;font-size:clamp(34px,4.5vw,54px);text-transform:uppercase;color:#fff;margin-top:12px}
@@ -74,7 +74,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .wall img{width:100%;transition:transform .5s ease}
 .wall .w-item:hover img{transform:scale(1.04)}
 .wall .cap{position:absolute;left:0;right:0;bottom:0;padding:36px 18px 14px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.85));color:#fff;font-family:var(--display);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
-/* process — numbered slab strips */
+/* process, numbered slab strips */
 .process{padding:90px 0}
 .process h2{font-family:var(--display);font-weight:600;font-size:clamp(34px,4.5vw,54px);text-transform:uppercase;margin-top:12px}
 .strip{margin-top:40px;display:flex;flex-direction:column}
@@ -83,7 +83,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .strip .n{font-family:var(--display);font-weight:600;font-size:44px;color:var(--red);line-height:1}
 .strip h3{font-family:var(--display);font-weight:600;font-size:21px;text-transform:uppercase}
 .strip p{margin-top:6px;font-size:14.5px;color:var(--grey);max-width:620px}
-/* contact — red block */
+/* contact, red block */
 .contact{background:var(--red);color:#fff;padding:90px 0}
 .contact .mono{color:rgba(255,255,255,.75)}
 .contact h2{font-family:var(--display);font-weight:600;font-size:clamp(40px,6vw,72px);text-transform:uppercase;line-height:1;margin-top:14px}
@@ -313,7 +313,7 @@ nav .wrap{height:auto!important;min-height:92px!important;align-items:center}
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';
@@ -405,7 +405,7 @@ html,body{overflow-x:hidden}
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ray's Garden Works — Landscaping, Fassifern NSW 2283</title>
-  <meta name="description" content="Ray's Garden Works — Landscaping serving Fassifern NSW 2283. Hedge trimming, garden maintenance, and landscape design.">
+  <title>Ray's Garden Works. Landscaping, Fassifern NSW 2283</title>
+  <meta name="description" content="Ray's Garden Works. Landscaping serving Fassifern NSW 2283. Hedge trimming, garden maintenance, and landscape design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>    /* === CSS Custom Properties — hedge-band palette === */
+  <style>    /* === CSS Custom Properties, hedge-band palette === */
     :root {
       --field: #1a2e1a;
       --hedge: #2d4a2d;
@@ -60,7 +60,7 @@
     .page { min-height: 100vh; display: flex; flex-direction: column; }
     main { flex: 1; width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-1); }
     section { padding: var(--space-3) 0; }
-    /* === Hedge-band Dividers — stepped like trimmed hedges === */
+    /* === Hedge-band Dividers, stepped like trimmed hedges === */
     section + section::before {
       content: "";
       display: block;
@@ -127,7 +127,7 @@
       letter-spacing: -0.02em;
       color: var(--cream);
     }
-    /* === Hero — 3D Hedge Band System === */
+    /* === Hero, 3D Hedge Band System === */
     .hero {
       padding: var(--space-4) 0 var(--space-3);
       text-align: left;
@@ -247,7 +247,7 @@
     .content-block p { margin-bottom: 1.25em; }
     .content-block p:last-child { margin-bottom: 0; }
     .content-block strong { font-weight: 500; color: var(--cream); }
-    /* === Services Bands — clipped blocks, offset like hedge rows === */
+    /* === Services Bands, clipped blocks, offset like hedge rows === */
     .services-bands {
       display: flex;
       flex-direction: column;
@@ -418,7 +418,7 @@ html{overflow-x:hidden}
       <canvas id="hero-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
       <div class="hero-content" style="position:relative;z-index:1;text-align:left;padding:clamp(3rem,10vh,6rem) 24px 0;max-width:720px">
         <h1 id="hero-title" style="font:800 clamp(2.5rem,6vw,4.5rem)/1.1 var(--font-display);letter-spacing:-.03em;color:var(--ink);margin-bottom:1rem">Ray's Garden Works</h1>
-        <p style="font:500 clamp(1.125rem,2.5vw,1.375rem)/1.4 var(--font-body);color:var(--muted);margin-bottom:2rem">6 Dora Street · Fassifern, NSW</p>
+        <p style="font:500 clamp(1.125rem,2.5vw,1.375rem)/1.4 var(--font-body);color:var(--muted);margin-bottom:2rem">6 Dora Street, Fassifern, NSW</p>
         <div class="hero-cta" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:flex-start">
           <a href="tel:0249504749" class="btn" style="padding:1rem 2rem;font-size:1.0625rem">Call (02) 4950 4749</a>
           <a href="#contact" class="btn ghost">Request a quote</a>
@@ -456,7 +456,7 @@ html{overflow-x:hidden}
             <div class="services-bands">
               <div class="service-band">
                 <p class="service-band__name">Hedge & Topiary Trimming</p>
-                <p class="service-band__desc">Formal and informal hedges shaped clean — box, lilly pilly, murraya, viburnum. Topiary spheres, cones, and spirals maintained to spec.</p>
+                <p class="service-band__desc">Formal and informal hedges shaped clean, box, lilly pilly, murraya, viburnum. Topiary spheres, cones, and spirals maintained to spec.</p>
               </div>
               <div class="service-band">
                 <p class="service-band__name">Garden Maintenance</p>
@@ -487,7 +487,7 @@ html{overflow-x:hidden}
               </div>
             </header>
             <div class="content-block">
-              <p>Ray's Garden Works tends gardens across Fassifern and the surrounding Lake Macquarie area. We specialise in hedge trimming, garden maintenance, and landscape design — shaping green spaces with the same precision we bring to a formal topiary.</p>
+              <p>Ray's Garden Works tends gardens across Fassifern and the surrounding Lake Macquarie area. We specialise in hedge trimming, garden maintenance, and landscape design, shaping green spaces with the same precision we bring to a formal topiary.</p>
               <p>From routine pruning to full garden renewals, every job starts with listening: to the client, to the site, to the way light moves through the canopy.</p>
             </div>
           </section>
@@ -502,7 +502,7 @@ html{overflow-x:hidden}
               </div>
             </header>
             <div class="content-block">
-              <p>Good hedges aren't rushed. We cut to the growth habit, not against it — respecting the plant's form while guiding it toward the intended line. The same goes for gardens: work with the soil, the aspect, the existing structure.</p>
+              <p>Good hedges aren't rushed. We cut to the growth habit, not against it, respecting the plant's form while guiding it toward the intended line. The same goes for gardens: work with the soil, the aspect, the existing structure.</p>
               <p>We arrive on schedule, quote honestly, and leave the site tidy. That's the standard.</p>
             </div>
           </section>
@@ -604,7 +604,7 @@ html{overflow-x:hidden}
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';
@@ -704,7 +704,7 @@ html{overflow-x:hidden}
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';

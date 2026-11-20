@@ -296,7 +296,7 @@ html{scroll-behavior:auto}
       e.preventDefault();
       var d = {};
       new FormData(f).forEach(function(v,k){ d[k]=v; });
-      if (d.website) return;  // honeypot — silently accept bots
+      if (d.website) return;  // honeypot, silently accept bots
       if (!d.name || (!d.phone && !d.email) || !(d.message||'').trim()) {
         st.textContent = 'Please add your name, a phone or email, and a few words about the job.';
         st.style.color = '#ff9d8a';
@@ -529,7 +529,7 @@ html{scroll-behavior:auto}
 })();
 </script>
 <style>
-/* ===== JJ Elite — bigger header and a little more flavour, same palette (#2c5c3f pine / #b0653a copper / #eaece2 field) ===== */
+/* ===== JJ Elite, bigger header and a little more flavour, same palette (#2c5c3f pine / #b0653a copper / #eaece2 field) ===== */
 
 /* ---- header: was a 44px utility strip with a 21px mark and an 8px sub-line ---- */
 .topbar{background:rgba(234,236,226,.95)!important}
